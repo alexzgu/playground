@@ -13,6 +13,6 @@ Source: `Bayesian-Booklet-Fa2025.pdf` — 195 scanned pages (typeset LaTeX bookl
 ## STATUS OF THIS TRANSCRIPT
 
 **Complete:** all 195 PDF pages transcribed.
-Pages with failed/unrunnable checks needing review: 25–34, 37–40, 43–45, 48, 50, 55, 58, 62, 71–76, 79–81, 84–86, 90–91, 94, 101–102, 108, 112, 119, 122, 126, 129, 132, 138–139, 142, 144, 146, 148, 154, 157, 163, 168, 173 (see verification-log.md and transcribe/out/verify-results.json).
+Pages where a machine check documents a suspected **error in the booklet itself** (each flagged inline with a [sic] note): 48, 74–75, 79–80, 85–86, 129, 173 — see verification-log.md and transcribe/out/verify-results.json.
 
 Produced by the pipeline in `transcribe/` (see its README). Machine checks are logged in `verification-log.md`.

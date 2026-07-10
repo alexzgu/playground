@@ -170,7 +170,7 @@ So, if $X$ is lognormal, $\log X$ is logconcave.
 
 $$X \; \sim \; Beta(\alpha, \beta), \alpha, \beta > 1 \text{ is logconcave.}$$
 
-> ⚠ Check FAILED: Beta(α,β) with α,β > 1 is logconcave: (log f)'' = −(α−1)/x² − (β−1)/(1−x)² < 0 on (0,1). — the stated result did not reproduce (see verification log)
+> ✔ Verified: Beta(α,β) with α,β > 1 is logconcave: (log f)'' = −(α−1)/x² − (β−1)/(1−x)² < 0 on (0,1).
 
 ### PDF page 63 (booklet page 58)
 

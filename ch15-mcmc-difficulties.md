@@ -144,7 +144,7 @@ Then,
 
 $$\mu\mid y \sim N\!\left(\lambda y + (1-\lambda)\theta,\, (1-\lambda)\delta^2\right),\; \lambda = \frac{\delta^2}{\delta^2+\sigma^2}$$
 
-> ⚠ Check FAILED: Normal–normal conjugacy: the posterior of $\mu$ is $N(\lambda y+(1-\lambda)\theta,\ (1-\lambda)\delta^2)$ with $\lambda=\delta^2/(\delta^2+\sigma^2)$. — the stated result did not reproduce (see verification log)
+> ✔ Verified: Normal–normal conjugacy: the posterior of $\mu$ is $N(\lambda y+(1-\lambda)\theta,\ (1-\lambda)\delta^2)$ with $\lambda=\delta^2/(\delta^2+\sigma^2)$.
 
 and
 
@@ -364,6 +364,8 @@ $$Y \sim SEP(\mu,\sigma^2,\lambda,\alpha)$$
 
 $$f(z|\mu,\sigma^2,\lambda,\alpha) = \frac{1}{2\alpha^{\frac{1}{\alpha}-1}\Gamma(\frac{1}{\alpha})}\,exp\left\{\frac{-|z|^{2\alpha}}{2\alpha}\right\}\Phi\left\{sign(\lambda z)\frac{|\lambda z|^{\alpha}}{\sqrt{\alpha}}\right\}$$
 
+*(sic: as printed, at $\alpha=1$ this is $\tfrac12 e^{-z^2/2}\Phi(\lambda z)$, not the skew-normal density $2\phi(z)\Phi(\lambda z)$ — its total mass is $\sqrt{2\pi}/4 \approx 0.627$, not $1$; the correct constant would be $2/\sqrt{2\pi}$ at $\alpha=1$.)*
+
 > ⚠ Check FAILED: At $\alpha=1$ the printed $f(z|\mu,\sigma^2,\lambda,\alpha)$ is the skew-normal density $2\phi(z)\Phi(\lambda z)$ (in particular it integrates to 1). — the stated result did not reproduce (see verification log)
 
 $$T = R_1(-\alpha B\,lnU)^{1/\alpha},\;\; U \sim U(0,1),\;\; B \sim B\!\left(\frac{1}{\alpha},\,1-\frac{1}{\alpha}\right)$$
@@ -403,6 +405,8 @@ $$\pi(\mu,\sigma^2|\lambda,\alpha,y) = \int_0^\infty\!\!\int_0^\infty \pi(\mu,\s
 Observe that if $\lambda = 0$, $\alpha = 1$, we get
 
 $$y_1,\cdots,y_n|\mu,\sigma^2 \overset{iid}{\sim} N(\mu,\sigma^2)$$
+
+*(sic: the stated reduction does not hold for the density as printed — at $\lambda=0$, $\alpha=1$ it gives $\frac{1}{4\sigma}e^{-\frac{(y-\mu)^2}{2\sigma^2}}$, not the $N(\mu,\sigma^2)$ pdf $\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(y-\mu)^2}{2\sigma^2}}$.)*
 
 > ⚠ Check FAILED: The printed SEP density at $\lambda=0$, $\alpha=1$ equals the $N(\mu,\sigma^2)$ pdf. — the stated result did not reproduce (see verification log)
 

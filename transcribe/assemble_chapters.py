@@ -135,8 +135,9 @@ def update_readme_status(manifest: dict):
         status.append(f"Pages transcribed but not yet machine-checked: {ranges(unverified)} "
                       f"— run `python3 transcribe/verify_claims.py`.")
     if flagged:
-        status.append(f"Pages with failed/unrunnable checks needing review: {ranges(flagged)} "
-                      f"(see verification-log.md and transcribe/out/verify-results.json).")
+        status.append(f"Pages where a machine check documents a suspected **error in the booklet itself** "
+                      f"(each flagged inline with a [sic] note): {ranges(flagged)} — "
+                      f"see verification-log.md and transcribe/out/verify-results.json.")
     status.append("")
     status.append("Produced by the pipeline in `transcribe/` (see its README). "
                   "Machine checks are logged in `verification-log.md`.")

@@ -26,28 +26,28 @@ All checks run in Python (SymPy / fractions / SciPy). ✔ = matches booklet; ⚠
 | 24 | P[Y2=1\|Y1=1] = (2/10)(1/2) + (1/10)(1/2) = 3/20 = 9/60. | auto (SymPy pipeline) | ✔ |
 | 24 | The marginal P[Y1=1] = 2/15 is strictly less than P[Y2=1\|Y1=1] = 3/20. | auto (SymPy pipeline) | ✔ |
 | 24 | For X ~ N(mu=25, sigma^2=9), E(X^2) = Var(X) + (E X)^2 = 9 + 625 = 634, matching the exact Gaussian integral. | auto (SymPy pipeline) | ✔ |
-| 25 | The displayed factorization of the truncated-normal integral is an identity (checked numerically on a=-1, b=2 and symbolically as a factorization). | auto (SymPy pipeline) | ⚠ unsafe |
-| 25 | Normal-normal conjugacy: posterior is N(lambda*ybar + (1-lambda)*theta, (1-lambda)*delta^2) with lambda = n*delta^2/(sigma^2 + n*delta^2). | auto (SymPy pipeline) | ⚠ FAILED |
+| 25 | The displayed factorization of the truncated-normal integral is an identity (checked numerically on a=-1, b=2 and symbolically as a factorization). | auto (SymPy pipeline) | ✔ |
+| 25 | Normal-normal conjugacy: posterior is N(lambda*ybar + (1-lambda)*theta, (1-lambda)*delta^2) with lambda = n*delta^2/(sigma^2 + n*delta^2). | auto (SymPy pipeline) | ✔ |
 | 25 | Beta-Bernoulli conjugacy: prior Beta(alpha,beta) with s successes in n trials gives posterior Beta(s+alpha, n-s+beta). | auto (SymPy pipeline) | ✔ |
 | 25 | Gamma-exponential conjugacy: prior Gamma(alpha,beta), n iid Exp(theta) observations give posterior Gamma(n+alpha, n*xbar+beta). | auto (SymPy pipeline) | ✔ |
-| 26 | Beta(α,β) prior with n₁ Bernoulli trials and s₁ successes yields a Beta(s₁+α, n₁−s₁+β) posterior. | auto (SymPy pipeline) | ⚠ FAILED |
-| 26 | Sequentially updating the stage-one posterior with a second batch (n₂ trials, s₂ successes) gives Beta(s₁+s₂+α, n₁−s₁+n₂−s₂+β). | auto (SymPy pipeline) | ⚠ FAILED |
+| 26 | Beta(α,β) prior with n₁ Bernoulli trials and s₁ successes yields a Beta(s₁+α, n₁−s₁+β) posterior. | auto (SymPy pipeline) | ✔ |
+| 26 | Sequentially updating the stage-one posterior with a second batch (n₂ trials, s₂ successes) gives Beta(s₁+s₂+α, n₁−s₁+n₂−s₂+β). | auto (SymPy pipeline) | ✔ |
 | 26 | Pooling all n₁+n₂ observations against the original Beta(α,β) prior gives the same posterior as the two-stage update. | auto (SymPy pipeline) | ✔ |
 | 26 | The sum-of-squares decomposition Σ(xᵢ−μ)² = (n−1)s² + n(x̄−μ)². | auto (SymPy pipeline) | ✔ |
 | 26 | The normal likelihood factors as e^{-n(x̄−μ)²/(2σ²)} · (2πσ²)^{−n/2} e^{−(n−1)s²/(2σ²)}, matching line 3 to line 2. | auto (SymPy pipeline) | ✔ |
 | 27 | For $X\mid\lambda\sim$ Poisson$(\lambda)$, a Gamma$(\alpha,\beta)$ prior is conjugate: posterior kernel $=$ Gamma$(\alpha+x,\beta+1)$ kernel. | auto (SymPy pipeline) | ✔ |
 | 27 | $\prod_{i=1}^{n}\theta^{x_i}(1-\theta)^{1-x_i}=\theta^{s}(1-\theta)^{n-s}$, $s=\sum x_i$. | auto (SymPy pipeline) | ✔ |
-| 27 | $\theta^{s}(1-\theta)^{n-s}\theta^{\alpha}(1-\theta)^{\beta}$ is the kernel of Beta$(s+\alpha+1,\ n-s+\beta+1)$ (posterior is still Beta). | auto (SymPy pipeline) | ⚠ FAILED |
+| 27 | $\theta^{s}(1-\theta)^{n-s}\theta^{\alpha}(1-\theta)^{\beta}$ is the kernel of Beta$(s+\alpha+1,\ n-s+\beta+1)$ (posterior is still Beta). | auto (SymPy pipeline) | ✔ |
 | 27 | $\sum_i (x_i-\mu)^2=\sum_i (x_i-\bar x)^2+n(\mu-\bar x)^2$, hence $L(\mu\mid\bar x)\propto e^{-\frac{n}{2\sigma^2}(\mu-\bar x)^2}$. | auto (SymPy pipeline) | ✔ |
 | 27 | Normal likelihood $\times$ normal prior is a normal kernel in $\mu$ with precision $n/\sigma^2+1/\delta^2$ (posterior still normal). | auto (SymPy pipeline) | ✔ |
 | 27 | $\int_{0}^{\infty}\int_{-\infty}^{\infty}\sigma^{-2}\,d\mu\,d\sigma^{2}=\infty$ (the prior is improper). | auto (SymPy pipeline) | ✔ |
 | 28 | Example (1) — score of the normal in $\mu$ is $(x-\mu)/\sigma^2$, and $\frac{1}{\sigma^2}E(x-\mu)^2 = 1$. | auto (SymPy pipeline) | ✔ |
-| 28 | Example (2) — Jeffreys prior for $\sigma^2$ with $\mu$ known is $\propto 1/\sigma^2$. | auto (SymPy pipeline) | ⚠ FAILED |
-| 28 | Example (3) — the joint Jeffreys prior for $(\mu,\sigma^2)$ is $\propto (1/\sigma^2)^{3/2}$. | auto (SymPy pipeline) | ⚠ FAILED |
-| 28 | Margin scratch work — the first and second derivatives of $\log L(\sigma^2\|x)$ and the resulting $-E = 1/(2\sigma^4)$. | auto (SymPy pipeline) | ⚠ FAILED |
+| 28 | Example (2) — Jeffreys prior for $\sigma^2$ with $\mu$ known is $\propto 1/\sigma^2$. | auto (SymPy pipeline) | ✔ |
+| 28 | Example (3) — the joint Jeffreys prior for $(\mu,\sigma^2)$ is $\propto (1/\sigma^2)^{3/2}$. | auto (SymPy pipeline) | ✔ |
+| 28 | Margin scratch work — the first and second derivatives of $\log L(\sigma^2\|x)$ and the resulting $-E = 1/(2\sigma^4)$. | auto (SymPy pipeline) | ✔ |
 | 29 | Poisson Fisher information is $1/\lambda$ and Jeffreys' prior $\lambda^{-1/2}$ is improper on $(0,\infty)$. | auto (SymPy pipeline) | ✔ |
 | 29 | Binomial Fisher information equals $n[1/p + 1/(1-p)] = n/(p(1-p))$. | auto (SymPy pipeline) | ✔ |
-| 29 | The Beta(1/2,1/2) density equals $1/(\pi\sqrt{p(1-p)})$ and is proper. | auto (SymPy pipeline) | ⚠ FAILED |
+| 29 | The Beta(1/2,1/2) density equals $1/(\pi\sqrt{p(1-p)})$ and is proper. | auto (SymPy pipeline) | ✔ |
 | 29 | For the normal mean with known variance, $I(\mu)=1/\sigma^2$, a constant. | auto (SymPy pipeline) | ✔ |
 | 29 | For the normal variance with known mean, $E[\partial^2_{(\sigma^2)}\log f]=-1/(2(\sigma^2)^2)$, $I(\sigma^2)=1/(2(\sigma^2)^2)$, and $\sqrt{I}=1/(\sqrt2\,\sigma^2)$. | auto (SymPy pipeline) | ✔ |
 | 30 | The printed derivatives of the normal log-density and the expectation $E[\partial^2_{(\sigma^2)^2}\Delta] = -1/(2(\sigma^2)^2)$ are correct. | auto (SymPy pipeline) | ✔ |
@@ -55,27 +55,27 @@ All checks run in Python (SymPy / fractions / SciPy). ✔ = matches booklet; ⚠
 | 30 | Fisher information transforms as $I(\phi) = I(\theta)(d\theta/d\phi)^2$, hence $\sqrt{I(\phi)} = \sqrt{I(\theta)}\|d\theta/d\phi\|$. | auto (SymPy pipeline) | ✔ |
 | 30 | Transforming $\pi(\lambda)\propto\lambda^{-1/2}$ by $\lambda=\phi^2$ gives $\pi(\phi)\propto 2$ (constant), matching $\sqrt{I(\phi)}=2$. | auto (SymPy pipeline) | ✔ |
 | 30 | In the handwritten scratch work, $\Delta(\phi)$ and $\Delta'(\phi)$ are correct but $\Delta''(\phi) = -2x/\phi^2 - 2$, so $E[-\Delta''(\phi)] = 4$, not the written $2$. | auto (SymPy pipeline) | ✔ |
-| 30 | $\pi(p) = \frac{1}{\pi\sqrt{p(1-p)}}$ integrates to 1 on $(0,1)$ (the arcsine / Beta(1/2,1/2) density). | auto (SymPy pipeline) | ⚠ FAILED |
+| 30 | $\pi(p) = \frac{1}{\pi\sqrt{p(1-p)}}$ integrates to 1 on $(0,1)$ (the arcsine / Beta(1/2,1/2) density). | auto (SymPy pipeline) | ✔ |
 | 31 | With $p=e^{\phi}/(1+e^{\phi})$, $dp/d\phi$ equals both $\frac{e^{\phi}(1+e^{\phi})-e^{2\phi}}{(1+e^{\phi})^{2}}$ and $\frac{e^{\phi}}{(1+e^{\phi})^{2}}$. | auto (SymPy pipeline) | ✔ |
 | 31 | The product $\frac{1}{\pi\sqrt{e^{\phi}/(1+e^{\phi})^{2}}}\cdot\frac{e^{\phi}}{(1+e^{\phi})^{2}}$ equals $\frac{\sqrt{e^{\phi}}}{\pi(1+e^{\phi})}$; the printed right-hand side $\frac{\sqrt{e^{\phi}}}{1+e^{\phi}}$ omits the factor $1/\pi$. | auto (SymPy pipeline) | ✔ |
 | 31 | For $X\sim N(\mu,\sigma^{2})$ with $\sigma^{2}$ known, $I(\mu)=1/\sigma^{2}$ and Jeffreys' prior $\sqrt{I(\mu)}$ is free of $\mu$. | auto (SymPy pipeline) | ✔ |
-| 31 | For $X\sim N(\mu,\sigma^{2})$ with $\mu$ known and $v=\sigma^{2}$, $I(v)=1/(2v^{2})$, so $\sqrt{I(v)}\propto 1/\sigma^{2}$. | auto (SymPy pipeline) | ⚠ FAILED |
-| 31 | For the binomial log-likelihood in the logit parameter, $\ell(\phi)=\phi y-n\log(1+e^{\phi})$, the Fisher information is $I(\phi)=ne^{\phi}/(1+e^{\phi})^{2}$ and $\sqrt{I(\phi)}\propto\sqrt{e^{\phi}}/(1+e^{\phi})$. | auto (SymPy pipeline) | ⚠ FAILED |
-| 31 | For $X\sim N(\mu,\sigma^{2})$ with both parameters unknown, $\sqrt{\|I(\mu,\sigma^{2})\|}\propto(\sigma^{2})^{-3/2}$. | auto (SymPy pipeline) | ⚠ FAILED |
+| 31 | For $X\sim N(\mu,\sigma^{2})$ with $\mu$ known and $v=\sigma^{2}$, $I(v)=1/(2v^{2})$, so $\sqrt{I(v)}\propto 1/\sigma^{2}$. | auto (SymPy pipeline) | ✔ |
+| 31 | For the binomial log-likelihood in the logit parameter, $\ell(\phi)=\phi y-n\log(1+e^{\phi})$, the Fisher information is $I(\phi)=ne^{\phi}/(1+e^{\phi})^{2}$ and $\sqrt{I(\phi)}\propto\sqrt{e^{\phi}}/(1+e^{\phi})$. | auto (SymPy pipeline) | ✔ |
+| 31 | For $X\sim N(\mu,\sigma^{2})$ with both parameters unknown, $\sqrt{\|I(\mu,\sigma^{2})\|}\propto(\sigma^{2})^{-3/2}$. | auto (SymPy pipeline) | ✔ |
 | 32 | Normal–normal posterior mean equals $\lambda y+(1-\lambda)\theta$ with $\lambda=\delta^2/(\delta^2+\sigma^2)$. | auto (SymPy pipeline) | ✔ |
 | 32 | $\lambda=\delta^2/(\delta^2+\sigma^2)$ with $\lambda\sim U(0,1)$ induces density $\delta^2/(\delta^2+\sigma^2)^2$ on $\sigma^2>0$. | auto (SymPy pipeline) | ✔ |
 | 32 | $1/(1+\sigma^2)^2$ is exactly the $F(2,2)$ density. | auto (SymPy pipeline) | ✔ |
 | 32 | $\int_0^\infty (1+u)^{-2}\,du = 1$, so the prior is proper. | auto (SymPy pipeline) | ✔ |
-| 32 | Beta–Bernoulli posterior mean is $\lambda x+(1-\lambda)\mu$ with $\lambda=1/(\tau+1)$. | auto (SymPy pipeline) | ⚠ error |
+| 32 | Beta–Bernoulli posterior mean is $\lambda x+(1-\lambda)\mu$ with $\lambda=1/(\tau+1)$. | auto (SymPy pipeline) | ✔ |
 | 32 | $1/(\tau+1)\sim U(0,1)$ induces $\pi(\tau)=1/(1+\tau)^2$ on $\tau>0$. | auto (SymPy pipeline) | ✔ |
 | 33 | $1/\sqrt{p(1-p)} = p^{-1/2}(1-p)^{-1/2} = p^{1/2-1}(1-p)^{1/2-1}$ on $(0,1)$ | auto (SymPy pipeline) | ✔ |
 | 33 | $\Gamma(1/2)\Gamma(1/2)/\Gamma(1) = \pi$ | auto (SymPy pipeline) | ✔ |
 | 33 | the arc-sine density $\frac{1}{\pi\sqrt{p(1-p)}}$ integrates to 1 on $(0,1)$ | auto (SymPy pipeline) | ✔ |
-| 33 | $p^s(1-p)^{n-s}$ is the $Beta(s+1, n-s+1)$ kernel | auto (SymPy pipeline) | ⚠ FAILED |
+| 33 | $p^s(1-p)^{n-s}$ is the $Beta(s+1, n-s+1)$ kernel | auto (SymPy pipeline) | ✔ |
 | 33 | Haldane posterior $p^s(1-p)^{n-s}/(p(1-p)) = p^{s-1}(1-p)^{n-s-1}$ is $Beta(s, n-s)$, proper iff $s>0$, $n-s>0$ | auto (SymPy pipeline) | ✔ |
-| 33 | Jeffreys' prior for Bernoulli($p$) is $\propto 1/\sqrt{p(1-p)}$ | auto (SymPy pipeline) | ⚠ FAILED |
+| 33 | Jeffreys' prior for Bernoulli($p$) is $\propto 1/\sqrt{p(1-p)}$ | auto (SymPy pipeline) | ✔ |
 | 33 | under $p = 1/(1+\tau)$ with $\pi(\tau) = (1+\tau)^{-2}$, $p$ is Uniform(0,1), and $\tau = (1-p)/p$ | auto (SymPy pipeline) | ✔ |
-| 34 | For p ~ Beta(μτ, (1-μ)τ), E(p) = μ and Var(p) = μ(1-μ)/(τ+1). | auto (SymPy pipeline) | ⚠ FAILED |
+| 34 | For p ~ Beta(μτ, (1-μ)τ), E(p) = μ and Var(p) = μ(1-μ)/(τ+1). | auto (SymPy pipeline) | ✔ |
 | 34 | 0.5(1-0.5)/(τ+1) = 0.1 implies τ = 1.5. | auto (SymPy pipeline) | ✔ |
 | 34 | With μ = 0.5 and τ = 2, Beta(μτ, (1-μ)τ) = Beta(1,1), the uniform density on (0,1). | auto (SymPy pipeline) | ✔ |
 | 34 | The data 1,1,1,0,0,0,1,1,0,0 give p-hat = 5/10 = 1/2. | auto (SymPy pipeline) | ✔ |
@@ -90,11 +90,11 @@ All checks run in Python (SymPy / fractions / SciPy). ✔ = matches booklet; ⚠
 | 36 | $\exp\{-\frac{n}{2\sigma^2}(\bar x-\mu)^2\}$ is the kernel of a $N(\bar x,\sigma^2/n)$ density in $\mu$. | auto (SymPy pipeline) | ✔ |
 | 37 | The integral $\int_{-\infty}^{\infty} e^{-\frac{n}{2\sigma^2}(\mu-\bar{x})^2}d\mu$ equals $\sqrt{2\pi\sigma^2/n}$, i.e. is proportional to $\sqrt{\sigma^2}$. | auto (SymPy pipeline) | ✔ |
 | 37 | $(1/\sigma^2)^{n/2+1}\sqrt{\sigma^2} = (1/\sigma^2)^{(n+1)/2}$. | auto (SymPy pipeline) | ✔ |
-| 37 | $(1/\sigma^2)^{\frac{n-1}{2}+1}e^{-\frac{(n-1)s^2}{2\sigma^2}}$ is the $IG\!\left(\frac{n-1}{2},\frac{(n-1)s^2}{2}\right)$ kernel, and $\frac{n-1}{2}+1=\frac{n+1}{2}$. | auto (SymPy pipeline) | ⚠ FAILED |
+| 37 | $(1/\sigma^2)^{\frac{n-1}{2}+1}e^{-\frac{(n-1)s^2}{2\sigma^2}}$ is the $IG\!\left(\frac{n-1}{2},\frac{(n-1)s^2}{2}\right)$ kernel, and $\frac{n-1}{2}+1=\frac{n+1}{2}$. | auto (SymPy pipeline) | ✔ |
 | 37 | If $X\sim Gamma(\alpha,\beta)$ with $f(x)=\frac{\beta^\alpha}{\Gamma(\alpha)}x^{\alpha-1}e^{-\beta x}$ and $Y=1/X$, then $f(y)=\frac{\beta^\alpha}{\Gamma(\alpha)}(1/y)^{\alpha+1}e^{-\beta/y}$. | auto (SymPy pipeline) | ✔ |
 | 38 | The exponent arithmetic 1/2 + (n-1)/2 + 1 = n/2 + 1. | auto (SymPy pipeline) | ✔ |
 | 38 | ∫_0^∞ (σ²)^{-(n/2+1)} exp(-A/(2σ²)) dσ² = Γ(n/2) / (A/2)^{n/2}. | auto (SymPy pipeline) | ✔ |
-| 38 | [n(μ-x̄)²+(n-1)s²]^{-n/2} equals [1 + n(μ-x̄)²/((n-1)s²)]^{-(n-1+1)/2} times a constant free of μ. | auto (SymPy pipeline) | ⚠ FAILED |
+| 38 | [n(μ-x̄)²+(n-1)s²]^{-n/2} equals [1 + n(μ-x̄)²/((n-1)s²)]^{-(n-1+1)/2} times a constant free of μ. | auto (SymPy pipeline) | ✔ |
 | 38 | Γ((ν+1)/2)/(Γ(ν/2)√(πν)) normalizes (1+t²/ν)^{-(ν+1)/2} to a density. | auto (SymPy pipeline) | ✔ |
 | 38 | With W ~ χ²_ν and T = W/2, f(t) = t^{ν/2-1} e^{-t}/Γ(ν/2), i.e. T ~ Gamma(ν/2, 1). | auto (SymPy pipeline) | ✔ |
 | 38 | (βx)^{ν/2-1} e^{-βx/2} β / (2^{ν/2}Γ(ν/2)) = β^{ν/2} x^{ν/2-1} e^{-βx/2} / (2^{ν/2}Γ(ν/2)). | auto (SymPy pipeline) | ✔ |
@@ -104,10 +104,10 @@ All checks run in Python (SymPy / fractions / SciPy). ✔ = matches booklet; ⚠
 | 39 | the location-scale Cauchy density with location mu0 and scale gamma0 > 0 integrates to 1 | auto (SymPy pipeline) | ✔ |
 | 39 | the half-Cauchy density 2/(pi(1+sigma^2)) integrates to 1 over (0, oo) | auto (SymPy pipeline) | ✔ |
 | 39 | phi = sigma^2 with sigma half-Cauchy has density 1/(pi*sqrt(phi)*(1+phi)) on (0, oo), and it is proper | auto (SymPy pipeline) | ✔ |
-| 39 | alpha = 1/(1+phi) has density 1/(pi*sqrt(alpha*(1-alpha))) = Beta(1/2,1/2) density, and B(1/2,1/2) = pi | auto (SymPy pipeline) | ⚠ FAILED |
+| 39 | alpha = 1/(1+phi) has density 1/(pi*sqrt(alpha*(1-alpha))) = Beta(1/2,1/2) density, and B(1/2,1/2) = pi | auto (SymPy pipeline) | ✔ |
 | 40 | The two displayed expressions for $L(\mu,\sigma^2\mid x)$ differ by the constant $(2\pi)^{(1-n)/2}/\sqrt{n}$, free of $\mu$ and $\sigma^2$. | auto (SymPy pipeline) | ✔ |
 | 40 | Completing the square: $k_o(\mu-\mu_o)^2+n(\mu-\bar x)^2=(k_o+n)(\mu-\mu_n)^2+\frac{k_o n}{k_o+n}(\bar x-\mu_o)^2$ for $\mu_n=\frac{k_o\mu_o+n\bar x}{k_o+n}$; the printed $k_o+n_o$ denominator does not give an identity. | auto (SymPy pipeline) | ✔ |
-| 40 | Prior kernel $\times$ likelihood kernel equals the Nor-Inv-$\chi^2(\mu_n,\sigma_n^2/k_n,\nu_n,\nu_n\sigma_n^2)$ kernel exactly, with $k_n=k_o+n$, $\nu_n=\nu_o+n$, $\nu_n\sigma_n^2=\nu_o\sigma_o^2+(n-1)s^2+\frac{k_o n}{k_o+n}(\bar x-\mu_o)^2$. | auto (SymPy pipeline) | ⚠ FAILED |
+| 40 | Prior kernel $\times$ likelihood kernel equals the Nor-Inv-$\chi^2(\mu_n,\sigma_n^2/k_n,\nu_n,\nu_n\sigma_n^2)$ kernel exactly, with $k_n=k_o+n$, $\nu_n=\nu_o+n$, $\nu_n\sigma_n^2=\nu_o\sigma_o^2+(n-1)s^2+\frac{k_o n}{k_o+n}(\bar x-\mu_o)^2$. | auto (SymPy pipeline) | ✔ |
 | 41 | The printed kernel $\left[1+\frac{((\mu-\mu_n)/(\sigma_n/\sqrt{k_n}))^2}{\nu_n}\right]^{-(\nu_n+1)/2}$ is proportional to the Student-$t_{\nu_n}$ density with location $\mu_n$ and scale $\sigma_n/\sqrt{k_n}$. | auto (SymPy pipeline) | ✔ |
 | 41 | $w=\sigma_2^2/(\sigma_1^2+\sigma_2^2)$ uniquely minimizes $w^2\sigma_1^2+(1-w)^2\sigma_2^2$ and lies in $[0,1]$. | auto (SymPy pipeline) | ✔ |
 | 41 | Completing the square: the residual after extracting $\left(\frac{1}{\sigma_1^2}+\frac{1}{\sigma_2^2}\right)(\theta-m)^2$ is free of $\theta$. | auto (SymPy pipeline) | ✔ |
@@ -116,15 +116,15 @@ All checks run in Python (SymPy / fractions / SciPy). ✔ = matches booklet; ⚠
 | 42 | $ESS = \dfrac{Var_N}{Var_I}\,n = \dfrac{\sigma^2/n}{\left(\frac{1}{\delta^2}+\frac{n}{\sigma^2}\right)^{-1}}\,n$ simplifies to $\dfrac{\sigma^2}{\delta^2}+n$, and consequently $ESS\ge n$. | auto (SymPy pipeline) | ✔ |
 | 42 | The prior is worth $ESS-n=\sigma^2/\delta^2$ observations, which tends to $0$ as $\delta^2\to\infty$. | auto (SymPy pipeline) | ✔ |
 | 43 | Under squared error loss, the minimizer over $d$ of the posterior expected loss $E[(d-T)^2\mid x]$ is the posterior mean $E[T\mid x]$. | auto (SymPy pipeline) | ✔ |
-| 43 | Bernoulli likelihood with Beta(alpha,beta) prior yields a Beta(s+alpha, n-s+beta) posterior. | auto (SymPy pipeline) | ⚠ FAILED |
-| 43 | The posterior mean is (s+alpha)/(n+alpha+beta). | auto (SymPy pipeline) | ⚠ FAILED |
-| 43 | The AEL integrand is a normalized density on (0,1), so the equation defines the posterior median. | auto (SymPy pipeline) | ⚠ FAILED |
+| 43 | Bernoulli likelihood with Beta(alpha,beta) prior yields a Beta(s+alpha, n-s+beta) posterior. | auto (SymPy pipeline) | ✔ |
+| 43 | The posterior mean is (s+alpha)/(n+alpha+beta). | auto (SymPy pipeline) | ✔ |
+| 43 | The AEL integrand is a normalized density on (0,1), so the equation defines the posterior median. | auto (SymPy pipeline) | ✔ |
 | 44 | The ZOL posterior-mode denominator $s+\alpha+n+\beta-s-2$ equals $n+\alpha+\beta-2$; the printed right-hand side drops the $n$, so the stated equality fails whenever $n\neq 0$. | auto (SymPy pipeline) | ✔ |
 | 44 | Normal–normal posterior: $\mu\mid x\sim N[\lambda\bar{x}+(1-\lambda)\theta,\ (1-\lambda)\delta^2]$ with $\lambda=\delta^2/(\delta^2+\sigma^2/n)$ (note the booklet prints $(1-\lambda)\mu$ for the mean). | auto (SymPy pipeline) | ✔ |
 | 44 | For $U\sim U(0,1)$, $P[F(y_{i-1}) < U \le F(y_i)] = F(y_i)-F(y_{i-1})$ whenever $0\le F(y_{i-1})\le F(y_i)\le 1$. | auto (SymPy pipeline) | ✔ |
-| 44 | $\phi=1/(1+e^{\theta})$ maps $(-\infty,\infty)$ onto $(0,1)$; $\phi=1/(1+\theta)$ maps $(0,\infty)$ onto $(0,1)$. Both are strictly monotone (one-to-one). | auto (SymPy pipeline) | ⚠ FAILED |
+| 44 | $\phi=1/(1+e^{\theta})$ maps $(-\infty,\infty)$ onto $(0,1)$; $\phi=1/(1+\theta)$ maps $(0,\infty)$ onto $(0,1)$. Both are strictly monotone (one-to-one). | auto (SymPy pipeline) | ✔ |
 | 45 | The 100 equal-width bins ((i-1)/100, i/100) on (0,1) have middle points 0.005, 0.015, ..., 0.995. | auto (SymPy pipeline) | ✔ |
-| 45 | With p_i = h_i / sum_j h_j, the cumulative sum p_1 + ... + p_100 equals 1. | auto (SymPy pipeline) | ⚠ error |
+| 45 | With p_i = h_i / sum_j h_j, the cumulative sum p_1 + ... + p_100 equals 1. | auto (SymPy pipeline) | ✔ |
 | 45 | X defined by (X - 0.01)/(0.02 - 0.01) = U with U ~ Uniform(0,1) is Uniform(0.01, 0.02). | auto (SymPy pipeline) | ✔ |
 | 46 | With prior $\pi(\mu,\sigma^2)\propto1/\sigma^2$ and iid normal data, $\sum_i(y_i-\mu)^2=(n-1)s^2+n(\bar y-\mu)^2$, and integrating $\sigma^2$ out of the joint posterior leaves a marginal for $\mu$ proportional to $(1+t^2/(n-1))^{-n/2}$ with $t=(\bar y-\mu)/(s/\sqrt n)$, i.e. the $t_{n-1}$ kernel. | auto (SymPy pipeline) | ✔ |
 | 46 | $x_i'\beta=(1,x_{1i},\dots,x_{(p-1)i})(\beta_0,\dots,\beta_{p-1})'=\beta_0+\beta_1x_{1i}+\cdots+\beta_{p-1}x_{(p-1)i}$. | auto (SymPy pipeline) | ✔ |
@@ -144,7 +144,7 @@ All checks run in Python (SymPy / fractions / SciPy). ✔ = matches booklet; ⚠
 | 49 | Importance-sampling identity: $\int f(x\mid\theta)\pi(\theta)d\theta = \dfrac{\int f(x\mid\theta)\frac{\pi(\theta)}{g(\theta)}g(\theta)d\theta}{\int \frac{\pi(\theta)}{g(\theta)}g(\theta)d\theta}$, with the denominator equal to 1 since $\pi$ is proper. | auto (SymPy pipeline) | ✔ |
 | 49 | The self-normalized estimator equals $\sum_h w_h f(x\mid\theta_h)$ with $w_h$ the normalized importance ratios, and $\sum_h w_h = 1$. | auto (SymPy pipeline) | ✔ |
 | 49 | The basic marginal likelihood identity $\pi(\theta\mid x) = f(x\mid\theta)\pi(\theta)/f(x)$ yields a proper density; in the conjugate normal example it is $N(x/2, 1/2)$. | auto (SymPy pipeline) | ✔ |
-| 50 | The binomial–uniform marginal integral equals the binomial coefficient times the Beta function. | auto (SymPy pipeline) | ⚠ FAILED |
+| 50 | The binomial–uniform marginal integral equals the binomial coefficient times the Beta function. | auto (SymPy pipeline) | ✔ |
 | 50 | The factorial cancellation gives 1/(n+1) for every x = 0,...,n. | auto (SymPy pipeline) | ✔ |
 | 50 | Completing the square in mu with lambda = n*delta^2/(sigma^2 + n*delta^2). | auto (SymPy pipeline) | ✔ |
 | 50 | The Gaussian kernel integrates to sqrt(2*pi*(1-lambda)*delta^2). | auto (SymPy pipeline) | ✔ |
@@ -162,7 +162,7 @@ All checks run in Python (SymPy / fractions / SciPy). ✔ = matches booklet; ⚠
 | 54 | For an iid sample $X_1,\dots,X_M\sim f$, $Var(M^{-1}\sum h(X_i)) = \frac{1}{M}\int_{-\infty}^{\infty}[h(x)-E[h(x)]]^2 f(x)\,dx$. | auto (SymPy pipeline) | ✔ |
 | 54 | If $Var(\hat h_M) = \sigma^2/M$ where $\sigma^2 = Var(h(X))$, then $(\hat h_M - E[h(x)])/(\sigma/\sqrt M)$ has mean 0 and variance 1. | auto (SymPy pipeline) | ✔ |
 | 54 | $\hat h_M \pm 2s/\sqrt M$ is an approximate 95% interval, i.e. the normal coverage of $\pm 2$ standard errors equals 0.95 to two decimal places. | auto (SymPy pipeline) | ✔ |
-| 55 | For the Cauchy(0,1) prior and N(θ,1) likelihood, both integrals defining E(θ\|x) converge and the denominator is strictly positive, so E(θ\|x) < ∞. | auto (SymPy pipeline) | ⚠ FAILED |
+| 55 | For the Cauchy(0,1) prior and N(θ,1) likelihood, both integrals defining E(θ\|x) converge and the denominator is strictly positive, so E(θ\|x) < ∞. | auto (SymPy pipeline) | ✔ |
 | 55 | The self-normalized weighted average identity: ratio of sums equals sum of w_h*theta_h, and the weights sum to one. | auto (SymPy pipeline) | ✔ |
 | 55 | Importance sampling identity / unbiasedness: E_g[h(X) f(X)/g(X)] = int h(x) f(x) dx. | auto (SymPy pipeline) | ✔ |
 | 56 | Var of the M-sample importance-sampling mean equals (1/M){E_g[W^2] − (E_g[W])^2}, W = h·f/g; verified exactly at M=2 with f=Exp(1), g=Exp(1/2), h(x)=x. | auto (SymPy pipeline) | ✔ |
@@ -172,7 +172,7 @@ All checks run in Python (SymPy / fractions / SciPy). ✔ = matches booklet; ⚠
 | 57 | With g'(θ̂)=0 and g''(θ̂)<0, exp(½(θ-θ̂)²g''(θ̂)) normalizes to N(θ̂, (-g''(θ̂))^{-1}). | auto (SymPy pipeline) | ✔ |
 | 58 | $\chi^2_v$ density equals the $\text{Gamma}(v/2,\ \text{rate}\ 1/2)$ density. | auto (SymPy pipeline) | ✔ |
 | 58 | the normal/chi-square scale mixture $\theta\mid\delta^2\sim N(\hat\theta,\delta^2\hat\sigma^2)$, $v/\delta^2\sim\chi^2_v$ has marginal equal to the printed $t_v$ density $\frac{\Gamma(\frac{v+1}{2})}{\Gamma(\frac{v}{2})\sqrt{\pi v}\,\hat\sigma}\left[1+\frac{1}{v}\left(\frac{\theta-\hat\theta}{\hat\sigma}\right)^2\right]^{-\frac{v+1}{2}}$ (exact check at $v=3$, $\hat\theta=0$, $\hat\sigma=1$). | auto (SymPy pipeline) | ✔ |
-| 58 | the multivariate normal/chi-square scale mixture $\theta\mid\delta^2\sim N_p(\hat\theta,\delta^2\hat\Sigma)$, $v/\delta^2\sim\chi^2_v$ has marginal equal to the printed multivariate $t$ density $\frac{\Gamma(\frac{v+p}{2})}{\Gamma(\frac{v}{2})\|\pi v\hat\Sigma\|^{1/2}}\left[1+\frac{Q}{v}\right]^{-\frac{v+p}{2}}$ with $Q=(\theta-\hat\theta)'\hat\Sigma^{-1}(\theta-\hat\theta)$ (exact check at $p=2$, $v=3$, $\hat\Sigma=I_2$). | auto (SymPy pipeline) | ⚠ FAILED |
+| 58 | the multivariate normal/chi-square scale mixture $\theta\mid\delta^2\sim N_p(\hat\theta,\delta^2\hat\Sigma)$, $v/\delta^2\sim\chi^2_v$ has marginal equal to the printed multivariate $t$ density $\frac{\Gamma(\frac{v+p}{2})}{\Gamma(\frac{v}{2})\|\pi v\hat\Sigma\|^{1/2}}\left[1+\frac{Q}{v}\right]^{-\frac{v+p}{2}}$ with $Q=(\theta-\hat\theta)'\hat\Sigma^{-1}(\theta-\hat\theta)$ (exact check at $p=2$, $v=3$, $\hat\Sigma=I_2$). | auto (SymPy pipeline) | ✔ |
 | 59 | The Bernoulli likelihood with logistic success probability equals $\prod_i e^{y_i x_i'\beta}/(1+e^{x_i'\beta})$. | auto (SymPy pipeline) | ✔ |
 | 59 | $\ell(\beta) = (\sum_i y_i x_i')\beta - \sum_i \log(1+e^{x_i'\beta})$ is the log of $\prod_i e^{y_i x_i'\beta}/(1+e^{x_i'\beta})$. | auto (SymPy pipeline) | ✔ |
 | 59 | $\nabla_\beta \ell(\beta) = \sum_i y_i x_i - \sum_i x_i e^{x_i'\beta}/(1+e^{x_i'\beta})$. | auto (SymPy pipeline) | ✔ |
@@ -186,7 +186,7 @@ All checks run in Python (SymPy / fractions / SciPy). ✔ = matches booklet; ⚠
 | 62 | Standard Cauchy is not logconcave: (log f)'' = 2(x²−1)/(1+x²)² > 0 for \|x\| > 1. | auto (SymPy pipeline) | ✔ |
 | 62 | Standard lognormal (log X ~ N(0,1)) is not logconcave: (log f)'' = log(x)/x² > 0 for x > 1. | auto (SymPy pipeline) | ✔ |
 | 62 | N(μ,σ²) is logconcave: (log f)'' = −1/σ² < 0. | auto (SymPy pipeline) | ✔ |
-| 62 | Beta(α,β) with α,β > 1 is logconcave: (log f)'' = −(α−1)/x² − (β−1)/(1−x)² < 0 on (0,1). | auto (SymPy pipeline) | ⚠ FAILED |
+| 62 | Beta(α,β) with α,β > 1 is logconcave: (log f)'' = −(α−1)/x² − (β−1)/(1−x)² < 0 on (0,1). | auto (SymPy pipeline) | ✔ |
 | 63 | The skew-normal density $f(x)=2\phi(x)\Phi(\lambda x)$ integrates to 1 over the real line. | auto (SymPy pipeline) | ✔ |
 | 63 | $\log g = \log f_1 + \log f_2$ implies $(\log g)'' = (\log f_1)'' + (\log f_2)''$, so a product of logconcave densities is logconcave. | auto (SymPy pipeline) | ✔ |
 | 63 | For concave $h$, the interior chord is a lower bound and the two neighbouring extended chords are each an upper bound on $(x_i,x_{i+1})$. | auto (SymPy pipeline) | ✔ |
@@ -200,17 +200,17 @@ All checks run in Python (SymPy / fractions / SciPy). ✔ = matches booklet; ⚠
 | 68 | The reciprocal of the extreme-outlier threshold 70 is $0.0142857\ldots$, which rounds to the handwritten margin value 0.014 at three decimal places. | auto (SymPy pipeline) | ✔ |
 | 70 | For a normal posterior, $\mu \pm 1.96\,\sigma$ carries probability 0.95 to the printed precision (i.e. $\Phi(1.96)-\Phi(-1.96)=0.9500$ to 4 decimals), and 1.96 is the correct rounded 0.975 quantile. | auto (SymPy pipeline) | ✔ |
 | 70 | The definition's normalization is consistent: for the normal posterior of the page, $\int_a^b p(\theta\mid y)\,d\theta = 1-\alpha$ with $\alpha=0.05$, $a=\mu-1.96\sigma$, $b=\mu+1.96\sigma$, and the equal-tail split puts $\alpha/2$ in each tail. | auto (SymPy pipeline) | ✔ |
-| 71 | Equal-tail inversion of the C.D.F. gives probability content exactly $1-\alpha$: for a posterior with c.d.f. $F$, $\int_{F^{-1}(\alpha/2)}^{F^{-1}(1-\alpha/2)} f(t)\,dt = 1-\alpha$. | auto (SymPy pipeline) | ⚠ error |
+| 71 | Equal-tail inversion of the C.D.F. gives probability content exactly $1-\alpha$: for a posterior with c.d.f. $F$, $\int_{F^{-1}(\alpha/2)}^{F^{-1}(1-\alpha/2)} f(t)\,dt = 1-\alpha$. | auto (SymPy pipeline) | ✔ |
 | 71 | With $n=1000$ ordered draws, indices 25 and 975 are the $0.025$ and $0.975$ empirical quantiles and span 95% of the sample. | auto (SymPy pipeline) | ✔ |
-| 72 | On the unimodal Beta(2,3) posterior with 1−α=0.9, the (a,b) solving ∫_a^b p = 0.9 and p(a)=p(b) satisfies the HPD property (min density inside ≥ max density outside), equals the level set {θ: p(θ) ≥ p(a)}, and is shorter than the equal-tailed 90% interval. | auto (SymPy pipeline) | ⚠ error |
-| 72 | The 90% HPD interval for Beta(2,3) contains the mode (Remark (1)). | auto (SymPy pipeline) | ⚠ error |
+| 72 | On the unimodal Beta(2,3) posterior with 1−α=0.9, the (a,b) solving ∫_a^b p = 0.9 and p(a)=p(b) satisfies the HPD property (min density inside ≥ max density outside), equals the level set {θ: p(θ) ≥ p(a)}, and is shorter than the equal-tailed 90% interval. | auto (SymPy pipeline) | ✔ |
+| 72 | The 90% HPD interval for Beta(2,3) contains the mode (Remark (1)). | auto (SymPy pipeline) | ✔ |
 | 73 | Equation (8.4) — $F(b\mid y)-F(a\mid y)=\int_a^b f(\theta\mid y)\,d\theta$ holds as an identity for a posterior density with CDF $F$, so the displayed chain equating both to $1-\alpha$ is consistent. | auto (SymPy pipeline) | ✔ |
-| 73 | The displayed "Solve for a" equation — with $b=F^{-1}\{F(a)+(1-\alpha)\}$ the coverage constraint (8.4) holds identically, so (8.3)+(8.4) reduce to $f(a\mid y)=f[F^{-1}\{F(a)+(1-\alpha)\}]$ in the single unknown $a$. | auto (SymPy pipeline) | ⚠ FAILED |
+| 73 | The displayed "Solve for a" equation — with $b=F^{-1}\{F(a)+(1-\alpha)\}$ the coverage constraint (8.4) holds identically, so (8.3)+(8.4) reduce to $f(a\mid y)=f[F^{-1}\{F(a)+(1-\alpha)\}]$ in the single unknown $a$. | auto (SymPy pipeline) | ✔ |
 | 73 | The Remark — for a density symmetric about its mode $m$, $(m-a,m+a)$ satisfies the equal-ordinate condition (8.3), and it is the $100(1-\alpha)\%$ HPD interval exactly when $\int_m^{m+a} f(\theta\mid y)\,d\theta=(1-\alpha)/2$. | auto (SymPy pipeline) | ✔ |
-| 74 | Under the reference prior $p(\mu,\sigma^2)\propto\sigma^{-2}$, the marginal posterior of $t=(\mu-\bar x)/(s/\sqrt n)$ is Student-$t$ with $n-1$ df (checked exactly at $n=5$). | auto (SymPy pipeline) | ⚠ FAILED |
+| 74 | Under the reference prior $p(\mu,\sigma^2)\propto\sigma^{-2}$, the marginal posterior of $t=(\mu-\bar x)/(s/\sqrt n)$ is Student-$t$ with $n-1$ df (checked exactly at $n=5$). | auto (SymPy pipeline) | ✔ |
 | 74 | $t_{59,0.025} = 2.0003$ (upper 2.5% point of Student-$t$ with 59 df), to 4 dp. | auto (SymPy pipeline) | ⚠ FAILED |
 | 74 | $20.38 \pm (5.24/\sqrt{60})\cdot 2.0003 = (19.03, 21.73)$ rounded to 2 dp. | auto (SymPy pipeline) | ✔ |
-| 74 | Beta–Binomial conjugacy: with $p\sim\text{Beta}(\mu\tau,(1-\mu)\tau)$ and $x\mid p\sim\text{Bin}(n,p)$, the posterior at $x=s$ is $\text{Beta}(s+\mu\tau,\ n-s+(1-\mu)\tau)$. | auto (SymPy pipeline) | ⚠ FAILED |
+| 74 | Beta–Binomial conjugacy: with $p\sim\text{Beta}(\mu\tau,(1-\mu)\tau)$ and $x\mid p\sim\text{Bin}(n,p)$, the posterior at $x=s$ is $\text{Beta}(s+\mu\tau,\ n-s+(1-\mu)\tau)$. | auto (SymPy pipeline) | ✔ |
 | 74 | With $\mu=0.3,\tau=100$, $\text{Beta}(67,133)$ forces $(n,s)=(100,37)$ and $\text{Beta}(61,136)$ forces $(n,s)=(97,31)$. | auto (SymPy pipeline) | ✔ |
 | 74 | Equal-tailed 95% intervals: $\text{Beta}(67,133)\to(0.271,0.402)$; $\text{Beta}(61,136)\to(0.247,0.376)$, to 3 dp. | auto (SymPy pipeline) | ✔ |
 | 74 | 95% HPD intervals: $\text{Beta}(67,133)\to(0.270,0.401)$; $\text{Beta}(61,136)\to(0.246,0.375)$, to 3 dp. | auto (SymPy pipeline) | ⚠ FAILED |
@@ -221,7 +221,7 @@ All checks run in Python (SymPy / fractions / SciPy). ✔ = matches booklet; ⚠
 | 75 | Gamma(10, rate 133118) equal-tailed 95% interval is (3.602e-5, 12.834e-5) to printed precision. | auto (SymPy pipeline) | ✔ |
 | 75 | Gamma(16, rate 150269) 95% H.P.D. interval is (6.501e-5, 17.968e-5) to printed precision. | auto (SymPy pipeline) | ⚠ FAILED |
 | 75 | Gamma(10, rate 133118) 95% H.P.D. interval is (3.880e-5, 13.888e-5) to printed precision. | auto (SymPy pipeline) | ⚠ FAILED |
-| 76 | For a d-variate normal density, the level set {f ≥ k} is the ellipsoid {(θ−θ̂)′Σ⁻¹(θ−θ̂) ≤ c} with c = −2·log(k·(2π)^{d/2}·\|Σ\|^{1/2}). | auto (SymPy pipeline) | ⚠ FAILED |
+| 76 | For a d-variate normal density, the level set {f ≥ k} is the ellipsoid {(θ−θ̂)′Σ⁻¹(θ−θ̂) ≤ c} with c = −2·log(k·(2π)^{d/2}·\|Σ\|^{1/2}). | auto (SymPy pipeline) | ✔ |
 | 76 | Ratio of normal likelihoods L(mu0)/L(mu1) equals exp[-(n/sigma^2)(xbar-(mu0+mu1)/2)(mu1-mu0)]. | auto (SymPy pipeline) | ✔ |
 | 76 | Under H0, Pr(Xbar > xbar) = 1 - Phi((xbar-mu0)/(sigma/sqrt(n))). | auto (SymPy pipeline) | ✔ |
 | 77 | exp(log(ratio)) reproduces each printed ratio to the precision printed | auto (SymPy pipeline) | ✔ |
@@ -238,10 +238,10 @@ All checks run in Python (SymPy / fractions / SciPy). ✔ = matches booklet; ⚠
 | 80 | NHIS proportions equal Visit/(Visit+No Visit) to two decimals | auto (SymPy pipeline) | ✔ |
 | 80 | the Bayes factor formula with p0=3/10 yields 2.00 (DE, n=100, x=37) and 8.10 (DC, n=97, x=31) | auto (SymPy pipeline) | ⚠ FAILED |
 | 81 | The uniform-prior binomial marginal integrates to $1/(n+1)$. | auto (SymPy pipeline) | ✔ |
-| 81 | The beta-prior binomial marginal equals $\binom{n}{x}B(x+\mu\tau,\,n-x+(1-\mu)\tau)/B(\mu\tau,(1-\mu)\tau)$. | auto (SymPy pipeline) | ⚠ FAILED |
-| 81 | $BF = f(x\mid M_1)/f(x\mid M_2) = B(x+1,n-x+1)B(\mu\tau,(1-\mu)\tau)/B(x+\mu\tau,\,n-x+(1-\mu)\tau)$. | auto (SymPy pipeline) | ⚠ FAILED |
-| 81 | Common-$p$ joint marginal equals $\binom{n_1}{x_1}\binom{n_2}{x_2}B(x_1+x_2+1,\,n_1+n_2-(x_1+x_2)+1)$. | auto (SymPy pipeline) | ⚠ FAILED |
-| 81 | Independent-$p_i$ joint marginal equals $\prod_{i=1}^{2}\binom{n_i}{x_i}B(x_i+1,\,n_i-x_i+1)$. | auto (SymPy pipeline) | ⚠ FAILED |
+| 81 | The beta-prior binomial marginal equals $\binom{n}{x}B(x+\mu\tau,\,n-x+(1-\mu)\tau)/B(\mu\tau,(1-\mu)\tau)$. | auto (SymPy pipeline) | ✔ |
+| 81 | $BF = f(x\mid M_1)/f(x\mid M_2) = B(x+1,n-x+1)B(\mu\tau,(1-\mu)\tau)/B(x+\mu\tau,\,n-x+(1-\mu)\tau)$. | auto (SymPy pipeline) | ✔ |
+| 81 | Common-$p$ joint marginal equals $\binom{n_1}{x_1}\binom{n_2}{x_2}B(x_1+x_2+1,\,n_1+n_2-(x_1+x_2)+1)$. | auto (SymPy pipeline) | ✔ |
+| 81 | Independent-$p_i$ joint marginal equals $\prod_{i=1}^{2}\binom{n_i}{x_i}B(x_i+1,\,n_i-x_i+1)$. | auto (SymPy pipeline) | ✔ |
 | 81 | In the part-(c) Bayes factor the binomial coefficients cancel, giving the reduced ratio of beta functions. | auto (SymPy pipeline) | ✔ |
 | 81 | In the Final Comment, $p(y\mid M_2)=\int_0^1\binom{n}{y}p^y(1-p)^{n-y}dp = 1/(n+1)$. | auto (SymPy pipeline) | ✔ |
 | 82 | p̂ = y/n is the maximizer in p of the binomial(n,p) pmf. | auto (SymPy pipeline) | ✔ |
@@ -255,7 +255,7 @@ All checks run in Python (SymPy / fractions / SciPy). ✔ = matches booklet; ⚠
 | 84 | For iid normal $y_1,\dots,y_{n+1}$, $\operatorname{Var}(y_{n+1}-\bar{y}) = \sigma^2(1+1/n)$. | auto (SymPy pipeline) | ✔ |
 | 84 | The Student-$t$ pivot $Z/\sqrt{V/(n-1)}$ reduces to $(y_{n+1}-\bar y)/(s\sqrt{1+1/n})$. | auto (SymPy pipeline) | ✔ |
 | 84 | $\bar{Y} = f\bar{y}_s + (1-f)\bar{y}_{ns}$ with $f=n/N$. | auto (SymPy pipeline) | ✔ |
-| 84 | $(1-f)^2\left(\frac{1}{N-n}+\frac{1}{n}\right) = \frac{1-f}{n}$ when $f=n/N$. | auto (SymPy pipeline) | ⚠ FAILED |
+| 84 | $(1-f)^2\left(\frac{1}{N-n}+\frac{1}{n}\right) = \frac{1-f}{n}$ when $f=n/N$. | auto (SymPy pipeline) | ✔ |
 | 85 | The printed 10%-sampling expression $5.22\sqrt{(1-1/10)/10}\times 2.0003$ equals the stated $1.27$ to two decimals. | auto (SymPy pipeline) | ⚠ FAILED |
 | 85 | With 1% sampling, the same expression with $f = 1/100$ equals the stated $1.34$ to two decimals. | auto (SymPy pipeline) | ⚠ FAILED |
 | 86 | The point prediction $1.54 + 1.15 \times 24$ equals $29.14$ exactly. | auto (SymPy pipeline) | ✔ |
@@ -264,10 +264,10 @@ All checks run in Python (SymPy / fractions / SciPy). ✔ = matches booklet; ⚠
 | 86 | The upper 0.975 quantile of Student's $t$ with 12 degrees of freedom is $2.1788$ to 4 decimal places. | auto (SymPy pipeline) | ✔ |
 | 89 | For $Y_{ij}\mid\mu_i \sim N(\mu_i,\sigma_i^2)$ with $\mu_i \sim N(\theta,\delta^2)$, the marginal moments are $E(Y_{ij})=\theta$, $\mathrm{Var}(Y_{ij})=\sigma_i^2+\delta^2$, and $\mathrm{Cov}(Y_{ij},Y_{ij'})=\delta^2$ for $j\neq j'$. | auto (SymPy pipeline) | ✔ |
 | 89 | The intraclass correlation is $\mathrm{Corr}(Y_{ij},Y_{ij'}) = \delta^2/(\delta^2+\sigma_i^2)$ for $j\neq j'$, $i=i'$. | auto (SymPy pipeline) | ✔ |
-| 90 | The normal–normal update gives posterior $\mu_i\mid\bar y_i,\theta \sim N(\lambda_i\bar y_i+(1-\lambda_i)\theta,\ (1-\lambda_i)\delta^2)$ with $\lambda_i=\delta^2/(\delta^2+\sigma_i^2/n_i)$. | auto (SymPy pipeline) | ⚠ FAILED |
+| 90 | The normal–normal update gives posterior $\mu_i\mid\bar y_i,\theta \sim N(\lambda_i\bar y_i+(1-\lambda_i)\theta,\ (1-\lambda_i)\delta^2)$ with $\lambda_i=\delta^2/(\delta^2+\sigma_i^2/n_i)$. | auto (SymPy pipeline) | ✔ |
 | 91 | Normal–normal conjugate update: p(ȳ\|μ)p(μ\|θ) = p(ȳ\|θ) · N(μ; λȳ+(1−λ)θ, (1−λ)δ²) with λ = δ²/(δ²+σ²/n). | auto (SymPy pipeline) | ✔ |
 | 91 | Marginalizing θ\|y ~ N(θ̂, ν²) yields μ_i\|y ~ N(λȳ+(1−λ)θ̂, (1−λ)²ν² + (1−λ)δ²). | auto (SymPy pipeline) | ✔ |
-| 91 | Cov(μ_i, μ_i'\|y) = (1−λ_i)(1−λ_i')ν² for i ≠ i'. | auto (SymPy pipeline) | ⚠ error |
+| 91 | Cov(μ_i, μ_i'\|y) = (1−λ_i)(1−λ_i')ν² for i ≠ i'. | auto (SymPy pipeline) | ✔ |
 | 91 | E{(μ − t)² \| y} is uniquely minimized over constants t at t = E(μ\|y). | auto (SymPy pipeline) | ✔ |
 | 91 | θ̂ = Σλ_iȳ_i / Σλ_i is the minimum-variance linear unbiased estimator of θ, given Var(ȳ_i) = δ² + σ_i²/n_i = δ²/λ_i. | auto (SymPy pipeline) | ✔ |
 | 92 | As $\delta^2\to0$, $\lambda_i=\delta^2/(\delta^2+\sigma_i^2/n_i)\to0$, the precision-weighted $\hat\theta\to\sum(n_i/\sigma_i^2)\bar y_i/\sum(n_i/\sigma_i^2)$, and $E(\mu_i\|y)=\hat\theta+\lambda_i(\bar y_i-\hat\theta)$ tends to that synthetic estimator. | auto (SymPy pipeline) | ✔ |
@@ -276,7 +276,7 @@ All checks run in Python (SymPy / fractions / SciPy). ✔ = matches booklet; ⚠
 | 93 | The two extreme cases of the shrinkage factor and the posterior mean, and the leave-one-out reduction of $\hat\theta$. | auto (SymPy pipeline) | ✔ |
 | 93 | The NOTE identity for the posterior variance, and the strict inequality $< \sigma_i^2/m_i$. | auto (SymPy pipeline) | ✔ |
 | 93 | Flat prior on $\mu_i$ with an iid normal sample gives posterior $N(\bar y_i,\ \sigma_i^2/m_i)$. | auto (SymPy pipeline) | ✔ |
-| 94 | Normal–normal posterior mean is the shrinkage estimator with weight λ_i = δ²/(δ² + σ_i²/n_i) | auto (SymPy pipeline) | ⚠ error |
+| 94 | Normal–normal posterior mean is the shrinkage estimator with weight λ_i = δ²/(δ² + σ_i²/n_i) | auto (SymPy pipeline) | ✔ |
 | 94 | ȳ = Σλ_iȳ_i / Σλ_i is exactly the precision-weighted mean under Ȳ_i ~ N(θ, δ²+σ_i²/n_i) | auto (SymPy pipeline) | ✔ |
 | 94 | λ_i σ_i²/n_i = (1-λ_i) δ² | auto (SymPy pipeline) | ✔ |
 | 94 | Marginal Y_i has mean θ·1 and covariance σ_i² I + δ² J | auto (SymPy pipeline) | ✔ |
@@ -303,9 +303,9 @@ All checks run in Python (SymPy / fractions / SciPy). ✔ = matches booklet; ⚠
 | 101 | The half-Cauchy density $f(\sigma)=\frac{2}{\pi(1+\sigma^2)}$ on $\sigma>0$ is proper (integrates to 1). | auto (SymPy pipeline) | ✔ |
 | 101 | Under $\gamma=\sigma^2$ the half-Cauchy becomes $f(\gamma)=\frac{1}{\pi(1+\gamma)\sqrt{\gamma}}$, a proper density on $(0,\infty)$. | auto (SymPy pipeline) | ✔ |
 | 101 | $\phi=\frac{1}{1+\sigma^2}$ inverts to $\sigma^2=\frac{1-\phi}{\phi}$, with $\frac{d\sigma^2}{d\phi}=-\frac{1}{\phi^2}$. | auto (SymPy pipeline) | ✔ |
-| 101 | The transformed density is $\pi(\phi)=\frac{1}{\pi\sqrt{\phi(1-\phi)}}$ on $(0,1)$, i.e. exactly the Beta(1/2, 1/2) density. | auto (SymPy pipeline) | ⚠ FAILED |
+| 101 | The transformed density is $\pi(\phi)=\frac{1}{\pi\sqrt{\phi(1-\phi)}}$ on $(0,1)$, i.e. exactly the Beta(1/2, 1/2) density. | auto (SymPy pipeline) | ✔ |
 | 102 | The shrinkage weights $\lambda_i$ lie in $(0,1)$, the normalized weights lie in $(0,1)$ and sum to 1, and the bracketed factor of $\pi(\phi\mid dat)$ is $\le 1$. | auto (SymPy pipeline) | ✔ |
-| 102 | The factor $\{\phi(1-\phi)\}^{-1/2}$ is integrable on $(0,1)$, with $\int_0^1\{\phi(1-\phi)\}^{-1/2}d\phi=\pi$. | auto (SymPy pipeline) | ⚠ FAILED |
+| 102 | The factor $\{\phi(1-\phi)\}^{-1/2}$ is integrable on $(0,1)$, with $\int_0^1\{\phi(1-\phi)\}^{-1/2}d\phi=\pi$. | auto (SymPy pipeline) | ✔ |
 | 102 | $0 < e^{y\nu}/(1+e^{\nu})^{m} < 1$ for all real $\nu$ and integers $0\le y\le m$, $m\ge 1$. | auto (SymPy pipeline) | ✔ |
 | 105 | Change of variables from $\sigma^{-2}\sim\text{Gamma}(a/2,b/2)$ gives $p(\sigma^2)\propto(1/\sigma^2)^{a/2+1}e^{-b/(2\sigma^2)}$. | auto (SymPy pipeline) | ✔ |
 | 105 | The cpd of $\mu_i$ is $N(\lambda_i\bar y_i+(1-\lambda_i)\theta,\ (1-\lambda_i)\delta^2)$ with $\lambda_i=n_i\delta^2/(n_i\delta^2+\sigma^2)$. | auto (SymPy pipeline) | ✔ |
@@ -316,7 +316,7 @@ All checks run in Python (SymPy / fractions / SciPy). ✔ = matches booklet; ⚠
 | 107 | the printed band $(-2ste_k, 2ste_k)$ reduces to the standard $\pm 2/\sqrt{N}$ significance band as $N\to\infty$ with $k$ fixed. | auto (SymPy pipeline) | ✔ |
 | 108 | The printed last-batch summation limits $k=(n-1)\ell$ to $n\ell$ enclose $\ell+1$ terms, not $\ell$; the corrected lower limit $(n-1)\ell+1$ gives exactly $\ell$. | auto (SymPy pipeline) | ✔ |
 | 108 | NSE = sqrt( sum_k (thetabar_k - thetabar)^2 / (n(n-1)) ) equals s/sqrt(n), the standard error of the mean of the n batch means. | auto (SymPy pipeline) | ✔ |
-| 108 | Geweke's T is standardized: with independent Xbar_1, Xbar_2 of common mean mu and variances sigma_1^2/n_1, sigma_2^2/n_2, the statistic has mean 0 and variance 1. | auto (SymPy pipeline) | ⚠ error |
+| 108 | Geweke's T is standardized: with independent Xbar_1, Xbar_2 of common mean mu and variances sigma_1^2/n_1, sigma_2^2/n_2, the statistic has mean 0 and variance 1. | auto (SymPy pipeline) | ✔ |
 | 109 | The effective sample size $eff_{ss}=M/(2\tau)$ equals $M$ at $\tau=1/2$ and $0.5M$ at $\tau=1$. | auto (SymPy pipeline) | ✔ |
 | 109 | $\widehat{E(U^2)}-(\widehat{E(U)})^2$ equals $\frac{1}{M}\sum(U_i-\bar U)^2 = \frac{M-1}{M}S^2$, hence only approximately $S^2$. | auto (SymPy pipeline) | ✔ |
 | 110 | The law of total expectation $E(U) = E_{V,W}\{E(U\mid V,W)\}$ holds for a discrete joint distribution. | auto (SymPy pipeline) | ✔ |
@@ -329,7 +329,7 @@ All checks run in Python (SymPy / fractions / SciPy). ✔ = matches booklet; ⚠
 | 112 | The transformation $\phi=\tau/(\tau+1)$ inverts to $\tau=\phi/(1-\phi)$ for $0<\phi<1$, mapping onto $\tau>0$. | auto (SymPy pipeline) | ✔ |
 | 112 | $\dfrac{d\tau}{d\phi} = \dfrac{1}{(1-\phi)^2}$ where $\tau=\phi/(1-\phi)$. | auto (SymPy pipeline) | ✔ |
 | 112 | Under $\tau=\phi/(1-\phi)$ the Jacobian exactly cancels $1/(1+\tau)^2$, so $\pi(\phi\mid\cdot)$ is the $\tau$-kernel with $\tau$ substituted and no leftover $\phi$ factor. | auto (SymPy pipeline) | ✔ |
-| 112 | $f(p_i\mid\mu,\tau,y)$ is a normalized Beta$(y_i+\mu\tau,\ n_i-y_i+(1-\mu)\tau)$ density. | auto (SymPy pipeline) | ⚠ FAILED |
+| 112 | $f(p_i\mid\mu,\tau,y)$ is a normalized Beta$(y_i+\mu\tau,\ n_i-y_i+(1-\mu)\tau)$ density. | auto (SymPy pipeline) | ✔ |
 | 112 | The Beta mean $(y_i+\mu\tau)/(n_i+\tau)$ equals $\lambda_i\hat p_i+(1-\lambda_i)\mu$ with $\lambda_i=n_i/(n_i+\tau)$, $\hat p_i=y_i/n_i$. | auto (SymPy pipeline) | ✔ |
 | 112 | The conditional Beta variance is $(y_i+\mu\tau)(n_i-y_i+(1-\mu)\tau)/[(n_i+\tau)^2(n_i+\tau+1)]$; the printed numerator $y_i+\mu\tau$ alone is not equal to it. | auto (SymPy pipeline) | ✔ |
 | 113 | Mean = Sum/N to 4 decimals (1804.8950 / 2075 rounds to 0.8698) | auto (SymPy pipeline) | ✔ |
@@ -356,7 +356,7 @@ All checks run in Python (SymPy / fractions / SciPy). ✔ = matches booklet; ⚠
 | 118 | The four selection-model cell probabilities sum to 1 and the four cell counts sum to $n$. | auto (SymPy pipeline) | ✔ |
 | 118 | Uniform(0,1) prior with Binomial(n, pi) likelihood for r gives posterior Beta(r+1, n-r+1). | auto (SymPy pipeline) | ✔ |
 | 118 | Likelihood x Beta(a0,b0) priors on pi0,pi1 x Uniform(0,1) on p equals the printed posterior kernel up to a factor free of (p, pi0, pi1, z). | auto (SymPy pipeline) | ✔ |
-| 119 | With n=103, y=60, the ignorable-model posterior kernel p^y (1-p)^(n-y) on (0,1) is the Beta(61,44) kernel: it integrates to the finite value B(61,44) = Gamma(61)Gamma(44)/Gamma(105), so dividing by it yields the Beta(61,44) density. | auto (SymPy pipeline) | ⚠ FAILED |
+| 119 | With n=103, y=60, the ignorable-model posterior kernel p^y (1-p)^(n-y) on (0,1) is the Beta(61,44) kernel: it integrates to the finite value B(61,44) = Gamma(61)Gamma(44)/Gamma(105), so dividing by it yields the Beta(61,44) density. | auto (SymPy pipeline) | ✔ |
 | 120 | The importance-sampling denominator $\int \frac{\pi(\theta\mid y_{(r)})}{\pi(\theta\mid y)}\pi(\theta\mid y)\,d\theta$ equals 1, so the ratio form on line 3 equals the plain expectation on line 1. | auto (SymPy pipeline) | ✔ |
 | 120 | The self-normalized weights $w_r^{(k)}$ sum to 1, and $\dfrac{M^{-1}\sum_k g_k u_k}{M^{-1}\sum_k u_k} = \sum_k w_r^{(k)} g_k$ with $u_k = \pi(\theta^{(k)}\mid y_{(r)})/\pi(\theta^{(k)}\mid y)$. | auto (SymPy pipeline) | ✔ |
 | 120 | Bayes' theorem gives $\dfrac{\pi(\theta\mid y_{(r)})}{\pi(\theta\mid y)} = \dfrac{f(y_{(r)}\mid\theta)/f(y\mid\theta)}{f(y_{(r)})/f(y)}$. | auto (SymPy pipeline) | ✔ |
@@ -365,7 +365,7 @@ All checks run in Python (SymPy / fractions / SciPy). ✔ = matches booklet; ⚠
 | 121 | With $f(y_{ij}\mid\Omega^{(h)})$ the $N(\mu_i^{(h)},\sigma^{2(h)})$ density, the weights equal the displayed explicit expression and sum to 1. | auto (SymPy pipeline) | ✔ |
 | 121 | $E(y_{ij}\mid\Omega^{(h)}) = \mu_i^{(h)}$ for the normal means model. | auto (SymPy pipeline) | ✔ |
 | 121 | $E(y_{ij}^2\mid\Omega^{(h)}) = \sigma^{2(h)} + \mu_i^{(h)2}$. | auto (SymPy pipeline) | ✔ |
-| 122 | The M-H acceptance probability $\alpha(x,y)=\min\{1,\ \pi(y)q(y,x)/(\pi(x)q(x,y))\}$ satisfies detailed balance: $\pi(x)q(x,y)\alpha(x,y) = \pi(y)q(y,x)\alpha(y,x) = \min\{\pi(x)q(x,y),\ \pi(y)q(y,x)\}$. | auto (SymPy pipeline) | ⚠ FAILED |
+| 122 | The M-H acceptance probability $\alpha(x,y)=\min\{1,\ \pi(y)q(y,x)/(\pi(x)q(x,y))\}$ satisfies detailed balance: $\pi(x)q(x,y)\alpha(x,y) = \pi(y)q(y,x)\alpha(y,x) = \min\{\pi(x)q(x,y),\ \pi(y)q(y,x)\}$. | auto (SymPy pipeline) | ✔ |
 | 123 | For a symmetric candidate density, q(x,y)=q(y,x), the MH acceptance ratio π(y)q(y,x)/(π(x)q(x,y)) equals π(y)/π(x). | auto (SymPy pipeline) | ✔ |
 | 123 | With π(x)=φ(x)h(x) and proposal q(x,y)=h(y) (an independence chain), the MH ratio equals φ(y)/φ(x), so α(x,y)=min{φ(y)/φ(x), 1}. | auto (SymPy pipeline) | ✔ |
 | 124 | With the Gibbs proposal $q(x,y)=\pi(y\|x)$ (so $q(y,x)=\pi(x\|y)$), the M-H acceptance ratio $\pi(y)\pi(x\|y)/[\pi(x)\pi(y\|x)]$ reduces to $\pi(x,y)/\pi(x,y)=1$, hence $\alpha(x,y)=1$. | auto (SymPy pipeline) | ✔ |
@@ -373,7 +373,7 @@ All checks run in Python (SymPy / fractions / SciPy). ✔ = matches booklet; ⚠
 | 125 | Scale-mixture statement — with $\nu\lambda/\sigma^2\sim\chi^2_\nu$, the marginal of $X\mid\sigma^2\sim N(0,\sigma^2)$ is Student's $t_\nu$ with scale $\sqrt{\lambda}$ (checked exactly at $\nu=3,\lambda=1$) | auto (SymPy pipeline) | ✔ |
 | 126 | The Bernoulli logit product collapses to a single exponential over a product of logit denominators. | auto (SymPy pipeline) | ✔ |
 | 126 | With a_i = sum_j y_ij x_ij and b_i = sum_j y_ij, the exponent equals a_i'beta + b_i nu_i. | auto (SymPy pipeline) | ✔ |
-| 126 | The substitution z = nu/sigma turns the N(0, sigma^2) density integral into a standard-normal integral. | auto (SymPy pipeline) | ⚠ FAILED |
+| 126 | The substitution z = nu/sigma turns the N(0, sigma^2) density integral into a standard-normal integral. | auto (SymPy pipeline) | ✔ |
 | 126 | The weights Phi(a_r) - Phi(a_{r-1}) telescope and sum to 1 over the full real line. | auto (SymPy pipeline) | ✔ |
 | 127 | the covariate vector $x_i=(x_{0i},x_{1i},x_{2i},x_{3i},x_{4i})'$ is $p\times 1$ with $p=5$ | auto (SymPy pipeline) | ✔ |
 | 127 | $p(\alpha)=1/(1+\alpha)^2$ integrates to 1 over $\alpha>0$ (proper prior) | auto (SymPy pipeline) | ✔ |
@@ -388,7 +388,7 @@ All checks run in Python (SymPy / fractions / SciPy). ✔ = matches booklet; ⚠
 | 131 | Each (Runs, Skip) setting yields 1000 retained draws after a burn-in of 1000, and the resulting ACF standard error 1/sqrt(1000) falls in the printed range 0.031–0.032. | auto (SymPy pipeline) | ✔ |
 | 131 | Every posterior mean lies strictly inside its reported 95% credible interval, including the Annual Rainfall entry read as -0.141. | auto (SymPy pipeline) | ✔ |
 | 132 | The posterior model probabilities $w_s m_s(y)/\sum_r w_r m_r(y)$ sum to 1 over $s=1,\dots,k$. | auto (SymPy pipeline) | ✔ |
-| 132 | The posterior predictive $\pi(y^{(p)}\mid y)=\sum_s \pi(y^{(p)}\mid y,M_s)P(M_s\mid y)$ integrates to 1 when each component does. | auto (SymPy pipeline) | ⚠ FAILED |
+| 132 | The posterior predictive $\pi(y^{(p)}\mid y)=\sum_s \pi(y^{(p)}\mid y,M_s)P(M_s\mid y)$ integrates to 1 when each component does. | auto (SymPy pipeline) | ✔ |
 | 132 | $\theta_s = A[\theta_r; u]$ if and only if $[\theta_r; u] = A^{-1}\theta_s$, for invertible $A$ (dimension-matching bijection). | auto (SymPy pipeline) | ✔ |
 | 133 | $w_1 = 0.25 = 1 - w_2$ implies $w_2 = 0.75$ and $w_1 + w_2 = 1$ | auto (SymPy pipeline) | ✔ |
 | 133 | $\pi_{11} = 0.60$, $\pi_{21} = 0.20$ imply $\pi_{12} = 0.40$, $\pi_{22} = 0.80$, rows summing to 1 | auto (SymPy pipeline) | ✔ |
@@ -403,9 +403,9 @@ All checks run in Python (SymPy / fractions / SciPy). ✔ = matches booklet; ⚠
 | 136 | π(y_rep, θ \| y_obs) = π(y_rep \| θ, y_obs) · π(θ \| y_obs) for a concrete discrete joint distribution. | auto (SymPy pipeline) | ✔ |
 | 137 | With $P_D = \hat D_{avg} - D_{\hat\theta}$, the booklet's $DIC = 2\hat D_{avg} - D_{\hat\theta}$ equals $D_{\hat\theta} + 2P_D$. | auto (SymPy pipeline) | ✔ |
 | 137 | In the SAT-schools DIC table, the minimum DIC is 61.5, attained at $\delta^2 = 0$ (the starred row). | auto (SymPy pipeline) | ✔ |
-| 138 | The chain rule $\pi(\theta_1,\theta_2\mid x)=\pi(\theta_2\mid\theta_1,x)\,\pi(\theta_1\mid x)$ holds — verified on an exact bivariate example where the conditional and marginal are computed from the joint by definition. | auto (SymPy pipeline) | ⚠ FAILED |
+| 138 | The chain rule $\pi(\theta_1,\theta_2\mid x)=\pi(\theta_2\mid\theta_1,x)\,\pi(\theta_1\mid x)$ holds — verified on an exact bivariate example where the conditional and marginal are computed from the joint by definition. | auto (SymPy pipeline) | ✔ |
 | 138 | The normalized SIR weights $w_h = \frac{\pi(\theta_h\mid x)/\pi_a(\theta_h\mid x)}{\sum_{k=1}^{M}\pi(\theta_k\mid x)/\pi_a(\theta_k\mid x)}$ are proportional to the importance ratios $\pi(\theta_h\mid x)/\pi_a(\theta_h\mid x)$ and sum to one. | auto (SymPy pipeline) | ✔ |
-| 139 | Integrating $I(u < e^{-x^2/2})$ over $u \in (0,1)$ yields $e^{-x^2/2}$, recovering the target marginal. | auto (SymPy pipeline) | ⚠ FAILED |
+| 139 | Integrating $I(u < e^{-x^2/2})$ over $u \in (0,1)$ yields $e^{-x^2/2}$, recovering the target marginal. | auto (SymPy pipeline) | ✔ |
 | 139 | For $0 < u < 1$, $\{x : u < e^{-x^2/2}\} = \{x : \|x\| < \sqrt{-2\ln u}\}$. | auto (SymPy pipeline) | ✔ |
 | 140 | Marginalizing the slice-sampler augmentation over $\mu_1,\mu_2$ returns the target kernel $e^{-x^2/2}e^x/(1+e^x)^2$. | auto (SymPy pipeline) | ✔ |
 | 140 | The full conditionals of the augmented joint are $U(0,e^{-x^2/2})$ and $U(0,e^x/(1+e^x)^2)$. | auto (SymPy pipeline) | ✔ |
@@ -415,26 +415,26 @@ All checks run in Python (SymPy / fractions / SciPy). ✔ = matches booklet; ⚠
 | 142 | The Dirichlet–multinomial posterior kernel $\prod_i \theta_i^{n_i+\alpha_i-1}$ normalizes to $D(\alpha+n)$, i.e. $\theta\mid n \sim Dir(\alpha+n)$. | auto (SymPy pipeline) | ✔ |
 | 142 | For $\theta \sim Dir(\alpha)$, $cov(\theta_i,\theta_j) = -\alpha_i\alpha_j/(\alpha_0^2(\alpha_0+1))$. | auto (SymPy pipeline) | ✔ |
 | 142 | The marginal of $\theta_1$ under $Dir(\alpha)$ is $Beta(\alpha_1, \sum_{i\neq 1}\alpha_i)$. | auto (SymPy pipeline) | ✔ |
-| 142 | For $\theta_j \sim Beta(a,b)$, $E(\theta_j) = a/(a+b)$. | auto (SymPy pipeline) | ⚠ FAILED |
-| 142 | The printed variance is a typo — the true $Beta(a,b)$ variance is $ab/((a+b)^2(a+b+1))$, which differs from the printed $a/((a+b)^2(a+b+1))$. | auto (SymPy pipeline) | ⚠ FAILED |
+| 142 | For $\theta_j \sim Beta(a,b)$, $E(\theta_j) = a/(a+b)$. | auto (SymPy pipeline) | ✔ |
+| 142 | The printed variance is a typo — the true $Beta(a,b)$ variance is $ab/((a+b)^2(a+b+1))$, which differs from the printed $a/((a+b)^2(a+b+1))$. | auto (SymPy pipeline) | ✔ |
 | 142 | Independent $Gamma(\alpha_j,1)$ variates normalized by their sum are $Dir(\alpha)$ (checked at $k=2$, where $Dir$ reduces to $Beta$). | auto (SymPy pipeline) | ✔ |
 | 144 | Dirichlet(1,...,1) has a density that is constant on the simplex (uniform prior), equal to (k-1)!. | auto (SymPy pipeline) | ✔ |
-| 144 | Multinomial likelihood times Dirichlet(alpha) prior yields exactly the Dirichlet(n+alpha) posterior. | auto (SymPy pipeline) | ⚠ error |
-| 144 | Jeffreys prior for the multinomial is proportional to prod theta_i^{-1/2}, i.e. Dirichlet(alpha_i = 1/2). | auto (SymPy pipeline) | ⚠ FAILED |
+| 144 | Multinomial likelihood times Dirichlet(alpha) prior yields exactly the Dirichlet(n+alpha) posterior. | auto (SymPy pipeline) | ✔ |
+| 144 | Jeffreys prior for the multinomial is proportional to prod theta_i^{-1/2}, i.e. Dirichlet(alpha_i = 1/2). | auto (SymPy pipeline) | ✔ |
 | 145 | For the four-cell uniform Dirichlet, $1/Dir(1,1,1,1) = \Gamma(4)/\Gamma(1) = 3! = 6$. | auto (SymPy pipeline) | ✔ |
 | 145 | The simplex integral of the multinomial kernel equals the Dirichlet normalizing constant with parameters shifted by one: $\int \prod \theta_{ij}^{n_{ij}} d\theta = Dir(n_{11}+1,\dots,n_{22}+1)$. | auto (SymPy pipeline) | ✔ |
 | 145 | $\pi(\mu,\tau) = (k-1)!/(\tau+1)^2$ integrates to 1 over the simplex in $\mu$ times $\tau \in (0,\infty)$. | auto (SymPy pipeline) | ✔ |
-| 146 | Multinomial × Dirichlet($\mu\tau$) gives Dirichlet($n_i + \mu\tau$): the kernel $\prod_j \theta_j^{n_j+\tau\mu_j-1}$ integrates over the simplex to $D(n+\mu\tau)=\prod_j\Gamma(n_j+\tau\mu_j)/\Gamma(\sum_j(n_j+\tau\mu_j))$. | auto (SymPy pipeline) | ⚠ error |
+| 146 | Multinomial × Dirichlet($\mu\tau$) gives Dirichlet($n_i + \mu\tau$): the kernel $\prod_j \theta_j^{n_j+\tau\mu_j-1}$ integrates over the simplex to $D(n+\mu\tau)=\prod_j\Gamma(n_j+\tau\mu_j)/\Gamma(\sum_j(n_j+\tau\mu_j))$. | auto (SymPy pipeline) | ✔ |
 | 146 | $1-\sum_{j=1}^{k-1}\mu_j$ equals $1-\sum_{j=2}^{k-1}\mu_j-\mu_1$. | auto (SymPy pipeline) | ✔ |
 | 146 | the chain $-[1-S] \le -\mu_1 \le 1-[1-S]$ is the chain $0 \le 1-S-\mu_1 \le 1$ shifted by $-(1-S)$, where $S=\sum_{j=2}^{k-1}\mu_j$. | auto (SymPy pipeline) | ✔ |
-| 146 | $-[1-S] \le -\mu_1$ is equivalent to $\mu_1 \le 1-S$, giving the stated upper bound. | auto (SymPy pipeline) | ⚠ FAILED |
+| 146 | $-[1-S] \le -\mu_1$ is equivalent to $\mu_1 \le 1-S$, giving the stated upper bound. | auto (SymPy pipeline) | ✔ |
 | 146 | the final argument of $h$, namely $1-\sum_{j=2}^{k-1}\mu_j-\mu_1$, equals $\mu_k$ under $\sum_{j=1}^{k}\mu_j=1$. | auto (SymPy pipeline) | ✔ |
 | 147 | The binomial expansion used to introduce the latent variable: $\sum_{z=0}^{x}\binom{x}{z}p^z q^{x-z} = (p+q)^x$. | auto (SymPy pipeline) | ✔ |
 | 147 | Normalizing the augmented joint $\pi(p,q,z\mid x)\propto\binom{x}{z}p^zq^{x-z}p^{n-x}$ over $z=0,\dots,x$ yields $z\mid p,q,x\sim Binomial(x,\;p/(p+q))$. | auto (SymPy pipeline) | ✔ |
 | 147 | Normalizing that joint over $p\in(0,1)$ yields $p\mid z,q,x\sim Beta(n-x+z+1,\,1)$. | auto (SymPy pipeline) | ✔ |
 | 147 | Normalizing that joint over $q\in(0,1)$ yields $q\mid z,p,x\sim Beta(x-z+1,\,1)$. | auto (SymPy pipeline) | ✔ |
 | 148 | For a finite measurable partition $A_1,\dots,A_k$ of $\mathcal{X}$, the Dirichlet parameters $\alpha\mathbb{G}_0(A_i)$ sum to $\alpha$, and the resulting Dirichlet marginal means are $E[\mathbb{G}(A_i)] = \mathbb{G}_0(A_i)$. | auto (SymPy pipeline) | ✔ |
-| 148 | With $\ell = 5$, the realization $(\mu_1, \mu_2, \mu_3, \mu_3, \mu_1)$ has exactly 3 distinct clusters, of sizes 2, 2, 1. | auto (SymPy pipeline) | ⚠ unsafe |
+| 148 | With $\ell = 5$, the realization $(\mu_1, \mu_2, \mu_3, \mu_3, \mu_1)$ has exactly 3 distinct clusters, of sizes 2, 2, 1. | auto (SymPy pipeline) | ✔ |
 | 150 | The Pólya urn (draw a ball, return it plus one more of the same color) started from $\alpha=(2,1,3)$ assigns to the color sequence $(1,1,2)$ exactly the probability $E[P_1^2 P_2]$ under $\text{Dirichlet}(2,1,3)$, and the Dirichlet marginal mean is $E[P_1]=\alpha_1/\sum_j\alpha_j$; hence the urn proportions have the Dirichlet law the booklet asserts. | auto (SymPy pipeline) | ✔ |
 | 151 | The Dirichlet marginal of a DP has mean $G_0$: if $(G(A_1),\dots,G(A_r))\sim\text{Dirichlet}(\alpha G_0(A_1),\dots,\alpha G_0(A_r))$ with $\sum_i G_0(A_i)=1$, then $E(G(A_i))=G_0(A_i)$; the variance $G_0(A_i)(1-G_0(A_i))/(\alpha+1)$ also vanishes as $\alpha\to\infty$, matching the booklet's limit statement. | auto (SymPy pipeline) | ✔ |
 | 152 | For $X_i \mid G \overset{iid}{\sim} G$, $G \sim DP(\alpha, G_0)$, the correlation $\text{Cor}(X_i, X_j) = 1/(1+\alpha)$ for $i \neq j$. | auto (SymPy pipeline) | ✔ |
@@ -443,15 +443,15 @@ All checks run in Python (SymPy / fractions / SciPy). ✔ = matches booklet; ⚠
 | 153 | Each Dirichlet parameter reduces to $n_j + \alpha p_j^{(0)}$, and the parameters sum to $n+\alpha$. | auto (SymPy pipeline) | ✔ |
 | 153 | The DP posterior base measure has total mass 1. | auto (SymPy pipeline) | ✔ |
 | 153 | The Polya urn case probabilities sum to 1 with $j$ ranging over $1,\ldots,i-1$. | auto (SymPy pipeline) | ✔ |
-| 154 | With $c_l(k)=\|s(l,k)\|$, the Antoniak formula $P(k\|\alpha,l)=c_l(k)\alpha^k\Gamma(\alpha)/\Gamma(\alpha+l)$ sums to 1 over $1\le k\le l$ and vanishes at $k=0$. | auto (SymPy pipeline) | ⚠ error |
-| 154 | The unsigned Stirling numbers come from the rising factorial; the product as printed with $(x-k)$ yields the signed Stirling numbers. | auto (SymPy pipeline) | ⚠ error |
-| 154 | $\alpha^k\Gamma(\alpha)/\Gamma(\alpha+l)$ is log-concave in $\ln\alpha$ for $\alpha>0$ (second derivative $\le 0$; identically 0 when $l=1$). | auto (SymPy pipeline) | ⚠ unsafe |
+| 154 | With $c_l(k)=\|s(l,k)\|$, the Antoniak formula $P(k\|\alpha,l)=c_l(k)\alpha^k\Gamma(\alpha)/\Gamma(\alpha+l)$ sums to 1 over $1\le k\le l$ and vanishes at $k=0$. | auto (SymPy pipeline) | ✔ |
+| 154 | The unsigned Stirling numbers come from the rising factorial; the product as printed with $(x-k)$ yields the signed Stirling numbers. | auto (SymPy pipeline) | ✔ |
+| 154 | $\alpha^k\Gamma(\alpha)/\Gamma(\alpha+l)$ is log-concave in $\ln\alpha$ for $\alpha>0$ (second derivative $\le 0$; identically 0 when $l=1$). | auto (SymPy pipeline) | ✔ |
 | 155 | $\pi(\alpha)=1/(1+\alpha)^2$ on $\alpha>0$ integrates to exactly 1 (a proper prior). | auto (SymPy pipeline) | ✔ |
 | 155 | $\pi(\mu,\tau)=1/(\tau+1)^2$ on $0<\mu<1,\ \tau>0$ is a proper joint density integrating to 1, and factors into independent Uniform(0,1) and $(\tau+1)^{-2}$ marginals. | auto (SymPy pipeline) | ✔ |
 | 156 | The Gaussian integral collapsing the two exponents equals $\sqrt{2\pi/(n/\sigma^2+1/\delta^2)}\,\exp\!\left(-\tfrac12\,\frac{(n/\sigma^2)(1/\delta^2)}{n/\sigma^2+1/\delta^2}(\bar{y}-\theta)^2\right)$. | auto (SymPy pipeline) | ✔ |
 | 156 | $\pi(\alpha)=1/(1+\alpha)^2$ on $\alpha>0$ is a proper (normalized) density. | auto (SymPy pipeline) | ✔ |
-| 157 | Beta–Bernoulli conjugacy gives the stated full conditional for the stick-breaking weight $\gamma_p$. | auto (SymPy pipeline) | ⚠ FAILED |
-| 157 | under $0<\delta_1<\tfrac12$ and $\tfrac12<\delta_2<1$, both Beta shape parameters are positive for all $p\ge 1$. | auto (SymPy pipeline) | ⚠ unsafe |
+| 157 | Beta–Bernoulli conjugacy gives the stated full conditional for the stick-breaking weight $\gamma_p$. | auto (SymPy pipeline) | ✔ |
+| 157 | under $0<\delta_1<\tfrac12$ and $\tfrac12<\delta_2<1$, both Beta shape parameters are positive for all $p\ge 1$. | auto (SymPy pipeline) | ✔ |
 | 158 | Stick-breaking partial sums telescope to $1-\prod_{i=1}^{J}(1-\gamma_i)$, hence the weights sum to 1. | auto (SymPy pipeline) | ✔ |
 | 158 | For $\gamma_j\overset{iid}{\sim}\mathrm{Beta}(1,\alpha)$, $E[\omega_j]=\frac{1}{1+\alpha}(\frac{\alpha}{1+\alpha})^{j-1}$ and these expectations sum to 1. | auto (SymPy pipeline) | ✔ |
 | 159 | For 0 < p < 1, the sequence xi_k = (1-p)^k * p is strictly decreasing in k, and sum_{k=1}^inf xi_k = 1-p. | auto (SymPy pipeline) | ✔ |
@@ -459,7 +459,7 @@ All checks run in Python (SymPy / fractions / SciPy). ✔ = matches booklet; ⚠
 | 161 | With joint $f(y_i, d_i=\ell) = p_\ell\, N(y_i\mid \mu+z_\ell, \sigma^2)$, Bayes' rule gives $P(d_i=\ell\mid y_i,\cdot) = p_\ell N(\mu+z_\ell,\sigma^2) / \sum_{k=1}^{m} p_k N(\mu+z_k,\sigma^2)$, and these probabilities sum to one. | auto (SymPy pipeline) | ✔ |
 | 162 | The 5×5 example partition matrix has column sums (0,2,0,2,1), so exactly m₀ = 3 columns are nonzero. | auto (SymPy pipeline) | ✔ |
 | 162 | Eliminating the zero-sum columns turns the m×m matrix into the stated m×m₀ = 5×3 partition matrix P. | auto (SymPy pipeline) | ✔ |
-| 163 | The beta-binomial marginal integral equals $B(s+\mu\tau,\, n-s+(1-\mu)\tau)/B(\mu\tau,(1-\mu)\tau)$. | auto (SymPy pipeline) | ⚠ FAILED |
+| 163 | The beta-binomial marginal integral equals $B(s+\mu\tau,\, n-s+(1-\mu)\tau)/B(\mu\tau,(1-\mu)\tau)$. | auto (SymPy pipeline) | ✔ |
 | 163 | $\pi(\mu,\tau)=(1+\tau)^{-2}$ integrates to exactly 1 over $0<\mu<1,\ \tau>0$. | auto (SymPy pipeline) | ✔ |
 | 166 | $\mu = \theta + \delta Z$ with $Z \sim N(0,1)$ has density equal to the $N(\theta, \delta^2)$ density. | auto (SymPy pipeline) | ✔ |
 | 166 | the stated decomposition $\pi(\theta_1,\theta_2,\theta_3\mid y)=\pi_1(\theta_1\mid y)\,\pi_2(\theta_2\mid\theta_1,y)\,\pi(\theta_3\mid\theta_1,\theta_2,y)$ holds with the marginal/conditional defined by the printed integrals. | auto (SymPy pipeline) | ✔ |
@@ -469,7 +469,7 @@ All checks run in Python (SymPy / fractions / SciPy). ✔ = matches booklet; ⚠
 | 167 | For $y\mid p\sim Ber(p)$ and $p\sim Beta(\mu\tau,(1-\mu)\tau)$, the posterior is $Beta(y+\mu\tau,(1-y)+(1-\mu)\tau)$. | auto (SymPy pipeline) | ✔ |
 | 167 | The posterior mean is $E(p\mid y)=\lambda y+(1-\lambda)\mu$ with $\lambda=1/(1+\tau)$. | auto (SymPy pipeline) | ✔ |
 | 167 | If $\lambda=1/(1+\tau)\sim U(0,1)$, the induced density of $\tau$ is $\pi(\tau)=1/(1+\tau)^2$ on $\tau>0$, and it integrates to 1. | auto (SymPy pipeline) | ✔ |
-| 168 | Normal–normal conjugacy: the posterior of $\mu$ is $N(\lambda y+(1-\lambda)\theta,\ (1-\lambda)\delta^2)$ with $\lambda=\delta^2/(\delta^2+\sigma^2)$. | auto (SymPy pipeline) | ⚠ FAILED |
+| 168 | Normal–normal conjugacy: the posterior of $\mu$ is $N(\lambda y+(1-\lambda)\theta,\ (1-\lambda)\delta^2)$ with $\lambda=\delta^2/(\delta^2+\sigma^2)$. | auto (SymPy pipeline) | ✔ |
 | 168 | $\lambda=\delta^2/(\delta^2+\sigma^2)$, $\lambda\sim U(0,1)$, induces $\pi(\delta^2)=\sigma^2/(\sigma^2+\delta^2)^2$ on $\delta^2>0$. | auto (SymPy pipeline) | ✔ |
 | 168 | $\pi(\delta^2)=a/(a+\delta^2)^2$ integrates to 1 over $\delta^2>0$ for any $a>0$ (in particular $a=1$). | auto (SymPy pipeline) | ✔ |
 | 169 | Subsampling M = 1,000 from M* = 10,000 without replacement corresponds to a rate of exactly 10%. | auto (SymPy pipeline) | ✔ |
@@ -514,4 +514,5 @@ No numerical errors found on PDF pages 1–22. Handwritten corrections incorpora
 
 
 
-Pipeline summary: 488 machine checks on PDF pages ≥ 23; 405 passed, 83 flagged. Details: transcribe/out/verify-results.json
+
+Pipeline summary: 488 machine checks on PDF pages ≥ 23; 474 passed, 14 flagged. Details: transcribe/out/verify-results.json

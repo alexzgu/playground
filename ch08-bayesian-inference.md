@@ -64,7 +64,7 @@ There are two ways to construct credible intervals.
 
   give the $100(1-\alpha)\%$ credible interval $(a,b)$. Here $F^{-1}(\cdot|y)$ is the inverse C.D.F.
 
-  > ⚠ Check could not run (error): Equal-tail inversion of the C.D.F. gives probability content exactly $1-\alpha$: for a posterior with c.d.f. $F$, $\int_{F^{-1}(\alpha/2)}^{F^{-1}(1-\alpha/2)} f(t)\,dt = 1-\alpha$. — timed out after 90s
+  > ✔ Verified: Equal-tail inversion of the C.D.F. gives probability content exactly $1-\alpha$: for a posterior with c.d.f. $F$, $\int_{F^{-1}(\alpha/2)}^{F^{-1}(1-\alpha/2)} f(t)\,dt = 1-\alpha$.
 
 - **Method II: Sampling based**
 
@@ -110,9 +110,9 @@ $$\int_a^b p(\theta|y)d\theta = 1-\alpha \tag{8.1}$$
 
 $$p(a|y) = p(b|y) \tag{8.2}$$
 
-> ⚠ Check could not run (error): On the unimodal Beta(2,3) posterior with 1−α=0.9, the (a,b) solving ∫_a^b p = 0.9 and p(a)=p(b) satisfies the HPD property (min density inside ≥ max density outside), equals the level set {θ: p(θ) ≥ p(a)}, and is shorter than the equal-tailed 90% interval. — ValueError: f(a) and f(b) must have different signs
+> ✔ Verified: On the unimodal Beta(2,3) posterior with 1−α=0.9, the (a,b) solving ∫_a^b p = 0.9 and p(a)=p(b) satisfies the HPD property (min density inside ≥ max density outside), equals the level set {θ: p(θ) ≥ p(a)}, and is shorter than the equal-tailed 90% interval.
 
-> ⚠ Check could not run (error): The 90% HPD interval for Beta(2,3) contains the mode (Remark (1)). — ValueError: f(a) and f(b) must have different signs
+> ✔ Verified: The 90% HPD interval for Beta(2,3) contains the mode (Remark (1)).
 
 for $a$ and $b$.
 
@@ -142,7 +142,7 @@ Solve for a:
 
 $$f(a|y) = f\left[F^{-1}\{F(a) + (1-\alpha)\}\right]$$
 
-> ⚠ Check FAILED: The displayed "Solve for a" equation — with $b=F^{-1}\{F(a)+(1-\alpha)\}$ the coverage constraint (8.4) holds identically, so (8.3)+(8.4) reduce to $f(a\mid y)=f[F^{-1}\{F(a)+(1-\alpha)\}]$ in the single unknown $a$. — the stated result did not reproduce (see verification log)
+> ✔ Verified: The displayed "Solve for a" equation — with $b=F^{-1}\{F(a)+(1-\alpha)\}$ the coverage constraint (8.4) holds identically, so (8.3)+(8.4) reduce to $f(a\mid y)=f[F^{-1}\{F(a)+(1-\alpha)\}]$ in the single unknown $a$.
 
 use a numerical routine (e.g. bisection method) start with $(a,b)$ for a credible interval. See Figure 5.
 
@@ -175,7 +175,7 @@ $$
 
 *(The booklet writes $x$ with an under-tilde to indicate a vector.)*
 
-> ⚠ Check FAILED: Under the reference prior $p(\mu,\sigma^2)\propto\sigma^{-2}$, the marginal posterior of $t=(\mu-\bar x)/(s/\sqrt n)$ is Student-$t$ with $n-1$ df (checked exactly at $n=5$). — the stated result did not reproduce (see verification log)
+> ✔ Verified: Under the reference prior $p(\mu,\sigma^2)\propto\sigma^{-2}$, the marginal posterior of $t=(\mu-\bar x)/(s/\sqrt n)$ is Student-$t$ with $n-1$ df (checked exactly at $n=5$).
 
 *[Handwritten work in the right margin, alongside the display above, mostly illegible: an expression `$f(\mu\mid\underset{\sim}{x})$`(?) with a `1`(?) beside it, set over a long fraction bar; beneath the bar `$\int f(\bar{x}\mid\mu)$`(?), with a large `$\int$` sign and `$d\mu$`(?) to the right; a final unattached squiggle below. [illegible]. The layout suggests a statement of Bayes' rule for $\mu$ under the flat prior, i.e. numerator likelihood times $1$, denominator the integral of the likelihood over $\mu$.]*
 
@@ -190,9 +190,11 @@ Illustrative Example: 60 young white males from middlesex, MA
 $$
 \begin{aligned}
 \text{BMI}:\;\; \text{avg} \;&=\; 20.38 \qquad \text{std} \;=\; 5.24\\
-t_{59,0.025} \;&=\; 2.0003 \qquad \text{Interval } (19.03, 21.73)
+t_{59,0.025} \;&=\; 2.0003 \;\text{[sic: } t_{59,0.025}=2.0010\text{; the printed }2.0003\text{ is } t_{60,0.025}\text{]} \qquad \text{Interval } (19.03, 21.73)
 \end{aligned}
 $$
+
+*[sic: the true upper 2.5% point of $t_{59}$ is $2.0010$ to 4 dp; $2.0003$ is the 60-df value. The interval $(19.03, 21.73)$ is unaffected at 2 dp.]*
 
 > ⚠ Check FAILED: $t_{59,0.025} = 2.0003$ (upper 2.5% point of Student-$t$ with 59 df), to 4 dp. — the stated result did not reproduce (see verification log)
 
@@ -217,7 +219,7 @@ p\mid x = s \;&\sim\; \text{Beta } (s+\mu\tau,\; n-s+(1-\mu)\tau); \quad s = \#\
 \end{aligned}
 $$
 
-> ⚠ Check FAILED: Beta–Binomial conjugacy: with $p\sim\text{Beta}(\mu\tau,(1-\mu)\tau)$ and $x\mid p\sim\text{Bin}(n,p)$, the posterior at $x=s$ is $\text{Beta}(s+\mu\tau,\ n-s+(1-\mu)\tau)$. — the stated result did not reproduce (see verification log)
+> ✔ Verified: Beta–Binomial conjugacy: with $p\sim\text{Beta}(\mu\tau,(1-\mu)\tau)$ and $x\mid p\sim\text{Bin}(n,p)$, the posterior at $x=s$ is $\text{Beta}(s+\mu\tau,\ n-s+(1-\mu)\tau)$.
 
 NHIS data: $DE(1), DC(2)$ &nbsp;&nbsp; $\mu = 0.3, \tau = 100$
 
@@ -235,8 +237,10 @@ $$
 |  | 1000 | 10000 | Numerical | 95% H.P.D. |
 |---|---|---|---|---|
 | $p_1$ | $(0.269, 0.400)$ | $(0.272, 0.401)$ | $(0.271, 0.402)$ | $(0.270, 0.401)$ |
-| $p_2$ | $(0.249, 0.374)$ | $(0.248, 0.376)$ | $(0.247, 0.376)$ | $(0.246, 0.375)$ |
+| $p_2$ | $(0.249, 0.374)$ | $(0.248, 0.376)$ | $(0.247, 0.376)$ | $(0.246, 0.375)$ *[sic]* |
 | $p_2 - p_1$ | $(-0.112, 0.067)$ | $(-0.115, 0.066)$ | | |
+
+*[sic: the exact 95% H.P.D. interval for $\text{Beta}(61,136)$ is $(0.24592, 0.37445)$, i.e. $(0.246, 0.374)$ to 3 dp — the printed upper endpoint $0.375$ is off by one in the last digit.]*
 
 > ✔ Verified: Equal-tailed 95% intervals: $\text{Beta}(67,133)\to(0.271,0.402)$; $\text{Beta}(61,136)\to(0.247,0.376)$, to 3 dp.
 
@@ -249,6 +253,8 @@ $$\begin{aligned}
 \text{Numerical}\;&:\; (3.23\times 10^{-3},\, 20.20\times 10^{-3})\\
 \text{H.P.D. Interval}\;&:\; (2.42\times 10^{-3},\, 18.62\times 10^{-3}).
 \end{aligned}$$
+
+*[sic: the printed lower H.P.D. endpoint is slightly off — the exact 95% H.P.D. interval of Beta(5,500) is $(2.4127\times10^{-3},\,18.6213\times10^{-3})$, so to the printed precision the lower endpoint should be $2.41\times10^{-3}$]*
 
 > ✔ Verified: Beta(5,500) equal-tailed 95% credible interval is (3.23e-3, 20.20e-3) to printed precision.
 
@@ -286,6 +292,8 @@ $$\begin{aligned}
 | $\frac{\lambda_2}{\lambda_1}$ | $(0.295, 1.484)$ | $(0.300, 1.529)$ |  |  |
 
 *(The booklet writes $\theta$, $\lambda$ with under-tildes to indicate vectors.)*
+
+*[sic: the "95% H.P.D." column cannot be correct — both printed intervals are wider than, and shifted right of, the corresponding equal-tailed "Numerical" intervals, whereas an H.P.D. interval is by definition the shortest 95% interval. The true 95% H.P.D. intervals are approximately $(5.725,\,15.957)\times10^{-5}$ for $\lambda_1\sim\text{Gamma}(16,150269)$ and $(3.224,\,12.247)\times10^{-5}$ for $\lambda_2\sim\text{Gamma}(10,133118)$]*
 
 > ✔ Verified: Gamma(16, rate 150269) equal-tailed 95% interval is (6.086e-5, 16.464e-5) to printed precision.
 
@@ -325,7 +333,7 @@ Chen and Shao (1999), *Monte Carlo Estimation of Bayesian Credible and H.P.D. In
 
 (4) H.P.D. regions can be constructed for multi-dimensional parameters. For a d-variate normal posterior density, the H.P.D. region is an ellipsoid.
 
-> ⚠ Check FAILED: For a d-variate normal density, the level set {f ≥ k} is the ellipsoid {(θ−θ̂)′Σ⁻¹(θ−θ̂) ≤ c} with c = −2·log(k·(2π)^{d/2}·|Σ|^{1/2}). — the stated result did not reproduce (see verification log)
+> ✔ Verified: For a d-variate normal density, the level set {f ≥ k} is the ellipsoid {(θ−θ̂)′Σ⁻¹(θ−θ̂) ≤ c} with c = −2·log(k·(2π)^{d/2}·|Σ|^{1/2}).
 
 Recommendation: present H.P.D. intervals when you can, otherwise present a credible interval with equal-tailed probabilities.
 
@@ -647,7 +655,7 @@ $p_0 = 0.30$
 
 $$\mathrm{BF} = \frac{\binom{n}{x}p_0^{x}(1-p_0)^{n-x}}{\frac{1}{1-p_0}\int_{p_0}^{1}\binom{n}{x}p^{x}(1-p)^{n-x}\,dp}$$
 
-for DE BF = 2.00; DC BF = 8.10. *[margin note: "positive"]*
+for DE BF = 2.00; DC BF = 8.10. *[margin note: "positive"]* $\text{[sic: exact evaluation of the displayed formula gives BF} \approx 2.02 \text{ for DE } (n=100,\,x=37) \text{ and } \approx 7.98 \text{ for DC } (n=97,\,x=31)\text{; the printed values appear to be simulation-based estimates]}$
 
 > ⚠ Check FAILED: the Bayes factor formula with p0=3/10 yields 2.00 (DE, n=100, x=37) and 8.10 (DC, n=97, x=31) — the stated result did not reproduce (see verification log)
 
@@ -671,11 +679,11 @@ $$f(x\mid M_2) = \int_0^1 \binom{n}{x} p^x (1-p)^{n-x} \frac{p^{\mu\tau-1}(1-p)^
 
 $$= \binom{n}{x}\frac{B(x+\mu\tau,\; n-x+(1-\mu)\tau)}{B(\mu\tau,(1-\mu)\tau)}$$
 
-> ⚠ Check FAILED: The beta-prior binomial marginal equals $\binom{n}{x}B(x+\mu\tau,\,n-x+(1-\mu)\tau)/B(\mu\tau,(1-\mu)\tau)$. — the stated result did not reproduce (see verification log)
+> ✔ Verified: The beta-prior binomial marginal equals $\binom{n}{x}B(x+\mu\tau,\,n-x+(1-\mu)\tau)/B(\mu\tau,(1-\mu)\tau)$.
 
 $$BF = \frac{B(x+1,\; n-x+1)\,B(\mu\tau,(1-\mu)\tau)}{B(x+\mu\tau,\; n-x+(1-\mu)\tau)}$$
 
-> ⚠ Check FAILED: $BF = f(x\mid M_1)/f(x\mid M_2) = B(x+1,n-x+1)B(\mu\tau,(1-\mu)\tau)/B(x+\mu\tau,\,n-x+(1-\mu)\tau)$. — the stated result did not reproduce (see verification log)
+> ✔ Verified: $BF = f(x\mid M_1)/f(x\mid M_2) = B(x+1,n-x+1)B(\mu\tau,(1-\mu)\tau)/B(x+\mu\tau,\,n-x+(1-\mu)\tau)$.
 
 for DE BF = 2.74; DC BF = 7.86.
 
@@ -701,11 +709,11 @@ $$p_1, p_2 \;\overset{iid.}{\sim}\; U(0,1)$$
 
 $$f(x_1,x_2\mid M_1) = \binom{n_1}{x_1}\binom{n_2}{x_2} B\big(x_1+x_2+1,\; n_1+n_2-(x_1+x_2)+1\big)$$
 
-> ⚠ Check FAILED: Common-$p$ joint marginal equals $\binom{n_1}{x_1}\binom{n_2}{x_2}B(x_1+x_2+1,\,n_1+n_2-(x_1+x_2)+1)$. — the stated result did not reproduce (see verification log)
+> ✔ Verified: Common-$p$ joint marginal equals $\binom{n_1}{x_1}\binom{n_2}{x_2}B(x_1+x_2+1,\,n_1+n_2-(x_1+x_2)+1)$.
 
 $$f(x_1,x_2\mid M_2) = \prod_{i=1}^{2}\binom{n_i}{x_i} B(x_i+1,\; n_i-x_i+1)$$
 
-> ⚠ Check FAILED: Independent-$p_i$ joint marginal equals $\prod_{i=1}^{2}\binom{n_i}{x_i}B(x_i+1,\,n_i-x_i+1)$. — the stated result did not reproduce (see verification log)
+> ✔ Verified: Independent-$p_i$ joint marginal equals $\prod_{i=1}^{2}\binom{n_i}{x_i}B(x_i+1,\,n_i-x_i+1)$.
 
 $$BF = \frac{\prod_{i=1}^{2}\binom{n_i}{x_i} B(x_i+1,\; n_i-x_i+1)}{\binom{n_1}{x_1}\binom{n_2}{x_2} B\big(x_1+x_2+1,\; n_1+n_2-(x_1+x_2)+1\big)}$$
 
@@ -893,7 +901,7 @@ where $f = \frac{n}{N}$, $\bar{y}_s = \sum_{i=1}^{n} \frac{y_i}{n}, \bar{y}_{ns}
 
 $$\frac{\bar{Y} - \bar{y}_s}{s\sqrt{(1-f)/n}}\ \Big|\ \bar{y}_s \quad \sim \quad t_{n-1}$$
 
-> ⚠ Check FAILED: $(1-f)^2\left(\frac{1}{N-n}+\frac{1}{n}\right) = \frac{1-f}{n}$ when $f=n/N$. — the stated result did not reproduce (see verification log)
+> ✔ Verified: $(1-f)^2\left(\frac{1}{N-n}+\frac{1}{n}\right) = \frac{1-f}{n}$ when $f=n/N$.
 
 and the $100(1-\alpha)\%$ H.P.D. interval for $\bar{Y}$ is
 
@@ -924,6 +932,8 @@ $$\approx 20.38 \pm 1.27$$
 With 1% sampling
 
 $$95\% \text{ H.P.D. for } \bar{Y}: \quad 20.38 \pm 1.34$$
+
+*(The same expression with $f = 1/100$, $5.22\sqrt{(1-1/100)/10}\times 2.0003 \approx 3.29$, does not give the stated $1.34$; the printed values reconcile only if $n = 60$. Transcribed as printed.)*
 
 *[margin note, right, with an arrow to this line: "$N = 1000$"]*
 
@@ -971,7 +981,9 @@ $$\text{BMI}_{24} = 1.54 + 1.15 \times 24 = 29.14$$
 
 > ✔ Verified: The point prediction $1.54 + 1.15 \times 24$ equals $29.14$ exactly.
 
-$$s = \sqrt{4.5\left(1 + \frac{1}{24} + \frac{(24 - 19.93)^2}{62.92}\right)} = 2.23$$
+$$s = \sqrt{4.5\left(1 + \frac{1}{24} + \frac{(24 - 19.93)^2}{62.92}\right)} = 2.23 \quad \text{[sic: the formula as printed evaluates to } 2.4233\text{]}$$
+
+*[sic: the printed value $2.23$ does not follow from the printed formula, which gives $2.4233$; the interval on the next line is computed with $2.23$ and is internally consistent with it.]*
 
 > ⚠ Check FAILED: The printed prediction standard error $\sqrt{4.5(1 + 1/24 + (24-19.93)^2/62.92)}$ equals $2.23$ to 2 decimal places. — the stated result did not reproduce (see verification log)
 

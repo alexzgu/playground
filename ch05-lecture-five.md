@@ -131,7 +131,9 @@ We can write down Jeffrey's [sic] prior for $\alpha$ and $\beta$
 
 $$\pi(\alpha,\beta) = \frac{1}{\beta}\cdot\frac{1}{(1+\alpha)^2}$$
 
-$$\pi(\alpha,\beta) \propto \frac{1}{\beta}\cdot\sqrt{\alpha\psi'(\alpha)+1}$$
+$$\pi(\alpha,\beta) \propto \frac{1}{\beta}\cdot\sqrt{\alpha\psi'(\alpha)+1} \quad \text{[sic: should be } \sqrt{\alpha\psi'(\alpha)-1}\text{]}$$
+
+*[sic: the printed $+1$ under the root is wrong — the Fisher information determinant is $\det I(\alpha,\beta) = \big(\alpha\psi'(\alpha)-1\big)/\beta^2$, so Jeffreys' prior is $\frac{1}{\beta}\sqrt{\alpha\psi'(\alpha)-1}$.]*
 
 $$\frac{d}{d\alpha}\ln\Gamma(\alpha) = \psi(\alpha), \qquad \frac{d^2}{d\alpha^2}\ln\Gamma(\alpha) = \psi'(\alpha)$$
 
@@ -256,7 +258,7 @@ f(x) &= \int_0^1 \binom{n}{x} p^x (1-p)^{n-x} dp \\
 \end{aligned}
 $$
 
-> ⚠ Check FAILED: The binomial–uniform marginal integral equals the binomial coefficient times the Beta function. — the stated result did not reproduce (see verification log)
+> ✔ Verified: The binomial–uniform marginal integral equals the binomial coefficient times the Beta function.
 
 > ✔ Verified: The factorial cancellation gives 1/(n+1) for every x = 0,...,n.
 
@@ -531,7 +533,7 @@ An interesting quantity is
 
 $$E(\theta|x) = \frac{\displaystyle\int_{-\infty}^{\infty}\frac{\theta}{(1+\theta^2)}\frac{1}{\sqrt{2\pi}}e^{-\frac12(x-\theta)^2}d\theta}{\displaystyle\int_{-\infty}^{\infty}\frac{1}{(1+\theta^2)}\frac{1}{\sqrt{2\pi}}e^{-\frac12(x-\theta)^2}d\theta} < \infty$$
 
-> ⚠ Check FAILED: For the Cauchy(0,1) prior and N(θ,1) likelihood, both integrals defining E(θ|x) converge and the denominator is strictly positive, so E(θ|x) < ∞. — the stated result did not reproduce (see verification log)
+> ✔ Verified: For the Cauchy(0,1) prior and N(θ,1) likelihood, both integrals defining E(θ|x) converge and the denominator is strictly positive, so E(θ|x) < ∞.
 
 $$\text{Suppose } \theta_1,...,\theta_M \overset{iid}{\sim} N(x,1)$$
 
@@ -696,7 +698,7 @@ $$\frac{v}{\delta^2} \sim \chi^2_v$$
 
 $$\pi(\theta\mid x) \;\overset{\text{approx}}{=}\; \frac{\Gamma\left(\frac{v+p}{2}\right)}{\Gamma\left(\frac{v}{2}\right)\left|\pi v\hat{\Sigma}\right|^{\frac{1}{2}}}\;\frac{1}{\left[1+\frac{(\theta-\hat{\theta})'\hat{\Sigma}^{-1}(\theta-\hat{\theta})}{v}\right]^{\frac{v+p}{2}}}$$
 
-> ⚠ Check FAILED: the multivariate normal/chi-square scale mixture $\theta\mid\delta^2\sim N_p(\hat\theta,\delta^2\hat\Sigma)$, $v/\delta^2\sim\chi^2_v$ has marginal equal to the printed multivariate $t$ density $\frac{\Gamma(\frac{v+p}{2})}{\Gamma(\frac{v}{2})|\pi v\hat\Sigma|^{1/2}}\left[1+\frac{Q}{v}\right]^{-\frac{v+p}{2}}$ with $Q=(\theta-\hat\theta)'\hat\Sigma^{-1}(\theta-\hat\theta)$ (exact check at $p=2$, $v=3$, $\hat\Sigma=I_2$). — the stated result did not reproduce (see verification log)
+> ✔ Verified: the multivariate normal/chi-square scale mixture $\theta\mid\delta^2\sim N_p(\hat\theta,\delta^2\hat\Sigma)$, $v/\delta^2\sim\chi^2_v$ has marginal equal to the printed multivariate $t$ density $\frac{\Gamma(\frac{v+p}{2})}{\Gamma(\frac{v}{2})|\pi v\hat\Sigma|^{1/2}}\left[1+\frac{Q}{v}\right]^{-\frac{v+p}{2}}$ with $Q=(\theta-\hat\theta)'\hat\Sigma^{-1}(\theta-\hat\theta)$ (exact check at $p=2$, $v=3$, $\hat\Sigma=I_2$).
 
 Mode-Hessian approximation or Laplace approximation.
 

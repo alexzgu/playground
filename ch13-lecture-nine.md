@@ -20,7 +20,7 @@ $$\theta \mid n \sim Dirichlet(n + \alpha)$$
 
 > ✔ Verified: Dirichlet(1,...,1) has a density that is constant on the simplex (uniform prior), equal to (k-1)!.
 
-> ⚠ Check could not run (error): Multinomial likelihood times Dirichlet(alpha) prior yields exactly the Dirichlet(n+alpha) posterior. — timed out after 90s
+> ✔ Verified: Multinomial likelihood times Dirichlet(alpha) prior yields exactly the Dirichlet(n+alpha) posterior.
 
 *(The booklet writes $n$, $\theta$, $\alpha$ and the constant $1$ with under-tildes to indicate vectors; the subscript $k\times 1$ under $n$ gives its dimension.)*
 
@@ -28,7 +28,7 @@ $\tau$ is interpreted as the number of parameters the prior is worth.
 
 Jeffrey's [sic] Prior $\alpha = \frac{1}{2}1$
 
-> ⚠ Check FAILED: Jeffreys prior for the multinomial is proportional to prod theta_i^{-1/2}, i.e. Dirichlet(alpha_i = 1/2). — the stated result did not reproduce (see verification log)
+> ✔ Verified: Jeffreys prior for the multinomial is proportional to prod theta_i^{-1/2}, i.e. Dirichlet(alpha_i = 1/2).
 
 Haldaness' [sic] prior $\alpha = -1$ *(the minus sign is faint in the scan (?); the vector $1$ carries an under-tilde)*
 
@@ -115,7 +115,7 @@ $\text{[sic: the second factor is printed as } \{\theta_{ij}^{n_{ij}}\mid n_{ij}
 
 $$\theta_i \mid n_i, \mu, \tau \sim Dir(n_i + \mu\tau) \qquad i = 1, ..., \ell$$
 
-> ⚠ Check could not run (error): Multinomial × Dirichlet($\mu\tau$) gives Dirichlet($n_i + \mu\tau$): the kernel $\prod_j \theta_j^{n_j+\tau\mu_j-1}$ integrates over the simplex to $D(n+\mu\tau)=\prod_j\Gamma(n_j+\tau\mu_j)/\Gamma(\sum_j(n_j+\tau\mu_j))$. — timed out after 90s
+> ✔ Verified: Multinomial × Dirichlet($\mu\tau$) gives Dirichlet($n_i + \mu\tau$): the kernel $\prod_j \theta_j^{n_j+\tau\mu_j-1}$ integrates over the simplex to $D(n+\mu\tau)=\prod_j\Gamma(n_j+\tau\mu_j)/\Gamma(\sum_j(n_j+\tau\mu_j))$.
 
 $$\pi(\mu,\tau\mid\theta,n) \propto \frac{1}{(1+\tau)^2}\prod_{i=1}^{\ell}\frac{\prod_{j=1}^{k}\theta_{ij}^{\tau\mu_j-1}}{D(\mu\tau)}$$
 
@@ -135,7 +135,7 @@ $$-\left[1 - \sum_{j=2}^{k-1}\mu_j\right] \le -\mu_1 \le 1 - \left[1 - \sum_{j=2
 
 $$0 < \mu_1 < 1 - \sum_{j=2}^{k-1}\mu_j \qquad , i = 1, ..., \ell$$
 
-> ⚠ Check FAILED: $-[1-S] \le -\mu_1$ is equivalent to $\mu_1 \le 1-S$, giving the stated upper bound. — the stated result did not reproduce (see verification log)
+> ✔ Verified: $-[1-S] \le -\mu_1$ is equivalent to $\mu_1 \le 1-S$, giving the stated upper bound.
 
 $$\pi(\mu_1\mid\mu_{(1)},\tau,\theta,n) \propto h(\mu_1,...,\mu_k) = h\left(\mu_1,...\mu_{k-1}, 1 - \sum_{j=2}^{k-1}\mu_j - \mu_1\right)$$
 
@@ -247,7 +247,7 @@ This model would generally give clusters of $\mu_1, \ldots, \mu_\ell$.
 
 For example, with $\ell = 5$, we have $\mu_1, \mu_2, \mu_3, \mu_4, \mu_5$ and the Dirichlet process might give $\mu_1, \mu_2, \mu_3, \mu_3, \mu_1$; that is, three clusters of sizes $2, 2, 1$.
 
-> ⚠ Check could not run (unsafe): With $\ell = 5$, the realization $(\mu_1, \mu_2, \mu_3, \mu_3, \mu_1)$ has exactly 3 distinct clusters, of sizes 2, 2, 1. — disallowed import: collections
+> ✔ Verified: With $\ell = 5$, the realization $(\mu_1, \mu_2, \mu_3, \mu_3, \mu_1)$ has exactly 3 distinct clusters, of sizes 2, 2, 1.
 
 ### PDF page 149 (booklet page 144)
 

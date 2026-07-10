@@ -27,8 +27,8 @@ CHECK_TIMEOUT_S = 90
 
 IMPORT_WHITELIST = {"sympy", "numpy", "scipy", "math", "fractions", "mpmath",
                     "itertools", "functools", "statistics", "decimal", "collections"}
-BAD_CALLS = re.compile(r"__import__|open\s*\(|exec\s*\(|eval\s*\(|compile\s*\("
-                       r"|subprocess|socket|os\.system|os\.popen")
+BAD_CALLS = re.compile(r"__import__|(?<![\w.])open\s*\(|(?<![\w.])exec\s*\(|(?<![\w.])eval\s*\("
+                       r"|(?<![\w.])compile\s*\(|subprocess|socket|os\.system|os\.popen")
 
 CLAIM_RE = re.compile(r"^CLAIM (c\d+):\s*(.+?)\s*\n```python\n(.*?)```", re.M | re.S)
 

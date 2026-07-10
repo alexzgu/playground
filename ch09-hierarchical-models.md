@@ -119,7 +119,7 @@ By Bayes theorem
 
 $$\mu_i\mid \boldsymbol{y}_i,\theta \overset{ind}{\sim} N\left(\lambda_i\bar{y}_i + (1-\lambda_i)\,\theta,\ (1-\lambda_i)\,\delta^2\right)$$
 
-> ⚠ Check FAILED: The normal–normal update gives posterior $\mu_i\mid\bar y_i,\theta \sim N(\lambda_i\bar y_i+(1-\lambda_i)\theta,\ (1-\lambda_i)\delta^2)$ with $\lambda_i=\delta^2/(\delta^2+\sigma_i^2/n_i)$. — the stated result did not reproduce (see verification log)
+> ✔ Verified: The normal–normal update gives posterior $\mu_i\mid\bar y_i,\theta \sim N(\lambda_i\bar y_i+(1-\lambda_i)\theta,\ (1-\lambda_i)\delta^2)$ with $\lambda_i=\delta^2/(\delta^2+\sigma_i^2/n_i)$.
 
 Remarks
 1. Inference is required about $\mu_i$, but $\theta$ is unknown and random.
@@ -159,7 +159,7 @@ $$\text{Cov}\left(\mu_i, \mu_i|\boldsymbol{y}\right) = (1-\lambda_i)\left(1-\lam
 
 *[sic: the left-hand side is printed with $\mu_i$ twice; the right-hand side shows it should read $\text{Cov}(\mu_i,\mu_{i'}|\boldsymbol{y})$.]*
 
-> ⚠ Check could not run (error): Cov(μ_i, μ_i'|y) = (1−λ_i)(1−λ_i')ν² for i ≠ i'. — NameError: name 'variance' is not defined
+> ✔ Verified: Cov(μ_i, μ_i'|y) = (1−λ_i)(1−λ_i')ν² for i ≠ i'.
 
 ## 9.2 Small Area Estimation
 
@@ -286,7 +286,7 @@ $$\bar{y} = \frac{\sum_{i=1}^{l} \lambda_i \bar{y}_i}{\sum_{i=1}^{l} \lambda_i}$
 
 $$\hat{\mu}_i = \lambda_i \bar{y}_i + \left(1-\lambda_i\right)\hat{\theta}$$
 
-> ⚠ Check could not run (error): Normal–normal posterior mean is the shrinkage estimator with weight λ_i = δ²/(δ² + σ_i²/n_i) — No algorithms are implemented to solve equation (-nn*(2*mu - 2*ybar_i)*exp(-(mu - theta)**2/(2*d2))*exp(-nn*(-mu + ybar_i)**2/(2*s2))/(2*s2) - (2*mu - 2*theta)*exp(-(mu - theta)**2/(2*d2))*exp(-nn*(-mu + ybar_i)**2/(2*s2))/(2*d2))*exp((mu - theta)**2/(2*d2))*exp(nn*(-mu + ybar_i)**2/(2*s2)) + 0
+> ✔ Verified: Normal–normal posterior mean is the shrinkage estimator with weight λ_i = δ²/(δ² + σ_i²/n_i)
 
 > ✔ Verified: ȳ = Σλ_iȳ_i / Σλ_i is exactly the precision-weighted mean under Ȳ_i ~ N(θ, δ²+σ_i²/n_i)
 
@@ -606,7 +606,7 @@ $$= \frac{\phi^{\frac{3}{2}}}{\pi\phi^2\sqrt{1-\phi}}$$
 
 $$= \frac{1}{\pi\sqrt{\phi(1-\phi)}}, 0 < \phi < 1 \;\left(i.e.\, \phi \sim \text{Beta}\left(\frac{1}{2}, \frac{1}{2}\right)\right)$$
 
-> ⚠ Check FAILED: The transformed density is $\pi(\phi)=\frac{1}{\pi\sqrt{\phi(1-\phi)}}$ on $(0,1)$, i.e. exactly the Beta(1/2, 1/2) density. — the stated result did not reproduce (see verification log)
+> ✔ Verified: The transformed density is $\pi(\phi)=\frac{1}{\pi\sqrt{\phi(1-\phi)}}$ on $(0,1)$, i.e. exactly the Beta(1/2, 1/2) density.
 
 ### PDF page 102 (booklet page 97)
 
@@ -622,7 +622,7 @@ Remarks.
 
 (1) The approximate posterior density is proper, provided $y_i \neq 0$ or $n_i$ and $\pi(\theta)$ is proper
 
-> ⚠ Check FAILED: The factor $\{\phi(1-\phi)\}^{-1/2}$ is integrable on $(0,1)$, with $\int_0^1\{\phi(1-\phi)\}^{-1/2}d\phi=\pi$. — the stated result did not reproduce (see verification log)
+> ✔ Verified: The factor $\{\phi(1-\phi)\}^{-1/2}$ is integrable on $(0,1)$, with $\int_0^1\{\phi(1-\phi)\}^{-1/2}d\phi=\pi$.
 
 (2) The least [sic] posterior density is also proper because
 

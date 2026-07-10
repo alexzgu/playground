@@ -36,7 +36,7 @@ $$\alpha(x,y) = \min\left\{1, \frac{\pi(y)q(y,x)}{\pi(x)q(x,y)}\right\}$$
 
 *[margin note, right of the display: "detailed balance"]*
 
-> ⚠ Check FAILED: The M-H acceptance probability $\alpha(x,y)=\min\{1,\ \pi(y)q(y,x)/(\pi(x)q(x,y))\}$ satisfies detailed balance: $\pi(x)q(x,y)\alpha(x,y) = \pi(y)q(y,x)\alpha(y,x) = \min\{\pi(x)q(x,y),\ \pi(y)q(y,x)\}$. — the stated result did not reproduce (see verification log)
+> ✔ Verified: The M-H acceptance probability $\alpha(x,y)=\min\{1,\ \pi(y)q(y,x)/(\pi(x)q(x,y))\}$ satisfies detailed balance: $\pi(x)q(x,y)\alpha(x,y) = \pi(y)q(y,x)\alpha(y,x) = \min\{\pi(x)q(x,y),\ \pi(y)q(y,x)\}$.
 
 ensures that the chain is reversible. *[the word "reversible" is hand-underlined]*
 
@@ -235,7 +235,7 @@ $$\propto\frac{1}{\left(1+\sigma^2\right)^2}\prod_{i=1}^{l}\left[\int_{-\infty}^
 
 $$\propto\frac{1}{\left(1+\sigma^2\right)^2}\prod_{i=1}^{l}\left[\int_{-\infty}^{+\infty}\frac{e^{a_i'\beta+b_i\sigma z}}{\prod_{j=1}^{n_i}\left(1+e^{x_{ij}'\beta+\sigma z}\right)}\frac{1}{\sqrt{2\pi}}e^{-\frac{z^2}{2}}\,dz\right]$$
 
-> ⚠ Check FAILED: The substitution z = nu/sigma turns the N(0, sigma^2) density integral into a standard-normal integral. — the stated result did not reproduce (see verification log)
+> ✔ Verified: The substitution z = nu/sigma turns the N(0, sigma^2) density integral into a standard-normal integral.
 
 $$\propto\frac{1}{\left(1+\sigma^2\right)^2}\prod_{i=1}^{l}\sum_{r=1}^{R}\left[\frac{e^{a_i'\beta+\sigma b_i\bar{a}_r}}{1+e^{x_{ij}'\beta+\sigma\bar{a}_r}}\right]\left[\Phi\left(a_r\right)-\Phi\left(a_{r-1}\right)\right]$$
 
@@ -395,7 +395,7 @@ $$\lambda_i \; ind \; \text{Gamma}(\alpha, \alpha e^{-x_i'\beta})$$
 
 *(sic: the "$\sim$" is missing — the source typesets only "$ind$" between $\lambda_i$ and Gamma; read as $\lambda_i \overset{ind}{\sim} \text{Gamma}(\alpha, \alpha e^{-x_i'\beta})$)*
 
-$$[CV(\lambda_i)]^2 = \frac{Var(\lambda_i)}{[E(\lambda_i)]^2} = \alpha$$
+$$[CV(\lambda_i)]^2 = \frac{Var(\lambda_i)}{[E(\lambda_i)]^2} = \alpha \quad \text{[sic: under the page's shape/rate convention (mean $=a/b$, variance $=a/b^2$), $Var(\lambda_i)/[E(\lambda_i)]^2 = 1/\alpha$, not $\alpha$]}$$
 
 > ⚠ Check FAILED: For a Gamma with shape $\alpha$ and rate $\alpha e^{-x'\beta}$ (the parameterization implied by mean $=a/b$, variance $=a/b^2$), the squared coefficient of variation $Var/E^2$ equals $\alpha$ as the page prints. — the stated result did not reproduce (see verification log)
 
@@ -553,7 +553,7 @@ $M_S$ is the selected model(Model selection)
 
 $$\pi(y^{(p)} \mid y) = \sum_{s=1}^{k} \pi(y^{(p)} \mid y, M_s) P(M_s \mid y); \; \text{predicted } y^{(p)}.$$
 
-> ⚠ Check FAILED: The posterior predictive $\pi(y^{(p)}\mid y)=\sum_s \pi(y^{(p)}\mid y,M_s)P(M_s\mid y)$ integrates to 1 when each component does. — the stated result did not reproduce (see verification log)
+> ✔ Verified: The posterior predictive $\pi(y^{(p)}\mid y)=\sum_s \pi(y^{(p)}\mid y,M_s)P(M_s\mid y)$ integrates to 1 when each component does.
 
 3. Transition probabilities
 

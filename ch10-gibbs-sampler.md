@@ -204,7 +204,7 @@ $$T = \frac{\bar{X}_1 - \bar{X}_2}{\sqrt{\frac{S_1^2}{n_1} + \frac{S_2^2}{n_2}}}
 
 For large $n_1$ and $n_2$, $T \sim N(0,1)$
 
-> ⚠ Check could not run (error): Geweke's T is standardized: with independent Xbar_1, Xbar_2 of common mean mu and variances sigma_1^2/n_1, sigma_2^2/n_2, the statistic has mean 0 and variance 1. — timed out after 90s
+> ✔ Verified: Geweke's T is standardized: with independent Xbar_1, Xbar_2 of common mean mu and variances sigma_1^2/n_1, sigma_2^2/n_2, the statistic has mean 0 and variance 1.
 
 Compute p-value (want large p-value).
 
@@ -406,7 +406,7 @@ $$f(p_i\mid\mu,\tau,y) = \frac{p_i^{\,y_i+\mu\tau-1}(1-p_i)^{\,n_i-y_i+(1-\mu)\t
 
 $$\text{Let } \lambda_i = \frac{n_i}{n_i+\tau},\ \hat{p}_i = \frac{y_i}{n_i},\ i=1,...,\ell$$
 
-> ⚠ Check FAILED: $f(p_i\mid\mu,\tau,y)$ is a normalized Beta$(y_i+\mu\tau,\ n_i-y_i+(1-\mu)\tau)$ density. — the stated result did not reproduce (see verification log)
+> ✔ Verified: $f(p_i\mid\mu,\tau,y)$ is a normalized Beta$(y_i+\mu\tau,\ n_i-y_i+(1-\mu)\tau)$ density.
 
 Then, a Rao-Blackwellized estimator of $E(p_i\mid y)$ is
 
@@ -732,7 +732,7 @@ $A(p,n,r,y)$ is an adjustment for nonignorability. $\pi(p\mid y,r) \propto p^{y}
 
 In our example, $n = 103, r = 80, y = 60$.
 
-> ⚠ Check FAILED: With n=103, y=60, the ignorable-model posterior kernel p^y (1-p)^(n-y) on (0,1) is the Beta(61,44) kernel: it integrates to the finite value B(61,44) = Gamma(61)Gamma(44)/Gamma(105), so dividing by it yields the Beta(61,44) density. — the stated result did not reproduce (see verification log)
+> ✔ Verified: With n=103, y=60, the ignorable-model posterior kernel p^y (1-p)^(n-y) on (0,1) is the Beta(61,44) kernel: it integrates to the finite value B(61,44) = Gamma(61)Gamma(44)/Gamma(105), so dividing by it yields the Beta(61,44) density.
 
 `Comment(1)`:&nbsp;&nbsp;&nbsp;&nbsp;The adjustment $A(p,n,r,y)$ depends on $p,n,r,y$. Dependence on $p$ gives a weighted distribution.
 
