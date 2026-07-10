@@ -19,5 +19,14 @@ All checks run in Python (SymPy / fractions / SciPy). ✔ = matches booklet; ⚠
 | 17 | Gamma–Gamma marginal with $\frac{\Gamma(n\alpha+\alpha_0)}{(\sum x_i+\beta_0)^{n\alpha+\alpha_0}}$ | SymPy $\int_0^\infty\beta^{A-1}e^{-B\beta}d\beta=\Gamma(A)/B^A$ | ✔ |
 | 18 | Normal–normal posterior $\mu\mid x\sim N(\lambda\bar x+(1-\lambda)\theta,(1-\lambda)\delta^2)$, $\lambda=\frac{\delta^2}{\delta^2+\sigma^2/n}$; and $\sum(x_i-\mu)^2=(n-1)s^2+n(\bar x-\mu)^2$ | SymPy: both identities ≡ 0 | ✔ |
 | 19 | $P(X>120)=4/5$ from data $(120,125,130,160,150)$ | count $>120$ is 4 of 5 | ✔ |
+| 23 | The posterior predictive integral equals the normal density with mean $\lambda\bar{x}+(1-\lambda)\theta$ and variance $\sigma^2+(1-\lambda)\delta^2$. | auto (SymPy pipeline) | ⚠ FAILED |
+| 23 | $P[Y=1] = \frac{2}{10}\cdot\frac{1}{3} + \frac{1}{10}\cdot\frac{2}{3} = \frac{4}{30} = \frac{8}{60}$. | auto (SymPy pipeline) | ✔ |
+| 161 | The stick-breaking weights $p_1=v_1$, $p_\ell=v_\ell\prod_{j=1}^{\ell-1}(1-v_j)$ for $\ell<m$, and $p_m=\prod_{\ell=1}^{m-1}(1-v_\ell)$ sum to one. | auto (SymPy pipeline) | ✔ |
+| 161 | With joint $f(y_i, d_i=\ell) = p_\ell\, N(y_i\mid \mu+z_\ell, \sigma^2)$, Bayes' rule gives $P(d_i=\ell\mid y_i,\cdot) = p_\ell N(\mu+z_\ell,\sigma^2) / \sum_{k=1}^{m} p_k N(\mu+z_k,\sigma^2)$, and these probabilities sum to one. | auto (SymPy pipeline) | ✔ |
 
 No numerical errors found on PDF pages 1–22. Handwritten corrections incorporated so far: p. 11 ("In which" → "we assume"), p. 12 ("$R$" → "$p$" in the Beta prior; "iid" struck for the single Binomial observation), plus margin annotations transcribed in place.
+
+
+
+
+Pipeline summary: 4 machine checks on PDF pages ≥ 23; 3 passed, 1 flagged. Details: transcribe/out/verify-results.json
