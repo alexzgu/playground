@@ -30,7 +30,10 @@ CHAPTERS = [
     ("ch13", "ch13-lecture-nine.md",       "13", "Lecture Nine",                       (139, 144)),
     ("ch14", "ch14-nonparametric-bayes.md","14", "Nonparametric Bayesian Statistics",  (145, 156)),
     ("ch15", "ch15-mcmc-difficulties.md",  "15", "Difficulties with MCMC Algorithms",  (157, 170)),
-    ("appA", "appendix-a-rstudio.md",      "A",  "Rstudio",                            (171, 999)),
+    # 10-page photocopied excerpt bound between ch. 15 and Appendix A; its printed
+    # numbers are the source book's (Gelman et al., BDA), so match them first.
+    ("bda",  "insert-bda-hmc-stan.md",     "",   "Reproduced excerpt — Gelman et al., *Bayesian Data Analysis*, pp. 300–309 (HMC and Stan)", (300, 309)),
+    ("appA", "appendix-a-rstudio.md",      "A",  "Rstudio",                            (171, 299)),
 ]
 
 
@@ -78,12 +81,16 @@ def main():
             continue
         pdf_pages = ([22] if key == "ch03" and ch03_existing else []) + [p for p, _, _ in pages]
         booklets = ([17] if key == "ch03" and ch03_existing else []) + [b for _, b, _ in pages if b]
-        head_word = "Appendix" if num == "A" else "Chapter"
-        header = f"# {head_word} {num} — {title}\n"
+        if num:
+            head_word = "Appendix" if num == "A" else "Chapter"
+            header = f"# {head_word} {num} — {title}\n"
+        else:
+            header = f"# {title}\n"
         if pdf_pages:
             span = f"*(PDF pages {min(pdf_pages)}–{max(pdf_pages)}"
             if booklets:
-                span += f"; booklet pages {min(booklets)}–{max(booklets)}"
+                label = "source pages" if key == "bda" else "booklet pages"
+                span += f"; {label} {min(booklets)}–{max(booklets)}"
             header += span + ")*\n"
         body = [header]
         if key == "ch03" and ch03_existing:

@@ -25,8 +25,8 @@ OUT = HERE / "out"
 LOG = ROOT / "verification-log.md"
 CHECK_TIMEOUT_S = 90
 
-IMPORT_WHITELIST = {"sympy", "numpy", "scipy", "math", "fractions",
-                    "itertools", "functools", "statistics", "decimal"}
+IMPORT_WHITELIST = {"sympy", "numpy", "scipy", "math", "fractions", "mpmath",
+                    "itertools", "functools", "statistics", "decimal", "collections"}
 BAD_CALLS = re.compile(r"__import__|open\s*\(|exec\s*\(|eval\s*\(|compile\s*\("
                        r"|subprocess|socket|os\.system|os\.popen")
 
