@@ -1,0 +1,299 @@
+Transcribing 105 page(s) via backend=cli, model=claude-opus-4-8, workers=3
+[1/105] p-090: transcribed booklet=85 hw=1 claims=1
+[2/105] p-092: transcribed booklet=87 hw=7 claims=3
+[3/105] p-091: transcribed booklet=86 hw=4 claims=5
+[4/105] p-094: transcribed booklet=89 hw=0 claims=4
+[5/105] p-093: transcribed booklet=88 hw=0 claims=3
+[6/105] p-095: transcribed booklet=90 hw=3 claims=1
+[7/105] p-096: transcribed booklet=91 hw=0 claims=2
+[8/105] p-097: transcribed booklet=92 hw=0 claims=1
+[9/105] p-098: transcribed booklet=93 hw=0 claims=3
+[10/105] p-099: transcribed booklet=94 hw=0 claims=4
+[11/105] p-100: transcribed booklet=95 hw=0 claims=6
+[12/105] p-101: transcribed booklet=96 hw=0 claims=7
+[13/105] p-103: transcribed booklet=98 hw=0 claims=0
+[14/105] p-104: transcribed booklet=99 hw=3 claims=0
+[15/105] p-102: transcribed booklet=97 hw=0 claims=3
+[16/105] p-105: transcribed booklet=100 hw=2 claims=2
+[17/105] p-106: transcribed booklet=101 hw=4 claims=3
+[18/105] p-107: transcribed booklet=102 hw=8 claims=2
+[19/105] p-109: transcribed booklet=104 hw=0 claims=2
+[20/105] p-108: transcribed booklet=103 hw=2 claims=3
+[21/105] p-111: transcribed booklet=106 hw=1 claims=3
+[22/105] p-110: transcribed booklet=105 hw=1 claims=4
+[23/105] p-112: transcribed booklet=107 hw=0 claims=6
+[24/105] p-113: transcribed booklet=108 hw=4 claims=4
+[25/105] p-115: transcribed booklet=110 hw=3 claims=2
+[26/105] p-114: transcribed booklet=109 hw=3 claims=6
+[27/105] p-116: transcribed booklet=111 hw=2 claims=5
+[28/105] p-119: transcribed booklet=114 hw=0 claims=1
+[29/105] p-117: transcribed booklet=112 hw=11 claims=4
+[30/105] p-118: transcribed booklet=113 hw=3 claims=3
+[31/105] p-120: transcribed booklet=115 hw=0 claims=3
+[32/105] p-122: transcribed booklet=117 hw=12 claims=1
+[33/105] p-121: transcribed booklet=116 hw=0 claims=5
+[34/105] p-123: transcribed booklet=118 hw=6 claims=2
+[35/105] p-124: transcribed booklet=119 hw=6 claims=2
+[36/105] p-125: transcribed booklet=120 hw=9 claims=1
+[37/105] p-126: transcribed booklet=121 hw=1 claims=4
+[38/105] p-127: transcribed booklet=122 hw=7 claims=2
+[39/105] p-128: transcribed booklet=123 hw=2 claims=3
+[40/105] p-129: transcribed booklet=124 hw=2 claims=2
+[41/105] p-130: transcribed booklet=125 hw=2 claims=2
+[42/105] p-131: transcribed booklet=126 hw=2 claims=3
+[43/105] p-132: transcribed booklet=127 hw=0 claims=3
+[44/105] p-134: transcribed booklet=129 hw=0 claims=2
+[45/105] p-133: transcribed booklet=128 hw=0 claims=5
+[46/105] p-135: transcribed booklet=130 hw=23 claims=1
+[47/105] p-136: transcribed booklet=131 hw=4 claims=3
+[48/105] p-137: transcribed booklet=132 hw=6 claims=2
+[49/105] p-138: transcribed booklet=133 hw=1 claims=2
+[50/105] p-139: transcribed booklet=134 hw=14 claims=2
+[51/105] p-140: transcribed booklet=135 hw=0 claims=3
+[52/105] p-141: transcribed booklet=136 hw=0 claims=2
+[53/105] p-143: transcribed booklet=138 hw=0 claims=0
+[54/105] p-144: transcribed booklet=139 hw=0 claims=3
+[55/105] p-142: transcribed booklet=137 hw=0 claims=6
+[56/105] p-145: transcribed booklet=140 hw=0 claims=3
+[57/105] p-147: transcribed booklet=142 hw=0 claims=4
+[58/105] p-148: transcribed booklet=143 hw=0 claims=2
+[59/105] p-149: transcribed booklet=144 hw=0 claims=0
+[60/105] p-151: transcribed booklet=146 hw=0 claims=1
+[61/105] p-150: transcribed booklet=145 hw=1 claims=1
+[62/105] p-152: transcribed booklet=147 hw=0 claims=3
+[63/105] p-146: transcribed booklet=141 hw=0 claims=5
+[64/105] p-153: transcribed booklet=148 hw=0 claims=3
+[65/105] p-155: transcribed booklet=150 hw=0 claims=2
+[66/105] p-154: transcribed booklet=149 hw=0 claims=3
+[67/105] p-156: transcribed booklet=151 hw=0 claims=2
+[68/105] p-159: transcribed booklet=154 hw=0 claims=1
+[69/105] p-158: transcribed booklet=153 hw=0 claims=2
+[70/105] p-160: transcribed booklet=155 hw=0 claims=0
+[71/105] p-163: transcribed booklet=152 hw=0 claims=2
+[72/105] p-157: transcribed booklet=None hw=19 claims=2
+[73/105] p-164: transcribed booklet=156 hw=0 claims=0
+[74/105] p-162: transcribed booklet=None hw=17 claims=2
+[75/105] p-165: transcribed booklet=157 hw=0 claims=0
+[76/105] p-167: transcribed booklet=159 hw=2 claims=5
+[77/105] p-169: transcribed booklet=161 hw=0 claims=2
+[78/105] p-166: transcribed booklet=158 hw=2 claims=3
+[79/105] p-168: transcribed booklet=160 hw=0 claims=3
+[80/105] p-170: transcribed booklet=162 hw=0 claims=6
+[81/105] p-171: transcribed booklet=163 hw=0 claims=2
+[82/105] p-172: transcribed booklet=164 hw=0 claims=3
+[83/105] p-175: transcribed booklet=167 hw=0 claims=3
+[84/105] p-174: transcribed booklet=166 hw=0 claims=5
+[85/105] p-173: transcribed booklet=165 hw=0 claims=3
+[86/105] p-178: transcribed booklet=170 hw=0 claims=0
+[87/105] p-176: transcribed booklet=168 hw=1 claims=0
+[88/105] p-177: transcribed booklet=169 hw=1 claims=1
+[89/105] p-180: transcribed booklet=301 hw=11 claims=1
+Transcribing 16 page(s) via backend=cli, model=claude-opus-4-8, workers=3
+[1/16] p-182: transcribed booklet=303 hw=11 claims=1
+[2/16] p-181: transcribed booklet=302 hw=13 claims=0
+[3/16] p-183: transcribed booklet=304 hw=17 claims=0
+[4/16] p-184: transcribed booklet=305 hw=21 claims=2
+[5/16] p-179: transcribed booklet=300 hw=12 claims=0
+[6/16] p-187: transcribed booklet=308 hw=11 claims=0
+[7/16] p-185: transcribed booklet=306 hw=19 claims=4
+[8/16] p-189: transcribed booklet=171 hw=2 claims=0
+[9/16] p-188: transcribed booklet=309 hw=4 claims=1
+[10/16] p-186: failed claude exited 1: API Error: 400 Output blocked by content filtering policy
+[11/16] p-191: transcribed booklet=173 hw=0 claims=1
+[12/16] p-190: transcribed booklet=172 hw=0 claims=0
+[13/16] p-193: transcribed booklet=175 hw=0 claims=0
+[14/16] p-192: transcribed booklet=174 hw=0 claims=0
+[15/16] p-194: transcribed booklet=176 hw=0 claims=0
+[16/16] p-195: transcribed booklet=177 hw=0 claims=0
+
+Done. 15 ok, 1 failed.
+Next: python3 transcribe/verify_claims.py && python3 transcribe/assemble_chapters.py
+p-023: 3 checks, 3 pass
+p-024: 4 checks, 4 pass
+p-025: 4 checks, 2 pass  <-- review
+p-026: 5 checks, 3 pass  <-- review
+p-027: 6 checks, 5 pass  <-- review
+p-028: 4 checks, 1 pass  <-- review
+p-029: 5 checks, 4 pass  <-- review
+p-030: 6 checks, 5 pass  <-- review
+p-031: 6 checks, 3 pass  <-- review
+p-032: 6 checks, 5 pass  <-- review
+p-033: 7 checks, 5 pass  <-- review
+p-034: 5 checks, 4 pass  <-- review
+p-035: 4 checks, 4 pass
+p-036: 4 checks, 4 pass
+p-037: 4 checks, 3 pass  <-- review
+p-038: 8 checks, 7 pass  <-- review
+p-039: 5 checks, 4 pass  <-- review
+p-040: 3 checks, 2 pass  <-- review
+p-041: 4 checks, 4 pass
+p-042: 3 checks, 3 pass
+p-043: 4 checks, 1 pass  <-- review
+p-044: 4 checks, 3 pass  <-- review
+p-045: 3 checks, 2 pass  <-- review
+p-046: 3 checks, 3 pass
+p-047: 5 checks, 5 pass
+p-048: 6 checks, 5 pass  <-- review
+p-049: 4 checks, 4 pass
+p-050: 5 checks, 4 pass  <-- review
+p-051: 5 checks, 5 pass
+p-052: 3 checks, 3 pass
+p-053: 2 checks, 2 pass
+p-054: 3 checks, 3 pass
+p-055: 3 checks, 2 pass  <-- review
+p-056: 2 checks, 2 pass
+p-057: 3 checks, 3 pass
+p-058: 3 checks, 2 pass  <-- review
+p-059: 5 checks, 5 pass
+p-060: 0 checks, 0 pass
+p-061: 4 checks, 4 pass
+p-062: 5 checks, 4 pass  <-- review
+p-063: 3 checks, 3 pass
+p-064: 3 checks, 3 pass
+p-065: 0 checks, 0 pass
+p-066: 1 checks, 1 pass
+p-067: 2 checks, 2 pass
+p-068: 2 checks, 2 pass
+p-069: 0 checks, 0 pass
+p-070: 2 checks, 2 pass
+p-071: 2 checks, 1 pass  <-- review
+p-072: 2 checks, 0 pass  <-- review
+p-073: 3 checks, 2 pass  <-- review
+p-074: 7 checks, 3 pass  <-- review
+p-075: 7 checks, 4 pass  <-- review
+p-076: 3 checks, 2 pass  <-- review
+p-077: 3 checks, 3 pass
+p-078: 4 checks, 4 pass
+p-079: 3 checks, 2 pass  <-- review
+p-080: 3 checks, 2 pass  <-- review
+p-081: 7 checks, 3 pass  <-- review
+p-082: 4 checks, 4 pass
+p-083: 4 checks, 4 pass
+p-084: 4 checks, 3 pass  <-- review
+p-085: 2 checks, 0 pass  <-- review
+p-086: 4 checks, 3 pass  <-- review
+p-087: 0 checks, 0 pass
+p-088: 0 checks, 0 pass
+p-089: 2 checks, 2 pass
+p-090: 1 checks, 0 pass  <-- review
+p-091: 5 checks, 4 pass  <-- review
+p-092: 3 checks, 3 pass
+p-093: 3 checks, 3 pass
+p-094: 4 checks, 3 pass  <-- review
+p-095: 1 checks, 1 pass
+p-096: 2 checks, 2 pass
+p-097: 1 checks, 1 pass
+p-098: 3 checks, 3 pass
+p-099: 4 checks, 4 pass
+p-100: 6 checks, 6 pass
+p-101: 7 checks, 6 pass  <-- review
+p-102: 3 checks, 2 pass  <-- review
+p-103: 0 checks, 0 pass
+p-104: 0 checks, 0 pass
+p-105: 2 checks, 2 pass
+p-106: 3 checks, 3 pass
+p-107: 2 checks, 2 pass
+p-108: 3 checks, 2 pass  <-- review
+p-109: 2 checks, 2 pass
+p-110: 4 checks, 4 pass
+p-111: 3 checks, 3 pass
+p-112: 6 checks, 5 pass  <-- review
+p-113: 4 checks, 4 pass
+p-114: 6 checks, 6 pass
+p-115: 2 checks, 2 pass
+p-116: 5 checks, 5 pass
+p-117: 4 checks, 4 pass
+p-118: 3 checks, 3 pass
+p-119: 1 checks, 0 pass  <-- review
+p-120: 3 checks, 3 pass
+p-121: 5 checks, 5 pass
+p-122: 1 checks, 0 pass  <-- review
+p-123: 2 checks, 2 pass
+p-124: 2 checks, 2 pass
+p-125: 1 checks, 1 pass
+p-126: 4 checks, 3 pass  <-- review
+p-127: 2 checks, 2 pass
+p-128: 3 checks, 3 pass
+p-129: 2 checks, 1 pass  <-- review
+p-130: 2 checks, 2 pass
+p-131: 3 checks, 3 pass
+p-132: 3 checks, 2 pass  <-- review
+p-133: 5 checks, 5 pass
+p-134: 2 checks, 2 pass
+p-135: 1 checks, 1 pass
+p-136: 3 checks, 3 pass
+p-137: 2 checks, 2 pass
+p-138: 2 checks, 1 pass  <-- review
+p-139: 2 checks, 1 pass  <-- review
+p-140: 3 checks, 3 pass
+p-141: 2 checks, 2 pass
+p-142: 6 checks, 4 pass  <-- review
+p-143: 0 checks, 0 pass
+p-144: 3 checks, 1 pass  <-- review
+p-145: 3 checks, 3 pass
+p-146: 5 checks, 3 pass  <-- review
+p-147: 4 checks, 4 pass
+p-148: 2 checks, 1 pass  <-- review
+p-149: 0 checks, 0 pass
+p-150: 1 checks, 1 pass
+p-151: 1 checks, 1 pass
+p-152: 3 checks, 3 pass
+p-153: 3 checks, 3 pass
+p-154: 3 checks, 0 pass  <-- review
+p-155: 2 checks, 2 pass
+p-156: 2 checks, 2 pass
+p-157: 2 checks, 0 pass  <-- review
+p-158: 2 checks, 2 pass
+p-159: 1 checks, 1 pass
+p-160: 0 checks, 0 pass
+p-162: 2 checks, 2 pass
+p-163: 2 checks, 1 pass  <-- review
+p-164: 0 checks, 0 pass
+p-165: 0 checks, 0 pass
+p-166: 3 checks, 3 pass
+p-167: 5 checks, 5 pass
+p-168: 3 checks, 2 pass  <-- review
+p-169: 2 checks, 2 pass
+p-170: 6 checks, 6 pass
+p-171: 2 checks, 2 pass
+p-172: 3 checks, 3 pass
+p-173: 3 checks, 1 pass  <-- review
+p-174: 5 checks, 5 pass
+p-175: 3 checks, 3 pass
+p-176: 0 checks, 0 pass
+p-177: 1 checks, 1 pass
+p-178: 0 checks, 0 pass
+p-179: 0 checks, 0 pass
+p-180: 1 checks, 1 pass
+p-181: 0 checks, 0 pass
+p-182: 1 checks, 1 pass
+p-183: 0 checks, 0 pass
+p-184: 2 checks, 2 pass
+p-185: 4 checks, 4 pass
+p-186: 0 checks, 0 pass
+p-187: 0 checks, 0 pass
+p-188: 1 checks, 1 pass
+p-189: 0 checks, 0 pass
+p-190: 0 checks, 0 pass
+p-191: 1 checks, 1 pass
+p-192: 0 checks, 0 pass
+p-193: 0 checks, 0 pass
+p-194: 0 checks, 0 pass
+p-195: 0 checks, 0 pass
+
+verification-log.md updated; details in /workspaces/playground/transcribe/out/verify-results.json
+wrote ch03-lecture-three.md (18 pages)
+wrote ch04-lecture-four.md (6 pages)
+wrote ch05-lecture-five.md (14 pages)
+wrote ch06-lecture-six.md (6 pages)
+wrote ch07-lecture-seven.md (4 pages)
+wrote ch08-bayesian-inference.md (18 pages)
+wrote ch09-hierarchical-models.md (16 pages)
+wrote ch10-gibbs-sampler.md (18 pages)
+wrote ch11-metropolis-hastings.md (14 pages)
+wrote ch12-lecture-eight.md (8 pages)
+wrote ch13-lecture-nine.md (6 pages)
+wrote ch14-nonparametric-bayes.md (15 pages)
+wrote ch15-mcmc-difficulties.md (14 pages)
+wrote appendix-a-rstudio.md (17 pages)
+README.md status updated

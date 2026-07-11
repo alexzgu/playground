@@ -1,0 +1,2763 @@
+{
+ "p-023": {
+  "c1": {
+   "desc": "Normal\u2013Normal posterior for $\\mu$ has mean $\\lambda\\bar x+(1-\\lambda)\\theta$ and variance $(1-\\lambda)\\delta^2$ with $\\lambda=\\delta^2/(\\delta^2+\\sigma^2/n)$",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "the predictive integral equals the $N(m,\\ \\sigma^2+v)$ density, i.e. means add-through and variances add",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "marginal defective probability $P[Y=1]=4/30=8/60$",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-024": {
+  "c1": {
+   "desc": "The posterior P[\u03b8=0|Y1=1] = (2/10)(1/3) / [(2/10)(1/3) + (1/10)(2/3)] equals 1/2, hence equals P(\u03b8=1|Y1=1).",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "P[Y2=1|Y1=1] = (2/10)(1/2) + (1/10)(1/2) = 3/20 = 9/60.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "The marginal P[Y1=1] = 2/15 is strictly less than P[Y2=1|Y1=1] = 3/20.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "For X ~ N(mu=25, sigma^2=9), E(X^2) = Var(X) + (E X)^2 = 9 + 625 = 634, matching the exact Gaussian integral.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-025": {
+  "c1": {
+   "desc": "The displayed factorization of the truncated-normal integral is an identity (checked numerically on a=-1, b=2 and symbolically as a factorization).",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "Normal-normal conjugacy: posterior is N(lambda*ybar + (1-lambda)*theta, (1-lambda)*delta^2) with lambda = n*delta^2/(sigma^2 + n*delta^2).",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "Beta-Bernoulli conjugacy: prior Beta(alpha,beta) with s successes in n trials gives posterior Beta(s+alpha, n-s+beta).",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "Gamma-exponential conjugacy: prior Gamma(alpha,beta), n iid Exp(theta) observations give posterior Gamma(n+alpha, n*xbar+beta).",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-026": {
+  "c1": {
+   "desc": "Beta(\u03b1,\u03b2) prior with n\u2081 Bernoulli trials and s\u2081 successes yields a Beta(s\u2081+\u03b1, n\u2081\u2212s\u2081+\u03b2) posterior.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "Sequentially updating the stage-one posterior with a second batch (n\u2082 trials, s\u2082 successes) gives Beta(s\u2081+s\u2082+\u03b1, n\u2081\u2212s\u2081+n\u2082\u2212s\u2082+\u03b2).",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "Pooling all n\u2081+n\u2082 observations against the original Beta(\u03b1,\u03b2) prior gives the same posterior as the two-stage update.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "The sum-of-squares decomposition \u03a3(x\u1d62\u2212\u03bc)\u00b2 = (n\u22121)s\u00b2 + n(x\u0304\u2212\u03bc)\u00b2.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c5": {
+   "desc": "The normal likelihood factors as e^{-n(x\u0304\u2212\u03bc)\u00b2/(2\u03c3\u00b2)} \u00b7 (2\u03c0\u03c3\u00b2)^{\u2212n/2} e^{\u2212(n\u22121)s\u00b2/(2\u03c3\u00b2)}, matching line 3 to line 2.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-027": {
+  "c1": {
+   "desc": "For $X\\mid\\lambda\\sim$ Poisson$(\\lambda)$, a Gamma$(\\alpha,\\beta)$ prior is conjugate: posterior kernel $=$ Gamma$(\\alpha+x,\\beta+1)$ kernel.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "$\\prod_{i=1}^{n}\\theta^{x_i}(1-\\theta)^{1-x_i}=\\theta^{s}(1-\\theta)^{n-s}$, $s=\\sum x_i$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "$\\theta^{s}(1-\\theta)^{n-s}\\theta^{\\alpha}(1-\\theta)^{\\beta}$ is the kernel of Beta$(s+\\alpha+1,\\ n-s+\\beta+1)$ (posterior is still Beta).",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "$\\sum_i (x_i-\\mu)^2=\\sum_i (x_i-\\bar x)^2+n(\\mu-\\bar x)^2$, hence $L(\\mu\\mid\\bar x)\\propto e^{-\\frac{n}{2\\sigma^2}(\\mu-\\bar x)^2}$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c5": {
+   "desc": "Normal likelihood $\\times$ normal prior is a normal kernel in $\\mu$ with precision $n/\\sigma^2+1/\\delta^2$ (posterior still normal).",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c6": {
+   "desc": "$\\int_{0}^{\\infty}\\int_{-\\infty}^{\\infty}\\sigma^{-2}\\,d\\mu\\,d\\sigma^{2}=\\infty$ (the prior is improper).",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-028": {
+  "c1": {
+   "desc": "Example (1) \u2014 score of the normal in $\\mu$ is $(x-\\mu)/\\sigma^2$, and $\\frac{1}{\\sigma^2}E(x-\\mu)^2 = 1$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "Example (2) \u2014 Jeffreys prior for $\\sigma^2$ with $\\mu$ known is $\\propto 1/\\sigma^2$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "Example (3) \u2014 the joint Jeffreys prior for $(\\mu,\\sigma^2)$ is $\\propto (1/\\sigma^2)^{3/2}$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "Margin scratch work \u2014 the first and second derivatives of $\\log L(\\sigma^2|x)$ and the resulting $-E = 1/(2\\sigma^4)$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-029": {
+  "c1": {
+   "desc": "Poisson Fisher information is $1/\\lambda$ and Jeffreys' prior $\\lambda^{-1/2}$ is improper on $(0,\\infty)$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "Binomial Fisher information equals $n[1/p + 1/(1-p)] = n/(p(1-p))$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "The Beta(1/2,1/2) density equals $1/(\\pi\\sqrt{p(1-p)})$ and is proper.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "For the normal mean with known variance, $I(\\mu)=1/\\sigma^2$, a constant.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c5": {
+   "desc": "For the normal variance with known mean, $E[\\partial^2_{(\\sigma^2)}\\log f]=-1/(2(\\sigma^2)^2)$, $I(\\sigma^2)=1/(2(\\sigma^2)^2)$, and $\\sqrt{I}=1/(\\sqrt2\\,\\sigma^2)$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-030": {
+  "c1": {
+   "desc": "The printed derivatives of the normal log-density and the expectation $E[\\partial^2_{(\\sigma^2)^2}\\Delta] = -1/(2(\\sigma^2)^2)$ are correct.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "$|-H|^{1/2} = \\frac{1}{\\sqrt2 (\\sigma^2)^{3/2}}$, so the booklet's $\\frac{1}{(\\sigma^2)^{3/2}}$ is correct only up to the constant $1/\\sqrt2$ (i.e. proportional, not equal).",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "Fisher information transforms as $I(\\phi) = I(\\theta)(d\\theta/d\\phi)^2$, hence $\\sqrt{I(\\phi)} = \\sqrt{I(\\theta)}|d\\theta/d\\phi|$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "Transforming $\\pi(\\lambda)\\propto\\lambda^{-1/2}$ by $\\lambda=\\phi^2$ gives $\\pi(\\phi)\\propto 2$ (constant), matching $\\sqrt{I(\\phi)}=2$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c5": {
+   "desc": "In the handwritten scratch work, $\\Delta(\\phi)$ and $\\Delta'(\\phi)$ are correct but $\\Delta''(\\phi) = -2x/\\phi^2 - 2$, so $E[-\\Delta''(\\phi)] = 4$, not the written $2$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c6": {
+   "desc": "$\\pi(p) = \\frac{1}{\\pi\\sqrt{p(1-p)}}$ integrates to 1 on $(0,1)$ (the arcsine / Beta(1/2,1/2) density).",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-031": {
+  "c1": {
+   "desc": "With $p=e^{\\phi}/(1+e^{\\phi})$, $dp/d\\phi$ equals both $\\frac{e^{\\phi}(1+e^{\\phi})-e^{2\\phi}}{(1+e^{\\phi})^{2}}$ and $\\frac{e^{\\phi}}{(1+e^{\\phi})^{2}}$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "The product $\\frac{1}{\\pi\\sqrt{e^{\\phi}/(1+e^{\\phi})^{2}}}\\cdot\\frac{e^{\\phi}}{(1+e^{\\phi})^{2}}$ equals $\\frac{\\sqrt{e^{\\phi}}}{\\pi(1+e^{\\phi})}$; the printed right-hand side $\\frac{\\sqrt{e^{\\phi}}}{1+e^{\\phi}}$ omits the factor $1/\\pi$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "For $X\\sim N(\\mu,\\sigma^{2})$ with $\\sigma^{2}$ known, $I(\\mu)=1/\\sigma^{2}$ and Jeffreys' prior $\\sqrt{I(\\mu)}$ is free of $\\mu$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "For $X\\sim N(\\mu,\\sigma^{2})$ with $\\mu$ known and $v=\\sigma^{2}$, $I(v)=1/(2v^{2})$, so $\\sqrt{I(v)}\\propto 1/\\sigma^{2}$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c5": {
+   "desc": "For the binomial log-likelihood in the logit parameter, $\\ell(\\phi)=\\phi y-n\\log(1+e^{\\phi})$, the Fisher information is $I(\\phi)=ne^{\\phi}/(1+e^{\\phi})^{2}$ and $\\sqrt{I(\\phi)}\\propto\\sqrt{e^{\\phi}}/(1+e^{\\phi})$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c6": {
+   "desc": "For $X\\sim N(\\mu,\\sigma^{2})$ with both parameters unknown, $\\sqrt{|I(\\mu,\\sigma^{2})|}\\propto(\\sigma^{2})^{-3/2}$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-032": {
+  "c1": {
+   "desc": "Normal\u2013normal posterior mean equals $\\lambda y+(1-\\lambda)\\theta$ with $\\lambda=\\delta^2/(\\delta^2+\\sigma^2)$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "$\\lambda=\\delta^2/(\\delta^2+\\sigma^2)$ with $\\lambda\\sim U(0,1)$ induces density $\\delta^2/(\\delta^2+\\sigma^2)^2$ on $\\sigma^2>0$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "$1/(1+\\sigma^2)^2$ is exactly the $F(2,2)$ density.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "$\\int_0^\\infty (1+u)^{-2}\\,du = 1$, so the prior is proper.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c5": {
+   "desc": "Beta\u2013Bernoulli posterior mean is $\\lambda x+(1-\\lambda)\\mu$ with $\\lambda=1/(\\tau+1)$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c6": {
+   "desc": "$1/(\\tau+1)\\sim U(0,1)$ induces $\\pi(\\tau)=1/(1+\\tau)^2$ on $\\tau>0$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-033": {
+  "c1": {
+   "desc": "$1/\\sqrt{p(1-p)} = p^{-1/2}(1-p)^{-1/2} = p^{1/2-1}(1-p)^{1/2-1}$ on $(0,1)$",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "$\\Gamma(1/2)\\Gamma(1/2)/\\Gamma(1) = \\pi$",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "the arc-sine density $\\frac{1}{\\pi\\sqrt{p(1-p)}}$ integrates to 1 on $(0,1)$",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "$p^s(1-p)^{n-s}$ is the $Beta(s+1, n-s+1)$ kernel",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c5": {
+   "desc": "Haldane posterior $p^s(1-p)^{n-s}/(p(1-p)) = p^{s-1}(1-p)^{n-s-1}$ is $Beta(s, n-s)$, proper iff $s>0$, $n-s>0$",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c6": {
+   "desc": "Jeffreys' prior for Bernoulli($p$) is $\\propto 1/\\sqrt{p(1-p)}$",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c7": {
+   "desc": "under $p = 1/(1+\\tau)$ with $\\pi(\\tau) = (1+\\tau)^{-2}$, $p$ is Uniform(0,1), and $\\tau = (1-p)/p$",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-034": {
+  "c1": {
+   "desc": "For p ~ Beta(\u03bc\u03c4, (1-\u03bc)\u03c4), E(p) = \u03bc and Var(p) = \u03bc(1-\u03bc)/(\u03c4+1).",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "0.5(1-0.5)/(\u03c4+1) = 0.1 implies \u03c4 = 1.5.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "With \u03bc = 0.5 and \u03c4 = 2, Beta(\u03bc\u03c4, (1-\u03bc)\u03c4) = Beta(1,1), the uniform density on (0,1).",
+   "detail": " [no matching placeholder in transcript]",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "The data 1,1,1,0,0,0,1,1,0,0 give p-hat = 5/10 = 1/2.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c5": {
+   "desc": "Under X_i | mu ~ N(mu, sigma^2) iid and mu ~ N(theta, delta^2), the marginal correlation of X_i and X_j (i != j) is delta^2/(delta^2 + sigma^2).",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-035": {
+  "c1": {
+   "desc": "For the compound-symmetry covariance $\\Gamma_{ii}=\\sigma^2+\\delta^2$, $\\Gamma_{ij}=\\delta^2$, the off-diagonal correlation is $\\delta^2/(\\delta^2+\\sigma^2)$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "With $\\Gamma=\\sigma^2 I+\\delta^2 J$, the GLS estimator $(1'\\Gamma^{-1}Y)/(1'\\Gamma^{-1}1)$ equals $\\bar{y}$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "The Cauchy scale-location density $\\frac{1}{\\sigma}f(\\frac{x-\\mu}{\\sigma})$, $f(y)=\\frac{1}{\\pi(1+y^2)}$, equals the booklet's $f(x\\mid\\mu,\\sigma)$ and integrates to 1.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "The normal scale-location density $\\frac{1}{\\sigma}f(\\frac{x-\\mu}{\\sigma})$, $f(y)=\\frac{1}{\\sqrt{2\\pi}}e^{-y^2/2}$, equals the booklet's $N(\\mu,\\sigma^2)$ density and integrates to 1.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-036": {
+  "c1": {
+   "desc": "The chi-square density with $n-1$ degrees of freedom equals the Gamma density with shape $(n-1)/2$ and rate $1/2$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "Sum-of-squares decomposition $\\sum (x_i-\\mu)^2 = (n-1)s^2 + n(\\bar{x}-\\mu)^2$, and the resulting likelihood form.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "prior $1/\\sigma^2$ times the likelihood is proportional to $(1/\\sigma^2)^{n/2+1}\\exp\\{-\\frac{1}{2\\sigma^2}[(n-1)s^2+n(\\bar x-\\mu)^2]\\}$, with proportionality constant free of $\\mu,\\sigma^2$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "$\\exp\\{-\\frac{n}{2\\sigma^2}(\\bar x-\\mu)^2\\}$ is the kernel of a $N(\\bar x,\\sigma^2/n)$ density in $\\mu$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-037": {
+  "c1": {
+   "desc": "The integral $\\int_{-\\infty}^{\\infty} e^{-\\frac{n}{2\\sigma^2}(\\mu-\\bar{x})^2}d\\mu$ equals $\\sqrt{2\\pi\\sigma^2/n}$, i.e. is proportional to $\\sqrt{\\sigma^2}$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "$(1/\\sigma^2)^{n/2+1}\\sqrt{\\sigma^2} = (1/\\sigma^2)^{(n+1)/2}$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "$(1/\\sigma^2)^{\\frac{n-1}{2}+1}e^{-\\frac{(n-1)s^2}{2\\sigma^2}}$ is the $IG\\!\\left(\\frac{n-1}{2},\\frac{(n-1)s^2}{2}\\right)$ kernel, and $\\frac{n-1}{2}+1=\\frac{n+1}{2}$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "If $X\\sim Gamma(\\alpha,\\beta)$ with $f(x)=\\frac{\\beta^\\alpha}{\\Gamma(\\alpha)}x^{\\alpha-1}e^{-\\beta x}$ and $Y=1/X$, then $f(y)=\\frac{\\beta^\\alpha}{\\Gamma(\\alpha)}(1/y)^{\\alpha+1}e^{-\\beta/y}$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-038": {
+  "c1": {
+   "desc": "The exponent arithmetic 1/2 + (n-1)/2 + 1 = n/2 + 1.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "\u222b_0^\u221e (\u03c3\u00b2)^{-(n/2+1)} exp(-A/(2\u03c3\u00b2)) d\u03c3\u00b2 = \u0393(n/2) / (A/2)^{n/2}.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "[n(\u03bc-x\u0304)\u00b2+(n-1)s\u00b2]^{-n/2} equals [1 + n(\u03bc-x\u0304)\u00b2/((n-1)s\u00b2)]^{-(n-1+1)/2} times a constant free of \u03bc.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "\u0393((\u03bd+1)/2)/(\u0393(\u03bd/2)\u221a(\u03c0\u03bd)) normalizes (1+t\u00b2/\u03bd)^{-(\u03bd+1)/2} to a density.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c5": {
+   "desc": "With W ~ \u03c7\u00b2_\u03bd and T = W/2, f(t) = t^{\u03bd/2-1} e^{-t}/\u0393(\u03bd/2), i.e. T ~ Gamma(\u03bd/2, 1).",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c6": {
+   "desc": "(\u03b2x)^{\u03bd/2-1} e^{-\u03b2x/2} \u03b2 / (2^{\u03bd/2}\u0393(\u03bd/2)) = \u03b2^{\u03bd/2} x^{\u03bd/2-1} e^{-\u03b2x/2} / (2^{\u03bd/2}\u0393(\u03bd/2)).",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c7": {
+   "desc": "\u03b2^{\u03bd/2} x^{\u03bd/2-1} e^{-\u03b2x/2} / (2^{\u03bd/2}\u0393(\u03bd/2)) is the Gamma(\u03bd/2, \u03b2/2) density (rate form b^a x^{a-1} e^{-bx}/\u0393(a)).",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c8": {
+   "desc": "The \u03c7\u00b2_\u03bd density equals the Gamma(\u03bd/2, 1/2) density (rate parametrization) \u2014 the handwritten identity.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-039": {
+  "c1": {
+   "desc": "the standard Cauchy density $1/(\\pi(1+x^2))$ integrates to 1 over the real line",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "the location-scale Cauchy density with location mu0 and scale gamma0 > 0 integrates to 1",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "the half-Cauchy density 2/(pi(1+sigma^2)) integrates to 1 over (0, oo)",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "phi = sigma^2 with sigma half-Cauchy has density 1/(pi*sqrt(phi)*(1+phi)) on (0, oo), and it is proper",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c5": {
+   "desc": "alpha = 1/(1+phi) has density 1/(pi*sqrt(alpha*(1-alpha))) = Beta(1/2,1/2) density, and B(1/2,1/2) = pi",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-040": {
+  "c1": {
+   "desc": "The two displayed expressions for $L(\\mu,\\sigma^2\\mid x)$ differ by the constant $(2\\pi)^{(1-n)/2}/\\sqrt{n}$, free of $\\mu$ and $\\sigma^2$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "Completing the square: $k_o(\\mu-\\mu_o)^2+n(\\mu-\\bar x)^2=(k_o+n)(\\mu-\\mu_n)^2+\\frac{k_o n}{k_o+n}(\\bar x-\\mu_o)^2$ for $\\mu_n=\\frac{k_o\\mu_o+n\\bar x}{k_o+n}$; the printed $k_o+n_o$ denominator does not give an identity.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "Prior kernel $\\times$ likelihood kernel equals the Nor-Inv-$\\chi^2(\\mu_n,\\sigma_n^2/k_n,\\nu_n,\\nu_n\\sigma_n^2)$ kernel exactly, with $k_n=k_o+n$, $\\nu_n=\\nu_o+n$, $\\nu_n\\sigma_n^2=\\nu_o\\sigma_o^2+(n-1)s^2+\\frac{k_o n}{k_o+n}(\\bar x-\\mu_o)^2$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-041": {
+  "c1": {
+   "desc": "The printed kernel $\\left[1+\\frac{((\\mu-\\mu_n)/(\\sigma_n/\\sqrt{k_n}))^2}{\\nu_n}\\right]^{-(\\nu_n+1)/2}$ is proportional to the Student-$t_{\\nu_n}$ density with location $\\mu_n$ and scale $\\sigma_n/\\sqrt{k_n}$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "$w=\\sigma_2^2/(\\sigma_1^2+\\sigma_2^2)$ uniquely minimizes $w^2\\sigma_1^2+(1-w)^2\\sigma_2^2$ and lies in $[0,1]$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "Completing the square: the residual after extracting $\\left(\\frac{1}{\\sigma_1^2}+\\frac{1}{\\sigma_2^2}\\right)(\\theta-m)^2$ is free of $\\theta$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "Bayesian posterior mean/variance coincide with the optimally-weighted non-Bayesian combination.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-042": {
+  "c1": {
+   "desc": "For $X_i\\mid\\mu\\overset{iid}{\\sim}N(\\mu,\\sigma^2)$ ($i=1..n$, $\\sigma^2$ known) and prior $\\mu\\sim N(\\theta,\\delta^2)$, the posterior variance of $\\mu$ equals $\\left(\\frac{1}{\\delta^2}+\\frac{n}{\\sigma^2}\\right)^{-1}$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "$ESS = \\dfrac{Var_N}{Var_I}\\,n = \\dfrac{\\sigma^2/n}{\\left(\\frac{1}{\\delta^2}+\\frac{n}{\\sigma^2}\\right)^{-1}}\\,n$ simplifies to $\\dfrac{\\sigma^2}{\\delta^2}+n$, and consequently $ESS\\ge n$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "The prior is worth $ESS-n=\\sigma^2/\\delta^2$ observations, which tends to $0$ as $\\delta^2\\to\\infty$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-043": {
+  "c1": {
+   "desc": "Under squared error loss, the minimizer over $d$ of the posterior expected loss $E[(d-T)^2\\mid x]$ is the posterior mean $E[T\\mid x]$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "Bernoulli likelihood with Beta(alpha,beta) prior yields a Beta(s+alpha, n-s+beta) posterior.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "The posterior mean is (s+alpha)/(n+alpha+beta).",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "The AEL integrand is a normalized density on (0,1), so the equation defines the posterior median.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-044": {
+  "c1": {
+   "desc": "The ZOL posterior-mode denominator $s+\\alpha+n+\\beta-s-2$ equals $n+\\alpha+\\beta-2$; the printed right-hand side drops the $n$, so the stated equality fails whenever $n\\neq 0$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "Normal\u2013normal posterior: $\\mu\\mid x\\sim N[\\lambda\\bar{x}+(1-\\lambda)\\theta,\\ (1-\\lambda)\\delta^2]$ with $\\lambda=\\delta^2/(\\delta^2+\\sigma^2/n)$ (note the booklet prints $(1-\\lambda)\\mu$ for the mean).",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "For $U\\sim U(0,1)$, $P[F(y_{i-1}) < U \\le F(y_i)] = F(y_i)-F(y_{i-1})$ whenever $0\\le F(y_{i-1})\\le F(y_i)\\le 1$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "$\\phi=1/(1+e^{\\theta})$ maps $(-\\infty,\\infty)$ onto $(0,1)$; $\\phi=1/(1+\\theta)$ maps $(0,\\infty)$ onto $(0,1)$. Both are strictly monotone (one-to-one).",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-045": {
+  "c1": {
+   "desc": "The 100 equal-width bins ((i-1)/100, i/100) on (0,1) have middle points 0.005, 0.015, ..., 0.995.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "With p_i = h_i / sum_j h_j, the cumulative sum p_1 + ... + p_100 equals 1.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "X defined by (X - 0.01)/(0.02 - 0.01) = U with U ~ Uniform(0,1) is Uniform(0.01, 0.02).",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-046": {
+  "c1": {
+   "desc": "With prior $\\pi(\\mu,\\sigma^2)\\propto1/\\sigma^2$ and iid normal data, $\\sum_i(y_i-\\mu)^2=(n-1)s^2+n(\\bar y-\\mu)^2$, and integrating $\\sigma^2$ out of the joint posterior leaves a marginal for $\\mu$ proportional to $(1+t^2/(n-1))^{-n/2}$ with $t=(\\bar y-\\mu)/(s/\\sqrt n)$, i.e. the $t_{n-1}$ kernel.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "$x_i'\\beta=(1,x_{1i},\\dots,x_{(p-1)i})(\\beta_0,\\dots,\\beta_{p-1})'=\\beta_0+\\beta_1x_{1i}+\\cdots+\\beta_{p-1}x_{(p-1)i}$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "The joint posterior $\\pi(\\beta,\\sigma^2\\mid y)$ is proportional to $\\frac{1}{\\sigma^2}(2\\pi\\sigma^2)^{-n/2}\\exp\\{-\\frac{1}{2\\sigma^2}\\sum_{i=1}^n(y_i-x_i'\\beta)^2\\}$, i.e. the prior $1/\\sigma^2$ times the product of $n$ independent $N(x_i'\\beta,\\sigma^2)$ densities.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-047": {
+  "c1": {
+   "desc": "The least-squares decomposition $\\sum_i (y_i-x_i'\\beta)^2 = \\sum_i (y_i-x_i'\\hat\\beta)^2 + (\\beta-\\hat\\beta)'X'X(\\beta-\\hat\\beta)$ holds when $\\hat\\beta=(X'X)^{-1}X'y$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "$\\exp\\left(-\\frac{1}{2\\sigma^2}(\\beta-\\hat\\beta)'X'X(\\beta-\\hat\\beta)\\right)$ is the kernel of $N(\\hat\\beta,\\ \\sigma^2(X'X)^{-1})$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "$(\\sigma^2)^{-(\\frac{n-p}{2}+1)}e^{-S/(2\\sigma^2)}$ is the $IG\\!\\left(\\frac{n-p}{2},\\frac{S}{2}\\right)$ kernel, and the corresponding density is proper.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "Marginalizing $\\sigma^2$ out of the joint posterior yields the multivariate-$t$ kernel with exponent $\\frac{n-p+p}{2}=\\frac{n}{2}$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c5": {
+   "desc": "For $p=1$ the printed multivariate-$t$ density integrates to 1 over $\\mathbb{R}$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-048": {
+  "c1": {
+   "desc": "Jeffreys' prior for the rate-parametrized Gamma(\u03b1,\u03b2) equals (1/\u03b2)\u00b7sqrt(\u03b1 \u03c8'(\u03b1) + 1) as printed on the page.",
+   "detail": "AssertionError",
+   "verdict": "fail"
+  },
+  "c2": {
+   "desc": "the product over i collapses to \u03b2^(n\u03b1\u22121) g^(n(\u03b1\u22121)) e^(\u2212n\u03b2\u0233)/\u0393(\u03b1)^n \u00b7 1/(1+\u03b1)^2 with g the geometric mean and \u0233 the arithmetic mean.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "the \u03b2-kernel \u03b2^(n\u03b1\u22121) e^(\u2212n\u0233\u03b2) of the joint posterior normalizes to the Gamma(n\u03b1, n\u0233) density (rate parametrization).",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "if \u03b2 ~ Gamma(n\u03b1, n\u0233) with rate n\u0233, then 2n\u0233\u03b2 ~ chi-square with 2n\u03b1 degrees of freedom.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c5": {
+   "desc": "the gamma integral evaluates to \u0393(n\u03b1)/(n\u0233)^(n\u03b1).",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c6": {
+   "desc": "under \u03c6 = 1/(1+\u03b1) one has \u03b1 = (1\u2212\u03c6)/\u03c6, and (1+\u03b1)^(\u22122) times the Jacobian |d\u03b1/d\u03c6| equals 1.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-049": {
+  "c1": {
+   "desc": "The Monte Carlo estimator averages $f(x\\mid\\theta_h)$ over prior draws, and $E_\\pi[f(x\\mid\\theta)] = f(x) = \\int f(x\\mid\\theta)\\pi(\\theta)d\\theta$; for $x\\mid\\theta\\sim N(\\theta,1)$, $\\theta\\sim N(0,1)$ this marginal is the $N(0,2)$ density.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "Importance-sampling identity: $\\int f(x\\mid\\theta)\\pi(\\theta)d\\theta = \\dfrac{\\int f(x\\mid\\theta)\\frac{\\pi(\\theta)}{g(\\theta)}g(\\theta)d\\theta}{\\int \\frac{\\pi(\\theta)}{g(\\theta)}g(\\theta)d\\theta}$, with the denominator equal to 1 since $\\pi$ is proper.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "The self-normalized estimator equals $\\sum_h w_h f(x\\mid\\theta_h)$ with $w_h$ the normalized importance ratios, and $\\sum_h w_h = 1$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "The basic marginal likelihood identity $\\pi(\\theta\\mid x) = f(x\\mid\\theta)\\pi(\\theta)/f(x)$ yields a proper density; in the conjugate normal example it is $N(x/2, 1/2)$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-050": {
+  "c1": {
+   "desc": "The binomial\u2013uniform marginal integral equals the binomial coefficient times the Beta function.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "The factorial cancellation gives 1/(n+1) for every x = 0,...,n.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "Completing the square in mu with lambda = n*delta^2/(sigma^2 + n*delta^2).",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "The Gaussian kernel integrates to sqrt(2*pi*(1-lambda)*delta^2).",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c5": {
+   "desc": "The marginal f(x) equals the product of factors reassembled in the right margin.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-051": {
+  "c1": {
+   "desc": "Gauss-Legendre (weight 1 on [a,b]), n=2, is exact for polynomials of degree \u2264 3.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "generalized Gauss-Laguerre (weight x^\u03b1 e^{-x} on [0,\u221e)), n=2, \u03b1=1/2, is exact for polynomials of degree \u2264 3.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "Gauss-Hermite (weight e^{-x^2} on the whole line), n=2, is exact for polynomials of degree \u2264 3.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "Gauss-Jacobi (weight (1-x)^\u03b1 (1+x)^\u03b2 on [-1,1]), n=2, \u03b1=1, \u03b2=2, is exact for polynomials of degree \u2264 3.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c5": {
+   "desc": "the double-integral tensor-product rule is exact for f polynomial of degree \u2264 2n_i-1 in each variable.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-052": {
+  "c1": {
+   "desc": "Likelihood times prior $1/\\sigma^2$ gives kernel $(1/\\sigma^2)^{n/2+1}\\exp\\{-\\frac{1}{2\\sigma^2}[(n-1)s^2+n(\\bar y-\\mu)^2]\\}$; equivalently $\\sum(y_i-\\mu)^2=(n-1)s^2+n(\\bar y-\\mu)^2$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "As a function of $\\sigma^2$ the joint kernel is $IG(n/2, B/2)$ with $B=(n-1)s^2+n(\\bar y-\\mu)^2$, and $IG(n/2,B/2)$ coincides with the scaled inverse chi-square $I\\chi^2(n,B)$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "$\\exp\\{-\\frac{n}{2\\sigma^2}(\\mu-\\bar y)^2\\}$ is the kernel of $N(\\bar y, \\sigma^2/n)$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-053": {
+  "c1": {
+   "desc": "The kernel ratio $\\pi/\\pi_a$ equals $1/(1+\\theta)$, is bounded by 1 on $\\theta>0$, and its supremum is 1.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "The number of trials to acceptance is geometric with success probability $1/M$: the pmf sums to 1, $P(N=1) = 1/M = P(\\text{stops})$, and $E[N] = M$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-054": {
+  "c1": {
+   "desc": "For an iid sample $X_1,\\dots,X_M\\sim f$, $Var(M^{-1}\\sum h(X_i)) = \\frac{1}{M}\\int_{-\\infty}^{\\infty}[h(x)-E[h(x)]]^2 f(x)\\,dx$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "If $Var(\\hat h_M) = \\sigma^2/M$ where $\\sigma^2 = Var(h(X))$, then $(\\hat h_M - E[h(x)])/(\\sigma/\\sqrt M)$ has mean 0 and variance 1.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "$\\hat h_M \\pm 2s/\\sqrt M$ is an approximate 95% interval, i.e. the normal coverage of $\\pm 2$ standard errors equals 0.95 to two decimal places.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-055": {
+  "c1": {
+   "desc": "For the Cauchy(0,1) prior and N(\u03b8,1) likelihood, both integrals defining E(\u03b8|x) converge and the denominator is strictly positive, so E(\u03b8|x) < \u221e.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "The self-normalized weighted average identity: ratio of sums equals sum of w_h*theta_h, and the weights sum to one.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "Importance sampling identity / unbiasedness: E_g[h(X) f(X)/g(X)] = int h(x) f(x) dx.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-056": {
+  "c1": {
+   "desc": "Var of the M-sample importance-sampling mean equals (1/M){E_g[W^2] \u2212 (E_g[W])^2}, W = h\u00b7f/g; verified exactly at M=2 with f=Exp(1), g=Exp(1/2), h(x)=x.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "the identity chain \u222b[hf/g]^2 g dx = \u222b h^2 f^2/g dx = \u222b h^2 (f/g) f dx = E_f{h^2 (f/g)}, finite when f/g is bounded.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-057": {
+  "c1": {
+   "desc": "For a density f and proposal g, \u222bh f dx equals [\u222b h(f/g) g dx] / [\u222b (f/g) g dx].",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "The self-normalized weights w(x_i) = (f_i/g_i)/\u03a3_j(f_j/g_j) make \u03a3_i w_i h_i equal the ratio estimator.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "With g'(\u03b8\u0302)=0 and g''(\u03b8\u0302)<0, exp(\u00bd(\u03b8-\u03b8\u0302)\u00b2g''(\u03b8\u0302)) normalizes to N(\u03b8\u0302, (-g''(\u03b8\u0302))^{-1}).",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-058": {
+  "c1": {
+   "desc": "$\\chi^2_v$ density equals the $\\text{Gamma}(v/2,\\ \\text{rate}\\ 1/2)$ density.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "the normal/chi-square scale mixture $\\theta\\mid\\delta^2\\sim N(\\hat\\theta,\\delta^2\\hat\\sigma^2)$, $v/\\delta^2\\sim\\chi^2_v$ has marginal equal to the printed $t_v$ density $\\frac{\\Gamma(\\frac{v+1}{2})}{\\Gamma(\\frac{v}{2})\\sqrt{\\pi v}\\,\\hat\\sigma}\\left[1+\\frac{1}{v}\\left(\\frac{\\theta-\\hat\\theta}{\\hat\\sigma}\\right)^2\\right]^{-\\frac{v+1}{2}}$ (exact check at $v=3$, $\\hat\\theta=0$, $\\hat\\sigma=1$).",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "the multivariate normal/chi-square scale mixture $\\theta\\mid\\delta^2\\sim N_p(\\hat\\theta,\\delta^2\\hat\\Sigma)$, $v/\\delta^2\\sim\\chi^2_v$ has marginal equal to the printed multivariate $t$ density $\\frac{\\Gamma(\\frac{v+p}{2})}{\\Gamma(\\frac{v}{2})|\\pi v\\hat\\Sigma|^{1/2}}\\left[1+\\frac{Q}{v}\\right]^{-\\frac{v+p}{2}}$ with $Q=(\\theta-\\hat\\theta)'\\hat\\Sigma^{-1}(\\theta-\\hat\\theta)$ (exact check at $p=2$, $v=3$, $\\hat\\Sigma=I_2$).",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-059": {
+  "c1": {
+   "desc": "The Bernoulli likelihood with logistic success probability equals $\\prod_i e^{y_i x_i'\\beta}/(1+e^{x_i'\\beta})$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "$\\ell(\\beta) = (\\sum_i y_i x_i')\\beta - \\sum_i \\log(1+e^{x_i'\\beta})$ is the log of $\\prod_i e^{y_i x_i'\\beta}/(1+e^{x_i'\\beta})$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "$\\nabla_\\beta \\ell(\\beta) = \\sum_i y_i x_i - \\sum_i x_i e^{x_i'\\beta}/(1+e^{x_i'\\beta})$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "$\\nabla^2_\\beta \\ell(\\beta) = -\\sum_i x_i x_i' e^{x_i'\\beta}/(1+e^{x_i'\\beta})^2 = H$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c5": {
+   "desc": "$\\hat\\beta = (X'X)^{-1}X'y$ satisfies the normal equations $X'(y - X\\hat\\beta) = 0$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-060": {},
+ "p-061": {
+  "c1": {
+   "desc": "The marginal density $\\pi(\\theta_1\\mid y)=\\int \\pi(\\theta_1\\mid\\theta_2,y)\\pi(\\theta_2\\mid y)\\,d\\theta_2$ holds; verified exactly for a bivariate normal posterior with correlation $\\rho$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "The Rao-Blackwellized estimator has MSE no larger than the un-conditioned one: $\\operatorname{Var}(E[\\theta_1\\mid\\theta_2]) \\le \\operatorname{Var}(\\theta_1)$, with both unbiased for $E(\\theta_1)$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "Law of iterated expectation $E(\\theta_1\\mid y)=\\int E(\\theta_1\\mid\\theta_2,y)\\,\\pi(\\theta_2\\mid y)\\,d\\theta_2$, verified exactly for the bivariate normal posterior.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "The printed summand $\\frac{1}{\\sqrt{2\\pi\\sigma^2}}\\exp\\{-\\frac{1}{2\\sigma^2}[\\theta_1-a]^2\\}$ is the $N(a,\\sigma^2)$ density: it integrates to 1, has mean $a$ and variance $\\sigma^2$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-062": {
+  "c1": {
+   "desc": "Gamma(\u03b1,1): first log-derivative is (\u03b1\u22121)/x \u2212 1, second is \u2212(\u03b1\u22121)/x\u00b2, so logconcave iff \u03b1 \u2265 1.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "Standard Cauchy is not logconcave: (log f)'' = 2(x\u00b2\u22121)/(1+x\u00b2)\u00b2 > 0 for |x| > 1.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "Standard lognormal (log X ~ N(0,1)) is not logconcave: (log f)'' = log(x)/x\u00b2 > 0 for x > 1.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "N(\u03bc,\u03c3\u00b2) is logconcave: (log f)'' = \u22121/\u03c3\u00b2 < 0.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c5": {
+   "desc": "Beta(\u03b1,\u03b2) with \u03b1,\u03b2 > 1 is logconcave: (log f)'' = \u2212(\u03b1\u22121)/x\u00b2 \u2212 (\u03b2\u22121)/(1\u2212x)\u00b2 < 0 on (0,1).",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-063": {
+  "c1": {
+   "desc": "The skew-normal density $f(x)=2\\phi(x)\\Phi(\\lambda x)$ integrates to 1 over the real line.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "$\\log g = \\log f_1 + \\log f_2$ implies $(\\log g)'' = (\\log f_1)'' + (\\log f_2)''$, so a product of logconcave densities is logconcave.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "For concave $h$, the interior chord is a lower bound and the two neighbouring extended chords are each an upper bound on $(x_i,x_{i+1})$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-064": {
+  "c1": {
+   "desc": "The interior-segment integral of the piecewise-exponential envelope is $e^{\\beta_i}(e^{\\alpha_i x_{i+1}} - e^{\\alpha_i x_i})/\\alpha_i$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "The left-tail integral of the envelope is $e^{\\alpha_{-1} x_0 + \\beta_{-1}}/\\alpha_{-1}$ when $\\alpha_{-1} > 0$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "Inverting the truncated-exponential CDF on $(x_i, x_{i+1})$ yields $x = \\alpha_i^{-1}\\log\\!\\left(e^{\\alpha_i x_i} + U(e^{\\alpha_i x_{i+1}} - e^{\\alpha_i x_i})\\right)$, and this lies in $[x_i, x_{i+1}]$ for $U \\in [0,1]$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-065": {},
+ "p-066": {
+  "c1": {
+   "desc": "Taking logs of $BF = f(x\\mid M_2)/f(x\\mid M_1)$ gives $\\log BF = \\log f(x\\mid M_2) - \\log f(x\\mid M_1)$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-067": {
+  "c1": {
+   "desc": "The prior $\\pi(\\mu,\\tau)=1/(1+\\tau)^2$ on $(0,1)\\times(0,\\infty)$ is proper (integrates to 1).",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "The stated $\\widehat{CPO}_r$ estimator is exactly the harmonic mean of the $M$ values $f(y_r\\mid\\theta^{(h)})$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-068": {
+  "c1": {
+   "desc": "The reciprocal of the outlier threshold 40 equals the handwritten margin value 0.025 exactly, so $1/\\widehat{CPO}_r>40 \\iff \\widehat{CPO}_r<0.025$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "The reciprocal of the extreme-outlier threshold 70 is $0.0142857\\ldots$, which rounds to the handwritten margin value 0.014 at three decimal places.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-069": {},
+ "p-070": {
+  "c1": {
+   "desc": "For a normal posterior, $\\mu \\pm 1.96\\,\\sigma$ carries probability 0.95 to the printed precision (i.e. $\\Phi(1.96)-\\Phi(-1.96)=0.9500$ to 4 decimals), and 1.96 is the correct rounded 0.975 quantile.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "The definition's normalization is consistent: for the normal posterior of the page, $\\int_a^b p(\\theta\\mid y)\\,d\\theta = 1-\\alpha$ with $\\alpha=0.05$, $a=\\mu-1.96\\sigma$, $b=\\mu+1.96\\sigma$, and the equal-tail split puts $\\alpha/2$ in each tail.",
+   "detail": " [no matching placeholder in transcript]",
+   "verdict": "pass"
+  }
+ },
+ "p-071": {
+  "c1": {
+   "desc": "Equal-tail inversion of the C.D.F. gives probability content exactly $1-\\alpha$: for a posterior with c.d.f. $F$, $\\int_{F^{-1}(\\alpha/2)}^{F^{-1}(1-\\alpha/2)} f(t)\\,dt = 1-\\alpha$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "With $n=1000$ ordered draws, indices 25 and 975 are the $0.025$ and $0.975$ empirical quantiles and span 95% of the sample.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-072": {
+  "c1": {
+   "desc": "On the unimodal Beta(2,3) posterior with 1\u2212\u03b1=0.9, the (a,b) solving \u222b_a^b p = 0.9 and p(a)=p(b) satisfies the HPD property (min density inside \u2265 max density outside), equals the level set {\u03b8: p(\u03b8) \u2265 p(a)}, and is shorter than the equal-tailed 90% interval.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "The 90% HPD interval for Beta(2,3) contains the mode (Remark (1)).",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-073": {
+  "c1": {
+   "desc": "Equation (8.4) \u2014 $F(b\\mid y)-F(a\\mid y)=\\int_a^b f(\\theta\\mid y)\\,d\\theta$ holds as an identity for a posterior density with CDF $F$, so the displayed chain equating both to $1-\\alpha$ is consistent.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "The displayed \"Solve for a\" equation \u2014 with $b=F^{-1}\\{F(a)+(1-\\alpha)\\}$ the coverage constraint (8.4) holds identically, so (8.3)+(8.4) reduce to $f(a\\mid y)=f[F^{-1}\\{F(a)+(1-\\alpha)\\}]$ in the single unknown $a$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "The Remark \u2014 for a density symmetric about its mode $m$, $(m-a,m+a)$ satisfies the equal-ordinate condition (8.3), and it is the $100(1-\\alpha)\\%$ HPD interval exactly when $\\int_m^{m+a} f(\\theta\\mid y)\\,d\\theta=(1-\\alpha)/2$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-074": {
+  "c1": {
+   "desc": "Under the reference prior $p(\\mu,\\sigma^2)\\propto\\sigma^{-2}$, the marginal posterior of $t=(\\mu-\\bar x)/(s/\\sqrt n)$ is Student-$t$ with $n-1$ df (checked exactly at $n=5$).",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "$t_{59,0.025} = 2.0003$ (upper 2.5% point of Student-$t$ with 59 df), to 4 dp.",
+   "detail": "AssertionError: 2.001",
+   "verdict": "fail"
+  },
+  "c3": {
+   "desc": "$20.38 \\pm (5.24/\\sqrt{60})\\cdot 2.0003 = (19.03, 21.73)$ rounded to 2 dp.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "Beta\u2013Binomial conjugacy: with $p\\sim\\text{Beta}(\\mu\\tau,(1-\\mu)\\tau)$ and $x\\mid p\\sim\\text{Bin}(n,p)$, the posterior at $x=s$ is $\\text{Beta}(s+\\mu\\tau,\\ n-s+(1-\\mu)\\tau)$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c5": {
+   "desc": "With $\\mu=0.3,\\tau=100$, $\\text{Beta}(67,133)$ forces $(n,s)=(100,37)$ and $\\text{Beta}(61,136)$ forces $(n,s)=(97,31)$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c6": {
+   "desc": "Equal-tailed 95% intervals: $\\text{Beta}(67,133)\\to(0.271,0.402)$; $\\text{Beta}(61,136)\\to(0.247,0.376)$, to 3 dp.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c7": {
+   "desc": "95% HPD intervals: $\\text{Beta}(67,133)\\to(0.270,0.401)$; $\\text{Beta}(61,136)\\to(0.246,0.375)$, to 3 dp.",
+   "detail": "AssertionError: (0.246, 0.374)",
+   "verdict": "fail"
+  }
+ },
+ "p-075": {
+  "c1": {
+   "desc": "Beta(5,500) equal-tailed 95% credible interval is (3.23e-3, 20.20e-3) to printed precision.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "Beta(5,500) 95% H.P.D. interval is (2.42e-3, 18.62e-3) to printed precision.",
+   "detail": "AssertionError: 2.41",
+   "verdict": "fail"
+  },
+  "c3": {
+   "desc": "Poisson(n*lambda) likelihood with flat prior p(lambda)=1 yields posterior Gamma(x+1, rate n).",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "Gamma(16, rate 150269) equal-tailed 95% interval is (6.086e-5, 16.464e-5) to printed precision.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c5": {
+   "desc": "Gamma(10, rate 133118) equal-tailed 95% interval is (3.602e-5, 12.834e-5) to printed precision.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c6": {
+   "desc": "Gamma(16, rate 150269) 95% H.P.D. interval is (6.501e-5, 17.968e-5) to printed precision.",
+   "detail": "AssertionError: 5.725",
+   "verdict": "fail"
+  },
+  "c7": {
+   "desc": "Gamma(10, rate 133118) 95% H.P.D. interval is (3.880e-5, 13.888e-5) to printed precision.",
+   "detail": "AssertionError: 3.224",
+   "verdict": "fail"
+  }
+ },
+ "p-076": {
+  "c1": {
+   "desc": "For a d-variate normal density, the level set {f \u2265 k} is the ellipsoid {(\u03b8\u2212\u03b8\u0302)\u2032\u03a3\u207b\u00b9(\u03b8\u2212\u03b8\u0302) \u2264 c} with c = \u22122\u00b7log(k\u00b7(2\u03c0)^{d/2}\u00b7|\u03a3|^{1/2}).",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "Ratio of normal likelihoods L(mu0)/L(mu1) equals exp[-(n/sigma^2)(xbar-(mu0+mu1)/2)(mu1-mu0)].",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "Under H0, Pr(Xbar > xbar) = 1 - Phi((xbar-mu0)/(sigma/sqrt(n))).",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-077": {
+  "c1": {
+   "desc": "exp(log(ratio)) reproduces each printed ratio to the precision printed",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "the log-Bayes-factor cut points are ln(3), ln(20), ln(150) rounded to 3 decimals",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "the two ratio tables on the page agree entry-for-entry",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-078": {
+  "c1": {
+   "desc": "A point-mass prior at $\\theta_0$ gives marginal likelihood $f(x) = f(x\\mid\\theta_0)$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "Posterior odds equal $f(x\\mid M_1)P(M_1)\\,/\\,\\big(f(x\\mid M_2)P(M_2)\\big)$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "The Bayes factor identity: $f(x|M_1)/f(x|M_2) = \\frac{P(M_1|x)/P(M_1)}{P(M_2|x)/P(M_2)} = \\text{posterior odds}/\\text{prior odds}$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "From $f(\\theta|x) = f(x|\\theta)\\pi(\\theta)/f(x)$ it follows that $f(x) = f(x|\\theta)\\pi(\\theta)/f(\\theta|x)$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-079": {
+  "c1": {
+   "desc": "The printed Devroye/inverse-CDF transform $\\mu = \\theta + \\delta\\Phi^{-1}\\{U + (1-U)\\Phi((\\theta-\\mu_0)/\\delta)\\}$ has support $\\mu \\ge \\mu_0$.",
+   "detail": "AssertionError: (0.001, 18.014811020384524)",
+   "verdict": "fail"
+  },
+  "c2": {
+   "desc": "The table's Log(BF) column equals the difference of the two Log(likelihood) entries (first column $-186.710$, printed rounded to $-186.7$), and the handwritten margin subtraction gives $3.808$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "Normal-normal conjugacy \u2014 posterior $\\mathcal{N}(\\lambda\\bar{y}+(1-\\lambda)\\theta,\\;(1-\\lambda)\\delta^2)$ with $\\lambda=\\delta^2/(\\delta^2+\\sigma^2/n)$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-080": {
+  "c1": {
+   "desc": "Log(BF) column equals ln(BF) rounded to two decimals for each row of the iterations table",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "NHIS proportions equal Visit/(Visit+No Visit) to two decimals",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "the Bayes factor formula with p0=3/10 yields 2.00 (DE, n=100, x=37) and 8.10 (DC, n=97, x=31)",
+   "detail": "AssertionError: 2.0206495221169596",
+   "verdict": "fail"
+  }
+ },
+ "p-081": {
+  "c1": {
+   "desc": "The uniform-prior binomial marginal integrates to $1/(n+1)$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "The beta-prior binomial marginal equals $\\binom{n}{x}B(x+\\mu\\tau,\\,n-x+(1-\\mu)\\tau)/B(\\mu\\tau,(1-\\mu)\\tau)$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "$BF = f(x\\mid M_1)/f(x\\mid M_2) = B(x+1,n-x+1)B(\\mu\\tau,(1-\\mu)\\tau)/B(x+\\mu\\tau,\\,n-x+(1-\\mu)\\tau)$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "Common-$p$ joint marginal equals $\\binom{n_1}{x_1}\\binom{n_2}{x_2}B(x_1+x_2+1,\\,n_1+n_2-(x_1+x_2)+1)$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c5": {
+   "desc": "Independent-$p_i$ joint marginal equals $\\prod_{i=1}^{2}\\binom{n_i}{x_i}B(x_i+1,\\,n_i-x_i+1)$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c6": {
+   "desc": "In the part-(c) Bayes factor the binomial coefficients cancel, giving the reduced ratio of beta functions.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c7": {
+   "desc": "In the Final Comment, $p(y\\mid M_2)=\\int_0^1\\binom{n}{y}p^y(1-p)^{n-y}dp = 1/(n+1)$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-082": {
+  "c1": {
+   "desc": "p\u0302 = y/n is the maximizer in p of the binomial(n,p) pmf.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "binom(n,y) * (y/n)^y * (1-y/n)^(n-y) >= 1/(n+1) for all 0 <= y <= n.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "the binomial pmf evaluated at a p0 away from the MLE can fall below 1/(n+1).",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "flat prior + iid normal likelihood gives posterior N(ybar, sigma^2/n).",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-083": {
+  "c1": {
+   "desc": "The Gaussian convolution $\\int \\mathcal{N}(y\\mid\\mu,\\sigma^2)\\mathcal{N}(\\mu\\mid\\bar y,\\sigma^2/n)\\,d\\mu$ equals the $\\mathcal{N}(\\bar y,(1+1/n)\\sigma^2)$ density.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "With prior $p(\\mu,\\sigma^2)\\propto 1/\\sigma^2$, the posterior predictive density of $y_{n+1}$ is proportional to the $t_{n-1}$ kernel in $(y_{n+1}-\\bar y)/(s\\sqrt{1+1/n})$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "$20.38 \\pm 5.22\\sqrt{61/60}\\times 2.0003 \\approx 20.4 \\pm 10.5$ (printed precision).",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "$20.38 \\pm 5.22\\sqrt{1/60}\\times 2.0003 \\approx 20.4 \\pm 1.3$ (printed precision).",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-084": {
+  "c1": {
+   "desc": "For iid normal $y_1,\\dots,y_{n+1}$, $\\operatorname{Var}(y_{n+1}-\\bar{y}) = \\sigma^2(1+1/n)$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "The Student-$t$ pivot $Z/\\sqrt{V/(n-1)}$ reduces to $(y_{n+1}-\\bar y)/(s\\sqrt{1+1/n})$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "$\\bar{Y} = f\\bar{y}_s + (1-f)\\bar{y}_{ns}$ with $f=n/N$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "$(1-f)^2\\left(\\frac{1}{N-n}+\\frac{1}{n}\\right) = \\frac{1-f}{n}$ when $f=n/N$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-085": {
+  "c1": {
+   "desc": "The printed 10%-sampling expression $5.22\\sqrt{(1-1/10)/10}\\times 2.0003$ equals the stated $1.27$ to two decimals.",
+   "detail": "AssertionError: expression evaluates to 3.1325, not 1.27",
+   "verdict": "fail"
+  },
+  "c2": {
+   "desc": "With 1% sampling, the same expression with $f = 1/100$ equals the stated $1.34$ to two decimals.",
+   "detail": "AssertionError: expression evaluates to 3.2854, not 1.34",
+   "verdict": "fail"
+  }
+ },
+ "p-086": {
+  "c1": {
+   "desc": "The point prediction $1.54 + 1.15 \\times 24$ equals $29.14$ exactly.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "The printed prediction standard error $\\sqrt{4.5(1 + 1/24 + (24-19.93)^2/62.92)}$ equals $2.23$ to 2 decimal places.",
+   "detail": "AssertionError: formula gives s = 2.4233, rounds to 121/50",
+   "verdict": "fail"
+  },
+  "c3": {
+   "desc": "$29.14 \\pm 2.23 \\times 2.1788$ rounds to the interval $(24.3, 34.0)$ at 1 decimal place.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "The upper 0.975 quantile of Student's $t$ with 12 degrees of freedom is $2.1788$ to 4 decimal places.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-087": {},
+ "p-088": {},
+ "p-089": {
+  "c1": {
+   "desc": "For $Y_{ij}\\mid\\mu_i \\sim N(\\mu_i,\\sigma_i^2)$ with $\\mu_i \\sim N(\\theta,\\delta^2)$, the marginal moments are $E(Y_{ij})=\\theta$, $\\mathrm{Var}(Y_{ij})=\\sigma_i^2+\\delta^2$, and $\\mathrm{Cov}(Y_{ij},Y_{ij'})=\\delta^2$ for $j\\neq j'$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "The intraclass correlation is $\\mathrm{Corr}(Y_{ij},Y_{ij'}) = \\delta^2/(\\delta^2+\\sigma_i^2)$ for $j\\neq j'$, $i=i'$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-090": {
+  "c1": {
+   "desc": "The normal\u2013normal update gives posterior $\\mu_i\\mid\\bar y_i,\\theta \\sim N(\\lambda_i\\bar y_i+(1-\\lambda_i)\\theta,\\ (1-\\lambda_i)\\delta^2)$ with $\\lambda_i=\\delta^2/(\\delta^2+\\sigma_i^2/n_i)$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-091": {
+  "c1": {
+   "desc": "Normal\u2013normal conjugate update: p(\u0233|\u03bc)p(\u03bc|\u03b8) = p(\u0233|\u03b8) \u00b7 N(\u03bc; \u03bb\u0233+(1\u2212\u03bb)\u03b8, (1\u2212\u03bb)\u03b4\u00b2) with \u03bb = \u03b4\u00b2/(\u03b4\u00b2+\u03c3\u00b2/n).",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "Marginalizing \u03b8|y ~ N(\u03b8\u0302, \u03bd\u00b2) yields \u03bc_i|y ~ N(\u03bb\u0233+(1\u2212\u03bb)\u03b8\u0302, (1\u2212\u03bb)\u00b2\u03bd\u00b2 + (1\u2212\u03bb)\u03b4\u00b2).",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "Cov(\u03bc_i, \u03bc_i'|y) = (1\u2212\u03bb_i)(1\u2212\u03bb_i')\u03bd\u00b2 for i \u2260 i'.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "E{(\u03bc \u2212 t)\u00b2 | y} is uniquely minimized over constants t at t = E(\u03bc|y).",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c5": {
+   "desc": "\u03b8\u0302 = \u03a3\u03bb_i\u0233_i / \u03a3\u03bb_i is the minimum-variance linear unbiased estimator of \u03b8, given Var(\u0233_i) = \u03b4\u00b2 + \u03c3_i\u00b2/n_i = \u03b4\u00b2/\u03bb_i.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-092": {
+  "c1": {
+   "desc": "As $\\delta^2\\to0$, $\\lambda_i=\\delta^2/(\\delta^2+\\sigma_i^2/n_i)\\to0$, the precision-weighted $\\hat\\theta\\to\\sum(n_i/\\sigma_i^2)\\bar y_i/\\sum(n_i/\\sigma_i^2)$, and $E(\\mu_i|y)=\\hat\\theta+\\lambda_i(\\bar y_i-\\hat\\theta)$ tends to that synthetic estimator.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "As $\\delta^2\\to\\infty$, $\\lambda_i\\to1$ and $E(\\mu_i|y)=\\hat\\theta+\\lambda_i(\\bar y_i-\\hat\\theta)\\to\\bar y_i$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "With $\\sigma_i^2=\\sigma^2$ the synthetic estimator $\\sum(n_i/\\sigma_i^2)\\bar y_i/\\sum(n_i/\\sigma_i^2)$ equals the pooled mean $\\sum n_i\\bar y_i/\\sum n_i$ (complete pooling).",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-093": {
+  "c1": {
+   "desc": "The two extreme cases of the shrinkage factor and the posterior mean, and the leave-one-out reduction of $\\hat\\theta$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "The NOTE identity for the posterior variance, and the strict inequality $< \\sigma_i^2/m_i$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "Flat prior on $\\mu_i$ with an iid normal sample gives posterior $N(\\bar y_i,\\ \\sigma_i^2/m_i)$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-094": {
+  "c1": {
+   "desc": "Normal\u2013normal posterior mean is the shrinkage estimator with weight \u03bb_i = \u03b4\u00b2/(\u03b4\u00b2 + \u03c3_i\u00b2/n_i)",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "\u0233 = \u03a3\u03bb_i\u0233_i / \u03a3\u03bb_i is exactly the precision-weighted mean under \u0232_i ~ N(\u03b8, \u03b4\u00b2+\u03c3_i\u00b2/n_i)",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "\u03bb_i \u03c3_i\u00b2/n_i = (1-\u03bb_i) \u03b4\u00b2",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "Marginal Y_i has mean \u03b8\u00b71 and covariance \u03c3_i\u00b2 I + \u03b4\u00b2 J",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-095": {
+  "c1": {
+   "desc": "The handwritten $\\rho = \\delta^2/(\\delta^2+\\sigma^2)$ is the inverse of the printed relation $\\delta^2 = \\frac{\\rho}{1-\\rho}\\sigma^2$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-096": {
+  "c1": {
+   "desc": "With $w_i = N_i/\\sum_{i=1}^{l} N_i$, the weights sum to 1 and $\\sum_i w_i\\mu_i$ equals the $N_i$-weighted mean $\\left(\\sum_i N_i\\mu_i\\right)/\\sum_i N_i$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "With $w_i = N_i/\\sum_i N_i$, $\\bar{Y}_i = \\frac{1}{N_i}\\sum_{j=1}^{N_i} y_{ij}$, and $\\bar{Y}$ the grand mean $\\frac{\\sum_i\\sum_j y_{ij}}{\\sum_i N_i}$, the benchmarking constraint $\\sum_{i=1}^{l} w_i\\bar{Y}_i = \\bar{Y}$ holds identically.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-097": {
+  "c1": {
+   "desc": "For a concrete standard form, the product-of-integrals collapses to $g(\\theta)$, the ratio expression equals $g(\\theta)\\pi(\\theta)/\\int g(\\theta)\\pi(\\theta)\\,d\\theta$, and the result integrates to 1.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-098": {
+  "c1": {
+   "desc": "the bin midpoint $(a_g + a_{g-1})/2$ lies strictly between $a_{g-1}$ and $a_g$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "the quadrature weights $w_g = g(\\theta_g)\\pi(\\theta_g) / \\sum_{h=1}^G g(\\theta_h)\\pi(\\theta_h)$ sum to one.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "marginalizing $\\pi(\\boldsymbol{\\mu}|\\boldsymbol{y}) \\approx \\sum_g \\left[\\prod_{i=1}^{l}\\pi(\\mu_i|\\theta_g,\\boldsymbol{y})\\right] w_g$ over $\\mu_j$ for $j\\neq i$ returns $\\sum_g \\pi(\\mu_i|\\theta_g,\\boldsymbol{y}) w_g$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-099": {
+  "c1": {
+   "desc": "First derivative of the binomial log-likelihood kernel $\\Delta(\\nu)=y\\nu-n\\log(1+e^{\\nu})$ is $y - n e^{\\nu}/(1+e^{\\nu})$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "Second derivative equals $-n_i\\{(e^{\\nu}(1+e^{\\nu})-e^{2\\nu})/(1+e^{\\nu})^2\\}$ and simplifies to $-n_i e^{\\nu}/(1+e^{\\nu})^2$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "The MLE solves $e^{\\hat\\nu}/(1+e^{\\hat\\nu})=y/n$, giving $\\hat\\nu=\\log(y/(n-y))$; and it is a maximum.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "$\\hat\\sigma_i^2 = \\big((1+e^{\\hat\\nu})^2/(n e^{\\hat\\nu})\\big)$ is the inverse observed information and equals $n/(y(n-y))$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-100": {
+  "c1": {
+   "desc": "The linear and quadratic Taylor coefficients of $y\\nu - n\\log(1+e^{\\nu})$ about $\\hat{\\nu}$ are $y - ne^{\\hat\\nu}/(1+e^{\\hat\\nu})$ and $-\\tfrac12 n e^{\\hat\\nu}/(1+e^{\\hat\\nu})^2$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "Completing the square: $\\frac{1}{s}(\\nu-\\hat\\nu)^2+\\frac{1}{d}(\\nu-\\theta)^2 = (\\frac1s+\\frac1d)\\left(\\nu-\\frac{\\hat\\nu/s+\\theta/d}{1/s+1/d}\\right)^2+\\frac{(1/s)(1/d)}{1/s+1/d}(\\theta-\\hat\\nu)^2$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "$\\dfrac{1/s}{1/s+1/d} = \\dfrac{d}{d+s}$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "With $\\lambda=d/(d+s)$: $\\frac{1}{s}(\\nu-\\hat\\nu)^2+\\frac{1}{d}(\\nu-\\theta)^2=\\frac{1}{\\lambda s}\\big(\\nu-(\\lambda\\hat\\nu+(1-\\lambda)\\theta)\\big)^2+\\frac{\\lambda}{d}(\\theta-\\hat\\nu)^2$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c5": {
+   "desc": "The conditional variance $\\lambda\\hat\\sigma^2$ equals the stated $(1-\\lambda)\\delta^2$, and the stated mean matches the precision-weighted mean.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c6": {
+   "desc": "$\\int_{-\\infty}^{\\infty}\\exp\\!\\big[-\\frac{1}{2\\lambda s}(\\nu-m)^2\\big]\\,d\\nu = \\sqrt{2\\pi}\\,(\\lambda s)^{1/2}$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-101": {
+  "c1": {
+   "desc": "With $\\overline{\\nu}=\\sum\\lambda_i\\hat\\nu_i/\\sum\\lambda_i$, the weighted sum of squares decomposes as $\\sum\\lambda_i(\\theta-\\hat\\nu_i)^2=\\sum\\lambda_i(\\theta-\\overline\\nu)^2+\\sum\\lambda_i(\\hat\\nu_i-\\overline\\nu)^2$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "The exponential kernel in $\\theta$ is proportional to a $N(\\overline\\nu,\\ \\delta^2/\\sum\\lambda_i)$ density.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "$(\\lambda_i/\\delta^2)^{1/2}(\\delta^2/\\sum_j\\lambda_j)^{1/2}=(\\lambda_i/\\sum_j\\lambda_j)^{1/2}$ \u2014 the $\\delta^2$ cancels.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "The half-Cauchy density $f(\\sigma)=\\frac{2}{\\pi(1+\\sigma^2)}$ on $\\sigma>0$ is proper (integrates to 1).",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c5": {
+   "desc": "Under $\\gamma=\\sigma^2$ the half-Cauchy becomes $f(\\gamma)=\\frac{1}{\\pi(1+\\gamma)\\sqrt{\\gamma}}$, a proper density on $(0,\\infty)$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c6": {
+   "desc": "$\\phi=\\frac{1}{1+\\sigma^2}$ inverts to $\\sigma^2=\\frac{1-\\phi}{\\phi}$, with $\\frac{d\\sigma^2}{d\\phi}=-\\frac{1}{\\phi^2}$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c7": {
+   "desc": "The transformed density is $\\pi(\\phi)=\\frac{1}{\\pi\\sqrt{\\phi(1-\\phi)}}$ on $(0,1)$, i.e. exactly the Beta(1/2, 1/2) density.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-102": {
+  "c1": {
+   "desc": "The shrinkage weights $\\lambda_i$ lie in $(0,1)$, the normalized weights lie in $(0,1)$ and sum to 1, and the bracketed factor of $\\pi(\\phi\\mid dat)$ is $\\le 1$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "The factor $\\{\\phi(1-\\phi)\\}^{-1/2}$ is integrable on $(0,1)$, with $\\int_0^1\\{\\phi(1-\\phi)\\}^{-1/2}d\\phi=\\pi$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "$0 < e^{y\\nu}/(1+e^{\\nu})^{m} < 1$ for all real $\\nu$ and integers $0\\le y\\le m$, $m\\ge 1$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-103": {},
+ "p-104": {},
+ "p-105": {
+  "c1": {
+   "desc": "Change of variables from $\\sigma^{-2}\\sim\\text{Gamma}(a/2,b/2)$ gives $p(\\sigma^2)\\propto(1/\\sigma^2)^{a/2+1}e^{-b/(2\\sigma^2)}$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "The cpd of $\\mu_i$ is $N(\\lambda_i\\bar y_i+(1-\\lambda_i)\\theta,\\ (1-\\lambda_i)\\delta^2)$ with $\\lambda_i=n_i\\delta^2/(n_i\\delta^2+\\sigma^2)$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-106": {
+  "c1": {
+   "desc": "With $\\mu_i \\mid \\theta \\sim \\mathcal{N}(\\theta, \\delta^2)$ independent and a flat prior on $\\theta$, the conditional posterior of $\\theta$ is $\\mathcal{N}(\\bar\\mu, \\delta^2/\\ell)$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "Prior $\\sigma^{-2}\\sim$ Gamma$(a/2, b/2)$ with $y_{ij}\\mid\\mu_i,\\sigma^2\\sim\\mathcal{N}(\\mu_i,\\sigma^2)$ gives full conditional Gamma$\\{(a+\\sum n_i)/2,\\;(b+\\sum\\sum(y_{ij}-\\mu_i)^2)/2\\}$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "Prior $\\delta^{-2}\\sim$ Gamma$(c/2, d/2)$ with $\\mu_i\\mid\\theta,\\delta^2\\sim\\mathcal{N}(\\theta,\\delta^2)$ gives full conditional Gamma$\\{(c+\\ell)/2,\\;(d+\\sum(\\mu_i-\\theta)^2)/2\\}$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-107": {
+  "c1": {
+   "desc": "$ste_k=\\{(N-k)/(N(N+2))\\}^{1/2}$ squares to the exact white-noise variance $(N-k)/(N(N+2))$ of $r_k$, and $\\sqrt{N}\\,ste_k\\to 1$ as $N\\to\\infty$ for fixed $k$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "the printed band $(-2ste_k, 2ste_k)$ reduces to the standard $\\pm 2/\\sqrt{N}$ significance band as $N\\to\\infty$ with $k$ fixed.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-108": {
+  "c1": {
+   "desc": "The printed last-batch summation limits $k=(n-1)\\ell$ to $n\\ell$ enclose $\\ell+1$ terms, not $\\ell$; the corrected lower limit $(n-1)\\ell+1$ gives exactly $\\ell$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "NSE = sqrt( sum_k (thetabar_k - thetabar)^2 / (n(n-1)) ) equals s/sqrt(n), the standard error of the mean of the n batch means.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "Geweke's T is standardized: with independent Xbar_1, Xbar_2 of common mean mu and variances sigma_1^2/n_1, sigma_2^2/n_2, the statistic has mean 0 and variance 1.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-109": {
+  "c1": {
+   "desc": "The effective sample size $eff_{ss}=M/(2\\tau)$ equals $M$ at $\\tau=1/2$ and $0.5M$ at $\\tau=1$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "$\\widehat{E(U^2)}-(\\widehat{E(U)})^2$ equals $\\frac{1}{M}\\sum(U_i-\\bar U)^2 = \\frac{M-1}{M}S^2$, hence only approximately $S^2$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-110": {
+  "c1": {
+   "desc": "The law of total expectation $E(U) = E_{V,W}\\{E(U\\mid V,W)\\}$ holds for a discrete joint distribution.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "Rao-Blackwellization does not increase variance: Var(E(U|V,W)) <= Var(U), with equality iff U is (a.s.) a function of (V,W); hence M^{-1} sum E(U|V,W) has no larger MSE than M^{-1} sum U, both being unbiased for E(U).",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "For mu_i | sigma^2, delta^2, y ~ N(m, v) with m = lam*ybar + (1-lam)*thetahat and v = (1-lam)^2*nu^2 + (1-lam)*delta^2, the marginal posterior variance equals E{v | y} + Var{m | y}.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "The printed Monte Carlo estimator is the sample analogue of c3: its second term is exactly the sample variance of t_i^{(h)} about tbar_i, and the whole estimator converges to Var(mu_i | y) as the draws' empirical distribution matches the posterior.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-111": {
+  "c1": {
+   "desc": "The prior $p(\\tau)=1/(1+\\tau)^2$ integrates to 1 over $\\tau>0$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "The joint-posterior kernel in $p_i$ equals the $Beta(y_i+\\mu\\tau,\\ n_i-y_i+(1-\\mu)\\tau)$ density times its Beta normalizing constant.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "$\\prod_{i=1}^{\\ell} p_i^{\\mu\\tau-1}(1-p_i)^{(1-\\mu)\\tau-1}/B(\\mu\\tau,(1-\\mu)\\tau) = a^{\\mu\\tau-1}b^{(1-\\mu)\\tau-1}/B(\\mu\\tau,(1-\\mu)\\tau)^{\\ell}$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-112": {
+  "c1": {
+   "desc": "The transformation $\\phi=\\tau/(\\tau+1)$ inverts to $\\tau=\\phi/(1-\\phi)$ for $0<\\phi<1$, mapping onto $\\tau>0$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "$\\dfrac{d\\tau}{d\\phi} = \\dfrac{1}{(1-\\phi)^2}$ where $\\tau=\\phi/(1-\\phi)$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "Under $\\tau=\\phi/(1-\\phi)$ the Jacobian exactly cancels $1/(1+\\tau)^2$, so $\\pi(\\phi\\mid\\cdot)$ is the $\\tau$-kernel with $\\tau$ substituted and no leftover $\\phi$ factor.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "$f(p_i\\mid\\mu,\\tau,y)$ is a normalized Beta$(y_i+\\mu\\tau,\\ n_i-y_i+(1-\\mu)\\tau)$ density.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c5": {
+   "desc": "The Beta mean $(y_i+\\mu\\tau)/(n_i+\\tau)$ equals $\\lambda_i\\hat p_i+(1-\\lambda_i)\\mu$ with $\\lambda_i=n_i/(n_i+\\tau)$, $\\hat p_i=y_i/n_i$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c6": {
+   "desc": "The conditional Beta variance is $(y_i+\\mu\\tau)(n_i-y_i+(1-\\mu)\\tau)/[(n_i+\\tau)^2(n_i+\\tau+1)]$; the printed numerator $y_i+\\mu\\tau$ alone is not equal to it.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-113": {
+  "c1": {
+   "desc": "Mean = Sum/N to 4 decimals (1804.8950 / 2075 rounds to 0.8698)",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "Variance = CSS/(N-1) = 0.0249 and Std Dev = sqrt(Variance) = 0.1579",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "USS - Sum^2/N equals CSS (uncorrected minus correction = corrected sum of squares)",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "CV = 100*sd/mean = 18.1559 and Std Mean = sd/sqrt(N) = 0.0035",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-114": {
+  "c1": {
+   "desc": "The factors $(1/\\delta^2)^{a/2+1}e^{-b/(2\\delta^2)}$ and $(1/\\sigma^2)^{a/2+1}e^{-b/(2\\sigma^2)}$ are the kernels of $IG(a/2, b/2)$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "The $\\beta$ full conditional is Normal with mean $(\\sum\\sum dd')^{-1}\\sum\\sum d(y-\\nu)$ and covariance $\\sigma^2(\\sum\\sum dd')^{-1}$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "The $\\nu_i$ full conditional is Normal with precision $1/\\delta^2 + n_i/\\sigma^2$ and mean $\\frac{\\sum_j (y_{ij}-\\beta_0-\\beta_1 x_{ij})/\\sigma^2}{1/\\delta^2 + n_i/\\sigma^2}$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "The $\\sigma^2$ full conditional is $IGamma\\!\\left(\\frac{a+\\sum_i n_i}{2},\\frac{b+SSE}{2}\\right)$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c5": {
+   "desc": "The $\\delta^2$ full conditional is $IGamma\\!\\left(\\frac{a+\\ell}{2},\\frac{b+\\sum_i \\nu_i^2}{2}\\right)$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c6": {
+   "desc": "$\\hat{\\beta}=[\\sum\\sum d_{ij}d_{ij}']^{-1}[\\sum\\sum d_{ij} y_{ij}]$ minimizes $\\sum\\sum (y_{ij}-d_{ij}'\\beta)^2$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-115": {
+  "c1": {
+   "desc": "The stated $\\delta^2 = (\\ell-1)^{-1}\\sum_{i=1}^{\\ell}(\\hat\\nu_i-\\bar\\nu)^2$ with $\\bar\\nu=\\ell^{-1}\\sum\\hat\\nu_i$ is unbiased for the variance of the $\\hat\\nu_i$ (the $(\\ell-1)^{-1}$ divisor, not $\\ell^{-1}$, is the correct one).",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "Each of the three Gibbs runs listed under Figure 10.4 leaves exactly 1,000 retained iterates after burn-in, matching the figure's common horizontal axis (`it` running to 1000).",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-116": {
+  "c1": {
+   "desc": "The standard error of the sample ACF from 1000 retained iterates, 1/sqrt(1000), rounds to .032.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "6,000 runs with burn-in 1,000, keeping every 5th thereafter, yields exactly 1000 iterates.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "The four pattern-mixture cell probabilities sum to 1.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "For a > 0, the constraint p < 1/a is exactly q = ap < 1.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c5": {
+   "desc": "Substituting q = ap into p(y,r,z|pi,p,q) reproduces the displayed kernel times n!/(y!(r-y)!).",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-117": {
+  "c1": {
+   "desc": "The four pattern-mixture cell probabilities sum to 1 and the four cell counts sum to n, so the displayed multinomial pmf is proper.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "With q = a*p and a > 1, the constraint 0 < q < 1 is equivalent to 0 < p < 1/a.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "For n > 0, a > 0, n-r+y > 0: 1/a < 1 - (r-y)/n  <=>  a > n/(n-r+y).",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "For n=103, r=80, y=60 the exponents are 60 and 20, the bound is a > 103/83, the kernel is beta(61,21), and 60/103 < 83/103.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-118": {
+  "c1": {
+   "desc": "The four selection-model cell probabilities sum to 1 and the four cell counts sum to $n$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "Uniform(0,1) prior with Binomial(n, pi) likelihood for r gives posterior Beta(r+1, n-r+1).",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "Likelihood x Beta(a0,b0) priors on pi0,pi1 x Uniform(0,1) on p equals the printed posterior kernel up to a factor free of (p, pi0, pi1, z).",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-119": {
+  "c1": {
+   "desc": "With n=103, y=60, the ignorable-model posterior kernel p^y (1-p)^(n-y) on (0,1) is the Beta(61,44) kernel: it integrates to the finite value B(61,44) = Gamma(61)Gamma(44)/Gamma(105), so dividing by it yields the Beta(61,44) density.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-120": {
+  "c1": {
+   "desc": "The importance-sampling denominator $\\int \\frac{\\pi(\\theta\\mid y_{(r)})}{\\pi(\\theta\\mid y)}\\pi(\\theta\\mid y)\\,d\\theta$ equals 1, so the ratio form on line 3 equals the plain expectation on line 1.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "The self-normalized weights $w_r^{(k)}$ sum to 1, and $\\dfrac{M^{-1}\\sum_k g_k u_k}{M^{-1}\\sum_k u_k} = \\sum_k w_r^{(k)} g_k$ with $u_k = \\pi(\\theta^{(k)}\\mid y_{(r)})/\\pi(\\theta^{(k)}\\mid y)$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "Bayes' theorem gives $\\dfrac{\\pi(\\theta\\mid y_{(r)})}{\\pi(\\theta\\mid y)} = \\dfrac{f(y_{(r)}\\mid\\theta)/f(y\\mid\\theta)}{f(y_{(r)})/f(y)}$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-121": {
+  "c1": {
+   "desc": "The self-normalized importance weights $w_r^{(k)}$ sum to 1 over $k$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "Under conditional independence, $f(y_{(r)}\\mid\\theta)\\,[f(y\\mid\\theta)]^{-1} = [f(y_r\\mid\\theta)]^{-1}$, so the weight reduces to the Remark's form.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "With $f(y_{ij}\\mid\\Omega^{(h)})$ the $N(\\mu_i^{(h)},\\sigma^{2(h)})$ density, the weights equal the displayed explicit expression and sum to 1.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "$E(y_{ij}\\mid\\Omega^{(h)}) = \\mu_i^{(h)}$ for the normal means model.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c5": {
+   "desc": "$E(y_{ij}^2\\mid\\Omega^{(h)}) = \\sigma^{2(h)} + \\mu_i^{(h)2}$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-122": {
+  "c1": {
+   "desc": "The M-H acceptance probability $\\alpha(x,y)=\\min\\{1,\\ \\pi(y)q(y,x)/(\\pi(x)q(x,y))\\}$ satisfies detailed balance: $\\pi(x)q(x,y)\\alpha(x,y) = \\pi(y)q(y,x)\\alpha(y,x) = \\min\\{\\pi(x)q(x,y),\\ \\pi(y)q(y,x)\\}$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-123": {
+  "c1": {
+   "desc": "For a symmetric candidate density, q(x,y)=q(y,x), the MH acceptance ratio \u03c0(y)q(y,x)/(\u03c0(x)q(x,y)) equals \u03c0(y)/\u03c0(x).",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "With \u03c0(x)=\u03c6(x)h(x) and proposal q(x,y)=h(y) (an independence chain), the MH ratio equals \u03c6(y)/\u03c6(x), so \u03b1(x,y)=min{\u03c6(y)/\u03c6(x), 1}.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-124": {
+  "c1": {
+   "desc": "With the Gibbs proposal $q(x,y)=\\pi(y|x)$ (so $q(y,x)=\\pi(x|y)$), the M-H acceptance ratio $\\pi(y)\\pi(x|y)/[\\pi(x)\\pi(y|x)]$ reduces to $\\pi(x,y)/\\pi(x,y)=1$, hence $\\alpha(x,y)=1$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "For the random walk chain, if $z$ has pdf $g$ = the $Normal(0,\\sigma^2)$ density and $y = x + z$, then $q(x,y) = g(x-y)$ coincides with the $Normal(x,\\sigma^2)$ density in $y$; the proposal is also symmetric, $q(x,y)=q(y,x)$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-125": {
+  "c1": {
+   "desc": "Scale-mixture statement \u2014 with $\\nu\\lambda/\\sigma^2\\sim\\chi^2_\\nu$, the marginal of $X\\mid\\sigma^2\\sim N(0,\\sigma^2)$ is Student's $t_\\nu$ with scale $\\sqrt{\\lambda}$ (checked exactly at $\\nu=3,\\lambda=1$)",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-126": {
+  "c1": {
+   "desc": "The Bernoulli logit product collapses to a single exponential over a product of logit denominators.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "With a_i = sum_j y_ij x_ij and b_i = sum_j y_ij, the exponent equals a_i'beta + b_i nu_i.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "The substitution z = nu/sigma turns the N(0, sigma^2) density integral into a standard-normal integral.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "The weights Phi(a_r) - Phi(a_{r-1}) telescope and sum to 1 over the full real line.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-127": {
+  "c1": {
+   "desc": "the covariate vector $x_i=(x_{0i},x_{1i},x_{2i},x_{3i},x_{4i})'$ is $p\\times 1$ with $p=5$",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "$p(\\alpha)=1/(1+\\alpha)^2$ integrates to 1 over $\\alpha>0$ (proper prior)",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-128": {
+  "c1": {
+   "desc": "The $\\lambda_i$-dependent factors of the joint posterior form the kernel of Gamma$(d_i+\\alpha,\\ n_i+\\alpha e^{-x_i'\\beta})$ (shape/rate).",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "$\\Delta(\\alpha,\\beta) = \\log\\pi(\\alpha,\\beta\\mid\\lambda,d)$ kernel, i.e. the log of $\\prod_i (\\alpha e^{-x_i'\\beta})^\\alpha\\lambda_i^{\\alpha-1}e^{-\\lambda_i\\alpha e^{-x_i'\\beta}}/\\Gamma(\\alpha)\\times(1+\\alpha)^{-2}$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "Partitioned-Normal conditional: $\\alpha\\mid\\beta \\sim N(\\hat\\alpha+\\nu'\\Delta^{-1}(\\beta-\\hat\\beta),\\ \\sigma^2-\\nu'\\Delta^{-1}\\nu)$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-129": {
+  "c1": {
+   "desc": "For a Gamma with shape $\\alpha$ and rate $\\alpha e^{-x'\\beta}$ (the parameterization implied by mean $=a/b$, variance $=a/b^2$), the squared coefficient of variation $Var/E^2$ equals $\\alpha$ as the page prints.",
+   "detail": "AssertionError: printed CV^2 = alpha, but Var/E^2 = 1/alpha",
+   "verdict": "fail"
+  },
+  "c2": {
+   "desc": "If $d_i\\sim\\text{Poisson}(n_i\\lambda_i)$, the delta-method variance of $\\log(d_i/n_i)$ is $1/(n_i\\lambda_i)$, matching the printed $e_i\\sim N(0,(n_i\\hat\\lambda_i)^{-1})$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-130": {
+  "c1": {
+   "desc": "The Gamma factor in the joint posterior integrates to 1 over $\\lambda_i\\in(0,\\infty)$, so deleting it yields the stated marginal $\\pi(\\alpha,\\beta\\mid d)$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "The Rao-Blackwellized posterior-mean summand $(d_i+\\alpha)/(n_i+\\alpha e^{-x_i'\\beta})$ equals $E[\\lambda_i]$ for $\\lambda_i\\sim\\text{Gamma}(d_i+\\alpha,\\,n_i+\\alpha e^{-x_i'\\beta})$ (shape, rate).",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-131": {
+  "c1": {
+   "desc": "The jumping rate in the tuning table is strictly decreasing in $k$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "Each (Runs, Skip) setting yields 1000 retained draws after a burn-in of 1000, and the resulting ACF standard error 1/sqrt(1000) falls in the printed range 0.031\u20130.032.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "Every posterior mean lies strictly inside its reported 95% credible interval, including the Annual Rainfall entry read as -0.141.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-132": {
+  "c1": {
+   "desc": "The posterior model probabilities $w_s m_s(y)/\\sum_r w_r m_r(y)$ sum to 1 over $s=1,\\dots,k$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "The posterior predictive $\\pi(y^{(p)}\\mid y)=\\sum_s \\pi(y^{(p)}\\mid y,M_s)P(M_s\\mid y)$ integrates to 1 when each component does.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "$\\theta_s = A[\\theta_r; u]$ if and only if $[\\theta_r; u] = A^{-1}\\theta_s$, for invertible $A$ (dimension-matching bijection).",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-133": {
+  "c1": {
+   "desc": "$w_1 = 0.25 = 1 - w_2$ implies $w_2 = 0.75$ and $w_1 + w_2 = 1$",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "$\\pi_{11} = 0.60$, $\\pi_{21} = 0.20$ imply $\\pi_{12} = 0.40$, $\\pi_{22} = 0.80$, rows summing to 1",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "OLS in the simple linear model has mean $\\beta$ and variance $\\sigma^2 (x'x)^{-1}$",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "$E(S^2) = \\sigma^2$ for $S^2 = \\text{RSS}/(n-2)$, i.e. $\\operatorname{tr}(I - H) = n - 2$",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c5": {
+   "desc": "the bijection matrices are mutual inverses and the Jacobian has absolute value $\\tau$",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-134": {
+  "c1": {
+   "desc": "The printed $\\sigma^2$ prior factor $(b/2)^{a/2}(1/\\sigma^2)^{a/2+1}e^{-b/(2\\sigma^2)}/\\Gamma(a/2)$ integrates to 1 over $\\sigma^2 \\in (0,\\infty)$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "The numeric prefactor of $R$ equals $3/2$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-135": {
+  "c1": {
+   "desc": "As $M \\to \\infty$, $psr = \\sqrt{\\big[(1-\\tfrac{1}{M})\\,wss + \\tfrac{1}{M}\\,bss\\big]/wss} \\to 1$ for fixed $bss \\ge 0$ and $wss > 0$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-136": {
+  "c1": {
+   "desc": "With \u03c4 = 2/3, the power-divergence leading constant 2/(\u03c4(\u03c4+1)) equals 9/5.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "For multinomial(N, p) counts with k cells, E[\u03a3 (O_i \u2212 e_i)\u00b2/e_i] = k \u2212 1 exactly, matching the stated \u03c7\u00b2_{k\u22121} degrees of freedom.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "\u03c0(y_rep, \u03b8 | y_obs) = \u03c0(y_rep | \u03b8, y_obs) \u00b7 \u03c0(\u03b8 | y_obs) for a concrete discrete joint distribution.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-137": {
+  "c1": {
+   "desc": "With $P_D = \\hat D_{avg} - D_{\\hat\\theta}$, the booklet's $DIC = 2\\hat D_{avg} - D_{\\hat\\theta}$ equals $D_{\\hat\\theta} + 2P_D$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "In the SAT-schools DIC table, the minimum DIC is 61.5, attained at $\\delta^2 = 0$ (the starred row).",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-138": {
+  "c1": {
+   "desc": "The chain rule $\\pi(\\theta_1,\\theta_2\\mid x)=\\pi(\\theta_2\\mid\\theta_1,x)\\,\\pi(\\theta_1\\mid x)$ holds \u2014 verified on an exact bivariate example where the conditional and marginal are computed from the joint by definition.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "The normalized SIR weights $w_h = \\frac{\\pi(\\theta_h\\mid x)/\\pi_a(\\theta_h\\mid x)}{\\sum_{k=1}^{M}\\pi(\\theta_k\\mid x)/\\pi_a(\\theta_k\\mid x)}$ are proportional to the importance ratios $\\pi(\\theta_h\\mid x)/\\pi_a(\\theta_h\\mid x)$ and sum to one.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-139": {
+  "c1": {
+   "desc": "Integrating $I(u < e^{-x^2/2})$ over $u \\in (0,1)$ yields $e^{-x^2/2}$, recovering the target marginal.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "For $0 < u < 1$, $\\{x : u < e^{-x^2/2}\\} = \\{x : |x| < \\sqrt{-2\\ln u}\\}$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-140": {
+  "c1": {
+   "desc": "Marginalizing the slice-sampler augmentation over $\\mu_1,\\mu_2$ returns the target kernel $e^{-x^2/2}e^x/(1+e^x)^2$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "The full conditionals of the augmented joint are $U(0,e^{-x^2/2})$ and $U(0,e^x/(1+e^x)^2)$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "$\\pi(u,\\theta,\\phi\\mid y)=\\pi(u\\mid\\theta,\\phi,y)\\pi(\\theta\\mid\\phi,y)\\pi(\\phi\\mid y)$ holds exactly (chain rule) on an arbitrary discrete joint.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-141": {
+  "c1": {
+   "desc": "The Bernoulli likelihood product over $j$ collapses: $\\prod_{j=1}^{n_i} p^{y_{ij}}(1-p)^{1-y_{ij}} = p^{s_i}(1-p)^{n_i-s_i}$ where $s_i=\\sum_j y_{ij}$, $p=e^{v_i}/(1+e^{v_i})$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "The candidate counts 727, 583, 137 sum to the printed total 1447.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-142": {
+  "c1": {
+   "desc": "The Dirichlet\u2013multinomial posterior kernel $\\prod_i \\theta_i^{n_i+\\alpha_i-1}$ normalizes to $D(\\alpha+n)$, i.e. $\\theta\\mid n \\sim Dir(\\alpha+n)$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "For $\\theta \\sim Dir(\\alpha)$, $cov(\\theta_i,\\theta_j) = -\\alpha_i\\alpha_j/(\\alpha_0^2(\\alpha_0+1))$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "The marginal of $\\theta_1$ under $Dir(\\alpha)$ is $Beta(\\alpha_1, \\sum_{i\\neq 1}\\alpha_i)$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "For $\\theta_j \\sim Beta(a,b)$, $E(\\theta_j) = a/(a+b)$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c5": {
+   "desc": "The printed variance is a typo \u2014 the true $Beta(a,b)$ variance is $ab/((a+b)^2(a+b+1))$, which differs from the printed $a/((a+b)^2(a+b+1))$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c6": {
+   "desc": "Independent $Gamma(\\alpha_j,1)$ variates normalized by their sum are $Dir(\\alpha)$ (checked at $k=2$, where $Dir$ reduces to $Beta$).",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-143": {},
+ "p-144": {
+  "c1": {
+   "desc": "Dirichlet(1,...,1) has a density that is constant on the simplex (uniform prior), equal to (k-1)!.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "Multinomial likelihood times Dirichlet(alpha) prior yields exactly the Dirichlet(n+alpha) posterior.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "Jeffreys prior for the multinomial is proportional to prod theta_i^{-1/2}, i.e. Dirichlet(alpha_i = 1/2).",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-145": {
+  "c1": {
+   "desc": "For the four-cell uniform Dirichlet, $1/Dir(1,1,1,1) = \\Gamma(4)/\\Gamma(1) = 3! = 6$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "The simplex integral of the multinomial kernel equals the Dirichlet normalizing constant with parameters shifted by one: $\\int \\prod \\theta_{ij}^{n_{ij}} d\\theta = Dir(n_{11}+1,\\dots,n_{22}+1)$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "$\\pi(\\mu,\\tau) = (k-1)!/(\\tau+1)^2$ integrates to 1 over the simplex in $\\mu$ times $\\tau \\in (0,\\infty)$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-146": {
+  "c1": {
+   "desc": "Multinomial \u00d7 Dirichlet($\\mu\\tau$) gives Dirichlet($n_i + \\mu\\tau$): the kernel $\\prod_j \\theta_j^{n_j+\\tau\\mu_j-1}$ integrates over the simplex to $D(n+\\mu\\tau)=\\prod_j\\Gamma(n_j+\\tau\\mu_j)/\\Gamma(\\sum_j(n_j+\\tau\\mu_j))$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "$1-\\sum_{j=1}^{k-1}\\mu_j$ equals $1-\\sum_{j=2}^{k-1}\\mu_j-\\mu_1$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "the chain $-[1-S] \\le -\\mu_1 \\le 1-[1-S]$ is the chain $0 \\le 1-S-\\mu_1 \\le 1$ shifted by $-(1-S)$, where $S=\\sum_{j=2}^{k-1}\\mu_j$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "$-[1-S] \\le -\\mu_1$ is equivalent to $\\mu_1 \\le 1-S$, giving the stated upper bound.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c5": {
+   "desc": "the final argument of $h$, namely $1-\\sum_{j=2}^{k-1}\\mu_j-\\mu_1$, equals $\\mu_k$ under $\\sum_{j=1}^{k}\\mu_j=1$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-147": {
+  "c1": {
+   "desc": "The binomial expansion used to introduce the latent variable: $\\sum_{z=0}^{x}\\binom{x}{z}p^z q^{x-z} = (p+q)^x$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "Normalizing the augmented joint $\\pi(p,q,z\\mid x)\\propto\\binom{x}{z}p^zq^{x-z}p^{n-x}$ over $z=0,\\dots,x$ yields $z\\mid p,q,x\\sim Binomial(x,\\;p/(p+q))$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "Normalizing that joint over $p\\in(0,1)$ yields $p\\mid z,q,x\\sim Beta(n-x+z+1,\\,1)$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "Normalizing that joint over $q\\in(0,1)$ yields $q\\mid z,p,x\\sim Beta(x-z+1,\\,1)$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-148": {
+  "c1": {
+   "desc": "For a finite measurable partition $A_1,\\dots,A_k$ of $\\mathcal{X}$, the Dirichlet parameters $\\alpha\\mathbb{G}_0(A_i)$ sum to $\\alpha$, and the resulting Dirichlet marginal means are $E[\\mathbb{G}(A_i)] = \\mathbb{G}_0(A_i)$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "With $\\ell = 5$, the realization $(\\mu_1, \\mu_2, \\mu_3, \\mu_3, \\mu_1)$ has exactly 3 distinct clusters, of sizes 2, 2, 1.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-149": {},
+ "p-150": {
+  "c1": {
+   "desc": "The P\u00f3lya urn (draw a ball, return it plus one more of the same color) started from $\\alpha=(2,1,3)$ assigns to the color sequence $(1,1,2)$ exactly the probability $E[P_1^2 P_2]$ under $\\text{Dirichlet}(2,1,3)$, and the Dirichlet marginal mean is $E[P_1]=\\alpha_1/\\sum_j\\alpha_j$; hence the urn proportions have the Dirichlet law the booklet asserts.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-151": {
+  "c1": {
+   "desc": "The Dirichlet marginal of a DP has mean $G_0$: if $(G(A_1),\\dots,G(A_r))\\sim\\text{Dirichlet}(\\alpha G_0(A_1),\\dots,\\alpha G_0(A_r))$ with $\\sum_i G_0(A_i)=1$, then $E(G(A_i))=G_0(A_i)$; the variance $G_0(A_i)(1-G_0(A_i))/(\\alpha+1)$ also vanishes as $\\alpha\\to\\infty$, matching the booklet's limit statement.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-152": {
+  "c1": {
+   "desc": "For $X_i \\mid G \\overset{iid}{\\sim} G$, $G \\sim DP(\\alpha, G_0)$, the correlation $\\text{Cor}(X_i, X_j) = 1/(1+\\alpha)$ for $i \\neq j$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "The P\u00f3lya-urn predictive mixture weights for $X_2 \\mid x_1$ and $X_3 \\mid x_1,x_2$ each sum to 1.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "The DP posterior base measure $\\frac{1}{\\alpha+n}\\sum_{i=1}^n \\delta_{x_i} + \\frac{\\alpha}{\\alpha+n}G_0$ is a probability measure, and its precision is $\\alpha+n$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-153": {
+  "c1": {
+   "desc": "Each Dirichlet parameter reduces to $n_j + \\alpha p_j^{(0)}$, and the parameters sum to $n+\\alpha$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "The DP posterior base measure has total mass 1.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "The Polya urn case probabilities sum to 1 with $j$ ranging over $1,\\ldots,i-1$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-154": {
+  "c1": {
+   "desc": "With $c_l(k)=|s(l,k)|$, the Antoniak formula $P(k|\\alpha,l)=c_l(k)\\alpha^k\\Gamma(\\alpha)/\\Gamma(\\alpha+l)$ sums to 1 over $1\\le k\\le l$ and vanishes at $k=0$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "The unsigned Stirling numbers come from the rising factorial; the product as printed with $(x-k)$ yields the signed Stirling numbers.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "$\\alpha^k\\Gamma(\\alpha)/\\Gamma(\\alpha+l)$ is log-concave in $\\ln\\alpha$ for $\\alpha>0$ (second derivative $\\le 0$; identically 0 when $l=1$).",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-155": {
+  "c1": {
+   "desc": "$\\pi(\\alpha)=1/(1+\\alpha)^2$ on $\\alpha>0$ integrates to exactly 1 (a proper prior).",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "$\\pi(\\mu,\\tau)=1/(\\tau+1)^2$ on $0<\\mu<1,\\ \\tau>0$ is a proper joint density integrating to 1, and factors into independent Uniform(0,1) and $(\\tau+1)^{-2}$ marginals.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-156": {
+  "c1": {
+   "desc": "The Gaussian integral collapsing the two exponents equals $\\sqrt{2\\pi/(n/\\sigma^2+1/\\delta^2)}\\,\\exp\\!\\left(-\\tfrac12\\,\\frac{(n/\\sigma^2)(1/\\delta^2)}{n/\\sigma^2+1/\\delta^2}(\\bar{y}-\\theta)^2\\right)$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "$\\pi(\\alpha)=1/(1+\\alpha)^2$ on $\\alpha>0$ is a proper (normalized) density.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-157": {
+  "c1": {
+   "desc": "Beta\u2013Bernoulli conjugacy gives the stated full conditional for the stick-breaking weight $\\gamma_p$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "under $0<\\delta_1<\\tfrac12$ and $\\tfrac12<\\delta_2<1$, both Beta shape parameters are positive for all $p\\ge 1$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-158": {
+  "c1": {
+   "desc": "Stick-breaking partial sums telescope to $1-\\prod_{i=1}^{J}(1-\\gamma_i)$, hence the weights sum to 1.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "For $\\gamma_j\\overset{iid}{\\sim}\\mathrm{Beta}(1,\\alpha)$, $E[\\omega_j]=\\frac{1}{1+\\alpha}(\\frac{\\alpha}{1+\\alpha})^{j-1}$ and these expectations sum to 1.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-159": {
+  "c1": {
+   "desc": "For 0 < p < 1, the sequence xi_k = (1-p)^k * p is strictly decreasing in k, and sum_{k=1}^inf xi_k = 1-p.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-160": {},
+ "p-161": {
+  "c1": {
+   "desc": "The stick-breaking weights $p_1=v_1$, $p_\\ell=v_\\ell\\prod_{j=1}^{\\ell-1}(1-v_j)$ for $\\ell<m$, and $p_m=\\prod_{\\ell=1}^{m-1}(1-v_\\ell)$ sum to one.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "With joint $f(y_i, d_i=\\ell) = p_\\ell\\, N(y_i\\mid \\mu+z_\\ell, \\sigma^2)$, Bayes' rule gives $P(d_i=\\ell\\mid y_i,\\cdot) = p_\\ell N(\\mu+z_\\ell,\\sigma^2) / \\sum_{k=1}^{m} p_k N(\\mu+z_k,\\sigma^2)$, and these probabilities sum to one.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-162": {
+  "c1": {
+   "desc": "The 5\u00d75 example partition matrix has column sums (0,2,0,2,1), so exactly m\u2080 = 3 columns are nonzero.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "Eliminating the zero-sum columns turns the m\u00d7m matrix into the stated m\u00d7m\u2080 = 5\u00d73 partition matrix P.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-163": {
+  "c1": {
+   "desc": "The beta-binomial marginal integral equals $B(s+\\mu\\tau,\\, n-s+(1-\\mu)\\tau)/B(\\mu\\tau,(1-\\mu)\\tau)$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "$\\pi(\\mu,\\tau)=(1+\\tau)^{-2}$ integrates to exactly 1 over $0<\\mu<1,\\ \\tau>0$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-164": {},
+ "p-165": {},
+ "p-166": {
+  "c1": {
+   "desc": "$\\mu = \\theta + \\delta Z$ with $Z \\sim N(0,1)$ has density equal to the $N(\\theta, \\delta^2)$ density.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "the stated decomposition $\\pi(\\theta_1,\\theta_2,\\theta_3\\mid y)=\\pi_1(\\theta_1\\mid y)\\,\\pi_2(\\theta_2\\mid\\theta_1,y)\\,\\pi(\\theta_3\\mid\\theta_1,\\theta_2,y)$ holds with the marginal/conditional defined by the printed integrals.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "the normalizing denominator of $\\pi(\\theta_2\\mid\\theta_1,y)$ does not depend on $\\theta_2$, so $\\pi(\\theta_2\\mid\\theta_1,y) \\propto \\int \\pi(\\theta_1,\\theta_2,\\theta_3\\mid y)\\,d\\theta_3$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-167": {
+  "c1": {
+   "desc": "Both stated Cauchy densities integrate to 1 over $(-\\infty,\\infty)$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "With $\\phi=\\sigma^2$, the change of variables on the half-Cauchy $\\pi(\\sigma)=\\frac{2}{c\\pi(1+\\sigma^2/c)}$ gives $\\pi(\\phi)=\\frac{1}{c\\pi\\sqrt{\\phi}(1+\\phi/c)}$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "For $y\\mid p\\sim Ber(p)$ and $p\\sim Beta(\\mu\\tau,(1-\\mu)\\tau)$, the posterior is $Beta(y+\\mu\\tau,(1-y)+(1-\\mu)\\tau)$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "The posterior mean is $E(p\\mid y)=\\lambda y+(1-\\lambda)\\mu$ with $\\lambda=1/(1+\\tau)$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c5": {
+   "desc": "If $\\lambda=1/(1+\\tau)\\sim U(0,1)$, the induced density of $\\tau$ is $\\pi(\\tau)=1/(1+\\tau)^2$ on $\\tau>0$, and it integrates to 1.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-168": {
+  "c1": {
+   "desc": "Normal\u2013normal conjugacy: the posterior of $\\mu$ is $N(\\lambda y+(1-\\lambda)\\theta,\\ (1-\\lambda)\\delta^2)$ with $\\lambda=\\delta^2/(\\delta^2+\\sigma^2)$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "$\\lambda=\\delta^2/(\\delta^2+\\sigma^2)$, $\\lambda\\sim U(0,1)$, induces $\\pi(\\delta^2)=\\sigma^2/(\\sigma^2+\\delta^2)^2$ on $\\delta^2>0$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "$\\pi(\\delta^2)=a/(a+\\delta^2)^2$ integrates to 1 over $\\delta^2>0$ for any $a>0$ (in particular $a=1$).",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-169": {
+  "c1": {
+   "desc": "Subsampling M = 1,000 from M* = 10,000 without replacement corresponds to a rate of exactly 10%.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "When f = f_a the normalized SIR weights are exactly 1/M* for every h, and any set of normalized weights sums to 1.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-170": {
+  "c1": {
+   "desc": "Marginalization identities \u03c0(\u03b8|y)=\u222b\u03c0(\u03b8|\u03c6,y)\u03c0(\u03c6|y)d\u03c6 and E(\u03b8|y)=\u222bE(\u03b8|\u03c6,y)\u03c0(\u03c6|y)d\u03c6, checked on a concrete conjugate normal example.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "The generalized gamma density f(y|\u03b1,\u03b2,\u03b3) = \u03b3\u03b2(\u03b2y)^{\u03b1\u03b3-1} e^{-(\u03b2y)^\u03b3} / \u0393(\u03b1) integrates to 1.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "When \u03b3=1 the generalized gamma reduces to Gam(\u03b1,\u03b2) with rate \u03b2, i.e. \u03b2^\u03b1 y^{\u03b1-1} e^{-\u03b2y}/\u0393(\u03b1).",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "E(Y^s) = \u03b2^{-s} \u0393(s/\u03b3 + \u03b1) / \u0393(\u03b1) for Y ~ GG(\u03b1,\u03b2,\u03b3).",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c5": {
+   "desc": "Closure under power transformation: if Y ~ GG(\u03b1,\u03b2,\u03b3) then Z = Y^s ~ GG(\u03b1, \u03b2^s, \u03b3/s).",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c6": {
+   "desc": "W = Y^\u03b3 ~ Gam(\u03b1, \u03b2^\u03b3), i.e. W has density (\u03b2^\u03b3)^\u03b1 w^{\u03b1-1} e^{-\u03b2^\u03b3 w} / \u0393(\u03b1).",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-171": {
+  "c1": {
+   "desc": "Integrating the Gamma kernel in $\\phi_i$ yields $\\Gamma(a_i)\\,b_i^{-a_i}$ with $a_i = n_i(\\alpha-1/\\gamma)+1/\\gamma$, matching the exponent printed on $\\sum_j y_{ij}^\\gamma$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "The reparametrization $\\delta_1=1/(1+\\alpha)$, $\\delta_2=1/(1+\\gamma)$ has Jacobian $(1+\\alpha)^{-2}(1+\\gamma)^{-2}$ in reverse, so those two prior factors are exactly absorbed and $\\pi(\\delta_1,\\delta_2\\mid y)$ equals the bracketed kernel with no leftover factor.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-172": {
+  "c1": {
+   "desc": "Gamma table \u2014 each CrI is well-ordered, brackets its posterior mean, and each NE satisfies 0 < NE < PSD.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "Generalized Gamma table \u2014 each CrI is well-ordered, brackets its posterior mean, and each NE satisfies 0 < NE < PSD.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "For the shared parameters, the Generalized Gamma posterior is more diffuse than the Gamma posterior (larger PSD and wider CrI).",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-173": {
+  "c1": {
+   "desc": "The printed SEP density at $\\lambda=0$, $\\alpha=1$ equals the $N(\\mu,\\sigma^2)$ pdf.",
+   "detail": "AssertionError",
+   "verdict": "fail"
+  },
+  "c2": {
+   "desc": "The prior $\\pi(\\mu,\\sigma^2,\\lambda,\\alpha)=\\frac{1}{\\pi(1+\\mu^2)}\\frac{1}{(1+\\sigma^2)^2}\\frac{1}{\\pi(1+\\lambda^2)}\\frac{1}{(1+\\alpha)^2}$ integrates to 1 over $\\mu,\\lambda\\in\\mathbb{R}$, $\\sigma^2>0$, $\\alpha>0$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "At $\\alpha=1$ the printed $f(z|\\mu,\\sigma^2,\\lambda,\\alpha)$ is the skew-normal density $2\\phi(z)\\Phi(\\lambda z)$ (in particular it integrates to 1).",
+   "detail": "AssertionError",
+   "verdict": "fail"
+  }
+ },
+ "p-174": {
+  "c1": {
+   "desc": "Under the prior $\\pi(\\mu,\\sigma^2)\\propto 1/\\sigma^2$, integrating $\\mu$ out of the normal posterior leaves a kernel in $\\sigma^2$ whose change of variables $t=(n-1)s^2/\\sigma^2$ is exactly the $\\chi^2_{n-1}$ density.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "The conditional posterior of $\\mu$ given $\\sigma^2$ and the data is exactly $N(\\bar y,\\sigma^2/n)$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "$\\lambda=\\phi/\\sqrt{1-\\phi^2}$ is a strictly increasing bijection from $(-1,1)$ onto $\\mathbb{R}$ with inverse $\\phi=\\lambda/\\sqrt{1+\\lambda^2}$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "$\\gamma=(\\phi+1)/2$ carries $(-1,1)$ bijectively onto $(0,1)$, and $\\rho=1/\\alpha$ is equivalent to $\\alpha=1/\\rho$ (with $0<\\rho<1 \\iff \\alpha>1$).",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c5": {
+   "desc": "The printed posterior summary table is internally coherent: each posterior mean lies strictly inside its credible interval, each interval is ordered, and each numerical error is smaller than the corresponding posterior standard deviation.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-175": {
+  "c1": {
+   "desc": "Marginalizing $\\mu \\sim N(\\theta,\\delta^2)$ out of $y|\\mu \\sim N(\\mu,\\sigma^2)$ yields $N(\\theta,\\sigma^2+\\delta^2)$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "For $j\\neq j'$, $Cov(y_{ij},y_{ij'})=\\delta^2$ and $Cor(y_{ij},y_{ij'})=\\delta^2/(\\delta^2+\\sigma^2)$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "$\\rho=\\delta^2/(\\delta^2+\\sigma^2)$ $\\iff$ $\\delta^2=\\frac{\\rho}{1-\\rho}\\sigma^2$, with $\\delta^2>0 \\iff 0<\\rho<1$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-176": {},
+ "p-177": {
+  "c1": {
+   "desc": "Escobar\u2013West P\u00f3lya urn conditionals: mixture weights sum to 1, and the printed $n=1,2$ lines match $\\frac{n}{n+\\alpha}\\bar\\delta_n + \\frac{\\alpha}{n+\\alpha}N(\\eta,\\delta^2)$",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-178": {},
+ "p-179": {},
+ "p-180": {
+  "c1": {
+   "desc": "For $\\phi \\sim \\mathrm{N}_d(0,M)$ with $M$ diagonal and positive, the joint density equals $\\prod_j \\mathrm{N}(\\phi_j \\mid 0, M_{jj})$, i.e. the components are independent with $\\phi_j \\sim \\mathrm{N}(0,M_{jj})$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-181": {},
+ "p-182": {
+  "c1": {
+   "desc": "The default starting point $\\epsilon = 0.1$, $L = 10$ satisfies the calibration rule $\\epsilon L = 1$.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-183": {},
+ "p-184": {
+  "c1": {
+   "desc": "the parameter vector (\u03b1_1,\u2026,\u03b1_8, \u03bc, \u03c4) has d = 10 components.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "d/d\u03b1_j of the eight-schools log posterior equals -(\u03b1_j - y_j)/\u03c3_j\u00b2 - (\u03b1_j - \u03bc)/\u03c4\u00b2.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-185": {
+  "c1": {
+   "desc": "The two displayed gradients are the exact $\\mu$- and $\\tau$-partials of $\\log p(\\theta\\mid y)=\\text{const}-J\\log\\tau-\\sum_j(\\alpha_j-\\mu)^2/(2\\tau^2)$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c2": {
+   "desc": "$\\epsilon_0 L_0 = 1$ with $L_0=10$ gives $\\epsilon_0=0.1$, and the revised $(\\epsilon_0,L_0)=(0.05,20)$ preserves $\\epsilon_0 L_0 = 1$.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c3": {
+   "desc": "The four average acceptance probabilities 0.23, 0.59, 0.02, 0.57 all lie below the stated 65% threshold, as does their mean.",
+   "detail": "",
+   "verdict": "pass"
+  },
+  "c4": {
+   "desc": "The third round's acceptance probabilities (0.52, 0.68, 0.75, 0.51) are strictly \"more stable\" \u2014 smaller spread \u2014 than the second round's (0.72, 0.87, 0.33, 0.55), by both variance and range.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-186": {},
+ "p-187": {},
+ "p-188": {
+  "c1": {
+   "desc": "The inverse-temperature ladder from 0.1 to 1 in steps of 0.1 has exactly 10 rungs, with endpoints 0.1 and 1.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-189": {},
+ "p-190": {},
+ "p-191": {
+  "c1": {
+   "desc": "The printed `mydat` output matches `cbind(weight, height)` for rows 1\u20134 and all heights, and row 5 of weight is the documented typo (typed 10, printed 140).",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
+ "p-192": {},
+ "p-193": {},
+ "p-194": {},
+ "p-195": {}
+}

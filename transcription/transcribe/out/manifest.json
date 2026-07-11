@@ -1,0 +1,2283 @@
+{
+ "p-023": {
+  "booklet_page": 18,
+  "claims": 3,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 3
+  }
+ },
+ "p-024": {
+  "booklet_page": 19,
+  "claims": 4,
+  "crops_given": 0,
+  "hw_marks": 11,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 4
+  }
+ },
+ "p-025": {
+  "booklet_page": 20,
+  "claims": 4,
+  "crops_given": 0,
+  "hw_marks": 2,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 4
+  }
+ },
+ "p-026": {
+  "booklet_page": 21,
+  "claims": 5,
+  "crops_given": 0,
+  "hw_marks": 1,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 5
+  }
+ },
+ "p-027": {
+  "booklet_page": 22,
+  "claims": 6,
+  "crops_given": 0,
+  "hw_marks": 11,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 6
+  }
+ },
+ "p-028": {
+  "booklet_page": 23,
+  "claims": 4,
+  "crops_given": 0,
+  "hw_marks": 14,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 4
+  }
+ },
+ "p-029": {
+  "booklet_page": 24,
+  "claims": 5,
+  "crops_given": 0,
+  "hw_marks": 3,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 5
+  }
+ },
+ "p-030": {
+  "booklet_page": 25,
+  "claims": 6,
+  "crops_given": 0,
+  "hw_marks": 8,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 6
+  }
+ },
+ "p-031": {
+  "booklet_page": 26,
+  "claims": 6,
+  "crops_given": 0,
+  "hw_marks": 9,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 6
+  }
+ },
+ "p-032": {
+  "booklet_page": 27,
+  "claims": 6,
+  "crops_given": 0,
+  "hw_marks": 10,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 6
+  }
+ },
+ "p-033": {
+  "booklet_page": 28,
+  "claims": 7,
+  "crops_given": 0,
+  "hw_marks": 7,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 7
+  }
+ },
+ "p-034": {
+  "booklet_page": 29,
+  "claims": 6,
+  "crops_given": 0,
+  "hw_marks": 4,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 5
+  },
+  "warn": "5 VERIFY placeholders vs 6 claims"
+ },
+ "p-035": {
+  "booklet_page": 30,
+  "claims": 4,
+  "crops_given": 0,
+  "hw_marks": 6,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 4
+  }
+ },
+ "p-036": {
+  "booklet_page": 31,
+  "claims": 4,
+  "crops_given": 0,
+  "hw_marks": 5,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 4
+  }
+ },
+ "p-037": {
+  "booklet_page": 32,
+  "claims": 4,
+  "crops_given": 0,
+  "hw_marks": 2,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 4
+  }
+ },
+ "p-038": {
+  "booklet_page": 33,
+  "claims": 8,
+  "crops_given": 0,
+  "hw_marks": 9,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 8
+  }
+ },
+ "p-039": {
+  "booklet_page": 34,
+  "claims": 5,
+  "crops_given": 0,
+  "hw_marks": 19,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 5
+  }
+ },
+ "p-040": {
+  "booklet_page": 35,
+  "claims": 3,
+  "crops_given": 0,
+  "hw_marks": 4,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 3
+  }
+ },
+ "p-041": {
+  "booklet_page": 36,
+  "claims": 4,
+  "crops_given": 0,
+  "hw_marks": 1,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 4
+  }
+ },
+ "p-042": {
+  "booklet_page": 37,
+  "claims": 3,
+  "crops_given": 0,
+  "hw_marks": 9,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 3
+  }
+ },
+ "p-043": {
+  "booklet_page": 38,
+  "claims": 4,
+  "crops_given": 0,
+  "hw_marks": 2,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 4
+  }
+ },
+ "p-044": {
+  "booklet_page": 39,
+  "claims": 4,
+  "crops_given": 0,
+  "hw_marks": 6,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 4
+  }
+ },
+ "p-045": {
+  "booklet_page": 40,
+  "claims": 3,
+  "crops_given": 0,
+  "hw_marks": 2,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 3
+  }
+ },
+ "p-046": {
+  "booklet_page": 41,
+  "claims": 3,
+  "crops_given": 0,
+  "error": "claude exited 1: ",
+  "hw_marks": 5,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 3
+  }
+ },
+ "p-047": {
+  "booklet_page": 42,
+  "claims": 5,
+  "crops_given": 0,
+  "error": "claude exited 1: ",
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 5
+  }
+ },
+ "p-048": {
+  "booklet_page": 43,
+  "claims": 6,
+  "crops_given": 0,
+  "error": "claude exited 1: ",
+  "hw_marks": 9,
+  "insert": false,
+  "status": "verified-with-flags",
+  "verified": {
+   "fail": 1,
+   "other": 0,
+   "pass": 5
+  }
+ },
+ "p-049": {
+  "booklet_page": 44,
+  "claims": 4,
+  "crops_given": 0,
+  "error": "claude exited 1: ",
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 4
+  }
+ },
+ "p-050": {
+  "booklet_page": 45,
+  "claims": 5,
+  "crops_given": 0,
+  "error": "claude exited 1: ",
+  "hw_marks": 9,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 5
+  }
+ },
+ "p-051": {
+  "booklet_page": 46,
+  "claims": 5,
+  "crops_given": 0,
+  "error": "claude exited 1: ",
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 5
+  }
+ },
+ "p-052": {
+  "booklet_page": 47,
+  "claims": 3,
+  "crops_given": 0,
+  "error": "claude exited 1: ",
+  "hw_marks": 2,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 3
+  }
+ },
+ "p-053": {
+  "booklet_page": 48,
+  "claims": 2,
+  "crops_given": 0,
+  "error": "claude exited 1: ",
+  "hw_marks": 5,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 2
+  }
+ },
+ "p-054": {
+  "booklet_page": 49,
+  "claims": 3,
+  "crops_given": 0,
+  "error": "claude exited 1: ",
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 3
+  }
+ },
+ "p-055": {
+  "booklet_page": 50,
+  "claims": 3,
+  "crops_given": 0,
+  "error": "claude exited 1: ",
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 3
+  }
+ },
+ "p-056": {
+  "booklet_page": 51,
+  "claims": 2,
+  "crops_given": 0,
+  "error": "claude exited 1: ",
+  "hw_marks": 4,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 2
+  }
+ },
+ "p-057": {
+  "booklet_page": 52,
+  "claims": 3,
+  "crops_given": 0,
+  "error": "claude exited 1: ",
+  "hw_marks": 2,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 3
+  }
+ },
+ "p-058": {
+  "booklet_page": 53,
+  "claims": 3,
+  "crops_given": 0,
+  "error": "claude exited 1: ",
+  "hw_marks": 1,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 3
+  }
+ },
+ "p-059": {
+  "booklet_page": 54,
+  "claims": 5,
+  "crops_given": 0,
+  "error": "claude exited 1: ",
+  "hw_marks": 20,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 5
+  }
+ },
+ "p-060": {
+  "booklet_page": 55,
+  "claims": 0,
+  "crops_given": 0,
+  "error": "claude exited 1: ",
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 0
+  }
+ },
+ "p-061": {
+  "booklet_page": 56,
+  "claims": 4,
+  "crops_given": 0,
+  "error": "claude exited 1: ",
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 4
+  }
+ },
+ "p-062": {
+  "booklet_page": 57,
+  "claims": 5,
+  "crops_given": 0,
+  "error": "claude exited 1: ",
+  "hw_marks": 11,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 5
+  }
+ },
+ "p-063": {
+  "booklet_page": 58,
+  "claims": 3,
+  "crops_given": 0,
+  "error": "claude exited 1: ",
+  "hw_marks": 11,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 3
+  }
+ },
+ "p-064": {
+  "booklet_page": 59,
+  "claims": 3,
+  "crops_given": 0,
+  "error": "claude exited 1: ",
+  "hw_marks": 12,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 3
+  }
+ },
+ "p-065": {
+  "booklet_page": 60,
+  "claims": 0,
+  "crops_given": 0,
+  "error": "claude exited 1: ",
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 0
+  }
+ },
+ "p-066": {
+  "booklet_page": 61,
+  "claims": 1,
+  "crops_given": 0,
+  "error": "claude exited 1: ",
+  "hw_marks": 6,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 1
+  }
+ },
+ "p-067": {
+  "booklet_page": 62,
+  "claims": 2,
+  "crops_given": 0,
+  "error": "claude exited 1: ",
+  "hw_marks": 2,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 2
+  }
+ },
+ "p-068": {
+  "booklet_page": 63,
+  "claims": 2,
+  "crops_given": 0,
+  "error": "claude exited 1: ",
+  "hw_marks": 7,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 2
+  }
+ },
+ "p-069": {
+  "booklet_page": 64,
+  "claims": 0,
+  "crops_given": 0,
+  "error": "claude exited 1: ",
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 0
+  }
+ },
+ "p-070": {
+  "booklet_page": 65,
+  "claims": 2,
+  "crops_given": 0,
+  "error": "claude exited 1: ",
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 2
+  },
+  "warn": "1 VERIFY placeholders vs 2 claims"
+ },
+ "p-071": {
+  "booklet_page": 66,
+  "claims": 2,
+  "crops_given": 0,
+  "error": "claude exited 1: ",
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 2
+  }
+ },
+ "p-072": {
+  "booklet_page": 67,
+  "claims": 2,
+  "crops_given": 0,
+  "error": "claude exited 1: ",
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 2
+  }
+ },
+ "p-073": {
+  "booklet_page": 68,
+  "claims": 3,
+  "crops_given": 0,
+  "error": "claude exited 1: ",
+  "hw_marks": 1,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 3
+  }
+ },
+ "p-074": {
+  "booklet_page": 69,
+  "claims": 7,
+  "crops_given": 0,
+  "error": "claude exited 1: ",
+  "hw_marks": 1,
+  "insert": false,
+  "status": "verified-with-flags",
+  "verified": {
+   "fail": 2,
+   "other": 0,
+   "pass": 5
+  }
+ },
+ "p-075": {
+  "booklet_page": 70,
+  "claims": 7,
+  "crops_given": 0,
+  "hw_marks": 4,
+  "insert": false,
+  "status": "verified-with-flags",
+  "verified": {
+   "fail": 3,
+   "other": 0,
+   "pass": 4
+  }
+ },
+ "p-076": {
+  "booklet_page": 71,
+  "claims": 3,
+  "crops_given": 0,
+  "hw_marks": 8,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 3
+  }
+ },
+ "p-077": {
+  "booklet_page": 72,
+  "claims": 3,
+  "crops_given": 0,
+  "hw_marks": 2,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 3
+  }
+ },
+ "p-078": {
+  "booklet_page": 73,
+  "claims": 4,
+  "crops_given": 0,
+  "hw_marks": 6,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 4
+  }
+ },
+ "p-079": {
+  "booklet_page": 74,
+  "claims": 3,
+  "crops_given": 0,
+  "hw_marks": 5,
+  "insert": false,
+  "status": "verified-with-flags",
+  "verified": {
+   "fail": 1,
+   "other": 0,
+   "pass": 2
+  }
+ },
+ "p-080": {
+  "booklet_page": 75,
+  "claims": 3,
+  "crops_given": 0,
+  "hw_marks": 4,
+  "insert": false,
+  "status": "verified-with-flags",
+  "verified": {
+   "fail": 1,
+   "other": 0,
+   "pass": 2
+  }
+ },
+ "p-081": {
+  "booklet_page": 76,
+  "claims": 7,
+  "crops_given": 0,
+  "hw_marks": 1,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 7
+  }
+ },
+ "p-082": {
+  "booklet_page": 77,
+  "claims": 4,
+  "crops_given": 0,
+  "hw_marks": 3,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 4
+  }
+ },
+ "p-083": {
+  "booklet_page": 78,
+  "claims": 4,
+  "crops_given": 0,
+  "hw_marks": 2,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 4
+  }
+ },
+ "p-084": {
+  "booklet_page": 79,
+  "claims": 4,
+  "crops_given": 0,
+  "hw_marks": 3,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 4
+  }
+ },
+ "p-085": {
+  "booklet_page": 80,
+  "claims": 2,
+  "crops_given": 0,
+  "hw_marks": 5,
+  "insert": false,
+  "status": "verified-with-flags",
+  "verified": {
+   "fail": 2,
+   "other": 0,
+   "pass": 0
+  }
+ },
+ "p-086": {
+  "booklet_page": 81,
+  "claims": 4,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified-with-flags",
+  "verified": {
+   "fail": 1,
+   "other": 0,
+   "pass": 3
+  }
+ },
+ "p-087": {
+  "booklet_page": 82,
+  "claims": 0,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 0
+  }
+ },
+ "p-088": {
+  "booklet_page": 83,
+  "claims": 0,
+  "crops_given": 0,
+  "hw_marks": 4,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 0
+  }
+ },
+ "p-089": {
+  "booklet_page": 84,
+  "claims": 2,
+  "crops_given": 0,
+  "hw_marks": 4,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 2
+  }
+ },
+ "p-090": {
+  "booklet_page": 85,
+  "claims": 1,
+  "crops_given": 0,
+  "hw_marks": 1,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 1
+  }
+ },
+ "p-091": {
+  "booklet_page": 86,
+  "claims": 5,
+  "crops_given": 0,
+  "hw_marks": 4,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 5
+  }
+ },
+ "p-092": {
+  "booklet_page": 87,
+  "claims": 3,
+  "crops_given": 0,
+  "hw_marks": 7,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 3
+  }
+ },
+ "p-093": {
+  "booklet_page": 88,
+  "claims": 3,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 3
+  }
+ },
+ "p-094": {
+  "booklet_page": 89,
+  "claims": 4,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 4
+  }
+ },
+ "p-095": {
+  "booklet_page": 90,
+  "claims": 1,
+  "crops_given": 0,
+  "hw_marks": 3,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 1
+  }
+ },
+ "p-096": {
+  "booklet_page": 91,
+  "claims": 2,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 2
+  }
+ },
+ "p-097": {
+  "booklet_page": 92,
+  "claims": 1,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 1
+  }
+ },
+ "p-098": {
+  "booklet_page": 93,
+  "claims": 3,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 3
+  }
+ },
+ "p-099": {
+  "booklet_page": 94,
+  "claims": 4,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 4
+  }
+ },
+ "p-100": {
+  "booklet_page": 95,
+  "claims": 6,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 6
+  }
+ },
+ "p-101": {
+  "booklet_page": 96,
+  "claims": 7,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 7
+  }
+ },
+ "p-102": {
+  "booklet_page": 97,
+  "claims": 3,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 3
+  }
+ },
+ "p-103": {
+  "booklet_page": 98,
+  "claims": 0,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 0
+  }
+ },
+ "p-104": {
+  "booklet_page": 99,
+  "claims": 0,
+  "crops_given": 0,
+  "hw_marks": 3,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 0
+  }
+ },
+ "p-105": {
+  "booklet_page": 100,
+  "claims": 2,
+  "crops_given": 0,
+  "hw_marks": 2,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 2
+  }
+ },
+ "p-106": {
+  "booklet_page": 101,
+  "claims": 3,
+  "crops_given": 0,
+  "hw_marks": 4,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 3
+  }
+ },
+ "p-107": {
+  "booklet_page": 102,
+  "claims": 2,
+  "crops_given": 0,
+  "hw_marks": 8,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 2
+  }
+ },
+ "p-108": {
+  "booklet_page": 103,
+  "claims": 3,
+  "crops_given": 0,
+  "hw_marks": 2,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 3
+  }
+ },
+ "p-109": {
+  "booklet_page": 104,
+  "claims": 2,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 2
+  }
+ },
+ "p-110": {
+  "booklet_page": 105,
+  "claims": 4,
+  "crops_given": 0,
+  "hw_marks": 1,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 4
+  }
+ },
+ "p-111": {
+  "booklet_page": 106,
+  "claims": 3,
+  "crops_given": 0,
+  "hw_marks": 1,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 3
+  }
+ },
+ "p-112": {
+  "booklet_page": 107,
+  "claims": 6,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 6
+  }
+ },
+ "p-113": {
+  "booklet_page": 108,
+  "claims": 4,
+  "crops_given": 0,
+  "hw_marks": 4,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 4
+  }
+ },
+ "p-114": {
+  "booklet_page": 109,
+  "claims": 6,
+  "crops_given": 0,
+  "hw_marks": 3,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 6
+  }
+ },
+ "p-115": {
+  "booklet_page": 110,
+  "claims": 2,
+  "crops_given": 0,
+  "hw_marks": 3,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 2
+  }
+ },
+ "p-116": {
+  "booklet_page": 111,
+  "claims": 5,
+  "crops_given": 0,
+  "hw_marks": 2,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 5
+  }
+ },
+ "p-117": {
+  "booklet_page": 112,
+  "claims": 4,
+  "crops_given": 0,
+  "hw_marks": 11,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 4
+  }
+ },
+ "p-118": {
+  "booklet_page": 113,
+  "claims": 3,
+  "crops_given": 0,
+  "hw_marks": 3,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 3
+  }
+ },
+ "p-119": {
+  "booklet_page": 114,
+  "claims": 1,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 1
+  }
+ },
+ "p-120": {
+  "booklet_page": 115,
+  "claims": 3,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 3
+  }
+ },
+ "p-121": {
+  "booklet_page": 116,
+  "claims": 5,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 5
+  }
+ },
+ "p-122": {
+  "booklet_page": 117,
+  "claims": 1,
+  "crops_given": 0,
+  "hw_marks": 12,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 1
+  }
+ },
+ "p-123": {
+  "booklet_page": 118,
+  "claims": 2,
+  "crops_given": 0,
+  "hw_marks": 6,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 2
+  }
+ },
+ "p-124": {
+  "booklet_page": 119,
+  "claims": 2,
+  "crops_given": 0,
+  "hw_marks": 6,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 2
+  }
+ },
+ "p-125": {
+  "booklet_page": 120,
+  "claims": 1,
+  "crops_given": 0,
+  "hw_marks": 9,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 1
+  }
+ },
+ "p-126": {
+  "booklet_page": 121,
+  "claims": 4,
+  "crops_given": 0,
+  "hw_marks": 1,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 4
+  }
+ },
+ "p-127": {
+  "booklet_page": 122,
+  "claims": 2,
+  "crops_given": 0,
+  "hw_marks": 7,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 2
+  }
+ },
+ "p-128": {
+  "booklet_page": 123,
+  "claims": 3,
+  "crops_given": 0,
+  "hw_marks": 2,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 3
+  }
+ },
+ "p-129": {
+  "booklet_page": 124,
+  "claims": 2,
+  "crops_given": 0,
+  "hw_marks": 2,
+  "insert": false,
+  "status": "verified-with-flags",
+  "verified": {
+   "fail": 1,
+   "other": 0,
+   "pass": 1
+  }
+ },
+ "p-130": {
+  "booklet_page": 125,
+  "claims": 2,
+  "crops_given": 0,
+  "hw_marks": 2,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 2
+  }
+ },
+ "p-131": {
+  "booklet_page": 126,
+  "claims": 3,
+  "crops_given": 0,
+  "hw_marks": 2,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 3
+  }
+ },
+ "p-132": {
+  "booklet_page": 127,
+  "claims": 3,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 3
+  }
+ },
+ "p-133": {
+  "booklet_page": 128,
+  "claims": 5,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 5
+  }
+ },
+ "p-134": {
+  "booklet_page": 129,
+  "claims": 2,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 2
+  }
+ },
+ "p-135": {
+  "booklet_page": 130,
+  "claims": 1,
+  "crops_given": 0,
+  "hw_marks": 23,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 1
+  }
+ },
+ "p-136": {
+  "booklet_page": 131,
+  "claims": 3,
+  "crops_given": 0,
+  "hw_marks": 4,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 3
+  }
+ },
+ "p-137": {
+  "booklet_page": 132,
+  "claims": 2,
+  "crops_given": 0,
+  "hw_marks": 6,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 2
+  }
+ },
+ "p-138": {
+  "booklet_page": 133,
+  "claims": 2,
+  "crops_given": 0,
+  "hw_marks": 1,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 2
+  }
+ },
+ "p-139": {
+  "booklet_page": 134,
+  "claims": 2,
+  "crops_given": 0,
+  "hw_marks": 14,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 2
+  }
+ },
+ "p-140": {
+  "booklet_page": 135,
+  "claims": 3,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 3
+  }
+ },
+ "p-141": {
+  "booklet_page": 136,
+  "claims": 2,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 2
+  }
+ },
+ "p-142": {
+  "booklet_page": 137,
+  "claims": 6,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 6
+  }
+ },
+ "p-143": {
+  "booklet_page": 138,
+  "claims": 0,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 0
+  }
+ },
+ "p-144": {
+  "booklet_page": 139,
+  "claims": 3,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 3
+  }
+ },
+ "p-145": {
+  "booklet_page": 140,
+  "claims": 3,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 3
+  }
+ },
+ "p-146": {
+  "booklet_page": 141,
+  "claims": 5,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 5
+  }
+ },
+ "p-147": {
+  "booklet_page": 142,
+  "claims": 4,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 4
+  }
+ },
+ "p-148": {
+  "booklet_page": 143,
+  "claims": 2,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 2
+  }
+ },
+ "p-149": {
+  "booklet_page": 144,
+  "claims": 0,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 0
+  }
+ },
+ "p-150": {
+  "booklet_page": 145,
+  "claims": 1,
+  "crops_given": 0,
+  "hw_marks": 1,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 1
+  }
+ },
+ "p-151": {
+  "booklet_page": 146,
+  "claims": 1,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 1
+  }
+ },
+ "p-152": {
+  "booklet_page": 147,
+  "claims": 3,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 3
+  }
+ },
+ "p-153": {
+  "booklet_page": 148,
+  "claims": 3,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 3
+  }
+ },
+ "p-154": {
+  "booklet_page": 149,
+  "claims": 3,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 3
+  }
+ },
+ "p-155": {
+  "booklet_page": 150,
+  "claims": 2,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 2
+  }
+ },
+ "p-156": {
+  "booklet_page": 151,
+  "claims": 2,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 2
+  }
+ },
+ "p-157": {
+  "booklet_page": null,
+  "claims": 2,
+  "crops_given": 0,
+  "hw_marks": 19,
+  "insert": true,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 2
+  }
+ },
+ "p-158": {
+  "booklet_page": 153,
+  "claims": 2,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 2
+  }
+ },
+ "p-159": {
+  "booklet_page": 154,
+  "claims": 1,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 1
+  }
+ },
+ "p-160": {
+  "booklet_page": 155,
+  "claims": 0,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 0
+  }
+ },
+ "p-161": {
+  "booklet_page": null,
+  "claims": 2,
+  "crops_given": 1,
+  "hw_marks": 11,
+  "insert": true,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 2
+  }
+ },
+ "p-162": {
+  "booklet_page": null,
+  "claims": 2,
+  "crops_given": 3,
+  "hw_marks": 17,
+  "insert": true,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 2
+  }
+ },
+ "p-163": {
+  "booklet_page": 152,
+  "claims": 2,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 2
+  }
+ },
+ "p-164": {
+  "booklet_page": 156,
+  "claims": 0,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 0
+  }
+ },
+ "p-165": {
+  "booklet_page": 157,
+  "claims": 0,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 0
+  }
+ },
+ "p-166": {
+  "booklet_page": 158,
+  "claims": 3,
+  "crops_given": 0,
+  "hw_marks": 2,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 3
+  }
+ },
+ "p-167": {
+  "booklet_page": 159,
+  "claims": 5,
+  "crops_given": 0,
+  "hw_marks": 2,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 5
+  }
+ },
+ "p-168": {
+  "booklet_page": 160,
+  "claims": 3,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 3
+  }
+ },
+ "p-169": {
+  "booklet_page": 161,
+  "claims": 2,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 2
+  }
+ },
+ "p-170": {
+  "booklet_page": 162,
+  "claims": 6,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 6
+  }
+ },
+ "p-171": {
+  "booklet_page": 163,
+  "claims": 2,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 2
+  }
+ },
+ "p-172": {
+  "booklet_page": 164,
+  "claims": 3,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 3
+  }
+ },
+ "p-173": {
+  "booklet_page": 165,
+  "claims": 3,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified-with-flags",
+  "verified": {
+   "fail": 2,
+   "other": 0,
+   "pass": 1
+  }
+ },
+ "p-174": {
+  "booklet_page": 166,
+  "claims": 5,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 5
+  }
+ },
+ "p-175": {
+  "booklet_page": 167,
+  "claims": 3,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 3
+  }
+ },
+ "p-176": {
+  "booklet_page": 168,
+  "claims": 0,
+  "crops_given": 0,
+  "hw_marks": 1,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 0
+  }
+ },
+ "p-177": {
+  "booklet_page": 169,
+  "claims": 1,
+  "crops_given": 0,
+  "hw_marks": 1,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 1
+  }
+ },
+ "p-178": {
+  "booklet_page": 170,
+  "claims": 0,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 0
+  }
+ },
+ "p-179": {
+  "booklet_page": 300,
+  "claims": 0,
+  "crops_given": 0,
+  "hw_marks": 12,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 0
+  }
+ },
+ "p-180": {
+  "booklet_page": 301,
+  "claims": 1,
+  "crops_given": 0,
+  "hw_marks": 11,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 1
+  }
+ },
+ "p-181": {
+  "booklet_page": 302,
+  "claims": 0,
+  "crops_given": 0,
+  "hw_marks": 13,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 0
+  }
+ },
+ "p-182": {
+  "booklet_page": 303,
+  "claims": 1,
+  "crops_given": 0,
+  "hw_marks": 11,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 1
+  }
+ },
+ "p-183": {
+  "booklet_page": 304,
+  "claims": 0,
+  "crops_given": 0,
+  "hw_marks": 17,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 0
+  }
+ },
+ "p-184": {
+  "booklet_page": 305,
+  "claims": 2,
+  "crops_given": 0,
+  "hw_marks": 21,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 2
+  }
+ },
+ "p-185": {
+  "booklet_page": 306,
+  "claims": 4,
+  "crops_given": 0,
+  "hw_marks": 19,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 4
+  }
+ },
+ "p-186": {
+  "booklet_page": 307,
+  "claims": 0,
+  "crops_given": 0,
+  "hw_marks": 4,
+  "insert": false,
+  "note": "content-filter stub \u2014 reproduced BDA p.307; summarized, not transcribed",
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 0
+  }
+ },
+ "p-187": {
+  "booklet_page": 308,
+  "claims": 0,
+  "crops_given": 0,
+  "hw_marks": 11,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 0
+  }
+ },
+ "p-188": {
+  "booklet_page": 309,
+  "claims": 1,
+  "crops_given": 0,
+  "hw_marks": 4,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 1
+  }
+ },
+ "p-189": {
+  "booklet_page": 171,
+  "claims": 0,
+  "crops_given": 0,
+  "hw_marks": 2,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 0
+  }
+ },
+ "p-190": {
+  "booklet_page": 172,
+  "claims": 0,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 0
+  }
+ },
+ "p-191": {
+  "booklet_page": 173,
+  "claims": 1,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 1
+  }
+ },
+ "p-192": {
+  "booklet_page": 174,
+  "claims": 0,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 0
+  }
+ },
+ "p-193": {
+  "booklet_page": 175,
+  "claims": 0,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 0
+  }
+ },
+ "p-194": {
+  "booklet_page": 176,
+  "claims": 0,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 0
+  }
+ },
+ "p-195": {
+  "booklet_page": 177,
+  "claims": 0,
+  "crops_given": 0,
+  "hw_marks": 0,
+  "insert": false,
+  "status": "verified",
+  "verified": {
+   "fail": 0,
+   "other": 0,
+   "pass": 0
+  }
+ }
+}

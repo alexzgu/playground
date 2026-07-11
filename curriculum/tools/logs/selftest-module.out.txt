@@ -1,0 +1,2 @@
+posterior mean = 0.7500
+[fig] figures/selftest/beta.png

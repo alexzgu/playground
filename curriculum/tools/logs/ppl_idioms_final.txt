@@ -1,0 +1,22 @@
+numpyro 0.21.0 | jax 0.10.2 | arviz 1.2.0
+  mu mean 1.254, divergences 0
+       mean    sd eti95_lb eti95_ub  ess_bulk  ess_tail r_hat mcse_mean mcse_sd
+mu     1.25  0.28     0.69      1.8       710       503  1.00      0.01  0.0081
+sigma   1.9   0.2      1.6      2.4       552       401  1.00    0.0089   0.007
+  ess 711 rhat 1.0008
+  ppc mean 1.274
+  prior pred sd 11.2
+  svi mu mean 1.403 (final elbo loss 107.0)
+  8-schools noncentered: tau mean 3.64, div 0
+  trace plot written
+  elpd_loo -102.9
+
+== idiom results (25s total) ==
+[ok ] NUTS sampling + extra_fields diverging: PASS
+[ok ] az.from_numpyro -> summary/ess/rhat, ci_prob kwarg: PASS
+[ok ] posterior predictive via Predictive(model, samples): PASS
+[ok ] prior predictive via Predictive(model, num_samples): PASS
+[ok ] SVI AutoNormal (ADVI equivalent) + guide sample: PASS
+[ok ] non-centered via LocScaleReparam handler (8-schools shape): PASS
+[ok ] az.plot_trace -> PlotCollection.savefig (arviz 1.x API): PASS
+[ok ] deterministic sites + manual numpy log_likelihood for az.loo: PASS
