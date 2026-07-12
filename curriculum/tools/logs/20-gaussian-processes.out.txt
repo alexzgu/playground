@@ -1,0 +1,50 @@
+two routes: max|mean_w - mean_k| = 1.14e-14
+two routes: max|var_w  - var_k | = 9.16e-15
+limit kernel: ell = 0.5657, eta2 = 0.7090
+  M=  10: max|k_M - k_RBF| = 5.432e-01
+  M=  40: max|k_M - k_RBF| = 8.087e-08
+  M= 160: max|k_M - k_RBF| = 1.110e-16
+[fig] figures/20-gaussian-processes/two-routes-and-limit.png
+[fig] figures/20-gaussian-processes/kernel-gallery.png
+kernel gallery: 3-6 prior draws per kernel drawn
+noiseless: max posterior var at a training point = 1.02e-06
+noiseless: posterior var far off-support (x=3.2)  = 0.9834   (prior var = 1.0)
+noisy:     mean posterior var at the training inputs = 0.0213
+[fig] figures/20-gaussian-processes/gp-posterior.png
+ML-II: best lengthscale = 1.581, log-evidence = -6.573
+  ell=0.050: log-ev  -32.637 = fit  -12.412 + complexity   2.748
+  ell=1.581: log-ev   -6.573 = fit  -13.392 + complexity  29.792
+  ell=2.500: log-ev  -15.778 = fit  -24.903 + complexity  32.099
+[fig] figures/20-gaussian-processes/ml-ii-occam.png
+GP posterior mean vs kernel ridge: max|diff| = 8.02e-09
+BayesOpt target: true min f = -6.0207 at x = 0.7575
+  eval 4: query x=0.339  best-so-far f=0.0001
+  eval 5: query x=0.190  best-so-far f=-0.7280
+  eval 6: query x=0.669  best-so-far f=-3.1595
+  eval 7: query x=0.727  best-so-far f=-5.5911
+  eval 8: query x=0.758  best-so-far f=-6.0207
+best after 8 evaluations: -6.0207 at x = 0.7575
+[fig] figures/20-gaussian-processes/bayesopt.png
+NNGP width sweep, f evaluated at x0=0.5 and x1=1.5:
+  H=   1: sd(f(x0)) = 0.720   excess kurtosis = +1.179   corr(f0,f1) = 0.835
+  H=  10: sd(f(x0)) = 0.720   excess kurtosis = +0.247   corr(f0,f1) = 0.833
+  H=1000: sd(f(x0)) = 0.722   excess kurtosis = +0.107   corr(f0,f1) = 0.842
+[fig] figures/20-gaussian-processes/nngp.png
+exact-GP cost scales as n^3 (Cholesky of the n x n kernel matrix):
+  n= 100: relative cost (n/100)^3 =    1.0x
+  n= 200: relative cost (n/100)^3 =    8.0x
+  n= 400: relative cost (n/100)^3 =   64.0x
+  n= 800: relative cost (n/100)^3 =  512.0x
+extrapolation RMSE: periodic = 0.0000  rbf = 0.6010
+sigma_n^2=0.00000: max|mean - y| at training points = 0.0000
+sigma_n^2=0.05000: max|mean - y| at training points = 0.0480
+sigma_n^2=0.50000: max|mean - y| at training points = 0.2888
+d=0*ell: posterior sd = 0.0010   (prior sd = 1.0)
+d=1*ell: posterior sd = 0.7951   (prior sd = 1.0)
+d=2*ell: posterior sd = 0.9908   (prior sd = 1.0)
+d=3*ell: posterior sd = 0.9999   (prior sd = 1.0)
+d=5*ell: posterior sd = 1.0000   (prior sd = 1.0)
+analytic infinite-width kernel: corr = 0.8374   sd(f(x0)) = 0.7211
+H=   1: empirical corr = 0.8353   |gap to analytic| = 0.0021
+H=  10: empirical corr = 0.8323   |gap to analytic| = 0.0051
+H=1000: empirical corr = 0.8420   |gap to analytic| = 0.0045

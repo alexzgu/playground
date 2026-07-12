@@ -1,0 +1,37 @@
+n=250, component sizes = [122 128]
+EM: 29 iters, log-lik -924.31 -> -829.88, monotone True
+EM means (ordered) = [-0.03  2.56], [0.01 2.5 ]
+Gibbs post-burn sweeps = 1000
+uncertain points (label prob in [0.1,0.9]):  EM 24   Gibbs 38
+widest-disagreement point: EM P(lo)=0.916  Gibbs P(lo)=0.837
+[fig] figures/19-mixtures-dp/gmm_uncertainty.png
+naive time-average of raw mu_1 trace = 1.70   (true means: 0.0 and 2.6)
+raw traces cross labels 27 times in 1500 sweeps
+ordered means settle at  low -0.01  high 2.56  (truth 0.0 and 2.6)
+[fig] figures/19-mixtures-dp/label_switching.png
+plain single chain : P(x>0) = 0.000  (truth 0.5)
+tempered cold chain: P(x>0) = 0.532  swap accept 0.79
+[fig] figures/19-mixtures-dp/tempering.png
+alpha=1: E[K_500] exact 6.793  sim 6.713  asymp a*ln(1+n/a) 6.217  crude a*ln n 6.21  max|sim-exact| 0.085
+alpha=2: E[K_500] exact 11.590  sim 11.473  asymp a*ln(1+n/a) 11.051  crude a*ln n 12.43  max|sim-exact| 0.132
+alpha=5: E[K_500] exact 23.587  sim 23.487  asymp a*ln(1+n/a) 23.076  crude a*ln n 31.07  max|sim-exact| 0.161
+[fig] figures/19-mixtures-dp/crp_growth.png
+CRP log-prob of two size-(2,1) partitions: -1.791759 vs -1.791759  equal=True
+alpha=1: E[w_1..3] = [0.493 0.258 0.124]  (geom pred [0.5   0.25  0.125])  effective components 3.0
+alpha=5: E[w_1..3] = [0.17  0.135 0.117]  (geom pred [0.167 0.139 0.116])  effective components 9.4
+[fig] figures/19-mixtures-dp/stick_breaking.png
+galaxy-like data: n=150, 4 true clusters at [10. 18. 23. 32.]
+posterior over #occupied clusters K:
+  K=4: 0.482
+  K=5: 0.327
+  K=6: 0.149
+  K=7: 0.037
+  K=8: 0.005
+posterior mode K = 4, mean K = 4.76  (truth 4)
+[fig] figures/19-mixtures-dp/dp_posterior_k.png
+plain-Poisson lambda_hat = 1.769  (biased low)
+ZIP posterior: pi = 0.413, lambda = 3.019  (truth 0.4, 3.0)
+E[K] at alpha=1: 5.88, alpha=3: 13.16, ratio 2.24
+timid ladder [1,1.3]:   P(x>0)=0.013  swap accept 0.92
+wide ladder [1,2,4,8]:  P(x>0)=0.538  swap accept 0.79
+EM 'very sure' points: 205/250; Gibbs also >0.95 on 0.97 of them

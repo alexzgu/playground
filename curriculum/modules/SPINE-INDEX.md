@@ -2,7 +2,7 @@
 
 Maintained by the orchestrator after each wave. Wave N+1 authors MUST read this file plus every module their spec calls back to. Format: spine / established helpers & notation / key printed numbers / forward promises.
 
-*Status: Waves 1–4 (00–18) FINAL — every module authored, dual-refereed, revised, harness-green. All numbers canonical.*
+*Status: Waves 1–5 (00–23) FINAL — every module authored, dual-refereed, revised, harness-green. All numbers canonical.*
 
 ## 00-four-lines
 - **Spine:** the whole subject is four lines (model = joint, inference = conditioning, prediction = marginalization, decision = expected loss); every procedure is a special case, approximation, or audit.
@@ -117,3 +117,33 @@ Maintained by the orchestrator after each wave. Wave N+1 authors MUST read this 
 - **Established:** `fit_schools` NumPyro pattern (reparam toggle centered/non-centered); conjugate-inside-replication bake-off pattern; EB via marginal-likelihood optimization (**eight-schools MLE is exactly τ̂=0 — the boundary**, referee-verified); MixedLM↔Bayes correspondence; booklet ch. 9 direct/synthetic/composite vocabulary; the shrinkage figure carries BOTH centers (complete-pool ȳ=7.69 vs hierarchical μ=6.49 — the μ-prior shrinkage made explicit); predict-first staging on all three mandated beats incl. the 28→8.23 reveal.
 - **Key numbers:** θ_A 28 → `8.23` (μ 6.49, τ median 2.80); centered `86` divergences (never explores τ below 0.723) vs non-centered `0` (reaches 0.004); bake-off held-out MSE 2.019 (no-pool) / 1.978 (complete) / **1.691 adaptive partial** (win generic across seeds, referee-verified); EB τ̂ = `0.00` boundary ⇒ intervals `27`% too narrow at J=8 (M18 shows mean ratio 0.87-but-erratic at J=10 → gone at J=1000); MixedLM↔Bayes corr `1.000` (pointwise gaps ~0.02); half-Cauchy→half-Normal moves τ 95th pct 10.45→8.01 but θ_A only 8.23→7.67.
 - **Promises:** EB safe at scale (M18 ✓); Kalman gain = this weight (M21); PPC/LOO on hierarchical fits (M17); benchmarking mentioned only.
+
+## 19-mixtures-dp
+- **Spine:** cluster labels are unknowns — marginalize them; EM's point labels hide the label uncertainty Gibbs reveals; a DP lets K grow with the data.
+- **Established:** `em_gmm` (full 2-D GMM), `gibbs_gmm` (NIW+Dirichlet, global swap move + ordering relabel), `run_pt` (parallel tempering), `stick_break`, `dp_mixture_gibbs` (truncated blocked Gibbs = booklet insert's Pitman–Yor stick weight at the DP case δ₁=0); CRP = sum of INDEPENDENT Bernoulli(α/(α+i−1)) (independence referee-verified true); **E[Kₙ] = α[ψ(α+n)−ψ(α)] exact** — α·log n errs in an α-DEPENDENT direction (under at α=1, badly over at α=5).
+- **Key numbers:** uncertainty map 24 (EM) vs 38 (Gibbs) uncertain boundary points; label swaps 27→0 under ordering; naive raw-μ₁ trace average `1.70` (a nonexistent parameter — the catch); tempering: plain P(x>0)=0.000 trapped vs tempered 0.532; timid ladder still trapped at 0.013 despite swap-accept 0.92 (**acceptance rate is not mixing**); E[K₅₀₀] = 6.793/11.590/23.587 (α=1/2/5) vs crude α·ln n 31.07@α=5; DP posterior K mode 4 (p=0.482) at L=15; ZIP λ 3.019 recovered vs plain-Poisson 1.769.
+- **Promises:** tempering ↔ SMC (M21 ✓ pointer); latent-structure pattern → HMM/topic/VAE (M25); closes M01's Pólya thread.
+
+## 20-gaussian-processes
+- **Spine:** a GP is module 14 at M=∞ — the kernel k=φᵀΣφ is the prior covariance of a function; posterior = one `gaussian_condition` step; the marginal likelihood tunes it with M17's Occam factor.
+- **Established:** kernel library `k_rbf/k_matern32/k_periodic/k_linear`; `gp_posterior` (M05 toolkit on the (f*,y) joint, noise on y-block only); `log_marglik` (fit+complexity split); EI acquisition; `nngp_k` (Gauss–Hermite infinite-width tanh kernel); jitter 1e-8·I idiom (PD insurance ONLY — the noiseless posterior floor is σₙ², not jitter).
+- **Key numbers:** two-routes identity `1.14e-14`; ∞-limit ℓ = √2·h (referee-derived, convergence →1.1e-16); ML-II ℓ* 1.581, overfit ℓ=0.05 foil (best fit −12.412, worst evidence −32.637); GP mean = kernel ridge `8.02e-09`; BayesOpt optimum in 8 evals; NNGP: analytic corr `0.8374`, second moments width-EXACT (H=1 gap 0.0021 < H=1000 gap 0.0045 — only Gaussianity is a limit); cost 512× (n: 100→800).
+- **Promises:** EI → M23 ✓; NNGP/infinite-width prior → M25; inducing points = M13's ELBO on a GP; BART on M26's map.
+
+## 21-state-space
+- **Spine:** the Kalman filter is M05's Normal-Normal on a conveyor belt — predict = marginalize (variance grows by q), update = condition; the gain K = P⁻/(P⁻+r) IS the master shrinkage weight; when linear-Gaussian breaks: EKF/UKF for mild nonlinearity, particles beyond.
+- **Established:** local-level + 4-D constant-velocity KF (update byte-identical to `normal_known_var_update` 8.9e-16 and `gaussian_condition` 1.8e-15); AR(p) = `nig_regression` on lag columns + companion form F=[[φ₁,φ₂],[1,0]]; OU = exact AR(1) (a=e^{−θΔ}, innov var σ²(1−e^{−2θΔ})/2θ); prediction-error decomposition gives the marginal likelihood free; `bootstrap_pf` (resample at ESS<N/2, reuses `ess_kong`); RTS smoother.
+- **Key numbers:** reveal gain 0.75; steady-state K 0.3904 / P 0.7808 (Riccati); 1-D RMSE 1.008 vs 1.421 naive, 2-D 1.424 vs 2.616; AR(2) φ̂ (0.4471, 0.2726), stationary frac 1.000; OU a 0.8395, θ̂ 0.749 (grid on the free marginal likelihood); PF ESS collapse 877.7→1.48 vs resampled median 1390, one-step coverage 0.96.
+- **Promises:** SMC-samplers/tempering pointer (M18/M19 ✓); pooling-across-time framing.
+
+## 22-decisions-bandits
+- **Spine:** a posterior is not a deliverable — an action is; in the sequential case acting and learning are the same move, and Thompson sampling (draw θ, play the argmax) is five lines and near-optimal.
+- **Established:** action threshold p* = C_FP/(C_FP+C_FN) — 0.5 only under symmetric costs; EVSI via preposterior simulation (draw worlds from the CURRENT posterior, simulate the batch, re-decide), capped by EVPI = current expected regret; vectorized bandit pattern ((reps,arms) arrays, loop pulls only); Thompson/UCB1/ε-greedy tournament harness.
+- **Key numbers:** thresholds 1/11 = 0.0909 (10:1), 0.0099 (100:1); **staged action flip: the p=0.12 patient — naive 0.5 rule sends home, correct rule TREATS (0.880 vs 1.200)**; A/B: M05's numbers driven to the third action, B's lead `1.64`σ printed, EVPI 200.2, EVSI(1000)=22.2 vs cost 20 (barely worth it), net-value peak n*=4000/arm, decisive-case EVPI 0.27 → ship; bandits (0.3/0.5/0.7, 10⁴×100): Thompson 19.6 < UCB1 99.7 < ε-greedy 212.4 (10.8×); pure greedy locks wrong 0.42 of reps; at gap 0.1 UCB1 trails ε-greedy (loose constant — referee-verified).
+- **Promises:** EVSI = the design bridge (M23 ✓); admissibility close ("the only question is which prior").
+
+## 23-experimental-design
+- **Spine:** design fixes the likelihood you condition on — randomization buys ignorability, information is priced (EIG/D-optimality) before collection; a Bayesian is indifferent to *stopping* rules but not *assignment* rules.
+- **Established:** `blr` (EB-σ² Gaussian-prior linear posterior); the FOUR-CLAIM optional-stopping lab, each claim separately staged and verified — (a) posterior invariance (two GENUINE routes: sequential per-bit accumulation with stopping indicators in the product vs closed-form Beta, gap 1.00e-08), (b) prior-averaged/martingale coverage `0.9494` under aggressive stopping (construction referee-verified: no conditioning on stopping), (c) frequentist Type-I `0.0522`→`0.2044`@10 looks (≈4× — M04's promise cashed) →`0.4664` continuous (LIL), (d) selective reporting breaks BOTH paradigms (published coverage `0.6197`); BF foregone-conclusion Ville bound `0.0598` ≤ 0.10; 2³ effects-as-regression + spike-and-slab inclusion probabilities (ordering = the robust takeaway); EIG-by-quadrature dose design; D-optimality det ratio `2.000`; permutation p `0.0311` ≈ t 0.0313.
+- **Key numbers:** confounded β_T `5.288`±0.187 (17.5σ from truth 2) vs randomized `2.010`; power `0.8013` vs assurance `0.7140` (Jensen); Montgomery Ex 6.1 reproduced: A −101.625, C 306.125, AC −153.625 (hand-verified from contrasts).
+- **Promises:** ignorability + backdoor (M24); permutation-under-exchangeability + calibrated-Bayes stopping row (M26).

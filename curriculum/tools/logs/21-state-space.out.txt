@@ -1,0 +1,31 @@
+Kalman gain form : K = 0.75   post mean = 4.25   post var = 0.75
+module 05 route  : post mean = 4.25   post var = 0.75
+max|difference|  = 8.9e-16
+KF-update vs normal_known_var_update, max|diff| over 60 steps = 8.9e-16
+gain converges to steady state K_inf = 0.3904, P_inf = 0.7808
+RMSE: filtered 1.008  vs  raw obs 1.421
+[fig] figures/21-state-space/kalman-1d.png
+Kalman update vs gaussian_condition, max|diff| = 1.8e-15
+position RMSE: filtered 1.424  vs raw obs 2.616
+[fig] figures/21-state-space/tracking-2d.png
+posterior mean phi = (0.4471, 0.2726)   true (0.5, 0.3)
+predictive df = 300,  E[sigma^2|y] = 1.0388
+fraction of posterior draws that are stationary = 1.000
+[fig] figures/21-state-space/ar2-posterior.png
+AR(1) coef a = 0.8395, innovation var s2 = 0.0527, stationary var = 0.1786 (empirical 0.1652)
+state RMSE: filtered 0.168  vs raw obs 0.221
+theta MLE from marginal likelihood = 0.749  (true 0.7)
+[fig] figures/21-state-space/ou-filter.png
+NO resampling  -- ESS at t=10/30/50/99: 877.7 / 187.7 / 43.7 / 1.48
+WITH resampling -- ESS min 577, median 1390
+one-step-ahead 95% predictive coverage = 0.96
+[fig] figures/21-state-space/pf-ess.png
+r=  2.0: steady-state gain = 0.3904
+r= 20.0: steady-state gain = 0.1461
+filter var at last step P[n-1] = 0.7808
+smoother var at last step  = same value (no future data exists yet)
+N=  2000: one-step ESS = 52.6  (2.63% of N)
+N= 20000: one-step ESS = 553.2  (2.77% of N)
+a=0.00: sigma_eta = 1.0000  ->  stationary var 1.000
+a=0.50: sigma_eta = 0.8660  ->  stationary var 1.000
+a=0.99: sigma_eta = 0.1411  ->  stationary var 1.000

@@ -1,0 +1,58 @@
+true causal effect      : 2.000
+confounded  beta_T post : 5.288 +/- 0.187
+randomized  beta_T post : 2.010 +/- 0.224
+confounded + adjust U   : 2.135 +/- 0.083
+[fig] figures/23-experimental-design/confounded_vs_randomized.png
+power at the design point delta=0.5 : 0.8013
+assurance (prior N(0.5, 0.2^2))     : 0.7140
+[fig] figures/23-experimental-design/power_vs_assurance.png
+stopped at n=14, s=3 successes
+posterior mean: sequential grid 0.250000 vs Beta(4,12) 0.250000
+max |density difference| between the two routes: 1.00e-08
+mean stopping time under the aggressive rule : 29.4
+Bayesian coverage, aggressive stopping       : 0.9494
+Bayesian coverage, fixed n=200 (baseline)    : 0.9502
+Type-I,  1 look  (= fixed n=1000): 0.0522
+Type-I, 10 looks                 : 0.2044  (inflation 4.1x)
+Type-I, continuous to N=1000     : 0.4664  (inflation 9.3x)
+[fig] figures/23-experimental-design/type_I_inflation.png
+coverage, ALL studies           : 0.9503
+coverage, PUBLISHED only         : 0.6197   (25743 of 200000 published)
+published mean |estimate|        : 1.378  vs mean |true effect| 1.202
+P(sup_n BF10 >= 10 | H0 true) = 0.0598  (Ville bound 1/10 = 0.1000)
+    I: effect +1552.1250
+    A: effect -101.6250
+    B: effect   +7.3750
+    C: effect +306.1250
+   AB: effect  -24.8750
+   AC: effect -153.6250
+   BC: effect   -2.1250
+  ABC: effect   +5.6250
+Montgomery's headline effects -> A (gap) -101.625, C (power) 306.125, AC -153.625
+effect      raw     shrunk   P(real)
+    A:  -101.625   -96.689   0.943
+    B:    +7.375    +4.306   0.175
+    C:  +306.125  +299.536   1.000
+   AB:   -24.875   -14.967   0.213
+   AC:  -153.625  -150.303   1.000
+   BC:    -2.125    -1.237   0.172
+  ABC:    +5.625    +3.280   0.174
+[fig] figures/23-experimental-design/factorial_effects.png
+posterior-mean ED50 (dose with p=0.5): -0.373
+EIG-optimal next dose               : -0.750  (EIG 0.1078 nats)
+EIG at the extremes d=-4 / d=+4     : 0.0544 / 0.0313 nats
+[fig] figures/23-experimental-design/eig_dose.png
+det(XtX): factorial 64.0, OFAT 32.0, ratio 2.000
+posterior-covariance det ratio (OFAT / factorial): 2.000
+observed difference in means : 1.716
+permutation p-value          : 0.0311  (nperm=20000)
+two-sample t-test p-value    : 0.0313
+[fig] figures/23-experimental-design/permutation_null.png
+coverage under greedy stop with hard budget 30: 0.9514
+power@0.5 0.8013 | slab assurance 0.7140 | spike-slab assurance 0.5148
+EIG at uncertainty-sampling dose -0.373: 0.1065 nats
+EIG at EIG-optimal dose         -0.750: 0.1078 nats
+  gap A=-1, power C=-1: predicted rate 597.0
+  gap A=-1, power C=+1: predicted rate 1056.8
+  gap A=+1, power C=-1: predicted rate 649.0
+  gap A=+1, power C=+1: predicted rate 801.5

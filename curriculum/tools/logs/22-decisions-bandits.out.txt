@@ -1,0 +1,38 @@
+threshold p* = C_FP/(C_FP+C_FN) = 0.0909   (naive default would be 0.5)
+  p=0.0800:  rho(treat)=0.920  rho(wait)=0.800  -> wait 
+  p=0.0909:  rho(treat)=0.909  rho(wait)=0.909  -> wait 
+  p=0.1200:  rho(treat)=0.880  rho(wait)=1.200  -> TREAT
+[fig] figures/22-decisions-bandits/threshold.png
+P(theta_B > theta_A)         = 0.9510
+expected regret | ship B     = 0.000199  (per future impression)
+expected regret | ship A     = 0.016177
+regret ratio ship-A : ship-B = 81x  -> ship B
+EVPI = H * E[max(thA-thB,0)] = 200.2 conversions  (regret of shipping now)
+B's standardized lead = (E[thB]-E[thA]) / sd(thB-thA) = 1.64 sigma
+  n=  250/arm: EVSI=    0.0  cost=   5.0  net=   -5.0  -> stop & ship 
+  n=  500/arm: EVSI=    3.8  cost=  10.0  net=   -6.2  -> stop & ship 
+  n= 1000/arm: EVSI=   22.2  cost=  20.0  net=    2.2  -> keep testing
+  n= 2000/arm: EVSI=   61.8  cost=  40.0  net=   21.8  -> keep testing
+  n= 4000/arm: EVSI=  107.9  cost=  80.0  net=   27.9  -> keep testing
+  n= 8000/arm: EVSI=  148.4  cost= 160.0  net=  -11.6  -> stop & ship 
+  n=16000/arm: EVSI=  172.0  cost= 320.0  net= -148.0  -> stop & ship 
+  n=32000/arm: EVSI=  185.0  cost= 640.0  net= -455.0  -> stop & ship 
+best batch n* = 4000/arm (max net value 27.9 conversions)
+[fig] figures/22-decisions-bandits/evsi.png
+cumulative regret at T = 10,000 (mean over 100 reps):
+  thompson :    19.6
+  ucb1     :    99.7
+  egreedy  :   212.4
+ranking (best first): thompson < ucb1 < egreedy
+epsilon-greedy regret / Thompson regret = 10.8x
+[fig] figures/22-decisions-bandits/bandit-regret.png
+threshold at 10:1  = 0.0909,  treated fraction = 0.101
+threshold at 100:1 = 0.0099, treated fraction = 0.937
+pure-greedy regret at T=2000 = 262.6;  reps locked on a SUBOPTIMAL arm = 0.42
+  eps=0.01: regret at T=5000 = 65.1
+  eps=0.05: regret at T=5000 = 64.1
+  eps=0.10: regret at T=5000 = 108.8
+  eps=0.20: regret at T=5000 = 206.3
+  eps=0.40: regret at T=5000 = 405.8
+EVPI (80/1000 vs 41/1000) = 0.27 conversions
+EVSI of 250 more/arm = 0.00  vs cost 5.0  -> SHIP NOW
