@@ -1,0 +1,436 @@
+== 00-four-lines.md: 10 runnable blocks ==
+  block  1 (L  19) ok in    1.7s
+  block  2 (L  54) ok in    0.7s
+  block  3 (L 110) ok in    0.0s
+  block  4 (L 134) ok in    0.0s
+  block  5 (L 168) ok in    0.2s
+  block  6 (L 187) ok in    0.1s
+  block  7 (L 211) ok in    0.2s
+  block  8 (L 306) ok in    0.0s
+  block  9 (L 322) ok in    0.0s
+  block 10 (L 341) ok in    0.0s
+PASS in 3.0s (2500 prose words, 10 blocks, 3 figs referenced)
+== 01-probability-as-logic.md: 9 runnable blocks ==
+  block  1 (L  30) ok in    1.3s
+  block  2 (L  59) ok in    0.0s
+  block  3 (L  83) ok in    0.3s
+  block  4 (L 144) ok in    1.4s
+  block  5 (L 191) ok in    0.5s
+  block  6 (L 234) ok in    0.0s
+  block  7 (L 303) ok in    0.0s
+  block  8 (L 319) ok in    0.0s
+  block  9 (L 334) ok in    0.0s
+PASS in 3.5s (3961 prose words, 9 blocks, 3 figs referenced)
+== 02-conditioning-is-inference.md: 12 runnable blocks ==
+  block  1 (L  18) ok in    3.3s
+  block  2 (L  49) ok in    0.0s
+  block  3 (L  84) ok in    0.4s
+  block  4 (L 141) ok in    0.3s
+  block  5 (L 163) ok in    0.0s
+  block  6 (L 193) ok in    0.2s
+  block  7 (L 223) ok in    2.0s
+  block  8 (L 277) ok in    0.3s
+  block  9 (L 371) ok in    0.0s
+  block 10 (L 398) ok in    0.0s
+  block 11 (L 416) ok in    0.0s
+  block 12 (L 436) ok in    0.0s
+PASS in 6.6s (4366 prose words, 12 blocks, 4 figs referenced)
+== 03-generative-stories.md: 14 runnable blocks ==
+  block  1 (L  12) ok in    2.2s
+  block  2 (L  57) ok in    1.0s
+  block  3 (L  93) ok in    1.2s
+  block  4 (L 143) ok in    3.9s
+  block  5 (L 173) ok in    7.1s
+  block  6 (L 210) ok in    0.0s
+  block  7 (L 243) ok in    0.4s
+  block  8 (L 286) ok in    0.0s
+  block  9 (L 324) ok in    0.4s
+  block 10 (L 343) ok in    0.4s
+  block 11 (L 393) ok in    0.0s
+  block 12 (L 411) ok in    5.4s
+  block 13 (L 427) ok in    0.2s
+  block 14 (L 453) ok in    0.0s
+PASS in 22.4s (3743 prose words, 14 blocks, 6 figs referenced)
+== 04-likelihood.md: 16 runnable blocks ==
+  block  1 (L  13) ok in    2.8s
+  block  2 (L  50) ok in    0.8s
+  block  3 (L  84) ok in    0.4s
+  block  4 (L 106) ok in    0.0s
+  block  5 (L 146) ok in    0.0s
+  block  6 (L 168) ok in    0.1s
+  block  7 (L 180) ok in    0.2s
+  block  8 (L 213) ok in    0.0s
+  block  9 (L 237) ok in    0.6s
+  block 10 (L 285) ok in    0.0s
+  block 11 (L 301) ok in    0.0s
+  block 12 (L 322) ok in    0.0s
+  block 13 (L 353) ok in    0.0s
+  block 14 (L 368) ok in    0.0s
+  block 15 (L 387) ok in    0.0s
+  block 16 (L 403) ok in    0.0s
+PASS in 5.0s (4019 prose words, 16 blocks, 3 figs referenced)
+== 05-conjugate-updating.md: 16 runnable blocks ==
+  block  1 (L  13) ok in    1.6s
+  block  2 (L  54) ok in    0.4s
+  block  3 (L  93) ok in    0.0s
+  block  4 (L 137) ok in    0.3s
+  block  5 (L 179) ok in    0.2s
+  block  6 (L 224) ok in    0.0s
+  block  7 (L 239) ok in    0.5s
+  block  8 (L 285) ok in    0.0s
+  block  9 (L 305) ok in    0.0s
+  block 10 (L 322) ok in    0.2s
+  block 11 (L 365) ok in    0.7s
+  block 12 (L 411) ok in    4.4s
+  block 13 (L 477) ok in    0.0s
+  block 14 (L 496) ok in    0.0s
+  block 15 (L 513) ok in    0.0s
+  block 16 (L 532) ok in    0.0s
+PASS in 8.2s (4188 prose words, 16 blocks, 7 figs referenced)
+== 06-estimates-are-decisions.md: 13 runnable blocks ==
+  block  1 (L  13) ok in    1.4s
+  block  2 (L  58) ok in    0.4s
+  block  3 (L 108) ok in    0.2s
+  block  4 (L 140) ok in    0.0s
+  block  5 (L 154) ok in    3.2s
+  block  6 (L 208) ok in    0.7s
+  block  7 (L 247) ok in    8.5s
+  block  8 (L 288) ok in    2.6s
+  block  9 (L 356) ok in    0.0s
+  block 10 (L 376) ok in    0.0s
+  block 11 (L 398) ok in    0.0s
+  block 12 (L 414) ok in    0.0s
+  block 13 (L 432) ok in    0.0s
+PASS in 16.9s (4741 prose words, 13 blocks, 5 figs referenced)
+== 07-priors.md: 15 runnable blocks ==
+  block  1 (L  13) ok in    3.3s
+  block  2 (L  52) ok in    0.0s
+  block  3 (L  72) ok in    0.5s
+  block  4 (L  99) ok in    0.0s
+  block  5 (L 111) ok in    0.3s
+  block  6 (L 159) ok in    0.5s
+  block  7 (L 195) ok in    0.0s
+  block  8 (L 220) ok in    0.3s
+  block  9 (L 248) ok in    0.3s
+  block 10 (L 285) ok in    0.2s
+  block 11 (L 332) ok in    0.0s
+  block 12 (L 358) ok in    0.0s
+  block 13 (L 377) ok in    0.0s
+  block 14 (L 393) ok in    0.0s
+  block 15 (L 412) ok in    0.0s
+PASS in 5.5s (4209 prose words, 15 blocks, 6 figs referenced)
+== 08-frequentist-bridge.md: 16 runnable blocks ==
+  block  1 (L  15) ok in    1.9s
+  block  2 (L  52) ok in    0.6s
+  block  3 (L  80) ok in    0.1s
+  block  4 (L 101) ok in    0.0s
+  block  5 (L 123) ok in    0.2s
+  block  6 (L 154) ok in    0.0s
+  block  7 (L 171) ok in    0.1s
+  block  8 (L 191) ok in    0.9s
+  block  9 (L 232) ok in    0.0s
+  block 10 (L 245) ok in    0.0s
+  block 11 (L 265) ok in    0.8s
+  block 12 (L 311) ok in    0.3s
+  block 13 (L 338) ok in    0.0s
+  block 14 (L 369) ok in    0.2s
+  block 15 (L 391) ok in    0.0s
+  block 16 (L 406) ok in    0.1s
+PASS in 5.4s (4127 prose words, 16 blocks, 5 figs referenced)
+== 09-monte-carlo.md: 18 runnable blocks ==
+  block  1 (L  15) ok in    2.8s
+  block  2 (L  55) ok in    0.0s
+  block  3 (L  82) ok in    0.2s
+  block  4 (L 100) ok in    0.1s
+  block  5 (L 117) ok in    0.2s
+  block  6 (L 133) ok in    0.5s
+  block  7 (L 155) ok in    0.0s
+  block  8 (L 176) ok in    0.0s
+  block  9 (L 210) ok in    0.0s
+  block 10 (L 235) ok in   17.7s
+  block 11 (L 261) ok in    0.5s
+  block 12 (L 281) ok in    0.1s
+  block 13 (L 308) ok in    0.0s
+  block 14 (L 327) ok in    0.2s
+  block 15 (L 369) ok in    0.0s
+  block 16 (L 385) ok in    0.0s
+  block 17 (L 401) ok in    0.0s
+  block 18 (L 421) ok in    0.1s
+PASS in 22.3s (4462 prose words, 18 blocks, 3 figs referenced)
+== 10-metropolis-hastings.md: 16 runnable blocks ==
+  block  1 (L  13) ok in    1.6s
+  block  2 (L  68) ok in    0.0s
+  block  3 (L 103) ok in    0.6s
+  block  4 (L 162) ok in    6.8s
+  block  5 (L 248) ok in    2.7s
+  block  6 (L 294) ok in    0.3s
+  block  7 (L 307) ok in    1.7s
+  block  8 (L 326) ok in    0.0s
+  block  9 (L 368) ok in    1.4s
+  block 10 (L 384) ok in    2.5s
+  block 11 (L 423) ok in    0.8s
+  block 12 (L 467) ok in    0.0s
+  block 13 (L 504) ok in    0.1s
+  block 14 (L 522) ok in    0.3s
+  block 15 (L 539) ok in    0.4s
+  block 16 (L 557) ok in    0.0s
+PASS in 19.0s (4958 prose words, 16 blocks, 6 figs referenced)
+== 11-gibbs-augmentation.md: 17 runnable blocks ==
+  block  1 (L  13) ok in    2.3s
+  block  2 (L  60) ok in    0.0s
+  block  3 (L  91) ok in    0.2s
+  block  4 (L 133) ok in    0.6s
+  block  5 (L 165) ok in    0.2s
+  block  6 (L 194) ok in    0.5s
+  block  7 (L 225) ok in    0.8s
+  block  8 (L 265) ok in    0.4s
+  block  9 (L 306) ok in    0.6s
+  block 10 (L 336) ok in    0.4s
+  block 11 (L 361) ok in    0.8s
+  block 12 (L 393) ok in    0.3s
+  block 13 (L 428) ok in    0.7s
+  block 14 (L 480) ok in    0.1s
+  block 15 (L 496) ok in    0.1s
+  block 16 (L 517) ok in    0.0s
+  block 17 (L 534) ok in    0.1s
+PASS in 8.0s (4611 prose words, 17 blocks, 5 figs referenced)
+== 12-hmc.md: 16 runnable blocks ==
+  block  1 (L  13) ok in    1.3s
+  block  2 (L  46) ok in    0.5s
+  block  3 (L  68) ok in    0.3s
+  block  4 (L  92) ok in    6.9s
+  block  5 (L 137) ok in    0.3s
+  block  6 (L 159) ok in    0.3s
+  block  7 (L 198) ok in    0.2s
+  block  8 (L 222) ok in    0.5s
+  block  9 (L 255) ok in    0.0s
+  block 10 (L 288) ok in    9.1s
+  block 11 (L 319) ok in    5.0s
+  block 12 (L 329) ok in    0.4s
+  block 14 (L 376) ok in    1.1s
+  block 15 (L 416) ok in    0.0s
+  block 16 (L 433) ok in    3.5s
+  block 17 (L 449) ok in    0.3s
+PASS in 29.8s (4038 prose words, 16 blocks, 5 figs referenced)
+== 13-laplace-em-vi.md: 16 runnable blocks ==
+  block  1 (L  12) ok in    1.5s
+  block  2 (L  61) ok in    0.1s
+  block  3 (L  95) ok in    8.7s
+  block  4 (L 130) ok in    0.5s
+  block  5 (L 166) ok in    0.6s
+  block  6 (L 188) ok in    0.0s
+  block  7 (L 214) ok in    0.0s
+  block  8 (L 245) ok in    0.5s
+  block  9 (L 275) ok in    0.0s
+  block 10 (L 303) ok in    0.2s
+  block 11 (L 344) ok in    0.2s
+  block 12 (L 399) ok in   10.7s
+  block 13 (L 482) ok in    0.1s
+  block 14 (L 507) ok in    0.0s
+  block 15 (L 521) ok in    0.0s
+  block 16 (L 540) ok in    0.0s
+PASS in 23.2s (4790 prose words, 16 blocks, 6 figs referenced)
+== 14-bayesian-regression.md: 13 runnable blocks ==
+  block  1 (L  13) ok in    1.3s
+  block  2 (L  46) ok in    0.7s
+  block  3 (L  99) ok in    0.0s
+  block  4 (L 125) ok in    0.9s
+  block  5 (L 182) ok in    0.0s
+  block  6 (L 212) ok in    0.4s
+  block  7 (L 272) ok in    0.0s
+  block  8 (L 322) ok in    0.2s
+  block  9 (L 378) ok in    0.2s
+  block 10 (L 436) ok in    0.0s
+  block 11 (L 452) ok in    0.0s
+  block 12 (L 470) ok in    0.0s
+  block 13 (L 488) ok in    0.0s
+PASS in 3.7s (4489 prose words, 13 blocks, 5 figs referenced)
+== 15-glms-classification.md: 15 runnable blocks ==
+  block  1 (L  12) ok in    4.6s
+  block  2 (L  53) ok in    0.5s
+  block  3 (L  88) ok in    0.0s
+  block  4 (L 122) ok in    0.4s
+  block  5 (L 153) ok in    1.7s
+  block  6 (L 196) ok in    8.6s
+  block  7 (L 242) ok in    0.0s
+  block  8 (L 269) ok in    1.2s
+  block  9 (L 306) ok in    1.9s
+  block 10 (L 366) ok in    6.5s
+  block 11 (L 420) ok in    0.2s
+  block 12 (L 481) ok in    0.0s
+  block 13 (L 502) ok in    0.0s
+  block 14 (L 521) ok in    0.0s
+  block 15 (L 541) ok in    0.0s
+PASS in 25.7s (4521 prose words, 15 blocks, 6 figs referenced)
+== 16-hierarchical.md: 19 runnable blocks ==
+  block  1 (L  15) ok in    1.8s
+  block  2 (L  48) ok in    0.0s
+  block  3 (L  75) ok in   11.6s
+  block  4 (L 123) ok in    0.3s
+  block  5 (L 150) ok in    7.1s
+  block  6 (L 170) ok in    5.6s
+  block  7 (L 184) ok in    0.2s
+  block  8 (L 211) ok in    0.0s
+  block  9 (L 235) ok in    0.0s
+  block 10 (L 263) ok in    0.2s
+  block 11 (L 284) ok in    0.0s
+  block 12 (L 317) ok in    0.3s
+  block 13 (L 342) ok in   10.9s
+  block 14 (L 372) ok in    0.3s
+  block 15 (L 395) ok in    0.4s
+  block 16 (L 433) ok in    0.0s
+  block 17 (L 448) ok in    0.0s
+  block 18 (L 467) ok in    0.0s
+  block 19 (L 489) ok in    9.9s
+PASS in 48.5s (4472 prose words, 19 blocks, 4 figs referenced)
+== 17-model-checking.md: 16 runnable blocks ==
+  block  1 (L  19) ok in    1.7s
+  block  2 (L  60) ok in    0.0s
+  block  3 (L  88) ok in   16.3s
+  block  4 (L 116) ok in    0.4s
+  block  5 (L 150) ok in    0.1s
+  block  6 (L 195) ok in    0.0s
+  block  7 (L 205) ok in    0.2s
+  block  8 (L 232) ok in    6.0s
+  block  9 (L 271) ok in    0.0s
+  block 10 (L 311) ok in    0.0s
+  block 11 (L 331) ok in    0.0s
+  block 12 (L 351) ok in    0.0s
+  block 13 (L 362) ok in    0.3s
+  block 14 (L 395) ok in    0.0s
+  block 15 (L 411) ok in    0.0s
+  block 16 (L 437) ok in    0.0s
+PASS in 24.9s (4747 prose words, 16 blocks, 3 figs referenced)
+== 18-scale-and-misspecification.md: 15 runnable blocks ==
+  block  1 (L  13) ok in    1.5s
+  block  2 (L  50) ok in    0.0s
+  block  3 (L  79) ok in    0.6s
+  block  4 (L 111) ok in    0.3s
+  block  5 (L 149) ok in    0.4s
+  block  6 (L 173) ok in    0.1s
+  block  7 (L 211) ok in   29.5s
+  block  8 (L 251) ok in    0.6s
+  block  9 (L 272) ok in    0.2s
+  block 10 (L 293) ok in    0.2s
+  block 11 (L 338) ok in    0.0s
+  block 12 (L 380) ok in    0.0s
+  block 13 (L 397) ok in    0.0s
+  block 14 (L 415) ok in    0.0s
+  block 15 (L 432) ok in    0.0s
+PASS in 33.4s (4745 prose words, 15 blocks, 3 figs referenced)
+== 19-mixtures-dp.md: 18 runnable blocks ==
+  block  1 (L  20) ok in    2.8s
+  block  2 (L  52) ok in    0.1s
+  block  3 (L  66) ok in    0.1s
+  block  4 (L 105) ok in    2.7s
+  block  5 (L 163) ok in    0.0s
+  block  6 (L 176) ok in    0.9s
+  block  7 (L 204) ok in    0.4s
+  block  8 (L 243) ok in    1.0s
+  block  9 (L 280) ok in    0.5s
+  block 10 (L 313) ok in    0.2s
+  block 11 (L 343) ok in    0.0s
+  block 12 (L 370) ok in    0.4s
+  block 13 (L 401) ok in    0.5s
+  block 14 (L 453) ok in    0.3s
+  block 15 (L 498) ok in    0.1s
+  block 16 (L 532) ok in    0.0s
+  block 17 (L 547) ok in    1.2s
+  block 18 (L 563) ok in    0.0s
+PASS in 11.0s (4570 prose words, 18 blocks, 6 figs referenced)
+== 20-gaussian-processes.md: 14 runnable blocks ==
+  block  1 (L  13) ok in    1.8s
+  block  2 (L  55) ok in    0.0s
+  block  3 (L  97) ok in    0.5s
+  block  4 (L 147) ok in    0.4s
+  block  5 (L 200) ok in    0.3s
+  block  6 (L 259) ok in    0.4s
+  block  7 (L 306) ok in    0.5s
+  block  8 (L 321) ok in    0.3s
+  block  9 (L 368) ok in    1.3s
+  block 10 (L 407) ok in    0.0s
+  block 11 (L 439) ok in    0.0s
+  block 12 (L 457) ok in    0.0s
+  block 13 (L 472) ok in    0.0s
+  block 14 (L 488) ok in    1.6s
+PASS in 7.1s (4422 prose words, 14 blocks, 6 figs referenced)
+== 21-state-space.md: 11 runnable blocks ==
+  block  1 (L  31) ok in    1.3s
+  block  2 (L  61) ok in    0.0s
+  block  3 (L  87) ok in    0.3s
+  block  4 (L 139) ok in    0.2s
+  block  5 (L 210) ok in    0.2s
+  block  6 (L 266) ok in    9.7s
+  block  7 (L 338) ok in    0.6s
+  block  8 (L 413) ok in    0.0s
+  block  9 (L 432) ok in    0.0s
+  block 10 (L 448) ok in    0.0s
+  block 11 (L 469) ok in    0.0s
+PASS in 12.3s (4376 prose words, 11 blocks, 5 figs referenced)
+== 22-decisions-bandits.md: 9 runnable blocks ==
+  block  1 (L  13) ok in    1.8s
+  block  2 (L  57) ok in    0.4s
+  block  3 (L  94) ok in    0.1s
+  block  4 (L 127) ok in    0.6s
+  block  5 (L 199) ok in    2.0s
+  block  6 (L 279) ok in    0.0s
+  block  7 (L 298) ok in    0.1s
+  block  8 (L 326) ok in    1.0s
+  block  9 (L 353) ok in    0.1s
+PASS in 6.0s (3983 prose words, 9 blocks, 3 figs referenced)
+== 23-experimental-design.md: 17 runnable blocks ==
+  block  1 (L  23) ok in    1.7s
+  block  2 (L  52) ok in    0.3s
+  block  3 (L 122) ok in    0.3s
+  block  4 (L 177) ok in    0.0s
+  block  5 (L 224) ok in    0.2s
+  block  6 (L 255) ok in    0.7s
+  block  7 (L 298) ok in    0.0s
+  block  8 (L 319) ok in    1.5s
+  block  9 (L 337) ok in    0.0s
+  block 10 (L 367) ok in    0.2s
+  block 11 (L 417) ok in    0.2s
+  block 12 (L 460) ok in    0.0s
+  block 13 (L 477) ok in    0.3s
+  block 14 (L 526) ok in    0.1s
+  block 15 (L 547) ok in    0.0s
+  block 16 (L 564) ok in    0.0s
+  block 17 (L 580) ok in    0.0s
+PASS in 5.5s (5290 prose words, 17 blocks, 6 figs referenced)
+== 24-causal.md: 13 runnable blocks ==
+  block  1 (L  21) ok in    1.3s
+  block  2 (L  50) ok in    0.2s
+  block  3 (L 103) ok in    0.4s
+  block  4 (L 160) ok in    0.6s
+  block  5 (L 205) ok in    0.2s
+  block  6 (L 246) ok in    0.1s
+  block  7 (L 291) ok in    0.0s
+  block  8 (L 337) ok in    0.4s
+  block  9 (L 374) ok in    0.2s
+  block 10 (L 442) ok in    0.0s
+  block 11 (L 456) ok in    0.0s
+  block 12 (L 475) ok in    0.0s
+  block 13 (L 493) ok in    0.0s
+PASS in 3.4s (4997 prose words, 13 blocks, 6 figs referenced)
+== 25-deep-learning-lenses.md: 15 runnable blocks ==
+  block  1 (L  13) ok in    1.3s
+  block  2 (L  52) ok in    0.0s
+  block  3 (L  88) ok in   10.6s
+  block  4 (L 127) ok in    0.2s
+  block  5 (L 166) ok in    0.4s
+  block  6 (L 198) ok in   11.5s
+  block  7 (L 233) ok in    0.2s
+  block  8 (L 255) ok in    1.2s
+  block  9 (L 283) ok in    0.8s
+  block 10 (L 305) ok in    1.8s
+  block 11 (L 335) ok in    0.3s
+  block 13 (L 425) ok in   20.3s
+  block 14 (L 442) ok in    0.0s
+  block 15 (L 457) ok in    0.0s
+  block 16 (L 475) ok in    0.0s
+PASS in 48.6s (5694 prose words, 15 blocks, 5 figs referenced)
+== 26-capstone.md: 3 runnable blocks ==
+  block  1 (L  19) ok in    1.3s
+  block  2 (L  52) ok in    0.0s
+  block  3 (L  78) ok in   30.9s
+PASS in 32.1s (2500 prose words, 3 blocks, 1 figs referenced)

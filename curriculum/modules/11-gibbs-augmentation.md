@@ -420,7 +420,7 @@ The demo was MAR: deletion depended on $Y_1$, which we see, so the impute-within
 
 **Predict.** Both estimators are unbiased for $\mathbb{E}[\sigma^2\mid y]$. Averaging the conditional mean replaces the final inverse-gamma draw with its expectation — how much does that shrink the estimator's variance across independent chains: a few percent, 2×, or much more?
 
-**Reason.** "The raw draws already average out the last step's noise over $M$ iterations, so integrating it analytically is a rounding-error improvement." The Rao–Blackwell theorem (module 06's conditioning-reduces-variance, in Monte Carlo clothing) says otherwise: $\mathrm{Var}[g(\sigma^2)] = \mathbb{E}[\mathrm{Var}(g\mid\mu)] + \mathrm{Var}[\mathbb{E}(g\mid\mu)]$, and the conditional-mean estimator keeps only the second, smaller term.
+**Reason.** "The raw draws already average out the last step's noise over $M$ iterations, so integrating it analytically is a rounding-error improvement." The Rao–Blackwell theorem (module 06's conditioning-reduces-variance, in Monte Carlo clothing) says otherwise: $\mathrm{Var}[g(\sigma^2)] = \mathbb{E}[\mathrm{Var}[g\mid\mu]] + \mathrm{Var}[\mathbb{E}(g\mid\mu)]$, and the conditional-mean estimator keeps only the second, smaller term.
 
 **Run.**
 
@@ -449,7 +449,7 @@ print(f"RB  estimator: sd across chains = {rbs.std():.5f}")
 print(f"variance-reduction factor = {raws.var()/rbs.var():.1f}x")
 ```
 
-**Reconcile.** Across 30 independent chains the raw estimator's standard deviation is `0.01509`, the Rao-Blackwellized one's `0.00197` — a `58.8`× variance reduction, for free, from code you already wrote. The intuition that the last draw is "already averaged out" misses that the raw draw carries *all* of $\mathrm{Var}(\sigma^2\mid\mu)$ into every term, while the conditional mean has integrated it away analytically; only the smaller cross-$\mu$ variation survives. The booklet (ch. 11) makes the same point: when a conditional expectation is available in closed form, average *it*, not the sample. The one caveat: Rao-Blackwellization helps most when the conditioned-out quantity carries a lot of the noise (as $\sigma^2$'s inverse-gamma draw does here); when the conditional is already nearly a point mass, the gain is small.
+**Reconcile.** Across 30 independent chains the raw estimator's standard deviation is `0.01509`, the Rao-Blackwellized one's `0.00197` — a `58.8`× variance reduction, for free, from code you already wrote. The intuition that the last draw is "already averaged out" misses that the raw draw carries *all* of $\mathrm{Var}[\sigma^2\mid\mu]$ into every term, while the conditional mean has integrated it away analytically; only the smaller cross-$\mu$ variation survives. The booklet (ch. 11) makes the same point: when a conditional expectation is available in closed form, average *it*, not the sample. The one caveat: Rao-Blackwellization helps most when the conditioned-out quantity carries a lot of the noise (as $\sigma^2$'s inverse-gamma draw does here); when the conditional is already nearly a point mass, the gain is small.
 
 ## Bridge — augmentation is the E-step and the latent code
 

@@ -199,10 +199,10 @@ C-B state the trap plainly in the remark after Definition 9.1.4: the probability
 
 **Run.** Two facts collide. First, the marginal coverage really is $\tfrac12$. Second, $R = |X_1-X_2|$ is an **ancillary statistic** (module 04): its distribution does not depend on $\theta$ — sliding $\theta$ slides both points together and leaves their gap untouched — so $R$ says nothing about *where* $\theta$ is, but everything about *how good this interval is*. Condition on it. Fix $\theta=0$ (WLOG); the points lie in $(-\tfrac12,\tfrac12)$ with gap $r$. The interval $[X_{(1)}, X_{(2)}]$ has width $r$ and covers $0$ iff the points straddle it. Given $r$, the lower point $X_{(1)}$ is uniform on $[-\tfrac12,\ \tfrac12 - r]$ (length $1-r$); it straddles $0$ iff $X_{(1)}\in[-r, 0]$.
 
-- **If $r < \tfrac12$:** the straddling set $[-r,0]$ (length $r$) sits entirely inside the allowed $[-\tfrac12, \tfrac12-r]$, so the conditional coverage is $\dfrac{r}{1-r}$.
+- **If $r < \tfrac12$:** the straddling set $[-r,0]$ (length $r$) sits entirely inside the allowed $[-\tfrac12, \tfrac12-r]$, so the conditional coverage — write $\gamma(r)$ for it — is $\dfrac{r}{1-r}$.
 - **If $r \ge \tfrac12$:** the allowed range $[-\tfrac12,\tfrac12-r]$ sits entirely inside $[-r,0]$, so **every** admissible placement straddles $0$ — coverage $= 1$. The interval is *certain*.
 
-$$\boxed{\;\mathrm{Cov}(\theta \mid R=r) = \begin{cases} \dfrac{r}{1-r}, & r < \tfrac12,\\[4pt] 1, & r \ge \tfrac12.\end{cases}\;}$$
+$$\boxed{\;\gamma(r) = \begin{cases} \dfrac{r}{1-r}, & r < \tfrac12,\\[4pt] 1, & r \ge \tfrac12.\end{cases}\;}$$
 
 ```python
 # Two-point uniform. Annotated picture, staged predict-first, then the geometry
@@ -258,7 +258,7 @@ for r0 in (0.10, 0.20, 0.30, 0.90):
           f"exact {r0/(1-r0) if r0<0.5 else 1.0:.3f}")
 
 fig, ax = plt.subplots()
-ax.plot(ctr, exact, color="C0", lw=2.5, label="exact  Cov(θ|R=r) = r/(1−r), then 1")
+ax.plot(ctr, exact, color="C0", lw=2.5, label="exact  γ(r) = r/(1−r), then 1")
 ax.plot(ctr, emp, "o", color="C3", ms=4, label="simulation (binned)")
 ax.axhline(0.5, color="grey", ls="--", lw=1, label="marginal 'confidence' = 0.5")
 ax.axvline(0.5, color="k", ls=":", lw=1)
@@ -279,7 +279,7 @@ The simulated conditional coverages land on the exact curve — `0.111`, `0.250`
 Does the credible interval have a *frequency* guarantee at all, or only a within-model one? It has one — but averaged over the prior, not pointwise, and this is exactly right.
 
 **Theorem (prior-averaged coverage).** Let $\theta\sim\pi$ and $Y\mid\theta\sim p(\cdot\mid\theta)$, and let $C(Y)$ be any $1-\alpha$ posterior credible set. Then the coverage, averaged over the prior, is exactly $1-\alpha$:
-$$\int \mathrm{Cov}(\theta)\,\pi(\theta)\,d\theta = \mathbb{E}_\theta\,\mathbb{E}_{Y\mid\theta}\big[\mathbf 1\{\theta\in C(Y)\}\big] = \mathbb{E}_Y\,\underbrace{\mathbb{E}_{\theta\mid Y}\big[\mathbf 1\{\theta\in C(Y)\}\big]}_{=\,1-\alpha\ \text{by construction}} = 1-\alpha.$$
+$$\int \gamma(\theta)\,\pi(\theta)\,d\theta = \mathbb{E}_\theta\,\mathbb{E}_{Y\mid\theta}\big[\mathbf 1\{\theta\in C(Y)\}\big] = \mathbb{E}_Y\,\underbrace{\mathbb{E}_{\theta\mid Y}\big[\mathbf 1\{\theta\in C(Y)\}\big]}_{=\,1-\alpha\ \text{by construction}} = 1-\alpha.$$
 The middle step is just Fubini — swap the order of the two expectations over the joint $\pi(\theta)p(y\mid\theta)$ — and the inner expectation is $1-\alpha$ *for every* $y$ because that is what "credible set" means. So a credible interval is calibrated **on average over data drawn from your own model**. Pointwise, at a fixed $\theta$, coverage is free to vary, and it does. Take the conjugate Normal–Normal from module 05: one observation $Y\mid\theta\sim N(\theta,1)$, prior $\theta\sim N(0,\tau^2)$ with $\tau=2$; the $95\%$ credible interval is $\hat\theta \pm 1.96\sqrt{v}$ with posterior mean $\hat\theta = \tau^2 Y/(\tau^2+1)$ and variance $v = \tau^2/(\tau^2+1)$.
 
 **Predict** before running: at $\theta=4$ — two prior-SDs into the tail — is the pointwise coverage of the 95% credible interval *above* or *below* 0.95? (The comfortable guess: "above; shrinkage helps everywhere.")
@@ -316,7 +316,7 @@ print(f"prior-averaged coverage (MISSPEC τ=5)  = {((lo2<=th_true)&(th_true<=hi2
 tg = np.linspace(-8, 8, 41)
 cov_curve = np.array([coverage_at(t, n=200_000) for t in tg])
 fig, ax = plt.subplots()
-ax.plot(tg, cov_curve, color="C1", lw=2, label="pointwise coverage  Cov(θ)")
+ax.plot(tg, cov_curve, color="C1", lw=2, label="pointwise coverage  γ(θ)")
 ax.axhline(0.95, color="C0", lw=2, ls="--", label="prior-averaged = 0.95 (exact)")
 ax.axvline(0, color="grey", lw=0.8)
 ax.set_xlabel("true θ"); ax.set_ylabel("frequentist coverage of the 95% credible interval")

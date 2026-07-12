@@ -358,7 +358,7 @@ Starting from three evaluations at $x\in\{0,0.5,1\}$, EI walks straight downhill
 
 ## 20.7 Teaser: wide neural networks are Gaussian processes (NNGP)
 
-A one-hidden-layer network $f(x)=\sum_{j=1}^{H} v_j\,\tanh(w_j x + b_j)$ with random iid weights defines a *distribution over functions* — a prior. Neal (1996) observed that as the width $H\to\infty$, with output weights scaled $\mathrm{Var}(v_j)=\sigma_v^2/H$, this prior converges to a **Gaussian process**: $f(x)$ is a sum of $H$ iid terms, so the central limit theorem makes any finite set of function values jointly Gaussian. The random network's function-space prior *is* a GP, with a kernel computable from the activation.
+A one-hidden-layer network $f(x)=\sum_{j=1}^{H} v_j\,\tanh(w_j x + b_j)$ with random iid weights defines a *distribution over functions* — a prior. Neal (1996) observed that as the width $H\to\infty$, with output weights scaled $\mathrm{Var}[v_j]=\sigma_v^2/H$, this prior converges to a **Gaussian process**: $f(x)$ is a sum of $H$ iid terms, so the central limit theorem makes any finite set of function values jointly Gaussian. The random network's function-space prior *is* a GP, with a kernel computable from the activation.
 
 **Predict.** As we widen the hidden layer $H=1\to10\to1000$, the marginal distribution of $f(x_0)$ across random networks approaches a Gaussian. Commit: does the *excess kurtosis* of $f(x_0)$ (0 for a Gaussian) shrink monotonically toward 0, and does the two-point correlation $\mathrm{corr}(f(x_0),f(x_1))$ keep drifting or lock onto a limit?
 
@@ -503,7 +503,7 @@ for width in (1, 10, 1000):
 ```
 <details><summary>Reconcile</summary>
 
-The quadrature gives corr $=$ `0.8374` (and sd `0.7211`, matching §20.7's ~0.72). The ranking prediction fails: $H=1$ lands *closest* (gap `0.0021`), beating $H=1000$ (gap `0.0045`), with $H=10$ farthest (`0.0051`). The miss is that second moments do not converge with width — they are **exact at every width**: $f$ is a sum of $H$ iid units with output variance $\sigma_v^2/H$, so $\mathrm{Cov}(f(x),f(x'))=H\cdot\frac{\sigma_v^2}{H}\,\mathbb E[\tanh(wx+b)\tanh(wx'+b)]$ — the $H$ cancels. Every observed gap is pure Monte-Carlo noise (8,000 nets), so the "ranking" is a coin toss. What the CLT limit actually delivers is *Gaussianity of the shape* (the kurtosis collapse of §20.7), not the covariance, which one neuron already owns. This is why the NNGP kernel can be computed from a single unit's activation — and why an analytic kernel stands in for an infinitely wide Bayesian network (module 25).
+The quadrature gives corr $=$ `0.8374` (and sd `0.7211`, matching §20.7's ~0.72). The ranking prediction fails: $H=1$ lands *closest* (gap `0.0021`), beating $H=1000$ (gap `0.0045`), with $H=10$ farthest (`0.0051`). The miss is that second moments do not converge with width — they are **exact at every width**: $f$ is a sum of $H$ iid units with output variance $\sigma_v^2/H$, so $\mathrm{Cov}[f(x),f(x')]=H\cdot\frac{\sigma_v^2}{H}\,\mathbb E[\tanh(wx+b)\tanh(wx'+b)]$ — the $H$ cancels. Every observed gap is pure Monte-Carlo noise (8,000 nets), so the "ranking" is a coin toss. What the CLT limit actually delivers is *Gaussianity of the shape* (the kurtosis collapse of §20.7), not the covariance, which one neuron already owns. This is why the NNGP kernel can be computed from a single unit's activation — and why an analytic kernel stands in for an infinitely wide Bayesian network (module 25).
 </details>
 
 ## Takeaways

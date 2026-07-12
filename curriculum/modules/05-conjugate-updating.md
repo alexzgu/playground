@@ -298,7 +298,7 @@ The MLE assigns the unseen word probability `0.0000`; the add-1 predictive assig
 ## 05.6 Predictive vs plug-in: the honest interval
 
 The recurring theme deserves a formula. The plug-in predictive freezes $\theta$ at a point estimate and reports $p(\tilde y\mid\hat\theta)$; the posterior predictive integrates, $p(\tilde y\mid y)=\int p(\tilde y\mid\theta)\,p(\theta\mid y)\,d\theta$. The **law of total variance** decomposes the honest predictive variance exactly:
-$$\mathrm{Var}[\tilde y\mid y] = \underbrace{\mathbb{E}_{\theta\mid y}\!\big[\mathrm{Var}(\tilde y\mid\theta)\big]}_{\text{aleatoric — irreducible noise}} \;+\; \underbrace{\mathrm{Var}_{\theta\mid y}\!\big(\mathbb{E}[\tilde y\mid\theta]\big)}_{\text{epistemic — parameter uncertainty}}.$$
+$$\mathrm{Var}[\tilde y\mid y] = \underbrace{\mathbb{E}_{\theta\mid y}\!\big[\mathrm{Var}[\tilde y\mid\theta]\big]}_{\text{aleatoric — irreducible noise}} \;+\; \underbrace{\mathrm{Var}_{\theta\mid y}\!\big[\mathbb{E}[\tilde y\mid\theta]\big]}_{\text{epistemic — parameter uncertainty}}.$$
 The plug-in keeps only the first term and discards the second. **In these fixed-dispersion conjugate families the epistemic term is strictly positive whenever the posterior is non-degenerate, so the predictive is strictly wider than the plug-in** — but this is a property of these families, *not* a universal law (in a model where more data can reveal *lower* noise, the honest predictive can be narrower; hence "strictly wider *here*," never "always wider"). Verify the widening on the two discrete cases:
 
 ```python

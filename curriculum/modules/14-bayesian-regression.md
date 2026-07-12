@@ -40,7 +40,7 @@ def save(fig, name):
 
 ## 14.1 A prior over lines, conditioned into a posterior over lines
 
-The model is $y = X\beta + \varepsilon$, $\varepsilon \sim N(0, \sigma^2 I)$, with (for now) $\sigma^2$ known. A Gaussian prior $\beta \sim N(0, \tau^2 I)$ reads "before seeing data, plausible coefficient vectors are small" — but read it geometrically instead: each $\beta = (\text{intercept}, \text{slope})$ *is* a line, so **a prior over coefficients is a prior over lines**, and you can draw from it. Inference is conditioning, and because $(\beta, y)$ is jointly Gaussian — stack them, with $\mathrm{Cov}(\beta)=\tau^2 I$, $\mathrm{Cov}(\beta,y)=\tau^2X^\top$, $\mathrm{Cov}(y)=\tau^2XX^\top+\sigma^2I$ — the posterior is *one call to module 05's `gaussian_condition` toolkit*. No new machinery. Watch the fan of lines collapse before deriving any formula:
+The model is $y = X\beta + \varepsilon$, $\varepsilon \sim N(0, \sigma^2 I)$, with (for now) $\sigma^2$ known. A Gaussian prior $\beta \sim N(0, \tau^2 I)$ reads "before seeing data, plausible coefficient vectors are small" — but read it geometrically instead: each $\beta = (\text{intercept}, \text{slope})$ *is* a line, so **a prior over coefficients is a prior over lines**, and you can draw from it. Inference is conditioning, and because $(\beta, y)$ is jointly Gaussian — stack them, with $\mathrm{Cov}[\beta]=\tau^2 I$, $\mathrm{Cov}[\beta,y]=\tau^2X^\top$, $\mathrm{Cov}[y]=\tau^2XX^\top+\sigma^2I$ — the posterior is *one call to module 05's `gaussian_condition` toolkit*. No new machinery. Watch the fan of lines collapse before deriving any formula:
 
 ```python
 # One simple-regression dataset: intercept + slope, so lines are drawable.

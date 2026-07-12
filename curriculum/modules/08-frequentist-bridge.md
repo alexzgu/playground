@@ -9,7 +9,7 @@
 
 Here is a belief almost every trained reader holds, and it is *almost* right. You want to estimate the mean $\theta$ of a Gaussian. You take the sample mean $\bar x$ — the MLE. It is unbiased. Its variance attains the Cramér–Rao bound, so no unbiased estimator beats it. Asymptotically it is efficient, and by Bernstein–von Mises the flat-prior posterior agrees with it to leading order. *The MLE for a Gaussian mean is obviously optimal.* Every clause of that sentence is a theorem. And the conclusion is false the moment you estimate **three means at once**.
 
-First, watch the MLE earn every word of that reputation. The mood throughout is not "gotcha." It is: *their crown jewel is our shrinkage.*
+First, watch the MLE earn every word of that reputation. The mood throughout is not "gotcha." It is: *their best estimator is our shrinkage.*
 
 ```python
 # --- setup ---
@@ -74,7 +74,7 @@ save(fig, "mle-asymptotics")
 
 The simulated sampling-distribution standard deviation is `0.3653`, matching the asymptotic $\sqrt{\lambda/n}=$ `0.3651` to three figures; the KS distance to the Gaussian is `0.0256`. The MLE is doing exactly what the theorem says.
 
-**Cramér–Rao, and its escape hatch.** For *unbiased* estimators there is a hard floor (C-B Theorem 7.3.9): any unbiased $W$ with $E_\theta W=\theta$ satisfies $\mathrm{Var}_\theta(W)\ge 1/(n\mathcal I(\theta))$, the **Cramér–Rao lower bound (CRLB)**. The proof is one Cauchy–Schwarz step on $\mathrm{Cov}(W,\text{score})$. For the Gaussian mean the sample mean attains it exactly.
+**Cramér–Rao, and its escape hatch.** For *unbiased* estimators there is a hard floor (C-B Theorem 7.3.9): any unbiased $W$ with $E_\theta W=\theta$ satisfies $\mathrm{Var}_\theta[W]\ge 1/(n\mathcal I(\theta))$, the **Cramér–Rao lower bound (CRLB)**. The proof is one Cauchy–Schwarz step on $\mathrm{Cov}[W,\text{score}]$. For the Gaussian mean the sample mean attains it exactly.
 
 ```python
 # Cramér-Rao: xbar attains the bound 1/(nI) for the Normal mean (I=1/sigma^2).
@@ -255,7 +255,7 @@ The MLE lands at `0.4988` — dead on $\sigma^2/2=$ `0.5000`, not the true `1.0`
 
 *Unidentified parameters (condition 2, again).* Module 07's washout exception: if only $\theta_1+\theta_2$ is observed, the sum concentrates but $\theta_1$ alone keeps its prior width forever. BvM's identifiability clause is exactly what fails, and no data volume fixes it.
 
-*Misspecification (condition 1).* When the model is wrong, the posterior still concentrates — on the parameter minimizing KL to the truth — but its width is set by the model's Fisher information, not the truth's. The frequentist sampling variance (the "sandwich") and the Bayesian posterior variance disagree; the posterior is typically **too narrow**. This mismatch is the subject of module 18; the one-line version: *a well-specified model's crown jewel (BvM calibration) is precisely what misspecification steals.*
+*Misspecification (condition 1).* When the model is wrong, the posterior still concentrates — on the parameter minimizing KL to the truth — but its width is set by the model's Fisher information, not the truth's. The frequentist sampling variance (the "sandwich") and the Bayesian posterior variance disagree; the posterior is typically **too narrow**. This mismatch is the subject of module 18; the one-line version: *a well-specified model's BvM calibration is precisely what misspecification steals.*
 
 ## 08.5 The complete-class theorem: "special case" is itself a theorem
 

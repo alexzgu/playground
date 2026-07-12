@@ -196,7 +196,7 @@ The reweighting identity is exact for *any* proposal $q$ with $q(x)>0$ wherever 
 
 **The diagnostic: effective sample size.** Weighted draws are worth less than iid draws because the weights are uneven — a few large weights dominate the sum and the rest contribute nothing. Kong's effective sample size makes "how many iid draws is this worth?" precise. For unnormalized weights $w_i = p(x_i)/q(x_i)$,
 
-$$\boxed{\ \mathrm{ESS} = \frac{\big(\sum_i w_i\big)^2}{\sum_i w_i^2} = \frac{M}{1+\mathrm{cv}^2},\quad \mathrm{cv}^2 = \frac{\mathrm{Var}(w)}{\overline w^{\,2}}\ }\qquad \Big(\text{equivalently } \mathrm{ESS}=1\big/\textstyle\sum_i \bar w_i^2,\ \bar w_i = w_i/\!\sum_j w_j\Big),$$
+$$\boxed{\ \mathrm{ESS} = \frac{\big(\sum_i w_i\big)^2}{\sum_i w_i^2} = \frac{M}{1+\mathrm{cv}^2},\quad \mathrm{cv}^2 = \frac{\mathrm{Var}[w]}{\overline w^{\,2}}\ }\qquad \Big(\text{equivalently } \mathrm{ESS}=1\big/\textstyle\sum_i \bar w_i^2,\ \bar w_i = w_i/\!\sum_j w_j\Big),$$
 
 where $\mathrm{cv}^2$ is the squared coefficient of variation of the **unnormalized** weights. Read it directly: equal weights give $\mathrm{cv}^2=0$ and $\mathrm{ESS}=M$; one weight carrying everything gives $\mathrm{ESS}\to1$. It is always true that $\mathrm{ESS}\le M$.
 
@@ -433,7 +433,7 @@ for name, fn in [("e^Z  (monotone)", np.exp), ("Z^2  (even)", lambda z: z**2)]:
 ```
 <details><summary>Reconcile</summary>
 
-For the monotone $e^{Z}$ the variance drops by `1.57`×; for the even $z^2$ it *rises* — reduction `0.50`×, meaning antithetic sampling **doubles** the variance. The mechanism is one line: $\mathrm{Var}\big(\tfrac12(g(Z)+g(-Z))\big)=\tfrac12\mathrm{Var}(g)\,(1+\rho)$ with $\rho=\mathrm{Corr}(g(Z),g(-Z))$, so the reduction factor is $1/(1+\rho)$. A *monotone* $g$ makes the mirror pair negatively correlated ($\rho<0$) — a high draw and its low mirror cancel — and you win. An *even* $g$ makes them identical ($\rho=+1$): the mirror draw is perfectly redundant, so you have halved your independent samples for nothing and doubled the variance. The free lunch is real but conditional: antithetic (and its cousins — control variates, stratification, common random numbers) exploit *structure* in how the integrand depends on the noise. Reach for the MCSE first; it tells you whether a variance-reduction trick actually helped, rather than assuming it did.
+For the monotone $e^{Z}$ the variance drops by `1.57`×; for the even $z^2$ it *rises* — reduction `0.50`×, meaning antithetic sampling **doubles** the variance. The mechanism is one line: $\mathrm{Var}\big[\tfrac12(g(Z)+g(-Z))\big]=\tfrac12\mathrm{Var}[g]\,(1+\rho)$ with $\rho=\mathrm{Corr}(g(Z),g(-Z))$, so the reduction factor is $1/(1+\rho)$. A *monotone* $g$ makes the mirror pair negatively correlated ($\rho<0$) — a high draw and its low mirror cancel — and you win. An *even* $g$ makes them identical ($\rho=+1$): the mirror draw is perfectly redundant, so you have halved your independent samples for nothing and doubled the variance. The free lunch is real but conditional: antithetic (and its cousins — control variates, stratification, common random numbers) exploit *structure* in how the integrand depends on the noise. Reach for the MCSE first; it tells you whether a variance-reduction trick actually helped, rather than assuming it did.
 </details>
 
 ## Takeaways

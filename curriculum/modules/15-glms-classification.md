@@ -300,7 +300,7 @@ At $n=500$ the maximum gap is `0.0034` — an order of magnitude smaller than at
 
 ## 15.5 Calibration: does the honest probability keep its promise?
 
-A classifier is **calibrated** if, among the cases it calls 70%, about 70% are positives. The plug-in's overconfidence should show up as *miscalibration* — it will call things 95% that are only 90%. Measure it with a **reliability diagram** (bin predictions, plot bin-mean prediction against bin-mean outcome; calibration is the diagonal) and its scalar summary, the expected calibration error (ECE). To beat down the noise, pool predictions over 300 small training sets ($n=40$, where overconfidence bites) and a fresh test point each.
+A classifier is **calibrated** if, among the cases it calls 70%, about 70% are positives. The plug-in's overconfidence should show up as *miscalibration* — it will call things 95% that are only 90%. Measure it with a **reliability diagram** (bin predictions, plot bin-mean prediction against bin-mean outcome; calibration is the diagonal) and its scalar summary, the expected calibration error (ECE) — first met in module 01, where an overconfident forecaster inflated ECE roughly 13× over an honest one; here the same diagnostic, built into a reusable `ece()` harness, grades a classifier's plug-in against its marginalized probabilities. To beat down the noise, pool predictions over 300 small training sets ($n=40$, where overconfidence bites) and a fresh test point each.
 
 ```python
 def fit_laplace(Xt, yt, tau=3.0):
