@@ -1,0 +1,44 @@
+engine self-check: posterior [0.8182 0.1818] sums to 1.0
+sens=0.99  spec=0.95  prev=0.001
+PPV via the engine = 0.0194   (module 00's hand value: 0.0194)
+prior odds = 0.001/0.999 = 0.001001
+likelihood ratio = 0.99/0.05 = 19.8
+posterior odds = 0.0198  ->  PPV = 0.0194
+prevalence at which PPV = 0.5 : 0.048
+[fig] figures/02-conditioning-is-inference/ppv_vs_prevalence.png
+simulated PPV over 10,000,000 patients = 0.0197  (2*SE = 0.0004)
+exact PPV = 0.0194  (lands inside the simulation's error bar)
+P(disease | + then +)  sequential = 0.2818
+P(disease | ++)        batch      = 0.2818
+max |sequential - batch| = 1.1e-16
+P(disease | 1 positive ) = 0.0194
+P(disease | 2 positives) = 0.2818
+P(disease | 3 positives) = 0.8860
+P(disease | 4 positives) = 0.9935
+[fig] figures/02-conditioning-is-inference/logodds_accumulate.png
+observed max m=60 from n=5 serials
+Bayes posterior mean = 78.66
+Bayes MAP (posterior mode) = 60
+closed form (m-1)(n-1)/(n-2) = 78.67
+UMVU  m(1+1/n)-1 = 71.0
+[fig] figures/02-conditioning-is-inference/tank_posterior.png
+E[max] at N=1000: pmf 834.2 vs formula 834.2
+at N=1000:  UMVU mean 999.5 (≈ true 1000, unbiased), Bayes mean 1057.5 (biased high)
+at N=1000:  UMVU RMSE 169.0  Bayes RMSE 174.8
+at N=1900:  UMVU RMSE 320.5  Bayes RMSE 271.3
+UMVU wins up to N = 1050; Bayes wins from N = 1100 on (crossing ~= 1075)
+[fig] figures/02-conditioning-is-inference/tank_risk.png
+Host A:  stay(door1)=0.3333  switch(door3)=0.6667
+Host B:  stay(door1)=0.5000  switch(door3)=0.5000
+sim Host A switch-win = 0.6675
+sim Host B switch-win = 0.5009
+pool  1,000,000:  P(guilty | match) = 0.5000   (prosecutor claims 0.999999)
+pool 10,000,000:  P(guilty | match) = 0.0909   (prosecutor claims 0.999999)
+after contains 'free' : P(spam) = 0.7200
+after no reply-to     : P(spam) = 0.8654
+after known contact   : P(spam) = 0.3913
+batch odds-product P(spam) = 0.3913
+UMVU (n=1): 119
+Nmax=   200:  Bayes posterior mean = 116.1,  MAP = 60
+Nmax=  5000:  Bayes posterior mean = 1115.0,  MAP = 60
+Nmax= 50000:  Bayes posterior mean = 7416.5,  MAP = 60

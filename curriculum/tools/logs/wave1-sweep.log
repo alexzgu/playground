@@ -1,0 +1,71 @@
+== 00-four-lines.md: 10 runnable blocks ==
+  block  1 (L  19) ok in    1.2s
+  block  2 (L  54) ok in    0.9s
+  block  3 (L 110) ok in    0.0s
+  block  4 (L 134) ok in    0.0s
+  block  5 (L 168) ok in    0.2s
+  block  6 (L 187) ok in    0.1s
+  block  7 (L 211) ok in    0.3s
+  block  8 (L 306) ok in    0.0s
+  block  9 (L 322) ok in    0.0s
+  block 10 (L 341) ok in    0.0s
+PASS in 2.7s (2500 prose words, 10 blocks, 3 figs referenced)
+== 01-probability-as-logic.md: 9 runnable blocks ==
+  block  1 (L  30) ok in    1.3s
+  block  2 (L  59) ok in    0.0s
+  block  3 (L  83) ok in    0.3s
+  block  4 (L 144) ok in    1.0s
+  block  5 (L 191) ok in    0.4s
+  block  6 (L 234) ok in    0.0s
+  block  7 (L 303) ok in    0.0s
+  block  8 (L 319) ok in    0.0s
+  block  9 (L 334) ok in    0.0s
+PASS in 2.9s (3961 prose words, 9 blocks, 3 figs referenced)
+== 02-conditioning-is-inference.md: 12 runnable blocks ==
+  block  1 (L  18) ok in    1.6s
+  block  2 (L  49) ok in    0.0s
+  block  3 (L  84) ok in    0.4s
+  block  4 (L 141) ok in    0.3s
+  block  5 (L 163) ok in    0.0s
+  block  6 (L 193) ok in    0.2s
+  block  7 (L 223) ok in    2.1s
+  block  8 (L 277) ok in    0.3s
+  block  9 (L 371) ok in    0.0s
+  block 10 (L 398) ok in    0.0s
+  block 11 (L 416) ok in    0.0s
+  block 12 (L 436) ok in    0.0s
+PASS in 5.0s (4366 prose words, 12 blocks, 4 figs referenced)
+== 03-generative-stories.md: 14 runnable blocks ==
+  block  1 (L  12) ok in    1.7s
+  block  2 (L  57) ok in    0.5s
+  block  3 (L  93) ok in    1.2s
+  block  4 (L 143) ok in    2.4s
+  block  5 (L 173) ok in    1.8s
+  block  6 (L 210) ok in    0.0s
+  block  7 (L 243) ok in    0.4s
+  block  8 (L 286) ok in    0.0s
+  block  9 (L 324) ok in    0.3s
+  block 10 (L 343) ok in    0.4s
+  block 11 (L 393) ok in    0.0s
+  block 12 (L 411) ok in    3.5s
+  block 13 (L 427) ok in    0.2s
+  block 14 (L 453) ok in    0.0s
+PASS in 12.4s (3743 prose words, 14 blocks, 6 figs referenced)
+== 04-likelihood.md: 16 runnable blocks ==
+  block  1 (L  13) ok in    1.3s
+  block  2 (L  50) ok in    0.2s
+  block  3 (L  84) ok in    0.2s
+  block  4 (L 106) ok in    0.0s
+  block  5 (L 146) ok in    0.0s
+  block  6 (L 168) ok in    0.1s
+  block  7 (L 180) ok in    0.2s
+  block  8 (L 213) ok in    0.0s
+  block  9 (L 237) ok in    0.5s
+  block 10 (L 285) ok in    0.0s
+  block 11 (L 301) ok in    0.0s
+  block 12 (L 322) ok in    0.0s
+  block 13 (L 353) ok in    0.0s
+  block 14 (L 368) ok in    0.0s
+  block 15 (L 387) ok in    0.0s
+  block 16 (L 403) ok in    0.0s
+PASS in 2.5s (4019 prose words, 16 blocks, 3 figs referenced)

@@ -15,9 +15,10 @@
 ### Next actions
 1. ~~Panel → SYLLABUS.md~~ **DONE**: all 5 panel outputs in `panel/`; **`SYLLABUS.md` v1 is the binding work order** (27 modules 00–26, six waves; rigor corrections embedded: Kong ESS formula, digamma CRP mean, 0.234-at-d≈50, softened Ng–Jordan, optional-stopping four-claim split, prior-averaged coverage semantics).
 2. ~~PPL decision~~ **DONE**: NumPyro; idioms all green in `tools/ppl_idioms.py`.
-3. **IN FLIGHT: Wave 1 authoring** (modules 00–04, one Opus author each). Pipeline per module: author (runs harness to green) → math verifier → pedagogy verifier → revise → re-verify → orchestrator integrates + updates `modules/SPINE-INDEX.md`.
-4. Then waves W2 05–08, W3 09–13, W4 14–18, W5 19–23, W6 24–26 → global consistency pass (cross-module callbacks, notation, README).
-5. After each wave: update this file; coherent `git add -A` commit.
+3. ~~Wave 1 (00–04)~~ **DONE & FINAL**: 5 modules authored → 10 reviews (math+pedagogy per module, all in `reviews/`) → revisions applied → full sweep green (18,589 prose words total, all PASS, zero warnings). SPINE-INDEX canonical. Notable catches fixed in revision: S3 heading-spoiler (04), tank risk-crossover grid artifact 1300→≈1075 (02), scipy nbinom convention trap (04), finite-additivity scope on Dutch book (01), un-staged decision reveal (00).
+4. **IN FLIGHT: Wave 2 authoring** (05 conjugate+S2, 06 decisions/intervals, 07 priors, 08 Stein-hero+S4). Same pipeline: author→dual review→revise→SPINE-INDEX.
+5. Then W3 09–13, W4 14–18, W5 19–23, W6 24–26 → global consistency pass (cross-module callbacks, notation, README).
+6. After each wave: update this file; coherent `git add -A` commit. (Survived one session-limit interruption mid-Wave-1: all agents resumed via SendMessage with context intact — this is the recovery pattern.)
 
 ### Layout
 ```

@@ -1,0 +1,37 @@
+gaps ~ Exp(lam):        KS = 0.0062   (1179219 gaps pooled)
+S_1 ~ Gamma(1, lam):   KS = 0.0050   mean 0.501 vs 0.500
+S_2 ~ Gamma(2, lam):   KS = 0.0036   mean 1.003 vs 1.000
+S_3 ~ Gamma(3, lam):   KS = 0.0085   mean 1.499 vs 1.500
+S_5 ~ Gamma(5, lam):   KS = 0.0049   mean 2.506 vs 2.500
+count[0,5] ~ Poisson(10): mean 9.986, var 10.087
+[fig] figures/03-generative-stories/poisson_process.png
+Cauchy sample mean: n=    10  IQR(X-bar) = 2.026   (theory: 2.000 at every n)
+Cauchy sample mean: n=  1000  IQR(X-bar) = 2.017   (theory: 2.000 at every n)
+Cauchy sample mean: n=100000  IQR(X-bar) = 1.931   (theory: 2.000 at every n)
+[fig] figures/03-generative-stories/clt_cauchy.png
+H(fair coin)         = 1.000 bits   (max for 2 outcomes)
+H(biased 0.9 coin)   = 0.469 bits   (rarely surprised)
+H(p=biased, q=fair)  = 1.000 bits   (cross-entropy)
+KL(biased || fair)   = 0.531 bits
+KL(fair || biased)   = 0.737 bits   (asymmetry: KL is not a distance)
+check  H + KL = Xent : 1.000 bits
+[fig] figures/03-generative-stories/information.png
+max-ent[support>=0, mean fixed]   vs Exponential: KL = 1.3e-16 nats
+max-ent[support R, mean+var fixed] vs Normal:     KL = 1.5e-16 nats
+[fig] figures/03-generative-stories/maxent.png
+softmax @ T=0.5: entropy 0.822 bits, top prob 0.837
+softmax @ T=1.0: entropy 1.670 bits, top prob 0.580
+softmax @ T=2.0: entropy 2.125 bits, top prob 0.386
+uniform (T->inf):  entropy 2.322 bits
+[fig] figures/03-generative-stories/softmax_temperature.png
+merged:   rate 7.998, var/mean 0.997 (Poisson=1)
+thinned A: rate 0.600, var/mean 0.994
+Cauchy median: n=    10  IQR(median) = 0.6597
+Cauchy median: n=  1000  IQR(median) = 0.0673
+Cauchy median: n=100000  IQR(median) = 0.0069
+max-ent(counts, mean 3) vs Geometric: KL = 4.0e-09 nats
+max-ent(counts, mean 3) vs Poisson:   KL = 0.651 nats
+[fig] figures/03-generative-stories/maxent_counts.png
+min cross-entropy (q=p)      = 0.802 nats
+cross-entropy at q=uniform   = 1.099 nats
+label entropy H(p) (nats)    = 0.802 nats

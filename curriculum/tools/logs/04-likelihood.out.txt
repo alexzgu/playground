@@ -1,0 +1,40 @@
+n=  5:  ∑x=  3,  MLE θ̂=0.600
+n= 20:  ∑x= 10,  MLE θ̂=0.500
+n=100:  ∑x= 51,  MLE θ̂=0.510
+[fig] figures/04-likelihood/likelihood-growing.png
+arrangements C(8,3) = 56,  uniform prob = 0.0179
+θ=0.3:  max|conditional freq − uniform| = 0.0009
+θ=0.6:  max|conditional freq − uniform| = 0.0014
+Σx: 45 vs 45   Σx²: 427 vs 427
+posterior A: κ_n=7.0  μ_n=6.4286  α_n=4.0  β_n=69.8571
+posterior B: κ_n=7.0  μ_n=6.4286  α_n=4.0  β_n=69.8571
+identical posterior parameters: True
+A'(η)  = 3.7000   sample mean     = 3.7001
+A''(η) = 3.7000   sample variance = 3.6944
+I(θ) = 1/(θ(1−θ)) = 4.7619
+E[score]   (sim) = 0.0007    (exact 0)
+Var[score] (sim) = 4.7632    (exact 4.7619)
+n= 10: θ̂=0.400, observed information n·I(θ̂)=41.7
+n=200: θ̂=0.300, observed information n·I(θ̂)=952.4
+[fig] figures/04-likelihood/fisher-curvature.png
+Lab F  binomial   one-sided p = 0.073   (hand 0.073)
+Lab S  neg-binom  one-sided p = 0.033   (hand 0.033)
+9-of-12 shared MLE θ̂ = 9/12 = 0.75
+L_F / L_S at θ=0.2,0.5,0.8 = [4. 4. 4.]   (constant 4.0)
+both labs' posterior = Beta(10,4),  mean = 0.7143
+[fig] figures/04-likelihood/same-data-opposite-verdicts.png
+censored MLE (correct) = 0.5376   [= 5 deaths / 9.3 time-at-risk]
+naive MLE (censor→death) = 0.6452   (over-estimates the hazard)
+corr(x̄, x₁−x̄) = -0.0026
+corr(x̄, s²)   = -0.0020
+argmin cross-entropy = 0.3416   sample mean (Bernoulli MLE) = 0.3416
+argmin MSE = 2.0267   sample mean   (Gaussian MLE) = 2.0267
+argmin MAE = 2.0179   sample median (Laplace  MLE) = 2.0178
+9/12: Beta(10,4)  sd=0.1166  mean=0.7143
+90/120: Beta(91,31)  sd=0.0393  mean=0.7459
+min cross-entropy at θ=0.3175   (sample freq 0.3175)
+0-1 loss at θ=0.1, 0.3, 0.49: 0.3175, 0.3175, 0.3175
+means  : 13.23, 5.08, 5.37, 4.42, 5.11
+medians: 5.09, 5.00, 4.93, 5.05, 5.04
+Fisher-normal 95%: [0.210, 0.390]
+exact Beta  95%: [0.219, 0.396]

@@ -1,0 +1,30 @@
+max|diff| across all three routes = 4.5e-15
+all three agree to < 1e-10? True
+[fig] figures/00-four-lines/ridge_equals_posterior.png
+sensitivity 0.99, specificity 0.95, prevalence 0.001
+P(+, D)     = 0.00099
+P(+, not D) = 0.04995
+PPV = P(D | one positive) = 0.0194
+prior odds 0.0010 x LR+ 19.8 = posterior odds 0.0198
+P(2nd test +) = 0.0683;  PPV after ++ = 0.2818
+E[loss | treat now]    = 9.806
+E[loss | no-treat now] = 19.435
+E[loss | retest first] = 5.6846
+optimal action = retest
+[fig] figures/00-four-lines/medical_belief.png
+posterior Beta(8,4) mean = 0.6667   MLE = 0.7   price = 0.68
+plug-in bettor's believed edge  = 0.0200
+predictive edge (the truth)      = -0.0133
+simulated P(next head)          = 0.6668
+simulated mean profit (plug-in) = -0.0132
+total over 1,000,000 $1 bets = $-13,235
+[fig] figures/00-four-lines/coin_bet.png
+alpha=    1.0  implied tau^2 = sigma^2/alpha = 2.25000   ||beta|| = 2.5110
+alpha=   10.0  implied tau^2 = sigma^2/alpha = 0.22500   ||beta|| = 2.3347
+alpha=  100.0  implied tau^2 = sigma^2/alpha = 0.02250   ||beta|| = 1.4475
+alpha= 1000.0  implied tau^2 = sigma^2/alpha = 0.00225   ||beta|| = 0.3521
+prevalence 0.001: PPV = 0.0194   posterior odds = 0.0198
+prevalence 0.01: PPV = 0.1667   posterior odds = 0.2000
+PPV ratio 8.6x for a 10x prevalence change
+streamed (shuffled order): Beta(8, 4)
+batch (all at once):       Beta(8, 4)

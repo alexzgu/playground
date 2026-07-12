@@ -6,11 +6,10 @@ Binding for every module author, reviser, and verifier. A module that violates t
 
 - No throat-clearing. Banned openers: "In this module we will…", "Before we begin…", "It is important to note…". Start with a claim, a question, or a concrete situation.
 - Lead with the concrete instance, then name the abstraction. Never the reverse.
-- Every claim carries its warrant nearby: a derivation, a simulation the reader just ran, or a citation. Label honestly:
-  - **Theorem** — proved here or precisely cited.
-  - **Empirical** — demonstrated by simulation in this module.
-  - **Heuristic** — practitioner folklore; say so.
+- Every claim carries its warrant nearby: a derivation, a simulation the reader just ran, or a citation. When the warrant is adjacent and unambiguous, no tag is needed; but claims that are NOT theorems must be labeled explicitly:
+  - **Heuristic** — practitioner folklore without proof; say so.
   - **Open** — genuinely unsettled; say what's known.
+  - (**Theorem** / **Empirical** tags are available and encouraged for marquee results, e.g. stated-not-proved theorems like de Finetti.)
 - Callbacks are explicit and load-bearing: "this is module 05's precision-weighted shrinkage formula wearing a Kalman costume", not vague "as we saw earlier".
 - The four-line spine (model = joint; inference = conditioning; prediction = marginalization; decision = expected loss) is quoted wherever it does real work — the reader should finish the course with it as a reflex.
 - Direct address ("you") is fine. Humor is fine if dry and rare. Padding is a defect.

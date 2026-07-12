@@ -1,0 +1,34 @@
+quoted prices: rain=0.5, cloudy=0.4, clear=0.3
+sum of quoted probabilities = 1.2   (coherence needs 1.0)
+                rain   cloudy    clear
+buy rain        0.50    -0.50    -0.50
+buy cloudy     -0.40     0.60    -0.40
+buy clear      -0.30    -0.30     0.70
+TOTAL         -0.20    -0.20    -0.20
+agent's guaranteed loss = 0.2 whichever outcome occurs
+ECE honest       = 0.007   (beliefs match frequencies)
+ECE overconfident= 0.089   (beliefs no longer match)
+ECE inflation    = 13.0x   from a 1.6x confidence stretch
+[fig] figures/01-probability-as-logic/calibration.png
+marginal mean E[X_i]    = 0.496  (theory 0.5)
+Var[theta] = Cov[Xi,Xj] = 0.05   (analytic, Beta(2,2))
+covariance empirical    = 0.053
+pairwise corr: theory 0.2, empirical 0.210  (iid would give 0)
+P(X1=1,X2=1) empirical  = 0.304   product of marginals = 0.25
+terminal running freq: mean 0.496, variance 0.0503
+[fig] figures/01-probability-as-logic/definetti_fan.png
+without replacement, N=10: mean 0.500, cov -0.0289 (theory -1/36 = -0.0278), corr -0.116 (theory -1/9 = -0.1111)
+corr vs N: N=4:-0.3202, N=10:-0.1163, N=50:-0.0213, N=200:-0.0101
+[fig] figures/01-probability-as-logic/exchangeable_correlations.png
+seq [1, 1, 1]: polya 0.114286   beta-binomial 0.114286
+seq [1, 0, 1]: polya 0.085714   beta-binomial 0.085714
+seq [0, 0, 1]: polya 0.114286   beta-binomial 0.114286
+seq [1, 1, 0, 0, 1]: polya 0.019048   beta-binomial 0.019048
+max |polya - beta-binomial| = 5.6e-17   (agree to < 1e-12)
+a=1, b=1: after 5/5 reds, P(next red) = 0.8571
+a=1, b=1: after 50/50 reds, P(next red) = 0.9808
+N=4: theory -0.3333   empirical -0.3202
+N=200: theory -0.0050   empirical -0.0101
+iid   lag-1 autocorr = +0.011
+AR(1) lag-1 autocorr = +0.779
+AR(1): neighbor-based error 1.09  vs  unrelated-point error 5.07
