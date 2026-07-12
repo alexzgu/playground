@@ -1,0 +1,93 @@
+== 09-monte-carlo.md: 18 runnable blocks ==
+  block  1 (L  15) ok in    1.3s
+  block  2 (L  55) ok in    0.0s
+  block  3 (L  82) ok in    0.2s
+  block  4 (L 100) ok in    0.1s
+  block  5 (L 117) ok in    0.2s
+  block  6 (L 133) ok in    0.4s
+  block  7 (L 155) ok in    0.0s
+  block  8 (L 176) ok in    0.0s
+  block  9 (L 210) ok in    0.0s
+  block 10 (L 235) ok in   11.0s
+  block 11 (L 261) ok in    0.4s
+  block 12 (L 281) ok in    0.0s
+  block 13 (L 308) ok in    0.0s
+  block 14 (L 327) ok in    0.4s
+  block 15 (L 369) ok in    0.0s
+  block 16 (L 385) ok in    0.0s
+  block 17 (L 401) ok in    0.0s
+  block 18 (L 421) ok in    0.1s
+PASS in 14.3s (4462 prose words, 18 blocks, 3 figs referenced)
+== 10-metropolis-hastings.md: 16 runnable blocks ==
+  block  1 (L  13) ok in    1.3s
+  block  2 (L  68) ok in    0.0s
+  block  3 (L 103) ok in    0.5s
+  block  4 (L 162) ok in    3.4s
+  block  5 (L 248) ok in    0.6s
+  block  6 (L 294) ok in    0.0s
+  block  7 (L 307) ok in    0.3s
+  block  8 (L 326) ok in    0.0s
+  block  9 (L 368) ok in    0.5s
+  block 10 (L 384) ok in    0.8s
+  block 11 (L 423) ok in    0.4s
+  block 12 (L 467) ok in    0.0s
+  block 13 (L 504) ok in    0.0s
+  block 14 (L 522) ok in    0.2s
+  block 15 (L 539) ok in    0.4s
+  block 16 (L 557) ok in    0.0s
+PASS in 8.8s (4958 prose words, 16 blocks, 6 figs referenced)
+== 11-gibbs-augmentation.md: 17 runnable blocks ==
+  block  1 (L  13) ok in    1.6s
+  block  2 (L  60) ok in    0.0s
+  block  3 (L  91) ok in    0.2s
+  block  4 (L 133) ok in    0.6s
+  block  5 (L 165) ok in    0.2s
+  block  6 (L 194) ok in    0.5s
+  block  7 (L 225) ok in    0.7s
+  block  8 (L 265) ok in    0.4s
+  block  9 (L 306) ok in    0.6s
+  block 10 (L 336) ok in    0.5s
+  block 11 (L 361) ok in    0.7s
+  block 12 (L 393) ok in    0.3s
+  block 13 (L 428) ok in    0.7s
+  block 14 (L 480) ok in    0.1s
+  block 15 (L 496) ok in    0.1s
+  block 16 (L 517) ok in    0.0s
+  block 17 (L 534) ok in    0.1s
+PASS in 7.2s (4611 prose words, 17 blocks, 5 figs referenced)
+== 12-hmc.md: 16 runnable blocks ==
+  block  1 (L  13) ok in    1.3s
+  block  2 (L  46) ok in    0.5s
+  block  3 (L  68) ok in    0.3s
+  block  4 (L  92) ok in    2.1s
+  block  5 (L 137) ok in    0.3s
+  block  6 (L 159) ok in    0.2s
+  block  7 (L 198) ok in    0.2s
+  block  8 (L 222) ok in    0.4s
+  block  9 (L 255) ok in    0.0s
+  block 10 (L 288) ok in    8.2s
+  block 11 (L 319) ok in    4.6s
+  block 12 (L 329) ok in    0.4s
+  block 14 (L 376) ok in    1.2s
+  block 15 (L 416) ok in    0.0s
+  block 16 (L 433) ok in    1.1s
+  block 17 (L 449) ok in    0.3s
+PASS in 21.0s (4038 prose words, 16 blocks, 5 figs referenced)
+== 13-laplace-em-vi.md: 16 runnable blocks ==
+  block  1 (L  12) ok in    1.3s
+  block  2 (L  61) ok in    0.1s
+  block  3 (L  95) ok in    4.4s
+  block  4 (L 130) ok in    0.1s
+  block  5 (L 166) ok in    0.4s
+  block  6 (L 188) ok in    0.0s
+  block  7 (L 214) ok in    0.0s
+  block  8 (L 245) ok in    0.4s
+  block  9 (L 275) ok in    0.0s
+  block 10 (L 303) ok in    0.2s
+  block 11 (L 344) ok in    0.2s
+  block 12 (L 399) ok in   10.2s
+  block 13 (L 482) ok in    0.1s
+  block 14 (L 507) ok in    0.0s
+  block 15 (L 521) ok in    0.0s
+  block 16 (L 540) ok in    0.0s
+PASS in 17.3s (4790 prose words, 16 blocks, 6 figs referenced)

@@ -2,7 +2,7 @@
 
 Maintained by the orchestrator after each wave. Wave N+1 authors MUST read this file plus every module their spec calls back to. Format: spine / established helpers & notation / key printed numbers / forward promises.
 
-*Status: Wave 1 (00–04) FINAL. Wave 2 (05–08) authored + dual-reviewed; light staging revisions in flight — entries below canonical unless marked (rev).*
+*Status: Waves 1–3 (00–13) FINAL — every module authored, dual-refereed, revised, harness-green. All numbers canonical.*
 
 ## 00-four-lines
 - **Spine:** the whole subject is four lines (model = joint, inference = conditioning, prediction = marginalization, decision = expected loss); every procedure is a special case, approximation, or audit.
@@ -57,3 +57,33 @@ Maintained by the orchestrator after each wave. Wave N+1 authors MUST read this 
 - **Established:** JS risk machinery; **BvM 4-condition box** (well-specified / fixed finite-dim identifiable / interior / positive-continuous prior) + breakdown gallery (boundary, unidentified, Neyman–Scott, misspecification→M18); complete-class = risk-set lower boundary is Bayes rules; bootstrap = implicit posterior (Dirichlet(1,…,1)); coverage-audit pattern.
 - **Key numbers:** d=10, θ=0: MSE MLE `9.98` vs JS `1.99` vs JS⁺ `1.25`; no dominance d≤2, crossover d=3; E[(d−2)/‖X‖²] = 1/(1+τ²) (exact, drives JS=EB); BvM TV `0.1668`→`0.0165` (n=5→500, Gamma posterior); Neyman–Scott σ̂² → σ²/2 (`0.4988`); minimax coin flat risk `0.0144`; weak-prior credible coverage `0.9499`.
 - **Promises:** JS = point-mass-hyperprior EB + Neyman–Scott escape (M16); sandwich/misspecification (M18); admissibility for decisions (M22).
+
+## 09-monte-carlo
+- **Spine:** any expectation = sample average with a CLT error bar you must report (MCSE = s/√M); importance sampling fails silently — the weights are the alarm.
+- **Established:** `ess_kong(w)` = (Σw)²/Σw² = M/(1+cv²) ≤ M (UNNORMALIZED weights); the tail rule (proposal tails ≥ target tails); rejection acceptance = 1/C, E[trials] = C; ABC = conditioning on a neighborhood; rare-event relative error ≈ 1/√(Mp). Booklet ch. 4 "ESS ≥ n" adjudicated a NAME-COLLISION (prior-augmented sample size n + σ²/δ², correctly derived there), not a misprint.
+- **Key numbers:** E[√|Z|] quadrature `0.822179` vs MC 0.821580±0.000698; P(Z>4)=3.167e-5: naive 12/12 zero hits at M=10⁴ vs IS SE 84× smaller; t₃-target/N(0,1)-proposal: single-run ESS 34.7% "passes" while E[θ²] 1.693 vs true 3 (44% low) — the tell is the **ESS fraction collapsing** (62.65%→12.27% at M=10³→10⁶; absolute ESS rises sublinearly; healthy = flat ESS/M); ABC sd 0.1314→0.0653 (exact 0.0634) as ε→0.02; d-ball rejection 1-in-402 at d=10; OPE dominant trajectory = 18-of-20 weight ≈1,574 holding 17.5% (all-1 worst case 1.8²⁰≈127,482 never occurs, P=9.5e-7).
+- **Promises:** MCMC (M10); ESS for chains (M10) and particle filters (M21 — cite the fraction-collapse form); typical set (M12); IPW = importance weights (M24); MC-dropout, neural SBI (M25).
+
+## 10-metropolis-hastings
+- **Spine:** MH samples any unnormalized target via detailed balance — only ratios matter, so the evidence cancels; diagnostics are necessary-not-sufficient — report ESS, not draw count.
+- **Established:** `rw_metropolis`/`rw_metropolis_nd` (log-space accept), `acf_fft`, `ess_1d`, `ess_multichain`, `split_rhat`, `rank_normalize`; DB⇒stationarity 6-line lemma (sufficient-not-necessary; 3-cycle counterexample); ArviZ 1.x defaults = rank-normalized (az.ess bulk / az.rhat rank; both accept raw (chain,draw) arrays); spectral gap 1−λ₂, relaxation 1/(1−λ₂), ACF ~ λ₂^k.
+- **Key numbers:** d=50 product target: ESS peak at acceptance `0.240`, step `0.337` = 2.38/√50 (0.234 is the d→∞ scope); 1-D optimum `0.439`; bimodal ±5 trap: 0 crossings, P(θ>0)=`0.0000`; fooling example: single-chain split-R̂ `1.0028` passes, 4-chain rank-R̂ `1.7365` / ESS `6.1` catches (plain-vs-rank matters exactly here: 5.5422 vs 1.7365); hand ESS `2304.9` vs az `2313.4`; 2-state chain λ₂=`0.800`, t_rel=`5.00`, τ_int=`9.00` exact.
+- **Promises:** Gibbs = componentwise MH accept-1 (M11 ✓); HMC 0.651 + typical set (M12 ✓); tempering demo (M19); annealing bridge.
+
+## 11-gibbs-augmentation
+- **Spine:** sample one full conditional at a time; posterior correlation is the enemy; augmentation invents the latents that restore conjugacy.
+- **Established:** `rinvgamma(a,b,rng)` = 1/rng.gamma(a, 1/b) (convention referee-verified vs scipy); two-block Normal(μ,σ²) + linear-regression Gibbs; `gibbs_bvn`, `autocorr_fft`, `ess_ips` (Geyer); `rtruncnorm` inverse-CDF; Albert–Chib probit augmentation; impute-within-Gibbs / MI; MCAR/MAR/MNAR ignorability taxonomy; Rao-Blackwell conditional-mean estimator; **empirical agreement-audit discipline** (KS vs conjugate truth; valid only on well-mixed chains — thin/pool otherwise).
+- **Key numbers:** Gibbs↔NIG agreement KS p=0.688/0.175 (t₄₂, IG(21, 69.72)); lag-1 = ρ² EXACT (0.8117@0.9, 0.9801@0.99); ESS/M = (1−ρ²)/(1+ρ²) → ~0.010@0.99 (AR(1)-exact); blocked-Gibbs 89.7× ESS gain; MAR complete-case bias −0.3959 (predicted −0.432) vs imputed 0.0149; Rao-Blackwell 58.8× variance drop (same-trajectory comparison).
+- **Promises:** ESS collapse motivates HMC (M12 ✓); augmentation = EM E-step (M13 ✓), mixture labels (M19), VAE code (M25); PO-as-missing-data (M24); Pólya-Gamma → M15.
+
+## 12-hmc  [SIGNATURE S1]
+- **Spine:** in high dimension the mass lives in a thin shell at radius ≈√d (the typical set), not at the mode; random walks die there (ESS/iter ∝ 1/d); leapfrog HMC takes long coherent gradient-momentum strides along it.
+- **Established:** `leapfrog(q,p,eps,L)` + from-scratch `hmc`; `iat()` (truncated at first negative lag); energy error O(ε²); EXACT leapfrog stability threshold ε_crit = 2/ω (marginal/Jordan-defective at exactly 2); divergence = local curvature exceeding 2/ε; non-centering via LocScaleReparam = the funnel reflex (M16 will reuse); ULA/SGLD = Euler–Maruyama of overdamped Langevin, stationary var 1/(1−ε/4) (AR(1) derivation).
+- **Key numbers:** N(0,I₁₀₀₀): mean‖θ‖ `31.61` = √(d−½), sd `0.71`, mass within √d/2 of mode `0.0000`, log-density gap `500` nats; RW ESS/iter ∝ d^−0.94, ~`2492` iters/indep draw at d=1000; ε cliff 2.00 stable / 2.01 explodes; funnel divergences `13`→`0`, v-reach −1.97→−10.01; HMC optimal acceptance ≈`0.651` (Beskos, d→∞ product-target scope) vs RW 0.234.
+- **Promises:** non-centering + funnel (M16); SGD-noise ≈ SGLD, tempering (M25); NumPyro/ArviZ idioms established for all later PPL modules.
+
+## 13-laplace-em-vi
+- **Spine:** log p(x) = ELBO(q) + KL(q ‖ posterior) — one identity, three families: Laplace (Gaussian curvature-matched at the mode — ELBO-optimal only asymptotically), EM (point mass on θ, EXACT conditional on z), mean-field VI (factorized: means right, variances shrunk).
+- **Established:** `elbo_and_kl` grid verifier; `laplace_logit` (fit on unconstrained scale + KL); Laplace evidence formula; minimal known-variance mixture EM (full GMM = M19's); `cavi_gaussian` (unequal-variance target: var_mf,j = (1−ρ²)·Σⱼⱼ exactly); CAVI-for-NIG; SVI/AutoNormal-vs-NUTS comparison pattern (AutoNormal = mean-field in unconstrained space — stated honestly); "when to trust VI" box (point predictions yes; tail risk/interval widths no).
+- **Key numbers:** ELBO+KL = `−2.3979` for every q (Beta(8,4) check); Laplace KL 0.0264@n=5 vs 0.0022@n=200 (`11.8×`), evidence −4.62 both routes; EM log-lik −616.52→−411.79 monotone; CAVI var = (1−ρ²)Σⱼⱼ exact (`0.3600`/`0.7200`); CAVI/exact sd ratio = √((aₙ−1)/aₙ) = √0.8 = `0.8944` EXACT (closed form — the t's ν/(ν−2) tail inflation is what mean-field misses); SVI sd(σ) `0.700`× NUTS; reverse-KL mode collapse KL = ln 2 = `0.693`.
+- **Promises:** full GMM-EM + Gibbs label uncertainty (M19); VAE = amortized ELBO (M25); evidence/Occam in full (M17).

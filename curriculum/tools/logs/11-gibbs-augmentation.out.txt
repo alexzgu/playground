@@ -1,0 +1,37 @@
+MH acceptance ratio for a Gibbs proposal = 1.0000000000
+exact NIG posterior:  kn=41  mn=4.7184  an=21  bn=69.7246
+exact marginals:  mu ~ t_df=42(loc=4.7184)   E[sigma^2]=3.4862
+Gibbs  E[mu]=4.7179 (exact 4.7184)   E[sigma^2]=3.4945 (exact 3.4862)
+Gibbs sd[mu]=0.2935   exact t sd=0.2916
+KS  mu   vs exact t : stat=0.0053  p=0.688
+KS sigma^2 vs exact IG: stat=0.0082  p=0.175
+[fig] figures/11-gibbs-augmentation/agreement-audit.png
+beta[0]: true=+2.000  Gibbs=+2.1743 (sd 0.0973)  OLS=+2.1749
+beta[1]: true=-1.500  Gibbs=-1.5846 (sd 0.0920)  OLS=-1.5865
+beta[2]: true=+0.800  Gibbs=+0.8982 (sd 0.1014)  OLS=+0.8989
+sigma^2: true=1.500  Gibbs posterior mean=1.4073
+[fig] figures/11-gibbs-augmentation/regression-recovery.png
+rho=0.9:  rho^2=0.8100   measured lag-1 autocorr=0.8117   ESS/M=0.1014  (theory (1-r2)/(1+r2)=0.1050)
+rho=0.99:  rho^2=0.9801   measured lag-1 autocorr=0.9801   ESS/M=0.0101  (theory (1-r2)/(1+r2)=0.0100)
+rho=0.99  single-site ESS/M=0.0111   blocked ESS/M=1.0000   ratio=89.7x
+[fig] figures/11-gibbs-augmentation/gibbs-zigzag.png
+class-1 rate = 0.605
+beta[0]: true=+0.400  posterior mean=+0.4524 (sd 0.0378)
+beta[1]: true=+1.200  posterior mean=+1.1937 (sd 0.0530)
+beta[2]: true=-0.800  posterior mean=-0.8533 (sd 0.0461)
+[fig] figures/11-gibbs-augmentation/probit-recovery.png
+missing fraction = 0.367
+complete-case  E[Y2] = -0.3959   (full-data -0.0036)
+impute-within-Gibbs  E[mu2] = 0.0149   E[mu1] = 0.0028
+multiple imputation: between-imputation sd of the Y2 mean = 0.0285
+[fig] figures/11-gibbs-augmentation/missing-data.png
+raw estimator: sd across chains = 0.01509
+RB  estimator: sd across chains = 0.00197
+variance-reduction factor = 58.8x
+lag-1 autocorr = 0.9057  (rho^2 = 0.9025)
+ESS = 1585  (theory M*(1-r2)/(1+r2) = 2050)
+kappa0= 1.0: sigma^2 lag-1 autocorr = 0.0015
+kappa0=50.0: sigma^2 lag-1 autocorr = 0.0015
+mean-imputation RMSE       = 1.3281
+conditional-imputation RMSE = 0.7093
+untruncated posterior means = [-0.844  0.77  -0.997]  (true [ 0.4  1.2 -0.8])

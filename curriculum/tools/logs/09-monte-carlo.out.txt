@@ -1,0 +1,55 @@
+quantity            Monte Carlo     exact
+posterior mean      0.6663        0.6667
+P(theta > 0.5)      0.8868        0.8867
+90% CI low          0.4345        0.4356
+90% CI high         0.8649        0.8649
+E[odds]             2.6657        2.6667
+actual SD of the 1000 estimates : 0.00294
+mean self-reported MCSE        : 0.00292
+exact posterior sd / sqrt(M)   : 0.00292
+quadrature      : 0.822179
+Monte Carlo     : 0.821580  +/- 0.000698  (2 MCSE)
+|MC - quad|     : 0.000599
+M=    100: RMS error 0.17841   (theory 0.16422)
+M=   1000: RMS error 0.05226   (theory 0.05193)
+M=  10000: RMS error 0.01824   (theory 0.01642)
+M= 100000: RMS error 0.00539   (theory 0.00519)
+error ratio M=1e3 -> 1e5: 9.69  (expect ~10 for a 100x sample)
+[fig] figures/09-monte-carlo/sqrtM_wall.png
+exact P(Z>4) = 3.167e-05
+M= 10000: hit counts [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          zero-hit runs 12/12,  within 10% of truth 0/12
+M=100000: hit counts [6, 2, 5, 3, 6, 3, 2, 1, 2, 1, 4, 1]
+          zero-hit runs 0/12,  within 10% of truth 2/12
+IS estimate  = 3.148e-05  +/- 4.2e-07  (2 SE)
+exact        = 3.167e-05
+relative error 0.60%   SE ratio naive/IS ~ 84x
+ESS (Kong)        = 34,698   = 34.7% of M
+M/(1+cv^2)        = 34,698   (cv^2 = 1.88)
+1/sum(wbar^2)     = 34,698   (three routes agree)
+max single weight = 0.29% of total weight
+SNIS  E[theta^2]  = 1.693   (truth 3.000)
+median ESS/M over 25 reps:
+  M=    1000: failure (light proposal)  62.65%   safe (heavy proposal)  92.10%
+  M=   10000: failure (light proposal)  44.38%   safe (heavy proposal)  91.99%
+  M=  100000: failure (light proposal)  27.76%   safe (heavy proposal)  91.98%
+  M= 1000000: failure (light proposal)  12.27%   safe (heavy proposal)  91.97%
+safe-direction SNIS E[theta^2] = 1.00 (truth 1.00)
+[fig] figures/09-monte-carlo/is_weights.png
+envelope C = 2.4576,  theoretical acceptance 1/C = 0.4069
+empirical acceptance = 0.4068  (81,352 of 200,000)
+accepted-sample mean 0.2852 vs exact 0.2857;  KS p-value 0.289
+exact posterior Beta(16,36): mean 0.3077, sd 0.0634
+eps=0.20: acceptance 0.4096 (81,926 kept), ABC mean 0.3071, ABC sd 0.1314
+eps=0.10: acceptance 0.2142 (42,846 kept), ABC mean 0.3078, ABC sd 0.0871
+eps=0.02: acceptance 0.0586 (11,722 kept), ABC mean 0.3072, ABC sd 0.0653
+[fig] figures/09-monte-carlo/abc.png
+M needed for 10% relative MCSE: 3,157,339
+d= 2: acceptance 0.785398  ->  1 proposals per kept draw
+d= 5: acceptance 0.164493  ->  6 proposals per kept draw
+d=10: acceptance 0.002490  ->  402 proposals per kept draw
+d=20: acceptance 0.000000  ->  40,631,628 proposals per kept draw
+ESS = 7.9 out of 10000  (0.08%)
+max single weight share 17.5%
+e^Z  (monotone): std var 4.676e-06  anti var 2.986e-06  reduction 1.57x
+Z^2  (even): std var 1.997e-06  anti var 3.970e-06  reduction 0.50x

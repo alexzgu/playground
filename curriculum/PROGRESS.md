@@ -17,7 +17,8 @@
 2. ~~PPL decision~~ **DONE**: NumPyro; idioms all green in `tools/ppl_idioms.py`.
 3. ~~Wave 1 (00–04)~~ **DONE & FINAL**: 5 modules authored → 10 reviews (math+pedagogy per module, all in `reviews/`) → revisions applied → full sweep green (18,589 prose words total, all PASS, zero warnings). SPINE-INDEX canonical. Notable catches fixed in revision: S3 heading-spoiler (04), tank risk-crossover grid artifact 1300→≈1075 (02), scipy nbinom convention trap (04), finite-additivity scope on Dutch book (01), un-staged decision reveal (00).
 4. ~~Wave 2 (05–08)~~ **DONE & FINAL**: 4 modules → 8 reviews → revisions → sweep green (17,265 prose words; total course now 35,854 words across 9 modules). Notable: two author spec push-backs formally adjudicated CORRECT by referees (06's midrange-concentration argument; 08's Gamma-BvM choice); recurring defect = missing Predict beats (now pre-warned in author prompts).
-5. **IN FLIGHT: Wave 3 authoring** (09 MC, 10 MH, 11 Gibbs/augmentation, 12 HMC+S1 [NumPyro], 13 Laplace/EM/VI [NumPyro]). Then W4 14–18, W5 19–23, W6 24–26 → global consistency pass.
+5. ~~Wave 3 (09–13)~~ **DONE & FINAL**: 5 modules → 10 reviews → revisions → sweep green (course now 14 modules, ~58k prose words). Notables: NumPyro modules (12, 13) idiom-clean; referee settled the booklet "ESS ≥ n" dispute from source (name-collision, not misprint — SYLLABUS amended); survived a third session-limit interruption (6 agents resumed, zero loss).
+6. **IN FLIGHT: Wave 4 authoring** (14 regression, 15 GLMs+survival, 16 hierarchical [crown jewel], 17 model checking+S5, 18 multiplicity/misspecification/large-scale). Then W5 19–23, W6 24–26 → global consistency pass.
 6. After each wave: update this file; coherent `git add -A` commit. (Survived one session-limit interruption mid-Wave-1: all agents resumed via SendMessage with context intact — this is the recovery pattern.)
 
 ### Layout

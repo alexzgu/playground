@@ -1,0 +1,69 @@
+transition matrix P (rows sum to 1):
+[[0.     0.5    0.5   ]
+ [0.2    0.5    0.3   ]
+ [0.3333 0.5    0.1667]]
+detailed balance  max|flow - flow.T|  = 0.00e+00
+stationarity      max|pi P - pi|      = 0.00e+00
+eigenvalues of P: [ 1.      0.     -0.3333]   (leading = 1, gap = 1.0000)
+
+3-cycle:  max|uP - u| = 0.00e+00  (stationary)   max|flow - flow.T| = 0.333  (NOT reversible)
+acceptance rate = 0.707
+posterior mean:  MH = 0.3177   exact = 0.3182
+  quantile      MH      exact
+    0.05      0.1688  0.1682
+    0.25      0.2480  0.2482
+    0.50      0.3116  0.3126
+    0.75      0.3816  0.3823
+    0.95      0.4864  0.4874
+[fig] figures/10-metropolis-hastings/beta-binomial-mh.png
+d = 50 product target   (theory: step 2.38/sqrt(d) = 0.337)
+   step   accept    ESS
+  0.150   0.598     63.4
+  0.200   0.486     85.1
+  0.250   0.378     91.0
+  0.300   0.292    108.4
+  0.337   0.240    110.0
+  0.400   0.161    109.4
+  0.500   0.082     79.3
+  0.650   0.023     41.2
+  0.850   0.000      1.0
+  -> ESS peaks at acceptance = 0.240, step = 0.337
+d = 1  standard normal:  ESS peaks at acceptance = 0.439, step = 2.40
+asymptotic optima -> 1-D: 0.44   high-d product: 0.234
+[fig] figures/10-metropolis-hastings/acceptance-sweep.png
+step 1.0 (local-optimal):  acceptance 0.709, mode crossings 0, P(theta > 0) = 0.0000  (truth 0.5)
+step 10  (mode-spanning):  acceptance 0.200, mode crossings 2798, P(theta > 0) = 0.5026
+[fig] figures/10-metropolis-hastings/bimodal-trap.png
+4 chains x 4000 draws = 16000 total;  overall mean 0.3157 (exact 0.3182)
+[fig] figures/10-metropolis-hastings/diagnostics.png
+HAND:  ESS(raw) = 2260.7   ESS(rank/bulk) = 2304.9   of M = 16000
+HAND:  split-Rhat (plain) = 1.0013   (rank-normalized) = 1.0014
+ArviZ: az.ess  = 2313.4   (matches hand rank/bulk)
+ArviZ: az.rhat = 1.0014   (matches hand rank-normalized)
+per-chain mode crossings: [0, 0, 0, 0]
+per-chain means: [-4.98 -4.96  5.04  4.99]
+
+SINGLE-CHAIN AUDIT (chain 0 only):
+  split-Rhat = 1.0028   ('converged', < 1.01)
+  az.ess     = 573.6   ('plenty of effective draws')
+  its own P(theta > 0) = 0.0000
+
+FOUR-CHAIN AUDIT:
+  az.rhat = 1.7365   (plain 5.5422)
+  az.ess  = 6.1
+[fig] figures/10-metropolis-hastings/fooling-example.png
+measured rho[1..5] = [0.8023 0.6447 0.518  0.4156 0.3347]
+theory   lam2^k    = [0.8    0.64   0.512  0.4096 0.3277]
+lambda_2 = 0.800   relaxation time 1/(1-lambda_2) = 5.00
+empirical pi_0 = 0.7516  (theory 0.7500)   integrated autocorr time (1+l)/(1-l) = 9.00
+[fig] figures/10-metropolis-hastings/spectral-gap.png
+global min near x = -2.018 (U = -8.603); local well at +2 has U(+2) = -7.400
+annealed from the +2 well -> best x = -2.019, U = -8.603
+max|difference| between the two chains = 0.00e+00
+A: acceptance 0.902, ESS 401
+B: acceptance 0.448, ESS 4012
+sep 1: crossings  6650, P(theta>0) = 0.502
+sep 2: crossings  2050, P(theta>0) = 0.501
+sep 3: crossings   220, P(theta>0) = 0.550
+max|pi K - pi|          = 0.00e+00
+max|flow - flow.T| (DB) = 0.00e+00

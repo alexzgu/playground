@@ -1,0 +1,45 @@
+exact log p(x)                = -2.3979
+q=Beta(8,4): ELBO= -2.3979  KL=0.0000  ELBO+KL=-2.3979  <- q = exact posterior
+q=Beta(5,5): ELBO= -3.1495  KL=0.7516  ELBO+KL=-2.3979
+q=Beta(3,9): ELBO= -7.5064  KL=5.1085  ELBO+KL=-2.3979
+[fig] figures/13-laplace-em-vi/elbo_identity.png
+n=  5: posterior Beta(2,5)  logit-Laplace N(-0.916, 0.7000)  KL(Lap||post) = 0.0264
+n=200: posterior Beta(41,161)  logit-Laplace N(-1.368, 0.0306)  KL(Lap||post) = 0.0022
+small-n penalty: KL ratio n=5 / n=200 = 11.8x
+raw-scale Laplace Beta(2,5): P(theta<0) = 0.1318  (impossible mass the logit scale forbids)
+[fig] figures/13-laplace-em-vi/laplace_logit.png
+exact   log-evidence = -4.6151   (-4.62 to 2 dp)
+Laplace log-evidence = -4.6182   (-4.62 to 2 dp)
+recovered means mu_hat = [-2.1557, 1.8968]   (truth [-2, 2])
+log-lik: start -616.52 -> after 1 step -427.97 -> converged -411.79
+monotone non-decreasing: True
+[fig] figures/13-laplace-em-vi/em_mixture.png
+rho=0.8: rho^2=0.64  1-rho^2=0.36  CAVI means=[-0. -0.]  CAVI var=0.3600  (true var=1)
+rho=0.9: rho^2=0.81  1-rho^2=0.19  CAVI means=[-0. -0.]  CAVI var=0.1900  (true var=1)
+underdispersion factor = 1 - rho^2 = 0.36 (exact);  KL(q||p) = 0.5108 nats
+unequal-variance target diag(Sigma)=(1, 2), rho=0.8: mean-field vars = 0.3600, 0.7200  (= (1-rho^2) x (1, 2))
+[fig] figures/13-laplace-em-vi/cavi_ellipse.png
+exact  posterior mu: mean 3.6479  sd 1.0060  (Student-t, df=10)
+CAVI   q(mu):        mean 3.6479  sd 0.8998  (Gaussian)
+mean error |mN - mn| = 0.00e+00;  sd ratio CAVI/exact = 0.8944
+closed form sqrt((an-1)/an) = 0.8944   (CAVI var = the t's squared scale)
+[fig] figures/13-laplace-em-vi/cavi_nig.png
+means agree:   NUTS mu 0.776 / SVI mu 0.739;  NUTS sigma 1.905 / SVI sigma 1.973
+sd(mu):    NUTS 0.268  SVI 0.242
+sd(sigma): NUTS 0.209  SVI 0.146   ratio SVI/NUTS 0.700
+sigma 97.5% tail: NUTS 2.366  SVI 2.282
+final ELBO loss = 105.6
+[fig] figures/13-laplace-em-vi/svi_vs_nuts.png
+reverse KL, mode init:     m=4.000  sd=1.001  KL=0.693
+reverse KL, centered init: m=0.002  sd=3.556  KL=1.851
+forward KL (moment match): m=0.000  sd=4.123
+rho=0.8: mean-field variance = 1 - rho^2 = 0.3600
+rho=0.9: mean-field variance = 1 - rho^2 = 0.1900
+rho=0.95: mean-field variance = 1 - rho^2 = 0.0975
+rho=0.99: mean-field variance = 1 - rho^2 = 0.0199
+evidence M1 (theta=0.5)      = 0.2051
+evidence M2 (theta free)     = 0.0909
+Bayes factor M1/M2           = 2.256
+CAVI sweeps =      2: mean-field marginal variance = 0.1900
+CAVI sweeps =  10000: mean-field marginal variance = 0.1900
+full-covariance q = Sigma: marginal variance = 1.0000, KL = 0.0000
