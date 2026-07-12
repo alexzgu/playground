@@ -2,7 +2,7 @@
 
 Maintained by the orchestrator after each wave. Wave N+1 authors MUST read this file plus every module their spec calls back to. Format: spine / established helpers & notation / key printed numbers / forward promises.
 
-*Status: Wave 1 (00–04) FINAL — authored, dual-reviewed (math + pedagogy, 10 reviews), revised, all harness-green. Numbers below are canonical.*
+*Status: Wave 1 (00–04) FINAL. Wave 2 (05–08) authored + dual-reviewed; light staging revisions in flight — entries below canonical unless marked (rev).*
 
 ## 00-four-lines
 - **Spine:** the whole subject is four lines (model = joint, inference = conditioning, prediction = marginalization, decision = expected loss); every procedure is a special case, approximation, or audit.
@@ -33,3 +33,27 @@ Maintained by the orchestrator after each wave. Wave N+1 authors MUST read this 
 - **Established:** likelihood L(θ) = f(y|θ); factorization theorem (C-B §6.2); `nig_post()` helper (NIG update from (n, Σx, Σx²)); score & Fisher info I(θ) = Var[score] = E[−ℓ″], additive nI; likelihood→loss dictionary (CE/MSE/MAE = Bernoulli/Gaussian/Laplace NLL; MLE = ERM under log loss); censored observations contribute S(c); Pitman–Koopman stated correctly (support condition; Cauchy = growing-dim foil).
 - **Key numbers:** binomial p = `0.073` vs neg-binomial p = `0.033` on the same 9-of-12 data; shared likelihood ∝ θ⁹(1−θ)³ (ratio 4.0 const); shared Beta(10,4) posterior, mean `0.7143`; I(0.3) = `4.7619`; censored MLE `0.5376` vs naive drop-censored `0.6452`; x̄ ⊥ residuals corr `−0.0026`.
 - **Promises:** conjugacy = exp-family closure + NIG derivation (M05); ancillarity/conditionality (M06); Jeffreys ∝ √I (M07); θ̂ ~ N(θ, 1/nI) and BvM (M08); GLMs + survival (M15); stopping rules at design stage (M23).
+
+## 05-conjugate-updating  [SIGNATURE S2]
+- **Spine:** conjugate posterior = prior pseudo-data + real data; posterior mean = (κ/(κ+n))·prior + (n/(κ+n))·MLE — the master shrinkage formula (= ridge, Kalman gain, partial pooling).
+- **Established:** conjugate library — `beta_binomial_update`, `normal_known_var_update`, `gamma_poisson_update`, `nig_post` (from M04), `dirichlet_mult_update`, `student_t_predictive(kn,mn,an,bn)` (df=2αₙ, loc=mₙ, scale²=bₙ(κₙ+1)/(αₙκₙ)); **`gaussian_condition(mu, Sigma, idx1, idx2, x2)`** — MVN block conditionals, the toolkit powering M14/M20/M21; law-of-total-variance decomposition (aleatoric+epistemic), strict widening claimed only for fixed-dispersion conjugate families.
+- **Key numbers (final):** S2: 2-of-2 → Beta(3,1), predictive `0.7500` vs MLE 1.0; predictive-vs-plug-in var 4.69/2.34 (Beta-Binom), 3.0/2.0 (Gamma-Poisson); plug-in 90% interval covers 0.8307 (its own-model coverage `0.9525` — epistemic drop isolated from discreteness); A/B (41/1000 vs 57/1000): P(B>A) `0.9510`, regret ratio ship-A:ship-B = `81×` (vs the naive 19:1 odds read) → ship B — the course's first fully-staged line-4 decision (M22 reuses the beat); add-α trap: α=1e-4, V=10⁴ ⇒ κ=αV=1; MVN toolkit verified to machine precision via Schur complement (1.1e-16).
+- **Promises:** loss→estimator (M06 ✓); washout (M07 ✓); JS/EB (M08 ✓); Gibbs audit vs NIG (M11); ridge λ↔τ² + trumpet (M14); pooling weight (M16); GP posterior (M20); Kalman (M21); EVSI (M22).
+
+## 06-estimates-are-decisions
+- **Spine:** point estimates and intervals are answers to a loss function; what you condition on determines what your guarantee means.
+- **Established:** loss→estimator dictionary (L2→mean, L1→median, 0-1→mode, derived); pinball/newsvendor → predictive quantile at fractile c_u/(c_u+c_o); MAP=penalized-MLE (ridge=Gaussian=posterior mean; lasso=Laplace: **mode has exact zeros, posterior mean never sparse**); credible (post-data belief) vs confidence (procedure guarantee); two-point uniform conditional coverage Cov(θ|R=r)=r/(1−r) (r<½) else 1; **prior-averaged coverage theorem** ∫Cov·π = 1−α (Fubini); conditionality/ancillary-conditioning (M04 cashed).
+- **Key numbers (final):** Gamma(2,1) mode/median/mean `1.0000`/`1.6783`/`2.0000` (E[L2] at mean = posterior variance = 2.0000 exact); newsvendor order `12` at the 0.75 predictive fractile (symmetric-cost exercise: `10`, where median = mean by NB-shape coincidence); lasso MAP `0.0000` vs Laplace posterior mean `0.1432`/`0.3945`; two-point marginal coverage `0.500`, conditional `0.111`/`0.250`/`0.429`/`1.000` at R=0.1/0.2/0.3/0.9; prior-averaged `0.9501`, pointwise `0.9715`@θ=0 / `0.8827`@θ=4, misspecified `0.8288`; two-instruments conditioning gap `7.1×`.
+- **Promises:** BvM (M08 ✓); λ↔τ² + horseshoe (M14/M18); thresholds/EVSI (M22); conformal (M26).
+
+## 07-priors
+- **Spine:** the prior is part of the model (same status as the likelihood); influence decays like 1/n for identified parameters, is decisive at small n/boundary data, never washes out for unidentified ones.
+- **Established:** `prior_predictive(prior_sampler, sim_data, M)` harness (samplers close over their own generator); sensitivity fan as the standard "does the prior matter?" diagnostic (fan spread 0.3000 at n=10 ≈ half the 0.6 span of the prior means); Jeffreys πJ ∝ √I(θ) = Beta(½,½) for Bernoulli, invariance verified through log-odds; "flat isn't flat"; propriety-check discipline (Haldane all-successes diverges); faces of nonidentifiability (symmetry / weak likelihood / structural); regularization = implicit prior (non-polemical).
+- **Key numbers:** fan spread 0.3000 (n=10) → 0.0006 (n=10⁴); N(0.5,10²) prior puts 0.9601 outside [0,1]; Jeffreys two-route agreement ~5.6e-12; washout: sum sd 0.0100 vs θ₁ sd 2.2361 at n=10⁴.
+- **Promises:** τ priors half-Cauchy/half-Normal (M16); EB λ (M14/M18); label switching (M19); overparameterized nets (M25); causal identification (M24).
+
+## 08-frequentist-bridge  [SIGNATURE S4]
+- **Spine:** the theories fuse asymptotically (BvM); where they don't, shrinkage wins — James–Stein IS an empirical-Bayes posterior mean.
+- **Established:** JS risk machinery; **BvM 4-condition box** (well-specified / fixed finite-dim identifiable / interior / positive-continuous prior) + breakdown gallery (boundary, unidentified, Neyman–Scott, misspecification→M18); complete-class = risk-set lower boundary is Bayes rules; bootstrap = implicit posterior (Dirichlet(1,…,1)); coverage-audit pattern.
+- **Key numbers:** d=10, θ=0: MSE MLE `9.98` vs JS `1.99` vs JS⁺ `1.25`; no dominance d≤2, crossover d=3; E[(d−2)/‖X‖²] = 1/(1+τ²) (exact, drives JS=EB); BvM TV `0.1668`→`0.0165` (n=5→500, Gamma posterior); Neyman–Scott σ̂² → σ²/2 (`0.4988`); minimax coin flat risk `0.0144`; weak-prior credible coverage `0.9499`.
+- **Promises:** JS = point-mass-hyperprior EB + Neyman–Scott escape (M16); sandwich/misspecification (M18); admissibility for decisions (M22).

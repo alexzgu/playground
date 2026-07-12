@@ -5,9 +5,9 @@
 > **Promise.** After this module you can answer the skeptic's "doesn't the prior just bias the answer?" with a picture, stress-test a prior before seeing data, derive the one prior that ignores your choice of coordinates, spot the improper prior that silently breaks, and name exactly when more data will *not* rescue you.
 > **Prereqs.** Modules 00 (four lines), 02 (conditioning), 04 (Fisher information — Jeffreys is built on it); light callbacks to 05 (conjugate Beta updating) and 06 (MAP = penalized MLE).
 > **Runtime.** ~7 s.
-> **Sources.** Booklet ch. 5–7 (prior elicitation, conjugate families) and ch. 15 (variance-component priors, Gelman BA 2006); BDA3 ch. 2–3 by concept; Jeffreys and Bernardo (reference priors) by concept.
+> **Sources.** Booklet ch. 15 (variance-component priors; quotes verified verbatim, citing Gelman BA 2006); booklet ch. 5 and 7 in passing; BDA3 ch. 2–3 by concept; Jeffreys and Bernardo (reference priors) by concept.
 
-A machine-learning reader arrives at Bayesian inference with one honest objection: *you get to make up the prior, so you can make the answer come out however you like.* This module takes that objection seriously and dismantles it in the only way that should convince an empiricist — by measuring, on real posteriors, exactly when the prior moves the answer and when it cannot. The short version: the prior is a modeling choice with the *same status as the likelihood* — you also "made up" the assumption that the data are Bernoulli — and like any modeling choice it is testable, coordinate-dependent, and sometimes decisive, sometimes irrelevant. Which one it is, you can compute.
+A machine-learning reader arrives at Bayesian inference with one honest objection: *you get to make up the prior, so you can make the answer come out however you like.* The reply: the prior is a modeling choice with the *same status as the likelihood* — you also "made up" the assumption that the data are Bernoulli — and like any modeling choice it is testable, coordinate-dependent, and sometimes decisive, sometimes irrelevant. Which one it is, you can compute.
 
 ```python
 # --- setup ---
@@ -59,20 +59,14 @@ priors = {
 }
 datasets = {"n=10 (s=3)": (3, 7), "n=10,000 (s=3000)": (3000, 7000)}
 
-post_means = {}
 for dname, (s, f) in datasets.items():
-    means = []
-    for pname, (a, b) in priors.items():
-        an, bn = a + s, b + f
-        m, sd = an / (an + bn), stats.beta(an, bn).std()
-        means.append(m)
-        post_means[(dname, pname)] = (m, sd)
+    means = [(a + s) / (a + s + b + f) for a, b in priors.values()]
     spread = max(means) - min(means)
     print(f"{dname:20s}: means {min(means):.4f}..{max(means):.4f}, "
           f"spread across priors = {spread:.4f}")
 ```
 
-At $n=10$ the five posterior means fan from `0.2500` (pessimist) to `0.5500` (optimist) — a spread of `0.3000`, as wide as the priors themselves (the printed `0.2500..0.5500` range). At $n=10{,}000$ the same five priors give means within `0.0006` of one another: the data have overwritten the disagreement. The naive "constant bias" intuition fails because a conjugate prior is worth a *fixed number of pseudo-observations* (module 05's reading: `Beta(a,b)` = $a{+}b$ pseudo-trials), so its weight is $\tfrac{a+b}{a+b+n}$ — decisive at $n=10$, negligible at $n=10{,}000$.
+At $n=10$ the five posterior means fan from `0.2500` (pessimist) to `0.5500` (optimist) — a spread of `0.3000`, half the 0.6 span of the prior means themselves (0.2 to 0.8): ten observations have only begun to close the disagreement. At $n=10{,}000$ the same five priors give means within `0.0006` of one another: the data have overwritten the disagreement. The naive "constant bias" intuition fails because a conjugate prior is worth a *fixed number of pseudo-observations* (module 05's reading: `Beta(a,b)` = $a{+}b$ pseudo-trials), so its weight is $\tfrac{a+b}{a+b+n}$ — decisive at $n=10$, negligible at $n=10{,}000$.
 
 ```python
 # The two fans, side by side: prior matters at small n, washes out at large n.
@@ -103,8 +97,9 @@ Simulate $\theta$ from the prior, push it through the likelihood, and look at th
 
 ```python
 # Reusable prior-predictive harness: draw theta ~ prior, y-tilde ~ likelihood, summarize.
-def prior_predictive(prior_sampler, sim_data, M=40000, rng=rng):
-    """prior_sampler(M)->theta[M]; sim_data(theta)->y_tilde[M]. Returns (theta, y_tilde)."""
+def prior_predictive(prior_sampler, sim_data, M=40000):
+    """prior_sampler(M)->theta[M]; sim_data(theta)->y_tilde[M]. Returns (theta, y_tilde).
+    Samplers control their own randomness (close over a generator or seed one)."""
     theta = prior_sampler(M)
     ytilde = sim_data(theta)
     return theta, ytilde
@@ -132,11 +127,7 @@ tail_absurd  = np.mean((y_absurd == 0) | (y_absurd == 20))
 tail_sensible = np.mean((y_sensible == 0) | (y_sensible == 20))
 print(f"absurd prior : P(make 0 or all 20 of 20) = {tail_absurd:.4f}")
 print(f"sensible prior: P(make 0 or all 20 of 20) = {tail_sensible:.4f}")
-```
 
-The `N(0.5,10^2)` prior places `0.9601` of its mass on *impossible* probabilities outside $[0,1]$. Forced into the valid range by clipping, it predicts that the player makes either 0 or all 20 free throws with probability `0.9653` — a prior that "knows," before any data, that the player is either hopeless or perfect. The `Beta(2,2)` prior predicts the same all-or-nothing outcome only `0.0238` of the time; its fake box scores look like plausible free-throw shooting. "Vague on the real line" and "vague for a probability" are different things, and the prior predictive catches the confusion.
-
-```python
 fig, ax = plt.subplots()
 bins = np.arange(-0.5, 21.5, 1)
 ax.hist(y_absurd,  bins=bins, density=True, alpha=0.6, label="N(0.5,10²) prior (clipped)")
@@ -150,17 +141,27 @@ save(fig, "prior-predictive-ft")
 
 ![A histogram: the Normal-prior predictive piles almost all mass at 0 and 20 makes; the Beta(2,2) predictive is a smooth mound over the middle range.](figures/07-priors/prior-predictive-ft.png)
 
+The `N(0.5,10^2)` prior places `0.9601` of its mass on *impossible* probabilities outside $[0,1]$. Forced into the valid range by clipping, it predicts that the player makes either 0 or all 20 free throws with probability `0.9653` — a prior that "knows," before any data, that the player is either hopeless or perfect. The `Beta(2,2)` prior predicts the same all-or-nothing outcome only `0.0238` of the time; its fake box scores look like plausible free-throw shooting. "Vague on the real line" and "vague for a probability" are different things, and the prior predictive catches the confusion.
+
 ## 07.3 Flat isn't flat: "noninformative" is coordinate-dependent
 
-The colleague's instinct — *flat = ignorant* — has a subtler failure than the wrong support. **Flatness is not preserved under reparameterization.** A prior that is uniform in one coordinate is sharply peaked in another, so "I used a flat prior" is an incomplete sentence: flat *in what?*
+The colleague's instinct — *flat = ignorant* — has a subtler failure than the wrong support, and this time it will catch you too.
+
+**Setup.** You put `Beta(1,1)` — uniform — on $\theta$, satisfied that you have assumed nothing. A logistic-regression model of the same problem works on the log-odds scale, $\psi = \operatorname{logit}\theta = \log\frac{\theta}{1-\theta}$.
+
+**Predict.** Sketch, before running, the density your uniform prior *induces* on $\psi$: is it flat, or peaked — and if peaked, where?
+
+**Reason.** The reflex being tested is "flat is flat in every coordinate — ignorance doesn't care how you write the parameter." Most readers sketch something flat-ish and wide.
+
+**Run.**
 
 ```python
-# Uniform on theta is NOT uniform on the log-odds psi = logit(theta).
+# Push the uniform-on-theta draws through the log-odds transform and look.
 theta_u = rng.uniform(0, 1, 200000)
 psi = np.log(theta_u / (1 - theta_u))          # log-odds transform
-# Induced density of psi is logistic: p(psi) = e^psi / (1+e^psi)^2 = theta(1-theta).
-dens0 = 0.25                                    # p(psi=0)  = 1/4
-dens3 = np.exp(3) / (1 + np.exp(3))**2          # p(psi=3)
+# exact induced density at two points (formula derived in the Reconcile below)
+dens0 = 0.25
+dens3 = np.exp(3) / (1 + np.exp(3))**2
 print(f"Uniform-theta induces on log-odds: p(psi=0)={dens0:.4f}, p(psi=3)={dens3:.4f}, "
       f"ratio={dens0/dens3:.2f}")
 
@@ -179,7 +180,7 @@ save(fig, "flat-isnt-flat")
 
 ![Left panel: a flat histogram over θ on the unit interval. Right panel: the same draws on the log-odds scale form a bell-shaped logistic curve peaked at 0, decidedly not flat.](figures/07-priors/flat-isnt-flat.png)
 
-Uniform on $\theta$ induces the **logistic** density on the log-odds $\psi$, peaked at $\psi=0$ with `0.2500` there versus `0.0452` at $\psi=3$ — a `5.53`-fold preference for even odds that the "flat" prior never advertised. Run it the other way: uniform on $\psi$ (flat log-odds) corresponds on the $\theta$ scale to $\pi(\theta)\propto\theta^{-1}(1-\theta)^{-1}$, which piles all its mass at 0 and 1 — that is the improper **Haldane** prior of §07.5. There is no coordinate-free "flat." The honest questions are: flat in which parameterization, and does that parameterization mean anything? Two principled answers follow.
+**Reconcile.** Not flat. Uniform on $\theta$ induces the **logistic** density on the log-odds $\psi$ — a bell curve peaked at $\psi=0$ with `0.2500` there versus `0.0452` at $\psi=3$: a `5.53`-fold preference for even odds that your "assumption-free" prior never advertised. The sketch was wrong because densities carry a Jacobian: $p(\psi) = p(\theta)\left|\frac{d\theta}{d\psi}\right| = \theta(1-\theta)$, and that factor is anything but constant. Run it the other way and it bites harder: uniform on $\psi$ (flat log-odds) corresponds on the $\theta$ scale to $\pi(\theta)\propto\theta^{-1}(1-\theta)^{-1}$, which has *non-integrable spikes* at 0 and 1 — the improper **Haldane** prior of §07.5. There is no coordinate-free "flat." The honest questions are: flat in which parameterization, and does that parameterization mean anything? Two principled answers follow.
 
 ## 07.4 The Jeffreys prior, derived two ways
 
@@ -187,6 +188,8 @@ Jeffreys' idea removes the coordinate ambiguity by *building the parameterizatio
 $$\pi_J(\theta) \propto \sqrt{\mathcal I(\theta)},$$
 where $\mathcal I(\theta)$ is the Fisher information from module 04 — the curvature of the log-likelihood, the sharpness of the data's voice. For one Bernoulli$(\theta)$ observation module 04 established $\mathcal I(\theta) = \tfrac{1}{\theta(1-\theta)}$, so
 $$\pi_J(\theta) \propto \theta^{-1/2}(1-\theta)^{-1/2} = \text{Beta}(\tfrac12,\tfrac12)\ \text{kernel}.$$
+
+The reason to prefer it is **invariance**: Jeffreys gives the same posterior no matter which coordinate you compute in. This is not an axiom to accept — it is a fact to verify, by two routes on the same data, $s=7$ successes in $n=10$. **Route A:** apply Jeffreys in $\theta$ directly, giving posterior $\text{Beta}(s+\tfrac12,\,n-s+\tfrac12)$. **Route B:** reparameterize to the log-odds $\psi$, put *Jeffreys-in-$\psi$* there ($\pi_J(\psi)\propto\sqrt{\mathcal I_\psi(\psi)}$, with $\mathcal I_\psi = \mathcal I_\theta(d\theta/d\psi)^2 = \theta(1-\theta)$), condition on the data in $\psi$-space, then transform the posterior *back* to $\theta$. If Jeffreys is genuinely invariant, the two posteriors coincide.
 
 ```python
 # Route 1: Jeffreys = sqrt(Fisher info). For Bernoulli, I(theta)=1/(theta(1-theta)).
@@ -196,13 +199,7 @@ beta_half = stats.beta(0.5, 0.5).pdf(th)               # candidate: Beta(1/2,1/2
 scale = beta_half[10000] / jeffreys_unnorm[10000]      # match at theta=0.5
 print(f"Jeffreys sqrt(I) vs Beta(1/2,1/2): max|diff| after scaling = "
       f"{np.max(np.abs(scale*jeffreys_unnorm - beta_half)):.2e}")
-```
 
-The scaled $\sqrt{\mathcal I(\theta)}$ matches the `Beta(0.5,0.5)` density to `7.11e-15` — Jeffreys for a Bernoulli rate *is* `Beta(½,½)`, the arcsine prior with gentle spikes toward 0 and 1.
-
-The reason to prefer it is **invariance**: Jeffreys gives the same posterior no matter which coordinate you compute in. This is not an axiom to accept — it is a fact to verify. Take $s=7$ successes in $n=10$. Route A: apply Jeffreys in $\theta$ directly, giving posterior $\text{Beta}(s+\tfrac12,\,n-s+\tfrac12)$. Route B: reparameterize to the log-odds $\psi$, put *Jeffreys-in-$\psi$* there ($\pi_J(\psi)\propto\sqrt{\mathcal I_\psi(\psi)}$, with $\mathcal I_\psi = \mathcal I_\theta(d\theta/d\psi)^2 = \theta(1-\theta)$), condition on the data in $\psi$-space, then transform the posterior *back* to $\theta$. If Jeffreys is genuinely invariant, the two posteriors coincide.
-
-```python
 # Route 2: put Jeffreys on the log-odds psi, do inference there, transform back to theta.
 s, n = 7, 10
 post_A = stats.beta(s + 0.5, n - s + 0.5).pdf(th)                 # Jeffreys applied in theta
@@ -217,7 +214,7 @@ print(f"Jeffreys posterior via theta vs via log-odds: max|diff| = "
       f"{np.max(np.abs(post_A - post_B)):.2e}")
 ```
 
-The two routes agree to `5.64e-12` — a numerical zero. Jeffreys-in-$\theta$ and Jeffreys-in-$\psi$-transformed-back are the *same posterior*; the prior absorbed the coordinate change exactly, which is the whole point. (A flat prior does not: flat-in-$\theta$ and flat-in-$\psi$ give genuinely different posteriors, §07.3.)
+Two checks land at once. The scaled $\sqrt{\mathcal I(\theta)}$ matches the `Beta(0.5,0.5)` density to `7.11e-15` — Jeffreys for a Bernoulli rate *is* `Beta(½,½)`, the arcsine prior with gentle spikes toward 0 and 1. And the two inference routes agree to `5.64e-12` — a numerical zero: Jeffreys-in-$\theta$ and Jeffreys-in-$\psi$-transformed-back are the *same posterior*; the prior absorbed the coordinate change exactly, which is the whole point. (A flat prior does not: flat-in-$\theta$ and flat-in-$\psi$ give genuinely different posteriors, §07.3.)
 
 ```python
 fig, ax = plt.subplots()
@@ -237,22 +234,26 @@ save(fig, "jeffreys-two-ways")
 
 ## 07.5 Improper priors: when the answer diverges
 
-A prior need not integrate to 1 to yield a proper posterior — $\pi(\theta)\propto 1$ on $(0,1)$ is fine because the likelihood makes the product integrable. The danger is that *nothing warns you* when it isn't. The **Haldane prior** $\text{Beta}(0,0)\propto\theta^{-1}(1-\theta)^{-1}$ is the flat-log-odds prior of §07.3; with a success $s$ and failure $f$ count the posterior is $\propto\theta^{s-1}(1-\theta)^{f-1}=\text{Beta}(s,f)$, which is proper *iff* $s>0$ and $f>0$. Feed it a dataset of **all successes** ($f=0$) and the posterior kernel is $\theta^{n-1}(1-\theta)^{-1}$ — divergent at $\theta=1$.
+A prior need not integrate to 1 to yield a proper posterior — $\pi(\theta)\propto 1$ on $(0,1)$ is fine because the likelihood makes the product integrable. The danger is that *nothing warns you* when it isn't.
+
+**Setup.** The **Haldane prior** $\text{Beta}(0,0)\propto\theta^{-1}(1-\theta)^{-1}$ is the flat-log-odds prior of §07.3. With $s$ successes and $f$ failures the posterior kernel is $\theta^{s-1}(1-\theta)^{f-1}$ — the $\text{Beta}(s,f)$ shape, and on ordinary data it behaves unremarkably. Now the boundary case: **all $n=10$ trials succeed** ($s=10$, $f=0$), leaving the kernel $\theta^{n-1}(1-\theta)^{-1}$.
+
+**Predict.** Does a posterior distribution even exist here — yes or no? And if yes, where is its mass and roughly what is its mean?
+
+**Reason.** The naive answer: "of course — ten straight successes are maximally informative, so the posterior piles up near $\theta=1$ with mean just below 1." The intuition at work: *data this strong can only sharpen the answer, never destroy it.*
+
+**Run.** Existence is a question about the normalizing constant $\int_0^1 \theta^{n-1}(1-\theta)^{-1}d\theta$: track it on $[0, 1-\epsilon]$ as $\epsilon\to 0$, and plot the kernel.
 
 ```python
-# Haldane Beta(0,0) with all-successes data: posterior kernel theta^(n-1)(1-theta)^(-1).
+# Haldane Beta(0,0) with all-successes data: does the posterior kernel normalize?
 from scipy.integrate import quad
 n = 10                                         # n successes, 0 failures
-kernel = lambda t: t**(n - 1) / (1 - t)        # unnormalized posterior; blows up at t=1
+kernel = lambda t: t**(n - 1) / (1 - t)        # unnormalized posterior kernel
 for eps in (1e-2, 1e-4, 1e-6):
     val, _ = quad(kernel, 0, 1 - eps)          # integrate up to 1 - eps
     print(f"integral of posterior kernel on [0, 1-{eps:g}] = {val:.4f}")
 print("as eps -> 0 the integral grows like -log(eps): the posterior does NOT normalize")
-```
 
-The normalizing integral over $[0,\,1-\epsilon]$ is `1.8644` at $\epsilon=10^{-2}$, `6.3823` at $\epsilon=10^{-4}$, `10.9866` at $\epsilon=10^{-6}$ — climbing by about $\ln(100)\approx4.6$ every time $\epsilon$ shrinks two decades, exactly the signature of a logarithmic divergence $\int^{1}\!\frac{d\theta}{1-\theta}=\infty$. There is no posterior distribution; the "answer" is undefined. Notice the trap: `Beta(0,0)` is perfectly safe on ordinary data and detonates only on the boundary dataset — the kind of input that shows up precisely when an event is rare and every trial so far has gone one way.
-
-```python
 fig, ax = plt.subplots()
 tt = np.linspace(0.01, 0.999, 500)
 ax.plot(tt, tt**(n - 1) / (1 - tt), "C3", lw=2)
@@ -263,6 +264,8 @@ save(fig, "haldane-divergence")
 ```
 
 ![A curve on a log-y axis that rises without bound as θ approaches 1, showing the non-integrable spike.](figures/07-priors/haldane-divergence.png)
+
+**Reconcile.** No — there is no posterior. The normalizing integral over $[0,\,1-\epsilon]$ is `1.8644` at $\epsilon=10^{-2}$, `6.3823` at $\epsilon=10^{-4}$, `10.9866` at $\epsilon=10^{-6}$ — climbing by about $\ln(100)\approx4.6$ every time $\epsilon$ shrinks two decades, exactly the signature of a logarithmic divergence $\int^{1}\!\frac{d\theta}{1-\theta}=\infty$. The naive intuition fails because the likelihood $\theta^{10}$ *cannot* tame the prior's $(1-\theta)^{-1}$ spike at 1: it equals 1 there instead of vanishing. The general rule falls out: the Haldane posterior $\text{Beta}(s,f)$ is proper *iff* $s>0$ **and** $f>0$. And notice the trap's shape — `Beta(0,0)` is perfectly safe on ordinary data and detonates only on the boundary dataset, the kind of input that shows up precisely when an event is rare and every trial so far has gone one way.
 
 **The hierarchical variance trap.** The same failure hides in a place practitioners actually visit: the scale parameter of a hierarchical model. The scale-invariant improper prior $\pi(\sigma)\propto 1/\sigma$ (equivalently $\pi(\sigma^2)\propto 1/\sigma^2$) is a standard "noninformative" choice for a variance, and it is safe for the residual variance of a single regression. But placed on a *group-level* standard deviation — the between-group spread $\tau$ in a hierarchical model — it can produce an improper posterior or pin $\tau$ at 0, because with few groups the likelihood does not constrain $\tau$ away from zero and the $1/\sigma$ spike at the origin wins. The booklet's MCMC-difficulties chapter flags exactly this: "the prior $\pi(\sigma)\propto\frac1\sigma$ is no good," and "priors like $\pi(\sigma^2)\propto\frac{1}{\sigma^2}$ create difficulties deep down in a hierarchical model" (booklet ch. 15, citing Gelman, *Bayesian Analysis* 2006). The recommended fix is a weakly-informative proper prior on $\tau$ — a half-Cauchy or half-Normal — which module 16 uses on the eight-schools model. **Rule of thumb:** an improper prior is safe only when you can prove the posterior integrates; on a variance component deep in a hierarchy, that proof usually fails, so use a proper weakly-informative prior.
 
@@ -293,13 +296,8 @@ for n in (10, 10_000):
     sd_sum = np.sqrt(np.array([1, 1]) @ Sigma_n @ np.array([1, 1]))
     print(f"n={n:>6}: posterior sd(theta1)={sd_theta1:.4f}   sd(theta1+theta2)={sd_sum:.4f}")
 print(f"prior sd(theta1) = {np.sqrt(tau2):.4f}")
-```
 
-At $n=10{,}000$ the posterior SD of the *sum* is `0.0100` — it has concentrated exactly as $1/\sqrt n$ intuition demands. But the posterior SD of $\theta_1$ alone is `2.2361`, essentially unchanged from its value of `2.2416` at $n=10$ — a thousand-fold increase in data moved it by about five thousandths. (It sits below the prior SD `3.1623` only because conditioning on the sum removes variance along *one* direction, a one-time constant-factor drop; the $1/\sqrt n$ machinery never engages on $\theta_1$ at all.)
-
-**Reconcile.** The data pin down $\theta_1+\theta_2$ to a razor's edge but say *nothing* about where along the line $\theta_1+\theta_2=\text{const}$ the truth sits. The posterior is a long thin ridge; $\theta_1$'s marginal width is set by the prior's spread along that ridge, and $1/\sqrt n$ never touches it. Whatever you believed about $\theta_1$ *a priori* is essentially what you still believe — forever. Plot the ridge:
-
-```python
+# The ridge picture behind the numbers: sample the n=10,000 posterior.
 fig, ax = plt.subplots()
 n = 10_000
 X = np.ones((n, 2)); y = X @ theta_true + rng.normal(0, 1, n)
@@ -320,11 +318,15 @@ save(fig, "washout-exception")
 
 ![A long, thin, diagonal cloud of posterior samples lying along the line θ1+θ2=1, tightly constrained across the line but sprawling along it.](figures/07-priors/washout-exception.png)
 
+At $n=10{,}000$ the posterior SD of the *sum* is `0.0100` — it has concentrated exactly as $1/\sqrt n$ intuition demands. But the posterior SD of $\theta_1$ alone is `2.2361`, essentially unchanged from its value of `2.2416` at $n=10$ — a thousand-fold increase in data moved it by about five thousandths. (It sits below the prior SD `3.1623` only because conditioning on the sum removes variance along *one* direction, a one-time constant-factor drop; the $1/\sqrt n$ machinery never engages on $\theta_1$ at all.)
+
+**Reconcile.** The data pin down $\theta_1+\theta_2$ to a razor's edge but say *nothing* about where along the line $\theta_1+\theta_2=\text{const}$ the truth sits. The posterior — the figure's long thin ridge — has $\theta_1$'s marginal width set by the prior's spread along that ridge, and $1/\sqrt n$ never touches it. Whatever you believed about $\theta_1$ *a priori* is essentially what you still believe — forever.
+
 **Faces of nonidentifiability.** This is one of three flavors the course will keep meeting. (i) *Structural*, as here: two parameters enter only through a function of them — the prior on the unseen direction is load-bearing forever. (ii) *Symmetry*: a likelihood invariant under relabeling, e.g. mixture components (module 19's label-switching — the posterior is genuinely multimodal by construction). (iii) *Weak likelihood*: technically identified but so flat that at finite $n$ the prior dominates anyway (the small-$n$ end of §07.1). The deep-learning reader has met the extreme case without the name: an overparameterized network has vastly more weights than the data can identify, so the "prior" — weight decay, initialization scale, the implicit bias of SGD — is what selects among the flat directions (module 25). Nonidentifiability is not a pathology to avoid; it is a fact to model, and the prior is how you model it.
 
 ## 07.7 Bridge — regularization is an implicit prior
 
-Every penalized estimator you have trained is a posterior mode in disguise, because **a penalty is the negative log of a prior density**. Ridge regression minimizes $\|y-X\beta\|^2 + \lambda\|\beta\|^2$; the second term is $-2\sigma^2\log$ of a Gaussian prior $\beta\sim N(0,\,\sigma^2/\lambda\,I)$, so the ridge solution is the MAP estimate — and the posterior *mean* — under that prior (module 00 verified the numbers to machine precision; module 06 framed MAP = penalized MLE). Lasso's $\ell_1$ penalty is a Laplace prior; dropout and early stopping are regularizers with looser Bayesian readings (heuristics, cashed out in module 25).
+Every penalized estimator you have trained is a posterior mode in disguise, because **a penalty is the negative log of a prior density**. Ridge regression minimizes $\|y-X\beta\|^2 + \lambda\|\beta\|^2$; the second term is $-2\sigma^2\log$ of a Gaussian prior $\beta\sim N(0,\,\sigma^2/\lambda\,I)$, so the ridge solution is the MAP estimate — and the posterior *mean* — under that prior (module 00 verified the numbers to machine precision; module 06 framed MAP = penalized MLE). Lasso's $\ell_1$ penalty is a Laplace prior; dropout and early stopping are regularizers with looser, **Heuristic**-level Bayesian readings (cashed out in module 25).
 
 ```python
 # The correspondence, stated as an equation you can read off: lambda <-> prior variance.
@@ -382,30 +384,29 @@ for lam in (0.1, 1.0, 100.0):
 $\lambda=0.1\to$ prior SD `6.3246` (barely any constraint — weights could be $\pm$several), $\lambda=1\to$ SD `2.0000`, $\lambda=100\to$ SD `0.2000` (a *confident* claim that every weight is within $\approx0.4$ of zero). Bigger $\lambda$ is a tighter prior, and the one that encodes "weights $\approx0.2$-scale" is $\lambda=100$. Cross-validating $\lambda$ is estimating your prior variance from the data — which is empirical Bayes (modules 14, 18), not a departure from the Bayesian frame but a special case of it. Once you see the penalty as $-\log$ prior, "how much regularization?" becomes the answerable question "how big do I believe the weights are?"
 </details>
 
-**Exercise 07.3 — Flat prior, curved answer.**  *(surprising)*
-*Setup:* You want to be "noninformative" about a probability $\theta$ and choose the uniform `Beta(1,1)`. A colleague wants to be noninformative about the log-odds $\psi=\log\frac{\theta}{1-\theta}$ and puts a very diffuse prior there. You both observe **2 successes in 2 trials** and report the posterior mean of $\theta$.
-*Predict:* Same data, both "noninformative." Will your posterior means for $\theta$ agree, or differ — and if they differ, whose is larger?
-*Reason:* "Noninformative is noninformative; with the same data we must agree" — the §07.3 fallacy that flatness is coordinate-free.
+**Exercise 07.3 — How much does the coordinate choice cost?**  *(§07.3 cashed out; surprising)*
+*Setup:* §07.3 showed that "flat in $\theta$", Jeffreys, and "flat in log-odds" (the Haldane limit) are three different priors. Here is where that difference stops being aesthetic: you observe **2 successes in 2 trials** — the smallest, most boundary-flavored dataset imaginable — and each analyst reports the posterior mean of $\theta$.
+*Predict:* You already know from §07.3 that the priors differ in shape. Commit to magnitudes: do the three posterior means agree to within ~0.02 (shape differences are cosmetic once data arrive), or spread by more than 0.2? And does anything worse than disagreement happen?
+*Reason:* "Two coin flips can't distinguish nearly-flat priors, so the answers will basically coincide" — §07.1's washout intuition, misapplied at $n=2$ on boundary data.
 *Run:*
 ```python
-# You: flat on theta. Colleague: (approximately) flat on log-odds ~ Haldane Beta(0,0) on theta.
+# You: flat on theta. Jeffreys: Beta(1/2,1/2). Colleague: flat on log-odds = Haldane Beta(0,0).
 you = stats.beta(1 + 2, 1 + 0)                  # Beta(1,1) + 2 successes, 0 failures
-# Colleague's flat-log-odds limit is Haldane; with a failure it's proper. Use Jeffreys as the
-# well-defined "flat-ish on a symmetric scale" stand-in, and show the spread of defaults:
-colleague = stats.beta(0.5 + 2, 0.5 + 0)        # Beta(1/2,1/2) + 2 successes, 0 failures
+jeff = stats.beta(0.5 + 2, 0.5 + 0)             # Beta(1/2,1/2) + 2 successes, 0 failures
 print(f"flat-on-theta   posterior mean = {you.mean():.4f}")
-print(f"Jeffreys        posterior mean = {colleague.mean():.4f}")
-print(f"MLE (plug-in) = {2/2:.4f}; flat-log-odds Haldane limit -> mean 1.0000 (degenerate)")
+print(f"Jeffreys        posterior mean = {jeff.mean():.4f}")
+print(f"flat-log-odds: strict Haldane posterior Beta(2,0) is IMPROPER (all successes, "
+      f"section 07.5); Beta(eps,eps)-prior posterior means -> 1.0000 as eps -> 0")
 ```
 <details><summary>Reconcile</summary>
 
-Flat-on-$\theta$ gives mean `0.7500` (module 05's rule-of-succession answer — two data points cannot justify certainty). Jeffreys gives `0.8333`, pulled higher because `Beta(½,½)` leans toward the extremes. The strict flat-log-odds prior is the Haldane limit, whose posterior mean is the degenerate `1.0000` — the MLE, back again, asserting the next flip is certainly a success. Three "noninformative" priors, three different answers from `0.75` to `1.0`, on identical data. "Noninformative" names a *choice of coordinate to be flat in*, not an absence of assumptions; the honest move is to state the prior and, at small $n$, report the sensitivity fan.
+Flat-on-$\theta$ gives mean `0.7500` (module 05's rule-of-succession answer — two data points cannot justify certainty). Jeffreys gives `0.8333`, pulled higher because `Beta(½,½)` leans toward the extremes. And the strict flat-log-odds prior does something worse than disagree: with all-successes data its posterior $\text{Beta}(2,0)$ is **improper** (§07.5's rule — proper iff $s>0$ *and* $f>0$); the limit of $\text{Beta}(\epsilon,\epsilon)$-prior posterior means as $\epsilon\to0$ is the degenerate `1.0000`, the plug-in MLE asserting the next flip is certainly a success. So the spread is `0.75` to effectively `1.0` — an 0.25 gap, ten times the "cosmetic" guess — and one of the three "noninformative" defaults has no answer at all. The coordinate choice §07.3 exposed as a shape difference becomes, at small $n$ on boundary data, the *entire* answer. The honest move: state the prior, and at small $n$ report the sensitivity fan.
 </details>
 
 **Exercise 07.4 — Can a prior rescue an unidentified parameter?**  *(connects to §07.6)*
 *Setup:* In the $y=\theta_1+\theta_2$ model of §07.6, you cannot identify $\theta_1$ from data. Suppose you have side information: a *proper* prior $\theta_1\sim N(2, 0.5^2)$ (SD 0.5), while $\theta_2\sim N(0,10)$ stays vague. Collect $n=10{,}000$ observations.
-*Predict:* Will the posterior SD of $\theta_1$ now shrink toward 0 as $n$ grows, or stay near its prior SD of 0.5?
-*Reason:* "The data still can't see $\theta_1$, so its posterior must stay at the prior width 0.5" — correct instinct, with one subtlety about the sum.
+*Predict:* Two commitments. Will the posterior SD of $\theta_1$ shrink toward 0 as $n$ grows, or stay near its prior SD of 0.5? And $\theta_2$'s posterior SD — near its vague prior width $\sqrt{10}\approx3.16$, or tight?
+*Reason:* "The data can't see either parameter individually, so each stays at its own prior width — $\theta_1$ at 0.5, $\theta_2$ at 3.16." Half of this is wrong.
 *Run:*
 ```python
 tau1_2, tau2_2, sigma2 = 0.5**2, 10.0, 1.0

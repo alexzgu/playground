@@ -1,8 +1,8 @@
-posterior mean   (L2 -> mean)   = 2.0000   E[L2] = 1.9990
-posterior median (L1 -> median) = 1.6783   E[L1] = 1.0516
+posterior mean   (L2 -> mean)   = 2.0000   E[L2] = 2.0000
+posterior median (L1 -> median) = 1.6783   E[L1] = 1.0517
 posterior mode   (0-1 -> mode)  = 1.0000   density p(mode) = 0.3679
-cross-check: E[L2] at the median = 2.1024 > 1.9990 (mean wins L2)
-cross-check: E[L1] at the mean   = 1.0826 > 1.0516 (median wins L1)
+cross-check: E[L2] at the median = 2.1035 > 2.0000 (mean wins L2)
+cross-check: E[L1] at the mean   = 1.0827 > 1.0517 (median wins L1)
 [fig] figures/06-estimates-are-decisions/loss-picks-estimator.png
 critical fractile c_u/(c_u+c_o) = 0.75
 predictive mean demand          = 10.00
@@ -17,6 +17,7 @@ observed z=0.8:  lasso MAP = 0.0000   posterior mean = 0.3945
 predict-first: you saw R=0.90 -> naive answer 50%; geometry says coverage = 1 (certain)
 marginal coverage over all R = 0.500   (exactly 0.500)
 R≈0.10: simulated coverage 0.111   exact 0.111
+R≈0.20: simulated coverage 0.250   exact 0.250
 R≈0.30: simulated coverage 0.429   exact 0.429
 R≈0.90: simulated coverage 1.000   exact 1.000
 [fig] figures/06-estimates-are-decisions/two-point-coverage.png
@@ -27,7 +28,7 @@ prior-averaged coverage (MISSPEC τ=5)  = 0.8288
 [fig] figures/06-estimates-are-decisions/prior-averaged-coverage.png
 coin-averaged half-width = 13.93
 conditional coverage GIVEN A used = 1.0000  (nominal 0.95)
-proper A-interval half-width = 1.96  (25x narrower)
+proper A-interval half-width = 1.96  (7.1x narrower)
 min(y) = 9.00  (theta is IMPOSSIBLE above this)
 90% confidence interval for theta = [7.93, 9.76]
 does the CI exceed min(y)?  upper end 9.76 > 9.00: True

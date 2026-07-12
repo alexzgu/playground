@@ -57,7 +57,7 @@ def prose_stats(text: str) -> dict:
         "prose_words": words,
         "blocks_total": len(blocks),
         "blocks_runnable": sum(1 for *_, r in blocks if r),
-        "figures_referenced": len(re.findall(r"!\[[^\]]*\]\(figures/", text)),
+        "figures_referenced": len(re.findall(r"!\[.*?\]\(figures/", text)),
         "details_solutions": len(re.findall(r"<details>", text)),
     }
 

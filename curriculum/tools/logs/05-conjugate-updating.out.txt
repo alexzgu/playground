@@ -31,6 +31,7 @@ add-1 smoothed probs   = [0.5417 0.0417 0.1667 0.25  ]
 unseen word: MLE = 0.0000  ->  smoothed = 0.0417
 Beta-Binomial: plug-in var = 2.34   predictive var = 4.69   ratio = 2.0
 Gamma-Poisson: plug-in var = 2.0   predictive var = 3.0
+plug-in interval's coverage under its own Binomial model = 0.9525
 plug-in 90% interval [4, 9]: realized coverage = 0.8307
 predictive 90% interval [2, 10]: realized coverage = 0.9822
 [fig] figures/05-conjugate-updating/predictive-vs-plugin.png
@@ -38,9 +39,11 @@ P(theta_B > theta_A) = 0.9510
 E[uplift B - A]      = 0.01594
 expected loss | ship B = 0.000199
 expected loss | ship A = 0.016134
+regret ratio ship-A : ship-B = 81x
 DECISION: ship B  (minimizes posterior expected loss)
 [fig] figures/05-conjugate-updating/ab-test.png
 block formula: cond mean = 0.7999   cond var = 0.5397
+precision route: max|diff| mean = 1.1e-16, var = 0.0e+00   (machine precision)
 brute force (n=2831 kept): cond mean = 0.7904   cond var = 0.5304
 max|difference|: mean 0.0096, var 0.0093
 [fig] figures/05-conjugate-updating/gaussian-conditioning.png

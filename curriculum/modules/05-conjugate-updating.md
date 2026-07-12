@@ -38,7 +38,7 @@ def save(fig, name):
     print(f"[fig] {out}")
 ```
 
-## 05.1 Two data points, and why the MLE lies  [SIGNATURE S2]
+## 05.1 Two data points, and what the MLE leaves out  [SIGNATURE S2]
 
 Start where the intuition breaks.
 
@@ -77,7 +77,7 @@ save(fig, "s2-overconfident-mle")
 
 **Reconcile.** The posterior is $\mathrm{Beta}(3,1)$, mean $3/4 = $ `0.7500`, and the posterior-predictive probability that the next impression converts is $\mathbb{E}[\theta] = $ `0.7500` — not `1.0`. The MLE's "1.0" claimed *certainty from two data points*: an artifact of plugging in a point estimate and throwing away parameter uncertainty. Read the update as counts: $\mathrm{Beta}(1{+}2,\,1{+}0)$ means **3 effective successes and 1 effective failure**, so $3/4$. The uniform prior was not "no information" — it was worth exactly one pseudo-success and one pseudo-failure, and with only two real data points those pseudo-observations still carry a quarter of the weight.
 
-That sentence — *posterior = prior pseudo-data + real data* — is the whole module. You will meet this correction again as Laplace's rule of succession (module 00's coin: 6/7), as add-$\alpha$ smoothing in a language model (§05.5), and as the flaring predictive interval of regression (module 14's trumpet). Plug-in prediction is *most* overconfident exactly when you have *least* data.
+That sentence — *posterior = prior pseudo-data + real data* — is the whole module. You will meet this correction again as Laplace's rule of succession (module 01's 6/7 = 0.8571), as add-$\alpha$ smoothing in a language model (§05.5), and as the flaring predictive interval of regression (module 14's trumpet). Plug-in prediction is *most* overconfident exactly when you have *least* data.
 
 ## 05.2 Why closed forms exist: conjugacy is exponential-family closure
 
@@ -252,7 +252,7 @@ print(f"predictive t: df={df:.0f}  loc={loc:.4f}  scale={scale:.4f}")
 
 # Monte-Carlo the predictive from its definition and compare to the closed form.
 M = 300_000
-s2  = stats.invgamma(a=an, scale=bn).rvs(size=M, random_state=rng_nig)   # sigma^2 | y
+s2  = stats.invgamma(a=an, scale=bn).rvs(size=M, random_state=rng_nig)   # sigma^2 | y; IG(a,b): scipy scale = b (course convention, STYLE §3)
 mu  = rng_nig.normal(mn, np.sqrt(s2/kn))                                  # mu | sigma^2, y
 yt  = rng_nig.normal(mu, np.sqrt(s2))                                     # ytilde | mu, sigma^2
 tt  = stats.t(df, loc, scale)
@@ -293,7 +293,7 @@ print(f"add-1 smoothed probs   = {np.round(pred_probs, 4)}")
 print(f"unseen word: MLE = {mle[1]:.4f}  ->  smoothed = {pred_probs[1]:.4f}")
 ```
 
-The MLE assigns the unseen word probability `0.0000`; the add-1 predictive assigns `0.0417`. The Dirichlet prior contributed one pseudo-count per word — the multi-category twin of Beta's one-pseudo-success, one-pseudo-failure. Laplace's rule of succession (module 00), Beta's $+1$, and add-$\alpha$ are the same move at $K=2$, $K=2$, and $K$ categories.
+The MLE assigns the unseen word probability `0.0000`; the add-1 predictive assigns `0.0417`. The Dirichlet prior contributed one pseudo-count per word — the multi-category twin of Beta's one-pseudo-success, one-pseudo-failure. Laplace's rule of succession (module 01), Beta's $+1$, and add-$\alpha$ are the same move at $K=2$, $K=2$, and $K$ categories.
 
 ## 05.6 Predictive vs plug-in: the honest interval
 
@@ -326,6 +326,9 @@ y_future = rng_cov.binomial(m, theta)                             # honest futur
 # plug-in 90% interval: freeze theta at p_hat
 lo_pi, hi_pi = stats.binom(m, p).ppf(0.05), stats.binom(m, p).ppf(0.95)
 cov_plugin = np.mean((y_future >= lo_pi) & (y_future <= hi_pi))
+# what the interval covers under the plug-in's OWN model (discreteness makes it >90%)
+cov_nominal = stats.binom(m, p).cdf(hi_pi) - stats.binom(m, p).cdf(lo_pi - 1)
+print(f"plug-in interval's coverage under its own Binomial model = {cov_nominal:.4f}")
 # predictive 90% interval: Beta-Binomial quantiles
 from scipy.special import betaln, comb
 xs = np.arange(m + 1)
@@ -348,11 +351,15 @@ save(fig, "predictive-vs-plugin")
 
 ![Two overlaid pmfs over 0–10 successes: the plug-in Binomial is tall and concentrated; the Beta-Binomial predictive is lower and more spread, with visibly fatter shoulders.](figures/05-conjugate-updating/predictive-vs-plugin.png)
 
-The plug-in 90% interval covers only `0.8307` of honest future outcomes — it *under-covers*, because it ignored the epistemic term. The predictive interval $[2,10]$ covers `0.9822` (over-covering slightly here only because the support is coarse and discrete). The naive expectation "a 90% interval covers 90%" fails precisely because the plug-in interval answers the wrong question — it is the interval you would report *if you knew $\theta$*, which you do not.
+The plug-in interval covers only `0.8307` of honest future outcomes. The comparison is actually *worse* than "90 vs 83": on the coarse discrete support the interval $[4,9]$ covers `0.9525` under the plug-in's own Binomial model — it is really a ~95% interval — yet honest reality still catches it out at 83%. The epistemic term alone accounts for that twelve-point drop; discreteness worked in the plug-in's favor and it under-covered anyway. The predictive interval $[2,10]$ covers `0.9822` (over-covering slightly, the same discreteness now on the honest side). The naive expectation "a 90% interval covers 90%" fails precisely because the plug-in interval answers the wrong question — it is the interval you would report *if you knew $\theta$*, which you do not.
 
 ## 05.7 A/B test, driven to a decision  [line 4]
 
 A posterior is not a deliverable; an *action* is. Two ad variants: A converts 41 of 1000, B converts 57 of 1000. Flat $\mathrm{Beta}(1,1)$ priors give posteriors $\mathrm{Beta}(42,960)$ and $\mathrm{Beta}(58,944)$. Most write-ups stop at $P(\theta_B>\theta_A)$. That is line 2. **Shipping is line 4** — minimize posterior expected loss — and it needs a loss, not just a probability. Take the loss of a decision to be the *regret*: if you ship the worse arm, you lose the conversion-rate difference on every future impression.
+
+**Predict.** Spoiler for one number: $P(\theta_B>\theta_A)$ will come out $\approx 0.95$. Given that, shipping B feels obvious — but *by how much*? Before running, commit to the **ratio of ship-A's expected regret to ship-B's**: roughly 20× (odds of 0.95 to 0.05), or something much larger?
+
+**Reason.** The intuition being used: "a high win-probability *is* the decision — 95% vs 5% means the margin is about 19-to-1." That reads the probability as if it already carried the stakes.
 
 ```python
 rng_ab = np.random.default_rng(4)
@@ -371,6 +378,7 @@ print(f"P(theta_B > theta_A) = {p_B_beats_A:.4f}")
 print(f"E[uplift B - A]      = {uplift:.5f}")
 print(f"expected loss | ship B = {loss_ship_B:.6f}")
 print(f"expected loss | ship A = {loss_ship_A:.6f}")
+print(f"regret ratio ship-A : ship-B = {loss_ship_A/loss_ship_B:.0f}x")
 print(f"DECISION: ship {decision}  (minimizes posterior expected loss)")
 
 fig, ax = plt.subplots(1, 2, figsize=(11, 4))
@@ -389,7 +397,7 @@ save(fig, "ab-test")
 
 ![Left: two overlapping Beta posteriors for A and B, B shifted right. Right: histogram of the uplift theta_B minus theta_A, mostly positive with a small tail below zero at the P(B>A) boundary.](figures/05-conjugate-updating/ab-test.png)
 
-$P(\theta_B>\theta_A) = $ `0.9510`, expected uplift `0.01594`. But the decision follows from the *losses*: shipping B risks `0.000199` in expected regret, shipping A risks `0.016134` — nearly two orders of magnitude more. **Ship B.** Note the asymmetry the probability alone hides: even the 5% of worlds where A is better cost almost nothing (A and B are close there), whereas the worlds where B is better cost a full point-and-a-half of conversion. That gap between "which is probably better" and "which should I ship" is line 4 earning its place; module 22 extends it to *when to stop testing* (expected value of sample information).
+**Reconcile.** $P(\theta_B>\theta_A) = $ `0.9510`, expected uplift `0.01594` — and the regret ratio is not 19-to-1 but `81`×: shipping B risks `0.000199` in expected regret, shipping A risks `0.016134`. The 19-to-1 guess missed by a factor of four because a probability weighs *worlds*, while a loss weighs *worlds × stakes*. In the 5% of worlds where A is really better, A and B are nearly tied, so being wrong there costs almost nothing; in the worlds where B is better, shipping A forfeits a full point-and-a-half of conversion. The probability alone cannot see that asymmetry — only the expected loss can. **Ship B.** That gap between "which is probably better" and "which should I ship" is line 4 earning its place; module 22 extends it to *when to stop testing* (expected value of sample information).
 
 ## 05.8 The Gaussian conditioning toolkit
 
@@ -416,6 +424,15 @@ x2 = np.array([0.7, -1.3])                                          # observe x1
 cm, cc = gaussian_condition(mu, Sigma, idx1=[0], idx2=[1, 2], x2=x2)
 print(f"block formula: cond mean = {cm[0]:.4f}   cond var = {cc[0,0]:.4f}")
 
+# exact algebraic cross-check via the PRECISION matrix: with Lambda = Sigma^{-1}
+# partitioned conformally, Sigma_{1|2} = Lambda_11^{-1} and
+# mu_{1|2} = mu_1 - Lambda_11^{-1} Lambda_12 (x2 - mu_2)  — an independent route.
+Lam = np.linalg.inv(Sigma)
+cc_prec = 1.0 / Lam[0, 0]
+cm_prec = mu[0] - cc_prec * (Lam[0, 1:] @ (x2 - mu[1:]))
+print(f"precision route: max|diff| mean = {abs(cm_prec - cm[0]):.1e}, "
+      f"var = {abs(cc_prec - cc[0,0]):.1e}   (machine precision)")
+
 # brute force: sample the joint, keep draws whose (x1,x2) land near the observed values.
 X = rng_g.multivariate_normal(mu, Sigma, size=8_000_000)
 keep = (np.abs(X[:, 1] - x2[0]) < 0.1) & (np.abs(X[:, 2] - x2[1]) < 0.1)
@@ -435,7 +452,7 @@ save(fig, "gaussian-conditioning")
 
 ![Histogram of brute-force conditioned samples of x1 with the block-formula Gaussian density overlaid, matching in both center and width.](figures/05-conjugate-updating/gaussian-conditioning.png)
 
-The block formula gives conditional mean `0.7999` and variance `0.5397`; brute-force rejection sampling (keeping the ~`2831` of 8 million draws that land near the observed $x_2$) returns `0.7904` and `0.5304` — agreeing to within `0.0096` and `0.0093`, pure Monte-Carlo error. **These two formulas are load-bearing infrastructure for three later modules:** Bayesian linear regression's posterior over coefficients (module 14) is one conditioning step; the Gaussian-process posterior (module 20) is this formula with $\Sigma$ replaced by a kernel matrix; and the Kalman filter (module 21) alternates the Normal-Normal update of §05.4 with a marginalize-then-condition sweep built from exactly these blocks.
+The block formula gives conditional mean `0.7999` and variance `0.5397`. Two independent checks confirm it. The *algebraic* one: computing the same conditional through the inverted **precision matrix** ($\Sigma_{1\mid2} = \Lambda_{11}^{-1}$, $\mu_{1\mid2} = \mu_1 - \Lambda_{11}^{-1}\Lambda_{12}(x_2-\mu_2)$ — the Schur complement seen from the other side) agrees to machine precision. The *sampling* one: brute-force rejection (keeping the ~`2831` of 8 million draws that land near the observed $x_2$) returns `0.7904` and `0.5304` — within `0.0096` and `0.0093`, which is Monte-Carlo noise plus a small finite-window bias from conditioning on a neighborhood rather than a point. **These two formulas are load-bearing infrastructure for three later modules:** Bayesian linear regression's posterior over coefficients (module 14) is one conditioning step; the Gaussian-process posterior (module 20) is this formula with $\Sigma$ replaced by a kernel matrix; and the Kalman filter (module 21) alternates the Normal-Normal update of §05.4 with a marginalize-then-condition sweep built from exactly these blocks.
 
 ## Bridge — C-B §7.2, and the shrinkage you already use
 
@@ -529,7 +546,7 @@ At $n=5$ the two posterior means are far apart (`0.1429` vs `0.7407` — the fir
 
 - **Conjugacy is exponential-family closure:** write the prior in the likelihood's natural form and the posterior stays in the family — you update by adding your data's sufficient statistic to the prior's pseudo-statistic and your $n$ to its pseudo-$n$.
 - **The master shrinkage formula:** every conjugate posterior mean is a precision-weighted average, $\frac{\kappa}{\kappa+n}\,(\text{prior mean}) + \frac{n}{\kappa+n}\,(\text{MLE})$. The prior is worth $\kappa$ observations; this same formula is ridge, the Kalman gain, and partial pooling.
-- **S2 — the overconfident MLE:** 2-of-2 gives MLE 1.0 but posterior mean and predictive `0.75`; plug-in prediction is most overconfident when data are scarcest. Recurs as the rule of succession and add-$\alpha$.
+- **S2 — the overconfident MLE:** 2-of-2 gives MLE 1.0 but posterior mean and predictive `0.75`; plug-in prediction is most overconfident when data are scarcest. Recurs as the rule of succession, add-$\alpha$, and module 14's regression trumpet.
 - **Predictive, not plug-in:** the posterior predictive integrates out $\theta$; by the law of total variance it adds an epistemic term and is strictly wider in these families (Beta-Binomial `4.69` vs `2.34`, Gamma-Poisson `3.0` vs `2.0`), so a plug-in 90% interval under-covers (`0.8307`).
 - **Five pairs, five predictives:** Beta→Beta, Normal→Normal, Gamma→Gamma (predictive Negative-Binomial, overdispersed), NIG→NIG (predictive Student-$t_{2a_n}$, heavy-tailed), Dirichlet→Dirichlet (predictive add-$\alpha$).
 - **Decisions are line 4:** an A/B test ends not at $P(B>A)=$ `0.9510` but at the expected-loss comparison (`0.000199` ship-B vs `0.016134` ship-A) that says *ship B*.

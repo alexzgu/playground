@@ -4,12 +4,12 @@
 > **Which line?** All four, viewed from outside. This module audits the machine of modules 00–07 against the *sampling distribution* — the frequentist's ledger — and finds the Bayesian procedures pass, and sometimes win.
 > **Promise.** After this module you can state exactly when a credible interval is also a confidence interval, explain why the "obviously optimal" MLE is inadmissible in $d\ge 3$, derive James–Stein as empirical Bayes, and read frequentist evaluation as an audit your models should welcome rather than a rival creed.
 > **Prereqs.** Modules 04 (likelihood, Fisher information, MLE), 05 (conjugate updating, shrinkage formula), 06 (estimates are decisions, coverage, ancillarity).
-> **Runtime.** ~55 s.
+> **Runtime.** ~5 s.
 > **Sources.** C-B §7.3 (Cramér–Rao, loss/risk, Bayes rules), §10.1 (MLE asymptotics); Efron–Morris on James–Stein by concept; booklet ch. 9 (shrinkage) preview.
 
 Here is a belief almost every trained reader holds, and it is *almost* right. You want to estimate the mean $\theta$ of a Gaussian. You take the sample mean $\bar x$ — the MLE. It is unbiased. Its variance attains the Cramér–Rao bound, so no unbiased estimator beats it. Asymptotically it is efficient, and by Bernstein–von Mises the flat-prior posterior agrees with it to leading order. *The MLE for a Gaussian mean is obviously optimal.* Every clause of that sentence is a theorem. And the conclusion is false the moment you estimate **three means at once**.
 
-This module is the reveal. We start by confirming the MLE really is everything the textbook promises for *one* parameter (§08.1). Then we estimate several unrelated quantities together and watch the MLE lose to a biased competitor — Stein's paradox, the signature experience S4 (§08.2). We identify that competitor as a Bayesian posterior mean whose prior was read off the data (§08.3, empirical Bayes). We then explain *why* the paradigms agreed for one parameter and must agree asymptotically — Bernstein–von Mises — and catalogue exactly where the agreement breaks (§08.4). Finally we frame the whole reconciliation as a theorem (complete-class, §08.5) and run the two audits a good Bayesian model should pass: the bootstrap and coverage (§08.6). The mood throughout is not "gotcha." It is: *their crown jewel is our shrinkage.*
+First, watch the MLE earn every word of that reputation. The mood throughout is not "gotcha." It is: *their crown jewel is our shrinkage.*
 
 ```python
 # --- setup ---
@@ -146,7 +146,7 @@ save(fig, "stein-dominance")
 
 ![Risk versus signal size for d=10: the MLE risk is flat at 10 while the James–Stein-plus risk rises from about 1.3 toward 10 but stays strictly below it.](figures/08-frequentist-bridge/stein-dominance.png)
 
-The MLE risk is flat at $d=10$ regardless of $\lVert\theta\rVert$ (the sampling distribution of $X$ does not care where $\theta$ sits). James–Stein$^+$ climbs from `1.28` at the origin toward 10 as the signal grows, but never touches it — biased everywhere, better everywhere. That is what *dominance* means, and it is why the MLE is **inadmissible** in $d\ge3$: a rule you should never use, because another rule beats it at every single $\theta$.
+The MLE risk is flat at $d=10$ regardless of $\lVert\theta\rVert$ (the sampling distribution of $X$ does not care where $\theta$ sits). James–Stein$^+$ climbs from `1.28` at the origin (the same quantity as the `1.25` above — two independent Monte-Carlo runs) toward 10 as the signal grows, but never touches it — biased everywhere, better everywhere. That is what *dominance* means, and it is why the MLE is **inadmissible** in $d\ge3$: a rule you should never use, because another rule beats it at every single $\theta$.
 
 **The collapse at low dimension.** The magic needs $d\ge 3$. The factor $d-2$ is the tell.
 
@@ -185,7 +185,7 @@ Why did the paradigms agree so perfectly for one Gaussian mean in §08.1, and di
 
 **Bernstein–von Mises (BvM), stated.** Fix a well-specified model with a finite-dimensional parameter. As $n\to\infty$, the posterior distribution of $\theta$, *centered at the MLE and scaled by $\sqrt n$*, converges to the same Gaussian as the sampling distribution of the MLE:
 $$p(\theta\mid y)\ \approx\ N\!\big(\hat\theta_n,\ \mathcal I_n^{-1}\big)\ \approx\ \text{(sampling law of }\hat\theta_n\text{)}.$$
-Consequence: the Bayesian's credible interval and the frequentist's confidence interval **coincide asymptotically**. The prior washes out; the likelihood's curvature (Fisher information, module 04) sets both widths. Watch it converge for a skewed model where the finite-$n$ posterior is *visibly* non-Gaussian — the rate of an exponential, whose Gamma posterior is right-skewed at small $n$.
+Consequence: the Bayesian's credible interval and the frequentist's confidence interval **coincide asymptotically**. The prior washes out; the likelihood's curvature (Fisher information, module 04) sets both widths. Watch it converge for a skewed model where the finite-$n$ posterior is *visibly* non-Gaussian — the rate of an exponential, whose Gamma posterior is right-skewed at small $n$. **Predict** first: at $n=5$, with a near-flat prior, are the centered posterior and the centered sampling law of the MLE already the same curve — total-variation distance near zero — or visibly different? The tempting shortcut: "flat prior means posterior $=$ likelihood $=$ what the MLE sees, so they should match at any $n$."
 
 ```python
 # BvM: overlay the posterior (ONE dataset) on the sampling dist of the MLE (MANY datasets).
@@ -220,7 +220,7 @@ save(fig, "bvm-convergence")
 
 ![Three panels for n=5, 50, 500: at n=5 the posterior and MLE sampling distributions are skewed; by n=500 both are the same narrow Gaussian, TV shrinking from 0.17 to 0.02.](figures/08-frequentist-bridge/bvm-convergence.png)
 
-The centered total-variation distance between the posterior and the MLE's sampling law falls from `0.1668` at $n=5$ to `0.1446` at $n=50$ to `0.0165` at $n=500$, while the posterior skew decays from `0.886` toward zero. At small $n$ both laws are skewed (they share the likelihood) and only roughly agree; by $n=500$ they are the same narrow Gaussian, skew gone. **This is the deep reason module 04's Fisher-normal interval matched the exact Beta interval: BvM.** It is also the license, used everywhere in practice, to read a NUTS credible interval as an approximate confidence interval.
+The centered total-variation distance between the posterior and the MLE's sampling law falls from `0.1668` at $n=5$ to `0.1446` at $n=50$ to `0.0165` at $n=500$, while the posterior skew decays from `0.886` toward zero. So the flat-prior shortcut fails at small $n$: the two laws answer different questions (vary $\theta$ vs vary data) and merely *share a likelihood*; only the asymptotics fuse them. By $n=500$ they are the same narrow Gaussian, skew gone. (The centering hides the theorem's other half: the posterior mean and the MLE also coincide to leading order — their gap is $O(1/n)$ — so centering at either is asymptotically the same choice; this demo isolates the shape-and-width claim on purpose.) **This is the deep reason module 04's Fisher-normal interval matched the exact Beta interval: BvM.** It is also the license, used everywhere in practice, to read a NUTS credible interval as an approximate confidence interval.
 
 > **Conditions box (memorize — every one can fail in practice).** BvM requires: **(1) a well-specified model** (the truth is in the family); **(2) a fixed, finite-dimensional, identifiable $\theta$** (the number of parameters does not grow with $n$); **(3) $\theta_0$ in the interior** of the parameter space (not on a boundary); **(4) a prior that is positive and continuous at $\theta_0$**. Drop any one and the credible interval stops being a confidence interval.
 
@@ -239,7 +239,7 @@ print(f"U(0,θ) boundary:  E[n(θ−max)] = {scaled.mean():.3f} (Exp mean θ={th
 
 The rescaled error has mean `0.986` and skewness `1.90` — the fingerprint of an Exponential, nothing like the symmetric Gaussian BvM promises. Condition 3 failed.
 
-*Infinitely many nuisance parameters (condition 2): Neyman–Scott.* Observe pairs $(X_i,Y_i)\sim N(\mu_i,\sigma^2)$ — a fresh mean $\mu_i$ for every pair, one shared variance $\sigma^2$. The number of parameters grows *with the data*. The MLE of $\sigma^2$ converges to the **wrong value**, $\sigma^2/2$.
+*Infinitely many nuisance parameters (condition 2): Neyman–Scott.* Observe pairs $(X_i,Y_i)\sim N(\mu_i,\sigma^2)$ — a fresh mean $\mu_i$ for every pair, one shared variance $\sigma^2$. The number of parameters grows *with the data*. **Predict** before running: one shared $\sigma^2$, but a fresh $\mu_i$ per pair estimated from just two points each — with 20,000 pairs, does $\hat\sigma^2_{\mathrm{MLE}}$ land at the true $\sigma^2=1$, or somewhere else? The reflex in play: *more data always means consistent.*
 
 ```python
 # Neyman-Scott: one nuisance mean per pair -> sigma^2 MLE converges to sigma^2/2.
@@ -251,7 +251,7 @@ sig2_mle = (((Xp - mu_hat)**2 + (Yp - mu_hat)**2).sum()) / (2 * Npairs)
 print(f"Neyman–Scott:  σ²_MLE = {sig2_mle:.4f}   →  σ²/2 = {sig2_true/2:.4f}   (true σ² = {sig2_true})")
 ```
 
-The MLE lands at `0.4988`, dead on $\sigma^2/2=$ `0.5000`, not the true `1.0`. Each mean $\mu_i$ is estimated from only two points, so the within-pair spread systematically underestimates $\sigma^2$ — and the bias never vanishes because a new unknown arrives with every observation. Consistency is *void*: condition 2 failed. (A Bayesian who marginalizes the $\mu_i$ under a proper prior escapes this, module 16.)
+The MLE lands at `0.4988` — dead on $\sigma^2/2=$ `0.5000`, not the true `1.0`, and no amount of additional pairs moves it. The "more data means consistent" reflex fails because each mean $\mu_i$ is estimated from only two points, so the within-pair spread systematically underestimates $\sigma^2$ — and the bias never vanishes because a new unknown arrives with every observation. Consistency is *void*: condition 2 failed. (A Bayesian who marginalizes the $\mu_i$ under a proper prior escapes this, module 16.)
 
 *Unidentified parameters (condition 2, again).* Module 07's washout exception: if only $\theta_1+\theta_2$ is observed, the sum concentrates but $\theta_1$ alone keeps its prior width forever. BvM's identifiability clause is exactly what fails, and no data volume fixes it.
 
@@ -259,7 +259,7 @@ The MLE lands at `0.4988`, dead on $\sigma^2/2=$ `0.5000`, not the true `1.0`. E
 
 ## 08.5 The complete-class theorem: "special case" is itself a theorem
 
-Modules 00–07 repeatedly framed frequentist procedures as special cases or approximations of Bayesian ones. That framing is not rhetoric — it is a theorem. Draw the **risk set**: for a tiny problem, plot every decision rule as a point whose coordinates are its risks at each possible $\theta$. Take $X\sim\mathrm{Binomial}(2,\theta)$ with $\theta\in\{0.3,0.7\}$ (a two-point parameter space) and squared-error loss. A rule assigns an estimate $a\in[0,1]$ to each outcome $x\in\{0,1,2\}$; its risk pair is $(R(0.3),R(0.7))$.
+Modules 00–07 repeatedly framed frequentist procedures as special cases or approximations of Bayesian ones. That framing is not rhetoric — it is a theorem. Draw the **risk set**: for a tiny problem, plot every decision rule as a point whose coordinates are its risks at each possible $\theta$. Take $X\sim\mathrm{Binomial}(2,\theta)$ with $\theta\in\{0.3,0.7\}$ (a two-point parameter space) and squared-error loss. A rule assigns an estimate $a\in[0,1]$ to each outcome $x\in\{0,1,2\}$; its risk pair is $(R(0.3),R(0.7))$. **Predict** before looking: where does the MLE rule $a=x/2$ land — on the efficient lower boundary of the risk set, or in the dominated interior? Its §08.1 credentials (unbiased, CRLB-attaining) argue for the boundary.
 
 ```python
 # Complete class: the risk set for binomial(n=2), Theta={0.3,0.7}, squared-error loss.
@@ -297,7 +297,7 @@ save(fig, "risk-set")
 
 ![Risk set as a gray cloud in the plane of (risk at 0.3, risk at 0.7); the Bayes rules trace the convex lower-left boundary; the MLE rule sits well up on the interior at (0.105, 0.105).](figures/08-frequentist-bridge/risk-set.png)
 
-The risk set is a convex region (you may randomize between rules), and the **Bayes rules trace its lower-left boundary** — one Bayes rule per prior weight $p$, each the posterior mean at every outcome. The MLE rule $a=x/2$ lands at risk pair `(0.105, 0.105)`, up in the interior: dominated, hence inadmissible even here. The Bayes rule at $p=0.5$ sits at `(0.029, 0.029)`, on the boundary.
+The risk set is a convex region (you may randomize between rules), and the **Bayes rules trace its lower-left boundary** — one Bayes rule per prior weight $p$, each the posterior mean at every outcome. The MLE rule $a=x/2$ lands at risk pair `(0.105, 0.105)`, up in the interior: dominated, hence inadmissible even here — its unbiasedness credentials bought it nothing, because unbiasedness is a constraint on the rule, not a virtue of its risk. The Bayes rule at $p=0.5$ sits at `(0.029, 0.029)`, on the boundary.
 
 **Complete-class theorem (stated, no proof).** For such problems, the admissible decision rules are exactly the Bayes rules and their limits. Every rule worth using is a Bayes rule against *some* prior; every non-Bayes rule is beaten by one. This is the rigorous content of the course's recurring line — *frequentist procedures are special cases of Bayesian ones.* It is a **theorem**, not a slogan, and James–Stein (§08.2) is its most famous consequence: the MLE was inadmissible, so a Bayes rule had to beat it.
 
@@ -328,11 +328,11 @@ ax.legend(fontsize=9)
 save(fig, "bootstrap")
 ```
 
-![Two nearly identical histograms of the bootstrapped sample mean, classical filled and Bayesian outlined, centered on the sample mean 1.64.](figures/08-frequentist-bridge/bootstrap.png)
+![Two nearly identical histograms of the bootstrapped sample mean, classical filled and Bayesian outlined, centered on the sample mean 1.644.](figures/08-frequentist-bridge/bootstrap.png)
 
-The classical interval is `[1.340, 1.980]` and the Bayesian-bootstrap interval `[1.357, 1.992]` — the same uncertainty to two decimals, reached from opposite philosophies. Resampling *is* a way of drawing from a posterior; the frequentist's most beloved model-free tool is Bayesian inference with the crudest possible prior.
+The classical interval is `[1.340, 1.980]` and the Bayesian-bootstrap interval `[1.357, 1.992]` — the same uncertainty to two decimals, reached from opposite philosophies. Resampling *is* a way of drawing from a posterior; the frequentist's most beloved model-free tool is Bayesian inference with the most noninformative prior available.
 
-**The coverage audit.** The sharpest audit: does a Bayesian credible interval actually cover the truth at its stated rate under repeated sampling? Take a weak prior, form the 95% credible interval, and check its *frequentist* coverage at a fixed $\theta$ over many datasets.
+**The coverage audit.** Where the bootstrap showed a frequentist *tool* is secretly Bayesian, the sharper test runs the other way: submit a Bayesian *interval* to the frequentist's own exam. Does a credible interval actually cover the truth at its stated rate under repeated sampling? Take a weak prior, form the 95% credible interval, and check its *frequentist* coverage at a fixed $\theta$ over many datasets. **Predict** the digit before running: at 0.95, or below it (a posterior that borrowed prior information it wasn't entitled to)?
 
 ```python
 # Coverage audit: does a 95% credible interval cover theta at ~95% frequency? (ties to M06)
@@ -415,7 +415,7 @@ print("misspecified Laplace :", coverage(lambda n: rng.laplace(0, 1/np.sqrt(2), 
 ```
 <details><summary>Reconcile</summary>
 
-The well-specified interval covers near `0.95`; the Laplace-truth interval also covers close to nominal here — because both distributions are symmetric with the *same variance*, and the Normal model's posterior width happens to match the true sampling variance of $\bar y$. Coverage of a *mean* is robust to this particular misspecification. The lesson is subtle and honest: misspecification does not automatically break coverage — it breaks it when the model's Fisher information misstates the true sampling variance (heteroskedasticity, dependence, or a functional other than the mean). That is exactly the sandwich-variance mismatch of module 18, and it is the statistical cousin of a network confidently extrapolating off its training distribution: the model is *sure*, and its sureness was calibrated on the wrong world.
+The well-specified interval covers at `0.94925`; the Laplace-truth interval covers at `0.946` — also essentially nominal — because both distributions are symmetric with the *same variance*, and the Normal model's posterior width happens to match the true sampling variance of $\bar y$. Coverage of a *mean* is robust to this particular misspecification. The lesson is subtle and honest: misspecification does not automatically break coverage — it breaks it when the model's Fisher information misstates the true sampling variance (heteroskedasticity, dependence, or a functional other than the mean). That is exactly the sandwich-variance mismatch of module 18, and it is the statistical cousin of a network confidently extrapolating off its training distribution: the model is *sure*, and its sureness was calibrated on the wrong world.
 </details>
 
 ## Takeaways
@@ -423,6 +423,6 @@ The well-specified interval covers near `0.95`; the Laplace-truth interval also 
 - The **sampling distribution** (fix $\theta$, vary data) is the frequentist ledger; the posterior (fix data, vary $\theta$) is the Bayesian one. The MLE is asymptotically $N(\theta, \mathcal I^{-1}/n)$ and attains the Cramér–Rao bound among *unbiased* estimators — every clause true, for **one** parameter.
 - **Stein (S4):** for $d\ge3$ unrelated Gaussian means, James–Stein *dominates* the MLE — total MSE `1.99` vs `10.0` at the origin, strictly lower everywhere. The MLE is **inadmissible**. The gain collapses at $d\le2$; crossover at $d=3$.
 - **James–Stein is empirical Bayes:** it is the Normal–Normal posterior mean $(1-B)X$ with the shrinkage fraction $B=1/(1+\tau^2)$ estimated from the marginal as $\widehat B=(d-2)/\lVert X\rVert^2$. Admissibility forced frequentists to invent a posterior mean.
-- **Bernstein–von Mises** is why credible $\approx$ confidence: the standardized posterior and the MLE sampling law share a Gaussian limit (TV `0.269`$\to$`0.013` as $n:5\to500$). It needs four conditions — well-specified, fixed finite-dim identifiable $\theta$, interior point, positive continuous prior — and each has a named failure (boundary $U(0,\theta)$; Neyman–Scott $\hat\sigma^2\to\sigma^2/2$; nonidentifiability; misspecification).
+- **Bernstein–von Mises** is why credible $\approx$ confidence: the standardized posterior and the MLE sampling law share a Gaussian limit (TV `0.1668`$\to$`0.0165` as $n:5\to500$). It needs four conditions — well-specified, fixed finite-dim identifiable $\theta$, interior point, positive continuous prior — and each has a named failure (boundary $U(0,\theta)$; Neyman–Scott $\hat\sigma^2\to\sigma^2/2$; nonidentifiability; misspecification).
 - **Complete-class theorem:** admissible rules are exactly Bayes rules and their limits — the risk-set boundary is traced by Bayes rules. "Frequentist procedures are special cases of Bayesian ones" is a theorem.
-- The **bootstrap is an implicit posterior** (classical $\equiv$ Bayesian-bootstrap intervals to two decimals), and a weak-prior credible interval passes the **frequentist coverage audit** (`0.9496` at nominal 95%). Frequentist evaluation is an audit to welcome, not a creed to fight — their crown jewel is our shrinkage.
+- The **bootstrap is an implicit posterior** (classical $\equiv$ Bayesian-bootstrap intervals to two decimals), and a weak-prior credible interval passes the **frequentist coverage audit** (`0.9499` at nominal 95%). Frequentist evaluation is an audit to welcome, not a creed to fight: one calculus, two ledgers — and the ledgers agree wherever §08.4's conditions hold.

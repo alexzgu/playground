@@ -29,6 +29,6 @@ lambda=   1.0  <->  prior N(0, 4.0000)  =>  prior sd = 2.0000
 lambda= 100.0  <->  prior N(0, 0.0400)  =>  prior sd = 0.2000
 flat-on-theta   posterior mean = 0.7500
 Jeffreys        posterior mean = 0.8333
-MLE (plug-in) = 1.0000; flat-log-odds Haldane limit -> mean 1.0000 (degenerate)
+flat-log-odds: strict Haldane posterior Beta(2,0) is IMPROPER (all successes, section 07.5); Beta(eps,eps)-prior posterior means -> 1.0000 as eps -> 0
 posterior sd(theta1) = 0.4939  (prior sd 0.5000)
 posterior sd(theta2) = 0.4940

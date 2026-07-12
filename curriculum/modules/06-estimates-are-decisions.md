@@ -7,7 +7,7 @@
 > **Runtime.** ~11 s.
 > **Sources.** C-B §7.3.4 (loss-function optimality, Bayes rules), §9.1–9.3 (coverage, credible vs. confidence sets, Example 9.2.18); booklet ch. 8 (credible/HPD intervals); the two-point uniform after Welch (1939) and Berger–Wolpert by concept; Jaynes (1976) and Cox (1958) by concept.
 
-The four lines (module 00): **a model is a joint $p(\text{unknowns},\text{knowns})$; inference is conditioning; prediction is marginalization; a decision minimizes posterior expected loss.** The first three lines hand you a whole distribution — the posterior $p(\theta\mid y)$ and the predictive $p(\tilde y\mid y)$. But a colleague asks "so what's your estimate of $\theta$?" and a regulator asks "give me an interval." Collapsing a distribution to a number or a set *throws information away*, and the only principled way to throw information away is to say what the collapse is *for*. That "for" is a loss function, and line 4 does the rest. This module shows that the mean, the median, the mode, every quantile, ridge, lasso, and the confidence interval all fall out of one recipe — **choose the action that minimizes expected loss** — and that the last of these carries a guarantee whose meaning depends entirely on what you condition on.
+The four lines (module 00): **a model is a joint $p(\text{unknowns},\text{knowns})$; inference is conditioning; prediction is marginalization; a decision minimizes posterior expected loss.** The first three lines hand you a whole distribution — the posterior $p(\theta\mid y)$ and the predictive $p(\tilde y\mid y)$. But a colleague asks "so what's your estimate of $\theta$?" and a regulator asks "give me an interval." Collapsing a distribution to a number or a set *throws information away*, and the only principled way to throw information away is to say what the collapse is *for*. That "for" is a loss function, and line 4 does the rest: the mean, the median, the mode, every quantile, ridge, lasso — and the interval, whose guarantee means exactly what your conditioning makes it mean.
 
 ```python
 # --- setup ---
@@ -44,7 +44,11 @@ def save(fig, name):
 $$\rho(a) = \mathbb{E}_{\theta\mid y}\big[L(\theta, a)\big] = \int L(\theta, a)\,p(\theta\mid y)\,d\theta,$$
 and the **Bayes estimate** is $\hat a = \arg\min_a \rho(a)$. This is line 4, verbatim: minimize expected loss under the posterior. C-B (7.3.19) proves this $a$ also minimizes the *Bayes risk* $\int R(\theta,\delta)\pi(\theta)\,d\theta$ — pointwise minimization of posterior expected loss and global minimization of average frequentist risk are the *same* $\hat a$. So a Bayes estimate is not "the Bayesian's number"; it is the optimal number under a stated loss, full stop.
 
-Three losses, three estimators — and the derivations are three lines each. Work on a concrete, deliberately *skewed* posterior so the three answers separate: suppose module 05's conjugate machinery has handed you a $\text{Gamma}(2,1)$ posterior for a rate $\theta$ (shape $2$, rate $1$; scipy `gamma(a=2, scale=1)`).
+**Setup.** Module 05's conjugate machinery has handed you a $\text{Gamma}(2,1)$ posterior for a rate $\theta$ (shape $2$, rate $1$; scipy `gamma(a=2, scale=1)`) — a deliberately *skewed* posterior. A colleague asks for *your one number* for $\theta$.
+
+**Predict.** Commit to that number now — and to whether the question even has a unique answer. The reflex being tested is "the estimate is where the posterior is centered/peaked," as if 'center' were one place.
+
+**Run.** Three losses, three estimators — and the derivations are three lines each:
 
 - **Squared-error loss** $L=(\theta-a)^2$: $\rho'(a) = \mathbb{E}[-2(\theta-a)] = 0 \Rightarrow a = \mathbb{E}[\theta\mid y]$. **The posterior mean.**
 - **Absolute-error loss** $L=|\theta-a|$: $\rho'(a) = P(\theta<a) - P(\theta>a) = 0 \Rightarrow a = \text{median}$. **The posterior median.**
@@ -53,7 +57,7 @@ Three losses, three estimators — and the derivations are three lines each. Wor
 ```python
 # One skewed posterior, three losses -> three different point estimates.
 post = stats.gamma(a=2, scale=1)                 # Gamma(2,1): shape 2, rate 1
-g = np.linspace(1e-4, 15, 60_000)                # fine grid for expected-loss curves
+g = np.linspace(1e-4, 40, 160_000)               # fine grid, wide enough to hold the tail
 dg = g[1] - g[0]
 dens = post.pdf(g)
 
@@ -86,13 +90,15 @@ save(fig, "loss-picks-estimator")
 
 ![Gamma(2,1) posterior with three vertical lines: mode at 1.0, median at 1.68, mean at 2.0, spread left-to-right along the skew.](figures/06-estimates-are-decisions/loss-picks-estimator.png)
 
-The three estimates are `1.0000`, `1.6783`, `2.0000` — mode, median, mean, marching rightward in exactly that order because the $\text{Gamma}(2,1)$ posterior is right-skewed. On a *symmetric* posterior they would coincide (that is why the Normal lets you be sloppy: mean = median = mode), and the moment the posterior is skewed the choice of loss becomes a real decision. The cross-checks confirm optimality is loss-specific: the mean's expected *squared* loss `1.9990` beats the median's `2.1024`; the median's expected *absolute* loss `1.0516` beats the mean's `1.0826`. "Which point estimate is best?" is not a well-posed question until you name $L$.
+**Reconcile.** Whatever single number you committed to, it was at best a third of an answer: the three estimates are `1.0000`, `1.6783`, `2.0000` — mode, median, mean, marching rightward in exactly that order because the $\text{Gamma}(2,1)$ posterior is right-skewed. "Your one number" was an ill-posed request; there are three defensible answers, and the loss function is what disambiguates them. On a *symmetric* posterior they would coincide (that is why the Normal lets you be sloppy: mean = median = mode), and the moment the posterior is skewed the choice of loss becomes a real decision. The cross-checks confirm optimality is loss-specific: the mean's expected *squared* loss `2.0000` — which is the posterior variance, exactly $2$ for Gamma(2,1), since $\mathbb E[(\theta-\mathbb E\theta)^2] = \mathrm{Var}[\theta\mid y]$ — beats the median's `2.1035`; the median's expected *absolute* loss `1.0517` beats the mean's `1.0827`. "Which point estimate is best?" is not a well-posed question until you name $L$.
 
 > **Bridge — C-B Table 7.3.1.** Casella & Berger tabulate exactly this for a Binomial: under a uniform prior, $y$-of-$10$ successes gives a squared-error Bayes estimate $(y+1)/12$ and an absolute-error one (the posterior median) that differ at every $y$ except $y=5$ where the Beta posterior is symmetric. Same lesson, conjugate flavor: **the posterior mean is the answer to squared-error loss, not "the estimate."**
 
 ## 06.2 Asymmetric loss makes estimates into quantiles
 
 Squared and absolute loss are symmetric: over- and under-shooting cost the same. Real decisions are lopsided. A retailer stocking a perishable good loses more per unit when she runs *out* (a lost sale, an angry customer) than when she over-orders (a markdown). This is the **newsvendor**, and it is line 4 on the *posterior predictive* $p(\tilde y\mid y)$ from module 05 — because the thing you are matching is *future demand*, not a parameter.
+
+**Predict.** Your posterior predictive for demand has mean $10$, and a stockout costs three times a markdown. Commit to an order quantity before the derivation. (The reflex: "order the expected demand — about 10, maybe a bit more to be safe.")
 
 Let underage (too little) cost $c_u$ per unit and overage (too much) cost $c_o$ per unit. Order $q$; demand $\tilde y$ is random with predictive CDF $F$. Expected cost is $\mathbb{E}[c_u(\tilde y - q)_+ + c_o(q - \tilde y)_+]$, and
 $$\frac{d}{dq}\,\mathbb{E}[\text{cost}] = -c_u\,P(\tilde y > q) + c_o\,P(\tilde y \le q) = (c_u+c_o)F(q) - c_u = 0 \;\Longrightarrow\; F(q^\star) = \frac{c_u}{c_u + c_o}.$$
@@ -119,7 +125,7 @@ cost = np.array([np.mean(c_u*np.maximum(draws-q,0) + c_o*np.maximum(q-draws,0)) 
 print(f"argmin of simulated expected cost = {qs[cost.argmin()]:.0f}  (matches q*)")
 ```
 
-Ordering the predictive **mean** (`10.00`) leaves you understocked; the loss-optimal order is `12`, the $0.75$-quantile, and the brute-force expected-cost minimizer agrees. The general object here is the **pinball (quantile) loss** $\rho_\tau(u) = u\,(\tau - \mathbf 1\{u<0\})$: its posterior-predictive minimizer is exactly the $\tau$-quantile (same one-line derivative as above, with $\tau$ in place of the fractile). Minimizing pinball loss over a *conditional* predictive $p(\tilde y \mid x)$ is **quantile regression** — the same object you may have trained a gradient-boosted model on, now read as a Bayes rule under an asymmetric loss.
+**Reconcile.** If you committed to "about 10," you understocked: ordering the predictive **mean** (`10.00`) systematically eats 3-to-1 stockout losses, and "a bit more to be safe" is doing the right thing for an unquantified reason. The loss-optimal order is `12` — the $0.75$-quantile, two units above the mean, with the safety margin *derived* rather than guessed — and the brute-force expected-cost minimizer agrees. The general object here is the **pinball (quantile) loss** $\rho_\tau(u) = u\,(\tau - \mathbf 1\{u<0\})$: its posterior-predictive minimizer is exactly the $\tau$-quantile (same one-line derivative as above, with $\tau$ in place of the fractile). Minimizing pinball loss over a *conditional* predictive $p(\tilde y \mid x)$ is **quantile regression** — the same object you may have trained a gradient-boosted model on, now read as a Bayes rule under an asymmetric loss.
 
 ## 06.3 MAP is penalized MLE — and the mode is not the mean
 
@@ -133,10 +139,10 @@ $$\hat\theta_{\text{MAP}} = \arg\max_\theta\;\big[\log p(y\mid\theta) + \log p(\
 ```python
 # Ridge == Gaussian-prior MAP == posterior mean (they coincide for Gaussians).
 sigma2, tau2 = 1.0, 4.0                            # noise var, prior var
-X = np.array([2.3])                                # one observation, y = theta + noise
+y_obs = np.array([2.3])                            # one observation, y = theta + noise
 lam_ridge = sigma2 / tau2
-post_mean = (X.sum()/sigma2) / (1/tau2 + len(X)/sigma2)   # module 05 precision-weighted mean
-ridge_est = X.sum() / (len(X) + lam_ridge)               # argmin ||y-theta||^2 + lam*theta^2
+post_mean = (y_obs.sum()/sigma2) / (1/tau2 + len(y_obs)/sigma2)  # module 05 precision-weighted mean
+ridge_est = y_obs.sum() / (len(y_obs) + lam_ridge)               # argmin ||y-theta||^2 + lam*theta^2
 print(f"ridge penalty lambda = sigma^2/tau^2 = {lam_ridge:.2f}")
 print(f"ridge MAP = {ridge_est:.6f}   posterior mean = {post_mean:.6f}   "
       f"max|diff| = {abs(ridge_est-post_mean):.1e}")
@@ -183,7 +189,7 @@ Point estimates were line 4 with $\mathcal A = \Theta$. Intervals are line 4 wit
 - A **credible interval** $C(y)$ satisfies $P(\theta\in C(y)\mid y) = 1-\alpha$: a statement about $\theta$ *given the data you hold*. It is read off the posterior (booklet ch. 8: equal-tailed, or the shortest/HPD interval). The randomness is in $\theta$; the data are fixed at what you saw.
 - A **confidence interval** $[L(Y), U(Y)]$ satisfies $P_\theta\big(\theta\in[L(Y),U(Y)]\big) \ge 1-\alpha$ **for every $\theta$** (C-B Def. 9.1.4–9.1.5): a statement about the *procedure*, over hypothetical repetitions. The randomness is in $Y$; $\theta$ is fixed and unknown.
 
-C-B state the trap plainly (§9.1.4): "$P_\theta(\theta\in[L(Y),U(Y)])$ ... refer[s] to $X$, not $\theta$." The confidence guarantee is about how often the *random interval* would trap a *fixed* $\theta$ if you reran the experiment forever. It is a pre-data promise about a machine that manufactures intervals — correct, useful, and answering a question about the machine, not about your dataset. The next section shows exactly what that distinction can cost, and what conditioning buys back.
+C-B state the trap plainly in the remark after Definition 9.1.4: the probability statement $P_\theta(\theta\in[L(X),U(X)])$, which *looks* like a statement about a random $\theta$, refers to the randomness of the data $X$ — read it as $P_\theta(L(X)\le\theta,\ U(X)\ge\theta)$, a statement about a random interval. The confidence guarantee is about how often that *random interval* would trap a *fixed* $\theta$ if you reran the experiment forever. It is a pre-data promise about a machine that manufactures intervals — correct, useful, and answering a question about the machine, not about your dataset. The next section shows exactly what that distinction can cost, and what conditioning buys back.
 
 ## 06.5 The two-point uniform: a 50% interval that is sometimes certain  ⟵ centerpiece
 
@@ -225,7 +231,6 @@ ax.set_xlabel("value")
 ax.set_title("Each interval is a '50%' CI — but R tells you which are certain (green) vs coin-flip (orange)")
 save(fig, "two-point-intervals")
 
-marg = ((lo <= 0) & (hi >= 0))                       # this handful; full estimate below
 print(f"predict-first: you saw R=0.90 -> naive answer 50%; geometry says coverage = 1 (certain)")
 
 # --- marginal coverage over many replicates: exactly 1/2 ---
@@ -234,7 +239,7 @@ cover = (lo <= 0) & (hi >= 0)
 print(f"marginal coverage over all R = {cover.mean():.3f}   (exactly 0.500)")
 ```
 
-![Fourteen horizontal interval bars sorted by gap R; short orange bars near the top labeled as coin-flip, long green bars near the bottom (R>=0.5) all crossing the dashed theta=0 line and labeled 'covers'.](figures/06-estimates-are-decisions/two-point-intervals.png)
+![Fourteen horizontal interval bars sorted by gap R; long green bars (R>=0.5) at the top, all crossing the dashed theta=0 line and labeled 'covers'; short orange bars below, a mix of covers and misses.](figures/06-estimates-are-decisions/two-point-intervals.png)
 
 Averaged over all $R$, coverage is `0.500` — the confidence claim is honest. But look at the picture: **every green bar covers $\theta$**, because once the two points are more than $\tfrac12$ apart they *must* straddle any $\theta$ they surround. When you saw $R=0.9$, the correct post-data confidence is not $50\%$ — it is $100\%$. And when $R$ is small the interval is *worse* than a coin flip ($r=0.2 \Rightarrow$ coverage $0.25$). The $50\%$ is an average over situations you are no longer in. Overlay the exact geometry on the simulation:
 
@@ -247,7 +252,7 @@ emp = np.array([cover[(R>=edges[i])&(R<edges[i+1])].mean() for i in range(len(ct
 exact = np.where(ctr < 0.5, ctr/(1-ctr), 1.0)
 
 # a few printed checkpoints (numbers contract)
-for r0 in (0.10, 0.30, 0.90):
+for r0 in (0.10, 0.20, 0.30, 0.90):
     m = np.abs(R - r0) < 0.01
     print(f"R≈{r0:.2f}: simulated coverage {cover[m].mean():.3f}   "
           f"exact {r0/(1-r0) if r0<0.5 else 1.0:.3f}")
@@ -265,7 +270,7 @@ save(fig, "two-point-coverage")
 
 ![Coverage versus R: a curve rising from 0 along r/(1-r), reaching 1 at R=0.5 and staying flat at 1; red simulation dots lie on the curve; a dashed horizontal line at 0.5 marks the marginal confidence the curve crosses only at one point.](figures/06-estimates-are-decisions/two-point-coverage.png)
 
-The simulated conditional coverages land on the exact curve — `0.111`, `0.429`, `1.000` at $R\approx 0.10, 0.30, 0.90$ against the formula's $0.111$, $0.429$, $1.000$. **The confidence interval is not wrong** — $50\%$ is the correct long-run frequency of the *procedure*. It is answering "how often does this machine trap $\theta$?" when you asked "should I believe *this* interval?" The Bayesian credible interval, which conditions on all of the data (including $R$), gives coverage that *tracks* $R$ automatically, because conditioning on the ancillary is not optional for it — it is what conditioning *means*.
+The simulated conditional coverages land on the exact curve — `0.111`, `0.250`, `0.429`, `1.000` at $R\approx 0.10, 0.20, 0.30, 0.90$, matching $r/(1-r)$ (then $1$) at every checkpoint. **The confidence interval is not wrong** — $50\%$ is the correct long-run frequency of the *procedure*. It is answering "how often does this machine trap $\theta$?" when you asked "should I believe *this* interval?" The Bayesian credible interval, which conditions on all of the data (including $R$), gives coverage that *tracks* $R$ automatically, because conditioning on the ancillary is not optional for it — it is what conditioning *means*.
 
 > **Conditionality & ancillarity (module 04 callback).** An **ancillary** statistic has a $\theta$-free distribution; by itself it carries no information about $\theta$ (module 04: for $N(\theta,1)$, the residuals $x_i-\bar x$ are ancillary and, by Basu, independent of $\bar x$). The **conditionality principle** says: *condition on the ancillary you observed.* Here $R$ is ancillary — it cannot help you locate $\theta$ — yet it tells you exactly how sharp your interval is, so ignoring it (as the unconditional $50\%$ does) throws away decision-relevant information. Module 04 met ancillarity as a curiosity; this is where it earns its keep. The two-instruments exercise below is the same lesson stripped to its bones.
 
@@ -276,6 +281,8 @@ Does the credible interval have a *frequency* guarantee at all, or only a within
 **Theorem (prior-averaged coverage).** Let $\theta\sim\pi$ and $Y\mid\theta\sim p(\cdot\mid\theta)$, and let $C(Y)$ be any $1-\alpha$ posterior credible set. Then the coverage, averaged over the prior, is exactly $1-\alpha$:
 $$\int \mathrm{Cov}(\theta)\,\pi(\theta)\,d\theta = \mathbb{E}_\theta\,\mathbb{E}_{Y\mid\theta}\big[\mathbf 1\{\theta\in C(Y)\}\big] = \mathbb{E}_Y\,\underbrace{\mathbb{E}_{\theta\mid Y}\big[\mathbf 1\{\theta\in C(Y)\}\big]}_{=\,1-\alpha\ \text{by construction}} = 1-\alpha.$$
 The middle step is just Fubini — swap the order of the two expectations over the joint $\pi(\theta)p(y\mid\theta)$ — and the inner expectation is $1-\alpha$ *for every* $y$ because that is what "credible set" means. So a credible interval is calibrated **on average over data drawn from your own model**. Pointwise, at a fixed $\theta$, coverage is free to vary, and it does. Take the conjugate Normal–Normal from module 05: one observation $Y\mid\theta\sim N(\theta,1)$, prior $\theta\sim N(0,\tau^2)$ with $\tau=2$; the $95\%$ credible interval is $\hat\theta \pm 1.96\sqrt{v}$ with posterior mean $\hat\theta = \tau^2 Y/(\tau^2+1)$ and variance $v = \tau^2/(\tau^2+1)$.
+
+**Predict** before running: at $\theta=4$ — two prior-SDs into the tail — is the pointwise coverage of the 95% credible interval *above* or *below* 0.95? (The comfortable guess: "above; shrinkage helps everywhere.")
 
 ```python
 # Prior-averaged coverage = 1-alpha exactly (Fubini); pointwise coverage varies;
@@ -320,7 +327,7 @@ save(fig, "prior-averaged-coverage")
 
 ![Coverage versus true theta: a hump peaking above 0.95 near theta=0 and sloping down toward the tails, crossing a dashed horizontal line at 0.95; the curve is above 0.95 where the prior concentrates and dips below it far from zero.](figures/06-estimates-are-decisions/prior-averaged-coverage.png)
 
-Three regimes, three numbers. Under the true prior, prior-averaged coverage is `0.9501` — the theorem's exact $0.95$, up to Monte-Carlo error. Pointwise it is *above* nominal near the prior's center (`0.9715` at $\theta=0$, where shrinkage toward $0$ helps) and *below* nominal in the tail (`0.8827` at $\theta=4$, two prior-SDs out, where shrinkage pulls the interval away from the truth). And when the prior is **misspecified** — the world is more spread out ($\tau_{\text{true}}=5$) than the model assumed ($\tau=2$) — the guarantee degrades *gracefully* to `0.8288`, not catastrophically. This is the honest statement of "Bayesian intervals are calibrated": exactly $1-\alpha$ when the prior is right, robust-ish when it is close, and the audit that catches a bad prior is precisely this coverage check (C-B Example 9.2.18 works the analytic version of the same degradation). Module 08's Bernstein–von Mises theorem is the large-$n$ endgame: as data accumulate, the likelihood dominates the prior, pointwise coverage flattens to $1-\alpha$ for *all* $\theta$, and credible and confidence intervals fuse — the distinction dramatized in §06.5 quietly evaporates.
+Three regimes, three numbers. Under the true prior, prior-averaged coverage is `0.9501` — the theorem's exact $0.95$, up to Monte-Carlo error. Pointwise, if you guessed "shrinkage helps everywhere," the tail catches you: coverage is *above* nominal near the prior's center (`0.9715` at $\theta=0$, where shrinkage toward $0$ helps) and *below* nominal in the tail (`0.8827` at $\theta=4$, where the same shrinkage pulls the interval *away* from the truth — shrinkage is a bet on the prior, and it pays where the prior is right). C-B Example 9.2.18 works this pointwise computation analytically and shows the coverage can even $\to 0$ in extreme parameter configurations. And when the prior is **misspecified** — the world is more spread out ($\tau_{\text{true}}=5$) than the model assumed ($\tau=2$) — the *averaged* guarantee degrades *gracefully* to `0.8288`, not catastrophically. This is the honest statement of "Bayesian intervals are calibrated": exactly $1-\alpha$ when the prior is right, robust-ish when it is close, and the audit that catches a bad prior is precisely this coverage check. Module 08's Bernstein–von Mises theorem is the large-$n$ endgame: as data accumulate, the likelihood dominates the prior, pointwise coverage flattens to $1-\alpha$ for *all* $\theta$, and credible and confidence intervals fuse — the distinction dramatized in §06.5 quietly evaporates.
 
 ## Bridge — decisions are everywhere in your ML stack
 
@@ -353,15 +360,15 @@ half = 1.96*np.sqrt(var_avg)                        # fixed half-width, ignores 
 yA = rng.normal(0.0, sigA, size=1_000_000)          # truth theta=0, instrument A used
 print(f"coin-averaged half-width = {half:.2f}")
 print(f"conditional coverage GIVEN A used = {(np.abs(yA) <= half).mean():.4f}  (nominal 0.95)")
-print(f"proper A-interval half-width = {1.96*sigA:.2f}  (25x narrower)")
+print(f"proper A-interval half-width = {1.96*sigA:.2f}  ({half/(1.96*sigA):.1f}x narrower)")
 ```
 <details><summary>Reconcile</summary>
 
-The coin-averaged interval has half-width `13.93` and, *given you used A*, covers `1.0000` of the time — a nominal "95%" interval that is really 100% conditional, and absurdly wide (25× the `1.96` it should be). "Which instrument" is **ancillary** (its distribution — the coin — doesn't depend on $\theta$), yet it determines your precision entirely. The conditionality principle (Cox 1958): condition on the experiment you actually ran. Averaging over the coin answers "how wide must an interval be to work across both instruments?" — a question about a machine you are not using. Same structure as §06.5's $R$: an ancillary that carries no location information but all of the sharpness information.
+The coin-averaged interval has half-width `13.93` and, *given you used A*, covers `1.0000` of the time — a nominal "95%" interval that is really 100% conditional, and absurdly wide (`7.1`× the `1.96` it should be). "Which instrument" is **ancillary** (its distribution — the coin — doesn't depend on $\theta$), yet it determines your precision entirely. The conditionality principle (Cox 1958): condition on the experiment you actually ran. Averaging over the coin answers "how wide must an interval be to work across both instruments?" — a question about a machine you are not using. Same structure as §06.5's $R$: an ancillary that carries no location information but all of the sharpness information.
 </details>
 
 **Exercise 06.2 — Jaynes's truncated exponential (a CI that excludes the possible).**  *(surprising)*
-*Setup:* Lifetimes exceed a known guarantee time $\theta$: $Y_i\sim \theta + \text{Exp}(1)$, i.e. density $e^{-(y-\theta)}$ for $y\ge\theta$. You observe $n=3$ values. A textbook $90\%$ confidence interval for $\theta$ is built from the pivot $\bar Y - \theta$ (whose distribution is $\theta$-free), giving $[\bar y - 1 + \tfrac13\ln(0.05^{-1})\cdot 0,\ \dots]$ — concretely $C = [\bar y - c_2,\ \bar y - c_1]$ for constants making it $90\%$.
+*Setup:* Lifetimes exceed a known guarantee time $\theta$: $Y_i\sim \theta + \text{Exp}(1)$, i.e. density $e^{-(y-\theta)}$ for $y\ge\theta$. You observe $n=3$ values. A textbook $90\%$ confidence interval for $\theta$ is built from the pivot $\bar Y - \theta$ (whose distribution, $\tfrac13\text{Gamma}(3,1)$, is $\theta$-free): $C = [\bar y - c_2,\ \bar y - c_1]$ with $c_i = \tfrac13\,G^{-1}(1-\alpha_i)$ quantiles of the pivot, split $\alpha_1=\alpha_2=0.05$.
 *Predict:* Every observation satisfies $y_i \ge \theta$, so **$\theta \le \min_i y_i$** is a logical certainty. Can the $90\%$ confidence interval place $\theta$ *above* the smallest observation — i.e. assert something the data have already ruled out?
 *Reason:* "A $90\%$ CI contains the plausible values of $\theta$" — the habit of reading a confidence set as a plausibility set.
 *Run:*
@@ -395,7 +402,7 @@ for (cu, co) in [(3.0, 1.0), (1.0, 1.0)]:
 ```
 <details><summary>Reconcile</summary>
 
-The order **falls**, from `12` to the median `9`. Making overage *relatively* more expensive lowers the critical fractile from $0.75$ to $0.50$, so you stock less. The naive "costs went up, order more" reasoning tracks the wrong thing: only the *ratio* $c_u/(c_u+c_o)$ matters, and raising $c_o$ (relative to $c_u$) pushes the fractile — and the order — down. The optimal stock is a quantile of the predictive, and asymmetry in the loss is the entire story; the predictive mean (`10`) is optimal only at the symmetric $c_u=c_o$... which lands on the median here only because you round to integer counts. Same mechanism as a cost-sensitive classifier threshold (module 22).
+The order **falls**, from `12` to `10`, the median. Making overage *relatively* more expensive lowers the critical fractile from $0.75$ to $0.50$, so you stock less. The naive "costs went up, order more" reasoning tracks the wrong thing: only the *ratio* $c_u/(c_u+c_o)$ matters, and raising $c_o$ (relative to $c_u$) pushes the fractile — and the order — down. At $c_u=c_o$ the fractile is $0.50$, so the optimal order is always the **median** — which here happens to equal the predictive mean `10.00` because this NB predictive is nearly symmetric, not by rule; on a more skewed predictive the two part ways, exactly as in §06.1. Same mechanism as a cost-sensitive classifier threshold (module 22).
 </details>
 
 **Exercise 06.4 — Why your lasso zeros a coefficient your posterior keeps.**  *(ML bridge, surprising)*
