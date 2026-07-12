@@ -3,7 +3,7 @@
 > **Spine.** A model must be able to predict its own data — that is the posterior predictive check; and the evidence a model assigns to the data carries a built-in Occam factor, so complexity control falls out of integration rather than a penalty you tune.
 > **Which line?** Line 3 turned into an audit. Prediction is $p(\tilde y\mid y)=\int p(\tilde y\mid\theta)\,p(\theta\mid y)\,d\theta$; a *check* asks whether the data you already have looks like a draw from it, and the *evidence* $p(y)=\int p(y\mid\theta)\,p(\theta)\,d\theta$ is that same integral run before any conditioning — the prior predictive density of the data.
 > **Promise.** After this module you can audit a fitted model against its own predictions, score competing models by exact or approximate evidence and understand why integration penalizes flexibility for free, and read a small p-value and a Bayes factor that *disagree* without being confused about which one lied.
-> **Prereqs.** Modules 02 (the `condition` engine's denominator = evidence), 03 (entropy/cross-entropy/KL, codelength), 05 (conjugate evidence and predictive distributions); the Bayesian linear model and hierarchical/GLM fits of modules 14–16 by concept. **Runtime.** ~70 s measured (two NUTS fits dominate).
+> **Prereqs.** Modules 02 (the `condition` engine's denominator = evidence), 03 (entropy/cross-entropy/KL, codelength), 05 (conjugate evidence and predictive distributions); the Bayesian linear model and hierarchical/GLM fits of modules 14–16 by concept. **Runtime.** ~35 s measured on a quiet box (two NUTS fits + JIT dominate; load-dependent on the 2-CPU codespace).
 > **Sources.** Booklet ch. 8, 12; BDA3 ch. 6–7 by concept; ISLP ch. 5 (cross-validation).
 
 ## 17.1 The two questions

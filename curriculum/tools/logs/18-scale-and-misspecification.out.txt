@@ -35,7 +35,7 @@ top-  1: raw-true bias = 2.742
 top- 10: raw-true bias = 1.785
 top-100: raw-true bias = 1.317
 Bonferroni (p < 0.1/N): discoveries = 59
-BH already made: 171
+BH already made: 166
 T=0.5: softmax = [0.864 0.117 0.019]  entropy = 0.454
 T=1.0: softmax = [0.659 0.242 0.099]  entropy = 0.847
 T=2.0: softmax = [0.502 0.304 0.194]  entropy = 1.026

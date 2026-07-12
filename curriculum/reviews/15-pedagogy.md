@@ -1,0 +1,23 @@
+# Pedagogy review — 15-glms-classification
+
+**Verdict: REVISE (light).** One STYLE §1 defect (a marquee surprise shown without a captured prediction), one syllabus-vs-module discrepancy to reconcile, plus minor clarity fixes. Content is strong, numbers are contract-clean (every prose backtick-number matches `tools/logs/15-glms-classification.out.txt`), non-tribal throughout, and within all limits (3,946 words; 14 run blocks = 11 exposition + 3 exercise; 6 figures all referenced and discussed; 7 takeaways).
+
+## Findings
+
+| sev | location | issue | concrete fix |
+|---|---|---|---|
+| **med** | §15.7 survival, "Watch the bias" | The drop-censored bias is the module's biggest **shock** (intercept `0.2174→0.9727`, slope `0.554→0.1628`) yet it is run flat — no Setup→**Predict**→Run→Reconcile. STYLE §1: "A surprise shown without a captured prediction is a defect." Survival also has **no exercise**, so this section's central lesson is never predict-staged anywhere. | Add a Predict beat before the code ("guess the *direction* and rough size of the slope bias from dropping survivors") OR add Exercise 15.4 doing exactly that. The exercise is the better fix — it also closes the coverage gap below. |
+| **med** | §15.4 vs SYLLABUS item 4 | Module correctly states the plug-in/integrated gap is **zero at the boundary** and peaks off-boundary (plug-in p≈`0.854`). SYLLABUS item 4 says "gap largest **near the boundary**." The module is right; the syllabus wording is stale and now contradicts the deliverable. | Reconcile: update SYLLABUS item 4 to "zero at the m=0 boundary, largest at moderately-confident points, and at small n." Do not weaken the module. |
+| **low** | §15.4, "the catch" | The off-boundary-peak is a genuine second surprise (distinct from Ex 15.2's decision-invariance) but is asserted in prose, not predict-staged. Reader is told, not caught. | One-line Predict inline ("where is the correction largest — at the boundary or away from it?") before the slice-scan print. |
+| **low** | Exercise 15.1 Reconcile | Printed `\|\|w\|\|` plateaus (`16.91, 17.94, 17.95`) as C→∞ because lbfgs hits its tolerance, but the Reconcile says it "grows without bound." In isolation the numbers look like a finite limit, undercutting the "diverges" payoff. | Add a clause: "the plateau at ~17.95 is the optimizer's patience, not a limit — the body's CE table (`…0.00031, 0.00000` at ‖w‖=32) shows the loss still falling, i.e. no minimizer." Cross-reference §15.2's second table. |
+| **low** | Spine block, **Promise** | Five chained capability clauses in one run-on sentence — hard to hold as the "week-later" reflex STYLE §2 wants. | Trim to the 2–3 load-bearing capabilities (build any EF-GLM; explain separation→weight-decay; integrate-don't-plug for calibrated probabilities); the rest are section-level. |
+| **low** | Exercises (coverage) | Three is the minimum for a 7-section module; §§15.3, 15.5, 15.6, 15.7 have no exercise. The three chosen are individually excellent and high-compression, but survival (richest bias demo) is un-exercised. | The finding-1 survival exercise doubles as coverage; no further additions needed. |
+| **pos** | §15.1, §15.2, Ex 15.2 | Cross-entropy = Bernoulli-GLM ML is stated as an **identity** and numerically closed (`max\|diff\| = 1.13e-04`) — cashes module 04's dictionary, not analogy. Separation→"you don't believe the margin is infinitely sharp"→weight decay is the module's best generative payoff and lands for the daily-cross-entropy reader. Ex 15.2's "exactly zero at 0.5" then extended to off-0.5 thresholds (module 22) is the sharpest surprise in the module and is staged perfectly. Keep all three verbatim. |
+
+## Learner's-eye summary (trains classifiers daily)
+
+1. §15.1–15.2 hit home immediately: "cross-entropy training *is* Bernoulli-GLM ML" is verified, not asserted, and separation finally gives weight decay a *reason* — I stop turning it off on clean data.
+2. The three-ways agreement (§15.3) makes Laplace/MH/NUTS feel like one object, and the mode-vs-mean skew is quietly seeded as the setup for the next section — nice.
+3. §15.4–15.5 reframed "integrate don't plug" as a thing I can *feel*: the plug-in softmax I ship is overconfident, MacKay's one-liner fixes it for free, and Ex 15.2 caught me — I assumed integrating flips labels; it never does at 0.5.
+4. The one place I wasn't *caught*: the survival drop-censored bias is dramatic but handed to me pre-run — I'd have predicted the slope wrong and learned more if forced to commit first.
+5. Honest empiricism on generative-vs-discriminative (curves for both worlds, "no guaranteed crossover") is exactly the non-tribal tone I trust; nothing here reads as a hedge.
