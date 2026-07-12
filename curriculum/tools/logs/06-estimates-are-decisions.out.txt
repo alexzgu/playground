@@ -1,0 +1,40 @@
+posterior mean   (L2 -> mean)   = 2.0000   E[L2] = 1.9990
+posterior median (L1 -> median) = 1.6783   E[L1] = 1.0516
+posterior mode   (0-1 -> mode)  = 1.0000   density p(mode) = 0.3679
+cross-check: E[L2] at the median = 2.1024 > 1.9990 (mean wins L2)
+cross-check: E[L1] at the mean   = 1.0826 > 1.0516 (median wins L1)
+[fig] figures/06-estimates-are-decisions/loss-picks-estimator.png
+critical fractile c_u/(c_u+c_o) = 0.75
+predictive mean demand          = 10.00
+optimal order q* (0.75-quantile)= 12   (median would say 10)
+argmin of simulated expected cost = 12  (matches q*)
+ridge penalty lambda = sigma^2/tau^2 = 0.25
+ridge MAP = 1.840000   posterior mean = 1.840000   max|diff| = 0.0e+00
+observed z=0.3:  lasso MAP = 0.0000   posterior mean = 0.1432
+observed z=0.8:  lasso MAP = 0.0000   posterior mean = 0.3945
+[fig] figures/06-estimates-are-decisions/lasso-mode-vs-mean.png
+[fig] figures/06-estimates-are-decisions/two-point-intervals.png
+predict-first: you saw R=0.90 -> naive answer 50%; geometry says coverage = 1 (certain)
+marginal coverage over all R = 0.500   (exactly 0.500)
+R≈0.10: simulated coverage 0.111   exact 0.111
+R≈0.30: simulated coverage 0.429   exact 0.429
+R≈0.90: simulated coverage 1.000   exact 1.000
+[fig] figures/06-estimates-are-decisions/two-point-coverage.png
+prior-averaged coverage (true prior)   = 0.9501   (theorem: 0.9500)
+pointwise coverage at θ=0              = 0.9715
+pointwise coverage at θ=4              = 0.8827
+prior-averaged coverage (MISSPEC τ=5)  = 0.8288
+[fig] figures/06-estimates-are-decisions/prior-averaged-coverage.png
+coin-averaged half-width = 13.93
+conditional coverage GIVEN A used = 1.0000  (nominal 0.95)
+proper A-interval half-width = 1.96  (25x narrower)
+min(y) = 9.00  (theta is IMPOSSIBLE above this)
+90% confidence interval for theta = [7.93, 9.76]
+does the CI exceed min(y)?  upper end 9.76 > 9.00: True
+c_u:c_o = 3:1 -> fractile 0.75 -> order 12
+c_u:c_o = 1:1 -> fractile 0.50 -> order 10
+lasso MAP (mode) = 0.0000   posterior mean = 0.2410
+equal-tailed: [0.3554, 4.7439]  length 4.3885
+HPD:          [0.0838, 3.9321]  length 3.8483
+density at equal-tailed ends: lo 0.2491  hi 0.0413
+density just OUTSIDE the lower ET end (θ=0.15): 0.1291

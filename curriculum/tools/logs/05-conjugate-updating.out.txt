@@ -1,0 +1,52 @@
+MLE           = 1.0
+posterior      = Beta(3,1)
+posterior mean = 0.7500
+P(next converts) = 0.7500
+[fig] figures/05-conjugate-updating/s2-overconfident-mle.png
+conjugate library ready: ['beta_binomial_update', 'normal_known_var_update', 'gamma_poisson_update', 'nig_post', 'dirichlet_mult_update']
+n=  0: MLE=  -    posterior mean=0.5000  w_prior=1.000
+n=  2: MLE=0.000  posterior mean=0.3333  w_prior=0.667
+n= 10: MLE=0.700  posterior mean=0.6429  w_prior=0.286
+n= 50: MLE=0.760  posterior mean=0.7407  w_prior=0.074
+n=500: MLE=0.798  posterior mean=0.7956  w_prior=0.008
+prior is worth kappa = a+b = 4.0 pseudo-trials
+[fig] figures/05-conjugate-updating/shrinkage-slide.png
+prior precision = 0.2500   data precision = 1.3333   post precision = 1.5833
+xbar (MLE) = 13.7061
+posterior mean = 13.1209   posterior sd = 0.7947
+weight on data = 0.8421   weight on prior = 0.1579
+prior worth kappa0 = sigma2/tau2 = 2.25 observations
+[fig] figures/05-conjugate-updating/normal-normal.png
+posterior Gamma(4,2): lambda mean = 2.0
+predictive NegBin: mean = 2.0   variance = 3.0
+plug-in Poisson(2.0): variance = 2.0  (mean = variance)
+posterior NIG: kn=21  mn=4.6672  an=11  bn=43.4607
+predictive t: df=22  loc=4.6672  scale=2.0345
+MC predictive mean = 4.6669   closed-form t mean = 4.6672
+MC predictive sd   = 2.1329   closed-form t sd   = 2.1338
+5th pct  MC 1.176 vs t 1.174;  95th pct MC 8.163 vs t 8.161
+[fig] figures/05-conjugate-updating/nig-student-t.png
+MLE next-token probs   = [0.6  0.   0.15 0.25]
+add-1 smoothed probs   = [0.5417 0.0417 0.1667 0.25  ]
+unseen word: MLE = 0.0000  ->  smoothed = 0.0417
+Beta-Binomial: plug-in var = 2.34   predictive var = 4.69   ratio = 2.0
+Gamma-Poisson: plug-in var = 2.0   predictive var = 3.0
+plug-in 90% interval [4, 9]: realized coverage = 0.8307
+predictive 90% interval [2, 10]: realized coverage = 0.9822
+[fig] figures/05-conjugate-updating/predictive-vs-plugin.png
+P(theta_B > theta_A) = 0.9510
+E[uplift B - A]      = 0.01594
+expected loss | ship B = 0.000199
+expected loss | ship A = 0.016134
+DECISION: ship B  (minimizes posterior expected loss)
+[fig] figures/05-conjugate-updating/ab-test.png
+block formula: cond mean = 0.7999   cond var = 0.5397
+brute force (n=2831 kept): cond mean = 0.7904   cond var = 0.5304
+max|difference|: mean 0.0096, var 0.0093
+[fig] figures/05-conjugate-updating/gaussian-conditioning.png
+sequential -> Beta(8,4);  batch -> Beta(8,4)
+plug-in sd = 2.108   predictive sd = 3.308   ratio = 1.569
+alpha=1.0: P(Francisco) = 0.0041   P(an unseen word) = 0.0000995
+alpha=0.0001: P(Francisco) = 0.7843   P(an unseen word) = 0.0000020
+n=  5: flat prior mean = 0.1429   confident-wrong prior mean = 0.7407
+n=500: flat prior mean = 0.2809   confident-wrong prior mean = 0.3065

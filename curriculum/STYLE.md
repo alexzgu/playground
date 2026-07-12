@@ -41,7 +41,7 @@ Binding for every module author, reviser, and verifier. A module that violates t
 ⟨≤7 bullets a reader should be able to reproduce from memory a week later⟩
 ```
 
-Length: 2,500–5,000 words of prose (code excluded). If you can't fit, the module is mis-scoped — flag it, don't compress into un-clarity.
+Length: 2,500–5,000 words of prose (code excluded), 4–16 runnable blocks (separating figure blocks from compute blocks is encouraged). If you can't fit, the module is mis-scoped — flag it, don't compress into un-clarity.
 
 ## 3. Notation (course-wide, loud)
 
