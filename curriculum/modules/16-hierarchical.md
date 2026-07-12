@@ -370,7 +370,7 @@ The non-centered fit recovers the uranium slope (posterior mean `0.69`, true 0.7
 
 ```python
 # No-pooling county deviation = mean residual from the fixed-effects trend, per county.
-resid = y_arr - (g0 + g1 * u_arr[cidx] + beta * floor_arr)   # around the true trend
+resid = y_arr - (g0 + g1 * u_arr + beta * floor_arr)   # around the true trend (u_arr is per-home)
 eta_nopool = np.array([resid[cidx == c].mean() for c in range(n_cty)])
 
 fig, ax = plt.subplots(figsize=(7, 4))

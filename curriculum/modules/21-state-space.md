@@ -129,7 +129,7 @@ Nothing above used scalars in an essential way. Promote $x_t$ to a vector, the t
 $$\text{predict:}\quad m^-=Fm,\ \ P^-=FPF^\top+Q;\qquad \text{update:}\quad K=P^-H^\top S^{-1},\ \ m=m^-+K(y-Hm^-),\ \ P=(I-KH)P^-,$$
 with innovation covariance $S = HP^-H^\top + R$. Track a body in the plane with a **constant-velocity** model: state $x=(p_x,p_y,v_x,v_y)$, observe position only. The classic radar problem.
 
-**Predict.** One commitment before running: the filter will report a $2\sigma$ uncertainty ellipse around each estimated position. Will that ellipse be elongated *along* the direction of motion or *across* it? *Reason:* the naive picture says the sensor noise $R$ is isotropic, so the position uncertainty should be a circle — direction of travel shouldn't matter.
+**Predict.** One commitment before running: the filter will report a $2\sigma$ uncertainty ellipse around each estimated position. The textbook radar picture stretches that ellipse *along* the direction of travel — you pin down where the target sits across-track better than how far it has run along-track. Will that along-track elongation show up here? *Reason:* position couples to the never-observed velocity through $F$, and an error in velocity smears the position estimate forward down the track, so the along-motion axis should be the longer one.
 
 The update is *still* just conditioning — and now it is literally module 05's `gaussian_condition`. The predicted state and its would-be observation form a joint Gaussian
 $$\begin{bmatrix}x_t\\ y_t\end{bmatrix}\ \Big|\ y_{1:t-1}\ \sim\ N\!\left(\begin{bmatrix}m^-\\ Hm^-\end{bmatrix},\ \begin{bmatrix}P^- & P^-H^\top\\ HP^- & S\end{bmatrix}\right),$$
@@ -177,6 +177,8 @@ for t in range(N):
 print(f"Kalman update vs gaussian_condition, max|diff| = {gc_diff:.1e}")
 print(f"position RMSE: filtered {np.sqrt(np.mean(np.sum((filt[:,:2]-states[:,:2])**2,1))):.3f}"
       f"  vs raw obs {np.sqrt(np.mean(np.sum((obs-states[:,:2])**2,1))):.3f}")
+semi = [np.sqrt(np.linalg.eigvalsh(C)) for C in covs[:,:2,:2]]   # 2sigma ellipse semi-axes
+print(f"position-ellipse axis ratio (long/short), max over t = {max(a[1]/a[0] for a in semi):.3f}")
 
 def ellipse(ax, mu, C, nsig=2, **kw):
     vals, vecs = np.linalg.eigh(C)
@@ -196,9 +198,9 @@ ax.legend(fontsize=9); ax.set_aspect("equal", "datalim")
 save(fig, "tracking-2d")
 ```
 
-![A curved true trajectory in the plane, a cloud of noisy position observations around it, and a smooth filter track threading through, annotated with tilted 2-sigma covariance ellipses that shrink and orient along the direction of travel.](figures/21-state-space/tracking-2d.png)
+![A curved true trajectory in the plane, a cloud of noisy position observations around it, and a smooth filter track threading through, annotated with 2-sigma position-uncertainty ellipses that are perfect circles, shrinking after each update but never elongating along the direction of travel.](figures/21-state-space/tracking-2d.png)
 
-The Kalman update reproduces `gaussian_condition` to `1.8e-15`: the filter is the MVN block formula from module 05, iterated. Tracking halves the position error, from `2.616` (raw pings) to `1.424` (filtered). **Reconcile the ellipse commitment:** the circles the isotropic-$R$ intuition predicted are not what the figure shows. The ellipses are the position marginal $P_t[{:}2,{:}2]$, and they *tilt along the direction of motion* — the sensor noise is isotropic, but the *state* uncertainty is not, because position and velocity are correlated through $F$: an error in the (never-observed) velocity smears the position estimate forward along the track, so a moving target is more uncertain *ahead* than *across*. They also shrink after each update as conditioning removes variance — the geometric face of $P = (I-KH)P^-$. The velocity you never observe is inferred *entirely* through its coupling to position in $F$ and $Q$: the off-diagonal blocks do the work, exactly as `gaussian_condition` infers an unobserved block from an observed one.
+The Kalman update reproduces `gaussian_condition` to `1.8e-15`: the filter is the MVN block formula from module 05, iterated. Tracking halves the position error, from `2.616` (raw pings) to `1.424` (filtered). **Reconcile the ellipse commitment:** the along-track elongation never appears — every position ellipse is a *perfect circle* (axis ratio `1.000` at every step). Nothing in this model distinguishes along-track from cross-track. $R$ is isotropic; $Q$ couples $p_x$ only to $v_x$ and $p_y$ only to $v_y$ with identical per-axis structure; and $F$ treats the two axes the same — so the 4-D filter is really two decoupled, identical 1-D filters, and the position marginal $P_t[{:}2,{:}2]$ stays a scalar multiple of $I$ ($P[0,0]=P[1,1]$, $P[0,1]=0$) for all $t$. The velocity error *does* smear position forward — but equally in $x$ and $y$, because the covariance has no way to know which way the mean is heading: the direction of motion lives in the *mean* $m_t$, not in $P_t$. The celebrated tilted ellipse is real, but it needs the symmetry broken — anisotropic or along-track process noise, a coordinated-turn model, or correlated position dimensions; a plain constant-velocity filter with isotropic noise cannot produce it. What the figure *does* show is the shrink after each update, as conditioning removes variance — the geometric face of $P = (I-KH)P^-$. And the velocity you never observe is still inferred *entirely* through its coupling to position in $F$ and $Q$: the off-diagonal blocks do the work, exactly as `gaussian_condition` infers an unobserved block from an observed one.
 
 ## 21.3 AR(p): conjugate regression on lags
 

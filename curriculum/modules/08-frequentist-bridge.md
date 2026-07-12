@@ -70,7 +70,7 @@ ax.legend(fontsize=9)
 save(fig, "mle-asymptotics")
 ```
 
-![Histogram of the Poisson sample mean over 200,000 datasets, overlaid with the N(4, 4/30) asymptotic Gaussian; the two coincide.](figures/08-frequentist-bridge/mle-asymptotics.png)
+![Histogram of the Poisson sample mean over 200,000 datasets, overlaid with the N(4, 4/30) asymptotic Gaussian; the bars alternate tall and short because the sample mean lives on a discrete 1/30-spaced lattice that aliases against the bin edges, but their envelope tracks the Gaussian (KS 0.0256).](figures/08-frequentist-bridge/mle-asymptotics.png)
 
 The simulated sampling-distribution standard deviation is `0.3653`, matching the asymptotic $\sqrt{\lambda/n}=$ `0.3651` to three figures; the KS distance to the Gaussian is `0.0256`. The MLE is doing exactly what the theorem says.
 
@@ -218,7 +218,7 @@ fig.tight_layout(rect=(0, 0, 1, 0.93))
 save(fig, "bvm-convergence")
 ```
 
-![Three panels for n=5, 50, 500: at n=5 the posterior and MLE sampling distributions are skewed; by n=500 both are the same narrow Gaussian, TV shrinking from 0.17 to 0.02.](figures/08-frequentist-bridge/bvm-convergence.png)
+![Three panels for n=5, 50, 500: at n=5 the posterior and MLE sampling distributions are skewed; the printed TV per panel is the centered distance (shape and width only), shrinking from 0.17 to 0.02, so at n=50 the plotted curves can still sit offset by that dataset's low MLE even as their shapes align; by n=500 both are the same narrow Gaussian.](figures/08-frequentist-bridge/bvm-convergence.png)
 
 The centered total-variation distance between the posterior and the MLE's sampling law falls from `0.1668` at $n=5$ to `0.1446` at $n=50$ to `0.0165` at $n=500$, while the posterior skew decays from `0.886` toward zero. So the flat-prior shortcut fails at small $n$: the two laws answer different questions (vary $\theta$ vs vary data) and merely *share a likelihood*; only the asymptotics fuse them. By $n=500$ they are the same narrow Gaussian, skew gone. (The centering hides the theorem's other half: the posterior mean and the MLE also coincide to leading order — their gap is $O(1/n)$ — so centering at either is asymptotically the same choice; this demo isolates the shape-and-width claim on purpose.) **This is the deep reason module 04's Fisher-normal interval matched the exact Beta interval: BvM.** It is also the license, used everywhere in practice, to read a NUTS credible interval as an approximate confidence interval.
 

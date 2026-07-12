@@ -80,7 +80,7 @@ ax.legend(title="dimension")
 save(fig, "typical-set")
 ```
 
-![Radius histograms for d=1,10,100,1000; each is a narrow bump centered on √d (dotted line), marching rightward and staying the same width as dimension grows.](figures/12-hmc/typical-set.png)
+![Radius histograms for d=1,10,100,1000; each (for d ≥ 10) is a narrow bump centered on √d (dotted line), marching rightward and staying the same width as dimension grows — d=1 is the degenerate case, a half-normal pressed against 0 rather than a bump.](figures/12-hmc/typical-set.png)
 
 Two procedures die on contact with this picture. **Plug-in-at-the-mode** (report $p(\theta_{\text{MAP}})$ as if it summarized the posterior) describes a point where the model spends none of its time — the MAP is not a typical parameter. And a **random walk** that proposes small isotropic steps must stay *on the shell*: a step outward or inward off the crust lands in near-zero density and is rejected, so the walker can only shuffle tangentially, and the shell's surface area is exponentially large. To move a useful distance it needs exponentially many tiny steps. That is the wall module 10's Metropolis sampler hits, and we can measure exactly how fast it hits it.
 
@@ -214,7 +214,7 @@ ax.legend(fontsize=9)
 save(fig, "leapfrog-trajectory")
 ```
 
-![Elliptical contours of the correlated Gaussian with a leapfrog trajectory sweeping in a long curved arc from the lower-left corner across the distribution to the far side — a single proposal covering the whole support.](figures/12-hmc/leapfrog-trajectory.png)
+![Elliptical contours of the correlated Gaussian with a leapfrog trajectory that sweeps in a long coherent arc along the ridge from the lower-left corner up to the far corner, U-turns, and glides back to end near where it began — a single proposal that traverses the length of the distribution and returns, covering ground a random walk would need many tiny steps to cross.](figures/12-hmc/leapfrog-trajectory.png)
 
 **The energy error is $O(\varepsilon^2)$.** Leapfrog does not conserve $H$ exactly; its error per trajectory shrinks quadratically in the step size $\varepsilon$. That quadratic — not linear — decay is why HMC can take fairly large steps and still accept: halving $\varepsilon$ quarters the energy error. Verify the exponent by integrating a fixed trajectory-length at shrinking $\varepsilon$ and fitting the slope on log-log axes.
 

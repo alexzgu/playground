@@ -261,13 +261,14 @@ Averaged over replications (a single run's ESS is itself random here), the sweep
 # figure: the weight histogram and the ESS-collapse signature (reuses the sweep above)
 fig, ax = plt.subplots(1, 2, figsize=(11, 4))
 ax[0].hist(np.log10(wbar[wbar > 0] + 1e-300), bins=60, color="C3")
-ax[0].set(title="Failure: normalized weights span orders of magnitude",
+ax[0].set(title="Failure: normalized weights\nspan orders of magnitude",
           xlabel="log10(normalized weight)", ylabel="count of draws")
 ax[1].semilogx(Ms, fail_fracs, "o-", color="C3", label="light proposal (fails)")
 ax[1].semilogx(Ms, safe_fracs, "s-", color="C0", label="heavy proposal (safe)")
-ax[1].set(title="Median ESS fraction collapses with M when weights have infinite variance",
+ax[1].set(title="Median ESS fraction collapses with M\nwhen weights have infinite variance",
           xlabel="number of draws M", ylabel="median ESS as % of M", ylim=(0, 100))
 ax[1].legend()
+fig.subplots_adjust(wspace=0.28)
 save(fig, "is_weights")
 ```
 

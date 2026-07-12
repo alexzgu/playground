@@ -114,7 +114,7 @@ ax.legend()
 save(fig, "calibration")
 ```
 
-![Reliability diagram: the honest forecaster's stated probabilities fall on the diagonal (belief = frequency); the overconfident forecaster bows below it.](figures/01-probability-as-logic/calibration.png)
+![Reliability diagram: the honest forecaster's stated probabilities fall on the diagonal (belief = frequency); the overconfident forecaster's curve crosses the diagonal near 0.5 — bowing above it for low stated probabilities and below it for high ones.](figures/01-probability-as-logic/calibration.png)
 
 **Reconcile.** The ECE lands at `0.089` — a `13.0`× inflation from a 1.6× stretch. If you guessed "roughly doubles," you scaled the error like the distortion; but ECE measures the *gap* between stated probability and frequency, and the honest gap was near zero — so even a mild stretch is not a small perturbation of the error, it is essentially all of it. The diagonal in the figure is the bridge: a coherent degree of belief, if it is *calibrated*, reproduces long-run frequencies. The two readings are not rivals; one is the other, audited.
 

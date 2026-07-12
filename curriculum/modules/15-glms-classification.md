@@ -125,19 +125,24 @@ ax[0].plot(th, [mean_ce(t * w_dir) for t in th], color="C1", lw=2)
 ax[0].set_xlabel(r"$\|w\|$ along the separating direction")
 ax[0].set_ylabel("mean cross-entropy (training)")
 ax[0].set_title("MLE loss has no finite minimizer:\nit falls to 0 as $\\|w\\|\\to\\infty$")
-# right: the data and a few separating lines of growing steepness
+# right: the boundary is scale-invariant -- t cancels in -(b0+b1 x)/b2, so all t share
+# ONE p=0.5 line; what grows with ||w|| is CONFIDENCE, shown by the shrinking 0.12<p<0.88 band.
+xs = np.linspace(-5, 5, 120)
+def contour_y(b, level):                        # x1 where sigma([1,x0,x1].b) = level
+    return (np.log(level/(1-level)) - b[0] - b[1]*xs) / b[2]
 for t, c in [(1, "C0"), (4, "C2"), (16, "C3")]:
     b = t * w_dir
-    xs = np.linspace(-5, 5, 100)
-    ax[1].plot(xs, -(b[0] + b[1]*xs)/b[2], color=c, lw=1.5, label=f"$\\|w\\|={t}$")
+    ax[1].fill_between(xs, contour_y(b, 0.12), contour_y(b, 0.88), color=c, alpha=0.18,
+                       label=f"$0.12<p<0.88$ band, $\\|w\\|={t}$")
+ax[1].plot(xs, contour_y(w_dir, 0.5), "k-", lw=1.8, label="shared boundary $p=0.5$")
 ax[1].scatter(*Xa.T, c="C0", s=25, label="class 0")
 ax[1].scatter(*Xb.T, c="C3", s=25, marker="^", label="class 1")
 ax[1].set_xlabel("$x_0$"); ax[1].set_ylabel("$x_1$"); ax[1].set_ylim(-4, 4)
-ax[1].set_title("same boundary, steeper and steeper"); ax[1].legend(fontsize=8)
+ax[1].set_title("same boundary, sharper probabilities"); ax[1].legend(fontsize=7)
 save(fig, "separation")
 ```
 
-![Left: mean cross-entropy versus weight norm, a curve that decays monotonically toward zero with no interior minimum. Right: the two point clouds with three separating lines of increasing steepness that share essentially the same location but represent ever-larger weight norms.](figures/15-glms-classification/separation.png)
+![Left: mean cross-entropy versus weight norm, a curve that decays monotonically toward zero with no interior minimum. Right: the two point clouds with a single shared p=0.5 separating line, wrapped by three nested probability bands (0.12 to 0.88) that shrink toward the boundary as the weight norm grows from 1 to 4 to 16 — same boundary, ever-sharper probabilities.](figures/15-glms-classification/separation.png)
 
 The cure is generative. A proper Gaussian prior $\beta \sim \mathcal N(0, \tau^2 I)$ adds $\frac1{2\tau^2}\|\beta\|^2$ to the negative log-posterior — exactly the L2 / weight-decay term — and now the objective is $\|w\|^2$-penalized cross-entropy, which is strictly convex and *has* a finite minimizer for any finite $\tau^2$. In the table, that is the $C<\infty$ rows: $C=1/(n\lambda)$ is the prior variance in disguise, and every finite $C$ returns a finite $\|\hat w\|$. This is the generative answer to "why does weight decay help": it is not a numerical trick, it is the statement that you do not actually believe the separating margin is infinitely sharp. Any prior that assigns positive density to finite coefficients and vanishing density to $\|\beta\|=\infty$ regularizes the divergence away. Deep networks on separable batches have the same pathology (the logits of a correctly-classified point can always be scaled up to cut its loss); weight decay is the same prior, wearing the same costume.
 
@@ -224,7 +229,7 @@ fig.suptitle("Three routes to the same logistic posterior (n=50)")
 save(fig, "three-ways")
 ```
 
-![Three panels, one per coefficient, each overlaying the Metropolis histogram, the NUTS histogram, and the Laplace Gaussian curve; the two sampled histograms sit on top of each other and the Laplace curve tracks them with a slight leftward shift on the steepest coefficient.](figures/15-glms-classification/three-ways.png)
+![Three panels, one per coefficient, each overlaying the Metropolis histogram, the NUTS histogram, and the Laplace Gaussian curve; the two sampled histograms sit on top of each other and the Laplace curve tracks them with a slight rightward shift (toward zero) on the steepest coefficient.](figures/15-glms-classification/three-ways.png)
 
 The two *exact* samplers are indistinguishable — MH and NUTS posterior means differ by at most `0.028` across all three coefficients, well inside Monte Carlo error, and their standard deviations agree to two digits (`0.331`, `0.314`, `0.373` from NUTS). Laplace tracks them but its center sits `0.100` short of the posterior mean *in magnitude* on the steepest coefficient (mode $-0.803$ vs mean $-0.903$ for $\beta_2$: closer to zero): the $n=50$ posterior is skewed with its heavier tail pointing *away* from zero, and Laplace reports the *mode*, which for a skewed density is not the mean. That gap is small here and it is also a preview — the difference between "where the posterior peaks" and "what the posterior averages to" is precisely what the next section is about.
 
@@ -399,6 +404,7 @@ for a, (nb, lr, ttl) in zip(ax, [(nbW, lrW, "well-specified NB world"),
     a.plot(ns, nb, "C0o-", label="naive Bayes")
     a.plot(ns, lr, "C1s-", label="logistic")
     a.set_xscale("log"); a.set_xlabel("training size n"); a.set_ylabel("test error")
+    a.set_xticks(ns); a.set_xticklabels(ns); a.minorticks_off()   # kill garbled log minor ticks
     a.set_title(ttl); a.legend(fontsize=9)
 fig.suptitle("Generative reaches its asymptote fast; discriminative's asymptote is equal-or-lower")
 save(fig, "gen-vs-disc")

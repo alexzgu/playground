@@ -7,6 +7,7 @@ RMSE: filtered 1.008  vs  raw obs 1.421
 [fig] figures/21-state-space/kalman-1d.png
 Kalman update vs gaussian_condition, max|diff| = 1.8e-15
 position RMSE: filtered 1.424  vs raw obs 2.616
+position-ellipse axis ratio (long/short), max over t = 1.000
 [fig] figures/21-state-space/tracking-2d.png
 posterior mean phi = (0.4471, 0.2726)   true (0.5, 0.3)
 predictive df = 300,  E[sigma^2|y] = 1.0388

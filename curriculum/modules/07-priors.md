@@ -192,7 +192,7 @@ $$\pi_J(\theta) \propto \theta^{-1/2}(1-\theta)^{-1/2} = \text{Beta}(\tfrac12,\t
 The reason to prefer it is **invariance**: Jeffreys gives the same posterior no matter which coordinate you compute in. This is not an axiom to accept — it is a fact to verify, by two routes on the same data, $s=7$ successes in $n=10$. **Route A:** apply Jeffreys in $\theta$ directly, giving posterior $\text{Beta}(s+\tfrac12,\,n-s+\tfrac12)$. **Route B:** reparameterize to the log-odds $\psi$, put *Jeffreys-in-$\psi$* there ($\pi_J(\psi)\propto\sqrt{\mathcal I_\psi(\psi)}$, with $\mathcal I_\psi = \mathcal I_\theta(d\theta/d\psi)^2 = \theta(1-\theta)$), condition on the data in $\psi$-space, then transform the posterior *back* to $\theta$. If Jeffreys is genuinely invariant, the two posteriors coincide.
 
 ```python
-# Route 1: Jeffreys = sqrt(Fisher info). For Bernoulli, I(theta)=1/(theta(1-theta)).
+# Route A: Jeffreys = sqrt(Fisher info). For Bernoulli, I(theta)=1/(theta(1-theta)).
 th = np.linspace(1e-4, 1 - 1e-4, 20000)
 jeffreys_unnorm = np.sqrt(1.0 / (th * (1 - th)))        # sqrt(I(theta))
 beta_half = stats.beta(0.5, 0.5).pdf(th)               # candidate: Beta(1/2,1/2)
@@ -200,7 +200,7 @@ scale = beta_half[10000] / jeffreys_unnorm[10000]      # match at theta=0.5
 print(f"Jeffreys sqrt(I) vs Beta(1/2,1/2): max|diff| after scaling = "
       f"{np.max(np.abs(scale*jeffreys_unnorm - beta_half)):.2e}")
 
-# Route 2: put Jeffreys on the log-odds psi, do inference there, transform back to theta.
+# Route B: put Jeffreys on the log-odds psi, do inference there, transform back to theta.
 s, n = 7, 10
 post_A = stats.beta(s + 0.5, n - s + 0.5).pdf(th)                 # Jeffreys applied in theta
 # In psi-coords: prior ∝ sqrt(I_psi) = sqrt(theta(1-theta)); likelihood theta^s(1-theta)^(n-s);

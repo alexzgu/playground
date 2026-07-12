@@ -133,7 +133,7 @@ Maintained by the orchestrator after each wave. Wave N+1 authors MUST read this 
 ## 21-state-space
 - **Spine:** the Kalman filter is M05's Normal-Normal on a conveyor belt — predict = marginalize (variance grows by q), update = condition; the gain K = P⁻/(P⁻+r) IS the master shrinkage weight; when linear-Gaussian breaks: EKF/UKF for mild nonlinearity, particles beyond.
 - **Established:** local-level + 4-D constant-velocity KF (update byte-identical to `normal_known_var_update` 8.9e-16 and `gaussian_condition` 1.8e-15); AR(p) = `nig_regression` on lag columns + companion form F=[[φ₁,φ₂],[1,0]]; OU = exact AR(1) (a=e^{−θΔ}, innov var σ²(1−e^{−2θΔ})/2θ); prediction-error decomposition gives the marginal likelihood free; `bootstrap_pf` (resample at ESS<N/2, reuses `ess_kong`); RTS smoother.
-- **Key numbers:** reveal gain 0.75; steady-state K 0.3904 / P 0.7808 (Riccati); 1-D RMSE 1.008 vs 1.421 naive, 2-D 1.424 vs 2.616; AR(2) φ̂ (0.4471, 0.2726), stationary frac 1.000; OU a 0.8395, θ̂ 0.749 (grid on the free marginal likelihood); PF ESS collapse 877.7→1.48 vs resampled median 1390, one-step coverage 0.96.
+- **Key numbers:** reveal gain 0.75; steady-state K 0.3904 / P 0.7808 (Riccati); 1-D RMSE 1.008 vs 1.421 naive, 2-D 1.424 vs 2.616; **2-D position ellipses are exact circles (axis ratio 1.000): isotropic R + per-axis-identical Q/F ⇒ two decoupled 1-D filters, no along-track elongation — that needs broken symmetry**; AR(2) φ̂ (0.4471, 0.2726), stationary frac 1.000; OU a 0.8395, θ̂ 0.749 (grid on the free marginal likelihood); PF ESS collapse 877.7→1.48 vs resampled median 1390, one-step coverage 0.96.
 - **Promises:** SMC-samplers/tempering pointer (M18/M19 ✓); pooling-across-time framing.
 
 ## 22-decisions-bandits
