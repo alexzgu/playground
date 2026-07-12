@@ -1,0 +1,53 @@
+no pooling:       theta_j = y_j, ranging -3 to 28
+complete pooling: mu = 7.69 +/- 4.07  (all schools identical)
+tau posterior: median 2.80, mean 3.71, 90% CI [0.26, 10.45]
+population mean mu posterior mean = 6.49
+  school A: y= 28.0  ->  theta_hat= 8.23
+  school B: y=  8.0  ->  theta_hat= 6.82
+  school C: y= -3.0  ->  theta_hat= 5.85
+  school D: y=  7.0  ->  theta_hat= 6.57
+  school E: y= -1.0  ->  theta_hat= 5.28
+  school F: y=  1.0  ->  theta_hat= 5.88
+  school G: y= 18.0  ->  theta_hat= 8.24
+  school H: y= 12.0  ->  theta_hat= 6.74
+[fig] figures/16-hierarchical/shrinkage.png
+Half-Cauchy(5): tau median 2.80, 95th pct 10.45, school-A theta 8.23
+Half-Normal(5): tau median 2.59, 95th pct 8.01, school-A theta 7.67
+CENTERED:     divergences =  86;  min tau reached = 0.723
+NON-CENTERED: divergences =   0;  min tau reached = 0.004
+[fig] figures/16-hierarchical/funnel.png
+tau_hat = 2.80
+  school A: w_j=0.03  closed-form  7.22  NUTS  8.23
+  school B: w_j=0.07  closed-form  6.60  NUTS  6.82
+  school C: w_j=0.03  closed-form  6.21  NUTS  5.85
+  school D: w_j=0.06  closed-form  6.52  NUTS  6.57
+  school E: w_j=0.09  closed-form  5.83  NUTS  5.28
+  school F: w_j=0.06  closed-form  6.16  NUTS  5.88
+  school G: w_j=0.07  closed-form  7.33  NUTS  8.24
+  school H: w_j=0.02  closed-form  6.62  NUTS  6.74
+held-out MSE  no pooling (lam=1):       2.019
+held-out MSE  complete pooling (lam=0): 1.978
+held-out MSE  best fixed lambda=0.50:     1.588
+held-out MSE  adaptive partial pooling: 1.691
+[fig] figures/16-hierarchical/bakeoff.png
+empirical Bayes: tau_hat = 0.00 (marginal MLE, boundary)
+mean 95% interval width  EB = 15.96   full Bayes = 21.89
+EB intervals are 27% too narrow on average
+radon dataset: 590 homes in 40 counties; sizes 2-29 homes/county
+ county        u  floor        y
+      0 0.189053      0 3.160096
+      0 0.189053      1 0.370956
+      0 0.189053      0 2.482728
+radon fit: 0 divergences; g1(uranium) post mean 0.69 (true 0.7), floor -0.68 (true -0.6)
+[fig] figures/16-hierarchical/radon.png
+county  n_homes   MixedLM eta   Bayes eta
+   14        2        0.434      0.453
+   19        2        0.381      0.391
+   18       15        0.411      0.418
+   25       27        0.035      0.044
+   31       29       -0.403     -0.399
+corr(MixedLM eta, Bayes eta) across counties = 1.000
+w_A = 0.308, posterior mean = 14.15
+best lambda = 0.95   (tau^2/(tau^2+sig^2) = 0.94)
+independent 1.987  EB-shrunk 1.519  saving 24%
+centered 30-school divergences = 8

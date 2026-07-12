@@ -1,0 +1,43 @@
+A_hat = 1.121   shrinkage weight A/(A+1) = 0.528
+TOP hit:      raw X = 5.29   true theta = 2.55   shrunk = 2.80
+top-10 means: raw = 3.772   true = 1.987   shrunk = 1.993
+selection inflation:  raw - true = 1.785   shrunk - true = 0.006
+RMSE over all 1000:   raw = 1.023   shrunk = 0.689
+RMSE over the top 10: raw = 1.918   shrunk = 0.523
+[fig] figures/18-scale-and-misspecification/winners-curse.png
+BH        (q=0.1): discoveries = 166   true non-null = 156   false-discovery proportion = 0.060
+local-fdr  (q=0.1): discoveries = 174   true non-null = 162   false-discovery proportion = 0.069
+  z=2.5:  estimated local-fdr = 0.547   exact P(null|z) = 0.621
+  z=3.0:  estimated local-fdr = 0.296   exact P(null|z) = 0.334
+  z=4.0:  estimated local-fdr = 0.019   exact P(null|z) = 0.024
+[fig] figures/18-scale-and-misspecification/two-groups.png
+   J   |  EB sd  | full-Bayes sd | ratio EB/FB
+    10 |  0.1781 |    0.6409    |   0.2778
+    50 |  0.7317 |    0.7479    |   0.9783
+  1000 |  0.8243 |    0.8247    |   0.9995
+horseshoe: 43 divergences; coefficient RMSE = 0.033; max |beta| over the 95 nulls = 0.130
+  signals true -> horseshoe: ['+3.0->+3.02', '-2.5->-2.54', '+2.0->+1.96', '-1.5->-1.40', '+2.8->+2.87']
+ridge  : RMSE = 0.267; nonzero coefs = 100; max |beta| over nulls = 0.534
+lasso  : RMSE = 0.061; nonzero coefs = 40; false positives among the 95 nulls = 35
+shrinkage kappa: nulls median = 0.993   signals = [0.16 0.21 0.29 0.41 0.17]
+[fig] figures/18-scale-and-misspecification/horseshoe-shrinkage.png
+slope estimate           = 1.0247   (true = 1.0)
+posterior sd (the model) = 0.0739
+sandwich SE  (robust)    = 0.1019
+true sampling sd  [sim]  = 0.1046
+residual skew = 2.44   ->  the Normal model is wrong
+tempered Normal-Normal posterior sd:
+  eta =  1.0:  posterior sd = 0.2236
+  eta =  0.5:  posterior sd = 0.3161
+  eta = 0.25:  posterior sd = 0.4468
+recalibrating slope: eta* = (post_sd/sandwich)^2 = 0.526  -> tempered sd = 0.1019 matches sandwich 0.1019
+top-  1: raw-true bias = 2.742
+top- 10: raw-true bias = 1.785
+top-100: raw-true bias = 1.317
+Bonferroni (p < 0.1/N): discoveries = 59
+BH already made: 171
+T=0.5: softmax = [0.864 0.117 0.019]  entropy = 0.454
+T=1.0: softmax = [0.659 0.242 0.099]  entropy = 0.847
+T=2.0: softmax = [0.502 0.304 0.194]  entropy = 1.026
+null coefs with posterior mean exactly 0: 0 of 95
+smallest |posterior mean| among nulls: 0.00001

@@ -1,0 +1,43 @@
+counts: mean 10.233, var 33.546, T_obs = Var/mean = 3.278
+Poisson posterior lambda mean 10.240 (data mean 10.233)
+Poisson PPC: p = P(T_rep >= T_obs) = 0.0000; replicated T in [0.49, 1.69]
+NB fit: mu 10.28, conc 3.92
+NB PPC: p = 0.611; replicated T median 3.50
+[fig] figures/17-model-checking/ppc_dispersion.png
+degree 1: mean log-evidence  -36.69 | mean train MSE 0.4200
+degree 2: mean log-evidence  -37.23 | mean train MSE 0.4027
+degree 3: mean log-evidence  -27.41 | mean train MSE 0.2044
+degree 4: mean log-evidence  -28.33 | mean train MSE 0.1999
+degree 5: mean log-evidence  -28.95 | mean train MSE 0.1931
+degree 6: mean log-evidence  -29.40 | mean train MSE 0.1834
+degree 7: mean log-evidence  -29.90 | mean train MSE 0.1772
+degree 8: mean log-evidence  -30.30 | mean train MSE 0.1693
+degree 9: mean log-evidence  -30.82 | mean train MSE 0.1656
+evidence peaks at degree 3; train MSE at deg 1 -> 9: 0.4200 -> 0.1656 (monotone down)
+  degree 1: log-ev  -29.32 = fit  -18.42 + Occam  16.68
+  degree 3: log-ev  -26.11 = fit  -13.10 + Occam  14.56
+  degree 9: log-ev  -28.79 = fit  -11.72 + Occam  10.50
+[fig] figures/17-model-checking/occam_evidence.png
+PSIS-LOO elpd = -41.76  (p_loo = 2.69)
+WAIC     elpd = -41.66  (p_waic = 2.59)
+brute-force LOO elpd = -41.94   (exact, n=25 refits)
+10-fold CV      elpd = -41.63
+xbar = 0.0258,  z = 2.580,  two-sided p = 0.0099
+  tau = 0.5:  BF01 =  1.80  (evidence for H0 over H1)
+  tau = 1.0:  BF01 =  3.59  (evidence for H0 over H1)
+  tau = 2.0:  BF01 =  7.17  (evidence for H0 over H1)
+  tau = 5.0:  BF01 = 17.93  (evidence for H0 over H1)
+under H0: P(p<0.05) = 0.0488 (=alpha), mean p = 0.501 (uniform)
+  true effect 1.0 SE: power P(p<0.05) = 0.170, median p = 0.2988
+  true effect 2.0 SE: power P(p<0.05) = 0.514, median p = 0.0457
+  true effect 3.0 SE: power P(p<0.05) = 0.850, median p = 0.0028
+z at p=0.049 is 1.969; replication P(p<0.05) if true effect = observed = 0.499
+[fig] figures/17-model-checking/pvalue_calibration.png
+Poisson PPC on the MEAN: p = 0.510  (dispersion PPC was 0.000)
+degree 1: -log evidence   32.62 | -elpd_LOO   32.37
+degree 3: -log evidence   26.65 | -elpd_LOO   24.46
+degree 9: -log evidence   29.96 | -elpd_LOO   32.65
+tau =     5:  BF01 =     17.9
+tau =    20:  BF01 =     71.7
+tau =   100:  BF01 =    358.6
+tau =  1000:  BF01 =   3585.8
