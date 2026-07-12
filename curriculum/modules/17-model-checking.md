@@ -91,6 +91,8 @@ import numpyro.distributions as dist
 from numpyro.infer import MCMC, NUTS, Predictive
 
 def nb_model(N, y=None):
+    # NegativeBinomial2(mean, concentration) is not in tools/ppl_idioms.py;
+    # its API is verified empirically by this module's harness run.
     mu = numpyro.sample("mu", dist.LogNormal(2.0, 1.0))       # positive mean
     conc = numpyro.sample("conc", dist.Exponential(0.5))      # dispersion (conc->inf = Poisson)
     with numpyro.plate("N", N):
@@ -185,7 +187,7 @@ print(f"evidence peaks at degree {best}; train MSE at deg 1 -> 9: "
       f"{mean_mse[1]:.4f} -> {mean_mse[9]:.4f} (monotone down)")
 ```
 
-**Run + Reconcile.** The evidence does *not* track fit. Averaged over 40 datasets it climbs from degree 1 to a sharp maximum at **degree 3** — the truth — and then falls monotonically. Meanwhile the training MSE does exactly what you predicted, sliding from `0.4200` at degree 1 down to `0.1656` at degree 9, never once rising. Two scores computed from the same fits point in opposite directions past degree 3. The evidence recovered the generating degree with no held-out data, no cross-validation, no AIC/BIC penalty bolted on.
+**Run + Reconcile.** The evidence does *not* track fit. Averaged over 40 datasets it peaks sharply at **degree 3** — the truth — and then falls monotonically. Look closely at the left edge: it even *dips* at degree 2 (`-37.23`, below degree 1's `-36.69`) before jumping to the peak. That dip is itself an Occam signature: the generating polynomial has no quadratic term, so adding the $P_2$ basis function buys pure complexity cost with zero fit gain — the evidence punishes a useless parameter even *before* the model is flexible enough to capture the truth. Meanwhile the training MSE does exactly what you predicted, sliding from `0.4200` at degree 1 down to `0.1656` at degree 9, never once rising. Two scores computed from the same fits point in opposite directions past degree 3. The evidence recovered the generating degree with no held-out data, no cross-validation, no AIC/BIC penalty bolted on.
 
 Why? The decomposition. Look at one dataset across three degrees:
 
@@ -197,7 +199,7 @@ for d in (1, 3, 9):
     print(f"  degree {d}: log-ev {le:7.2f} = fit {fit:7.2f} + Occam {occam:6.2f}")
 ```
 
-The fit term $-\tfrac12 y^{\top}C_d^{-1}y$ improves (rises toward zero) as degree grows — more flexibility, better Mahalanobis fit — but almost all of that gain is *banked by degree 3*; beyond it the curve is already flexible enough and extra degrees add little. The Occam term $-\tfrac12\log|C_d|$ tells the other half: every added degree enlarges $|C_d|$ (a higher-degree prior predictive spreads its mass over more possible datasets), so $-\tfrac12\log|C_d|$ keeps *shrinking*, subtracting more from the evidence at every step. That is the Occam factor, and it is not a penalty anyone chose: **a more flexible model spreads its prior predictive mass thinner, so it assigns less density to any particular dataset it does fit.** A model that can predict everything predicts nothing well. Integration — not regularization — does the accounting. Degree 3 is where the marginal gain in fit last outruns the marginal complexity cost.
+The fit term $-\tfrac12 y^{\top}C_d^{-1}y$ improves (rises toward zero) as degree grows — more flexibility, better Mahalanobis fit — but almost all of that gain is *banked by degree 3*; beyond it the curve is already flexible enough and extra degrees add little. The Occam term $-\tfrac12\log|C_d|$ tells the other half: every added degree enlarges $|C_d|$ (a higher-degree prior predictive spreads its mass over more possible datasets), so the term keeps *shrinking* — `16.68` at degree 1 down to `10.50` at degree 9 in the printout — each added degree contributing a smaller positive amount, a penalty on flexibility relative to the degree that already fits. That is the Occam factor, and it is not a penalty anyone chose: **a more flexible model spreads its prior predictive mass thinner, so it assigns less density to any particular dataset it does fit.** A model that can predict everything predicts nothing well. Integration — not regularization — does the accounting. Degree 3 is where the marginal gain in fit last outruns the marginal complexity cost.
 
 ```python
 fig, ax1 = plt.subplots()
@@ -287,9 +289,11 @@ print(f"brute-force LOO elpd = {elpd_bf:.2f}   (exact, n={n_loo} refits)")
 print(f"10-fold CV      elpd = {elpd_cv:.2f}")
 ```
 
-PSIS-LOO reports `-41.76`, brute-force exact LOO `-41.94`, and 10-fold CV `-41.63` — agreement to within a few tenths of a nat across the whole dataset, and PSIS bought it from one fit instead of 25. WAIC lands at `-41.66`, essentially on top of PSIS-LOO. The effective number of parameters `p_loo = 2.69` sits just above the true 2 (mean and variance) — small-sample noise in a sample-size-corrected count of the things the data had to estimate.
+PSIS-LOO reports `-41.76`, brute-force exact LOO `-41.94`, and 10-fold CV `-41.63` — agreement to within a few tenths of a nat across the whole dataset, and PSIS bought it from one fit instead of 25. WAIC lands at `-41.66`, essentially on top of PSIS-LOO (both are reported on the elpd scale, higher = better; the classical deviance-scale WAIC is just $-2\times$ this). One honesty note on the comparison: the brute-force and CV routes use a conjugate NIG prior — weak, but not identical to the NUTS model's priors — so the ~0.2-nat gap mixes PSIS approximation error with a small prior mismatch; both priors are likelihood-dominated at $n=25$, which is why the agreement is this tight anyway. The effective number of parameters `p_loo = 2.69` sits just above the true 2 (mean and variance) — small-sample noise in a sample-size-corrected count of the things the data had to estimate.
 
 When does LOO beat evidence, and when the reverse? Evidence answers "which model would have predicted this dataset a priori" — it is the right score when you believe one of your candidates is *true* (the **M-closed** setting) and you trust your priors, and it is exact and prior-sensitive. LOO answers "which model predicts a held-out point best" — it is the right score when all your models are wrong and you only want the best predictor (the **M-open** setting, module 18's theme), it is robust to vague priors, but it is noisier and can be unstable when a single point dominates (a high $\hat k$). Neither is universally correct; they answer different questions, and knowing which question you are in is the skill.
+
+And you need not *select* at all. Bayesian model averaging weights each model's predictive by its posterior probability (∝ evidence) — the line-3 marginalization applied to the model index itself — and **predictive stacking** does the M-open version, combining models with weights chosen to maximize LOO predictive accuracy. When no candidate is true, the best answer to "which model?" is usually "a blend"; module 18 picks this up.
 
 ## 17.5 Small p, large Bayes factor: the Lindley disagreement
 
@@ -321,7 +325,7 @@ The honest caveat is right there in the table: $\mathrm{BF}_{01}$ runs from `1.8
 
 ## 17.6 What a p-value is worth: calibration and replication
 
-The last audit turns the tool on itself. Under a true null a p-value is $\mathrm{Uniform}(0,1)$ by construction — that is what "calibrated" means and what a PPC p-value notably is *not*. Under a real effect the distribution shifts toward 0, and the fraction below $0.05$ is the test's power. Simulating both, and then one uncomfortable consequence for replication:
+The last audit turns the tool on itself. Under a true null a p-value is $\mathrm{Uniform}(0,1)$ by construction — that is what "calibrated" means and what a PPC p-value notably is *not*. Under a real effect the distribution shifts toward 0, and the fraction below $0.05$ is the test's power. Simulating both:
 
 ```python
 gen = np.random.default_rng(SEED + 11)
@@ -333,16 +337,26 @@ for eff in (1.0, 2.0, 3.0):                        # true noncentrality (effect 
     pe = 2 * (1 - stats.norm.cdf(np.abs(gen.normal(eff, 1.0, M))))
     print(f"  true effect {eff} SE: power P(p<0.05) = {np.mean(pe < 0.05):.3f}, "
           f"median p = {np.median(pe):.4f}")
+```
 
-# a study reports p = 0.049 (z = 1.97). If that observed effect equalled the truth,
-# what is the chance an identical-size replication also reaches p < 0.05?
+Under the null the p-value is flat: `0.0488` of simulations fall below 0.05, mean `0.501`. Under a two-standard-error effect the test has just `0.514` power and a median p of `0.0457` — a real, moderate effect produces a *coin-flip* significant result and p-values scattered all across $(0,1)$; the two overlaid histograms at the end of this section make the tilt visible. Now the consequence.
+
+**Setup.** A study squeaks in at $p=0.049$ — significant, published, celebrated. An identical replication is run: same design, same sample size.
+
+**Predict (commit to a number).** Grant the most optimistic assumption available: the true effect exactly *equals* the first study's observed estimate — no winner's-curse inflation (module 18 removes even this kindness). What fraction of such replications also reach $p<0.05$: roughly 95%, 80%, 65%, or 50%?
+
+**Reason.** The naive reflex being tested: "a significant result is an established result — it should mostly replicate." That reflex reads $p=0.049$ as a property of the *effect* (it's real, so it will show up again) rather than of one noisy sample.
+
+```python
+# the observed effect at p = 0.049 is z = 1.97 in SE units; replication draws a
+# fresh test statistic centered there and asks how often it clears 1.96 again
 z_obs = stats.norm.ppf(1 - 0.049 / 2)
 rep = gen.normal(z_obs, 1.0, M)
 print(f"z at p=0.049 is {z_obs:.3f}; replication P(p<0.05) if true effect = observed "
       f"= {np.mean(2*(1-stats.norm.cdf(np.abs(rep))) < 0.05):.3f}")
 ```
 
-Under the null the p-value is flat: `0.0488` of simulations fall below 0.05, mean `0.501`. Under a two-standard-error effect the test has just `0.514` power and a median p of `0.0457` — a real, moderate effect produces a *coin-flip* significant result and p-values scattered all across $(0,1)$. And the replication punchline: a first study that squeaks in at $p=0.049$ corresponds to a test statistic of `1.969`; even in the optimistic world where the true effect *equals* that observed estimate (ignoring the winner's-curse inflation of module 18), an identical replication reaches $p<0.05$ only `0.499` of the time. A just-significant result is, at best, a coin flip to replicate. The p-value near the threshold is not weak because p-values are bad; it is weak because $p=0.049$ carries almost no information — the likelihood is nearly flat between $H_0$ and the estimate. This is the same lesson the Bayes factor taught in §17.5, read off the sampling distribution instead of the evidence.
+**Run + Reconcile.** The replication probability is `0.499` — a coin flip, not the ~90% the reflex expects. The mechanism is geometric: $p=0.049$ means the observed statistic `1.969` sits *exactly at* the 1.96 threshold, so a replication's statistic — a fresh $N(1.969, 1)$ draw — lands above the threshold almost exactly half the time. Your prediction missed if it treated significance as a verdict about the world; it is a statement about one sample's signal-to-noise, and a *just*-significant sample carries almost no information about which side of the threshold the next sample falls on — the likelihood is nearly flat between $H_0$ and the estimate. This is the same lesson the Bayes factor taught in §17.5, read off the sampling distribution instead of the evidence.
 
 ```python
 fig, ax = plt.subplots()
@@ -375,7 +389,7 @@ Module 02's `condition` engine threw away the column sum $p(o)=\sum_h p(h)p(o\mi
 **Exercise 17.1 — The check that passes on the wrong statistic.**
 *Setup:* The overdispersed counts of §17.2, refit with the *Poisson* model. Instead of the dispersion $\mathrm{Var}/\mathrm{mean}$, check the model with the test statistic $T=\text{sample mean}$.
 *Predict:* Will the Poisson PPC on the mean statistic fail (p near 0 or 1) as it did on dispersion, or pass (p near 0.5)?
-*Reason:* A PPC only audits the feature its statistic measures; the Poisson was fit to match the mean.
+*Reason:* A PPC only audits the feature its statistic measures.
 *Run:*
 ```python
 T_mean_obs = y_ct.mean()

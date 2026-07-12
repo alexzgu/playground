@@ -4,7 +4,7 @@
 > **Which line?** Line 1 (the model is a joint — but now over thousands of parallel unknowns, so the population *is* estimable) and line 4 (a decision — which effects to report — under a loss that must price false discoveries). Plus the honest asterisk on all four: they are exact *given the model*, and here the model is admitted to be wrong.
 > **Promise.** After this module you can explain why the top hit in a genome scan is overstated and by how much, control a false-discovery rate two equivalent ways (Benjamini–Hochberg and local-fdr), recover 5 signals out of 100 with a horseshoe, and check whether a posterior interval is too narrow because the model is misspecified.
 > **Prereqs.** Modules 16 (hierarchical models, empirical Bayes, partial pooling), 17 (model checking, LOO, the M-open preview), with callbacks to 06 (lasso mode-vs-mean), 08 (BvM conditions and the sandwich line), 12 (the funnel and NumPyro/ArviZ idioms).
-> **Runtime.** ~68 s (the horseshoe NUTS fit dominates).
+> **Runtime.** ~60 s (57–68 s across quiet runs; the horseshoe NUTS fit dominates).
 > **Sources.** Efron, *Large-Scale Inference*, by concept; ISLP ch. 13 (multiple testing); Benjamini–Hochberg by concept; booklet ch. 9 (shrinkage) tie.
 
 A drug-screening lab tests 1000 compounds, each once, each measured with noise. It ranks them and writes up the winner. Every step is defensible, and the write-up is still wrong: the reported effect of the top compound is systematically too big, and if the lab published a 95% interval it would miss the truth far more than 5% of the time. Nothing here is fraud. It is what happens when you do inference a thousand times and then *select*. This module is the statistics of that regime — and its twin problem, what your beautifully-calibrated posterior means when the model generating it is false.
@@ -99,7 +99,13 @@ Selection also demands a decision — *which* effects to declare real — and th
 $$f(z) = \pi_0\, f_0(z) + (1-\pi_0)\, f_1(z), \qquad f_0 = N(0,1).$$
 The **local false-discovery rate** is the posterior probability that a case at $z$ is null — line 2, applied to the mixture:
 $$\mathrm{fdr}(z) = P(\text{null} \mid z) = \frac{\pi_0 f_0(z)}{f(z)}.$$
-You do not need to know $f_1$: estimate the whole marginal $f(z)$ from the observed z-scores (Efron's move — with thousands of them the histogram *is* the mixture density), and divide the known null piece by it. Compare that to **Benjamini–Hochberg (BH)**, the standard frequentist FDR procedure on the two-sided p-values, at a matched target rate $q=0.1$.
+You do not need to know $f_1$: estimate the whole marginal $f(z)$ from the observed z-scores (Efron's move — with thousands of them the histogram *is* the mixture density), and divide the known null piece by it.
+
+**Setup.** 5000 z-scores, 90% null. Two procedures will pick discovery sets at a matched target rate $q=0.1$: **Benjamini–Hochberg (BH)**, the standard frequentist FDR procedure — rank the two-sided p-values, find the largest $k$ with $p_{(k)} \le qk/N$, reject everything below — and a fully Bayesian rule: sort by estimated local-fdr and grow the discovery set while its *average* posterior null-probability stays under $q$.
+
+**Predict.** These are two different philosophies of multiplicity. BH never models the alternatives; the Bayesian rule never touches a tail area. Commit to two guesses: will their discovery counts land within 10 of each other, or far apart — and which one will hold its realized false-discovery proportion under $q=0.1$ better? The tempting read: "the Bayesian procedure uses strictly more structure (the whole mixture density), so it should find meaningfully more, and BH's blunt rank rule is the cruder control."
+
+**Run.**
 
 ```python
 # Two-groups model: BH on p-values vs Bayesian local-fdr from an estimated mixture density.
@@ -137,7 +143,7 @@ for zt in (2.5, 3.0, 4.0):
     print(f"  z={zt}:  estimated local-fdr = {est:.3f}   exact P(null|z) = {exact:.3f}")
 ```
 
-BH makes `166` discoveries at a realized false-discovery proportion of `0.060`; local-fdr makes `174` at `0.069` — the two procedures, one built from tail p-values and one from a posterior probability, land in the same place and control the same rate. And the estimated local-fdr tracks the exact posterior $P(\text{null}\mid z)$: `0.547` vs `0.621` at $z=2.5$, `0.296` vs `0.334` at $z=3$, `0.019` vs `0.024` at $z=4$. That is the reading to keep: **BH is controlling an average posterior null-probability over the rejected set.** The frequentist FDR and the Bayesian fdr are the same quantity approached from two directions — a tail area versus a density ratio — and the Bayesian version tells you something BH cannot, the probability that *this specific* case at $z$ is a false alarm.
+**Reconcile.** BH makes `166` discoveries at a realized false-discovery proportion of `0.060`; local-fdr makes `174` at `0.069`. Not "meaningfully more" and not a divergence: the two philosophies land eight discoveries apart out of ~170, both comfortably under $q$. The naive read missed because the procedures are not merely similar — they are estimating *the same posterior quantity*. The estimated local-fdr tracks the exact $P(\text{null}\mid z)$: `0.547` vs `0.621` at $z=2.5$, `0.296` vs `0.334` at $z=3$, `0.019` vs `0.024` at $z=4$ (the KDE runs a shade low in the tails — finite-sample over-smoothing — which is why local-fdr rejects slightly more; its realized FDP `0.069` still sits under the target). That is the reading to keep, and it is a labeled claim: **Empirical** — BH is controlling an average posterior null-probability over the rejected set; the formal correspondence between BH/q-values and Bayesian FDR is developed in Storey's q-value work and Efron's *Large-Scale Inference* ch. 4–5, by concept. The frequentist FDR and the Bayesian fdr are the same quantity approached from two directions — a tail area versus a density ratio — and the Bayesian version tells you something BH cannot, the probability that *this specific* case at $z$ is a false alarm.
 
 ```python
 # Figure: the two-groups mixture, its null component, and the local-fdr curve.
@@ -161,34 +167,38 @@ save(fig, "two-groups")
 
 Module 16 flagged a real cost of empirical Bayes: plugging a point estimate $\widehat\tau$ into the prior and proceeding as if it were known produces intervals that are **too narrow**, because they ignore the uncertainty in $\widehat\tau$ — overconfident at $J=8$ schools. Efron's insight is that this caveat is a *small-$J$* phenomenon and it evaporates as the number of parallel problems grows. With $J$ in the thousands, the prior is pinned down so tightly by the data that plugging it in costs almost nothing: **at scale, the prior is not a subjective object — it is an estimate with a standard error going to zero.**
 
-Watch the empirical-Bayes interval width converge to the full-Bayes width (which marginalizes the hyperparameter $A$ honestly) as $J$ grows.
+Measure it: for each of many replicate datasets, form the ratio of the EB plug-in posterior sd for $\theta_1$ to the full-Bayes sd (which marginalizes the hyperparameter $A$ honestly), and look at the ratio's *distribution* across datasets — a single draw at small $J$ can be wildly unrepresentative in either direction.
 
 ```python
-# EB plug-in vs full-Bayes interval width for theta_1, as the number of parallel problems J grows.
-def eb_vs_full_bayes(J, A_true=2.0, seed=1):
-    g = np.random.default_rng(seed)
+# EB plug-in vs full-Bayes posterior sd for theta_1: the RATIO's distribution across datasets.
+Agrid = np.linspace(1e-3, 20, 4000)
+
+def width_ratio(J, g, A_true=2.0):
     th = g.normal(0.0, np.sqrt(A_true), J)
     x = g.normal(th, 1.0)
     # EB: point-estimate A, plug in -> posterior sd of theta_1 is sqrt(shrink) with A fixed.
     A_hat = max(np.mean(x**2) - 1.0, 1e-6)
     eb_sd = np.sqrt(A_hat / (A_hat + 1.0))
-    # Full Bayes: marginalize A over a grid (flat prior), mixing posteriors N(shrink(A) x1, shrink(A)).
-    Agrid = np.linspace(1e-3, 20, 4000)
-    loglik = np.array([stats.norm.logpdf(x, 0, np.sqrt(a + 1)).sum() for a in Agrid])
+    # Full Bayes: marginalize A (flat prior on the grid). Marginally x_i ~ N(0, A+1),
+    # so the likelihood of A depends on the data only through S = sum(x_i^2).
+    loglik = -0.5 * (x**2).sum() / (Agrid + 1.0) - 0.5 * J * np.log(Agrid + 1.0)
     w = np.exp(loglik - loglik.max()); w /= w.sum()
     shA = Agrid / (Agrid + 1.0)
-    mean_c, var_c = shA * x[0], shA
-    post_mean = (w * mean_c).sum()
-    fb_sd = np.sqrt((w * (var_c + mean_c**2)).sum() - post_mean**2)
-    return eb_sd, fb_sd
+    mean_c, var_c = shA * x[0], shA                # mixture of N(shrink*x1, shrink) over A
+    pm = (w * mean_c).sum()
+    fb_sd = np.sqrt((w * (var_c + mean_c**2)).sum() - pm**2)
+    return eb_sd / fb_sd, A_hat
 
-print("   J   |  EB sd  | full-Bayes sd | ratio EB/FB")
+geb = np.random.default_rng(1)
+print("   J   | mean EB/FB ratio | 5th pct |  worst  | frac A_hat < 0.5")
 for J in (10, 50, 1000):
-    e, f = eb_vs_full_bayes(J)
-    print(f"  {J:4d} |  {e:.4f} |    {f:.4f}    |   {e/f:.4f}")
+    out = np.array([width_ratio(J, geb) for _ in range(300)])
+    ratios, Ahats = out[:, 0], out[:, 1]
+    print(f"  {J:4d} |      {ratios.mean():.4f}      | {np.percentile(ratios, 5):.4f}  |"
+          f" {ratios.min():.4f}  |      {(Ahats < 0.5).mean():.3f}")
 ```
 
-At $J=10$ the EB interval is a disastrous `0.2778` of the honest width — it ignores that $A$ is barely known from ten problems, exactly module 16's overconfidence warning. By $J=50$ the ratio is `0.9783`, and by $J=1000$ it is `0.9995`: the plug-in and the fully-marginalized intervals are indistinguishable. This is why "large-scale inference" and "empirical Bayes" are the same subject. The philosophical objection to empirical Bayes — *you used the data twice, once to build the prior and once to use it* — has real teeth at $J=8$ and essentially none at $J=1000$, because the first use consumes a vanishing fraction of the information. The prior became a measurement.
+At $J=10$ the EB interval averages `0.8657` of the honest width — about 13% too narrow, squarely consistent with module 16's 0.73 at $J=8$ — but the mean understates the danger: across replicate datasets the ratio's 5th percentile is `0.6259`, and the worst of 300 replicates is `0.0013` — a ten-problem sample whose $\widehat A$ landed essentially at the variance boundary (module 16's $\widehat\tau\approx 0$ pathology), collapsing the plug-in interval to nearly nothing while full Bayes, honestly unsure about $A$, stays wide. Small-$J$ EB is not merely narrow on average — it is *erratic*: a fraction `0.113` of the $J=10$ datasets estimate $\widehat A < 0.5$, a quarter of its true value of 2. By $J=50$ the mean ratio is `0.9791` with the worst replicate at `0.8916`; by $J=1000$ it is `0.9989` with the worst at `0.9965`: plug-in and fully-marginalized intervals are indistinguishable, *on every dataset*. This is why "large-scale inference" and "empirical Bayes" are the same subject. The philosophical objection to empirical Bayes — *you used the data twice, once to build the prior and once to use it* — has real teeth at $J=8$ and essentially none at $J=1000$, because the first use consumes a vanishing fraction of the information. The prior became a measurement.
 
 ## 18.4 Sparsity as multiplicity control: the horseshoe
 
@@ -254,7 +264,7 @@ print(f"shrinkage kappa: nulls median = {np.median(kappa[null_idx]):.3f}   "
       f"signals = {np.round(kappa[signal_idx], 2)}")
 ```
 
-**Reconcile.** The horseshoe recovers the five signals almost exactly and posts a coefficient RMSE of `0.033`, crushing lasso's `0.061` and ridge's `0.267` — and the naive "lasso wins on sparsity" ranking is wrong. Ridge keeps all `100` coefficients nonzero (its largest spurious coefficient is `0.534`), because a Gaussian prior has no mechanism to produce a zero. The CV-lasso, tuned to recover all five signals, pays for it with `35` false positives — it keeps `40` coefficients, seven-eighths of them noise. The horseshoe leaves the 95 nulls with a maximum magnitude of `0.130` and reproduces the signals to two digits. The shrinkage weights show why: the median null is shrunk at $\kappa=$ `0.993` (pinned to zero) while the signals sit at $\kappa$-values around 0.16–0.41 (barely touched). That bimodal split — mass at 0 and mass at 1, the shape that named the prior — is global-local shrinkage doing multiplicity control by geometry.
+**Reconcile.** The horseshoe recovers the five signals almost exactly and posts a coefficient RMSE of `0.033`, crushing lasso's `0.061` and ridge's `0.267` — and the naive "lasso wins on sparsity" ranking is wrong. Ridge keeps all `100` coefficients nonzero (its largest spurious coefficient is `0.534`), because a Gaussian prior has no mechanism to produce a zero — that structural fact, not the RMSE (which uses a fixed, untuned $\alpha=10$; a CV-tuned ridge would score better yet still zero nothing), is ridge's load-bearing defect here. The CV-lasso, tuned to recover all five signals, pays for it with `35` false positives — it keeps `40` coefficients, seven-eighths of them noise. The horseshoe leaves the 95 nulls with a maximum magnitude of `0.130` and reproduces the signals to two digits. The shrinkage weights show why: the median null is shrunk at $\kappa=$ `0.993` (pinned to zero) while the signals sit at $\kappa$-values around 0.16–0.41 (barely touched). That bimodal split — mass at 0 and mass at 1, the shape that named the prior — is global-local shrinkage doing multiplicity control by geometry.
 
 The `43` divergences are not incidental: the horseshoe's global-local structure is a funnel (module 12), where $\tau$ near zero collapses the geometry of every $z_j$ at once. The non-centered parameterization $\beta = z\lambda\tau$ and a high `target_accept_prob=0.95` tame most of it; a production fit would use a regularized horseshoe to finish the job.
 
@@ -275,7 +285,7 @@ save(fig, "horseshoe-shrinkage")
 
 ## 18.5 M-open: the posterior is exactly right about a wrong model
 
-Everything so far assumed the model was true. Now drop that. A **Normal linear model** is a model for a conditional mean, $E[y\mid x]=x^\top\beta$ with homoskedastic Gaussian noise. Fit it to a truth that is **skewed and heteroskedastic** — the noise variance grows with $|x|$ and the errors are right-skewed — and ask the frequentist audit question of module 08: does the posterior interval for the slope cover at its stated rate?
+Everything so far assumed the model was true — and that assumption did real work: the winner's-curse de-biasing, the local-fdr, the horseshoe's clean separation were all the joint distribution paying out, confidence you earned by trusting line 1. The second half of the module asks what that same internal coherence is worth when the joint is false — the other clause of the spine. A **Normal linear model** is a model for a conditional mean, $E[y\mid x]=x^\top\beta$ with homoskedastic Gaussian noise. Fit it to a truth that is **skewed and heteroskedastic** — the noise variance grows with $|x|$ and the errors are right-skewed — and ask the frequentist audit question of module 08: does the posterior interval for the slope cover at its stated rate?
 
 **Predict.** The posterior standard deviation of the slope comes from the model's likelihood curvature (its Fisher information). The **sandwich** standard error (Huber–White) estimates the *actual* sampling variability of $\widehat\beta$ without trusting the noise model. Commit: will the posterior sd be about right, too big, or too small — and which one matches the true sampling standard deviation you would see by refitting on fresh data?
 
@@ -316,13 +326,13 @@ print(f"residual skew = {stats.skew(resid):.2f}   ->  the Normal model is wrong"
 
 **Reconcile.** The posterior standard deviation is `0.0739`; the sandwich SE is `0.1019`; the true sampling standard deviation, measured by brute force, is `0.1046`. The posterior is **too narrow by a third**, and the sandwich nails the truth. Nothing is broken in the Bayesian machine: given the homoskedastic Normal model, `0.0739` is the *exactly correct* posterior sd — the model just happens to be false, and a false model can be perfectly confident about the wrong sampling variance. This is module 08's misspecification line cashed: BvM guarantees credible = confidence *only when the model is well-specified*, and heteroskedasticity (residual skew `2.44` here confirms the Normal is wrong) breaks condition 1. The sandwich is the audit — it replaces the model's assumed noise curvature with the empirical one, so it stays honest about $\operatorname{Var}(\widehat\beta)$ whatever the truth.
 
-Two honest boundaries. For a *pure mean* (no covariate), the sandwich and the model sd coincide — misspecification of a symmetric noise shape does not bias the variance of a plain average (module 08's exercise 08.3). The gap opens for a *functional* like a slope, where the model's homoskedastic weighting is provably not what the heteroskedastic truth delivers. And the sandwich fixes *only* the width; a badly misspecified mean structure is a different disease, caught by the posterior predictive checks of module 17.
+Two honest boundaries. For a *pure mean* (intercept-only, no covariate), the sandwich and the model sd coincide — even under this skewed, heteroskedastic truth — because a plain average carries no covariate weighting for the wrong noise model to misprice; the residual variance is the one number both need, and both estimate it the same way. (Module 08's exercise 08.3 found the same mean-coverage robustness by a related route — the Normal model happening to match the true variance of $\bar y$.) The gap opens for a *functional* like a slope, where the homoskedastic model weights all $x$ equally while the heteroskedastic truth concentrates noise at large $|x|$ — exactly where the slope is most sensitive. And the sandwich fixes *only* the width; a badly misspecified mean structure is a different disease, caught by the posterior predictive checks of module 17.
 
 ## 18.6 Power posteriors: widening honestly, and the M-open vocabulary
 
 If misspecification makes the posterior too sharp, one blunt repair is to tell it to trust the likelihood *less*. The **power (tempered) posterior** raises the likelihood to a power $\eta \in (0,1)$,
 $$p_\eta(\theta \mid y) \ \propto\ p(y\mid\theta)^{\eta}\,\pi(\theta),$$
-which for a Gaussian likelihood scales the data precision by $\eta$ and so multiplies the posterior variance by $1/\eta$ — the interval widens, honestly, without pretending to information it does not have. Here it is analytically in a Normal–Normal model, and then used to *recalibrate* the misspecified slope of §18.5 to its sandwich width.
+which for a Gaussian likelihood scales the data precision by $\eta$ — so under a *flat* prior the posterior variance is multiplied by exactly $1/\eta$; with a proper prior the widening is slightly less, since the prior's (untempered) precision stays put. The interval widens, honestly, without pretending to information it does not have. Here it is analytically in a Normal–Normal model, and then used to *recalibrate* the misspecified slope of §18.5 to its sandwich width. **Predict** the knob setting first: the posterior sd needs to grow from 0.0739 to 0.1019 — what $\eta$ does that under the flat-prior $1/\eta$ law?
 
 ```python
 # Power posterior: eta < 1 widens the posterior (Gaussian precision scales by eta).
@@ -338,7 +348,7 @@ print(f"recalibrating slope: eta* = (post_sd/sandwich)^2 = {eta_star:.3f}  "
       f"-> tempered sd = {post_sd / np.sqrt(eta_star):.4f} matches sandwich {sand_sd:.4f}")
 ```
 
-At full strength ($\eta=1$) the Normal–Normal posterior sd is `0.2236`; tempering to $\eta=0.5$ widens it to `0.3161`, and to $\eta=0.25$ to `0.4468` — the $1/\sqrt\eta$ law. For the misspecified regression, the power $\eta^\star=$ `0.526` inflates the posterior sd from `0.0739` back up to the sandwich's `0.1019`: a power posterior is a one-knob way to buy back the calibration that misspecification stole. (Choosing $\eta$ principledly — SafeBayes, matching the sandwich, or held-out predictive loss — is active research; label this **heuristic**, a repair with a tuning parameter, not a theorem.) The same $\eta$ knob is the temperature of module 03's softmax and the tempering ladder that Sequential Monte Carlo (modules 19, 21) walks from prior to posterior; **temperature, annealing, and power posteriors are one idea** — reweighting how sharply a density concentrates.
+At full strength ($\eta=1$) the Normal–Normal posterior sd is `0.2236`; tempering to $\eta=0.5$ widens it to `0.3161`, and to $\eta=0.25$ to `0.4468` — approximately the $1/\sqrt\eta$ law, and only approximately, because the proper prior ($\tau^2=100$) contributes a sliver of untempered precision (the exact flat-prior law would give $0.2236\times 2 = 0.4472$). For the misspecified regression the prior *is* flat, so the law is exact: $\eta^\star = (0.0739/0.1019)^2 =$ `0.526` inflates the posterior sd from `0.0739` back to the sandwich's `0.1019` by construction — a one-knob way to buy back the calibration that misspecification stole. One knob is also the limitation: $\eta$ is a *global* temperature, scaling every parameter's variance by the same $1/\eta$, so it can match the sandwich width for one functional (here the slope) but not for all of them at once. (Choosing $\eta$ principledly — SafeBayes, matching the sandwich, or held-out predictive loss — is active research; label this **heuristic**, a repair with a tuning parameter, not a theorem.) The same $\eta$ knob is the temperature of module 03's softmax and the tempering ladder that Sequential Monte Carlo (modules 19, 21) walks from prior to posterior; **temperature, annealing, and power posteriors are one idea** — reweighting how sharply a density concentrates.
 
 A cheaper robustness reflex worth naming: **bagging**. Refit on bootstrap resamples and average; the averaging damps the influence of any single leverage point or outlier, a frequentist cousin of the Bayesian bootstrap (module 08) and a pragmatic hedge when you distrust the model's tails. It buys robustness, not calibration — treat it as a **heuristic** stabilizer, not an inference.
 
@@ -357,7 +367,7 @@ Efron's *Large-Scale Inference* is the observation that thousands of parallel z-
 - **Using uniform (ridge/Normal-Normal) shrinkage on a sparse problem.** One global factor cannot both crush nulls and spare signals; it over-shrinks the real effects. Sparsity needs local shrinkage (horseshoe) or explicit selection.
 - **Calling the horseshoe posterior mean "sparse."** Like the lasso (module 06), sparsity is a property of a *mode*, not of the posterior mean — the horseshoe's posterior means are small but not exactly zero (max null `0.130`, not 0). If you need exact zeros, threshold deliberately; do not expect the mean to hand them to you.
 - **Quoting a posterior sd from a misspecified model as if it were calibrated.** Under heteroskedasticity, dependence, or a wrong likelihood shape, the posterior interval can be far too narrow (`0.0739` vs a true `0.1046`). Audit with the sandwich or with held-out coverage before trusting the width.
-- **Treating empirical Bayes as always-safe or always-dubious.** It is overconfident at small $J$ (module 16's $J=8$) and essentially exact at large $J$ (§18.3's ratio `0.9995` at $J=1000$). Which regime you are in is the whole question.
+- **Treating empirical Bayes as always-safe or always-dubious.** It is overconfident *and erratic* at small $J$ (mean width ratio `0.8657` at $J=10$, worst replicate `0.0013`) and essentially exact at large $J$ (§18.3's `0.9989` at $J=1000$). Which regime you are in is the whole question.
 
 ## Exercises
 
@@ -433,7 +443,7 @@ Zero of them are exactly zero — the smallest null coefficient is tiny but nonz
 - **Selection inflates.** The top hit of $N$ parallel measurements is biased upward (`1.785` on the top 10 here); the single most-significant result is the *most* inflated. Report shrunk estimates, not raw ones.
 - **Shrinkage is automatic multiplicity control.** Modeling effects as exchangeable draws from an estimated population (empirical Bayes at scale) de-biases selection with no separate correction — RMSE on the selected set fell from `1.918` to `0.523`.
 - **BH is a Bayesian local-fdr.** $\mathrm{fdr}(z)=\pi_0 f_0(z)/f(z)=P(\text{null}\mid z)$; Benjamini–Hochberg and local-fdr make matched discoveries (`166` vs `174` at $q=0.1$) and control the same posterior null-probability.
-- **Empirical Bayes' caveat is a small-$J$ artifact.** Plug-in intervals are far too narrow at $J=10$ (ratio `0.2778`) and essentially exact at $J=1000$ (`0.9995`); at scale the prior is a measurement, not a belief.
+- **Empirical Bayes' caveat is a small-$J$ artifact.** Plug-in intervals average 13% too narrow at $J=10$ (mean ratio `0.8657`) with occasional near-collapse (worst `0.0013`, the $\widehat\tau\approx0$ boundary), and are essentially exact on every dataset at $J=1000$ (`0.9989`); at scale the prior is a measurement, not a belief.
 - **Sparsity needs local shrinkage.** The horseshoe's global-local structure (nulls at $\kappa\approx$`0.993`, signals spared) recovered 5-of-100 at RMSE `0.033`, beating ridge (`0.267`, no zeros) and lasso (`0.061`, `35` false positives). Its posterior mean is still not exactly sparse.
 - **In M-open, the posterior is right about a wrong model.** Fit to skewed heteroskedastic truth, the slope's posterior sd `0.0739` was too narrow; the sandwich SE `0.1019` matched the true sampling sd `0.1046`. Internal coherence is intact; external calibration is not — audit the width.
 - **Power posteriors widen honestly.** $p_\eta\propto p(y\mid\theta)^\eta\pi(\theta)$ scales posterior variance by $1/\eta$; $\eta^\star=$ `0.526` recalibrated the misspecified slope to its sandwich width. Temperature, annealing, and tempering are the one knob; M-closed / M-complete / M-open name which world you are auditing.

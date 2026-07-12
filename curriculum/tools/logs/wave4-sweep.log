@@ -1,0 +1,88 @@
+== 14-bayesian-regression.md: 13 runnable blocks ==
+  block  1 (L  13) ok in    1.3s
+  block  2 (L  46) ok in    0.3s
+  block  3 (L  99) ok in    0.0s
+  block  4 (L 125) ok in    0.8s
+  block  5 (L 182) ok in    0.0s
+  block  6 (L 212) ok in    0.4s
+  block  7 (L 272) ok in    0.0s
+  block  8 (L 322) ok in    0.2s
+  block  9 (L 378) ok in    0.2s
+  block 10 (L 436) ok in    0.0s
+  block 11 (L 452) ok in    0.0s
+  block 12 (L 470) ok in    0.0s
+  block 13 (L 488) ok in    0.0s
+PASS in 3.2s (4489 prose words, 13 blocks, 5 figs referenced)
+== 15-glms-classification.md: 15 runnable blocks ==
+  block  1 (L  12) ok in    1.2s
+  block  2 (L  53) ok in    0.5s
+  block  3 (L  88) ok in    0.0s
+  block  4 (L 122) ok in    0.4s
+  block  5 (L 153) ok in    1.6s
+  block  6 (L 196) ok in    7.6s
+  block  7 (L 242) ok in    0.0s
+  block  8 (L 269) ok in    1.0s
+  block  9 (L 306) ok in    1.7s
+  block 10 (L 366) ok in    5.3s
+  block 11 (L 420) ok in    0.2s
+  block 12 (L 481) ok in    0.0s
+  block 13 (L 502) ok in    0.0s
+  block 14 (L 521) ok in    0.0s
+  block 15 (L 541) ok in    0.0s
+PASS in 19.6s (4521 prose words, 15 blocks, 6 figs referenced)
+== 16-hierarchical.md: 19 runnable blocks ==
+  block  1 (L  15) ok in    1.2s
+  block  2 (L  48) ok in    0.0s
+  block  3 (L  75) ok in    8.4s
+  block  4 (L 123) ok in    0.3s
+  block  5 (L 150) ok in    4.2s
+  block  6 (L 170) ok in    4.7s
+  block  7 (L 184) ok in    0.2s
+  block  8 (L 211) ok in    0.0s
+  block  9 (L 235) ok in    0.0s
+  block 10 (L 263) ok in    0.2s
+  block 11 (L 284) ok in    0.0s
+  block 12 (L 317) ok in    0.3s
+  block 13 (L 342) ok in    9.8s
+  block 14 (L 372) ok in    0.3s
+  block 15 (L 395) ok in    0.2s
+  block 16 (L 433) ok in    0.0s
+  block 17 (L 448) ok in    0.0s
+  block 18 (L 467) ok in    0.0s
+  block 19 (L 489) ok in    7.1s
+PASS in 36.8s (4472 prose words, 19 blocks, 4 figs referenced)
+== 17-model-checking.md: 16 runnable blocks ==
+  block  1 (L  19) ok in    1.4s
+  block  2 (L  60) ok in    0.0s
+  block  3 (L  88) ok in   14.0s
+  block  4 (L 116) ok in    0.4s
+  block  5 (L 150) ok in    0.1s
+  block  6 (L 195) ok in    0.0s
+  block  7 (L 205) ok in    0.2s
+  block  8 (L 232) ok in    5.2s
+  block  9 (L 271) ok in    0.0s
+  block 10 (L 311) ok in    0.0s
+  block 11 (L 331) ok in    0.0s
+  block 12 (L 351) ok in    0.0s
+  block 13 (L 362) ok in    0.2s
+  block 14 (L 395) ok in    0.0s
+  block 15 (L 411) ok in    0.0s
+  block 16 (L 437) ok in    0.0s
+PASS in 21.5s (4747 prose words, 16 blocks, 3 figs referenced)
+== 18-scale-and-misspecification.md: 15 runnable blocks ==
+  block  1 (L  13) ok in    1.3s
+  block  2 (L  50) ok in    0.0s
+  block  3 (L  79) ok in    0.3s
+  block  4 (L 111) ok in    0.3s
+  block  5 (L 149) ok in    0.4s
+  block  6 (L 173) ok in    0.1s
+  block  7 (L 211) ok in   24.3s
+  block  8 (L 251) ok in    0.6s
+  block  9 (L 272) ok in    0.2s
+  block 10 (L 293) ok in    0.2s
+  block 11 (L 338) ok in    0.0s
+  block 12 (L 380) ok in    0.0s
+  block 13 (L 397) ok in    0.0s
+  block 14 (L 415) ok in    0.0s
+  block 15 (L 432) ok in    0.0s
+PASS in 27.7s (4745 prose words, 15 blocks, 3 figs referenced)

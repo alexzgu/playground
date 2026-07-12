@@ -2,7 +2,7 @@
 
 Maintained by the orchestrator after each wave. Wave N+1 authors MUST read this file plus every module their spec calls back to. Format: spine / established helpers & notation / key printed numbers / forward promises.
 
-*Status: Waves 1–3 (00–13) FINAL — every module authored, dual-refereed, revised, harness-green. All numbers canonical.*
+*Status: Waves 1–4 (00–18) FINAL — every module authored, dual-refereed, revised, harness-green. All numbers canonical.*
 
 ## 00-four-lines
 - **Spine:** the whole subject is four lines (model = joint, inference = conditioning, prediction = marginalization, decision = expected loss); every procedure is a special case, approximation, or audit.
@@ -87,3 +87,33 @@ Maintained by the orchestrator after each wave. Wave N+1 authors MUST read this 
 - **Established:** `elbo_and_kl` grid verifier; `laplace_logit` (fit on unconstrained scale + KL); Laplace evidence formula; minimal known-variance mixture EM (full GMM = M19's); `cavi_gaussian` (unequal-variance target: var_mf,j = (1−ρ²)·Σⱼⱼ exactly); CAVI-for-NIG; SVI/AutoNormal-vs-NUTS comparison pattern (AutoNormal = mean-field in unconstrained space — stated honestly); "when to trust VI" box (point predictions yes; tail risk/interval widths no).
 - **Key numbers:** ELBO+KL = `−2.3979` for every q (Beta(8,4) check); Laplace KL 0.0264@n=5 vs 0.0022@n=200 (`11.8×`), evidence −4.62 both routes; EM log-lik −616.52→−411.79 monotone; CAVI var = (1−ρ²)Σⱼⱼ exact (`0.3600`/`0.7200`); CAVI/exact sd ratio = √((aₙ−1)/aₙ) = √0.8 = `0.8944` EXACT (closed form — the t's ν/(ν−2) tail inflation is what mean-field misses); SVI sd(σ) `0.700`× NUTS; reverse-KL mode collapse KL = ln 2 = `0.693`.
 - **Promises:** full GMM-EM + Gibbs label uncertainty (M19); VAE = amortized ELBO (M25); evidence/Occam in full (M17).
+
+## 14-bayesian-regression
+- **Spine:** regression is a prior over lines conditioned into a posterior over lines; ridge IS the Gaussian prior (α = σ²/τ² exactly), and cross-validating λ is empirical Bayes (**Empirical**: two estimators of the same quantity — prequential identity log p(y|τ²) = Σ log p(yᵢ|y₁..ᵢ₋₁,τ²) displayed).
+- **Established:** `blr_posterior(X,y,σ²,τ²)` (≡ M05 `gaussian_condition` on the (β,y) joint, verified 2.1e-14); trumpet decomposition Var[ỹ*] = x*ᵀΣₙx* (epistemic) + σ² (aleatoric); `nig_regression` + `t_predict` (reduces exactly to M05's `student_t_predictive`); `t_regression_em` (Student-t = Gamma scale-mixture via EM/IRLS); `eb_alpha` (evidence-max); prior-fan→posterior-fan figure device.
+- **Key numbers:** ridge≡posterior-mean `8.9e-16` across α∈{0.1,1,10,100}; trumpet half-width 2.024→4.137→8.236 (x=2/12/24), sklearn mute point `25.0737`; CV-α vs EB-α corr `0.795` (rep-6 disagreement 6.700-vs-2.541 quoted — estimators, not identical); t tail multiplier 1.076 (same-scale, 95%) but comparator-dependent (1.011× vs E[σ²|y]-plug-in; 1.125× at 99.5%); 3 outliers: OLS slope 0.4942→0.9109 vs t 0.5187 (weights 0.062/0.044/0.043).
+- **Promises:** weight-decay-as-prior for nets (M25); horseshoe (M18 ✓); GP = ∞-basis limit (M20); AR/Kalman reuse (M21).
+
+## 15-glms-classification
+- **Spine:** GLM = exp-family response + linear predictor + link; cross-entropy training IS Bernoulli-GLM ML; separation makes the MLE diverge and any proper Gaussian prior (= weight decay) cures it.
+- **Established:** `fit_laplace(X,y,tau)` (MAP+Hessian logistic); **MacKay moderated predictive** σ(m/√(1+πs²/8)) — gap vs plug-in is EXACTLY ZERO at p=0.5 (κ>0 can't flip the logit sign; SYLLABUS amended), peaks ≈p 0.854 and at small n; `ece()` + reliability harness (M25 reuses); censored survival NLL with S(c); multivariate `rw_metropolis`; sklearn `C=np.inf` = unpenalized (penalty=None deprecated).
+- **Key numbers:** sklearn≡hand-CE `1.13e-04`; separable ‖w‖→17.955 (lbfgs tolerance plateau; CE→0.00000, no finite minimizer); MH-vs-NUTS max mean diff 0.028, Laplace mode-shift 0.100; MacKay 0.8005 vs MC 0.7988 vs plug-in 0.8259; max moderation gap 0.0332@n=50→0.0034@n=500; ECE 0.0207 vs 0.0401; misspec NB plateau 0.204 vs LR 0.069; survival: S(c)-MLE slope holds 0.5497/0.554/0.5335 at 3/30/70% censoring vs drop-censored collapse 0.447→0.1628→0.0969.
+- **Promises:** calibration harness + overconfident softmax (M25); thresholds ≠ 0.5 (M22); offset-as-omitted-variable (M24); Pólya-Gamma named only.
+
+## 17-model-checking  [SIGNATURE S5]
+- **Spine:** a model must predict its own data (PPC = self-consistency audit, NOT a calibrated test); evidence = prior-predictive density = M02's discarded denominator, with a built-in Occam factor — complexity control by integration.
+- **Established:** `log_evidence(y,Φ,σ²,τ²)` exact conjugate marginal likelihood with fit/Occam split; PPC harness; hand-WAIC from the log-lik array (**az.waic removed in arviz 1.x**); point-null BF₀₁ two-Gaussian formula; BMA = evidence-weighted marginalization over the model index vs stacking = LOO-weighted (M-open); −log evidence = codelength (MDL).
+- **Key numbers:** Poisson PPC p `0.0000` → NB fix `0.611` (T=var/mean, obs 3.278); evidence peaks at degree 3 — WITH a dip at degree 2 (−37.23 < −36.69: a useless basis term pays Occam cost, zero fit gain) — while train MSE falls 0.4200→0.1656; PSIS-LOO −41.76 ≈ brute −41.94 ≈ 10-fold −41.63 ≈ hand-WAIC −41.66 (elpd scale; small prior-parity caveat); Lindley n=10⁴, x̄=0.0258: p `0.0099` but BF₀₁ 1.80→17.93 (τ=0.5→5), →∞ as τ→∞; **p=0.049 replicates at `0.499` — a coin flip** (staged shock); 2-SE power 0.514.
+- **Promises:** winner's curse/M-open (M18 ✓); GP marginal-likelihood Occam (M20); foregone-conclusion BF caveat (M23); Lindley + calibrated-Bayes (M26).
+
+## 18-scale-and-misspecification
+- **Spine:** with thousands of parallel problems the prior is estimable from data and shrinkage does multiplicity control automatically; a misspecified model's posterior is exactly right about a wrong model — audit its width.
+- **Established:** winner's-curse EB de-biasing (Â from Var(X)=A+1); two-groups local-fdr(z) ≈ P(null|z) ≡ BH (**Empirical**, Storey/Efron); horseshoe via non-centered NUTS (β=zλτ, target_accept 0.95; 43 divergences honestly framed as the horseshoe funnel); sandwich-vs-posterior-sd audit; power posterior p_η ∝ p(y|θ)^η π(θ) (var ×1/η EXACT for flat priors, approx otherwise); η* = (post_sd/sand_sd)² recalibration heuristic; M-closed/M-complete/M-open box.
+- **Key numbers:** top-hit raw `5.29` vs true `2.55` vs shrunk `2.80`; top-10 inflation 1.785→0.006; BH `166` vs local-fdr `174` at q=0.1 (FDP 0.069); **EB/FB width ratio MC-averaged: mean `0.8657` at J=10 but erratic (worst replicate `0.0013` = τ̂≈0 boundary; 5th pct 0.6259) → `0.9989` at J=1000** — M16's caveat is small-J AND high-variance, gone at scale; horseshoe RMSE 0.033 vs lasso 0.061 (35 FPs) vs ridge 0.267 (κ nulls 0.993); posterior sd 0.0739 vs sandwich 0.1019 vs true 0.1046; η* 0.526.
+- **Promises:** tempering ↔ SMC (M19/M21); temperature = tempering for LLMs (M25); misspecification row of the capstone ledger (M26).
+
+## 16-hierarchical
+- **Spine:** partial pooling = precision-weighted blend wⱼ = (1/σⱼ²)/(1/σⱼ² + 1/τ²) — M05's master formula at a second level, James–Stein made adaptive — and it beats both pooling extremes out of sample.
+- **Established:** `fit_schools` NumPyro pattern (reparam toggle centered/non-centered); conjugate-inside-replication bake-off pattern; EB via marginal-likelihood optimization (**eight-schools MLE is exactly τ̂=0 — the boundary**, referee-verified); MixedLM↔Bayes correspondence; booklet ch. 9 direct/synthetic/composite vocabulary; the shrinkage figure carries BOTH centers (complete-pool ȳ=7.69 vs hierarchical μ=6.49 — the μ-prior shrinkage made explicit); predict-first staging on all three mandated beats incl. the 28→8.23 reveal.
+- **Key numbers:** θ_A 28 → `8.23` (μ 6.49, τ median 2.80); centered `86` divergences (never explores τ below 0.723) vs non-centered `0` (reaches 0.004); bake-off held-out MSE 2.019 (no-pool) / 1.978 (complete) / **1.691 adaptive partial** (win generic across seeds, referee-verified); EB τ̂ = `0.00` boundary ⇒ intervals `27`% too narrow at J=8 (M18 shows mean ratio 0.87-but-erratic at J=10 → gone at J=1000); MixedLM↔Bayes corr `1.000` (pointwise gaps ~0.02); half-Cauchy→half-Normal moves τ 95th pct 10.45→8.01 but θ_A only 8.23→7.67.
+- **Promises:** EB safe at scale (M18 ✓); Kalman gain = this weight (M21); PPC/LOO on hierarchical fits (M17); benchmarking mentioned only.

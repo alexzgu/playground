@@ -40,9 +40,7 @@ def save(fig, name):
 
 ## 14.1 A prior over lines, conditioned into a posterior over lines
 
-The model is $y = X\beta + \varepsilon$, $\varepsilon \sim N(0, \sigma^2 I)$, with (for now) $\sigma^2$ known. A Gaussian prior $\beta \sim N(0, \tau^2 I)$ says *before seeing data, plausible coefficient vectors are small*. The joint $p(\beta, y)$ is Gaussian, so the posterior is one conditioning step. Completing the square (two quadratics in $\beta$, expand and collect — the same move as module 05's Normal-Normal) gives
-$$\Sigma_n = \Big(\tfrac{1}{\sigma^2}X^\top X + \tfrac{1}{\tau^2}I\Big)^{-1},\qquad \mu_n = \Sigma_n\,\tfrac{1}{\sigma^2}X^\top y,\qquad \beta\mid y \sim N(\mu_n, \Sigma_n).$$
-Posterior precision = prior precision + data precision $X^\top X/\sigma^2$; the posterior mean is a precision-weighted blend of the prior mean (0) and the data — **module 05's master shrinkage formula, now in $p$ dimensions.** But there is a second way to get here that makes the "posterior over lines" literal: stack $(\beta, y)$ into one Gaussian and apply module 05's `gaussian_condition` toolkit verbatim. That is not a coincidence to admire — it is the derivation.
+The model is $y = X\beta + \varepsilon$, $\varepsilon \sim N(0, \sigma^2 I)$, with (for now) $\sigma^2$ known. A Gaussian prior $\beta \sim N(0, \tau^2 I)$ reads "before seeing data, plausible coefficient vectors are small" — but read it geometrically instead: each $\beta = (\text{intercept}, \text{slope})$ *is* a line, so **a prior over coefficients is a prior over lines**, and you can draw from it. Inference is conditioning, and because $(\beta, y)$ is jointly Gaussian — stack them, with $\mathrm{Cov}(\beta)=\tau^2 I$, $\mathrm{Cov}(\beta,y)=\tau^2X^\top$, $\mathrm{Cov}(y)=\tau^2XX^\top+\sigma^2I$ — the posterior is *one call to module 05's `gaussian_condition` toolkit*. No new machinery. Watch the fan of lines collapse before deriving any formula:
 
 ```python
 # One simple-regression dataset: intercept + slope, so lines are drawable.
@@ -53,22 +51,14 @@ y = a_true + b_true*x + rng.normal(0, sigma, size=n)
 X = np.column_stack([np.ones(n), x])                # design: [1, x]
 sigma2, tau2 = sigma**2, 10.0                       # known noise var; prior var per coef
 
-# Route A: the precision-form posterior (Normal-Normal in p dimensions).
-def blr_posterior(X, y, sigma2, tau2):
-    p = X.shape[1]
-    Sigma_n = np.linalg.inv(X.T @ X / sigma2 + np.eye(p) / tau2)
-    mu_n = Sigma_n @ (X.T @ y / sigma2)
-    return mu_n, Sigma_n
-mu_n, Sigma_n = blr_posterior(X, y, sigma2, tau2)
-
-# Route B: module 05's Gaussian toolkit on the joint (beta, y). Cov blocks:
-#   Cov(beta)   = tau2 I,   Cov(beta,y) = tau2 X^T,   Cov(y) = tau2 X X^T + sigma2 I
 def gaussian_condition(mu, Sigma, idx1, idx2, x2):   # verbatim from module 05
     S11 = Sigma[np.ix_(idx1, idx1)]; S12 = Sigma[np.ix_(idx1, idx2)]
     S22 = Sigma[np.ix_(idx2, idx2)]; S21 = Sigma[np.ix_(idx2, idx1)]
     cond_mean = mu[idx1] + S12 @ np.linalg.solve(S22, x2 - mu[idx2])
     cond_cov  = S11 - S12 @ np.linalg.solve(S22, S21)
     return cond_mean, cond_cov
+
+# The joint (beta, y) Gaussian, then condition on the observed y-block.
 p = X.shape[1]
 mu_joint = np.zeros(p + n)                            # E[beta]=0, E[y]=X*0=0
 Cov = np.zeros((p + n, p + n))
@@ -76,43 +66,60 @@ Cov[:p, :p] = tau2 * np.eye(p)
 Cov[:p, p:] = tau2 * X.T
 Cov[p:, :p] = tau2 * X
 Cov[p:, p:] = tau2 * X @ X.T + sigma2 * np.eye(n)
-mu_B, Sigma_B = gaussian_condition(mu_joint, Cov, list(range(p)), list(range(p, p+n)), y)
-
-print(f"posterior mean  (precision form) = [{mu_n[0]:.4f}, {mu_n[1]:.4f}]")
-print(f"posterior mean  (05 toolkit)     = [{mu_B[0]:.4f}, {mu_B[1]:.4f}]")
-print(f"max|diff| mean {np.max(np.abs(mu_n-mu_B)):.1e}  cov {np.max(np.abs(Sigma_n-Sigma_B)):.1e}  (machine precision)")
+mu_n, Sigma_n = gaussian_condition(mu_joint, Cov, list(range(p)), list(range(p, p+n)), y)
+print(f"posterior mean (via 05 toolkit)    = [{mu_n[0]:.4f}, {mu_n[1]:.4f}]")
 print(f"posterior sd of (intercept, slope) = [{np.sqrt(Sigma_n[0,0]):.4f}, {np.sqrt(Sigma_n[1,1]):.4f}]")
+
+# 30 lines drawn from the prior, 30 from the posterior: conditioning, made visible.
+prior_draws = rng.multivariate_normal(np.zeros(p), tau2*np.eye(p), size=30)
+post_draws  = rng.multivariate_normal(mu_n, Sigma_n, size=30)
+xg = np.linspace(0, 4, 100)
+fig, axes = plt.subplots(1, 2, figsize=(11, 4), sharey=True)
+for ax, draws, title in [(axes[0], prior_draws, r"prior over lines: $\beta \sim N(0,\ 10\,I)$"),
+                         (axes[1], post_draws,  "posterior over lines: after 15 points")]:
+    for a, b in draws:
+        ax.plot(xg, a + b*xg, color="C0", alpha=0.25, lw=1)
+    ax.set_title(title); ax.set_xlabel("x")
+axes[1].plot(xg, mu_n[0] + mu_n[1]*xg, color="C1", lw=2.5, label="posterior mean line")
+axes[1].plot(x, y, "ko", ms=5, label="data")
+axes[0].set_ylabel("y"); axes[0].set_ylim(-14, 20)
+axes[1].legend(fontsize=9)
+save(fig, "prior-to-posterior-lines")
 ```
 
-The two routes agree to machine precision — Bayesian linear regression *is* the module 05 conditioning formula with $\Sigma$ built from the design. The posterior mean is `0.9677` (intercept) and `2.0084` (slope), close to the truth $(1, 2)$, with posterior standard deviations `0.4685` and `0.1860`. Now make "posterior over lines" visual: draw 30 coefficient vectors from $N(\mu_n, \Sigma_n)$ and plot each as a line.
+![Two panels. Left: thirty prior lines spraying in every direction — steep up, steep down, flat. Right: after conditioning on fifteen data points, the same 30-draw exercise gives a tight bundle of lines through the data, with the orange posterior-mean line down the middle.](figures/14-bayesian-regression/prior-to-posterior-lines.png)
+
+The left panel is the prior: lines of every persuasion, slopes anywhere within a few multiples of $\sqrt{10}$. The right panel is the same 30-draw exercise after conditioning — the fan has collapsed onto the data, pinched tightest where the points are dense and already splaying slightly at the edges. *That collapse is inference*, executed by the block formulas module 05 verified to machine precision. The posterior mean is `0.9677` (intercept) and `2.0084` (slope), close to the truth $(1, 2)$, with posterior standard deviations `0.4685` and `0.1860`.
+
+Now the formula the figure just enacted. The log-posterior is a sum of two quadratics in $\beta$; completing the square (expand and collect — the same move as module 05's Normal-Normal) gives
+$$\Sigma_n = \Big(\tfrac{1}{\sigma^2}X^\top X + \tfrac{1}{\tau^2}I\Big)^{-1},\qquad \mu_n = \Sigma_n\,\tfrac{1}{\sigma^2}X^\top y,\qquad \beta\mid y \sim N(\mu_n, \Sigma_n).$$
+Posterior precision = prior precision + data precision $X^\top X/\sigma^2$; the posterior mean is a precision-weighted blend of the prior mean (0) and the data — **module 05's master shrinkage formula, now in $p$ dimensions.** Package the precision form (later sections reuse it) and check it against the toolkit route:
 
 ```python
-draws = rng.multivariate_normal(mu_n, Sigma_n, size=30)
-xg = np.linspace(0, 4, 100)
-fig, ax = plt.subplots()
-for a, b in draws:
-    ax.plot(xg, a + b*xg, color="C0", alpha=0.20, lw=1)
-ax.plot(xg, mu_n[0] + mu_n[1]*xg, color="C1", lw=2.5, label="posterior mean line")
-ax.plot(x, y, "ko", ms=5, label="data")
-ax.set_xlabel("x"); ax.set_ylabel("y")
-ax.set_title("The posterior is a distribution over lines — tight where the data live")
-ax.legend()
-save(fig, "posterior-over-lines")
+def blr_posterior(X, y, sigma2, tau2):
+    """Precision-form posterior for beta ~ N(0, tau2 I), y = X beta + N(0, sigma2 I)."""
+    p = X.shape[1]
+    Sigma_n = np.linalg.inv(X.T @ X / sigma2 + np.eye(p) / tau2)
+    mu_n = Sigma_n @ (X.T @ y / sigma2)
+    return mu_n, Sigma_n
+
+mu_A, Sigma_A = blr_posterior(X, y, sigma2, tau2)
+print(f"precision form vs 05 toolkit: max|diff| mean {np.max(np.abs(mu_A-mu_n)):.1e}  "
+      f"cov {np.max(np.abs(Sigma_A-Sigma_n)):.1e}  (machine precision)")
 ```
 
-![Thirty faint blue lines fanning through fifteen data points, tightest in the middle of the data and splaying apart toward the edges, with the orange posterior-mean line down the middle.](figures/14-bayesian-regression/posterior-over-lines.png)
-
-The lines pinch together where the data are dense and splay apart at the edges. That splay is the whole point of the next section: extend it past the data and it becomes a trumpet.
+The two routes agree to machine precision (max|diff| `2.1e-14` on the mean, `1.4e-15` on the covariance) — Bayesian linear regression *is* the module 05 conditioning formula with $\Sigma$ built from the design. And the right panel's slight edge-splay is the whole point of the next section: extend it past the data and it becomes a trumpet.
 
 ## 14.2 The trumpet: predictive intervals flare off-support  [THE TRUMPET]
 
-Prediction at a new input $x_*$ is line 3 — marginalize the posterior:
-$$\tilde y_* = x_*^\top\beta + \varepsilon,\qquad \mathrm{Var}[\tilde y_*\mid y] = \underbrace{x_*^\top \Sigma_n\, x_*}_{\text{epistemic}} \;+\; \underbrace{\sigma^2}_{\text{aleatoric}}.$$
-The aleatoric term is the irreducible noise floor — constant everywhere. The epistemic term is a *quadratic form in $x_*$*: near the data it is small, but $\Sigma_n$ has curvature, and as $x_*$ moves away from where the data pinned $\beta$ down, $x_*^\top\Sigma_n x_*$ grows without bound. OLS's point prediction $x_*^\top\hat\beta$ reports none of this — it is a bare line, mute about its own confidence.
+Prediction at a new input $x_*$ is line 3 — marginalize the posterior over lines you just drew: $\tilde y_* = x_*^\top\beta + \varepsilon$, with $\beta$ from the posterior. sklearn's `LinearRegression` answers the same request with a single number.
 
-**Predict.** The data live on $x\in[0,4]$. Before running, *sketch the half-width of your 95% predictive interval at $x_*=12$ — three times the data range.* Naive linear-model intuition extrapolates the line and carries a roughly constant-width error band along with it. Commit: is the interval half-width at $x_*=12$ about the same as at the center ($x=2$), maybe $2\times$, or far more?
+**Predict.** The data live on $x\in[0,4]$. Before any formula, *sketch the half-width of your 95% predictive interval at $x_*=12$ — three times the data range.* Commit relative to the half-width at the data center ($x=2$): about the same, maybe $2\times$, or far more? Second commitment: what will `ols.predict` report at $x_*=12$, and with what attached width?
 
-**Reason.** The naive picture treats prediction error as the noise $\sigma$ that you can see scattered around the data — a constant band. That is the aleatoric term *only*; it forgets that off-support you no longer know *which line*.
+**Reason.** The naive picture treats prediction error as the noise $\sigma$ you can see scattered around the data — a constant-width band carried along the extrapolated line. Name that intuition now, so you know which part of it breaks.
+
+**Run.** Marginalizing $\beta$ out of $\tilde y_* = x_*^\top\beta + \varepsilon$ decomposes the predictive variance (law of total variance, module 05's §05.6 in regression costume):
+$$\mathrm{Var}[\tilde y_*\mid y] = \underbrace{x_*^\top \Sigma_n\, x_*}_{\text{epistemic — which line?}} \;+\; \underbrace{\sigma^2}_{\text{aleatoric — noise floor}}.$$
 
 ```python
 xg2 = np.linspace(0, 13, 200)
@@ -133,25 +140,37 @@ for xv in (2.0, 12.0):
 
 from sklearn.linear_model import LinearRegression
 ols = LinearRegression().fit(x[:, None], y)                 # the "mute" point predictor
+print(f"sklearn LinearRegression.predict(x*=12) = {ols.predict([[12.0]])[0]:.4f}"
+      f"   <- one bare float; there is no method to call for the width")
 
-fig, ax = plt.subplots()
+fig, axes = plt.subplots(1, 2, figsize=(11, 4))
+ax = axes[0]
 ax.fill_between(xg2, pred_mean - 1.96*pred_sd, pred_mean + 1.96*pred_sd,
                 color="C0", alpha=0.20, label="95% posterior predictive")
 ax.plot(xg2, pred_mean, color="C1", lw=2, label="predictive mean")
 ax.plot(xg2, ols.predict(xg2[:, None]), color="C3", ls="--", lw=1.5,
         label="OLS point prediction (no width)")
 ax.plot(x, y, "ko", ms=5, label="data")
-ax.axvspan(0, 4, color="k", alpha=0.05); ax.text(1.5, ax.get_ylim()[1]*0.92, "data support", fontsize=9)
-ax.axvline(12, color="C7", ls=":", lw=1); ax.text(10.3, 3, "x = 3× range", fontsize=9)
+ax.axvspan(0, 4, color="k", alpha=0.05); ax.text(0.4, -4.5, "data support", fontsize=9)
+ax.axvline(12, color="C7", ls=":", lw=1); ax.text(10.3, -4.5, "x = 3× range", fontsize=9)
 ax.set_xlabel("x"); ax.set_ylabel("y")
-ax.set_title("The trumpet: the predictive interval flares where the data ran out")
+ax.set_title("Predictive band vs the mute OLS line")
 ax.legend(loc="upper left", fontsize=9)
+ax2 = axes[1]
+ax2.plot(xg2, 1.96*pred_sd, color="C0", lw=2, label="95% half-width")
+ax2.axhline(1.96*np.sqrt(sigma2), color="k", ls="--", lw=1.2,
+            label=r"aleatoric floor $1.96\,\sigma$")
+ax2.axvspan(0, 4, color="k", alpha=0.05)
+ax2.axvline(12, color="C7", ls=":", lw=1)
+ax2.set_xlabel("x"); ax2.set_ylabel("95% half-width")
+ax2.set_title("The trumpet's profile: flat on-support, a cone off it")
+ax2.legend(loc="upper left", fontsize=9)
 save(fig, "trumpet")
 ```
 
-![A regression fit whose 95% band is a narrow tube through the data on x in 0 to 4 and then flares open like a trumpet bell out to x=12, while the dashed OLS line marches out with no band at all.](figures/14-bayesian-regression/trumpet.png)
+![Left: a regression fit whose 95% band is a narrow tube through the data on x in 0 to 4, widening steadily out to x = 12, while the dashed OLS line runs along the predictive mean carrying no band. Right: the 95% half-width plotted against x — flat near the dashed aleatoric floor over the data, then bending upward into a cone off-support.](figures/14-bayesian-regression/trumpet.png)
 
-**Reconcile.** At the data center $x=2$ the epistemic variance is `0.067` and the predictive half-width is `2.024` — essentially the noise floor $\sigma=1$. At $x_*=12$ the epistemic variance is `3.455`, three and a half times the aleatoric floor, and the half-width balloons to `4.137` — roughly double the center. The naive constant-band guess was wrong because prediction error is *not* just the scatter you see around the data; off-support the dominant term is not knowing which line, and that term grows quadratically as you extrapolate. OLS's dashed line sails out to $x=12$ reporting nothing. **The trumpet is the model telling you where it is guessing** — the visual signature of honest extrapolation, and the exact continuous analog of module 05's predictive-vs-plug-in widening (2-of-2 conversions, the language model's zero): the plug-in is most overconfident precisely where you have least evidence.
+**Reconcile.** At the data center $x=2$ the epistemic variance is `0.067` and the predictive half-width is `2.024` — essentially the noise floor $\sigma=1$; your "constant band" intuition is *correct* there. At $x_*=12$ the epistemic variance is `3.455`, three and a half times the aleatoric floor, and the half-width balloons to `4.137` — roughly double the center, and still growing without bound: the epistemic term is a quadratic form in $x_*$, so once the data's pin on $\beta$ is behind you, variance grows quadratically with distance. That is what the constant-band picture forgets — off-support you no longer know *which line*. And the second commitment: sklearn returned `25.0737`, one bare float. Note in the left panel that the dashed OLS line and the predictive mean *coincide* (the weak prior barely shrinks them apart): the difference between the two models is not the prediction, it is the admission. The right panel is the trumpet in profile — flat at $1.96\sigma$ over the data, a cone beyond it. **The trumpet is the model telling you where it is guessing** — the continuous analog of module 05's predictive-vs-plug-in widening (2-of-2 conversions, the language model's zero): the plug-in is most overconfident precisely where you have least evidence.
 
 ## 14.3 Ridge *is* the Gaussian prior: $\lambda = \sigma^2/\tau^2$, exactly
 
@@ -181,18 +200,21 @@ Across $\alpha\in\{0.1,1,10,100\}$ the ridge coefficients equal the Gaussian-pri
 
 ## 14.4 Cross-validating $\lambda$ is empirical Bayes
 
-The practitioner picks $\alpha$ by cross-validation: try a grid, keep the value with the smallest held-out error. The Bayesian picks $\tau^2$ by **empirical Bayes** (module 08): maximize the *marginal likelihood* — the evidence — $p(y\mid\tau^2) = N(y\mid 0,\ \tau^2 XX^\top + \sigma^2 I)$, integrating $\beta$ out entirely. These sound like different cultures. They are the same number.
+The practitioner picks $\alpha$ by cross-validation: try a grid, keep the value with the smallest held-out error. The Bayesian picks $\tau^2$ by **empirical Bayes** (module 08): maximize the *marginal likelihood* — the evidence — $p(y\mid\tau^2) = N(y\mid 0,\ \tau^2 XX^\top + \sigma^2 I)$, integrating $\beta$ out entirely. These sound like different cultures.
 
 **Predict.** For several datasets from the same generator, we compute $\alpha_{\text{CV}}$ (RidgeCV's choice) and $\alpha_{\text{EB}} = \sigma^2/\hat\tau^2_{\text{EB}}$ (the evidence-maximizer). Will they track each other across replicates — nearly equal every time — or wander independently because "minimize prediction error" and "maximize evidence" are different objectives?
 
-**Reason.** The intuition that says they diverge treats CV as a pure predictive-accuracy tool with no model of where the data came from. But held-out error *is* an estimate of predictive density, and the evidence *is* the leave-none-out predictive density — same target, seen twice.
+**Reason.** The intuition that says they diverge treats CV as a pure predictive-accuracy tool with no model of where the data came from. But the chain rule factorizes the evidence *prequentially*:
+$$\log p(y\mid\tau^2) \;=\; \sum_{i=1}^{n} \log p\big(y_i \mid y_1,\dots,y_{i-1},\ \tau^2\big)$$
+— the evidence is a sum of one-step-ahead predictive scores on data the model has not yet seen: a leave-none-out cross-validation, run in sequence instead of in folds. Held-out error and evidence are two estimators of the same quantity — how well the prior variance $\tau^2$ predicts. If that identity carries force, the two knobs must co-move. (One honesty note before running: our `eb_alpha` is handed the true $\sigma^2$, while CV needs no such input; the fully honest version maximizes the evidence over $(\sigma^2, \tau^2)$ jointly.)
 
 ```python
 from sklearn.linear_model import RidgeCV
 from scipy.optimize import minimize_scalar
 
 def eb_alpha(X, y, sigma2):
-    """Empirical-Bayes alpha = sigma2 / tau2_hat, tau2 maximizing the evidence."""
+    """Empirical-Bayes alpha = sigma2 / tau2_hat, tau2 maximizing the evidence.
+    NOTE: takes the true sigma2 as given (CV does not); honest EB optimizes both."""
     n = len(y)
     def neg_log_evidence(log_tau2):
         M = np.exp(log_tau2) * (X @ X.T) + sigma2 * np.eye(n)
@@ -234,9 +256,9 @@ ax.legend()
 save(fig, "cv-equals-eb")
 ```
 
-![A log-log scatter of cross-validated alpha against empirical-Bayes alpha, eight points hugging the dashed y=x diagonal near the true alpha = 2.](figures/14-bayesian-regression/cv-equals-eb.png)
+![A log-log scatter of cross-validated alpha against empirical-Bayes alpha: ten points tracking the y=x diagonal within roughly a factor of two, the larger-alpha cluster sitting above the line, near the true alpha = 2.](figures/14-bayesian-regression/cv-equals-eb.png)
 
-The two columns march together: correlation `0.795` across replicates, both clustered around the true $\alpha = \sigma^2/\tau^2_{\text{true}} = $ `2.000`. Tuning the ridge penalty by cross-validation and estimating the prior variance by maximizing the evidence are the *same act* viewed from two cultures — **you were estimating your prior variance all along.** The mild scatter off the diagonal is the honest EB caveat (module 08): both are point estimates of a hyperparameter, and at small $n$ they disagree by sampling noise; the full-Bayes fix is to put a prior on $\tau^2$ and integrate it too (module 16's hierarchical treatment). This is the module's judgment-compression peak: two of the most-used knobs in applied ML and Bayesian statistics are one knob.
+**Reconcile.** They are two estimators of the same number — your prior variance — and they behave like it. **Empirical:** across replicates the two columns co-move with correlation `0.795`, both clustered around the true $\alpha = \sigma^2/\tau^2_{\text{true}} = $ `2.000`; the prequential identity is exact for the evidence, while grid-CV approximates it with finite folds and a discrete grid, so the tracking is strong but not pointwise equality (replicate 6: `6.700` vs `2.541`). Tuning the ridge penalty by cross-validation and estimating the prior variance by maximizing the evidence are one act seen from two cultures — **you were estimating your prior variance all along.** The scatter off the diagonal is the honest EB caveat (module 08): both are point estimates of a hyperparameter, disagreeing by sampling noise at $n=50$ (and recall we handed EB the true $\sigma^2$); the full-Bayes fix is to put a prior on $\tau^2$ and integrate it too (module 16's hierarchical treatment). This is the module's judgment-compression peak: two of the most-used knobs in applied ML and Bayesian statistics are one knob.
 
 ## 14.5 Unknown $\sigma^2$: the predictive becomes Student-$t$
 
@@ -261,7 +283,7 @@ def t_predict(xs, mn, Vn, an, bn):
     scale = np.sqrt((bn/an) * (1 + xs @ Vn @ xs))
     return df, loc, scale
 
-# Reuse the §14.1 line data; weak NIG prior. Compare t vs known-sigma Gaussian intervals.
+# Reuse the §14.1 line data; weak NIG prior. Compare t vs Gaussian tails at the SAME predictive scale.
 m0 = np.zeros(2); V0 = 10.0*np.eye(2); a0, b0 = 1.0, 1.0
 mn, Vn, an, bn = nig_regression(X, y, m0, V0, a0, b0)
 print(f"posterior: a_n = {an:.1f}  ->  predictive df = {2*an:.0f}   E[sigma^2|y] = b_n/(a_n-1) = {bn/(an-1):.4f}")
@@ -275,19 +297,26 @@ for xv in (2.0, 12.0):
           f"Gaussian half-width = {hw_g:.3f}   t/Gaussian = {hw_t/hw_g:.3f}")
 print(f"tail factor: t(df={2*an:.0f}) 97.5% quantile = {stats.t(2*an).ppf(0.975):.4f} vs Normal 1.9600; "
       f"at df=5 (small n) it is {stats.t(5).ppf(0.975):.4f}")
+# Comparator dependence: the plug-in Normal at E[sigma^2|y] has the SAME variance as the t
+# (only thinner tails), so at 95% the width gap nearly vanishes -- but grows deeper in the tail.
+df_ = 2*an
+infl_95  = stats.t(df_).ppf(0.975) / (stats.norm.ppf(0.975) * np.sqrt(df_/(df_-2)))
+infl_995 = stats.t(df_).ppf(0.995) / stats.norm.ppf(0.995)
+print(f"vs plug-in Normal at E[sigma^2|y]: 95% width inflation = {infl_95:.3f}x; "
+      f"same-scale t premium at the 99.5th pct = {infl_995:.3f}x")
 ```
 
-With $n=15$ the predictive has $\nu = 2a_n = $ `17` degrees of freedom, and the posterior-mean noise variance is $b_n/(a_n-1) = $ `0.6413`. Holding the scale fixed, the Student-$t$ interval is wider than a Gaussian at every $x_*$ by the *same* factor `1.076` — the ratio of the $t_{17}$ 97.5% quantile (`2.1098`) to the Normal's `1.9600` — because this widening is purely a tail effect, independent of $x_*$. The extra width is the tax for not knowing the noise floor, largest at small $n$ (small $\nu$, heaviest tails) and vanishing as $\nu\to\infty$: at $\nu=5$ the multiplier is `2.5706`/1.9600, a 31% inflation where the $t$ prices extreme observations dramatically higher than the Gaussian would (module 05's small-$n$ warning, now attached to every prediction).
+With $n=15$ the predictive has $\nu = 2a_n = $ `17` degrees of freedom, and the posterior-mean noise variance is $b_n/(a_n-1) = $ `0.6413`. Holding the scale fixed, the Student-$t$ interval is wider than a Gaussian at every $x_*$ by the *same* factor `1.076` — the ratio of the $t_{17}$ 97.5% quantile (`2.1098`) to the Normal's `1.9600` — because this widening is purely a tail effect, independent of $x_*$. The extra width is the tax for not knowing the noise floor, largest at small $n$ (small $\nu$, heaviest tails) and vanishing as $\nu\to\infty$: at $\nu=5$ the multiplier is `2.5706`/1.9600, a 31% inflation where the $t$ prices extreme observations dramatically higher than the Gaussian would (module 05's small-$n$ warning, now attached to every prediction). One more honesty note: this multiplier is comparator-dependent. Against the *plug-in Normal* at $\mathbb E[\sigma^2\mid y]$ — which has the same variance as the $t$, only thinner tails — the 95% width gap is just `1.011`×; but the $t$'s premium grows fast deeper into the tail, `1.125`× at the 99.5th percentile even at matched scale — and the deep tail is exactly where the plug-in under-prices (module 05's percentile comparison, again).
 
 ## 14.6 Robust regression: a $t$-likelihood is a Gamma scale-mixture
 
-A single gross outlier can swing an OLS line off its hinges, because the Gaussian likelihood's $-\tfrac{1}{2\sigma^2}(y_i - x_i^\top\beta)^2$ penalty grows *quadratically* — a point ten standard deviations out contributes a hundred times the leverage of a typical one, and the fit contorts to appease it. The Bayesian fix is not an outlier-detection heuristic bolted on afterward; it is a *different generative story for the noise*. Give each observation a Student-$t$ likelihood, and use the identity that a $t$ is a **Gamma scale-mixture of Normals**:
+A single gross outlier can swing an OLS line off its hinges — but by *how much*? Hold that question for the Predict beat below; first the fix, which is not an outlier-detection heuristic bolted on afterward but a *different generative story for the noise*. Give each observation a Student-$t$ likelihood, and use the identity that a $t$ is a **Gamma scale-mixture of Normals**:
 $$y_i\mid\beta,\lambda_i \sim N\big(x_i^\top\beta,\ \sigma^2/\lambda_i\big),\qquad \lambda_i \sim \mathrm{Gamma}(\nu/2,\ \nu/2)\ \ \Longrightarrow\ \ y_i\mid\beta \sim t_\nu\big(x_i^\top\beta,\ \sigma^2\big),$$
-because $\int N(y\mid m,\sigma^2/\lambda)\,\mathrm{Gamma}(\lambda\mid\nu/2,\nu/2)\,d\lambda = t_\nu(y\mid m,\sigma^2)$ (integrate out $\lambda$; the Gamma is conjugate to the Normal's precision). Each point carries its own latent precision $\lambda_i$: a point that fits well keeps $\lambda_i\approx 1$, an outlier is *explained* by a small $\lambda_i$ (a locally inflated variance) rather than by dragging $\beta$. Inference marginalizes $\lambda_i$, and the posterior weight $\mathbb E[\lambda_i\mid\text{data}]$ down-weights outliers automatically. EM makes this concrete — the E-step *is* that expected precision, the M-step is weighted least squares.
+because $\int N(y\mid m,\sigma^2/\lambda)\,\mathrm{Gamma}(\lambda\mid\nu/2,\nu/2)\,d\lambda = t_\nu(y\mid m,\sigma^2)$ (integrate out $\lambda$; the Gamma is conjugate to the Normal's precision). Each point carries its own latent precision $\lambda_i$: a point that fits well keeps $\lambda_i\approx 1$, an outlier is *explained* by a small $\lambda_i$ (a locally inflated variance) rather than by dragging $\beta$. Inference marginalizes $\lambda_i$, and the conditional expectation $\mathbb E[\lambda_i\mid y,\hat\beta,\hat\sigma^2]$ down-weights outliers automatically (full Bayes would marginalize $\beta$ and $\sigma^2$ too — module 18's global-local priors do). EM makes this concrete — the E-step *is* that expected precision, the M-step is weighted least squares.
 
 **Predict.** We take 30 clean points on a slope-$0.5$ line and yank three of them (10% of the data) far off. Before running, commit: by what fraction does the *ordinary* least-squares slope move — about 10%, proportional to the contamination — and does the $t$-fit resist?
 
-**Reason.** The naive "perturbation is proportional to the share of bad data" reasons linearly in the count; it ignores *leverage* — that a far-off point contributes its squared residual, so its pull is out of all proportion to its number.
+**Reason.** The naive guess reasons linearly in the *count* of bad points — three of thirty, so about 10% — treating every observation as equally influential.
 
 ```python
 def t_regression_em(X, y, nu=4.0, iters=60):
@@ -296,7 +325,7 @@ def t_regression_em(X, y, nu=4.0, iters=60):
     sigma2 = np.mean((y - X @ beta)**2)
     for _ in range(iters):
         r = y - X @ beta
-        w = (nu + 1) / (nu + r**2 / sigma2)             # E-step: E[lambda_i | data]
+        w = (nu + 1) / (nu + r**2 / sigma2)             # E-step: E[lambda_i | y, beta, sigma2]
         WX = X * w[:, None]
         beta = np.linalg.solve(WX.T @ X, WX.T @ y)       # M-step: weighted least squares
         sigma2 = np.mean(w * (y - X @ beta)**2)          # M-step: weighted noise variance
@@ -335,7 +364,7 @@ save(fig, "robust-t")
 
 ![Scatter with three red square outliers pulled far above a linear trend; the red OLS line tilts up toward them while the blue robust-t line stays down along the clean data, nearly on top of the dotted clean-data OLS line.](figures/14-bayesian-regression/robust-t.png)
 
-**Reconcile.** On clean data OLS recovers slope `0.4942`. Add three outliers and the OLS slope jerks to `0.9109` — an 84% distortion from three points out of thirty, eight times the naive "10%" guess. The $t$-regression slope is `0.5187`, essentially unmoved and nearly identical to the clean-data fit. The mechanism is printed in the weights: the three outliers get $\mathbb E[\lambda_i]$ of `0.062`, `0.044`, and `0.043` — roughly a twentieth of the weight of the ordinary points — the model quietly decided those three came from a high-variance regime and stopped listening to them. **Robustness here is not a heuristic; it is marginalizing a latent variance.** "Down-weight outliers" is a *consequence* of a heavier-tailed generative story, derived, not a rule you tuned. (Fixing $\nu=4$ is a modelling choice; smaller $\nu$ = heavier tails = more aggressive down-weighting. You can also put a prior on $\nu$ and infer it.)
+**Reconcile.** On clean data OLS recovers slope `0.4942`. Add three outliers and the OLS slope jerks to `0.9109` — an 84% distortion from three points out of thirty, eight times the naive "10%" guess. The miss is *leverage*: the Gaussian log-likelihood's $-\tfrac{1}{2\sigma^2}(y_i-x_i^\top\beta)^2$ penalty grows quadratically, so a point ten standard deviations out contributes a hundred times the pull of a typical one — influence out of all proportion to its count, and the fit contorts to appease it. The $t$-regression slope is `0.5187`, essentially unmoved and nearly identical to the clean-data fit. The mechanism is printed in the weights: the three outliers get E-step weights of `0.062`, `0.044`, and `0.043` — roughly a twentieth of the weight of the ordinary points — the model quietly decided those three came from a high-variance regime and stopped listening to them. **Robustness here is not a heuristic; it is marginalizing a latent variance.** "Down-weight outliers" is a *consequence* of a heavier-tailed generative story, derived, not a rule you tuned. (Fixing $\nu=4$ is a modelling choice; smaller $\nu$ = heavier tails = more aggressive down-weighting. You can also put a prior on $\nu$ and infer it.)
 
 ## 14.7 Basis expansion: bias–variance is prior strength
 
@@ -343,7 +372,7 @@ Linearity is in the *coefficients*, not the inputs. Replace $x$ by a feature map
 
 - **Prior too strong** (tiny $\tau^2$, huge $\alpha$): coefficients crushed toward 0, the fit cannot bend to the signal — *underfitting*, high bias.
 - **Prior too weak** (huge $\tau^2$, $\alpha\to 0$): coefficients unconstrained, the high-degree terms chase noise — *overfitting*, high variance.
-- **Prior matched** to the true coefficient scale: the bias–variance sweet spot — which is exactly the $\alpha$ that §14.4's evidence maximization finds.
+- **Prior matched** to the true coefficient scale: the bias–variance sweet spot — the $\alpha$ that §14.4's evidence maximization estimates.
 
 ```python
 rng_b = np.random.default_rng(5)
@@ -391,7 +420,7 @@ ISLP teaches linear regression, then ridge and lasso as *penalties* chosen by cr
 ## Pitfalls
 
 - **Reporting OLS's point prediction off-support.** The bare line $x_*^\top\hat\beta$ is mute about epistemic variance, which *grows quadratically* as you leave the data (§14.2). Extrapolating a point prediction without the trumpet is claiming certainty exactly where you have least.
-- **Forgetting $\sigma^2$ is unknown.** Known-$\sigma^2$ Gaussian intervals are too narrow; the honest predictive is Student-$t_{2a_n}$ (§14.5), heaviest-tailed at small $n$. Plugging in $\hat\sigma^2$ and using a Normal repeats module 05's under-coverage in continuous form.
+- **Forgetting $\sigma^2$ is unknown.** Gaussian intervals built on a plugged-in $\hat\sigma^2$ are too thin in the tails; the honest predictive is Student-$t_{2a_n}$ (§14.5), heaviest-tailed at small $n$. Same variance, thinner tails — the under-pricing shows up exactly at the extreme percentiles (module 05's under-coverage in continuous form).
 - **Treating $\alpha$ as a free knob divorced from a model.** $\alpha$ *is* $\sigma^2/\tau^2$ — a statement about how large you believe coefficients to be (§14.3). Cross-validation and evidence maximization estimate the same quantity (§14.4); if they disagree wildly, your model or your grid is the problem.
 - **Using OLS with outliers present.** The quadratic loss gives a single far point unbounded leverage (§14.6). A $t$-likelihood down-weights it by *marginalizing a latent precision* — reach for it before hand-deleting "bad" points, which is an undocumented, non-reproducible prior.
 - **Calling the lasso "sparse Bayes."** The zeros are a property of the *mode*; the posterior mean is never sparse (§14.8, module 06). For sparsity with uncertainty use a horseshoe (module 18), not the lasso's point estimate.
@@ -400,8 +429,8 @@ ISLP teaches linear regression, then ridge and lasso as *penalties* chosen by cr
 
 **Exercise 14.1 — How fast does the trumpet flare?**  *(surprising)*
 *Setup:* Using the §14.1 posterior (`Sigma_n`, `sigma2`), compare the 95% predictive half-width at the data center $x=2$ against three extrapolation distances: $x=6$, $x=12$, $x=24$ (1×, 3×, and 6× beyond the range's edge).
-*Predict:* Doubling the extrapolation distance roughly — doubles the interval width? Quadruples it? Something else?
-*Reason:* "Extrapolation error grows with distance" — but *how* is the question; the naive guess is linear growth.
+*Predict:* Commit to two growth ratios before running: width($x{=}6$)/width($x{=}2$), where $x$ tripled, and width($x{=}24$)/width($x{=}12$), where $x$ doubled. If "interval width grows linearly with $x$," the first ratio is $\approx 3$ and the second $\approx 2$. Do both hold, neither, or only one?
+*Reason:* "Extrapolation error grows linearly with distance, everywhere" — a single growth law applied to both regimes.
 *Run:*
 ```python
 for xv in (2.0, 6.0, 12.0, 24.0):
@@ -411,7 +440,7 @@ for xv in (2.0, 6.0, 12.0, 24.0):
 ```
 <details><summary>Reconcile</summary>
 
-Half-widths are about `2.024` (x=2), `2.473` (x=6), `4.137` (x=12), `8.236` (x=24). Once you are well off-support the epistemic term $x_*^\top\Sigma_n x_*$ dominates and grows *quadratically* in $x_*$, so its square root — the interval width — grows *linearly* in the distance, doubling as $x_*$ doubles (4.137 → 8.236). But near the data the noise floor $\sigma$ still contributes, so the growth is slower than linear there (2.024 → 2.473 is far from a doubling). The surprise for the naive "linear everywhere" guess cuts both ways: the width is *super*-linear leaving the data (variance quadratic) and *sub*-linear near it (floored by $\sigma$). The trumpet's bell is a parabola in variance, a cone in width.
+Half-widths are about `2.024` (x=2), `2.473` (x=6), `4.137` (x=12), `8.236` (x=24). Only the far-field ratio holds: 8.236/4.137 = 1.99 ≈ 2, because well off-support the epistemic term $x_*^\top\Sigma_n x_*$ dominates and grows quadratically in $x_*$, so its square root — the width — grows linearly. The near-field ratio fails badly: 2.473/2.024 = 1.22, nowhere near 3, because over the data the width is floored by the aleatoric $\sigma$, which does not grow at all. One growth law was the wrong model — the trumpet is *sub*-linear near the data (noise-floored) and *linear* far from it (epistemic cone): a parabola in variance, a cone in width, a flat tube where the data live.
 </details>
 
 **Exercise 14.2 — Weight decay is a prior.**  *(ML bridge)*
@@ -478,5 +507,5 @@ At the center the half-width barely improves — `2.024` → `1.968` — because
 - **Ridge is the Gaussian prior, exactly.** $\hat\beta_{\text{ridge}}(\alpha)$ equals the posterior mean under $\beta\sim N(0,\sigma^2/\alpha\cdot I)$ to machine precision, for every $\alpha$; the penalty is a prior precision, $\alpha=\sigma^2/\tau^2$.
 - **Cross-validating $\lambda$ is empirical Bayes.** RidgeCV's $\alpha$ and the evidence-maximizing $\sigma^2/\hat\tau^2$ track each other (correlation `0.795`) — tuning the regularizer *is* estimating the prior variance.
 - **Unknown $\sigma^2$ ⇒ Student-$t$ predictive.** The NIG posterior gives $\tilde y_*\sim t_{2a_n}$ with scale$^2=\tfrac{b_n}{a_n}(1+x_*^\top V_n x_*)$ (module 05's helper generalized); intervals widen beyond Gaussian by the $t$-multiplier (`1.076` at $\nu=17$), most at small $n$.
-- **Robustness = marginalizing a latent variance.** A $t$-likelihood is a Gamma scale-mixture of Normals; outliers get small posterior precision $\mathbb E[\lambda_i]$ and are down-weighted automatically — three injected outliers move the OLS slope 84% while the $t$-slope stays within 5% of its clean-data value.
+- **Robustness = marginalizing a latent variance.** A $t$-likelihood is a Gamma scale-mixture of Normals; outliers get a small expected precision $\mathbb E[\lambda_i]$ and are down-weighted automatically — three injected outliers move the OLS slope 84% while the $t$-slope stays within 5% of its clean-data value.
 - **Bias–variance is prior strength.** Under a basis expansion, underfit/overfit = prior too strong/too weak; "how many features?" becomes "how strong a prior?", a continuous knob the evidence sets — the doorway to Gaussian processes (module 20) and Occam (module 17).

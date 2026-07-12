@@ -2,8 +2,8 @@
 
 > **Spine.** Pick the response's generative story, wire its natural parameter through a linear predictor, and you have a GLM — cross-entropy training *is* categorical-GLM maximum likelihood, and any proper prior cures separation.
 > **Which line?** Line 1 (choose the joint: the response's exponential-family story) feeding line 3 (predict by *marginalizing* the coefficient posterior, not plugging the mode) — the module's sharpest lesson lives on line 3.
-> **Promise.** After this module you can build a GLM for any exponential-family response, explain why the logistic MLE diverges on separable data and why a Gaussian prior is the generative name for weight decay, fit a Bayesian classifier three ways that agree, turn a coefficient posterior into a *calibrated* class probability in closed form, and write a survival likelihood that conditions on exactly what you observed.
-> **Prereqs.** Modules 04 (likelihood→loss dictionary, the exponential-family table, the censoring seed $S(c)$), 05 (conjugacy / Gaussian machinery behind the prior), 10 (`rw_metropolis` pattern), 13 (Laplace = MAP + Hessian), 14 (the Bayesian linear model this generalizes). **Runtime.** ~34 s (includes JAX JIT + NUTS).
+> **Promise.** After this module you can build a GLM for any exponential-family response, explain why the logistic MLE diverges on separable data (and why weight decay is the proper prior that fixes it), and turn a coefficient posterior into a *calibrated* class probability in closed form — integrating, not plugging.
+> **Prereqs.** Modules 04 (likelihood→loss dictionary, the exponential-family table, the censoring seed $S(c)$), 05 (conjugacy / Gaussian machinery behind the prior), 10 (`rw_metropolis` pattern), 13 (Laplace = MAP + Hessian), 14 (the Bayesian linear model this generalizes). **Runtime.** ~65 s (includes JAX import + JIT + NUTS).
 > **Sources.** ISLP ch. 4, 11; booklet ch. 8, 11; MacKay *ITILA* (moderated outputs) by concept; Ng–Jordan 2002 (generative vs discriminative) by concept, softened.
 
 Module 14 gave the response a Normal story: $y \sim \mathcal N(x^\top\beta, \sigma^2)$, identity link, conjugate everything. But most responses are not Gaussian. A click is Bernoulli, a count of arrivals is Poisson, a time-to-failure is Exponential or Weibull. A **generalized linear model** keeps the one good idea — a *linear predictor* $\eta = x^\top\beta$ — and swaps the Gaussian for whatever exponential-family story the response actually tells, connecting the two through a **link** $g$ that maps the mean onto the linear scale: $g(\mathbb E[y\mid x]) = x^\top\beta$. That is the whole recipe. Everything below is consequences.
@@ -226,7 +226,7 @@ save(fig, "three-ways")
 
 ![Three panels, one per coefficient, each overlaying the Metropolis histogram, the NUTS histogram, and the Laplace Gaussian curve; the two sampled histograms sit on top of each other and the Laplace curve tracks them with a slight leftward shift on the steepest coefficient.](figures/15-glms-classification/three-ways.png)
 
-The two *exact* samplers are indistinguishable — MH and NUTS posterior means differ by at most `0.028` across all three coefficients, well inside Monte Carlo error, and their standard deviations agree to two digits (`0.331`, `0.314`, `0.373` from NUTS). Laplace tracks them but its mean sits up to `0.100` low on the steepest coefficient: the $n=50$ posterior is mildly right-skewed, and Laplace reports the *mode*, which for a skewed density is not the mean. That gap is small here and it is also a preview — the difference between "where the posterior peaks" and "what the posterior averages to" is precisely what the next section is about.
+The two *exact* samplers are indistinguishable — MH and NUTS posterior means differ by at most `0.028` across all three coefficients, well inside Monte Carlo error, and their standard deviations agree to two digits (`0.331`, `0.314`, `0.373` from NUTS). Laplace tracks them but its center sits `0.100` short of the posterior mean *in magnitude* on the steepest coefficient (mode $-0.803$ vs mean $-0.903$ for $\beta_2$: closer to zero): the $n=50$ posterior is skewed with its heavier tail pointing *away* from zero, and Laplace reports the *mode*, which for a skewed density is not the mean. That gap is small here and it is also a preview — the difference between "where the posterior peaks" and "what the posterior averages to" is precisely what the next section is about.
 
 ## 15.4 Integrate, don't plug: calibrated probabilities in closed form
 
@@ -236,7 +236,7 @@ the posterior-averaged sigmoid, **not** the plug-in $\sigma(x_\star^\top\hat\bet
 
 MacKay's **moderated approximation** gives the integral in closed form. Approximate the posterior as $\mathcal N(\mu,\Sigma)$; then $a = x_\star^\top\beta$ is Gaussian with mean $m=x_\star^\top\mu$ and variance $s^2 = x_\star^\top\Sigma x_\star$, and the probit-matched Gaussian integral of a logistic yields
 $$P(y_\star=1\mid x_\star) \;\approx\; \sigma\!\left(\frac{m}{\sqrt{1 + \tfrac{\pi}{8}s^2}}\right).$$
-The denominator $\sqrt{1+\tfrac\pi8 s^2}$ shrinks the logit toward zero — toward $p=0.5$ — by an amount set by the *predictive variance* $s^2$. Check it against brute-force Monte Carlo integration over the Laplace posterior from §15.3.
+The denominator $\sqrt{1+\tfrac\pi8 s^2}$ shrinks the logit toward zero — toward $p=0.5$ — by an amount set by the *predictive variance* $s^2$. Check it against brute-force Monte Carlo integration over the Laplace posterior from §15.3 — and before the scan below runs, commit to a prediction: *where along a slice of input space is the plug-in-vs-integrated gap largest — at the decision boundary, where class uncertainty peaks, or somewhere else?* (The intuition being used: "corrections for uncertainty matter most where the model is most uncertain, i.e. at $p=0.5$.")
 
 ```python
 def plug_in(x):  return 1 / (1 + np.exp(-x @ b_map))
@@ -261,7 +261,7 @@ print(f"n=50 : max|plug-in - MacKay| = {gap[i]:.4f} at plug-in p = "
       f"{plug_in(np.array([1., x1s[i], 0.])):.3f}")
 ```
 
-At the decision **boundary** ($m=0$) all three agree at `0.5000`: shrinking a zero logit toward zero changes nothing. Move to a **confident** point and they part: plug-in says `0.8259`, but the honest integrated probability is `0.7988` (Monte Carlo) — and MacKay's closed form nails it at `0.8005`, matching the expensive integral without drawing a sample. The plug-in is **overconfident**: it reports the probability you would assign if you knew $\beta$ exactly, ignoring that you do not. Scanning the slice, the gap peaks at `0.0332`, and — the catch — it peaks *not* at the boundary but at a fairly confident prediction (plug-in $p\approx$ `0.854`): the correction is zero where you are maximally uncertain about the class and largest where the plug-in is confident but the posterior is wide.
+If you predicted "at the boundary," you were caught by exactly the intuition named above. At the decision **boundary** ($m=0$) all three agree at `0.5000` — the gap is *exactly zero* there, because shrinking a zero logit toward zero changes nothing. Move to a **confident** point and they part: plug-in says `0.8259`, but the honest integrated probability is `0.7988` (Monte Carlo) — and MacKay's closed form nails it at `0.8005`, matching the expensive integral without drawing a sample. The plug-in is **overconfident**: it reports the probability you would assign if you knew $\beta$ exactly, ignoring that you do not. Scanning the slice, the gap peaks at `0.0332` at a fairly confident prediction (plug-in $p\approx$ `0.854`): class uncertainty and *parameter* uncertainty are different things, and the correction is largest not where the class is uncertain but where the plug-in is confident while the posterior is still wide.
 
 The size of the correction is $s^2 = x_\star^\top\Sigma x_\star$, the epistemic variance — which shrinks as data accumulates. Refit at $n=500$ and the whole gap collapses.
 
@@ -406,13 +406,15 @@ save(fig, "gen-vs-disc")
 
 ![Two panels of test error versus log training size. Left (well-specified): the naive-Bayes and logistic curves descend together to the same floor near 0.10. Right (misspecified): naive Bayes flattens early at about 0.20 while logistic keeps descending to about 0.07, ending well below it.](figures/15-glms-classification/gen-vs-disc.png)
 
-Read the numbers. In the **well-specified** world both methods converge to the same floor — naive Bayes `0.104`, logistic `0.105` at $n=640$: when the generative model is *true*, its extra assumptions cost nothing asymptotically and it is competitive throughout. In the **misspecified** world the story separates: naive Bayes races to a biased plateau — `0.229`, `0.217`, `0.215`, `0.204` — and essentially stops improving by $n=160$, because its false independence assumption caps how well it can ever do; logistic keeps descending to `0.069`, a far lower asymptote, because it never assumed independence and can learn to discount the correlated noise. The honest claim is exactly the softened one: **the gap shrinks (well-specified) and can reverse (misspecification favors the discriminative model)** — but there is no guaranteed crossover, and at any fixed $n$ the ranking depends on the problem. Naive Bayes buys sample-efficiency with a modeling assumption; when that assumption is false, the bill comes due at the asymptote.
+Read the numbers. In the **well-specified** world both methods converge to the same floor — naive Bayes `0.104`, logistic `0.105` at $n=640$: when the generative model is *true*, its extra assumptions cost nothing asymptotically. Note that even here NB never *leads* at small $n$ in this regime (at $n=20$ it trails, `0.191` vs `0.16` — its $2d$ per-class means and variances are themselves noisy estimates); the famed "generative is sample-efficient" beat shows up instead as the *speed* of convergence in the right panel. In the **misspecified** world the story separates: naive Bayes races to its (biased) plateau — `0.229`, `0.217`, `0.215`, `0.204` — nearly asymptotic by $n=160$ while logistic is still descending, because NB's false independence assumption caps how well it can ever do; logistic keeps improving to `0.069`, a far lower asymptote, because it never assumed independence and can learn to discount the correlated noise. The honest claim is exactly the softened one: **the gap shrinks (well-specified) and can reverse (misspecification favors the discriminative model)** — but there is no guaranteed crossover, and at any fixed $n$ the ranking depends on the problem. Naive Bayes buys sample-efficiency with a modeling assumption; when that assumption is false, the bill comes due at the asymptote.
 
 ## 15.7 Survival regression: conditioning on exactly what you observed
 
 Module 04 planted the seed: an observation known only as $Y>c$ contributes the survival function $S(c)=P(Y>c)$ to the likelihood, not a density. Survival regression cashes that seed. Model a lifetime as Exponential with a covariate-dependent rate through a log link, $\lambda_i = \exp(x_i^\top\beta)$ (the Poisson row's link, now on a hazard), and let each unit be either observed to fail at time $t_i$ (contributes the density $\lambda_i e^{-\lambda_i t_i}$) or still alive at the censoring time $c$ (contributes $S(c)=e^{-\lambda_i c}$). The log-likelihood just sums the right contribution per unit:
 $$\ell(\beta) = \sum_{i:\ \text{failed}} \big(\log\lambda_i - \lambda_i t_i\big) \;+\; \sum_{i:\ \text{censored}} \big(-\lambda_i c\big).$$
-The tempting shortcut — drop the censored rows and fit only the observed failures — throws away real information and, worse, throws it away *selectively*: the units you drop are exactly the long-lived ones, so the survivors' silence is informative. Watch the bias.
+**Setup.** $n=1000$ units, true log-hazard $\log\lambda = 0.2 + 0.6x$, study ends at $c=1$ — about 30% of units are still alive at the end. The tempting shortcut: drop the censored rows and fit only the observed failures.
+
+**Predict.** Commit to a *direction and rough size* before running. Dropping 30% of rows loses information, so the estimates get noisier — but do they get *biased*? If so, which way: does the fitted hazard $\lambda(x)$ come out too high or too low, and does the slope on $x$ steepen or flatten? (The intuition being used: "deleting rows costs variance, not bias — missing data just means less data.")
 
 ```python
 gsv = np.random.default_rng(5)
@@ -452,7 +454,7 @@ ax.legend(fontsize=9); save(fig, "survival")
 
 ![Fitted hazard versus covariate. The censored-MLE curve tracks the truth; the drop-censored curve sits well above it and rises more slowly, both baseline inflated and slope flattened.](figures/15-glms-classification/survival.png)
 
-With `0.305` of the units censored, the correct likelihood recovers `[0.2174 0.554 ]` against the truth $(0.2, 0.6)$. Dropping the censored rows returns `[0.9727 0.1628]` — the intercept nearly quintuples and the slope collapses toward zero. The mechanism is line 2 of the spine: inference is conditioning *on exactly what you observed*, and for a survivor what you observed is $Y>c$, not a failure and not nothing. Deleting survivors conditions on "failed before $c$," a different and biased event, and preferentially deletes the high-lifetime (low-hazard) units, dragging the fitted hazard up and washing out its dependence on $x$. The same $S(c)$ term generalizes immediately to Weibull (add a shape parameter, so the hazard can rise or fall with age) and to interval- or left-censoring (each contributes the probability of its own observation event) — same recipe, richer stories.
+**Reconcile.** With `0.305` of the units censored, the correct likelihood recovers `[0.2174 0.554 ]` against the truth $(0.2, 0.6)$. Dropping the censored rows returns `[0.9727 0.1628]` — the intercept nearly quintuples and the slope collapses toward zero. The "less data, more noise" intuition fails because the deletion is not random: rows go missing *because* their lifetimes are long, so the deletion mechanism is informative (module 11's MNAR, wearing a survival costume). Deleting survivors conditions on "failed before $c$" — a different event from what you observed — and preferentially removes the low-hazard units, dragging the fitted hazard up and washing out its dependence on $x$. The mechanism is line 2 of the spine: inference is conditioning *on exactly what you observed*, and for a survivor what you observed is $Y>c$, not a failure and not nothing. The same $S(c)$ term generalizes immediately to Weibull (add a shape parameter, so the hazard can rise or fall with age) and to interval- or left-censoring (each contributes the probability of its own observation event) — same recipe, richer stories.
 
 **Ordinal responses**, one more link away, use the **cumulative-link** (ordered-logit) model: a single latent linear predictor $x^\top\beta$ with a set of ordered cut-points $\alpha_1<\cdots<\alpha_{K-1}$, so $P(y\le k) = \sigma(\alpha_k - x^\top\beta)$ — the logistic link applied to *cumulative* categories. It is the natural model for Likert-scale and rating data, and it is the last member of the recipe we will name.
 
@@ -488,7 +490,7 @@ with warnings.catch_warnings():
 ```
 <details><summary>Reconcile</summary>
 
-$\|\hat\beta\|$ *diverges* — it grows without bound as $C\to\infty$, because on separable data the unpenalized likelihood has no finite maximizer (§15.2). The naive intuition fails: a finite prior variance keeps the fit finite, but the limit $\tau^2\to\infty$ (no prior) is singular, not "just less regularized." This is the exact mechanism behind weight decay in deep nets: on data a network can fit perfectly, the cross-entropy loss keeps rewarding larger logits, so the weights only stop growing because a proper prior (weight decay) tells them to. Turning weight decay to zero on separable data does not give you a slightly-different model; it gives you a divergent one whose apparent coefficients are set by your optimizer's patience.
+$\|\hat\beta\|$ *diverges* — it grows without bound as $C\to\infty$, because on separable data the unpenalized likelihood has no finite maximizer (§15.2). One reading trap: the printed norms appear to plateau near `17.95` at large $C$ — that plateau is lbfgs hitting its stopping tolerance, not a finite optimum. §15.2's second table is the proof: the cross-entropy is still falling (`0.00031` at $\|w\|=16$, `0.00000` only in the limit), so a more patient optimizer would keep climbing. The naive intuition fails: a finite prior variance keeps the fit finite, but the limit $\tau^2\to\infty$ (no prior) is singular, not "just less regularized." This is the exact mechanism behind weight decay in deep nets: on data a network can fit perfectly, the cross-entropy loss keeps rewarding larger logits, so the weights only stop growing because a proper prior (weight decay) tells them to. Turning weight decay to zero on separable data does not give you a slightly-different model; it gives you a divergent one whose apparent coefficients are set by your optimizer's patience.
 </details>
 
 **Exercise 15.2 — Does integrating move the decision? (surprising).**
@@ -528,6 +530,31 @@ print("true beta1 = 0.5 | with offset:", np.round(b_off, 3), " no offset:", np.r
 <details><summary>Reconcile</summary>
 
 Ignoring the offset biases $\hat\beta_1$ *high*: the with-offset fit recovers a slope near `0.5`, while the no-offset fit inflates it toward `1.1`. Because exposure is correlated with $x$ ($\log E = 0.6x+\varepsilon$), a model with no offset has only one way to explain why high-$x$ units show more events — crank up the $x$ slope — so $\beta_1$ absorbs the exposure effect it was not allowed to name. The offset is not bookkeeping; it is the difference between modeling a *rate* and modeling a *count*. This is the same failure as omitting a confounder from a regression (module 24): a variable that belongs in the linear predictor, left out, reappears inside the coefficient of whatever it correlates with.
+</details>
+
+**Exercise 15.4 — How much censoring can the likelihood take? (surprising).**
+*Setup:* The survival model of §15.7, same $n=1000$ units and same true lifetimes, but now sweep the study length: $c=4$ (light censoring, ~3%), $c=1$ (the module's ~30%), and $c=0.25$ (brutal: ~70% of units still alive at study end). Fit both estimators at each $c$.
+*Predict:* At 70% censoring, only ~300 failures are observed and 700 rows are "incomplete." Commit: does the *correct* censored MLE's slope estimate fall apart too (say, off by more than half), or does it stay near the truth $\beta_1=0.6$? And which way does the drop-censored slope move as censoring grows?
+*Reason:* The intuition to test: "with 70% of the outcomes unobserved, no method can estimate well — garbage in, garbage out."
+*Run:*
+```python
+for c_end in [4.0, 1.0, 0.25]:
+    obs_c = np.minimum(T, c_end); fail_c = (T <= c_end).astype(float)
+    def nll_c(b):
+        z = Xs @ b; l_ = np.exp(z)
+        return -np.sum(fail_c * (z - l_ * obs_c) + (1 - fail_c) * (-l_ * obs_c))
+    bC = minimize(nll_c, np.zeros(2), method="BFGS").x
+    kp = fail_c == 1
+    def nll_d(b):
+        z = Xs[kp] @ b; l_ = np.exp(z)
+        return -np.sum(z - l_ * obs_c[kp])
+    bD = minimize(nll_d, np.zeros(2), method="BFGS").x
+    print(f"c={c_end:<4}: censored {1 - fail_c.mean():.3f}   "
+          f"S(c)-MLE {np.round(bC, 4)}   drop {np.round(bD, 4)}")
+```
+<details><summary>Reconcile</summary>
+
+The correct likelihood barely notices: its slope reads `0.5497` at 3% censoring, `0.554` at 30%, and still `0.5335` at 70% — within noise of the truth 0.6 even when seven in ten lifetimes were never observed to end. The drop-censored fit degrades monotonically and catastrophically: slope `0.447` → `0.1628` → `0.0969`, intercept `0.298` → `0.9727` → `2.1631` (the fitted baseline hazard ends up $e^{2.16}\approx 8.7$, versus the true $e^{0.2}\approx 1.2$). "Garbage in, garbage out" misdiagnoses the input: a censored row is not garbage — $Y>c$ is a genuine, correctly-priced observation whose likelihood contribution $S(c)=e^{-\lambda c}$ pushes the rate *down* exactly as hard as the data warrant. Censoring costs the correct likelihood some efficiency (fewer effective events, wider posterior), never consistency. The bias belongs entirely to the *deletion*, and it grows with the censoring rate because deletion selects ever more aggressively on the outcome. Compression: partial observations are not damaged observations; write the probability of exactly what you saw and the likelihood machinery does the rest.
 </details>
 
 ## Takeaways

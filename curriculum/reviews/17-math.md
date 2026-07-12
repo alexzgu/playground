@@ -1,0 +1,49 @@
+# Referee report — modules/17-model-checking.md (SIGNATURE S5)
+
+**Verdict: APPROVE.** Determinism PASS (exit 0, 36.9 s, 4394 prose words / 15 blocks / 3 figs). No math errors found. All numeric claims reproduce. All seven SYLLABUS required items present. Findings are sev-3 only (precision/honesty/completeness nits); none blocks shipping.
+
+## Findings
+
+| Sev | Location | Issue | Concrete fix |
+|---|---|---|---|
+| 3 | §17.4, code block after L266 + prose L290 | PSIS-LOO is computed on the NUTS `normal_model` (priors `mu~N(0,10²)`, `sigma~HalfNormal(5)`), but brute-force LOO and 10-fold CV use the conjugate NIG predictive with a *different* weak prior (`m0=0,k0=0.01,a0=0.01,b0=0.01`). The prose ("check PSIS-LOO against brute force on a model small enough to refit exactly", "agreement to within a few tenths of a nat") implies one identical model, so the ~0.2-nat gap conflates PSIS approximation error with a prior mismatch. Not wrong — both priors are weak and likelihood-dominated at n=25 — but not strictly like-for-like. | Add one clause: "the brute-force route uses a conjugate NIG prior, weak but not identical to the NUTS priors, so the agreement is across near-identical models, not a pure PSIS-vs-exact comparison." |
+| 3 | §17.7 required-item coverage (SYLLABUS req. 7) | "Model averaging vs selection: predictive stacking mention." Stacking is name-dropped twice (Pitfalls L371, Takeaway L437) but the *averaging-vs-selection* contrast is never stated and BMA is never mentioned — the module only ever discusses selection. | Add one sentence in §17.4 or the Bridge: you need not select at all — Bayesian model averaging / predictive stacking combines models, and stacking (LOO-weighted) is the M-open averaging tool (fwd-ref M18). |
+| 3 | §17.3 prose L188 | "climbs from degree 1 to a sharp maximum at degree 3" — the mean log-evidence actually *dips* at degree 2 (−37.23 < −36.69 at deg 1) before jumping to deg 3. The 3→9 fall is genuinely monotone; the 1→3 "climb" is not. Figure shows the dip, so a reader sees it. | Reword to "rises to a sharp maximum at degree 3 (dipping at 2, which adds a useless P₂ term without reaching the cubic) and then falls monotonically," or just "peaks at degree 3." |
+| 3 | §17.4 prose L290 + code L262 | The hand-computed quantity is `elpd_waic = (lppd − p_waic).sum() = −41.66` (log/elpd scale, higher=better), correctly matched like-for-like against `elpd_loo`. Prose calls it "WAIC," which classically denotes the −2×(...) deviance-scale value (≈ 83.3). Consistent with arviz usage and the right choice for comparison, but a reader holding the textbook `WAIC = −2(lppd − p_waic)` definition may misread the sign/scale. | Add a half-line: "reported on the elpd (log-predictive) scale to compare directly with LOO; the classical −2× deviance-scale WAIC is just −2× this." |
+| 3 | §17.3 prose L200 | "so −½log|C_d| keeps *shrinking*, subtracting more from the evidence at every step." The Occam term is *positive and decreasing* (16.68 → 14.56 → 10.50); it contributes *less* positively, so "subtracting more" is loose (it does not subtract, it adds less). | Reword: "so −½log|C_d| keeps shrinking, contributing progressively less to the evidence." |
+| 3 | §17.2 code L97 | `dist.NegativeBinomial2(mu, conc)` is not among the smoke-tested idioms in `tools/ppl_idioms.py` (STYLE §4.7: "if an idiom is not shown passing here, do not use it"). It is a standard NumPyro dist used inside a plate exactly like the tested `dist.Normal`, and the module's passing run validates the API empirically — but it is strictly outside the reference file. | Optional: add a `NegativeBinomial2` smoke case to `ppl_idioms.py`, or note in-module that it was run-verified. No change to module math required. |
+
+## Recomputation list (independently checked)
+
+- **Conjugate log-evidence + Occam decomposition.** Derived `y ~ N(0, σ²I + τ²ΦΦ⊤)` from `y=Φβ+ε, β~N(0,τ²I), ε~N(0,σ²I)`; `log N(y;0,C) = −½y⊤C⁻¹y − ½log|C| − (n/2)log2π`. Code constants (including `−n/2·log2π`, verified via one-dataset line: −18.42 + 16.68 − 27.57 = −29.31 ✓ vs printed −29.32). Fit term rises toward 0 (−18.42→−13.10→−11.72), Occam term shrinks (16.68→14.56→10.50). **Correct.**
+- **S5 semantics.** Reproduced: mean log-evidence over 40 datasets peaks at degree 3 (−27.41), train MSE monotone 0.4200→0.1656. **Confirmed.**
+- **WAIC hand formula.** `lppd_i = logsumexp_s ll − log S`, `p_waic_i = Var_s ll`, `elpd_waic = Σ(lppd−p_waic) = −41.66`, `p_waic = 2.59`. Formula and value **correct** (elpd scale; see finding above).
+- **PPC p-value.** `p = P(T(y_rep) ≥ T(y_obs))`, `T = Var/mean`; Poisson `0.0000` (all reps ≤ 1.69 < 3.278), NB `0.611`. Semantics and computation **correct**.
+- **Point-null BF.** Hand-computed `BF01 = √((s²+τ²)/s²)·exp(−½x̄²(1/s² − 1/(s²+τ²)))`, `s²=1e−4`: τ=0.5 → 50.01·0.0359 = **1.795 ✓ (1.80)**; τ=5 → 500·0.0359 = **17.94 ✓ (17.93)**. z = 0.0258/0.01 = 2.58, two-sided p = 0.0099 ✓. Marginal `x̄~N(0,s²+τ²)` under H₁ **correct**.
+- **Lindley τ→∞ (Ex 17.3).** Prefactor √((s²+τ²)/s²) ≈ τ/s = 100τ diverges linearly; exp → exp(−z²/2) = 0.0359; BF01 ≈ 3.59τ. Predicts 3590 at τ=1000 ✓ (printed 3585.8). Divergence claim **correct**.
+- **PSIS-LOO vs brute-force vs CV.** All three on the summed-elpd scale over n=25: −41.76 / −41.94 / −41.63; WAIC −41.66. Like-for-like as *quantities* (all total log-predictive-density); caveat = differing priors between routes (finding 1). Student-t predictive `df=2αₙ, loc=mₙ, scale²=bₙ(κₙ+1)/(αₙκₙ)` matches M05 SPINE-INDEX exactly.
+- **p-calibration + replication.** Under H₀: P(p<0.05)=0.0488 (≈α, within MC SE), mean 0.501 (uniform ✓). 2-SE power: z~N(2,1), P(|z|>1.96)≈0.516 ✓ (printed 0.514). Replication: z_obs=Φ⁻¹(0.9755)=1.969; z_rep~N(1.969,1), P(reject)≈0.504 ✓ (printed 0.499, MC). Replication probability **defined and computed sensibly** ("true effect = observed estimate" world).
+- **Numbers-contract spot-check (≥6):** 10.240, 10.233, 3.278, 1.69, 0.0000, 0.611, 0.4200→0.1656, −41.76/−41.94/−41.63/−41.66, 0.0258/2.58/0.0099, 1.80/17.93, 0.0488/0.501/0.514/0.0457/1.969/0.499 — **all printed, all match prose precision.**
+- **MDL line.** `−log p(y)` = codelength; max evidence = min description length; BIC = leading Laplace approx to −2·log-evidence. **Correct**, honestly tied to M03/M13.
+
+## Deviation rulings
+
+- **(a) Hand-computed WAIC (az.waic removed in arviz 1.x): ADEQUATE.** Formula `elpd_waic = Σ(lppd − p_waic)` correct; −41.66 reproduces; comparison to elpd_loo is properly like-for-like. Only nit = "WAIC" label vs deviance-scale convention (finding 4).
+- **(b) Ex 17.2 Gaussian plug-in LOO for polynomials: ADEQUATE.** Uses ridge posterior-mean + known σ (honestly labeled `# crude LOO`); ignores predictive-variance inflation but delivers the intended U-shape with minimum at degree 3 (−elpd: 32.37 / 24.46 / 32.65 at d=1/3/9). Sufficient for the validation-curve ↔ −elpd_LOO lesson; main-text §17.4 uses the proper Student-t predictive, so the crude version is confined to the exercise.
+
+## Required checklist
+
+- [x] **Determinism / harness:** `run_module.py --check-determinism` PASS, exit 0, 36.9 s (< 300 s cap); fresh-run numbers byte-match `tools/logs/17-model-checking.out.txt` (PSIS-LOO −41.76, BF 1.80/17.93, power 0.514, replication 0.499 all identical) — clean quiet-box run confirmed.
+- [x] **SYLLABUS req. 1 (PPC):** Poisson-on-NegBin, predict-first, T=Var/mean, p≈0, NB fix passes, "self-consistency audit not NHST," second statistic (Ex 17.1 mean), graphical PPC figure. ✓
+- [x] **SYLLABUS req. 2 (S5):** proper Gaussian coeff prior N(0,τ²I) τ²=1, moderate SNR σ=0.5, averaged over 40 datasets, EXACT conjugate evidence peaks at 3, Occam decomposition derived. ✓
+- [x] **SYLLABUS req. 3 (LOO/WAIC):** PSIS-LOO via ArviZ log-lik idiom vs brute-force vs 10-fold CV (agreement printed), WAIC, M-closed/M-open framing. ✓ (finding 1 = prior-parity caveat)
+- [x] **SYLLABUS req. 4 (Lindley BF):** n=10⁴, x̄=0.0258, z=2.58/p=0.0099, BF01 1.80→17.93, Occam-tax dissection, prior-sensitivity caveat, M26 pointer. ✓
+- [x] **SYLLABUS req. 5 (p-calibration):** uniform under H₀, power under effects, p=0.049 replication simulated. ✓
+- [x] **SYLLABUS req. 6 (MDL):** −log evidence = codelength, M03 cash-out. ✓
+- [~] **SYLLABUS req. 7 (averaging vs selection / stacking):** stacking mentioned ×2; averaging-vs-selection contrast + BMA absent (finding 2, sev-3).
+- [x] **Proper-priors mandate (panel):** proper Gaussian coefficient prior used; evidence exact-conjugate. ✓
+- [x] **PPC honesty (non-uniformity-under-H₀ conservatism):** explicitly stated §17.2 L129 ("not calibrated to a null… conservative, concentrated toward 0.5"), repeated in Pitfalls and Takeaways. ✓
+- [x] **NumPyro/ArviZ idioms:** MCMC/NUTS/Predictive/`from_numpyro`/numpy-cast-loglik/`xr.Dataset`/`az.loo` all copy `ppl_idioms.py`. ✓ (NegativeBinomial2 not in idioms file — finding 6)
+- [x] **Citations:** Booklet ch. 8 (opened: §8.2.1 Bayes Factor, §8.2.2 Marginal Likelihoods) supports §17.3/§17.5; ch. 12 (opened: §12.1 Bayesian predictive p-value, §12.1.1 DIC) supports §17.2 — and the module correctly avoids ch. 12's R-INLA. Both defensible. External (BDA3 6–7, ISLP 5, PSIS Vehtari–Gelman–Gabry) cited by concept. ✓
+- [x] **Notation §3:** N(·,·)=variance, Gamma β=rate (`gen.gamma(an, 1/bn)` comment), all symbols defined at first use. ✓
+- [x] **SPINE-INDEX consistency:** M02 evidence-denominator promise cashed (§17.1); M03 MDL/codelength promise cashed (§17.3); M05 conjugate machinery — Student-t predictive params match SPINE-INDEX M05 exactly, Gamma-Poisson and NIG updates correct. ✓

@@ -1,10 +1,10 @@
-posterior mean  (precision form) = [0.9677, 2.0084]
-posterior mean  (05 toolkit)     = [0.9677, 2.0084]
-max|diff| mean 2.1e-14  cov 1.4e-15  (machine precision)
+posterior mean (via 05 toolkit)    = [0.9677, 2.0084]
 posterior sd of (intercept, slope) = [0.4685, 0.1860]
-[fig] figures/14-bayesian-regression/posterior-over-lines.png
+[fig] figures/14-bayesian-regression/prior-to-posterior-lines.png
+precision form vs 05 toolkit: max|diff| mean 2.1e-14  cov 1.4e-15  (machine precision)
 x*=   2: epistemic var =   0.067   aleatoric var = 1.000   predictive sd =  1.033   95% half-width =  2.024
 x*=  12: epistemic var =   3.455   aleatoric var = 1.000   predictive sd =  2.111   95% half-width =  4.137
+sklearn LinearRegression.predict(x*=12) = 25.0737   <- one bare float; there is no method to call for the width
 [fig] figures/14-bayesian-regression/trumpet.png
    alpha  tau2 = sigma2/alpha    max|ridge - posterior mean|
      0.1              10.0000                        8.9e-16
@@ -29,6 +29,7 @@ posterior: a_n = 8.5  ->  predictive df = 17   E[sigma^2|y] = b_n/(a_n-1) = 0.64
 x*=   2: scale = 0.777   t half-width = 1.639   Gaussian half-width = 1.523   t/Gaussian = 1.076
 x*=  12: scale = 1.588   t half-width = 3.350   Gaussian half-width = 3.112   t/Gaussian = 1.076
 tail factor: t(df=17) 97.5% quantile = 2.1098 vs Normal 1.9600; at df=5 (small n) it is 2.5706
+vs plug-in Normal at E[sigma^2|y]: 95% width inflation = 1.011x; same-scale t premium at the 99.5th pct = 1.125x
 slope, clean data       (OLS) = 0.4942   (truth 0.5)
 slope, 3 outliers added (OLS) = 0.9109   <- hijacked
 slope, 3 outliers added (t)   = 0.5187    <- barely moved

@@ -45,3 +45,6 @@ tau^2 ~ C=   1e+08:  ||w|| = 17.95
 decisions differ on: 0.0 of test points
 but mean |p_plug - p_int| = 0.0155
 true beta1 = 0.5 | with offset: [0.102 0.512]  no offset: [0.45  1.108]
+c=4.0 : censored 0.029   S(c)-MLE [0.2101 0.5497]   drop [0.298 0.447]
+c=1.0 : censored 0.305   S(c)-MLE [0.2174 0.554 ]   drop [0.9727 0.1628]
+c=0.25: censored 0.704   S(c)-MLE [0.2632 0.5335]   drop [2.1631 0.0969]
