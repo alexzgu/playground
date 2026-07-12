@@ -1,0 +1,45 @@
+CE-min q = [0.4  0.35 0.25]  empirical freq = [0.4  0.35 0.25]  max|diff| = 2.35e-08
+weight-decay MAP: closed 2.963402 vs optimizer 2.963402  max|diff|=1.13e-07  (lambda=s2/tau2=0.5)
+single-net ECE = 0.1741   ensemble ECE = 0.1269
+single-net acc = 0.8077   ensemble acc = 0.8320
+temperature T* = 7.816   single ECE 0.1741 -> temp-scaled 0.0433
+  single: calls >=0.90 -> predicts 0.998, actual 0.851  (n=1769)
+  ensemble: calls >=0.90 -> predicts 0.996, actual 0.886  (n=1654)
+  temp-scaled: never calls anything >=0.90 (max prob 0.854)
+[fig] figures/25-deep-learning-lenses/calibration.png
+disagreement std: max over grid 0.490, typical near data 0.063
+[fig] figures/25-deep-learning-lenses/disagreement.png
+ICL training samples: 87000
+  ctx k= 0 n= 0: posterior predictive 0.4000   net 0.3792
+  ctx k= 0 n= 1: posterior predictive 0.3333   net 0.3302
+  ctx k= 8 n=10: posterior predictive 0.6667   net 0.6882
+  ctx k= 2 n=20: posterior predictive 0.1600   net 0.1848
+  ctx k=15 n=20: posterior predictive 0.6800   net 0.7115
+ICL net vs posterior predictive over all contexts: median |diff| 0.0279, max |diff| 0.0825
+de Finetti check k=3,n=5: empirical next-bit freq 0.4974 (from 567 contexts) vs exact 0.5000
+[fig] figures/25-deep-learning-lenses/icl-agreement.png
+true mixture   mean 0.4500  var 2.8225
+reverse sample mean 0.4418  var 2.8326
+mode weight (frac < -0.25): true 0.300  reverse 0.303
+[fig] figures/25-deep-learning-lenses/diffusion.png
+n_train=60; ridgeless test err at p=n(60) = 4615.1
+ridgeless peak 4615.1 at p=60; at p=3 0.641; at p=240 0.538
+ridge peak 1.001; ridge at p=240 0.497
+[fig] figures/25-deep-learning-lenses/double-descent.png
+M= 1: ensemble ECE = 0.1741
+M= 2: ensemble ECE = 0.1434
+M= 4: ensemble ECE = 0.1297
+M= 7: ensemble ECE = 0.1234
+M=10: ensemble ECE = 0.1151
+single-net temperature-scaled ECE = 0.0433
+k=20 n=40: Bayes 0.4889  net 0.6055  gap 0.1166
+k= 0 n=40: Bayes 0.0444  net 0.0200  gap 0.0244
+k=40 n=40: Bayes 0.9333  net 0.9603  gap 0.0270
+lambda= 0.0000: test MSE at p=n = 35.365
+lambda= 0.0001: test MSE at p=n = 22.806
+lambda= 0.0100: test MSE at p=n = 2.542
+lambda= 0.1000: test MSE at p=n = 0.885
+lambda= 1.0000: test MSE at p=n = 0.493
+T=0.5: softmax entropy 0.5381 nats  (eta = 1/T = 2.00)
+T=1.0: softmax entropy 1.0144 nats  (eta = 1/T = 1.00)
+T=2.0: softmax entropy 1.2648 nats  (eta = 1/T = 0.50)

@@ -1,0 +1,37 @@
+== 24-causal.md: 13 runnable blocks ==
+  block  1 (L  21) ok in    1.2s
+  block  2 (L  50) ok in    0.2s
+  block  3 (L 103) ok in    0.2s
+  block  4 (L 160) ok in    0.3s
+  block  5 (L 205) ok in    0.2s
+  block  6 (L 246) ok in    0.1s
+  block  7 (L 291) ok in    0.0s
+  block  8 (L 337) ok in    0.3s
+  block  9 (L 374) ok in    0.2s
+  block 10 (L 442) ok in    0.0s
+  block 11 (L 456) ok in    0.0s
+  block 12 (L 475) ok in    0.0s
+  block 13 (L 493) ok in    0.0s
+PASS in 2.7s (4997 prose words, 13 blocks, 6 figs referenced)
+== 25-deep-learning-lenses.md: 15 runnable blocks ==
+  block  1 (L  13) ok in    1.2s
+  block  2 (L  52) ok in    0.0s
+  block  3 (L  88) ok in    9.5s
+  block  4 (L 127) ok in    0.3s
+  block  5 (L 166) ok in    0.4s
+  block  6 (L 198) ok in    9.0s
+  block  7 (L 233) ok in    0.2s
+  block  8 (L 255) ok in    1.0s
+  block  9 (L 283) ok in    0.3s
+  block 10 (L 305) ok in    1.9s
+  block 11 (L 335) ok in    0.4s
+  block 13 (L 425) ok in   17.7s
+  block 14 (L 442) ok in    0.0s
+  block 15 (L 457) ok in    0.0s
+  block 16 (L 475) ok in    0.0s
+PASS in 41.8s (5694 prose words, 15 blocks, 5 figs referenced)
+== 26-capstone.md: 3 runnable blocks ==
+  block  1 (L  19) ok in    1.3s
+  block  2 (L  52) ok in    0.0s
+  block  3 (L  78) ok in   25.3s
+PASS in 26.6s (2500 prose words, 3 blocks, 1 figs referenced)

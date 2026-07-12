@@ -1,0 +1,44 @@
+true ATE  E[Y(1)-Y(0)]         : 1.9953
+individual-effect sd (heterog.): 1.4962
+units with BOTH Y(0),Y(1) seen : 0
+science-table cells missing    : 50.0%  (one of two per unit)
+naive difference in means      : 1.9987
+[fig] figures/24-causal/science_table.png
+AGGREGATE : treated 0.6537 vs control 0.7965  (diff -0.1428)
+  within mild  : treated 0.9505 vs control 0.8488  (diff +0.1017)
+  within severe: treated 0.6015 vs control 0.5005  (diff +0.1010)
+backdoor-adjusted ATE  E_Z[ E[Y|T=1,Z]-E[Y|T=0,Z] ] : +0.1013  (truth +0.10)
+[fig] figures/24-causal/simpson.png
+CHAIN    X->Z->Y : corr(X,Y) +0.578   partial|Z +0.003
+FORK     X<-Z->Y : corr(X,Y) +0.499   partial|Z -0.005
+COLLIDER X->Z<-Y : corr(X,Y) -0.006   partial|Z -0.503   <-- conditioning OPENS the path
+[fig] figures/24-causal/collider.png
+true causal effect             : 2.000
+unadjusted (omit confounder U) : 2.924   (confounding bias)
+adjust {U}   (correct)         : 2.001
+adjust {U,C} (collider added)  : 0.504   <-- MORE control, WORSE
+[fig] figures/24-causal/confounder_vs_collider.png
+5-node graph, true TOTAL effect of T  : 1.080
+adjust {}         (backdoor paths open): 1.085
+adjust {X1,X2}    (backdoor blocked)   : 1.080
+adjust {X1,X2,M}  (also blocks mediator): 0.004   <-- over-control, kills the effect
+ATE (truth 3.0): naive 4.704 | regression 3.019 | stratification 3.203 | IPW 3.023
+treated-arm IPW ESS (good overlap): 2865 of 3899 (73.5%)
+poor-overlap IPW ATE        : 3.427  (truth 3.0)
+poor-overlap treated-arm ESS: 677 of 4116 (16.4%)
+min TREATED-unit propensity : 0.0071   (weight 141)
+min propensity overall      : 0.00006   (a control: overlap has failed)
+[fig] figures/24-causal/ipw_overlap.png
+observed joint p(T,Y), rows T=0/1, cols Y=0/1:
+  DGP A: [0.3011 0.1997 0.2001 0.2991]
+  DGP B: [0.3013 0.1986 0.1997 0.3004]
+  max |JA - JB| = 0.0013  (sampling noise only)
+observed assoc E[Y|T=1]-E[Y|T=0]: A +0.200   B +0.203  (same)
+TRUE causal ATE: DGP A +0.200   DGP B +0.0014  <-- SAME data, different answer
+[fig] figures/24-causal/two_dgps.png
+unadjusted            : 2.924
+adjust {C} (collider) : 0.216
+E[Y(1)] raw IPW    : 3.135   ESS 677
+E[Y(1)] clipped 99%: 3.484   ESS 2141
+weak-confounding aggregate diff: +0.0656  (within-stratum effect is +0.10)
+association from confounding alone (true effect 0): +0.2000

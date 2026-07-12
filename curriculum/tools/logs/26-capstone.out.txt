@@ -1,0 +1,15 @@
+BvM baseline: weak-prior 95% credible set covers 0.9499 frequentially (M08)
+nuisance: marginalize vs profile     [26 (below)]  t cov 0.95 vs plug-in 0.89
+stopping rule: posterior invariant   [M23       ]  seq-vs-closed gap 1.00e-08
+stopping rule: martingale coverage   [M23       ]  0.9494 under aggressive stopping
+stopping rule: frequentist Type-I    [M23       ]  0.0522 -> 0.2044 at 10 looks
+conditional coverage (2-pt uniform)  [M06       ]  marginal 0.500, cond 1.000 at R=0.9
+Lindley: p rejects, BF favors H0     [M17       ]  p=0.0099, BF01 1.80 -> 17.93
+misspecification: width is wrong     [M18       ]  post sd 0.0739, sandwich 0.1019, true 0.1046
+calibration: ECE audit               [M15       ]  0.0207 calibrated vs 0.0401 plug-in
+df = 5,  center mn = 10.282
+marginalize sigma^2 (Student-t):   [9.008, 11.557]  width 2.548
+profile sigma^2 (plug-in Normal):  [9.311, 11.254]  width 1.943
+width ratio t / Normal = 1.312
+coverage over 20000 replays: marginalized-t 0.9508   plug-in-Normal 0.8942
+[fig] figures/26-capstone/marginalize-vs-profile.png

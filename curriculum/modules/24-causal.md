@@ -1,0 +1,517 @@
+# 24. Causal Inference: A Different Joint Distribution
+
+> **Spine.** A causal question is about a joint distribution that includes outcomes you never observe; what licenses the answer is *identification* — an assumption about that unseen joint — not model fit, which only ever sees the part you did observe.
+> **Which line?** A prequel to line 1. Every earlier module took the joint $p(\text{unknowns},\text{knowns})$ as given and ran lines 2–4. Causal inference asks *which* joint you are entitled to write down — and shows that the data alone cannot tell you.
+> **Promise.** After this module you can state the fundamental problem of causal inference as a missing-data problem, say exactly what randomization buys, read a DAG well enough to know which variables to adjust for and which to leave alone (the collider trap), run the regression/stratification/IPW trio and recognize IPW as importance sampling, and construct two data-generating processes with the same observed law and different causal answers.
+> **Prereqs.** Modules 11 (potential outcomes are missing data — the impute-within-Gibbs / MI machinery, MCAR/MAR ignorability), 23 (randomization buys ignorability — §23.1's confounded-vs-randomized demo is formalized here). Callbacks to 09 (importance weights and the `ess_kong` diagnostic — IPW *is* importance sampling), 05 (backdoor adjustment = conditioning), 18 (winner's curse / selection).
+> **Runtime.** ~5 s measured (pure numpy/scipy; large synthetic samples, all vectorized, no MCMC).
+> **Sources.** Imbens & Rubin, *Causal Inference for Statistics, Social, and Biomedical Sciences* (potential outcomes) by concept; Pearl, *Causality* (DAGs, do-calculus, backdoor/frontdoor) by concept; ISLP framing.
+
+## 24.1 The potential outcome you never see is missing data
+
+Every unit $i$ carries two numbers: $Y_i(1)$, the outcome it *would* show if treated, and $Y_i(0)$, the outcome if not. The individual effect is $Y_i(1)-Y_i(0)$; the **average treatment effect** is $\text{ATE}=\mathbb{E}[Y(1)-Y(0)]$. The model is a joint over $(Y(0),Y(1),T,X)$ — but the assignment $T_i$ is a switch revealing exactly one potential outcome: you observe $Y_i = T_i\,Y_i(1) + (1-T_i)\,Y_i(0)$, and the other is gone. Half the "science table" is missing *by design*, and no experiment recovers it. This is Rubin's framing, and module 11 named the machinery: **a potential outcome you did not observe is a missing value**, latent exactly like the deleted $Y_2$ in that module's impute-within-Gibbs demo.
+
+**Setup.** Simulate a heterogeneous-effect population: $Y(0)\sim N(10,3^2)$, individual effect $\tau_i\sim N(2,1.5^2)$, $Y(1)=Y(0)+\tau_i$, so the true ATE is 2. Assign treatment by a coin, $T\perp(Y(0),Y(1))$ — randomization.
+
+**Predict.** You will *never* observe a single individual effect $Y_i(1)-Y_i(0)$ — each unit shows one column, the other is blank. Commit: with half of every unit's data structurally missing, is the naive difference in group means $\bar Y_{T=1}-\bar Y_{T=0}$ (a) biased for the ATE, because you're missing half the science table; or (b) unbiased, recovering 2?
+
+*Reason:* the tempting answer is (a) — "you can't estimate an effect you never observe for anybody." The repair is module 11's ignorability: what matters is not *how much* is missing but whether the missingness is *informative about the missing values*.
+
+```python
+# --- setup ---
+from pathlib import Path
+import numpy as np
+import matplotlib
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
+from scipy import stats
+
+SLUG = "24-causal"                      # this module's figure dir
+FIG = Path("figures") / SLUG
+FIG.mkdir(parents=True, exist_ok=True)
+SEED = 0
+rng = np.random.default_rng(SEED)
+
+plt.rcParams.update({
+    "figure.figsize": (7, 4), "figure.dpi": 110, "savefig.dpi": 150,
+    "savefig.bbox": "tight", "axes.grid": True, "grid.alpha": 0.3,
+    "axes.spines.top": False, "axes.spines.right": False,
+    "font.size": 11,
+})
+
+def save(fig, name):
+    out = FIG / f"{name}.png"
+    fig.savefig(out)
+    plt.close(fig)
+    print(f"[fig] {out}")
+```
+
+```python
+# The science table: two potential outcomes per unit, one observed, one missing.
+N = 200_000
+g1 = np.random.default_rng(1)
+Y0 = g1.normal(10.0, 3.0, N)                 # outcome if untreated
+tau_i = g1.normal(2.0, 1.5, N)               # HETEROGENEOUS individual effect
+Y1 = Y0 + tau_i                              # outcome if treated
+ATE = np.mean(Y1 - Y0)
+
+T = (g1.random(N) < 0.5).astype(int)         # randomized: T independent of (Y0,Y1)
+Yobs = np.where(T == 1, Y1, Y0)              # the switch: see one column, lose the other
+naive = Yobs[T == 1].mean() - Yobs[T == 0].mean()
+
+n_both = int(((T == 1) & (T == 0)).sum())    # a unit would need T=1 AND T=0
+pct_missing = 100 * (1 - Yobs.size / (2 * N))  # revealed cells / table cells
+print(f"true ATE  E[Y(1)-Y(0)]         : {ATE:.4f}")
+print(f"individual-effect sd (heterog.): {tau_i.std():.4f}")
+print(f"units with BOTH Y(0),Y(1) seen : {n_both}")
+print(f"science-table cells missing    : {pct_missing:.1f}%  (one of two per unit)")
+print(f"naive difference in means      : {naive:.4f}")
+
+# Visualize the missingness pattern on a handful of units.
+fig, ax = plt.subplots(figsize=(5.4, 4))
+k = 14
+obs = np.where(T[:k] == 1, Y1[:k], Y0[:k])
+tab = np.column_stack([Y0[:k], Y1[:k]])
+seen = np.column_stack([(T[:k] == 0), (T[:k] == 1)])
+ax.imshow(np.where(seen, 0.0, 1.0), cmap="Greys", vmin=0, vmax=1, aspect="auto")
+for i in range(k):
+    for j in range(2):
+        txt = f"{tab[i,j]:.1f}" if seen[i, j] else "?"
+        ax.text(j, i, txt, ha="center", va="center",
+                color="black" if seen[i, j] else "C3", fontsize=9)
+ax.set_xticks([0, 1]); ax.set_xticklabels(["Y(0)", "Y(1)"])
+ax.set_yticks([]); ax.set_ylabel("units")
+ax.set_title("The science table: '?' is missing by design")
+save(fig, "science_table")
+```
+
+![Fourteen units, each a row with columns Y(0) and Y(1); exactly one cell per row shows a number, the other is a red question mark on a grey background — half the table is missing.](figures/24-causal/science_table.png)
+
+**Reconcile.** Answer (b): the naive difference is `1.9987`, spot on the true ATE of `1.9953` (≈2), though not a single individual effect was observed and the effects are genuinely spread out (sd `1.4962`). Randomization saves you: because $T\perp(Y(0),Y(1))$, the treated group's observed $Y(1)$ values are a fair sample of *everyone's* $Y(1)$, likewise controls — the switch that hides half the table is flipped independently of what it hides. In module 11's vocabulary this is **MCAR**, so complete-case group means are unbiased. Formally, ignorability gives $\mathbb{E}[Y\mid T=1]=\mathbb{E}[Y(1)]$, and the difference identifies the ATE. The fundamental problem never goes away — no unit's own effect is computable — but the *average* is identified because the seen half represents the unseen half. Module 23 proved this from the design side; here it is the same fact in potential-outcome notation.
+
+## 24.2 Confounding, and Simpson's sign flip
+
+Take the switch away from the coin and hand it to nature. When treatment is assigned by something that *also* drives the outcome, the groups are no longer comparable, and the naive difference measures that incomparability on top of (or instead of) the effect. The sharpest form is **Simpson's paradox**: an association that reverses sign when you split on a confounder.
+
+**Setup.** A binary severity $Z$ (half the patients severe). Treatment goes preferentially to the severe: $P(T{=}1\mid Z{=}\text{severe})=0.85$ vs $0.15$ for mild. Baseline recovery depends on severity — mild 0.85, severe 0.50 — and treatment *helps by exactly 10 percentage points in every stratum* ($\delta=0.10$): the true effect is unambiguously $+0.10$, mild and severe alike.
+
+**Predict.** You compute aggregate recovery rates and find treated patients recover *less* often than untreated — treatment looks harmful. Now you adjust for severity. Commit before running: within each severity stratum, does treatment (a) still look harmful, (b) look neutral, or (c) flip to helpful? And what does the correctly adjusted ATE come out to?
+
+*Reason:* the aggregate comparison invites "treatment is associated with worse outcomes, so it hurts." The naive intuition treats an observed association as a causal effect. The confounder — sicker patients are both more likely treated and less likely to recover — is about to flip the sign.
+
+```python
+M = 400_000
+g2 = np.random.default_rng(2)
+Z = (g2.random(M) < 0.5).astype(int)                 # 1 = severe
+pT = np.where(Z == 1, 0.85, 0.15)                    # severe MUCH more likely treated
+Tt = (g2.random(M) < pT).astype(int)
+base = np.where(Z == 1, 0.50, 0.85)                  # severe recover less at baseline
+delta = 0.10                                          # treatment helps +10pp in EVERY stratum
+Y = (g2.random(M) < base + delta * Tt).astype(int)
+
+def rate(mask):
+    return Y[mask].mean()
+
+agg_t, agg_c = rate(Tt == 1), rate(Tt == 0)
+print(f"AGGREGATE : treated {agg_t:.4f} vs control {agg_c:.4f}  (diff {agg_t-agg_c:+.4f})")
+for z, lab in [(0, "mild  "), (1, "severe")]:
+    tr, co = rate((Tt == 1) & (Z == z)), rate((Tt == 0) & (Z == z))
+    print(f"  within {lab}: treated {tr:.4f} vs control {co:.4f}  (diff {tr-co:+.4f})")
+
+# backdoor adjustment: average the within-stratum effect over the confounder's marginal
+pz = np.array([np.mean(Z == 0), np.mean(Z == 1)])
+adj = sum(pz[z] * (rate((Tt == 1) & (Z == z)) - rate((Tt == 0) & (Z == z))) for z in (0, 1))
+print(f"backdoor-adjusted ATE  E_Z[ E[Y|T=1,Z]-E[Y|T=0,Z] ] : {adj:+.4f}  (truth +{delta:.2f})")
+
+fig, ax = plt.subplots(figsize=(7, 4))
+groups = ["mild\n(Z=0)", "severe\n(Z=1)", "AGGREGATE"]
+tr_r = [rate((Tt==1)&(Z==0)), rate((Tt==1)&(Z==1)), agg_t]
+co_r = [rate((Tt==0)&(Z==0)), rate((Tt==0)&(Z==1)), agg_c]
+xp = np.arange(3)
+ax.bar(xp - 0.19, tr_r, 0.38, color="C1", label="treated")
+ax.bar(xp + 0.19, co_r, 0.38, color="C0", label="control")
+ax.axvline(1.5, color="gray", ls=":", lw=1)
+ax.set_xticks(xp); ax.set_xticklabels(groups); ax.set_ylim(0, 1)
+ax.set_ylabel("recovery rate")
+ax.set_title("Treatment helps in EVERY stratum but 'hurts' in aggregate (Simpson)")
+ax.legend()
+save(fig, "simpson")
+```
+
+![Grouped bars: within mild and within severe, the treated bar is higher than control; but the aggregate treated bar is lower than the aggregate control bar — the sign reverses on pooling.](figures/24-causal/simpson.png)
+
+**Reconcile.** The sign flips — answer (c). In aggregate, treated recovery is `0.6537` against control's `0.7965`, a difference of `-0.1428`: treatment looks *harmful*. Split by severity and it is helpful in both: mild `0.9505` vs `0.8488` ($+0.1017$), severe `0.6015` vs `0.5005` ($+0.1010$). The backdoor-adjusted ATE — the within-stratum effect averaged over the severity distribution — is `+0.1013`, recovering the true $+0.10$. What happened is arithmetic, not paradox: the treated group is dominated by severe patients, who recover less for reasons unrelated to treatment, so the treated *average* is dragged below the mild-dominated control average. The confounder $Z$ opens a non-causal path $T\leftarrow Z\rightarrow Y$; adjusting (conditioning on $Z$, then averaging) blocks it and leaves only the effect. The operation is the g-formula, $\mathbb{E}[Y\mid \mathrm{do}(T{=}t)]=\sum_z \mathbb{E}[Y\mid T{=}t,Z{=}z]\,P(Z{=}z)$ — condition, then marginalize over the confounder's *own* marginal, not its treatment-conditional distribution. Here adjusting was *required*. The next section shows a case where the identical-looking move is *wrong*.
+
+## 24.3 DAGs at working depth: chain, fork, and the collider that opens
+
+A directed acyclic graph encodes which variables cause which. It earns its place through one rule, **d-separation**, that reads conditional independencies off the graph — and one case overturns the reflex "controlling for more variables is safer." Three motifs cover everything:
+
+- **Chain** $X\to Z\to Y$: $X,Y$ marginally dependent, but $X\perp Y\mid Z$ — conditioning on the middle blocks the pipe.
+- **Fork** $X\leftarrow Z\to Y$: same signature — dependent (the common cause induces association), independent given $Z$. This is confounding; §24.2's $Z$ was a fork.
+- **Collider** $X\to Z\leftarrow Y$: the reverse. $X$ and $Y$ are marginally **independent**, but conditioning on the collision node $Z$ makes them **dependent**. Conditioning *opens* the path.
+
+We check all three with linear-Gaussian structural equations, comparing marginal correlation to partial correlation given $Z$ (residualize both variables on $Z$, correlate the residuals).
+
+**Predict.** For the collider $X\to Z\leftarrow Y$ with $X,Y$ generated independently: you already know $\mathrm{corr}(X,Y)\approx 0$. After conditioning on $Z$ — the standard "control for the covariate" move — is the partial correlation (a) still ≈0 (independence is independence), or (b) meaningfully nonzero?
+
+*Reason:* the reflex is "adjusting for a variable can only clean things up." The collider is the counterexample the reflex cannot survive: $Z$ knows $X+Y$, so learning $Z$ ties $X$ and $Y$ together even though they were born independent.
+
+```python
+def pcorr(a, b, c):
+    """partial correlation of a,b given c: correlate residuals after regressing out c."""
+    C = np.column_stack([np.ones_like(c), c])
+    ra = a - C @ np.linalg.lstsq(C, a, rcond=None)[0]
+    rb = b - C @ np.linalg.lstsq(C, b, rcond=None)[0]
+    return np.corrcoef(ra, rb)[0, 1]
+
+n = 200_000
+g3 = np.random.default_rng(3)
+# chain  X -> Z -> Y
+X = g3.normal(0, 1, n); Zc = X + g3.normal(0, 1, n); Yc = Zc + g3.normal(0, 1, n)
+print(f"CHAIN    X->Z->Y : corr(X,Y) {np.corrcoef(X,Yc)[0,1]:+.3f}   partial|Z {pcorr(X,Yc,Zc):+.3f}")
+# fork   X <- Z -> Y
+Zf = g3.normal(0, 1, n); Xf = Zf + g3.normal(0, 1, n); Yf = Zf + g3.normal(0, 1, n)
+print(f"FORK     X<-Z->Y : corr(X,Y) {np.corrcoef(Xf,Yf)[0,1]:+.3f}   partial|Z {pcorr(Xf,Yf,Zf):+.3f}")
+# collider  X -> Z <- Y
+Xo = g3.normal(0, 1, n); Yo = g3.normal(0, 1, n); Zo = Xo + Yo + g3.normal(0, 1, n)
+print(f"COLLIDER X->Z<-Y : corr(X,Y) {np.corrcoef(Xo,Yo)[0,1]:+.3f}   partial|Z {pcorr(Xo,Yo,Zo):+.3f}"
+      f"   <-- conditioning OPENS the path")
+
+fig, ax = plt.subplots(figsize=(6.4, 4))
+med = np.median(Zo)
+lo, hi = Zo <= med, Zo > med
+s = slice(0, 6000)
+ax.scatter(Xo[s][lo[s]], Yo[s][lo[s]], s=6, alpha=0.25, color="C0", label="Z below median")
+ax.scatter(Xo[s][hi[s]], Yo[s][hi[s]], s=6, alpha=0.25, color="C1", label="Z above median")
+ax.set_xlabel("X"); ax.set_ylabel("Y")
+ax.set_title("Collider: X,Y independent overall, anti-correlated within each Z slice")
+ax.legend()
+save(fig, "collider")
+```
+
+![Scatter of X vs Y colored by whether the collider Z is above or below its median; the full cloud is round (independent), but each colored sub-cloud slopes downward — conditioning on Z induces negative correlation.](figures/24-causal/collider.png)
+
+**Reconcile.** Answer (b), emphatically. Chain and fork behave as advertised: marginal correlation `0.578` and `0.499`, both collapsing to ≈0 given $Z$ (`0.003`, `-0.005`). The collider is the shock: marginal correlation `-0.006` (independent, as built), but *given* $Z$ the partial correlation is `-0.503`. Conditioning manufactured a strong negative association out of nothing: $Z\approx X+Y$, so within a slice of fixed $Z$, a larger $X$ forces a smaller $Y$ — the figure's downward-sloping sub-clouds. A collider you adjust for is a confounder you *create*. The practical consequence: you cannot choose an adjustment set by throwing in every covariate you measured; you must know the graph, because some variables must be conditioned on (forks/confounders) and others left alone (colliders, and — §24.5 — mediators).
+
+## 24.4 Confounder versus collider, side by side
+
+Put both structures in one data-generating process and estimate the treatment effect several ways. Nodes: a confounder $U$ ($U\to T$, $U\to Y$), the treatment $T\to Y$ with true effect $\tau=2$, and a **collider** $C$, a common child of treatment and outcome ($T\to C\leftarrow Y$) — say a post-treatment biomarker both influence. The correct adjustment set is $\{U\}$. The question is what happens when you "also control for" $C$.
+
+**Predict.** Adjusting for $\{U\}$ gives the right answer. A colleague says: "$C$ is another measured variable, more information can't hurt — add it." After adjusting for $\{U, C\}$, is the estimate (a) unchanged, (b) a little better, or (c) worse?
+
+*Reason:* "we adjusted for MORE variables — better, right?" is the reflex §24.3 just broke. $C$ is a collider; conditioning on it opens the path $T\to C\leftarrow Y$.
+
+```python
+K = 200_000
+g4 = np.random.default_rng(4)
+tau = 2.0
+U = g4.normal(0, 1, K)
+Tt2 = 1.5 * U + g4.normal(0, 1, K)                 # continuous treatment (clean linear algebra)
+Yy = tau * Tt2 + 2.0 * U + g4.normal(0, 1, K)      # U confounds T and Y
+C = 1.0 * Tt2 + 1.0 * Yy + g4.normal(0, 1, K)      # COLLIDER: common child of T and Y
+
+def ols_coef(cols, y):
+    Xd = np.column_stack([np.ones_like(y)] + cols)
+    return np.linalg.lstsq(Xd, y, rcond=None)[0]
+
+b_naive = ols_coef([Tt2], Yy)[1]
+b_adjU  = ols_coef([Tt2, U], Yy)[1]
+b_adjUC = ols_coef([Tt2, U, C], Yy)[1]
+print(f"true causal effect             : {tau:.3f}")
+print(f"unadjusted (omit confounder U) : {b_naive:.3f}   (confounding bias)")
+print(f"adjust {{U}}   (correct)         : {b_adjU:.3f}")
+print(f"adjust {{U,C}} (collider added)  : {b_adjUC:.3f}   <-- MORE control, WORSE")
+
+fig, ax = plt.subplots(figsize=(7, 4))
+labs = ["true", "unadj.", "adjust\n{U}", "adjust\n{U,C}"]
+vals = [tau, b_naive, b_adjU, b_adjUC]
+ax.bar(labs, vals, color=["black", "C3", "C0", "C1"])
+ax.axhline(tau, color="black", ls="--", lw=1)
+ax.set_ylabel("estimated treatment effect")
+ax.set_title("Adjust for the confounder: fixed. Add the collider: re-broken.")
+save(fig, "confounder_vs_collider")
+```
+
+![Four bars for the true effect (2.0), unadjusted (biased high), adjust-U (on target at 2.0), and adjust-U-and-C (collapsed well below 2) — adding the collider destroys the correct estimate.](figures/24-causal/confounder_vs_collider.png)
+
+**Reconcile.** Answer (c), and dramatically. The unadjusted fit gives `2.924` (confounding pulls it up). Adjusting for the confounder $\{U\}$ nails it: `2.001`. Adding the collider $C$ to get $\{U,C\}$ knocks the estimate down to `0.504` — *worse than doing nothing*, and now biased in the opposite direction. (What adjusting for $C$ *alone* does is Exercise 24.1 — commit to a direction before you get there.) "More controls" made the answer worse because $C$ is a collider: conditioning on a common child of $T$ and $Y$ opens a spurious $T$–$Y$ path, and the regression obediently subtracts real effect along with it. The rule this forces: the validity of an adjustment set is a property of the *graph*, not of how many variables it contains. Confounders (forks) must be in; colliders — and, next, mediators — must be out. There is no "safe default of adjusting for everything you have."
+
+## 24.5 The backdoor criterion, and the rest of the toolbox
+
+The graph tells you *which* set to adjust for via **Pearl's backdoor criterion**: a set $S$ identifies the effect of $T$ on $Y$ if (1) no node in $S$ is a descendant of $T$, and (2) $S$ blocks every "backdoor" path from $T$ to $Y$ — every path that starts with an arrow *into* $T$. Condition (1) keeps mediators and colliders-downstream-of-$T$ out (they are descendants); condition (2) forces confounders in. Given such an $S$, the effect is $\mathbb{E}[Y\mid\mathrm{do}(T{=}t)]=\mathbb{E}_{S}\big[\mathbb{E}[Y\mid T{=}t,S]\big]$ — condition and marginalize, exactly §24.2's g-formula.
+
+Work it on a five-node graph: confounders $X_1,X_2$ (each pointing into both $T$ and $Y$), a mediator $M$ on the causal path $T\to M\to Y$, and $Y$. The backdoor paths are $T\leftarrow X_1\to Y$ and $T\leftarrow X_2\to Y$; $\{X_1,X_2\}$ blocks both and contains no descendant of $T$ — criterion satisfied. The mediator $M$ *is* a descendant of $T$: adjusting for it violates condition (1) and blocks the very effect you want to measure.
+
+```python
+P = 200_000
+g5 = np.random.default_rng(5)
+X1 = g5.normal(0, 1, P); X2 = g5.normal(0, 1, P)
+Td = 0.8*X1 + 0.8*X2 + g5.normal(0, 1, P)          # X1,X2 point into T
+Md = 1.2*Td + g5.normal(0, 1, P)                   # mediator on the causal path T->M->Y
+Yd = 0.9*Md + 1.0*X1 - 1.0*X2 + g5.normal(0, 1, P) # total effect of T = 0.9 * 1.2 = 1.08
+total = 0.9 * 1.2
+print(f"5-node graph, true TOTAL effect of T  : {total:.3f}")
+print(f"adjust {{}}         (backdoor paths open): {ols_coef([Td], Yd)[1]:.3f}")
+print(f"adjust {{X1,X2}}    (backdoor blocked)   : {ols_coef([Td, X1, X2], Yd)[1]:.3f}")
+print(f"adjust {{X1,X2,M}}  (also blocks mediator): {ols_coef([Td, X1, X2, Md], Yd)[1]:.3f}"
+      f"   <-- over-control, kills the effect")
+```
+
+Adjusting for $\{X_1,X_2\}$ returns `1.080`, exactly the true total effect $0.9\times1.2$; leaving the backdoor open (`1.085`) is close only because $X_1,X_2$ nearly cancel in this parameterization, and would not in general; adding the mediator $M$ collapses the estimate to `0.004`, because conditioning on $M$ blocks the only pathway through which $T$ affects $Y$. The mediator is the collider's mirror image: both are descendants you must not adjust for.
+
+**When you cannot close the backdoor: the frontdoor.** If a confounder is unobserved so no valid backdoor set exists, you are sometimes rescued from the other side. When a mediator $M$ fully transmits $T$'s effect, is itself unconfounded with $T$, and has no bypassing $T\to Y$ path, the **frontdoor criterion** identifies the effect by chaining two adjustments ($T\to M$, then $M\to Y$) via $P(y\mid\mathrm{do}\,t)=\sum_m P(m\mid t)\sum_{t'}P(y\mid m,t')P(t')$ — the canonical demonstration that an effect can be identified *despite* unmeasured confounding, given the right structure.
+
+**Do-calculus, named not derived.** Pearl proved these are instances of three rewrite rules — (1) insertion/deletion of *observations*, (2) action/observation exchange, (3) insertion/deletion of *actions* — that transform any $\mathrm{do}(\cdot)$ expression, and that they are *complete*: if an effect is identifiable from the graph and observational data at all, the rules reduce it to a do-free formula. Backdoor and frontdoor are named corollaries (Pearl, *Causality* ch. 3).
+
+**The two dialects, aligned.** Potential outcomes (Rubin) and DAGs (Pearl) describe the same content:
+
+| Potential outcomes (Rubin/Imbens) | DAG / do-calculus (Pearl) |
+|---|---|
+| $Y(t)$, the potential outcome under treatment $t$ | $Y$ under $\mathrm{do}(T{=}t)$ |
+| Ignorability $(Y(0),Y(1))\perp T\mid X$ | $X$ satisfies the backdoor criterion for $T\to Y$ |
+| SUTVA (no interference, one version of treatment) | well-defined single-world intervention; no arrows between units |
+| Positivity/overlap $0<e(x)<1$ | every stratum of the adjustment set is reachable under both actions |
+| $\text{ATE}=\mathbb{E}[Y(1)-Y(0)]$ | $\mathbb{E}[Y\mid\mathrm{do}(1)]-\mathbb{E}[Y\mid\mathrm{do}(0)]$ |
+| Confounder to adjust for | fork / open backdoor path |
+| Variable to leave alone | collider or mediator (descendant of $T$) |
+
+Neither dialect is more "Bayesian." Identification — deciding the ATE is a well-defined function of the observable distribution — is an assumption you make *before* any inference, orthogonal to whether you then estimate that function with a posterior or a point estimate: identification fixes *which* joint you condition on, while the Bayes/frequentist choice is only *how* you summarize the conditioning — settled before line 2 ever runs. This module is deliberately paradigm-neutral: the hard part happens earlier, in choosing the joint.
+
+## 24.6 The estimator trio, and IPW as importance sampling
+
+With a valid adjustment set $X$ (now *observed*), three standard estimators turn the identification formula into a number. One dataset: a continuous confounder $X\sim N(0,1)$, true propensity $e(X)=\sigma(X)=P(T{=}1\mid X)$, and $Y=3T+2X+\varepsilon$ — ATE 3, with $X$ raising both the chance of treatment and the outcome. The propensity is fit by logistic regression, never peeking at the true $e$.
+
+1. **Regression adjustment** (the g-formula / "S-learner"): fit $\mathbb{E}[Y\mid T,X]$ and read off the coefficient on $T$ (with a linear model this equals the average of $\hat Y(1)-\hat Y(0)$).
+2. **Stratification**: bin units into propensity quintiles, take the within-bin treated-minus-control difference, average over bins by size — a discrete g-formula.
+3. **Inverse-probability weighting (IPW)**: weight by $1/\hat e(X)$ if treated, $1/(1-\hat e(X))$ if control; take the weighted difference in means.
+
+IPW belongs in a Bayesian curriculum because of point 3: **IPW weights are module 09's importance weights.** You want an expectation under the population distribution of $X$, but the treated units are a *biased sample* from it — drawn with probability $e(X)$, not uniformly. Importance sampling corrects a sample from proposal $q$ to target $p$ with weight $p/q$; here the target is the population density of $X$ and the treated arm's "proposal" is $e(X)$ times it, so the weight is $1/e(X)$. The unbiasedness $\mathbb{E}[Y(1)]=\mathbb{E}[T\,Y/e(X)]$ is precisely the importance-sampling identity (the unnormalized, Horvitz–Thompson form); in the code we divide by $\sum w$ rather than $n$ — the **Hájek** estimator, which is exactly module 09's *self-normalized* IS, and what `ess_kong` scores. And it fails the same silent way: when $e(X)$ approaches 0 or 1 — a **positivity/overlap** violation — the weights explode, and `ess_kong` catches it.
+
+```python
+def ess_kong(w):                                    # module 09's IS diagnostic, verbatim
+    return w.sum()**2 / (w**2).sum()
+
+def make_obs(a, n, seed):
+    gg = np.random.default_rng(seed)
+    X = gg.normal(0, 1, n)
+    e = 1 / (1 + np.exp(-a * X))                     # true propensity; larger a = worse overlap
+    T = (gg.random(n) < e).astype(int)
+    Y = 3.0 * T + 2.0 * X + gg.normal(0, 1, n)       # ATE = 3, X confounds
+    return X, T, Y, e
+
+def fit_logistic(x, t, iters=50):                   # plain IRLS, no sklearn
+    b = np.zeros(2); Xd = np.column_stack([np.ones_like(x), x])
+    for _ in range(iters):
+        p = 1 / (1 + np.exp(-(Xd @ b))); W = p * (1 - p) + 1e-9
+        z = Xd @ b + (t - p) / W
+        b = np.linalg.solve(Xd.T * W @ Xd, Xd.T @ (W * z))
+    return 1 / (1 + np.exp(-(Xd @ b)))
+
+X, T, Y, _ = make_obs(1.0, 8000, 10)                # GOOD overlap
+ehat = fit_logistic(X, T)
+naive = Y[T == 1].mean() - Y[T == 0].mean()
+
+reg = np.linalg.lstsq(np.column_stack([np.ones_like(Y), T, X]), Y, rcond=None)[0][1]
+q = np.quantile(ehat, np.linspace(0, 1, 6)); q[0] -= 1e-9; q[-1] += 1e-9
+strata = np.digitize(ehat, q[1:-1])
+strat = sum((strata == s).mean() * (Y[(strata==s)&(T==1)].mean() - Y[(strata==s)&(T==0)].mean())
+            for s in range(5))
+w1, w0 = T / ehat, (1 - T) / (1 - ehat)
+ipw = np.sum(w1 * Y) / np.sum(w1) - np.sum(w0 * Y) / np.sum(w0)
+print(f"ATE (truth 3.0): naive {naive:.3f} | regression {reg:.3f} | "
+      f"stratification {strat:.3f} | IPW {ipw:.3f}")
+wt = 1 / ehat[T == 1]                                # treated-arm importance weights
+print(f"treated-arm IPW ESS (good overlap): {ess_kong(wt):.0f} of {(T==1).sum()} "
+      f"({100*ess_kong(wt)/(T==1).sum():.1f}%)")
+```
+
+The naive difference is `4.704` — badly confounded upward — while all three adjusted estimators cluster near the truth: regression `3.019`, stratification `3.203`, IPW `3.023`. (Stratification's residual bias is the coarseness of five bins on a continuous confounder.) The treated-arm importance weights have a healthy effective sample size, `73.5%` of the arm.
+
+Now break positivity. Make the propensity steep ($a=3$), so assignment at extreme $X$ is almost deterministic: low-$X$ units are almost never treated ($\hat e\to0$), high-$X$ units almost always ($\hat e\to1$) — each arm barely exists where the other lives.
+
+**Predict.** Positivity is broken by construction. Commit to where the damage will show: (a) the IPW point estimate comes out obviously wrong — a broken estimator announces itself; or (b) the estimate looks plausible and something else must sound the alarm. If (b), what do you watch?
+
+*Reason:* the reflex being tested is "a bad estimate looks bad." Module 09's $t_3$ demo already caught you once: importance sampling fails *silently*, returning a calm, confident, wrong number over collapsed weights.
+
+```python
+Xp, Tp, Yp, _ = make_obs(3.0, 8000, 11)             # POOR overlap: steep propensity
+ehp = fit_logistic(Xp, Tp)
+w1p, w0p = Tp / ehp, (1 - Tp) / (1 - ehp)
+ipw_bad = np.sum(w1p * Yp) / np.sum(w1p) - np.sum(w0p * Yp) / np.sum(w0p)
+wtp = 1 / ehp[Tp == 1]
+print(f"poor-overlap IPW ATE        : {ipw_bad:.3f}  (truth 3.0)")
+print(f"poor-overlap treated-arm ESS: {ess_kong(wtp):.0f} of {(Tp==1).sum()} "
+      f"({100*ess_kong(wtp)/(Tp==1).sum():.1f}%)")
+print(f"min TREATED-unit propensity : {ehp[Tp==1].min():.4f}   (weight {wtp.max():.0f})")
+print(f"min propensity overall      : {ehp.min():.5f}   (a control: overlap has failed)")
+
+fig, ax = plt.subplots(1, 2, figsize=(9, 3.6))
+ax[0].hist(np.log10(1/ehat[T==1]), bins=40, color="C0")
+ax[0].set_title(f"good overlap — ESS {100*ess_kong(wt)/(T==1).sum():.0f}%")
+ax[0].set_xlabel("log10 IPW weight"); ax[0].set_ylabel("count")
+ax[1].hist(np.log10(1/ehp[Tp==1]), bins=40, color="C3")
+ax[1].set_title(f"poor overlap — ESS {100*ess_kong(wtp)/(Tp==1).sum():.0f}%")
+ax[1].set_xlabel("log10 IPW weight")
+fig.suptitle("IPW weights ARE importance weights — positivity failure collapses ESS")
+save(fig, "ipw_overlap")
+```
+
+![Two weight histograms: good overlap has weights bunched in a narrow band; poor overlap has a long right tail of large log-weights — the same ESS-collapse signature as a bad importance-sampling proposal.](figures/24-causal/ipw_overlap.png)
+
+**Reconcile.** Answer (b). The IPW estimate is `3.427` — off, but plausible-looking next to the truth of 3.0; nothing about the number announces failure. The alarm is the treated-arm ESS, collapsed to `16.4%`: the average is carried by a few treated units whose covariates made them near-deterministically *un*treated — treated anyway by luck, so their propensity is tiny and their weight huge (min treated propensity `0.0071`, one weight of `141`). The global minimum propensity `0.00006` is a *control* — it never enters the treated arm's average, but it is the clearest symptom that overlap has failed: regions of $X$ where one arm essentially does not exist. This is module 09's failure mode exactly: a proposal too light where the target has mass, weights of near-infinite variance, an ESS that betrays it. *Watch the weights, not the point estimate.* No adjustment invents data where one arm never appears; the fixes — trimming weights, restricting to the overlap region — are module 09's weight-clipping under a causal name.
+
+## 24.7 No causes in, no causes out
+
+Every number so far rode on an identification assumption — ignorability, a correct graph, positivity — *asserted* about the unseen joint. The uncomfortable truth, Cartwright's slogan "no causes in, no causes out": **those assumptions are not testable from the observational distribution.** Two data-generating processes can produce an identical law over everything you observe and still disagree about the ATE. Then no amount of data settles it; only an assumption does.
+
+**Setup.** A binary treatment and outcome; the observed 2×2 table shows $P(Y{=}1\mid T{=}1)=0.6$ against $P(Y{=}1\mid T{=}0)=0.4$ — a clean $+0.2$ association.
+
+**Predict.** Given that table and nothing else, what is the treatment effect? Commit to a number.
+
+*Reason:* the reflex is to read $+0.2$ as the effect — the §24.2 mistake, now with no confounder visible to warn you. *Two* internally-consistent worlds fit this table.
+
+```python
+Nb = 500_000
+# DGP A: randomized, treatment has a REAL +0.2 effect
+ga = np.random.default_rng(20)
+TA = (ga.random(Nb) < 0.5).astype(int)
+YA = (ga.random(Nb) < (0.4 + 0.2 * TA)).astype(int)
+# DGP B: unobserved confounder U, treatment has ZERO effect (Y depends on U, not T)
+gb = np.random.default_rng(21)
+UB = (gb.random(Nb) < 0.5).astype(int)
+TB = (gb.random(Nb) < np.where(UB == 1, 0.8, 0.2)).astype(int)   # U drives assignment
+YB = (gb.random(Nb) < np.where(UB == 1, 2/3, 1/3)).astype(int)   # U drives outcome, T does NOT
+
+def joint(T, Y):
+    return np.array([[np.mean((T == t) & (Y == y)) for y in (0, 1)] for t in (0, 1)])
+
+JA, JB = joint(TA, YA), joint(TB, YB)
+print("observed joint p(T,Y), rows T=0/1, cols Y=0/1:")
+print(f"  DGP A: {JA.ravel().round(4)}")
+print(f"  DGP B: {JB.ravel().round(4)}")
+print(f"  max |JA - JB| = {np.abs(JA - JB).max():.4f}  (sampling noise only)")
+assocA = YA[TA==1].mean() - YA[TA==0].mean()
+assocB = YB[TB==1].mean() - YB[TB==0].mean()
+print(f"observed assoc E[Y|T=1]-E[Y|T=0]: A {assocA:+.3f}   B {assocB:+.3f}  (same)")
+# true ATEs. A is randomized, so assoc = effect (the generator's +0.2*T term).
+# For B, run the HONEST g-formula on U, the true confounder: within each U
+# stratum, treated minus control. This is free to come out nonzero -- it reads
+# ~0 only because the generator really does satisfy Y ⊥ T | U.
+ate_A = 0.200
+ate_B = sum(np.mean(UB == u) * (YB[(UB==u)&(TB==1)].mean() - YB[(UB==u)&(TB==0)].mean())
+            for u in (0, 1))
+print(f"TRUE causal ATE: DGP A {ate_A:+.3f}   DGP B {ate_B:+.4f}  <-- SAME data, different answer")
+
+fig, ax = plt.subplots(1, 2, figsize=(8.6, 3.6))
+for a, J, ttl in zip(ax, (JA, JB), ("DGP A: randomized (ATE +0.20)", "DGP B: confounded (ATE 0.00)")):
+    a.imshow(J, cmap="Blues", vmin=0, vmax=0.35)
+    for i in range(2):
+        for j in range(2):
+            a.text(j, i, f"{J[i,j]:.2f}", ha="center", va="center", fontsize=13)
+    a.set_xticks([0, 1]); a.set_xticklabels(["Y=0", "Y=1"])
+    a.set_yticks([0, 1]); a.set_yticklabels(["T=0", "T=1"])
+    a.set_title(ttl, fontsize=10)
+fig.suptitle("Identical observational joint p(T,Y) — incompatible causal answers")
+save(fig, "two_dgps")
+```
+
+![Two identical-looking 2×2 heatmaps of p(T,Y), both showing 0.30/0.20/0.20/0.30; captions announce ATE +0.20 for the randomized world and 0.00 for the confounded world.](figures/24-causal/two_dgps.png)
+
+**Reconcile.** The two observed joints are the same table — `[0.3011 0.1997 0.2001 0.2991]` versus `[0.3013 0.1986 0.1997 0.3004]`, agreeing to `0.0013`, identical associations (`0.200`, `0.203`). The agreement is *exact*, not approximate: work both joints by hand — $P(T{=}1,Y{=}1)$ is $0.5\times0.6=0.3$ in A and $0.5(0.2\cdot\tfrac13)+0.5(0.8\cdot\tfrac23)=0.3$ in B — and every cell of both generators lands on $[0.3, 0.2, 0.2, 0.3]$; the `0.0013` is Monte-Carlo noise around a true gap of zero. Yet the true ATEs are `0.200` and ≈0: the honest g-formula on $U$ — within-$U$ treated-minus-control, free to return anything — reads `+0.0014`, zero up to noise, *because* the generator really satisfies $Y\perp T\mid U$. In A, treatment genuinely lifts recovery by 0.2 and assignment is a coin, so the association *is* the effect. In B, treatment does nothing — the entire $+0.2$ association is manufactured by the hidden $U$ pushing "treated" and "recovers" up together. No test on $(T,Y)$ can separate worlds that are *equal* as distributions over $(T,Y)$. The choice between "effect 0.2" and "effect 0" is the choice of whether to assume ignorability — imported from outside the data. This is why the spine says identification, not fit, licenses the answer: fit is a property of the observed law, and that law is exactly what the two worlds share. It is the honest ceiling on observational causal inference, and the whole justification for §24.1's randomization, which *guarantees* DGP A by construction. Everything downstream — sensitivity analysis, instrumental variables, natural experiments — is the craft of making the imported assumption defensible or falsifiable.
+
+## Bridge — missing data, importance sampling, and the design that buys the assumption
+
+Three earlier modules meet here. Module 11 promised the causal payoff of missing-data machinery: §24.1 cashes it. Module 09's importance weights reappear as IPW weights, `ess_kong` and all. Module 23 proved from the design side that randomization buys ignorability; this module is the analysis side of the same coin, and §24.7 explains *why* the design is worth its cost: without it, the identifying assumption is untestable, and two worlds with the same data give different answers. Causal inference is not a new calculus — it is the four lines run on a joint you had to *choose*, plus the discipline of admitting that the choice is an assumption.
+
+## Pitfalls
+
+- **Reading an association as an effect.** $\mathbb{E}[Y\mid T{=}1]-\mathbb{E}[Y\mid T{=}0]$ is the ATE *only* under ignorability (randomization, or a correct and observed adjustment set). Absent that, it can have the wrong magnitude (§24.2, `4.704` vs `3.0`) or the wrong sign (Simpson, aggregate `-0.1428` vs true `+0.10`).
+- **Adjusting for everything you measured.** Colliders (§24.4, `0.504` after adding $C$) and mediators (§24.5, `0.004` after adding $M$) must be *left out*; conditioning on them opens spurious paths or blocks the causal one. Validity is a property of the graph, not of covariate count. "Control for more" is not a safe default.
+- **Ignoring positivity.** IPW with weights near infinity is importance sampling with a bad proposal: the point estimate can look fine while the ESS has collapsed (§24.6, `16.4%`). Always report the effective sample size / weight distribution; trim or restrict to the overlap region.
+- **Believing the data can validate your assumptions.** Ignorability, correct graph structure, and no-unmeasured-confounding are *not* testable from the observational joint (§24.7). Two DGPs with identical $p(T,Y)$ can have ATEs `0.200` and 0. Report a sensitivity analysis, not a p-value, for the untestable part.
+- **Confusing the mediator with the confounder.** Both are "do not adjust," but a confounder left *in* removes bias while a mediator left *in* creates it — the operational advice coincides only for the descendant. Draw the graph before you choose the regression.
+
+## Exercises
+
+**Exercise 24.1 — The collider you were told to control for (predict-then-run).**
+*Setup:* In the §24.4 data ($U,T,Y,C$ already in memory), a reviewer insists you adjust for the post-treatment biomarker $C$ "to be safe," but forbids using $U$ because it was never measured. So you fit $Y$ on $T$ and $C$ alone.
+*Predict:* Compared with the unadjusted estimate `2.924` (which at least errs in a known direction), will adjusting for $\{C\}$ give an estimate that is (a) closer to the truth 2, (b) about the same, or (c) further away?
+*Reason:* the intuition "any measured covariate is worth controlling for" — the reflex §24.3 and §24.4 broke.
+*Run:*
+```python
+print(f"unadjusted            : {ols_coef([Tt2], Yy)[1]:.3f}")
+print(f"adjust {{C}} (collider) : {ols_coef([Tt2, C], Yy)[1]:.3f}")
+```
+<details><summary>Reconcile</summary>
+
+Adjusting for $\{C\}$ gives `0.216`, *far* worse than the unadjusted `2.924` — answer (c). The reviewer's instinct is backwards: $C$ is a collider ($T\to C\leftarrow Y$), so conditioning on it opens a spurious $T$–$Y$ path and the regression subtracts real effect. A post-treatment variable is almost never a valid adjustment, and "to be safe, control for it" manufactures bias that looks like rigor. When you cannot measure the true confounder $U$, the honest move is a sensitivity analysis or an instrument, not a substitute regressor that happens to be handy.
+</details>
+
+**Exercise 24.2 — IPW is off-policy evaluation (ML/RL connection, predict-then-run).**
+*Setup:* Module 09's bridge noted that RL off-policy evaluation reweights trajectories collected under a behavior policy by $\pi/\beta$ — the same importance weight as IPW. Here the "behavior policy" is the propensity $\hat e(X)$ and the "target policy" is *treat everyone*, so the treated-arm weight is $1/\hat e(X)$. On the poor-overlap data (`ehp`, `Tp`, `Yp` in memory), estimate $\mathbb{E}[Y(1)]$ by self-normalized IPW, then clip the weights at the 99th percentile (the standard RL trick) and re-estimate.
+*Predict:* Will clipping the top 1% of weights move the $\mathbb{E}[Y(1)]$ estimate (a) negligibly, or (b) substantially — and will the effective sample size rise?
+*Reason:* clipping trades bias for variance; how much it matters is governed by how much total weight the extreme tail carries — the same quantity `ess_kong` measures.
+*Run:*
+```python
+w = Tp / ehp                                   # treated-arm importance weights
+ey1 = np.sum(w * Yp) / np.sum(w)
+cap = np.quantile(w[Tp == 1], 0.99)
+wc = np.minimum(w, cap)
+ey1_clip = np.sum(wc * Yp) / np.sum(wc)
+print(f"E[Y(1)] raw IPW    : {ey1:.3f}   ESS {ess_kong(w[Tp==1]):.0f}")
+print(f"E[Y(1)] clipped 99%: {ey1_clip:.3f}   ESS {ess_kong(wc[Tp==1]):.0f}")
+```
+<details><summary>Reconcile</summary>
+
+Clipping moves the estimate substantially, `3.135` → `3.484`, and triples the ESS (`677` → `2141`) — the tail was doing real damage. Note the honest cost: the true $\mathbb{E}[Y(1)]$ is 3, so on this draw clipping moved the estimate *away* from the truth — visible bias, the price of tripling the effective sample (the raw estimate was closer only by luck, riding a variance so large that "closer" means little). This is why practitioners clip in IPW and off-policy evaluation alike: a few weights in the hundreds dominate a self-normalized average and inflate its variance without adding information; capping trades that variance for controlled bias. `ess_kong` is the shared alarm — a small fraction means your weighted estimate (RL value or causal ATE) rides a handful of lucky draws. Same estimator, same failure mode, same remedy — not a metaphor.
+</details>
+
+**Exercise 24.3 — When does Simpson flip? (predict-then-run).**
+*Setup:* Rebuild the §24.2 Simpson data with weakened confounding: treated rates nearly equal, $P(T{=}1\mid\text{severe})=0.55$ vs $0.45$ for mild; everything else unchanged (baselines 0.50/0.85, effect $+0.10$).
+*Predict:* Will the aggregate treated-vs-control difference still be *negative* (sign-flipped), or now *positive* (agreeing with the within-stratum effect)?
+*Reason:* Simpson's reversal needs strong confounding; the intuition is that weak assignment imbalance shouldn't overturn a real effect.
+*Run:*
+```python
+g = np.random.default_rng(7)
+Zx = (g.random(M) < 0.5).astype(int)
+Tx = (g.random(M) < np.where(Zx == 1, 0.55, 0.45)).astype(int)
+Yx = (g.random(M) < (np.where(Zx == 1, 0.50, 0.85) + 0.10 * Tx)).astype(int)
+agg = Yx[Tx == 1].mean() - Yx[Tx == 0].mean()
+print(f"weak-confounding aggregate diff: {agg:+.4f}  (within-stratum effect is +0.10)")
+```
+<details><summary>Reconcile</summary>
+
+The aggregate difference is now *positive* — no flip. Simpson's reversal is not automatic; it needs the treatment-severity confounding strong enough that composition outweighs the true within-stratum effect. The aggregate is a *tug-of-war* between the real effect ($+0.10$, up) and the confounding composition (severe over-treated and recovering less, down); whether it flips depends on the numbers, which is exactly why you cannot diagnose confounding by staring at the aggregate — you must adjust and compare. Even a stable positive aggregate can hide a *larger* true effect that confounding is partly masking.
+</details>
+
+**Exercise 24.4 — How much hidden confounding explains it away? (predict-then-run).**
+*Setup:* Return to §24.7's adversarial pair. How strong must an unobserved confounder $U$ be to explain *all* of the $+0.2$ association (ATE 0)? In DGP B, $U$ shifts the treatment probability 0.2→0.8 and the outcome probability 1/3→2/3. Compute the association this $U$ generates on its own, with zero real effect.
+*Predict:* Will the association manufactured by this $U$ be (a) much less than 0.2 (so hidden confounding is an implausible explanation), (b) about 0.2 (so it fully explains the data), or (c) more than 0.2?
+*Reason:* gauging whether "it's all confounding" is a stretch or a live possibility — the core move of a sensitivity analysis.
+*Run:*
+```python
+# Association from confounding alone (effect = 0), computed from DGP B's generator:
+pU = 0.5
+pT_U = np.array([0.2, 0.8])          # P(T=1 | U=0), P(T=1 | U=1)
+pY_U = np.array([1/3, 2/3])          # P(Y=1 | U=0), P(Y=1 | U=1)
+pT1 = pU * pT_U[1] + (1 - pU) * pT_U[0]
+# E[Y | T=1] and E[Y | T=0] by Bayes on U, with Y ⊥ T | U:
+wU_T1 = np.array([(1-pU)*pT_U[0], pU*pT_U[1]]); wU_T1 /= wU_T1.sum()
+wU_T0 = np.array([(1-pU)*(1-pT_U[0]), pU*(1-pT_U[1])]); wU_T0 /= wU_T0.sum()
+assoc_confounding = wU_T1 @ pY_U - wU_T0 @ pY_U
+print(f"association from confounding alone (true effect 0): {assoc_confounding:+.4f}")
+```
+<details><summary>Reconcile</summary>
+
+The confounding-only association is `+0.2000` — answer (b): a $U$ of exactly this strength reproduces the entire observed signal with zero real effect. That is §24.7 made quantitative: the observed $+0.2$ is *equally* consistent with "effect 0.2, no confounding" and "effect 0, confounding of strength $U$." A sensitivity analysis (Rosenbaum bounds, E-values) formalizes this — it asks how strong an unmeasured confounder must be to overturn your conclusion, and reports that strength instead of a point estimate. When a confounder weaker than ones you already adjusted for would do it, the claim is fragile; when you'd need an implausibly strong hidden cause, it is robust. The data never rules confounding out; the sensitivity analysis prices how much you'd have to swallow to believe it.
+</details>
+
+## Takeaways
+
+- **A potential outcome you didn't observe is missing data.** Each unit shows one of $(Y(0),Y(1))$; the other is latent (module 11). The fundamental problem is 50%-by-design missingness — but under randomization $(Y(0),Y(1))\perp T$ (MCAR), the naive difference is unbiased for the ATE (`1.9987` vs true `1.9953`).
+- **Association is not effect.** Confounding can inflate the estimate (`4.704` vs `3.0`) or reverse its sign (Simpson: aggregate `-0.1428`, true `+0.10`). Backdoor adjustment — condition on the confounder, marginalize over its own distribution (the g-formula) — recovers the truth (`+0.1013`).
+- **Conditioning on a collider opens a path.** Chain and fork close under conditioning (partial corr `0.003`, `-0.005`); a collider *opens* (marginal `-0.006`, partial `-0.503`). Adjusting for a collider (`0.504`) or a mediator (`0.004`) is worse than not adjusting — validity is a property of the graph, not covariate count.
+- **The backdoor criterion picks the adjustment set:** block every backdoor path, include no descendant of $T$. Frontdoor identifies through an unconfounded mediator when no backdoor set exists; do-calculus's three rules are complete for identifiability. Potential outcomes and DAGs are two dialects for one joint.
+- **IPW is importance sampling.** The weight $1/e(X)$ corrects a propensity-biased sample to the population — module 09's $p/q$ exactly — and fails identically when positivity breaks: `ess_kong` collapses to `16.4%` and the estimate drifts (`3.427`). Regression, stratification, and IPW agree under good overlap (`3.019`/`3.203`/`3.023`).
+- **Identification is an assumption, not a fit.** Two DGPs with *exactly* equal observed joints (both $[0.3,0.2,0.2,0.3]$ analytically; `0.0013` apart in simulation) can have ATEs `0.200` and 0 (honest g-formula `+0.0014`); no test on the data separates them. "No causes in, no causes out." Report a sensitivity analysis for the untestable part.
+- **Causal inference is paradigm-neutral.** Identification happens before estimation and is orthogonal to Bayes-vs-frequentist; the hard part is choosing the joint, and the same choice licenses either estimator.

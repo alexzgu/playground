@@ -2,7 +2,7 @@
 
 Maintained by the orchestrator after each wave. Wave N+1 authors MUST read this file plus every module their spec calls back to. Format: spine / established helpers & notation / key printed numbers / forward promises.
 
-*Status: Waves 1–5 (00–23) FINAL — every module authored, dual-refereed, revised, harness-green. All numbers canonical.*
+*Status: ALL 27 MODULES (00–26) FINAL — authored, dual-refereed (54 reviews), revised, harness-green. All numbers canonical. Remaining: global consistency pass + README (paused at user request).*
 
 ## 00-four-lines
 - **Spine:** the whole subject is four lines (model = joint, inference = conditioning, prediction = marginalization, decision = expected loss); every procedure is a special case, approximation, or audit.
@@ -147,3 +147,22 @@ Maintained by the orchestrator after each wave. Wave N+1 authors MUST read this 
 - **Established:** `blr` (EB-σ² Gaussian-prior linear posterior); the FOUR-CLAIM optional-stopping lab, each claim separately staged and verified — (a) posterior invariance (two GENUINE routes: sequential per-bit accumulation with stopping indicators in the product vs closed-form Beta, gap 1.00e-08), (b) prior-averaged/martingale coverage `0.9494` under aggressive stopping (construction referee-verified: no conditioning on stopping), (c) frequentist Type-I `0.0522`→`0.2044`@10 looks (≈4× — M04's promise cashed) →`0.4664` continuous (LIL), (d) selective reporting breaks BOTH paradigms (published coverage `0.6197`); BF foregone-conclusion Ville bound `0.0598` ≤ 0.10; 2³ effects-as-regression + spike-and-slab inclusion probabilities (ordering = the robust takeaway); EIG-by-quadrature dose design; D-optimality det ratio `2.000`; permutation p `0.0311` ≈ t 0.0313.
 - **Key numbers:** confounded β_T `5.288`±0.187 (17.5σ from truth 2) vs randomized `2.010`; power `0.8013` vs assurance `0.7140` (Jensen); Montgomery Ex 6.1 reproduced: A −101.625, C 306.125, AC −153.625 (hand-verified from contrasts).
 - **Promises:** ignorability + backdoor (M24); permutation-under-exchangeability + calibrated-Bayes stopping row (M26).
+
+## 24-causal
+- **Spine:** a causal question is about a joint including outcomes you never observe; *identification* (an assumption about that unseen joint), not model fit, licenses the answer. Paradigm-neutral: identification fixes WHICH joint; Bayes/frequentist is HOW you summarize — before line 2 runs.
+- **Established:** potential outcomes as missing data (M11 ignorability cashed; 50%-by-design missingness); backdoor + g-formula; d-separation on chain/fork/collider (conditioning on a collider OPENS a path); PO↔DAG table; do-calculus three rules named; estimator trio with **Hájek/self-normalized IPW = M09's SNIS** (`ess_kong` reused for positivity); the two-DGPs-same-joint construction (joints exactly [0.3,0.2,0.2,0.3] ANALYTICALLY, ATEs 0.200 vs ~0 — identification untestable from data).
+- **Key numbers:** Simpson aggregate −0.1428 flips to +0.10 within strata; confounder-vs-collider (truth 2.0): unadj 2.924, adjust{U} 2.001, add collider {U,C} 0.504 — MORE control made it WORSE; trio (truth 3.0): naive 4.704 → reg 3.019 / strat 3.203 / IPW 3.023; poor overlap: IPW 3.427 "looks fine" while ESS 16.4% (min treated propensity 0.0071 → weight 141); clipping: 3.135→3.484 away from truth = the bias-for-variance price; honest DGP-B g-formula +0.0014.
+- **Promises:** sensitivity/identification framing + IPW/OPE for the RL lens (M25); confounder/collider vocabulary (M26).
+
+## 26-capstone
+- **Spine:** one calculus (a joint plus conditioning); two audits (posterior = post-data belief, sampling distribution = pre-data guarantee); the working statistician runs both.
+- **Established:** the six-row ledger, each row citing the number the learner personally printed (canon-checked against this index); the 20-row ML-zoo audit as a STRUCTURALLY BLANK fill-in-first table (honest "none" rows stand — SVM hinge has no clean likelihood); conformal stated precisely (finite-sample, distribution-free, MARGINAL, exchangeability; no conditional guarantee; void under shift); calibrated-Bayes decision guide; annotated reading map keyed to this course's threads.
+- **Key numbers:** the final hands-on beat — marginalize σ² (t₅) vs profile plug-in: width 2.548 vs 1.943 (ratio 1.312 = t₅/z exactly, referee-verified), coverage 0.9508 vs 0.8942.
+- **Closes the course.**
+
+## 25-deep-learning-lenses
+- **Spine:** modern deep learning is exact Bayes in a few places, approximate in more, and merely rhymes elsewhere — the transferable skill is TRIAGING each practice into theorem / approx / heuristic / open, with the deciding test: "is the Bayesian object identified in the real system, or only a surrogate?"
+- **Established:** M15's `ece()` harness reused verbatim on a neural net; deep ensembles as poor-man's posterior sampling (disagreement = epistemic proxy); temperature scaling (T* here 7.816 — a 70-point-data artifact; production nets ≈1.5); ICL = implicit posterior predictive on exchangeable data (de Finetti/M01; **Open**); exact OU-diffusion score/reverse-SDE demo (no NN, M12 ULA bridge); random-features double descent (ridgeless spike at p=n = M07's flat-prior blow-up; ridge = prior cures it); VAE = amortized ELBO (M13, no-run); temperature = tempering (M18); the blank-first triage ledger + Ex 25.5 drill.
+- **Key numbers:** weight-decay≡MAP `1.13e-07`, CE≡MLE `2.35e-08` (both Theorem, independently verified); ECE single 0.1741 → ensemble 0.1269 → temp-scaled 0.0433 (calls 0.998, delivers 0.851 — the caught-wrong headline); ICL median agreement 0.0279, worst gap `0.1166` at MID-frequency off-support (sigmoid saturation helps extremes); diffusion reassembly 0.4418/2.8326 vs true 0.4500/2.8225 (discretization-honest); double-descent spike 4615.1 at p=n=60 → 0.538 at p=240, ridge peak 1.001.
+- **Note:** 5,694 words — over cap, flagged per STYLE (review-mandated ledger protocol + drill exercise; trimmed elsewhere).
+- **Closes:** M15 calibration, M12 SGLD/tempering, M07 overparameterization, M01 exchangeability→ICL; conformal → M26 ✓.

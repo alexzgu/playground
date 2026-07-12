@@ -1,0 +1,503 @@
+# 25. Bayesian Lenses on Deep Learning and Generative AI
+
+> **Spine.** Modern deep learning is exact Bayes in a few places, approximate Bayes in more, and merely *rhymes* with Bayes in the rest — the transferable skill is sorting each practice into theorem, approximation, heuristic, or open.
+> **Which line?** All four, audited. Weight decay is line 1 (a prior); cross-entropy training is line 2 (conditioning by maximum likelihood); ensembles and diffusion are line 3 (predictive marginalization); temperature and thresholds are line 4 — but several famous tricks only *approximate* a line, and this module says which.
+> **Promise.** After this module you can look at a deep-learning recipe — weight decay, an ensemble, dropout, a diffusion sampler, in-context learning — and say precisely what its Bayesian reading is, whether that reading is a theorem or a hope, and what the reading buys you.
+> **Prereqs.** Modules 13 (the ELBO identity — the VAE annotates it), 15 (the `ece()` calibration harness — LAB 1 reuses it), 18 (tempering / temperature), 12 (SGLD and the leapfrog/Langevin bridge), with callbacks to 01 (exchangeability, the ICL lab) and 07 (nonidentifiability).
+> **Runtime.** ~45 s (measured 42.9 s; the sklearn MLP labs and the reverse-diffusion integration dominate).
+> **Sources.** ISLP ch. 10; Lawler ch. 2–3, 5 (SDEs) by concept; MacKay ITILA, Murphy PML2, Song et al. (score-based diffusion), Gal–Ghahramani, Xie et al. (in-context learning), Nakkiran et al. (double descent) — all **by concept**.
+
+This module trains no large network — deliberately. It is a *map, not the territory*: the two exact demos swap the neural net for something verifiable to machine precision, because the honest way to teach "diffusion is Bayes" is to strip out the part you cannot check (the learned score) and keep the part you can (the reverse SDE). Theorems are proved or verified; folklore wears a **Heuristic** label; genuinely unsettled claims wear **Open**. The deliverable is the ledger in §25.7 — a triage table you can extend.
+
+```python
+# --- setup ---
+from pathlib import Path
+import numpy as np
+import matplotlib
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
+from scipy import stats
+
+SLUG = "25-deep-learning-lenses"          # this module's figure dir
+FIG = Path("figures") / SLUG
+FIG.mkdir(parents=True, exist_ok=True)
+SEED = 0
+rng = np.random.default_rng(SEED)
+
+plt.rcParams.update({
+    "figure.figsize": (7, 4), "figure.dpi": 110, "savefig.dpi": 150,
+    "savefig.bbox": "tight", "axes.grid": True, "grid.alpha": 0.3,
+    "axes.spines.top": False, "axes.spines.right": False,
+    "font.size": 11,
+})
+
+def save(fig, name):
+    out = FIG / f"{name}.png"
+    fig.savefig(out)
+    plt.close(fig)
+    print(f"[fig] {out}")
+```
+
+## 25.1 Two theorems, then everything softer
+
+Two of the most universal deep-learning defaults are not analogies. They are the same objects you derived in modules 05, 06, and 15, renamed.
+
+**Theorem (weight decay = Gaussian-prior MAP).** Training loss $\mathcal{L}(w) + \tfrac{\lambda}{2}\|w\|^2$ is the negative log of $p(\mathcal{D}\mid w)\,\mathcal{N}(w;0,\sigma^2/\lambda\,I)$ up to a constant. Its minimizer is therefore the **MAP** estimate under an isotropic Gaussian prior with precision $\lambda/\sigma^2$. "How hard should I regularize?" is literally "how confident am I, a priori, that weights are near zero?" — with the exact dictionary $\lambda = \sigma^2/\tau^2$ from module 14.
+
+**Theorem (cross-entropy = categorical MLE).** Minimizing $-\sum_i \log q_{\theta}(y_i\mid x_i)$ over a categorical output is maximum likelihood for the Bernoulli/categorical response of module 15's GLM recipe. The per-example loss is $-\log p(y\mid x)$, exactly module 03's cross-entropy = expected surprise, and its unconstrained minimizer is the empirical label distribution. Training a classifier *is* line 2, conditioning by likelihood.
+
+Both are three-line facts, so verify them in three lines each: the cross-entropy minimizer equals the empirical frequencies, and the penalized-loss minimizer equals the closed-form shrinkage estimate.
+
+```python
+from scipy.optimize import minimize
+from scipy.special import logsumexp
+
+# (1) cross-entropy minimizer over a categorical = the MLE = empirical frequencies
+counts = np.array([40, 35, 25]); n = counts.sum()
+def ce(z):                                   # z = softmax logits (last pinned to 0)
+    q = np.exp(z - logsumexp(z)); return -np.sum(counts * np.log(q))
+zopt = np.append(minimize(lambda z: ce(np.append(z, 0.0)), np.zeros(2),
+                          method="BFGS").x, 0.0)
+qhat = np.exp(zopt - logsumexp(zopt))
+print(f"CE-min q = {np.round(qhat,4)}  empirical freq = {np.round(counts/n,4)}"
+      f"  max|diff| = {np.max(np.abs(qhat-counts/n)):.2e}")
+
+# (2) weight decay = Gaussian-prior MAP: penalized least squares = precision-weighted shrink
+s2, tau2 = 1.0, 2.0; lam = s2 / tau2
+y = np.random.default_rng(1).normal(3.0, 1.0, 20)
+map_closed = y.sum() / (len(y) + lam)        # (n*ybar)/(n+lambda), the shrinkage formula
+map_opt = minimize(lambda m: 0.5*np.sum((y-m)**2)/s2 + 0.5*lam*m**2/s2,
+                   0.0, method="BFGS").x[0]
+print(f"weight-decay MAP: closed {map_closed:.6f} vs optimizer {map_opt:.6f}"
+      f"  max|diff|={abs(map_closed-map_opt):.2e}  (lambda=s2/tau2={lam:.1f})")
+```
+
+The cross-entropy solution matches the empirical frequencies to `2.35e-08`, and the penalized-loss minimizer matches the closed-form shrinkage estimate `2.963402` to `1.13e-07`, with $\lambda = \sigma^2/\tau^2 = $ `0.5`. These are module 00's opening ridge identity and module 05's master shrinkage formula wearing deep-learning clothes.
+
+Everything past here is softer, so the labels start doing work. **Label smoothing** — replacing one-hot $[0,1,0]$ with $[\varepsilon/K,1-\varepsilon,\varepsilon/K]$ — is a **Heuristic** reading of a Dirichlet-smoothed likelihood (module 05's add-$\alpha$): it pulls the target off the simplex corner, what a prior disbelieving certainty does, and it improves calibration. **Early stopping** is a **Heuristic** shrinkage-toward-initialization prior: halting before convergence keeps $w$ near $w_0$, and for a linear model the step count trades off against the ridge penalty almost exactly. Neither is a theorem in the deep-net case (the loss surface is not quadratic), but both are priors in disguise, and naming the disguise says when they help — small data, miscalibration — and when they do not.
+
+## 25.2 LAB 1 — ensembles, disagreement, and calibration
+
+A single softmax network reports a probability for every input. Is it *trustworthy*? The Bayesian object it is trying to be is the posterior predictive $p(\tilde y\mid x, \mathcal{D}) = \int p(\tilde y\mid x, w)\,p(w\mid\mathcal{D})\,dw$ — an average over all weight settings the data allow; a single trained net is one $w$, a point mass at the MAP. A **deep ensemble** trains $M$ nets from different random initializations and averages their probabilities; the **Heuristic** (strong empirical backing, Lakshminarayanan et al.) is that the loss surface has many good-and-different basins, so the members are a crude sample from a *multi-modal* weight posterior and their average approximates the predictive integral.
+
+If that reading is right, two payoffs follow: the *spread* across members estimates epistemic uncertainty (it should blow up off the data, where members are unconstrained), and the *average* should be better calibrated than any single overconfident member. Test both on two interleaving moons with enough label noise that the Bayes-optimal probability is genuinely intermediate near the boundary.
+
+> **Setup.** Five nets, `MLPClassifier(hidden_layer_sizes=(64,32))`, trained on the *same* 70 noisy points but from five random seeds. **Predict — two commitments before running.** (1) Of the test cases the *single* net calls at least 90% likely, what fraction are actually positive? Commit to a number. (2) The single net and the 5-net ensemble share an architecture and training set — will averaging their probabilities change the ECE at all, and in which direction? *Reason:* the naive intuitions are "a probability is a probability — if it says 90%+, expect ~95% right" and "same model, same data, so averaging is a no-op." **Reveal below.**
+
+```python
+import warnings
+from sklearn.neural_network import MLPClassifier
+from sklearn.datasets import make_moons
+from sklearn.exceptions import ConvergenceWarning
+from scipy.optimize import minimize_scalar
+
+def ece(p, y, n_bins=10):                     # module 15's ece harness, unchanged
+    edges = np.linspace(0, 1, n_bins + 1); e = 0.0
+    for i in range(n_bins):
+        m = (p >= edges[i]) & (p < edges[i + 1])
+        if m.sum(): e += m.mean() * abs(y[m].mean() - p[m].mean())
+    return e
+
+Xtr, ytr = make_moons(n_samples=70,   noise=0.30, random_state=0)
+Xval, yval = make_moons(n_samples=1000, noise=0.30, random_state=1)
+Xte, yte = make_moons(n_samples=4000, noise=0.30, random_state=2)
+mu, sd = Xtr.mean(0), Xtr.std(0)                 # standardize on the training moments
+Xtr = (Xtr - mu) / sd; Xval = (Xval - mu) / sd; Xte = (Xte - mu) / sd
+
+def train_mlp(seed):
+    clf = MLPClassifier(hidden_layer_sizes=(64, 32), activation="relu", solver="adam",
+                        alpha=0.0, max_iter=4000, random_state=seed, tol=1e-6)
+    with warnings.catch_warnings():          # tiny data: let adam run to its own tol
+        warnings.simplefilter("ignore", ConvergenceWarning); clf.fit(Xtr, ytr)
+    return clf
+
+members = [train_mlp(s) for s in range(5)]
+P_te = np.stack([m.predict_proba(Xte)[:, 1] for m in members])   # (5, N_test)
+p_single, p_ens = P_te[0], P_te.mean(0)
+print(f"single-net ECE = {ece(p_single, yte):.4f}   ensemble ECE = {ece(p_ens, yte):.4f}")
+print(f"single-net acc = {((p_single>0.5)==yte).mean():.4f}   "
+      f"ensemble acc = {((p_ens>0.5)==yte).mean():.4f}")
+```
+
+Prediction (2) first. The single net's ECE is `0.1741`; the ensemble's is `0.1269` — averaging cut the miscalibration by a quarter and *also* nudged accuracy up from `0.8077` to `0.8320`. So much for "averaging is a no-op." The single net is badly overconfident because it drives its training loss toward zero on 70 points and extrapolates that certainty; the five members overfit in *different* directions, so averaging cancels the idiosyncratic overconfidence — exactly the variance reduction a posterior-predictive integral performs. Five nets are a poor man's posterior sample; their average is a poor man's marginalization.
+
+Now the cheap post-hoc alternative. **Temperature scaling** (Guo et al.) fits one scalar $T$ dividing the logits before the softmax to minimize held-out NLL — a one-parameter recalibration that cannot change a decision (it never crosses $0.5$, module 15's sign-invariance) but rescales confidence. Fit it on validation and apply it to the single net.
+
+```python
+zv = np.clip(members[0].predict_proba(Xval)[:, 1], 1e-6, 1 - 1e-6)
+logit_v = np.log(zv / (1 - zv))
+def val_nll(T):
+    p = np.clip(1 / (1 + np.exp(-logit_v / T)), 1e-9, 1 - 1e-9)
+    return -np.mean(yval*np.log(p) + (1-yval)*np.log(1-p))
+Topt = minimize_scalar(val_nll, bounds=(0.3, 10), method="bounded").x
+logit_te = np.log(np.clip(p_single,1e-6,1-1e-6) / (1 - np.clip(p_single,1e-6,1-1e-6)))
+p_temp = 1 / (1 + np.exp(-logit_te / Topt))
+print(f"temperature T* = {Topt:.3f}   single ECE {ece(p_single,yte):.4f} "
+      f"-> temp-scaled {ece(p_temp,yte):.4f}")
+for name, pp in [("single", p_single), ("ensemble", p_ens), ("temp-scaled", p_temp)]:
+    hi = pp >= 0.9
+    if hi.sum():
+        print(f"  {name}: calls >=0.90 -> predicts {pp[hi].mean():.3f}, actual {yte[hi].mean():.3f}"
+              f"  (n={int(hi.sum())})")
+    else:
+        print(f"  {name}: never calls anything >=0.90 (max prob {pp.max():.3f})")
+
+fig, ax = plt.subplots(figsize=(5.2, 5))
+edges = np.linspace(0, 1, 11); ctr = (edges[:-1] + edges[1:]) / 2
+for pp, lab, c, mk in [(p_single,"single (overconfident)","C1","s"),
+                       (p_ens,"5-net ensemble","C2","^"),
+                       (p_temp,"temperature-scaled","C0","o")]:
+    yb = [yte[(pp>=edges[i])&(pp<edges[i+1])].mean()
+          if ((pp>=edges[i])&(pp<edges[i+1])).sum() else np.nan for i in range(10)]
+    ax.plot(ctr, yb, mk+"-", color=c, label=lab)
+ax.plot([0,1],[0,1],"k--",lw=1,label="perfect calibration")
+ax.set_xlabel("predicted probability"); ax.set_ylabel("observed frequency")
+ax.set_title("Reliability: the single net bows far below the diagonal")
+ax.legend(fontsize=8.5); save(fig, "calibration")
+```
+
+![Reliability diagram. The single-net curve bows far below the diagonal in the high-probability region; the ensemble curve is closer; the temperature-scaled curve hugs the diagonal.](figures/25-deep-learning-lenses/calibration.png)
+
+Here is prediction (1)'s reveal, the module's headline shock: among the test points the single net calls at least 90% likely, it predicts an average `0.998` while only `0.851` are actually positive — a fifteen-point gap where the naive guess said "~95% right." The ensemble narrows it (`0.996` predicted vs `0.886` actual) and temperature scaling closes it. The fitted temperature is $T^* = $ `7.816` — far above 1, a quantitative confession of how overconfident the raw logits are — and it drops the single net's ECE from `0.1741` to `0.0433`, beating the ensemble on calibration for a fraction of the compute. ($T^*\approx 8$ is extreme because the net is savagely overconfident on just 70 training points; nets trained at realistic scale typically calibrate near $T\approx 1.5$.) The lesson is the module 15 lesson at deep-net scale: *a network that plugs in one weight vector is not calibrated; averaging over weights, or rescaling the confidence to match held-out frequencies, is how you buy back calibration.* Ensembling and temperature scaling are two different approximations to the same missing integral.
+
+The disagreement across members is the epistemic signal. Evaluate all five on a grid and map their standard deviation.
+
+```python
+gx = np.linspace(Xtr[:,0].min()-1.5, Xtr[:,0].max()+1.5, 140)
+gy = np.linspace(Xtr[:,1].min()-1.5, Xtr[:,1].max()+1.5, 140)
+GX, GY = np.meshgrid(gx, gy)
+Pg = np.stack([m.predict_proba(np.column_stack([GX.ravel(), GY.ravel()]))[:, 1]
+               for m in members])
+disag = Pg.std(0).reshape(GX.shape)
+print(f"disagreement std: max over grid {disag.max():.3f}, "
+      f"typical near data {disag[disag<0.5].mean():.3f}")
+
+fig, ax = plt.subplots(figsize=(6.2, 5))
+cf = ax.contourf(GX, GY, disag, levels=20, cmap="magma")
+ax.scatter(Xtr[ytr==0,0], Xtr[ytr==0,1], s=18, c="C0", edgecolor="w", lw=0.4)
+ax.scatter(Xtr[ytr==1,0], Xtr[ytr==1,1], s=18, c="C2", edgecolor="w", lw=0.4)
+fig.colorbar(cf, ax=ax, label="ensemble std of p(class 1) = epistemic proxy")
+ax.set_title("Ensemble disagreement is high off the data, low on it")
+ax.set_xlabel("$x_1$ (standardized)"); ax.set_ylabel("$x_2$ (standardized)")
+save(fig, "disagreement")
+```
+
+![Two interleaving crescents of training points on a heat map; the map is dark (low disagreement) along and between the crescents and bright (high disagreement) in the corners far from any data.](figures/25-deep-learning-lenses/disagreement.png)
+
+Member disagreement reaches `0.490` in the empty corners — maximal, one member says class 0 and another class 1 — while staying near `0.063` in the data-rich band. That spatial pattern is the whole point: **epistemic uncertainty is where the models the data cannot distinguish disagree**, exactly module 07's unidentified directions made visible. A single net reports none of this; the ensemble reports it for free. This is a **Heuristic** — the members are not a certified posterior sample and the count $M=5$ is arbitrary — but it is a heuristic with a clean Bayesian reading and measurable payoff.
+
+## 25.3 LAB 2 — in-context learning as an implicit posterior predictive
+
+A large language model shown a few examples in its prompt appears to *learn* from them without any weight update. Where did the learning happen? One influential hypothesis (Xie et al., in-context learning as implicit Bayesian inference) is that a sequence model trained on many latent "tasks" learns, at convergence, to compute the **posterior predictive** over the next token given the context — inferring the latent task from the prompt. That is line 3, done implicitly inside a forward pass. Whether real LLMs do this is **Open**; but the mechanism is exactly checkable in the exchangeable toy where the posterior predictive has a closed form.
+
+Recall module 01: an infinite exchangeable binary sequence is, by de Finetti, a mixture — draw a rate $\theta\sim G$ once, then flip. Take $G = \mathrm{Beta}(a,b)$, $a=2, b=3$. Generate many such sequences (each with its *own* hidden $\theta$) and train a small network to predict the next bit from the running context, summarized by $(k,n)$ = (ones so far, length so far); the network never sees $\theta$. The Bayes-optimal predictor — what a log-loss-trained model converges to — is module 05's Beta-Bernoulli posterior predictive $\Pr(\text{next}=1\mid k,n) = (k+a)/(n+a+b)$.
+
+> **Setup.** 3000 exchangeable Beta(2,3)-Bernoulli sequences of length 30; extract every (context, next-bit) pair; fit one `MLPClassifier`. **Predict:** the net is told nothing about $a$, $b$, or $\theta$. Can its output match the *exact posterior predictive* $(k+a)/(n+a+b)$ — including shrinking an empty context toward the prior mean $a/(a+b)=0.4$? *Reason:* the naive intuition is "a net will report the running frequency $k/n$, not a Bayesian shrinkage estimate — and at $n=0$ it has nothing to go on." **Reveal below.**
+
+```python
+from sklearn.neural_network import MLPClassifier
+a, b = 2.0, 3.0
+g = np.random.default_rng(10)
+theta = g.beta(a, b, 3000)
+bits = (g.random((3000, 30)) < theta[:, None]).astype(int)   # exchangeable, NOT iid
+csum = np.cumsum(bits, 1)
+feats, labs = [], []
+for nlen in range(0, bits.shape[1] - 1):                     # context length n -> predict bit n
+    k = csum[:, nlen - 1] if nlen > 0 else np.zeros(bits.shape[0], dtype=int)
+    feats.append(np.column_stack([k, np.full(bits.shape[0], nlen)])); labs.append(bits[:, nlen])
+Xf = np.vstack(feats).astype(float); yf = np.concatenate(labs)
+print(f"ICL training samples: {Xf.shape[0]}")
+mlp = MLPClassifier(hidden_layer_sizes=(24,), activation="relu", solver="adam",
+                    alpha=0.0, max_iter=400, random_state=0, tol=1e-6)
+with warnings.catch_warnings():
+    warnings.simplefilter("ignore", ConvergenceWarning); mlp.fit(Xf, yf)
+
+test = np.array([[0,0],[0,1],[8,10],[2,20],[15,20]], float)
+pb = (test[:,0] + a) / (test[:,1] + a + b)
+pn = mlp.predict_proba(test)[:, 1]
+for (k,nn), b1, n1 in zip(test, pb, pn):
+    print(f"  ctx k={int(k):2d} n={int(nn):2d}: posterior predictive {b1:.4f}   net {n1:.4f}")
+# agreement over a full grid of contexts
+grid = np.array([[k, nn] for nn in range(0,26) for k in range(0, nn+1)], float)
+gb = (grid[:,0]+a)/(grid[:,1]+a+b); gn = mlp.predict_proba(grid)[:,1]
+print(f"ICL net vs posterior predictive over all contexts: median |diff| "
+      f"{np.median(np.abs(gn-gb)):.4f}, max |diff| {np.max(np.abs(gn-gb)):.4f}")
+m = (Xf[:,0]==3) & (Xf[:,1]==5)              # de Finetti: population next-bit freq = pred
+print(f"de Finetti check k=3,n=5: empirical next-bit freq {yf[m].mean():.4f} "
+      f"(from {int(m.sum())} contexts) vs exact {(3+a)/(5+a+b):.4f}")
+```
+
+The reveal: the network reproduces the posterior predictive to a median error of `0.0279`, worst case `0.0825` only at the sparsely-sampled long contexts. On an empty context ($k=0,n=0$) it outputs `0.3792` against the exact prior mean `0.4000` — it learned the *prior* $\mathrm{Beta}(2,3)$ from the population and reports it when the context is silent, not the undefined $0/0$. Given 8 ones in 10 it outputs `0.6882` against the Bayes `0.6667`, shrinking the raw frequency $0.8$ toward the prior exactly as $(8+2)/(10+5)$ prescribes. It learned to be Bayesian unprompted, because log-loss on exchangeable data has the posterior predictive as its unique population minimizer. The de Finetti line makes this exact: among all contexts with $k=3,n=5$ the empirical next-bit frequency is `0.4974` (from `567` contexts), matching the exact `0.5000` — the population predictor *is* the posterior predictive, module 01's theorem as a training target.
+
+```python
+fig, ax = plt.subplots(figsize=(5.4, 5))
+ax.scatter(gb, gn, s=14, c=grid[:,1], cmap="viridis", alpha=0.85)
+ax.plot([0,1],[0,1],"k--",lw=1)
+ax.set_xlabel("exact posterior predictive $(k+a)/(n+a+b)$")
+ax.set_ylabel("network $p(\\mathrm{next}=1\\mid k,n)$")
+ax.set_title("A fitted next-token predictor recovers Bayesian updating")
+save(fig, "icl-agreement")
+```
+
+![Scatter of network probability against exact posterior predictive across many contexts; the points lie tightly on the 45-degree line, colored by context length.](figures/25-deep-learning-lenses/icl-agreement.png)
+
+The scatter sits on the diagonal — a fitted predictor performing exact Bayesian updating in its forward pass. **Honest limits (a toy, and ICL is Open).** We handed the net the sufficient statistic $(k,n)$ — module 04's compression done for it; a real model must also *discover* that summary. Real LLM text is emphatically *not* exchangeable (order carries almost all the meaning), the "latent task" is a fiction we impose, and a transformer's mechanism is not this two-feature regression — attention could be implementing gradient descent, kernel regression, or something with no statistical name. The toy establishes only that *if* a model is trained to predict the next symbol in exchangeable data, Bayesian posterior prediction is what it is rewarded for. That this rhyme extends to trillion-token transformers is a hypothesis (Xie et al.), not a theorem — **Open/active research**, do not oversell it.
+
+## 25.4 Exact demo — diffusion without a neural net
+
+A diffusion model destroys data with noise along a forward stochastic process, then learns to reverse it. The learned object is the **score** $\nabla_x \log p_t(x)$; sampling integrates a reverse-time SDE that follows the score back toward the data. To check "diffusion is Bayes" honestly, delete the learning: pick a data distribution whose forward evolution and score are closed-form, so the reverse SDE uses the *exact* score and the only approximations left are the Euler step (plus small Monte-Carlo error from finitely many particles).
+
+Take the data to be a two-component Gaussian mixture and the forward process to be the Ornstein–Uhlenbeck (variance-preserving) SDE $dX = -X\,dt + \sqrt{2}\,dW$. Its transition is Gaussian, $X_t\mid X_0 \sim \mathcal{N}(X_0 e^{-t},\, 1-e^{-2t})$, so a component $\mathcal{N}(\mu_i, v_i)$ evolves — by convolving two Gaussians — into $\mathcal{N}(\mu_i e^{-t},\; v_i e^{-2t} + (1-e^{-2t}))$, and the mixture weights are untouched. **The forward process keeps a GMM a GMM at every $t$**, sliding each mean toward 0 and each variance toward 1, so $p_\infty = \mathcal{N}(0,1)$. Because $p_t$ is a known GMM, its score is the analytic responsibility-weighted drift $\nabla\log p_t(x) = \sum_i r_i(x)\,\big(-(x-\mu_i(t))/\sigma_i^2(t)\big)$. Anderson's reverse-time SDE $dX = \big[-X - 2\nabla\log p_t(X)\big]dt + \sqrt{2}\,d\bar W$, integrated backward from $\mathcal{N}(0,1)$, should reassemble the mixture.
+
+> **Predict.** Start 20000 particles from pure $\mathcal{N}(0,1)$ noise and run the reverse SDE with the exact score. *Reason:* the naive intuition is "noise carries no memory of two modes — you cannot un-mix what diffusion mixed." Will the samples reassemble into the original two-component mixture, and if so how close will the reassembled mean, variance, and mode weights be? **Reveal below.**
+
+```python
+w  = np.array([0.3, 0.7]); m0 = np.array([-2.0, 1.5]); v0 = np.array([0.25, 0.25])
+def gmm_t(t):                                 # exact forward marginal params at time t
+    return m0 * np.exp(-t), v0 * np.exp(-2*t) + (1 - np.exp(-2*t))
+def score(x, t):                              # exact analytic score of the GMM p_t
+    mt, vt = gmm_t(t)
+    logc = (np.log(w)[:,None] - 0.5*np.log(2*np.pi*vt)[:,None]
+            - 0.5*(x[None,:]-mt[:,None])**2 / vt[:,None])
+    r = np.exp(logc - logsumexp(logc, axis=0))          # responsibilities (2, N)
+    return np.sum(r * (-(x[None,:]-mt[:,None]) / vt[:,None]), axis=0)
+
+rdif = np.random.default_rng(20)
+Tmax, dt = 5.0, 0.01
+x = rdif.normal(0, 1, 20000)                   # start from the noise prior N(0,1)
+t = Tmax
+for _ in range(int(Tmax/dt)):                  # Euler-Maruyama on the reverse SDE (ULA-style)
+    # backward Euler step: drift is -x - 2*score; sign flips because t decreases
+    x = x + (x + 2*score(x, t))*dt + np.sqrt(2*dt)*rdif.normal(0, 1, x.size)
+    t = max(t - dt, 1e-4)
+
+mix_mean = np.sum(w*m0); mix_var = np.sum(w*(v0 + m0**2)) - mix_mean**2
+print(f"true mixture   mean {mix_mean:.4f}  var {mix_var:.4f}")
+print(f"reverse sample mean {x.mean():.4f}  var {x.var():.4f}")
+print(f"mode weight (frac < -0.25): true {w[0]:.3f}  reverse {np.mean(x < -0.25):.3f}")
+```
+
+From memoryless noise, the reverse dynamics rebuild the mixture: reassembled mean `0.4418` matches the true `0.4500`, variance `2.8326` matches `2.8225`, and the left-mode fraction `0.303` matches the true weight `0.300`. The modes return with the right masses because the score field, evaluated along the trajectory, encodes where the probability *was* — Langevin dynamics up the score gradient (module 12's ULA/SGLD recursion, here with a time-dependent exact score) transport noise back onto the data manifold. Diffusion is a **hierarchical latent chain** (the noised states $x_T,\dots,x_0$ are latents, the reverse kernel a learned conditional) whose generative pass is score-following reverse dynamics. The Lawler bridge is exact: an SDE discretized by Euler–Maruyama, the Langevin sampler's machinery.
+
+```python
+fig, ax = plt.subplots(figsize=(7, 4))
+xs = np.linspace(-4.5, 4.5, 400)
+pdf = sum(wi*stats.norm.pdf(xs, mi, np.sqrt(vi)) for wi,mi,vi in zip(w,m0,v0))
+ax.hist(x, bins=120, density=True, alpha=0.55, color="C1", label="reverse-SDE samples")
+ax.plot(xs, pdf, "k-", lw=2, label="true mixture density")
+ax.plot(xs, stats.norm.pdf(xs), "C0--", lw=1.5, label="noise prior $\\mathcal{N}(0,1)$ (start)")
+ax.set_title("Reverse diffusion with the exact score reassembles the mixture")
+ax.set_xlabel("x"); ax.set_ylabel("density"); ax.legend(fontsize=9)
+save(fig, "diffusion")
+```
+
+![A histogram of reverse-diffusion samples with two peaks near -2 and 1.5, matching the black true-mixture density; the dashed single-hump noise prior it started from is shown for contrast.](figures/25-deep-learning-lenses/diffusion.png)
+
+The histogram lands on the true density, not the unimodal noise it started from — the reassembly the naive prediction said was impossible. In a *real* diffusion model the only difference is that $\nabla\log p_t$ is unknown and a network is trained to approximate it by denoising score matching; the sampling loop is byte-for-byte this one. What the neural net buys is the score in cases where $p_t$ has no closed form; what it cannot change is that generation is reverse-time integration of a Bayes-consistent SDE. **Theorem** for the sampler given the score; **approximation** for the learned score.
+
+## 25.5 Exact demo — double descent in random-features regression
+
+Classical bias–variance says test error is U-shaped in model size: too few parameters underfit, too many overfit, and you should stop at the bottom. Deep networks flagrantly violate this — bigger is often better past the point of interpolating the training data. The cleanest exhibit needs no network at all: **random-features ridgeless regression**, where the "features" are fixed random projections through a nonlinearity and the only fit is a linear least-squares solve you can do with `pinv`.
+
+> **Setup.** 60 training points in 20 dimensions, targets $y=\tanh(x^\top\beta)+$ noise; features $\phi(x)=\mathrm{ReLU}(Wx)$ with $W$ random and $p$ features; fit the **minimum-norm** (ridgeless) interpolant $\hat\beta=\Phi^{+}y$; sweep $p$ from far below the sample size $n=60$ to far above. **Predict:** as $p$ rises through $n$, test error first improves, then — what? *Reason:* classical bias–variance predicts monotone worsening once you have enough parameters to overfit. Trace the test error as $p$ passes $n$: monotone worse, then what? **Reveal below.**
+
+```python
+d, n_tr = 20, 60
+rdd = np.random.default_rng(30)
+beta = rdd.normal(0, 1, d) / np.sqrt(d)
+def gen(nn, gg):
+    X = gg.normal(0, 1, (nn, d)); return X, np.tanh(X @ beta) + gg.normal(0, 0.5, nn)
+Xtr_dd, ytr_dd = gen(n_tr, rdd); Xte_dd, yte_dd = gen(2000, rdd)
+relu_feat = lambda X, W: np.maximum(X @ W, 0) / np.sqrt(W.shape[1])
+ps = np.unique(np.concatenate([np.round(np.linspace(3,240,32)).astype(int),
+                               [54,57,60,63,66]]))
+err0, errR = [], []
+for p in ps:                                  # average over 20 random-feature draws per width
+    e0, eR = [], []
+    for j in range(20):
+        W = np.random.default_rng(2000+j).normal(0, 1, (d, p))
+        Phi, Phe = relu_feat(Xtr_dd, W), relu_feat(Xte_dd, W)
+        e0.append(np.mean((Phe @ (np.linalg.pinv(Phi) @ ytr_dd) - yte_dd)**2))
+        bR = np.linalg.solve(Phi.T@Phi + 1e-1*np.eye(p), Phi.T@ytr_dd)   # ridge = a prior
+        eR.append(np.mean((Phe @ bR - yte_dd)**2))
+    err0.append(np.mean(e0)); errR.append(np.mean(eR))
+err0, errR = np.array(err0), np.array(errR)
+ipk = np.argmin(np.abs(ps - n_tr))
+print(f"n_train={n_tr}; ridgeless test err at p=n({ps[ipk]}) = {err0[ipk]:.1f}")
+print(f"ridgeless peak {err0.max():.1f} at p={ps[np.argmax(err0)]}; at p=3 {err0[0]:.3f}; "
+      f"at p=240 {err0[-1]:.3f}")
+print(f"ridge peak {errR.max():.3f}; ridge at p=240 {errR[-1]:.3f}")
+```
+
+The reveal breaks classical intuition twice. As $p$ climbs toward $n$, ridgeless test error does not saturate — it detonates, spiking to `4615.1` exactly at the interpolation threshold $p=$ `60`, four orders of magnitude above the `0.641` at $p=3$. Then, pushing $p$ *past* $n$ — the regime classical theory calls hopeless overfitting — the error *descends again*, to `0.538` at $p=240$: the "double" in double descent, the most overparameterized model generalizing best. The peak is a conditioning catastrophe — at $p=n$ the feature matrix is square and near-singular, so the min-norm interpolant needs enormous coefficients to thread all $n$ noisy points; past $p=n$ the extra directions let the min-norm solution stay small, and low norm is low variance.
+
+```python
+fig, ax = plt.subplots(figsize=(7, 4))
+ax.semilogy(ps, err0, "o-", color="C1", ms=4, label="ridgeless (min-norm interpolation)")
+ax.semilogy(ps, errR, "s-", color="C0", ms=4, label="ridge $\\lambda=0.1$ (a Gaussian prior)")
+ax.axvline(n_tr, color="k", ls="--", lw=1.2, label="interpolation threshold $p=n$")
+ax.set_xlabel("number of random features $p$"); ax.set_ylabel("test MSE (log scale)")
+ax.set_title("Double descent: the peak sits exactly at $p=n$, and a prior erases it")
+ax.legend(fontsize=9); save(fig, "double-descent")
+```
+
+![Test MSE against the number of random features on a log scale; the ridgeless curve spikes sharply at p equals n then falls to a low plateau, while the ridge curve is a gentle hump with no spike.](figures/25-deep-learning-lenses/double-descent.png)
+
+The **marginalization/effective-parameters reading** makes this a Bayesian lesson rather than a curiosity. The ridge curve — the same features with a small $\ell_2$ penalty, module 14's Gaussian prior $\beta\sim\mathcal N(0,\sigma^2/\lambda)$ — has *no spike*: worst error `1.001`, settling to `0.497`. A prior of any width regularizes the near-singular threshold away because the posterior mean never needs enormous coefficients, and the "effective number of parameters" $\mathrm{tr}\big(\Phi(\Phi^\top\Phi+\lambda I)^{-1}\Phi^\top\big)$ stays below $p$. The spike is the pathology of a *flat* prior (ridgeless = $\lambda\to 0$) — the same improper-prior pathology you met in module 07 (Haldane), now in regression clothing. Why overparameterized *networks* generalize is only **partially understood**; the leading (heuristic) explanation, SGD's implicit bias toward small-norm solutions, is the same story — optimization and architecture supply an implicit prior playing ridge's role. Label the deep-net claim **Open**, the random-features exhibit and the ridge cure exact.
+
+## 25.6 Map, not territory: VAEs, dropout, SGD noise, and LLMs
+
+The remaining connections are real but we will not run them — they are pointers on the map, each with its honesty label.
+
+**The VAE is module 13's ELBO with an amortized encoder.** A VAE models $p(x,z)=p(z)\,p_\theta(x\mid z)$; instead of solving for the optimal $q(z)$ per datapoint (module 13's CAVI), it *amortizes* — a neural encoder $q_\phi(z\mid x)$ emits the variational parameters directly from $x$. Training maximizes module 13's identity, unchanged:
+
+$$\log p_\theta(x) \;=\; \underbrace{\mathbb{E}_{q_\phi(z\mid x)}\!\big[\log p_\theta(x\mid z)\big]}_{\text{reconstruction}} \;-\; \underbrace{\mathrm{KL}\!\big(q_\phi(z\mid x)\,\big\|\,p(z)\big)}_{\text{latent regularizer}} \;+\; \mathrm{KL}\!\big(q_\phi(z\mid x)\,\big\|\,p_\theta(z\mid x)\big).$$
+
+Maximizing the first two terms (the ELBO) is minimizing the third (the KL to the true posterior); the reparameterization trick is just how gradients pass through the expectation. **Theorem**-level identification: a VAE *is* amortized variational Bayes — decoder = likelihood, encoder = approximate posterior, prior = $p(z)$.
+
+```python no-run
+# VAE = module 13's ELBO with an amortized q_phi(z|x). Illustration only — not run.
+def elbo(x, encoder, decoder, prior=Normal(0, 1)):
+    mu, logvar = encoder(x)                      # amortized q_phi(z|x) = N(mu, exp(logvar))
+    z = mu + (0.5*logvar).exp() * randn_like(mu) # reparameterization: gradient flows through
+    recon = decoder.log_prob(x, z)               # E_q[log p_theta(x|z)]  (line 2, likelihood)
+    kl = kl_divergence(Normal(mu, (0.5*logvar).exp()), prior)  # KL(q || p(z))
+    return recon - kl                            # maximize == minimize KL to true posterior
+```
+
+**MC-dropout $\approx$ variational inference (Heuristic).** Gal & Ghahramani: dropout kept *on* at test time, averaged over stochastic forward passes, is a variational approximation with Bernoulli masks as $q(w)$ — the average approximates the posterior predictive, the spread epistemic uncertainty (module 09's "average stochastic forward passes" cashed). A genuine ELBO, but under prior/noise assumptions you rarely hold: **Heuristic**.
+
+**SGD minibatch noise $\approx$ SGLD (Heuristic).** Module 12's Langevin recursion $\theta \leftarrow \theta + \tfrac{\varepsilon}{2}\nabla\log p(\theta) + \sqrt{\varepsilon}\,\xi$ becomes SGLD with a minibatch gradient. Plain SGD drops the injected noise, but the minibatch gradient is itself noisy, so SGD carries an implicit anisotropic noise whose stationary law is a tempered approximation of the posterior — learning rate as temperature, the sense in which "SGD noise is doing approximate inference." Hence also **cold posteriors** — Bayesian nets often predict *better* at sharpened $T<1$, against the theory that $T=1$ is correct — an **Open** puzzle: no settled account of whether the culprit is the prior, likelihood, augmentation, or the approximation.
+
+**LLM next-token training is categorical MLE at scale; its sampling temperature is module 18's tempering.** Training minimizes $-\sum \log p_\theta(\text{token}_i\mid \text{context})$ — §25.1's categorical MLE over trillions of tokens — and generation samples $p_\theta(\cdot)^{1/T}/Z$, module 03's softmax temperature and module 18's power-posterior knob with $\eta \leftrightarrow 1/T$: $T<1$ sharpens, $T>1$ flattens, one operation under three names.
+
+**Overparameterized nets are massively nonidentified (module 07).** More weights than data means a manifold of loss-equivalent solutions — structural *and* symmetric nonidentifiability (permute hidden units, rescale ReLU layers). The prior never washes out on those flat directions; weight decay, initialization scale, and SGD's implicit bias are what select among them, exactly module 07's "faces of nonidentifiability" anticipated. And **conformal prediction** — distribution-free intervals with finite-sample coverage under exchangeability — is the model-agnostic way to get calibrated uncertainty from *any* of these nets; module 26 makes it precise.
+
+## 25.7 The ledger
+
+The deliverable: a triage of common deep-learning practices, each with its Bayesian reading, its honesty label, and what the reading buys you. **Theorem** = provable identity; **Approx** = a controlled approximation to a Bayesian object; **Heuristic** = folklore with a Bayesian rhyme and empirical support but no proof in the deep-net case; **Open** = genuinely unsettled.
+
+**Commit before you look.** The Label column is hidden below — this is the skill the module exists to transfer, so classify all fifteen rows yourself before opening it (M00's which-line table and M26's audit table use the same protocol). The deciding test, stated once: *is the Bayesian object exactly identified or provably approximated in the actual system you run — or only in a linear/toy surrogate of it?* Theorem = identified in the real system; Approx = controlled approximation to it; Heuristic = proved only in a surrogate, empirically useful in the real one; Open = not even the surrogate story is settled. The practices to label: weight decay · cross-entropy · $\ell_1$ penalty · label smoothing · early stopping · softmax sampling temperature · post-hoc temperature scaling · deep ensembles · MC-dropout · SGD minibatch noise · VAE · diffusion · in-context learning · overparameterization · cold posteriors.
+
+<details><summary><b>The filled ledger</b> (open after committing all fifteen labels)</summary>
+
+| Deep-learning practice | Bayesian reading | Label | What the reading buys you |
+|---|---|---|---|
+| Weight decay ($\ell_2$) | MAP under Gaussian prior, $\lambda=\sigma^2/\tau^2$ | **Theorem** | "How much to penalize" = "how confident a priori" (M14) |
+| Cross-entropy loss | Categorical/Bernoulli MLE = NLL | **Theorem** | Training is conditioning by likelihood (M15) |
+| $\ell_1$ / lasso penalty | MAP under Laplace prior | **Theorem** | Sparsity = prior mode, but the *mean* is never sparse (M06) |
+| Label smoothing | Dirichlet-smoothed likelihood / add-$\alpha$ | **Heuristic** | Pulls targets off the simplex corner; better calibration |
+| Early stopping | Shrinkage prior toward initialization | **Heuristic** | Limits effective complexity ≈ ridge |
+| Softmax temperature (sampling) | Tempered predictive $p^{1/T}$, $\eta=1/T$ | **Theorem** | Concentration knob = power posterior (M18, M03) |
+| Temperature scaling (post-hoc) | 1-parameter likelihood recalibration | **Approx** | Fixes overconfidence via held-out NLL (this module) |
+| Deep ensembles | Samples from a multi-modal weight posterior | **Heuristic** | Disagreement = epistemic uncertainty; better calibration |
+| MC-dropout at test | Variational $q(w)$ = Bernoulli masks | **Heuristic** | Cheap epistemic uncertainty (Gal–Ghahramani) |
+| SGD minibatch noise | Implicit SGLD / tempered posterior sampling | **Heuristic** | LR = temperature; "SGD noise ≈ inference" (M12) |
+| VAE | Amortized variational inference (the ELBO) | **Theorem** | Encoder = approx posterior, decoder = likelihood (M13) |
+| Diffusion model | Hierarchical latents + reverse-SDE score following | **Theorem/Approx** | Exact given the score; the net approximates the score |
+| In-context learning | Implicit posterior predictive over a latent task | **Open** | Exchangeable-Bayes rhyme; real mechanism unknown (M01) |
+| Overparameterization | Massive nonidentifiability; implicit-bias prior | **Theorem/Open** | Flat directions resolved by a prior (M07) |
+| Cold posteriors ($T<1$) | Sharpened/tempered posterior beats $T=1$ | **Open** | Signals prior or likelihood misspecification |
+
+Rows most readers misclassify: softmax-sampling temperature (it *feels* like a hack but $\mathrm{softmax}(z/T)\propto p^{1/T}$ is an exact identity — Theorem) and the VAE (it *feels* like a heuristic but the ELBO identity is exact; only the encoder's *closeness* to the posterior is approximate).
+</details>
+
+## Bridge — the calibration harness comes home
+
+Module 15 built `ece()` and the reliability diagram to expose a plug-in logistic classifier as overconfident and a marginalized one as calibrated, and promised the harness would "return in module 25 to audit deep ensembles and temperature scaling." It just did — the *identical* function, applied to a two-layer net, told the same plug-in-vs-marginalize story in the same units. That one ten-line function grades a GLM and a neural net is the module's thesis in miniature: these are one subject, and the audit tools transfer because the objects do.
+
+## Pitfalls
+
+- **Reading ensemble spread as *the* posterior.** Five nets from five seeds are a heuristic sample from an unknown, possibly multi-modal weight posterior — a *proxy* for epistemic uncertainty, not a calibrated credible interval. It undercounts modes the initializer never reaches and ignores misspecification.
+- **Trusting a single softmax probability.** Raw confidence is a plug-in at the MAP; §25.2 shows it can be fifteen points overconfident. Calibrate on held-out data (temperature scaling is nearly free) before treating a probability as a probability.
+- **Over-reading "diffusion/ICL/SGD is Bayesian."** The exact demos work because the score or the posterior predictive is closed-form; real systems approximate those objects with learned nets, and that approximation error is in none of these equations. The rhyme is intuition and tooling, not a guarantee.
+- **Assuming more parameters must overfit.** Double descent (§25.5) puts the worst ridgeless error at the interpolation threshold, not the overparameterized regime; the bias–variance U-curve is only the *underparameterized* half.
+- **Believing the prior washes out because $n$ is large.** On an overparameterized net's flat directions (module 07) it never does — weight decay, init, and SGD bias are the *only* thing selecting the solution.
+
+## Exercises
+
+**Exercise 25.1 — Ensemble size and calibration.**
+*Setup:* In LAB 1, the 5-net ensemble cut ECE from `0.1741` to `0.1269`. You are deciding whether to pay for 20 nets instead of 5.
+*Predict:* Does ECE keep falling toward 0 as $M\to\infty$, or does it plateau at a nonzero floor? Which — ensembling or the single temperature parameter (`0.0433`) — do you expect to win at $M=20$?
+*Reason:* the intuition "averaging kills all error" ignores that every member shares the same overconfident training signal.
+*Run:*
+```python
+cache = {s: train_mlp(s) for s in range(10)}    # reuse fits across the M sweep
+for M in [1, 2, 4, 7, 10]:
+    pe = np.stack([cache[s].predict_proba(Xte)[:, 1] for s in range(M)]).mean(0)
+    print(f"M={M:2d}: ensemble ECE = {ece(pe, yte):.4f}")
+print(f"single-net temperature-scaled ECE = {ece(p_temp, yte):.4f}")
+```
+<details><summary>Reconcile</summary>
+
+ECE falls fast, then the gains shrink and stall at a floor well above 0 — averaging removes the *variance* across seeds but not the *shared bias* toward overconfidence that every member inherits from minimizing the same loss on the same 70 points. Temperature scaling attacks that shared bias directly with one held-out-fitted parameter and reaches `0.0433`, beating even a ten-net ensemble on calibration for a fraction of the compute. The general lesson: ensembling and recalibration fix *different* errors (variance vs systematic overconfidence); in production you often do both, and if you can only afford one, temperature scaling is the cheap win.
+</details>
+
+**Exercise 25.2 — Does the ICL learner extrapolate its prior?**
+*Setup:* The §25.3 network learned $\mathrm{Beta}(2,3)$ from sequences up to length 30 and matched the posterior predictive to a median `0.0279`. Query it at a context length of 40 — longer than anything it trained on.
+*Predict:* At $k=20, n=40$ (frequency $0.5$), will the net stay near the Bayes value $(20+2)/(40+5)=0.489$, or will extrapolation past its training lengths break it?
+*Reason:* the intuition "it learned the rule, so it generalizes" versus "it fit a function on a bounded box and is now outside it."
+*Run:*
+```python
+for k, nn in [(20, 40), (0, 40), (40, 40)]:
+    pb = (k + a) / (nn + a + b); pn = mlp.predict_proba([[k, nn]])[0, 1]
+    print(f"k={k:2d} n={nn}: Bayes {pb:.4f}  net {pn:.4f}  gap {abs(pb-pn):.4f}")
+```
+<details><summary>Reconcile</summary>
+
+The net drifts *most* at the balanced long context $k=20, n=40$ — gap `0.1166`, the very point the Predict question flagged — while the frequency-extreme contexts ($k=0$: gap `0.0244`; $k=40$: gap `0.0270`) happen to land closer, because near the probability boundaries the sigmoid saturates and there is simply less room to be wrong. An MLP fits a function on the *support it saw* ($n\le 29$) with no guarantee off it — the Bayesian rule extrapolates by construction, the fitted approximation does not. This is exactly the honest-limits point: the network is not *doing* Bayesian inference, it is *approximating* the posterior-predictive function on a box, and outside the box the approximation and the theorem part ways. Real ICL sits on the same knife-edge — impressive interpolation over the pretraining distribution, unreliable extrapolation beyond it.
+</details>
+
+**Exercise 25.3 — The interpolation peak is a flat-prior pathology.**
+*Setup:* §25.5's ridgeless curve spiked to `4615.1` at $p=n=$ `60`; the ridge curve had no spike (peak `1.001`).
+*Predict:* If you shrink the ridge penalty $\lambda$ from $0.1$ toward $0$, at what point does the peak at $p=n$ reappear? Is there a $\lambda$ that removes the spike but barely touches the large-$p$ error?
+*Reason:* ridgeless is $\lambda\to0$, an improper flat prior (module 07); any proper prior should regularize the singular threshold.
+*Run:*
+```python
+p = 60; W = np.random.default_rng(2000).normal(0, 1, (d, p))
+Phi, Phe = relu_feat(Xtr_dd, W), relu_feat(Xte_dd, W)
+for lam in [0.0, 1e-4, 1e-2, 1e-1, 1.0]:
+    if lam == 0.0: bh = np.linalg.pinv(Phi) @ ytr_dd
+    else: bh = np.linalg.solve(Phi.T@Phi + lam*np.eye(p), Phi.T@ytr_dd)
+    print(f"lambda={lam:7.4f}: test MSE at p=n = {np.mean((Phe@bh - yte_dd)**2):.3f}")
+```
+<details><summary>Reconcile</summary>
+
+The peak is entirely a small-$\lambda$ phenomenon: even a tiny penalty tames the near-singular $\Phi^\top\Phi$ at $p=n$, collapsing the enormous min-norm coefficients; by $\lambda=0.1$ the threshold is unremarkable. A proper prior of *any* width removes the catastrophe because the posterior mean never needs to blow up to fit noise. The compression: "overparameterized models generalize" and "you must regularize" are not in tension — the spike is what *no* prior does, and real networks always carry an implicit one. Double descent is about the flat-prior limit, not model size per se.
+</details>
+
+**Exercise 25.4 — Temperature is tempering (M18 callback).**
+*Setup:* Sampling temperature $T$ divides logits before the softmax; module 18's power posterior raises the likelihood to $\eta$.
+*Predict:* Take fixed logits and compute the softmax entropy at $T\in\{0.5, 1, 2\}$. Rank the three entropies before running, and say which $\eta$ in a power posterior corresponds to $T=2$.
+*Reason:* both are single knobs on how sharply a distribution concentrates — the M03/M18 correspondence $\eta\leftrightarrow 1/T$.
+*Run:*
+```python
+logits = np.array([2.0, 1.0, 0.5, -1.0])
+for T in [0.5, 1.0, 2.0]:
+    q = np.exp(logits/T - logsumexp(logits/T)); H = -np.sum(q*np.log(q))
+    print(f"T={T}: softmax entropy {H:.4f} nats  (eta = 1/T = {1/T:.2f})")
+```
+<details><summary>Reconcile</summary>
+
+Entropy rises monotonically with $T$: $T<1$ sharpens toward the argmax (low entropy, greedy decoding), $T>1$ flattens toward uniform (high entropy, diverse decoding), and $T=2$ corresponds to $\eta=1/2$ — the same half-strength likelihood that widened the misspecified posterior in module 18. You have been tempering distributions every time you set an LLM's sampling temperature; it is the power-posterior knob under a different name, and the entropy numbers here are module 03's softmax-temperature demo at a new set of logits.
+</details>
+
+**Exercise 25.5 — Extend the ledger (the triage skill itself).**
+*Setup:* Three practices the ledger does not list: (a) **batch normalization**; (b) **data augmentation** (train on random crops/flips of each image); (c) an **RLHF reward model** (a net trained on human pairwise preferences, then used to score generations).
+*Predict:* Assign each a label — Theorem / Approx / Heuristic / Open — and a one-line Bayesian reading, *before* reading the reconcile. Apply §25.7's deciding test: is the Bayesian object exactly identified in the actual system, identified only in a surrogate, or not even that?
+*Reason:* the temptation is to pattern-match on vibes ("regularizers are priors, so everything is a Heuristic prior"); the test forces you to name the *object* first.
+*Run:* no code — the deliverable is three committed labels with reasons.
+<details><summary>Reconcile</summary>
+
+(a) **Batch norm: Heuristic at best, arguably none.** No one can *name* its Bayesian object — it reparameterizes the likelihood and injects minibatch coupling that breaks iid factorization, and no surrogate identifies it with a prior or posterior quantity. When the object cannot be named, the label is "none/Heuristic"; claiming more is the overreach this module warns against. (b) **Data augmentation: Approx-to-Heuristic.** The object is nameable: an invariance assumption ("labels don't change under crops/flips") built into line 1's generative story. In a linear/kernel surrogate augmentation provably equals an invariance-enforcing prior; in a deep net the equivalence is unproved — and augmentation is a suspect in the cold-posterior mystery (replicated data miscount the likelihood). (c) **RLHF reward model: Theorem for the loss, Heuristic for the use.** The pairwise-preference loss is exactly a Bradley–Terry likelihood — fitting it is MLE, §25.1's "loss = NLL" move. But optimizing hard against the fitted point estimate, uncertainty discarded, is plug-in decision-making — module 22's warning at scale. The compression: the test splits a practice into parts — Theorem in its loss, Heuristic in its use — and saying *which part* is the triage skill.
+</details>
+
+## Takeaways
+
+- **Two identities are exact, the rest are labeled.** Weight decay = Gaussian-prior MAP and cross-entropy = categorical MLE are theorems (verified to `2.35e-08` and `1.13e-07`); everything else in deep learning is an approximation, a heuristic, or open — and the transferable skill is the triage, not any single connection.
+- **A single softmax probability is a plug-in at the MAP and is not calibrated.** The LAB 1 net predicts `0.998` where the truth is `0.851`; averaging over weights (ensembles, ECE `0.1741`→`0.1269`) or rescaling the likelihood (temperature scaling, →`0.0433`) buys back calibration — module 15's harness, unchanged.
+- **Ensemble disagreement is an epistemic-uncertainty proxy.** It peaks (`0.490`) exactly in the off-data regions where the data cannot pin the model down — module 07's unidentified directions made visible.
+- **In-context learning rhymes with the posterior predictive.** A next-token predictor trained on exchangeable data recovers Bayesian updating to a median `0.0279`, learning the prior mean `0.4000` for empty contexts — but this is a toy; the mechanism in real LLMs is **Open**.
+- **Diffusion generation is reverse-time integration of a Bayes-consistent SDE.** With the exact score, reverse dynamics reassemble a mixture from pure noise (mean `0.4418` vs `0.4500`); the network only supplies the score.
+- **The interpolation peak is a flat-prior pathology.** Ridgeless test error spikes to `4615.1` at $p=n$; a ridge prior of any width erases it (peak `1.001`) — double descent is module 07's improper-prior pathology in regression clothing, and overparameterized generalization is the implicit prior doing ridge's job.
+- **Temperature, annealing, tempering, and softmax temperature are one knob** ($\eta\leftrightarrow 1/T$) — module 18's power posterior wearing a decoding-parameter costume.
