@@ -17,7 +17,7 @@ A reader with a CS/applied-math background, working Python (numpy/scipy/pandas/s
 
 ## How to use it
 
-- **Read in order** (00 → 26). Later modules cite earlier printed numbers and reuse earlier code patterns; [modules/SPINE-INDEX.md](modules/SPINE-INDEX.md) is the one-page-per-module recap if you need to rejoin after a break.
+- **Read in order** (00 → 26). Later modules cite earlier printed numbers and reuse earlier code patterns; [modules/SPINE-INDEX.md](modules/SPINE-INDEX.md) is the one-page-per-module recap if you need to rejoin after a break, and [QUICKREF.md](QUICKREF.md) is the whole course on one page (formulas, constants, judgment rules, decision guide).
 - **Play the Predict beats honestly.** Marquee demos are staged *Setup → Predict → Run → Reconcile*: commit to a number before running. The course is engineered around being caught wrong — that is where the intuition reorganizes.
 - **Run the code.** Every module's blocks execute in order, deterministically, in ~5–120 s:
   ```bash
