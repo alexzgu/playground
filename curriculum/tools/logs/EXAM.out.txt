@@ -1,0 +1,58 @@
+toolkit loaded: ess_kong, autocorr, ess_1d, gaussian_condition
+P1 data: n=40, mean=4.150, dispersion(var/mean)=2.787
+prior-predictive 95% range = [0, 13]; data range [0, 13]
+posterior lambda: Gamma(168, 40.5), mean = 4.148
+Poisson PPC dispersion p-value = 0.0000
+NB dispersion r_hat = 2.32; NB PPC dispersion p-value = 0.4373
+E[loss keep] = 2.321  vs  recalibrate cost = 4.0  ->  keep running
+Lab A binomial one-sided p    = 0.073
+Lab B neg-binomial one-sided p = 0.033
+shared posterior Beta(10,4), mean = 0.7143
+Type-I at 1 look   = 0.0642
+Type-I at 10 looks = 0.2059
+n= 10: exact logZ=-2.1903, Laplace logZ=-2.2102, |diff|=0.0199, TV(true,Laplace)=0.0262
+n=200: exact logZ=-5.0734, Laplace logZ=-5.0749, |diff|=0.0015, TV(true,Laplace)=0.0082
+closed form: mu ~ t_34(loc=4.809, scale=0.371); sigma^2 ~ IG(17.0, 72.50)
+KS p (mu vs t) = 0.269; KS p (sigma^2 vs IG) = 0.911
+ESS/M for the NIG mu-chain = 1.000 (near 1: mixes well)
+rho=0.99: measured lag-1=0.9786 (theory rho^2=0.9801)
+ESS/M measured=0.0115, AR(1) theory=0.0100
+target t3: true E[theta^2] = 3.0 = nu/(nu-2)
+M=    1000: E[theta^2] est=1.455, ESS=   886.6, ESS/M=0.8866
+M=   10000: E[theta^2] est=1.591, ESS=  5726.7, ESS/M=0.5727
+M=  100000: E[theta^2] est=1.831, ESS= 15547.8, ESS/M=0.1555
+M= 1000000: E[theta^2] est=1.795, ESS=181458.3, ESS/M=0.1815
+[fig] figures/EXAM/p5_ess_collapse.png
+d=10, theta=0: total-MSE  MLE=9.96  JS=1.93  JS+=1.22
+J=8 held-out MSE: no-pool=1.942  complete=1.976  partial=1.614
+EB tau^2_hat hit exactly 0 in 15.2% of J=8 replicates
+[fig] figures/EXAM/p6_pooling.png
+ridge vs posterior-mean max|diff| = 1.7e-15
+predictive sd at x=10 / 20 / 35 : 0.813 / 0.849 / 1.018
+slope: clean OLS=0.5276, contaminated OLS=0.7502, Student-t=0.5435
+[fig] figures/EXAM/p7_trumpet.png
+ML-II lengthscale ell* = 1.630, log marglik = -3.349
+wiggly ell=0.1 : fit=-6.70  occam=7.29  logML=-26.98
+ML-II  ell*    : fit=-9.55  occam=33.77  logML=-3.35
+GP at ML-II: RMSE to truth = 0.117, in-sample 95% coverage = 1.000
+[fig] figures/EXAM/p8_gp.png
+reveal gain K (P-=3, r=1) = 0.75
+KF update vs conjugate: |mean diff|=0.0e+00, |var diff|=0.0e+00
+steady-state gain K = 0.618, steady-state P = 0.618
+filter RMSE = 0.722  vs  raw-measurement RMSE = 1.006
+power at prior mean delta=0.3: 0.7383
+assurance (power averaged over prior): 0.6547
+EVPI (upper bound) = 0.0013
+EVSI = 0.0002, study cost = 0.05, EVSI - cost = -0.0498
+run the study? no
+truth ATE = 2.0
+unadjusted            : 2.645
+adjust {U}  (correct) : 1.995
+adjust {U,C} (trap)    : 0.153
+[fig] figures/EXAM/p11_collider.png
+IPW ATE estimate = 2.037 (truth 2.0)
+treated-arm weight ESS = 131.0 of 1922 treated = 6.8%
+[check 1] ridge == posterior mean, max|diff| = 1.7e-15
+width: marginalized t_5=5.283 vs plug-in normal=4.028 (ratio 1.312 = t5/z 1.312)
+coverage: marginalized=0.9494 vs plug-in=0.8912
+conformal 90% band qhat=1.594, empirical coverage=0.8887
