@@ -1,0 +1,359 @@
+# P3. Precision: the currency of information
+
+> **Spine.** Precision (= 1/variance) is the quantity that *adds* when you pool information, and a posterior mean is always the precision-weighted average of what you knew and what you saw — the same two-line formula wearing six costumes across the course.
+> **Which line?** Line 2 (conditioning) — this is the arithmetic every conjugate update, shrinkage estimator, and Gaussian approximation runs on.
+> **Promise.** After this you can look at *any* posterior-mean formula in the course and read it as "prior belief and data, weighted by how much each knows," and you can get the same posterior variance three ways — closed form, precision addition, or the curvature of the log-density — and know why they agree.
+> **Prereqs.** P1 (density algebra), P2 (expectation). **Runtime.** measured below.
+> **Sources.** C-B §6.3 (Fisher information); booklet ch. 2–3 (conjugate normal); course modules 04, 05, 08, 12, 13, 14, 16, 21, 23.
+
+Variance is what you report. Precision is what you compute with. Every time the course combines two sources of information — a prior and a likelihood, two measurements, one filter step and the next — the operation is *addition in precision space*, never in variance space. Miss that and every shrinkage formula looks like an arbitrary ratio you have to memorize; internalize it and they collapse into one.
+
+```python
+# --- setup ---
+from pathlib import Path
+import numpy as np
+import matplotlib
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
+from scipy import stats
+
+SLUG = "P3-precision-thread"            # this module's figure dir
+FIG = Path("figures") / SLUG
+FIG.mkdir(parents=True, exist_ok=True)
+SEED = 0
+rng = np.random.default_rng(SEED)
+
+plt.rcParams.update({
+    "figure.figsize": (7, 4), "figure.dpi": 110, "savefig.dpi": 150,
+    "savefig.bbox": "tight", "axes.grid": True, "grid.alpha": 0.3,
+    "axes.spines.top": False, "axes.spines.right": False,
+    "font.size": 11,
+})
+
+def save(fig, name):
+    out = FIG / f"{name}.png"
+    fig.savefig(out)
+    plt.close(fig)
+    print(f"[fig] {out}")
+```
+
+## P3.1 Precisions add; variances don't
+
+**Reflex.** To combine two independent Gaussian beliefs about the same quantity, add their precisions and take the reciprocal for the new variance. The new mean leans toward the sharper belief in proportion to its precision.
+
+**The wall.** Module 05's conjugate helper does it in one comment and moves on:
+
+> `prec_post = 1.0/tau2 + n/sigma2                      # precisions add`
+> (`05-conjugate-updating.md:101`)
+
+and module 21 restates it as the engine of the Kalman filter — "Precisions add: `1/P_t = 1/P⁻_t + 1/r`" (`21-state-space.md:22`). Module 16 pools eight schools the same correct way, adding precisions before taking the root: `se_cp = np.sqrt(1.0 / np.sum(prec))` (`16-hierarchical.md:57`). The silent trap is the natural-looking shortcut — *averaging the standard errors* — which gives a completely different, wrong number, as the fix shows.
+
+**The fix.** Two instruments measure the same true value. One is noisy (variance 4), one is sharp (variance 1). The combined estimate is *sharper than either*, and its variance is nowhere near the average of 4 and 1.
+
+```python
+# Two independent noisy measurements of the same quantity mu = 0.
+vA, vB = 4.0, 1.0                      # instrument variances (precisions 0.25 and 1.0)
+prec_combined = 1/vA + 1/vB            # PRECISIONS add
+var_combined  = 1/prec_combined
+print(f"combine var 4.0 with var 1.0  ->  var {var_combined:.4f}  (precision {prec_combined:.2f})")
+print(f"the naive 'average the variances' guess would be {(vA+vB)/2:.2f}")
+# The other silent trap: averaging the STANDARD ERRORS, as if SEs pooled linearly.
+se_avg_wrong = (np.sqrt(vA) + np.sqrt(vB)) / 2
+print(f"averaging the two SEs (WRONG) gives SE {se_avg_wrong:.4f}; adding precisions gives SE {np.sqrt(var_combined):.4f}")
+
+# Simulate: optimally precision-weight the two readings, check the empirical variance.
+a = rng.normal(0.0, np.sqrt(vA), 200_000)
+b = rng.normal(0.0, np.sqrt(vB), 200_000)
+w = (1/vA) / (1/vA + 1/vB)             # weight on A = its share of the total precision
+combo = w*a + (1-w)*b
+print(f"simulated variance of the combined estimate = {combo.var():.4f}")
+```
+
+The combined variance is `0.8000` — smaller than the *better* of the two inputs, not the average `2.50` a variance-adder would report, and the simulation confirms it (`0.8007`). Averaging the two standard errors instead would report SE `1.5000`, nearly double the correct `0.8944`. Sharper information dominates: instrument B, four times as precise, gets four times the weight.
+
+**Drill (predict-then-run) is Exercise P3.1 below.**
+
+## P3.2 Six costumes, one identity
+
+**Reflex.** When you meet any posterior-mean formula, read it as a precision-weighted average of prior and data — don't memorize the ratio, recognize the pattern.
+
+Here is the master pattern, written once. Given a prior belief with mean $m_0$ and precision $\pi_0$, and a data summary with mean $m_1$ and precision $\pi_1$,
+
+$$\boxed{\;\pi_\star = \pi_0 + \pi_1,\qquad m_\star = \frac{\pi_0\,m_0 + \pi_1\,m_1}{\pi_0 + \pi_1}\;}$$
+
+Posterior precision is the sum of precisions; posterior mean is the precision-weighted average. That is the whole thing. The course never writes it out as *one* fact — it writes it six times, in six notations, and expects you to recognize the family. Here are all six reducing to the same helper:
+
+```python
+def pw_mean(m0, p0, m1, p1):
+    """Precision-weighted mean and total precision: THE master pattern."""
+    p = p0 + p1
+    return (m0*p0 + m1*p1) / p, p
+
+costumes = {}
+
+# 1. Beta posterior mean (M05). Beta(2,2) prior + 7 successes of 10.
+a0, b0, s, n = 2, 2, 7, 10
+beta_native = (a0 + s) / (a0 + b0 + n)                       # (alpha_n)/(alpha_n+beta_n)
+beta_pw, _  = pw_mean(a0/(a0+b0), a0+b0, s/n, n)            # prior mean w/ pseudo-count a0+b0; MLE w/ count n
+costumes["1 Beta mean        (M05)"] = (beta_native, beta_pw)
+
+# 2. Normal-Normal (M05). prior N(0, 4); n=10 obs of variance 2, mean ybar=1.5.
+m0, tau2, sig2, ybar = 0.0, 4.0, 2.0, 1.5
+nn_native = (m0/tau2 + n*ybar/sig2) / (1/tau2 + n/sig2)
+nn_pw, _  = pw_mean(m0, 1/tau2, ybar, n/sig2)              # prior prec 1/tau2; data prec n/sigma2
+costumes["2 Normal-Normal    (M05)"] = (nn_native, nn_pw)
+
+# 3. Ridge / Bayesian linear regression, 1-D (M14). prior N(0, tau2), noise sig2.
+x = rng.normal(0, 1, n); y = 2.0*x + rng.normal(0, np.sqrt(sig2), n)
+XtX, Xty = x @ x, x @ y
+ridge_native = (Xty/sig2) / (XtX/sig2 + 1/tau2)            # posterior mean, prior mean 0
+ridge_pw, _  = pw_mean(0.0, 1/tau2, Xty/XtX, XtX/sig2)     # prior mean 0; OLS estimate w/ precision XtX/sig2
+costumes["3 Ridge / BLR      (M14)"] = (ridge_native, ridge_pw)
+
+# 4. Kalman gain (M21). prior N(0.5, 0.78); obs y=2.0 w/ noise r=1.0.
+mprior, Pprior, yk, r = 0.5, 0.78, 2.0, 1.0
+K = Pprior/(Pprior + r)                                     # the gain
+kal_native = mprior + K*(yk - mprior)                      # engineer's update
+kal_pw, _  = pw_mean(mprior, 1/Pprior, yk, 1/r)            # statistician's update: same number
+costumes["4 Kalman gain      (M21)"] = (kal_native, kal_pw)
+
+# 5. Partial pooling (M16). one school: y=28, sd 15 (var 225); group mean mu=6.49, tau=2.80.
+yj, sj2, muj, tauj2 = 28.0, 225.0, 6.49, 2.80**2
+wj = (1/sj2) / (1/sj2 + 1/tauj2)                            # shrinkage weight
+pool_native = wj*yj + (1-wj)*muj
+pool_pw, _  = pw_mean(muj, 1/tauj2, yj, 1/sj2)             # prior = group mean; data = the school
+costumes["5 Partial pooling  (M16)"] = (pool_native, pool_pw)
+
+# 6. Spike-and-slab blend (M23). inclusion prob 0.3; spike mean 0, slab mean 1.4.
+p_slab, mspike, mslab = 0.3, 0.0, 1.4
+ss_native = (1-p_slab)*mspike + p_slab*mslab
+ss_pw, _  = pw_mean(mspike, 1-p_slab, mslab, p_slab)       # 'precisions' here are PROBABILITIES (sum to 1)
+costumes["6 Spike-and-slab   (M23)"] = (ss_native, ss_pw)
+
+print("costume                    native     pw_mean    |diff|")
+for name, (nv, pw) in costumes.items():
+    print(f"{name}  {nv:8.4f}   {pw:8.4f}   {abs(nv-pw):.1e}")
+allmatch = bool(all(np.isclose(nv, pw) for nv, pw in costumes.values()))
+print(f"all six reduce to the one master formula: {allmatch}")
+```
+
+Every native formula equals `pw_mean` to machine precision (`allmatch = True`): the Beta posterior mean `0.6429`, the Kalman update `1.1573`, the pooled school estimate `7.2143`, and the rest. Read the six side by side:
+
+- **Beta mean** — the "precisions" are *counts*: the prior is worth $a_0+b_0$ pseudo-observations, the data brings $n$ real ones. Shrinkage is toward the prior mean by the pseudo-count's share (`05-conjugate-updating.md:101`).
+- **Normal-Normal** — the canonical form; prior precision $1/\tau^2$, data precision $n/\sigma^2$ (`05-conjugate-updating.md:175`).
+- **Ridge** — the prior is $N(0,\tau^2)$ so its precision is $1/\tau^2$; the regularization strength is exactly $\lambda=\sigma^2/\tau^2$, a *precision ratio* (`14-bayesian-regression.md:102`, `25-deep-learning-lenses.md:66`). Weight decay is a prior precision.
+- **Kalman gain** — engineers write $K=P^-/(P^-+r)$ and statisticians write the precision-weighted mean; the boxed identity shows they are the same update (`21-state-space.md:22`).
+- **Partial pooling** — the shrinkage weight $w_j=(1/\sigma_j^2)/(1/\sigma_j^2+1/\tau^2)$ is a school's own precision divided by the total; borrowing strength *is* precision weighting at a second level (`16-hierarchical.md:212`). Note the `7.2143` here is the plug-in at *point* hyperparameters $(\mu,\tau)=(6.49, 2.80)$; module 16's canonical $\theta_A\approx 8.23$ marginalizes over $\tau$, and because shrinkage is nonlinear in $\tau$ (Jensen again) the two quantities legitimately differ.
+- **Spike-and-slab** — the honest oddball. The blend $(1-p)\,m_0 + p\,m_1$ is the same convex combination, but here the weight $p$ is a posterior *probability* of inclusion, not an inverse-variance (`23-experimental-design.md:379`). Same algebra, different currency: you are averaging over two hypotheses rather than two precisions. `pw_mean` still reproduces it because the two weights sum to 1.
+
+Five of the six are literally precision weighting; the sixth is its probability-weighted cousin. That distinction is the one pitfall (below): don't call an inclusion probability a precision.
+
+## P3.3 Curvature = precision, five ways
+
+**Reflex.** The negative second derivative of a log-density *is* a precision; wherever the course measures how sharply the log bends, it is measuring how much you know.
+
+The course states this fact five times and never once says it is the *same fact*. Here it is: **the sharper the log-density bends at its peak, the more precisely you know the parameter.** Second derivative of the log-density, negated, *is* a precision. Watch it appear under five names.
+
+```python
+# The five faces of curvature, each with a numeric touchpoint.
+
+# (a) Fisher information = EXPECTED curvature. One Bernoulli(theta): I(theta) = 1/(theta(1-theta)).
+th = 0.3
+fisher = 1/(th*(1-th))
+print(f"(a) Fisher info  I(0.3) = E[-l''] = {fisher:.4f}")
+
+# (b) Observed information = -l''(thetahat) at the mode; for n Bernoulli it is n*I(thetahat).
+n_b, s_b = 40, 12
+thhat = s_b/n_b
+def loglik(t):  return s_b*np.log(t) + (n_b - s_b)*np.log(1 - t)
+h = 1e-5
+obs_info = -(loglik(thhat+h) - 2*loglik(thhat) + loglik(thhat-h)) / h**2   # numerical -l''
+print(f"(b) observed info -l''(thetahat) = {obs_info:.2f}   vs  n*I(thetahat) = {n_b/(thhat*(1-thhat)):.2f}")
+
+# (c) Bernstein-von Mises: posterior sd ~ 1/sqrt(n I). Compare to the exact Beta posterior sd.
+post_sd_exact = np.sqrt(stats.beta(1+s_b, 1+n_b-s_b).var())     # Beta(1,1) prior + data
+bvm_sd = 1/np.sqrt(n_b/(thhat*(1-thhat)))
+print(f"(c) BvM sd 1/sqrt(nI) = {bvm_sd:.4f}   vs  exact posterior sd = {post_sd_exact:.4f}")
+```
+
+Fisher information is the curvature you *expect* before seeing data — `4.7619` at $\theta=0.3$ (`04-likelihood.md:164`); observed information is the curvature you *measure* at the fitted mode, `190.48`, which equals $n\,\mathcal I(\hat\theta)$ exactly (`04-likelihood.md:185`). Bernstein–von Mises says that for large $n$ the posterior standard deviation is $1/\sqrt{n\mathcal I}$ — `0.0725` here — and the exact Beta posterior sd `0.0705` is already within a few percent at $n=40$ and closes as $n$ grows (`08-frequentist-bridge.md`). Three names — expected curvature, observed curvature, asymptotic posterior width — one bending log-density.
+
+The remaining two faces are the Laplace approximation and HMC stability, and they show up in the marquee below.
+
+### Marquee — one posterior, three routes, printed thrice
+
+Take the Normal-Normal posterior from P3.2 (prior $N(0,4)$, ten observations of variance 2 with mean 1.5). Compute its variance three ways that *look* unrelated: the conjugate closed form, the sum of precisions, and the numerical curvature of the log-posterior at the mode. 
+
+*Predict:* they are the same number. *Name the naive intuition:* routes 1 and 2 are plainly the same fact in two notations ($n/\sigma^2 \equiv \sum 1/\sigma^2$), but route 3 — a finite-difference second derivative of the log-density — is a genuinely *different* computation, so surely it only *roughly* agrees. It agrees to nine digits, because curvature and precision are one geometric object, not two.
+
+```python
+# ONE Normal-Normal posterior, three routes to its variance.
+prior_var, data_var, n_obs, ybar_ = 4.0, 2.0, 10, 1.5
+
+# Route 1 -- conjugate closed form.
+post_prec_1 = 1/prior_var + n_obs/data_var
+var_1 = 1/post_prec_1
+mode  = var_1 * (0.0/prior_var + n_obs*ybar_/data_var)
+
+# Route 2 -- precision ADDITION: prior precision + each datum's precision, accumulated.
+post_prec_2 = 1/prior_var + np.sum(np.full(n_obs, 1/data_var))
+var_2 = 1/post_prec_2
+
+# Route 3 -- CURVATURE of the log-posterior at the mode (numerical 2nd derivative).
+def log_post(theta):                                    # up to an additive constant
+    return -0.5*theta**2/prior_var - 0.5*n_obs*(ybar_ - theta)**2/data_var
+hh = 1e-4
+curv = (log_post(mode+hh) - 2*log_post(mode) + log_post(mode-hh)) / hh**2
+var_3 = 1/(-curv)                                        # Laplace covariance = (-l'')^-1
+
+print(f"posterior variance, route 1 (conjugate formula)  = {var_1:.6f}")
+print(f"posterior variance, route 2 (precision addition) = {var_2:.6f}")
+print(f"posterior variance, route 3 (curvature at mode)  = {var_3:.6f}")
+print(f"three routes agree: max|diff| = {max(abs(var_1-var_2), abs(var_1-var_3)):.2e}")
+```
+
+All three print `0.190476`. Route 3 is the fourth face of curvature — the **Laplace approximation**, $\Sigma=(-\nabla^2\log p)^{-1}$ (`13-laplace-em-vi.md:127`) — and for a Gaussian posterior it is not an approximation at all but exact, which is why the finite difference nails the closed form. The fifth face is **HMC stability**: a Gaussian target of variance $v$ has a leapfrog "frequency" $\omega^2 = 1/v = $ precision, and the integrator stays stable only for step size $\varepsilon < 2/\omega$ (`12-hmc.md:411`).
+
+```python
+# (d) Laplace covariance is route 3 above (Gaussian target: exact, not approximate).
+print(f"(d) Laplace var = 1/(-l'')      = {var_3:.6f}")
+# (e) HMC: a Gaussian target of variance v has omega^2 = 1/v = precision; cliff at eps < 2/omega.
+omega = np.sqrt(1/var_1)
+print(f"(e) HMC omega^2 = precision = {1/var_1:.4f}, stability cliff eps_crit = 2/omega = {2/omega:.4f}")
+```
+
+The HMC step-size cliff sits at `0.8729`. Curvature `5.2500` is the precision (`0.190476` inverted), the Fisher/observed information at a Gaussian mode, the Laplace covariance's inverse, and the square of the sampler's oscillation frequency — five instruments reading one number. The picture makes the "sharper bend = more information" claim literal: as $n$ grows, the log-posterior's peak gets narrower and taller, and its curvature — the precision — grows linearly in $n$.
+
+```python
+fig, ax = plt.subplots()
+grid = np.linspace(0.05, 0.95, 400)
+for nn_, cc in [(10, "C0"), (40, "C1"), (160, "C2")]:
+    ss_ = int(0.3*nn_)                                   # keep thetahat = 0.3 fixed, vary n
+    ll_ = ss_*np.log(grid) + (nn_ - ss_)*np.log(1 - grid)
+    ax.plot(grid, ll_ - ll_.max(), color=cc,
+            label=f"n={nn_}: curvature n·I(θ̂) = {nn_/(0.3*0.7):.0f}")
+ax.set(xlabel=r"$\theta$", ylabel="log-posterior (peak set to 0)", ylim=(-8, 0.5),
+       title="Sharper bend = more information: curvature grows like n")
+ax.legend()
+save(fig, "curvature_vs_n")
+```
+
+![Log-posteriors for a Bernoulli mean at fixed $\hat\theta=0.3$ and increasing $n$; each peak's curvature $n\,\mathcal I(\hat\theta)$ grows linearly in $n$, so the posterior narrows and the standard error falls like $1/\sqrt n$.](figures/P3-precision-thread/curvature_vs_n.png)
+
+## P3.4 Reading information: $\mathcal I\propto n$, and $\mathrm{SE}=1/\sqrt{\mathcal I}$
+
+**Reflex.** Information adds across independent observations, so it scales like $n$; the standard error is the reciprocal square root of the total information, so it falls like $1/\sqrt n$. Quadruple the data, halve the error.
+
+**The wall.** Module 04 prints the observed information as $n\,\mathcal I(\hat\theta)$ and reads the standard error straight off it (`04-likelihood.md:185`); module 08's Cramér–Rao check quotes the bound as `1/(nI)` (`08-frequentist-bridge.md:83`). The additivity is silent — you are expected to know that $\mathcal I$ for $n$ points is $n$ times $\mathcal I$ for one.
+
+**The fix.**
+
+```python
+# Information adds with n, so SE = 1/sqrt(information) falls like 1/sqrt(n).
+sigma = 2.0
+for n_ in [25, 100, 400]:
+    info = n_/sigma**2                 # data precision for a Normal mean: n copies of 1/sigma^2
+    se = 1/np.sqrt(info)               # = sigma/sqrt(n)
+    print(f"n={n_:>3}: information n/sigma^2 = {info:5.1f}, SE = 1/sqrt(I) = {se:.4f}")
+print("quadruple n -> halve the SE (information x4, SE /2)")
+```
+
+The standard errors are `0.4000`, `0.2000`, `0.1000`: each four-fold jump in $n$ multiplies information by 4 and divides the error by 2. This is why the last mile of precision is so expensive — going from SE 0.1 to SE 0.05 costs another *four-fold* of data.
+
+## Bridge — Fisher information and second-order optimization
+
+C-B §6.3 defines Fisher information as $\mathcal I(\theta)=\mathrm{Var}[\partial_\theta\log f]=-\mathbb E[\partial_\theta^2\log f]$ — the two right-hand faces of P3.3's curvature (variance of the score, expected negative curvature). The Cramér–Rao bound $\mathrm{Var}(\hat\theta)\ge 1/(n\mathcal I)$ then says an estimator can be no more precise than the total information allows, which under Bernstein–von Mises is the posterior precision the Bayesian already computed. In ML, this is the whole logic of **second-order optimization**: Newton's method preconditions the gradient by the inverse Hessian $(-\nabla^2\log p)^{-1}$ — the Laplace covariance — because the curvature tells you how far you can safely step, exactly as it sets the HMC step-size cliff. Adam's per-coordinate scaling is a cheap diagonal approximation to the same object. Curvature is precision is step size is information, everywhere.
+
+## Pitfalls
+
+- **Averaging variances or standard errors instead of adding precisions.** Pooling two SEs by averaging them is the classic slip; the correct pool adds precisions and takes the reciprocal square root (module 16 does this right at `16:55`). The pooled uncertainty is *smaller* than either input, which averaging can never produce.
+- **Adding covariances in a multivariate update.** In $p$ dimensions the rule is $\Sigma_n^{-1}=\Sigma_0^{-1}+X^\top X/\sigma^2$ — precisions add (matrices), not covariances. Adding the $\Sigma$'s directly gives a wrong, over-dispersed posterior (`14-bayesian-regression.md:102`).
+- **Calling an inclusion probability a precision.** The spike-and-slab blend uses posterior *probabilities* as weights; they are not inverse-variances, they just happen to sum to 1. The convex-combination algebra is shared; the interpretation is not.
+- **Reading curvature on the wrong coordinates.** $-\ell''$ is a precision *in the coordinate you differentiated*. A Laplace fit on a bounded $\theta$ spills mass past the boundary; the fix is to read curvature on an unconstrained scale (logit, log) and pay the Jacobian — see P4 and `13-laplace-em-vi.md:127`.
+- **Trusting curvature = precision away from a well-behaved mode.** The equivalence is a local, second-order statement. For multimodal or heavy-tailed posteriors (where BvM's regularity fails), the curvature at one mode does not describe the whole distribution.
+
+## Exercises
+
+**Exercise P3.1 — Two labs, same estimate, unequal $n$.**
+*Setup:* Lab A estimates a rate from $n_A=100$ samples; Lab B estimates the same rate from $n_B=25$ samples of the same instrument (equal per-sample variance). Both happen to report the identical point estimate, but you want the combined estimate's *weight split*.
+*Predict:* When you combine them optimally, what fraction of the weight goes to Lab A — 50%, 80%, or something else?
+*Reason:* The naive intuition "two estimates of the same thing average 50/50" ignores that the estimates carry unequal information.
+*Run:*
+```python
+nA, nB = 100, 25
+wA = nA / (nA + nB)                    # precision ~ n, so weight = share of total n
+print(f"weight on Lab A = {wA:.2f}")
+```
+<details><summary>Reconcile</summary>
+
+Lab A gets `0.80` of the weight — a 4:1 split, not 50/50. Precision is proportional to $n$, so 100 vs 25 samples is 100 vs 25 units of precision, and the weight is each lab's share of the total ($100/125=0.8$). The combined estimate is *four times* as informed by A as by B. The lesson: "average two estimates" is only right when they are equally precise; otherwise you weight by information, and $n$ is information.
+</details>
+
+**Exercise P3.2 — Ridge as prior precision (ML connection).**
+*Setup:* Ridge regression minimizes $\|y-X\beta\|^2 + \lambda\|\beta\|^2$; the Bayesian reading is a prior $\beta\sim N(0,\tau^2)$ with $\lambda=\sigma^2/\tau^2$ and noise variance $\sigma^2$.
+*Predict:* You *double* the regularization $\lambda$. Does the prior precision $1/\tau^2$ go up or down, and does the coefficient shrink more or less toward zero?
+*Reason:* The intuition "more regularization = a vaguer, weaker prior" — testing whether $\lambda$ tracks prior strength or prior weakness.
+*Run:*
+```python
+sig2 = 1.0
+for lam in [1.0, 2.0, 8.0]:
+    tau2 = sig2 / lam                  # invert lambda = sigma2/tau2
+    prior_prec = 1/tau2                # = lambda/sigma2
+    coef, _ = pw_mean(0.0, prior_prec, 3.0, 1.0)   # prior mean 0 vs a data estimate of 3.0
+    print(f"lambda={lam:>3}: prior precision 1/tau2 = {prior_prec:.1f}, shrunk coef = {coef:.3f}")
+```
+<details><summary>Reconcile</summary>
+
+Larger $\lambda$ means *higher* prior precision and *more* shrinkage: the coefficients are `1.500`, `1.000`, `0.333` as $\lambda$ goes 1, 2, 8. Regularization strength is a prior precision, not a prior weakness — a big $\lambda$ is a *confident* prior pinned at zero. Weight decay in a neural net is the same statement: the decay coefficient is how many pseudo-observations of "the weight is zero" you inject. As $\lambda\to\infty$ the prior precision dominates and every coefficient is dragged to 0.
+</details>
+
+**Exercise P3.3 — Curvature gives the posterior width (Laplace).**
+*Setup:* A posterior has $-\,\mathrm d^2/\mathrm d\theta^2\log p(\hat\theta\mid x)=4$ at its mode. You want its Laplace standard deviation, and you want to know how good the Laplace approximation is for a genuinely skewed target.
+*Predict:* Give the Laplace posterior sd for curvature 4. Then, for a $\mathrm{Gamma}(3,1)$ posterior (mode at 2, true variance 3), predict whether Laplace *over-* or *under-*states the spread.
+*Reason:* "Curvature at the mode captures the whole distribution" — true for Gaussians, tested here against a skewed one.
+*Run:*
+```python
+print(f"Laplace sd for curvature 4 = {1/np.sqrt(4):.3f}")
+# Gamma(3,1): log p = 2 log theta - theta; -l'' = 2/theta^2, at mode theta=2:
+curv_gamma = 2/2**2
+print(f"Laplace var at Gamma(3,1) mode = {1/curv_gamma:.3f}  vs  true variance 3.000")
+```
+<details><summary>Reconcile</summary>
+
+Curvature 4 gives sd `0.500` (the boxed rule $1/\sqrt{-\ell''}$). For the $\mathrm{Gamma}(3,1)$, curvature at the mode is $2/4=0.5$, so Laplace reports variance `2.000` against the true `3.000` — it *understates* the spread, because a right-skewed density falls off more gently than a Gaussian on its long side, so the local curvature at the mode is steeper than the global spread warrants. Laplace is exact for Gaussians and improves as data accumulate and the posterior Gaussianizes (BvM), but at small shape it misses the skew. The compression: curvature = precision is a *local* truth; trust it fully only where the posterior is locally Gaussian.
+</details>
+
+**Exercise P3.4 — Does a second measurement halve the variance?**
+*Setup:* You have one measurement of variance 1. You take a second, independent measurement, also of variance 1, and combine them.
+*Predict:* Is the combined variance $1/2$, and if you keep adding equal measurements, does the variance keep halving each time?
+*Reason:* "Each new measurement halves the uncertainty" — a common and wrong mental model.
+*Run:*
+```python
+for k in [1, 2, 3, 4]:
+    var_k = 1/(k*1.0)                  # k measurements, each precision 1: precisions add to k
+    print(f"{k} measurements -> combined variance {var_k:.4f}, SE {np.sqrt(var_k):.4f}")
+```
+<details><summary>Reconcile</summary>
+
+The *second* measurement does halve the variance (1 → `0.5000`), which flatters the naive model, but the third only takes it to `0.3333` and the fourth to `0.2500` — variance falls like $1/k$, not by half each time. Precisions add linearly ($k$ units), so variance is $1/k$ and SE is $1/\sqrt k$. Going from one measurement to two is a huge win; going from 100 to 101 barely moves the needle. This is P3.4's $1/\sqrt n$ law seen one observation at a time, and it is why replication has sharply diminishing returns.
+</details>
+
+## Takeaways
+
+- **Precision (1/variance) adds; variance does not.** Every pooling of independent Gaussian information is addition in precision space.
+- **A posterior mean is a precision-weighted average** of prior mean and data summary: $m_\star=(\pi_0 m_0+\pi_1 m_1)/(\pi_0+\pi_1)$. This one formula is the Beta mean, the Normal-Normal update, ridge, the Kalman gain, and the partial-pooling weight.
+- **Spike-and-slab is the probability-weighted cousin** — same convex-blend algebra, but the weight is a posterior probability, not a precision.
+- **Curvature is precision, five ways:** Fisher information (expected $-\ell''$), observed information ($-\ell''$ at the mode), BvM posterior width $1/\sqrt{n\mathcal I}$, Laplace covariance $(-\nabla^2\log p)^{-1}$, and HMC frequency $\omega^2$. The sharper the log-density bends, the more you know.
+- **You can get a posterior variance three ways** — closed form, precision addition, curvature at the mode — and they agree exactly when the posterior is Gaussian; that agreement is the invariant, not a coincidence.
+- **Information scales like $n$; standard error like $1/\sqrt n$.** Quadruple the data to halve the error — precision's last mile is expensive.
+- **Curvature = precision is local.** It is exact for Gaussian posteriors and asymptotically (BvM), but reads the wrong width for skewed or multimodal targets, and only in the coordinate you differentiated.
+
+## Where the course uses this
+
+| Skill | Where the course leans on it (module:line) |
+|---|---|
+| Precisions add (variances don't) | `05:101`, `21:22`, `23:231`, `14:102`, `EXAM:620`, `EXAM:681` |
+| Precision-weighted mean (six costumes) | `05:175`, `16:56`, `16:212`, `21:22`, `23:379`, `25:68`, `EXAM:282` |
+| Curvature = precision (five faces) | `04:164`, `04:185`, `08` (BvM), `12:411`, `13:127` |
+| Information additivity, SE = 1/√I | `04:185`, `08:83`, `08:80` |
+| Ridge/weight-decay as prior precision (λ=σ²/τ²) | `14:102`, `23:61`, `25:66` |

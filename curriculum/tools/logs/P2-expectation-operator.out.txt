@@ -1,0 +1,32 @@
+P(Z>1.96)        = 0.0251   (analytic 0.0250)
+P(|Z|<1)         = 0.6820   (analytic 0.6827)
+P(theta_B>theta_A) = 0.9503
+E[#fixed] n=5   : 1.008
+E[#fixed] n=500 : 1.000
+linearity gap E[X+Y]-(E[X]+E[Y]) = 0.00e+00
+product gap   E[XY]-E[X]E[Y]     = 0.2500  (=Var X, NOT 0)
+ATE mean-of-diffs = 3.0009 , diff-of-means = 3.0009
+E[theta^2] analytic = 0.003405
+E[theta^2] MC-mean  = 0.003403
+E_p[X] via wrong-proposal weights = 2.0022  (truth 2.0)
+tower  E[E[X|lam]] = E[lam] = 2.0003
+brute  E[X]                = 2.0004
+within  E[Var(X|lam)] = 2.0003
+between Var(E[X|lam]) = 2.0037
+total  = within+between = 4.0040   direct Var(X) = 4.0056
+overdispersion Var(X)-E[X] = 2.0052  (a pure Poisson would give 0)
+1/E[X]                 = 0.5000
+E[1/X] analytic        = 1.0000   (factor 2.0x larger)
+E[1/X] MC (2e6 draws)  = 0.9983
+  single largest 1/X draw     = 1138  (1140x the mean)
+  worst of 20k size-100 batch = 12.42  (truth 1.0) <- one rare draw dominates it
+[fig] figures/P2-expectation-operator/jensen_gap.png
+P(B>A) = 0.9507  -> naive odds ratio 19:1
+regret ratio ship-A : ship-B = 81x  (the DECISION, line 4)
+s=0.0:  E[sigma(a)] = 0.5000   sigma(E[a])=0.5
+s=1.0:  E[sigma(a)] = 0.4998   sigma(E[a])=0.5
+s=4.0:  E[sigma(a)] = 0.4996   sigma(E[a])=0.5
+[1, 2]: E[1/X]=0.7500  1/E[X]=0.6667  gap=0.0833
+[1, 10]: E[1/X]=0.5500  1/E[X]=0.1818  gap=0.3682
+E[X]=2.997  Var(X)=6.002  within=E[lam]=2.998  between=Var(lam)=2.997
+coverage = 0.9003

@@ -281,7 +281,7 @@ python tools/run_module.py modules/00-four-lines.md --check-determinism
 
 Block 1 is always the setup block above (it seeds `rng`, sets a headless backend, defines `save`). The harness runs the blocks, checks two runs give byte-identical output (determinism), and verifies every backtick-quoted prose number was actually printed. Figures go via `save(fig, name)` into `figures/00-four-lines/`; ```python no-run``` blocks are skipped illustrations.
 
-**Assumed background.** Undergraduate probability and calculus — joint/marginal/conditional densities, expectation and variance, change-of-variables (Jacobian), basic combinatorics — are trusted and recapped only in passing; if a step feels too fast, Casella–Berger ch. 1–2 are the patch. Python (numpy/scipy/matplotlib) is assumed; **there is no R anywhere in this course** — the booklet's R code is absorbed for its statistics only.
+**Assumed background.** Undergraduate probability and calculus — joint/marginal/conditional densities, expectation and variance, change-of-variables (Jacobian), basic combinatorics — are trusted and recapped only in passing; if a step feels too fast, Casella–Berger ch. 1–2 are the patch. Python (numpy/scipy/matplotlib) is assumed; **there is no R anywhere in this course** — the booklet's R code is absorbed for its statistics only. Beyond facts, the course leans on *reflexes* — kernel-spotting, ∝-discipline, Jensen's direction, Jacobian bookkeeping, log-space numerics — that lectures rarely teach explicitly: the [prereqs section](../prereqs/P0-diagnostic.md) drills exactly those, and its 24-item diagnostic will tell you in ten minutes whether you need it.
 
 ## Bridge — what the four lines compress
 

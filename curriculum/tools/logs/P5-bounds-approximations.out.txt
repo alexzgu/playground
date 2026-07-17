@@ -1,0 +1,23 @@
+x**2   (convex)  g''+:  E[g(X)]=  6.0024 >= g(E[X])=  4.0004
+1/x    (convex)  g''+:  E[g(X)]=  1.0008 >= g(E[X])=  0.5000
+log x  (concave) g''-:  E[g(X)]=  0.4228 <= g(E[X])=  0.6932
+sqrt x (concave) g''-:  E[g(X)]=  1.3294 <= g(E[X])=  1.4143
+P(|X|>=3):  Markov 0.2660 >= Chebyshev 0.1111 >= Chernoff 0.0111 >= truth 0.00270
+P(sup BF10 >= 10 | H0) = 0.0598   (Ville bound 1/10 = 0.1000)
+single look        : 0.0522   (union bound  1*0.05 = 0.05)
+ten looks          : 0.2044   (union bound 10*0.05 = 0.50)
+continuous monitor : 0.4664
+TV(P,R)=0.70  <=  TV(P,Q)+TV(Q,R)=0.70
+n= 25:  SD[xbar]=0.6018   sigma/sqrt(n)=0.6000
+n=100:  SD[xbar]=0.3006   sigma/sqrt(n)=0.3000
+n=400:  SD[xbar]=0.1492   sigma/sqrt(n)=0.1500
+difference of two means (n=100): SD=0.4219  sqrt(2*sigma^2/n)=0.4243
+mode=2.0  curvature=0.5000  Laplace ~ N(2.0, 2.0)
+true Gamma(3,1): mean=3.0 var=3.0   (crude at shape 3, exact-in-form, sharpens with n)
+central-difference Hessian = 0.5000   vs analytic curvature 0.5000
+Var[log X]:  delta 0.0100   simulated 0.0103
+(1+1/m)^m at m=1000: 2.7169   e = 2.7183
+[fig] figures/P5-bounds-approximations/growth_rates.png
+at t=1e4:  log t=9.21   sqrt t=100.00   0.02 t=200.00
+five looks: 0.1457   (union bound 5*0.05 = 0.25)
+E[sigma(a)]=0.5000 (plug-in 0.5000)  Var: delta 0.01562 sim 0.01395

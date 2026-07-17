@@ -1,0 +1,36 @@
+combine var 4.0 with var 1.0  ->  var 0.8000  (precision 1.25)
+the naive 'average the variances' guess would be 2.50
+averaging the two SEs (WRONG) gives SE 1.5000; adding precisions gives SE 0.8944
+simulated variance of the combined estimate = 0.8007
+costume                    native     pw_mean    |diff|
+1 Beta mean        (M05)    0.6429     0.6429   0.0e+00
+2 Normal-Normal    (M05)    1.4286     1.4286   0.0e+00
+3 Ridge / BLR      (M14)    2.4458     2.4458   0.0e+00
+4 Kalman gain      (M21)    1.1573     1.1573   0.0e+00
+5 Partial pooling  (M16)    7.2143     7.2143   8.9e-16
+6 Spike-and-slab   (M23)    0.4200     0.4200   0.0e+00
+all six reduce to the one master formula: True
+(a) Fisher info  I(0.3) = E[-l''] = 4.7619
+(b) observed info -l''(thetahat) = 190.48   vs  n*I(thetahat) = 190.48
+(c) BvM sd 1/sqrt(nI) = 0.0725   vs  exact posterior sd = 0.0705
+posterior variance, route 1 (conjugate formula)  = 0.190476
+posterior variance, route 2 (precision addition) = 0.190476
+posterior variance, route 3 (curvature at mode)  = 0.190476
+three routes agree: max|diff| = 5.08e-11
+(d) Laplace var = 1/(-l'')      = 0.190476
+(e) HMC omega^2 = precision = 5.2500, stability cliff eps_crit = 2/omega = 0.8729
+[fig] figures/P3-precision-thread/curvature_vs_n.png
+n= 25: information n/sigma^2 =   6.2, SE = 1/sqrt(I) = 0.4000
+n=100: information n/sigma^2 =  25.0, SE = 1/sqrt(I) = 0.2000
+n=400: information n/sigma^2 = 100.0, SE = 1/sqrt(I) = 0.1000
+quadruple n -> halve the SE (information x4, SE /2)
+weight on Lab A = 0.80
+lambda=1.0: prior precision 1/tau2 = 1.0, shrunk coef = 1.500
+lambda=2.0: prior precision 1/tau2 = 2.0, shrunk coef = 1.000
+lambda=8.0: prior precision 1/tau2 = 8.0, shrunk coef = 0.333
+Laplace sd for curvature 4 = 0.500
+Laplace var at Gamma(3,1) mode = 2.000  vs  true variance 3.000
+1 measurements -> combined variance 1.0000, SE 1.0000
+2 measurements -> combined variance 0.5000, SE 0.7071
+3 measurements -> combined variance 0.3333, SE 0.5774
+4 measurements -> combined variance 0.2500, SE 0.5000

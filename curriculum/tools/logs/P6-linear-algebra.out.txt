@@ -1,0 +1,26 @@
+P6.1 Mahalanobis: whiten=1.007386  inv=1.007386  diff=2.2e-16
+P6.1 batched einsum vs loop, max|diff| = 1.1e-16
+P6.2 solve:  chol vs inv max|diff| = 2.2e-16
+P6.2 log-det: cholesky=0.270649   slogdet=0.270649
+P6.2 sample:  empirical cov vs Sigma, max|diff| = 0.015
+P6.2 det(0.1 * I_400) = 0.000e+00  ->  log of that is -inf; but slogdet = -921.03
+P6.3 posterior mean = [ 1.0221 -1.8616  0.4591  0.068 ]
+P6.3 ridge(lambda=sig2/tau2) match, max|diff| = 0.0e+00
+P6.4 cond mean:  inv=0.799936  schur=0.799936  gc=0.799936
+P6.4 cond var :  inv=0.539707  schur=0.539707  gc=0.539707
+P6.4 three-route max|diff| = 0.0e+00
+P6.4b cond(S22)=1.0e+12  residual: inv=5.0e-06  solve=6.9e-18
+P6.5 Sigma[0,2] = 0.2500  (nonzero -> 0 and 2 are marginally DEPENDENT)
+P6.5 Lambda[0,2] = 0.0     (zero    -> 0 and 2 are conditionally indep given 1)
+P6.6 K symmetric? True   diag all 1? True   min eigenvalue = -3.42e-15
+P6.6 raw Cholesky FAILED (indefinite);  jittered Cholesky succeeded
+P6.7 H idempotent? True   trace(H) = 4.0000  (= #params)
+P6.7 ridge trace(H_lambda) = 3.7022  (effective params < 4)
+P6.7 corr(a,b) = 0.838  ->  partial corr given z = 0.009
+P6.8 eigenvalues = [0.2 2.8]  all>0 -> PD=True;  2-sigma semi-axes = [0.894 3.347]
+P6.8 cond(X)=1e+08  cond(X^T X)=1e+16
+P6.8 recovery error: lstsq=1.6e-10  normal-eqs=6.9e-01
+[fig] figures/P6-linear-algebra/cov-ellipse.png
+shape: (100,)  first 3: [8.449 3.203 8.503]  vs ||x||^2: [8.449 3.203 8.503]
+residual inv: 1.7e-06  solve: 1.1e-16
+Sigma[0,2]: 0.25  Lambda[0,2]: 0.0

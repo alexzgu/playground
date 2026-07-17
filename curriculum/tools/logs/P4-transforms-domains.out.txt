@@ -1,0 +1,28 @@
+exp keeps sigma > 0 always: True
+logit->expit round-trip max err: 1.1e-16
+softmax(z) == softmax(z + 5): True
+3-simplex from 2 free logits, weights sum = 1.0000
+cutpoints: [0.362 4.046 6.624]  increasing: True
+induced density at psi=0: 0.2500   at psi=3: 0.0452
+even-odds preference ratio: 5.53
+[fig] figures/P4-transforms-domains/flat-isnt-flat.png
+E[theta]: correct=0.2857  jacobian-forgotten=0.2001  bias=-0.0856
+analytic check: Beta(2,5) mean=0.2857, Beta(1,4) mean=0.2000
+[fig] figures/P4-transforms-domains/jacobian-bias.png
+mu + sigma*Z: mean=3.000 (want 3), sd=2.002 (want 2)
+mu ~ t_9(loc=0.700, scale=0.254)
+coverage of a NEW obs: SE-width=0.6271   predictive-width=0.9514
+width ratio sqrt(1+1/n)/sqrt(1/n) = 2.646
+recovered slope 0.3040 vs direct fit 0.3040
+val mean after standardizing: train-moments=+0.156 (!=0, honest) vs own-moments=+0.000 (==0, leaked)
+argmax class flips across T in [0.2..5]: 0.0000
+0.5-decisions changed by temperature T=3: 0.0000
+argmax(lik) == argmax(log lik): True
+k = ceil((n+1)*alpha) = 19 of n=20
+naive np.quantile(.90): coverage=0.8669 (target 0.90)
+conformal order stat  : coverage=0.9080 (>= 0.90 guaranteed)
+one cal set, np.quantile @0.90 by method: {'linear': 1.491, 'higher': 1.69, 'lower': 1.469, 'nearest': 1.469}
+density at theta=0.5: 4.000   at theta=0.01: 1001.0
+integral over (eps,1-eps): 14.0  (diverges as eps->0)
+argmax by temperature: {0.1: 0, 1.0: 0, 10.0: 0, 100.0: 0}
+recovered 1.5135 vs direct 1.5135

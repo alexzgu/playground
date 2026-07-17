@@ -1,0 +1,401 @@
+# P7. Numerical and simulation craft
+
+> **Spine.** float64 is not ℝ and a distribution call is not its textbook symbol — so you work in the log domain, predict every array shape, moment-check every sampler, and never trust a number until it reproduces one you already know.
+> **Which line?** All four, but from underneath: this is the craft that makes the *code* behind conditioning, marginalization, and expected-loss actually compute the thing the math names.
+> **Promise.** After this module the silent bugs — the overflow that returns `nan`, the rate/scale swap that halves your prior, the broadcast that reads the wrong homes, the sampler that is confidently wrong — announce themselves before they reach a figure.
+> **Prereqs.** P0 (diagnostic). Independent of P1–P6; pairs naturally with P4 (transforms) and P6 (linear algebra).
+> **Runtime.** ~2–3 s.
+> **Sources.** Bridges to M05/M14/M16/M19/M20/M21/M22/M25 and the integrative EXAM; mining files `research/mined-*.md`; `research/expert-computational.md` areas III–IV.
+
+This is a drill room, not a tutorial. Each skill is one reflex, one real line from the course where it is used without comment, a ≤15-line fix that installs it, and a predict-then-run drill. The last skill — *verify against a known special case* — is the single most-used move in the entire course (28 hits, every module), and it closes the room.
+
+```python
+# --- setup ---
+from pathlib import Path
+import numpy as np
+import matplotlib
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
+from scipy import stats
+
+SLUG = "P7-computing-craft"
+FIG = Path("figures") / SLUG
+FIG.mkdir(parents=True, exist_ok=True)
+SEED = 0
+rng = np.random.default_rng(SEED)
+
+plt.rcParams.update({
+    "figure.figsize": (7, 4), "figure.dpi": 110, "savefig.dpi": 150,
+    "savefig.bbox": "tight", "axes.grid": True, "grid.alpha": 0.3,
+    "axes.spines.top": False, "axes.spines.right": False,
+    "font.size": 11,
+})
+
+def save(fig, name):
+    out = FIG / f"{name}.png"
+    fig.savefig(out)
+    plt.close(fig)
+    print(f"[fig] {out}")
+```
+
+## P7.1 Live in the log domain
+
+**Reflex.** Probabilities and likelihoods are products of many small numbers; you carry them as *sums of logs*, and any time you must add them (normalize, marginalize, mix), you go through `logsumexp` with the max subtracted — never `exp` of an unshifted large number.
+
+**The wall.** Module 15 computes a Bernoulli negative log-likelihood as `np.logaddexp(0, z) - y * z` (`15:69`) — that is `log(1+e^z)`, the softplus, written so it never overflows for large `z`. Module 25 turns mixture log-weights into responsibilities with `r = np.exp(logc - logsumexp(logc, axis=0))` (`25:262`), and Module 21's particle filter normalizes weights via `w = np.exp(logw - logw.max()); w /= w.sum()` (`21:363`). Every one of these is the same trick: **the max cancels out of a ratio, so subtract it before exponentiating** and the overflow disappears.
+
+**The fix.**
+
+```python
+from scipy.special import logsumexp, gammaln, comb
+
+lp = np.array([1000.0, 1000.0])          # two log-weights, e.g. log-likelihoods
+with np.errstate(over="ignore"):          # the naive routes overflow ON PURPOSE
+    naive = np.log(np.sum(np.exp(lp)))    # exp(1000) overflows
+    naive_sp = np.log(1 + np.exp(800.0))  # softplus, naive
+    naive_comb = comb(2000, 1000)         # exp(gammaln) overflows float64
+stable = logsumexp(lp)                    # = 1000 + log 2, exact
+print(f"naive log-sum-exp   = {naive}")           # inf
+print(f"stable logsumexp    = {stable:.4f}")      # 1000.6931
+
+# softplus log(1+e^z): naive overflows at large z; logaddexp(0,z) does not
+print(f"naive softplus(800) = {naive_sp}")        # inf
+print(f"stable softplus(800)= {np.logaddexp(0.0, 800.0):.1f}")  # 800.0
+
+# a binomial coefficient that overflows float, done in log-space with gammaln
+n, k = 2000, 1000
+print(f"comb(2000,1000)     = {naive_comb}")      # inf
+logC = gammaln(n + 1) - gammaln(k + 1) - gammaln(n - k + 1)
+print(f"log C(2000,1000)    = {logC:.4f}")
+
+# log1p / expm1: keep the digits that log(1+x) / exp(x)-1 throw away near 0
+print(f"log(1 + 1e-16) = {np.log(1 + 1e-16)}      (lost: rounds to 0)")
+print(f"log1p(1e-16)   = {np.log1p(1e-16):.1e}  (kept)")
+```
+
+`log1p(x)` and `expm1(x)` are the same idea for the *tails* of a single number: near `x=0` they keep the digits that `log(1+x)` and `exp(x)-1` throw away — above, `log(1+1e-16)` rounds to `0.0` while `log1p(1e-16)` returns `1.0e-16`. Module 10 scores a Beta log-posterior with `(b_post - 1) * np.log1p(-theta)` (`10:111`) precisely because `log(1-θ)` loses precision as `θ→1`.
+
+**Drill P7.1.** *Setup:* you must compute `log(e^a + e^b)` for `a = -1000`, `b = -1002` (two tiny probabilities in log-space). *Predict:* what does naive `log(exp(a)+exp(b))` return, and what is the correct value to two decimals? *Reason:* the naive intuition is "these are just small numbers, float can handle them." *Run:*
+
+```python
+a, b = -1000.0, -1002.0
+with np.errstate(divide="ignore"):                 # log(0) = -inf ON PURPOSE
+    print("naive:", np.log(np.exp(a) + np.exp(b)))  # exp(-1000)=0.0 -> log(0)
+print(f"logsumexp: {logsumexp([a, b]):.4f}")
+```
+<details><summary>Reconcile</summary>
+
+Naive returns `-inf`: `exp(-1000)` *underflows* to `0.0`, so you take `log(0)`. `logsumexp` returns `-999.8731` (= `-1000 + log(1 + e^-2)`). Underflow is the mirror of overflow and just as silent — the number looked harmless, but exponentiating it left the representable range. The habit is unconditional: probabilities live as logs, and they only leave the log domain through `logsumexp` or at the very last step.
+</details>
+
+## P7.2 The parameterization trap
+
+**Reflex.** Every distribution call is a convention trap until you *print a moment-check*. numpy's `gamma` takes a **scale = 1/rate**; scipy's `invgamma(a, scale=b)` is *not* `1/Gamma`; `nbinom`'s `p` is the probability of the *other* outcome; `expon`'s argument is `scale = 1/λ`. You confirm the mean before you trust a single draw.
+
+**The wall.** The EXAM sets a Gamma prior with `a0, b0 = 2.0, 0.5  # module 07 prior: Gamma(2, 0.5 rate), mean 4` and then samples it as `lam_pp = rng.gamma(a0, 1 / b0, 40000)` (`EXAM:92`, `EXAM:100`) — note the `1 / b0`. Get that inversion wrong and the prior mean is `1`, not `4`, and *nothing errors*. Module 03 carries the same footgun in `stats.expon(scale=1 / lam)` and `stats.gamma(a=k, scale=1/lam)` (`03:81`); Module 11 spells the rule out in a comment: `numpy's gamma takes scale = 1/rate` (`11:45`). The θ = 0.5 case of a `nbinom` hides the bug because the two conventions coincide — which is exactly why you must test off the symmetric point.
+
+**The fix — the marquee, staged live.** Sample Gamma(2, **rate** 0.5) three plausible-looking ways. Its mean is α/β = 2/0.5 = 4, variance α/β² = 8. **Predict which of A, B, C lands on mean 4 before you read the moment-check** — commit to a guess.
+
+```python
+N = 200_000
+true_mean, true_var = 2 / 0.5, 2 / 0.5**2
+wayA = rng.gamma(2.0, 0.5, N)                              # numpy: (shape, ??)
+wayB = stats.gamma(2.0, 0.5).rvs(N, random_state=rng)     # scipy: positional args
+wayC = rng.gamma(2.0, 1 / 0.5, N)                          # numpy: (shape, 1/rate)
+print(f"true mean {true_mean:.2f}, var {true_var:.2f}")
+for name, s in [("A rng.gamma(2, 0.5)   ", wayA),
+                ("B stats.gamma(2, 0.5) ", wayB),
+                ("C rng.gamma(2, 1/0.5) ", wayC)]:
+    print(f"  {name}: mean {s.mean():.3f}  var {s.var():.3f}")
+```
+
+Only C matches mean `4.002`. The two failures are *different* footguns, which is the point: **A** read numpy's second argument as the rate when it is the **scale**, silently building Gamma(2, rate 2) with mean `1.002`. **B** passed `0.5` positionally to scipy — but scipy's second positional argument is `loc`, not scale, so it *shifted* the distribution by 0.5 with the default scale 1, giving mean `2.504` and variance `2.007`. One trap is rate-vs-scale, the other is position-vs-keyword; a printed moment-check catches both, a glance at the code catches neither. Here is A's collapse as a picture:
+
+```python
+grid = np.linspace(0, 15, 300)
+fig, ax = plt.subplots()
+ax.plot(grid, stats.gamma(a=2, scale=1/0.5).pdf(grid), "k--", lw=2,
+        label="true Gamma(2, rate 0.5), mean 4")
+ax.hist(wayA, bins=80, range=(0, 15), density=True, alpha=0.5, label="A rate-as-scale (mean 1)")
+ax.hist(wayC, bins=80, range=(0, 15), density=True, alpha=0.5, label="C correct (mean 4)")
+ax.set(xlabel="λ", ylabel="density",
+       title="Rate-vs-scale: reading rate 0.5 as the scale misses the mean by 4×")
+ax.legend()
+save(fig, "gamma_trap")
+```
+
+![Sampling Gamma(2, rate 0.5): reading the rate as numpy's scale collapses the mass to mean 1 instead of 4.](figures/P7-computing-craft/gamma_trap.png)
+
+Keep a moment-check for the whole family — the table you print once and never re-derive under pressure:
+
+```python
+checks = []
+# name, sample, analytic mean
+g = rng.gamma(3.0, 1 / 2.0, N)                    # Gamma(a=3, rate=2): mean a/rate
+checks.append(("Gamma(3, rate 2)", g, 3 / 2))
+ig = stats.invgamma(a=3.0, scale=2.0).rvs(N, random_state=rng)  # IG mean b/(a-1)
+checks.append(("InvGamma(3, 2)  ", ig, 2 / (3 - 1)))
+recip = 1.0 / rng.gamma(3.0, 1 / 2.0, N)          # 1/Gamma(a,rate b) == IG(a,b)
+checks.append(("1/Gamma == IG  ", recip, 2 / (3 - 1)))
+e = stats.expon(scale=1 / 4.0).rvs(N, random_state=rng)          # Exp(rate 4): mean 1/4
+checks.append(("Exp(rate 4)     ", e, 1 / 4))
+nb = stats.nbinom(n=5, p=0.3).rvs(N, random_state=rng)  # p is SUCCESS prob; mean r(1-p)/p
+checks.append(("NegBin(r5,p0.3) ", nb, 5 * (1 - 0.3) / 0.3))
+for name, s, m in checks:
+    ok = "ok " if abs(s.mean() - m) < 0.05 * m else "XX "
+    print(f"  [{ok}] {name}: sample {s.mean():.3f}  analytic {m:.3f}")
+```
+
+**Drill P7.2 — the `nbinom` that hides.** *Setup:* you model overdispersed counts with `stats.nbinom(n=5, p)`. A colleague read `p` as the probability of a *count event* and set `p = 0.3` expecting a mean around `5 × 0.3 = 1.5`. *Predict:* what mean does `nbinom(5, 0.3)` actually have? *Reason:* "the second argument is the event probability, like Binomial." *Run:*
+
+```python
+print("nbinom(5,0.3) mean:", stats.nbinom(n=5, p=0.3).mean())
+print("nbinom(5,0.5) mean:", stats.nbinom(n=5, p=0.5).mean())
+```
+<details><summary>Reconcile</summary>
+
+`nbinom(5, 0.3)` has mean `11.667` — scipy counts *failures before the 5th success*, so `p` is the success probability and the mean is `r(1-p)/p = 5·0.7/0.3`. The colleague's `1.5` is off by nearly 8×. Note `nbinom(5, 0.5)` gives `5.0` = `r(1-p)/p` with `p=0.5`, a clean round number that would look "right" and hide the convention entirely. That is the rule: **test a distribution's parameterization off its symmetric point, where a swapped convention changes the answer.**
+</details>
+
+## P7.3 Broadcasting is a shape algebra
+
+**Reflex.** Before running any elementwise op you predict the output shape by right-aligning the operands (each axis must match or be 1); every reduction that feeds a broadcast carries `keepdims=True`; and you name the axis you reduce over explicitly, every time.
+
+**The wall.** Module 14 row-scales a design matrix with `WX = X * w[:, None]` (`14:329`) — the `[:, None]` makes `w` a column so each *row* is scaled, not each column. Module 19 draws categorical labels with `z = (np.cumsum(P, 1) > rng.random(n)[:, None]).argmax(1)` (`19:141`), a whole inverse-CDF sample done by broadcasting an `(n,1)` column of uniforms against an `(n,K)` cumulative table. Drop a `[:, None]` and these either raise — or, worse, broadcast to the wrong shape and poison a downstream sum.
+
+**The fix.** Say the rule aloud: *right-align; each axis matches or is 1; a missing axis is treated as 1.*
+
+```python
+A = np.arange(6).reshape(3, 2)           # (3,2)
+print("A - mean(axis=0):", (A - A.mean(axis=0)).shape)          # (3,2)-(2,) -> per-column ok
+try:
+    _ = A - A.mean(axis=1)               # (3,2)-(3,) -> misaligned
+except ValueError as err:
+    print("A - mean(axis=1):", type(err).__name__)              # ValueError
+print("with keepdims:   ", (A - A.mean(axis=1, keepdims=True)).shape)  # (3,2)-(3,1) ok
+```
+
+**The module-16 bug, in miniature.** The brief records a real defect that shipped in the hierarchical module: a per-home array indexed by county ids ran clean and produced a wrong figure. Here is its anatomy. County-level uranium `u_cty` (one value per county) must be *gathered* to home level via the county-index `cidx` — the line `mu = g0 + g1 * u + eta[cidx] + b * floor` (`16:353`) does exactly that gather for the county effect `eta`. Reproduce the trap and catch it two ways:
+
+```python
+# 5 counties, 12 homes; cidx = county of each home
+cidx = np.array([0, 0, 0, 1, 1, 2, 2, 2, 2, 3, 4, 4])
+n_homes, n_cty = cidx.size, 5
+u_cty = rng.normal(0, 1, n_cty)                   # county-level uranium (length 5)
+floor = rng.integers(0, 2, n_homes).astype(float) # home-level (length 12)
+g0, g1, b = 1.0, 2.0, -0.5                          # planted truth
+
+u_home = u_cty[cidx]                               # CORRECT gather: length 12
+y = g0 + g1 * u_home + b * floor + rng.normal(0, 0.01, n_homes)
+
+def recover(u_feat):                              # least squares for (g0, g1, b)
+    assert u_feat.shape == (n_homes,), f"shape {u_feat.shape} != ({n_homes},)"
+    X = np.column_stack([np.ones(n_homes), u_feat, floor])
+    return np.linalg.lstsq(X, y, rcond=None)[0]
+
+good = recover(u_home)                             # uses correctly-gathered feature
+bug  = recover(u_home[cidx])                       # SILENT: double-gather, still length 12
+print(f"planted g1 = {g1}")
+print(f"recovered g1 (correct gather) = {good[1]:.3f}")
+print(f"recovered g1 (u_home[cidx])   = {bug[1]:.3f}   <- wrong, ran clean")
+try:
+    recover(u_cty)                                 # the sibling bug: county-length feature
+except AssertionError as err:
+    print(f"shape assertion caught the length-5 variant: {err}")
+```
+
+Two distinct guards catch two distinct siblings. `u_home[cidx]` is a *double gather*: `u_home` is already per-home, so re-indexing it by county ids scrambles the values while **keeping length 12** — no error, wrong slope. Only the known-answer check (does `g1` come back near the planted `2.0`?) exposes it. The *other* sibling — passing the county-length `u_cty` where a home-length feature belongs — is caught for free by a one-line `assert u_feat.shape == (n_homes,)` at the top of the function. **Put a shape assertion at the mouth of every likelihood; it turns the loud version into a crash and reminds you to moment-check the silent one.**
+
+**Drill P7.3 — softmax over the wrong axis.** *Setup:* you have logits of shape `(batch=4, classes=3)` and normalize with `np.exp(z) / np.exp(z).sum(axis=0)`. *Predict:* along which axis do the "probabilities" sum to 1, and is that what a classifier wants? *Reason:* "sum over axis 0, the first axis, feels like the natural reduction." *Run:*
+
+```python
+z = rng.normal(size=(4, 3))
+p = np.exp(z) / np.exp(z).sum(axis=0)
+print("column sums:", p.sum(axis=0).round(3))     # axis-0 sums
+print("row sums:   ", p.sum(axis=1).round(3))     # what a classifier needs
+```
+<details><summary>Reconcile</summary>
+
+With `axis=0` the *columns* sum to 1 exactly — each class is normalized across the batch, so your "class probabilities" for one example do not sum to 1 (the `row sums` come out `0.503`, `0.659`, `0.795`, `1.043`, not `1.0`). A classifier needs each *row* (example) to be a distribution: `axis=1` with `keepdims=True`, and via `logsumexp` for stability (P7.1). This is the exact bug behind "my network's probabilities don't sum to 1": the reduction axis, not the math. Right-align and name the axis every time.
+</details>
+
+## P7.4 float64 is not ℝ
+
+**Reflex.** You know you get ~15–16 significant digits, so you never `==` two floats, you `clip` probabilities into `[ε, 1−ε]` before any `log` or `logit`, and you never compute a variance as `E[x²] − E[x]²`.
+
+**The wall.** Module 23 guards binary entropy with `p = np.clip(p, 1e-12, 1 - 1e-12)` (`23:431`); Module 25 clips predicted probabilities with `np.clip(members[0].predict_proba(Xval)[:, 1], 1e-6, 1 - 1e-6)` (`25:127`) before taking logs. Without the clip, a probability that rounds to exactly `1.0` sends `log(1-p)` to `-inf` and poisons the whole objective.
+
+**The fix.**
+
+```python
+print("1e16 + 1 == 1e16 :", 1e16 + 1 == 1e16)            # True: gap exceeds 1 above 2^53
+print("0.1 + 0.2 == 0.3 :", 0.1 + 0.2 == 0.3,            # False
+      "| isclose:", np.isclose(0.1 + 0.2, 0.3))          # True
+
+# catastrophic cancellation: E[x^2]-E[x]^2 on large-mean data
+x = np.array([1e9, 1e9 + 1.0, 1e9 + 2.0])                # true variance = 2/3
+print("naive var E[x^2]-E[x]^2 :", (x**2).mean() - x.mean()**2)   # 0.0 or negative
+print("stable np.var           :", x.var())                        # 0.6667
+
+# a probability that rounds to 1 kills log(1-p); clip first
+p = stats.norm.cdf(40.0)                                  # ~1 - 6e-350 -> rounds to 1.0
+with np.errstate(divide="ignore"):                        # log(0) = -inf ON PURPOSE
+    print("1 - cdf(40)  =", 1 - p, "-> log(1-p) =", np.log(1 - p))  # 0.0 -> -inf
+p_safe = np.clip(p, 1e-15, 1 - 1e-15)
+print("after clip   : log(1-p) =", np.log(1 - p_safe))            # finite
+```
+
+**Drill P7.4 — a loop that never ends.** *Setup:* an optimizer stops when the loss stops improving: `while loss != prev_loss: ...`. On a well-behaved convex problem it seems bulletproof. *Predict:* will `while 0.1 + 0.2 != 0.3` terminate on the first check, and is `!=` a safe convergence test in general? *Reason:* "equal floats compare equal." *Run:*
+
+```python
+print("0.1 + 0.2 =", 0.1 + 0.2, "| != 0.3 :", 0.1 + 0.2 != 0.3)
+# safe convergence: relative change, not equality
+prev, loss, steps = 1.0, 0.5, 0
+while abs(loss - prev) > 1e-8 * (1 + abs(prev)):
+    prev, loss, steps = loss, loss * 0.5, steps + 1
+print("converged in", steps, "steps")
+```
+<details><summary>Reconcile</summary>
+
+`0.1 + 0.2 != 0.3` is `True` — the sum is `0.30000000000000004`, so an `!=` loop would *not* see them as equal and, in the optimizer, `loss != prev_loss` can chatter forever on round-off in the 16th digit. The fix is to compare a *relative change* against a tolerance (the loop above converges in `26` steps). Float equality is a bug waiting for the right inputs; `np.isclose`/relative tolerance is the reflex.
+</details>
+
+## P7.5 Seeds, streams, and vectorizing the reps
+
+**Reflex.** One explicit `rng = np.random.default_rng(seed)` threaded everywhere; independent parallel streams come from `.spawn()`, never from `seed + i`; and "repeat R times" becomes one array op over an extra axis, not a Python loop.
+
+**The wall.** Module 22's bandit mandate is explicit: "the Python loop over *pulls only* — every one of the 100 reps advances simultaneously through numpy on `(reps, arms)`-shaped state" (`22:196`). Module 08 runs `R` datasets at once with `rng.normal(mu, ..., size=(R, n_cr)).mean(1)` (`08:82`), and Module 01 tracks running frequencies with `runfreq = X.cumsum(axis=1, dtype=float) / np.arange(1, Nrep + 1)` (`01:155`) — a vectorized running mean, no loop.
+
+**The fix.**
+
+```python
+# independence: reseeding with the same seed gives IDENTICAL streams (correlated!)
+r1, r2 = np.random.default_rng(42), np.random.default_rng(42)
+same = np.corrcoef(r1.standard_normal(1000), r2.standard_normal(1000))[0, 1]
+c1, c2 = np.random.default_rng(42).spawn(2)                # independent substreams
+indep = np.corrcoef(c1.standard_normal(1000), c2.standard_normal(1000))[0, 1]
+print(f"reseed(42) twice: corr {same:.3f}   spawn(2): corr {indep:.3f}")
+
+# vectorize the reps: R Monte-Carlo runs of a 3-arm mean, all advancing together
+R, T, rates = 4000, 500, np.array([0.3, 0.5, 0.7])
+pulls = rng.random((R, T, 3)) < rates                     # (reps, time, arms) Bernoulli
+run_mean = pulls.cumsum(axis=1) / np.arange(1, T + 1)[None, :, None]  # cumsum-along-time
+final = run_mean[:, -1, :].mean(axis=0)                   # average over reps
+se = run_mean[:, -1, :].std(axis=0) / np.sqrt(R)
+print("estimated arm means:", final.round(4), "true:", rates)
+print("Monte-Carlo SE     :", se.round(4))
+```
+
+**Drill P7.5 — the parallel seed trap.** *Setup:* to run 4 independent Monte-Carlo workers you seed them `default_rng(42)`, `default_rng(43)`, `default_rng(44)`, `default_rng(45)` — different seeds, so surely independent. *Predict:* is `seed + i` a safe way to get independent streams, and how would you check? *Reason:* "different seeds means different, uncorrelated streams." *Run:*
+
+```python
+a = np.random.default_rng(42).standard_normal(100000)
+b = np.random.default_rng(43).standard_normal(100000)
+print("adjacent-seed corr:", np.corrcoef(a, b)[0, 1].round(4))
+kids = np.random.default_rng(42).spawn(2)
+print("spawn corr        :", np.corrcoef(kids[0].standard_normal(100000),
+                                         kids[1].standard_normal(100000))[0, 1].round(4))
+```
+<details><summary>Reconcile</summary>
+
+Adjacent seeds happen to look uncorrelated here (`corr ≈ 0.00`), which is exactly the trap: `seed + i` gives no *guarantee* of independence — the streams can share structure, and on some generators/seeds they overlap or correlate, understating your Monte-Carlo error with no warning. `SeedSequence.spawn()` is *designed* to produce statistically independent substreams; use it and you never have to hope. Rule: one seed at the top, `.spawn()` for parallelism.
+</details>
+
+## P7.6 Verify against a known special case — the capstone
+
+**Reflex.** A new sampler, estimator, or derivation is **guilty until it reproduces a case you can check by hand**: a conjugate closed form, a planted truth recovered from synthetic data, or a limiting regime. You run that check *first*, before the real problem.
+
+**The wall.** This is the most-used move in the course — 28 instances across every module. Module 21 prints `max|difference| = {…:.1e}` between its Kalman update and Module 05's conjugate `normal_known_var_update` (`21:79`). Module 16 sanity-checks the hierarchy by its limits, "`τ→∞` recovers no-pooling … `τ→0` recovers complete-pooling" (`16:70`). The EXAM audits an MCMC chain against the conjugate answer with `stats.kstest(mu_ch, stats.t(df, mn, mu_scale).cdf).pvalue` (`EXAM:302`) and confirms a correlated sampler's `lag-1={lag1:.4f} (theory rho^2={rho**2:.4f})` (`EXAM:321`). The pattern never varies: **build the case where you already know the answer, and refuse to trust the code until it lands there.**
+
+**The fix.** Write a Metropolis sampler for a Beta–Binomial posterior — a problem whose answer is a closed-form Beta — and put it on trial against three checks it must pass before you would ever point it at a hard target.
+
+```python
+# data: 13 successes in 40 trials, prior Beta(2,2)  ->  posterior Beta(15,29)
+n_tr, k = 40, 13
+a0, b0 = 2.0, 2.0
+a_post, b_post = a0 + k, b0 + n_tr - k
+post = stats.beta(a_post, b_post)
+
+def log_target(t):                                   # unnormalized log-posterior
+    if not (0.0 < t < 1.0):
+        return -np.inf
+    return (a_post - 1) * np.log(t) + (b_post - 1) * np.log1p(-t)  # log1p: P7.1
+
+def metropolis(n_draws, step=0.05, seed=1):
+    r = np.random.default_rng(seed)                  # its own stream: P7.5
+    th, lp = 0.5, log_target(0.5)
+    out = np.empty(n_draws)
+    for i in range(n_draws):
+        prop = th + step * r.standard_normal()
+        lp_prop = log_target(prop)
+        if np.log(r.random()) < lp_prop - lp:        # accept in log-space: P7.1
+            th, lp = prop, lp_prop
+        out[i] = th
+    return out
+
+draws = metropolis(40_000)[2000:]                    # drop burn-in
+# CHECK 1 — reproduce the conjugate mean/sd (the known special case)
+print(f"analytic  mean {post.mean():.4f}  sd {post.std():.4f}")
+print(f"sampler   mean {draws.mean():.4f}  sd {draws.std():.4f}")
+def ess(x):                                          # ACF-based effective sample size
+    x = x - x.mean(); n = len(x)
+    ac = np.correlate(x, x, "full")[n - 1:] / (x @ x)  # normalized autocorrelation
+    k = np.argmax(ac < 0.05)                          # truncate at first small lag
+    return n / (1 + 2 * ac[1:k].sum())
+n_eff = ess(draws)
+naive_se = draws.std() / np.sqrt(len(draws))         # WRONG: ignores autocorrelation
+ess_se = draws.std() / np.sqrt(n_eff)                # honest: sd/sqrt(ESS)
+print(f"|mean diff| {abs(draws.mean() - post.mean()):.4f}  "
+      f"naive-SE {naive_se:.4f}  ESS-SE {ess_se:.4f}  (ESS {n_eff:.0f} of {len(draws)})")
+# CHECK 2 — the whole distribution, not just moments: KS against Beta
+print(f"KS p-value vs Beta(15,29): {stats.kstest(draws[::10], post.cdf).pvalue:.3f}")
+# CHECK 3 — degenerate limit: flat prior Beta(1,1) -> posterior mean = MLE k/n
+a1, b1 = 1.0 + k, 1.0 + n_tr - k
+print(f"flat-prior post mean {a1/(a1+b1):.4f}  vs MLE {k/n_tr:.4f}")
+```
+
+The sampler mean sits `0.0007` from the analytic Beta mean — and here the module's own theme bites. That gap is slightly *above* the naive SE `0.0004`, which would read as a failure if you stopped there. But the naive SE divides by the raw draw count as if the draws were independent; a Metropolis chain is autocorrelated, so its effective sample size is only `2901` of `38000`, and the honest error `sd/√ESS` = `0.0013` — which the difference comfortably respects. This is Module 10's discipline in one line: report the ESS, not the draw count (P7.5). The KS p-value is comfortably above 0.05, so the *whole* distribution agrees, not just the first two moments; and under a flat prior the posterior mean moves to the rule-of-succession `0.3333` = (k+1)/(n+2), adjacent to the MLE `0.3250` = k/n. Only now has the sampler earned the right to run on a model with no closed form. Reverse the order — trust first, check never — and a transposed update or a missing Jacobian hides for weeks behind a plausible-looking number.
+
+**Drill P7.6 — is 0.60 right?** *Setup:* a colleague's Gibbs sampler for a hierarchical model reports a posterior mean of 0.60 and asks whether to believe it. *Predict:* what is the cheapest check that could catch a bug, and what would "passing" look like? *Reason:* "the number looks reasonable, and the code ran without error." *Run:*
+
+```python
+# reduce the model to its conjugate special case and compare
+true_mu = 0.35
+y = stats.bernoulli(true_mu).rvs(5000, random_state=np.random.default_rng(7))
+a1, b1 = 1 + y.sum(), 1 + (1 - y).sum()              # Beta(1,1) posterior
+print(f"planted {true_mu}  conjugate post mean {a1/(a1+b1):.4f}  "
+      f"± {stats.beta(a1,b1).std():.4f}")
+```
+<details><summary>Reconcile</summary>
+
+"Ran without error" is *not* evidence of correctness — silent bugs produce plausible numbers. The cheapest catch is to strip the model to a case with a closed form (here a Beta–Bernoulli), recover a *planted* truth, and check the sampler lands within a few standard deviations. The conjugate posterior mean is `0.3491`, tight around the planted `0.35`; a sampler reporting 0.60 on this reduced problem is *provably* broken, and you found out in five lines instead of after the paper shipped. Every number in this course is guilty until it reproduces one you already know — that is the habit the other five skills exist to protect.
+</details>
+
+## Pitfalls
+
+- **Exponentiating before subtracting the max.** `exp` of an unshifted log-weight overflows to `inf` or underflows to `0`; always `logsumexp`/subtract-max first. The max cancels from any ratio, so it costs nothing.
+- **Trusting a distribution call without a moment-check.** Rate-vs-scale, `invgamma` vs `1/Gamma`, `nbinom`'s `p` — each is a silent factor error. Print the sample mean against the analytic mean, and test *off* the symmetric point.
+- **Dropping `keepdims` on a reduction that feeds a broadcast.** `x - x.mean(axis=1)` raises or mis-broadcasts; `x.mean(axis=1, keepdims=True)` is what you meant. Predict the output shape before you run.
+- **Indexing the wrong-length array.** A per-home array gathered by county ids runs clean and lies. Assert shapes at the mouth of every likelihood; moment-check the equal-length siblings the assert can't catch.
+- **`==` on floats and un-clipped `log`.** `0.1+0.2 != 0.3`, `1e16+1 == 1e16`, and a probability that rounds to `1.0` sends `log(1-p)` to `-inf`. Use `np.isclose`, relative tolerances, and `clip` before `log`/`logit`.
+- **`seed + i` for parallel workers.** No independence guarantee; use `.spawn()`. And never trust a sampler you have not run on a case with a known answer.
+
+## Where the course uses this
+
+| Skill | Reflex | Module:line walls |
+|---|---|---|
+| Log domain (logsumexp / log1p / gammaln) | products→sums; subtract-max before `exp` | `15:69`, `10:111`, `17:262`, `21:363`, `25:262`, `EXAM:226` |
+| Parameterization trap + moment-check | numpy `scale=1/rate`; print the mean | `03:81`, `05:256`, `11:44`, `11:45`, `21:236`, `EXAM:92` |
+| Broadcasting / fancy indexing | right-align; `keepdims`; assert shapes | `14:128`, `14:329`, `16:353`, `19:141`, `20:149`, `15:174` |
+| float64 hygiene (clip, `==`, cancellation) | ~16 digits; clip before `log`; never `==` | `10:111`, `20:159`, `23:431`, `24:305`, `25:127`, `EXAM:540` |
+| Seeds + vectorize-the-reps | `default_rng`/`spawn`; `(reps, …)` arrays; cumsum-along-axis | `01:155`, `08:82`, `09:293`, `22:196`, `22:207` |
+| **Verify against a known special case** | guilty until it reproduces a known answer | `14:108`, `16:70`, `21:79`, `22:141`, `EXAM:302`, `EXAM:321` |
+
+## Takeaways
+
+- Carry probabilities as logs; leave the log domain only through `logsumexp` (max subtracted) or at the very last step. `log1p`/`expm1`/`gammaln` protect the tails.
+- Every distribution call is a convention trap until a printed moment-check clears it — and you test off the symmetric point, where a swapped convention actually changes the number.
+- Broadcasting is a shape algebra: right-align, `keepdims` on reductions, name the axis, assert shapes at each likelihood. The module-16 bug was a per-home array indexed by county ids — silent, clean, wrong.
+- float64 gives ~16 digits: never `==`, clip before `log`/`logit`, and never compute variance by `E[x²]−E[x]²`.
+- One explicit `rng`, threaded; `.spawn()` for parallel independence (never `seed + i`); turn "repeat R times" into one array op over an extra axis.
+- A new sampler is guilty until it reproduces a conjugate answer, a planted truth, or a limiting regime — this check is the most-used move in the entire course, and the safety net under every other skill here.

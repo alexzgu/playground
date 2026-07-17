@@ -15,6 +15,8 @@ Everything else — maximum likelihood, ridge, confidence intervals, cross-entro
 
 A reader with a CS/applied-math background, working Python (numpy/scipy/pandas/sklearn), undergraduate exposure to ML/DL, and a passing acquaintance with Casella–Berger-style statistics — who wants the *judgment* that normally takes years: what breaks, when, why, and which approximations are safe. See [BRIEF.md](BRIEF.md) for the full design goals.
 
+**Not sure your reflexes are ready?** [prereqs/](prereqs/) is the invisible-skills section: the micro-manipulations lecture materials use without comment (spotting a Beta kernel in θ⁹(1−θ)³, which way Jensen goes, the Jacobian price of a transform, why `gamma(2, 0.5)` is probably not the distribution you meant). Start with the 24-item diagnostic in [prereqs/P0-diagnostic.md](prereqs/P0-diagnostic.md) — it routes you to exactly the drills you need. Built from a mining of ~940 places this course itself silently uses those skills, so every drill points at the walls it removes.
+
 ## How to use it
 
 - **Read in order** (00 → 26). Later modules cite earlier printed numbers and reuse earlier code patterns; [modules/SPINE-INDEX.md](modules/SPINE-INDEX.md) is the one-page-per-module recap if you need to rejoin after a break, and [QUICKREF.md](QUICKREF.md) is the whole course on one page (formulas, constants, judgment rules, decision guide).

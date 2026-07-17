@@ -1,0 +1,24 @@
+Q1 max|posterior diff| after dropping C(n,x) = 8.9e-16
+Q2 theta^5(1-theta)^2 -> Beta(6,3), mean 6/9 = 0.6667
+Q3 Gamma(6)/Gamma(4) = 20
+Q4 P(sum>=10) = 0.1675  (analytic 6/36 = 0.1667)
+Q5 E[X] = 2.9989  (tower rule 0.3*10 = 3)
+Q6 E[1/X] = 0.3750   1/E[X] = 0.3333
+Q7 combined variance of var-2 and var-3 = 1.2000  (NOT the average 2.5)
+Q8 Laplace sd = 1/sqrt(25) = 0.2000
+Q9 SE at n=100 0.3000, at n=400 0.1500  -> ratio 2.0
+Q10 E[-log U] = 0.9975  (Y ~ Exp(1), mean 1)
+Q11 Var of norm(loc=4, scale=4) = 16.0  (scale is the SD)
+Q12 conformal k = ceil((n+1)*alpha) = 46 of n=50
+Q13 E[log X] = 0.6931   log E[X] = 0.9163
+Q14 union-bound Type-I ceiling for 20 looks at 0.01 = 0.20
+Q15 delta Var[sqrt X] = g'(4)^2 * 0.25 = 0.0156
+Q16 unit-step cost: axis1 1.00 vs axis2 0.0100  (axis 1 farther)
+Q17 det = 0.0e+00  (underflows to 0)   slogdet = -1151.3
+Q18 completing the square: mean b/A = 2.0, var 1/A = 0.3333
+Q19 logsumexp = 1000.6931   naive log(sum(exp)) = inf
+Q20 rng.gamma(3, 0.25) mean = 0.7497  (scale 0.25 -> mean 0.75, not rate-intent 12)
+Q21 (1e16 + 1 == 1e16) = True
+Q22 Laplace variance for curvature 5 = 0.2000  (exact for a Gaussian target)
+Q23 sim P(>=60 heads) = 0.0286  (analytic 0.0284)
+Q24 conjugate posterior mean = Beta(9,13) mean = 0.4091  (= 9/22)

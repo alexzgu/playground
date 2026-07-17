@@ -1,0 +1,243 @@
+# P0. Am I ready? — the predict-and-check diagnostic
+
+> **What this is.** The prereq section drills the moves lecturers make *without comment* — the algebra behind every "clearly," the reflex behind every "routine." This page is the triage: 24 questions, each demanding one committed answer.
+> **How to use it.** Read a **Q**, commit to a number/direction/choice *out loud* before running anything, then run its group's code block and read the printed answer. Score a miss whenever your commit was wrong.
+> **The one thing to know.** Module 00 of the main course assumes *nothing* from these seven sections — but every later module leans on these reflexes, so a miss here is a wall you will hit there. Fix on demand via the routing table at the bottom.
+
+Each item is **Q → run → verdict**; no teaching here — that is what P1–P7 are for. Commit before you run, or the diagnostic is worthless. Six-plus items have a naive answer that is *confidently wrong*; they are flagged ⚠ in the key.
+
+```python
+# --- setup ---
+from pathlib import Path
+import numpy as np
+import matplotlib
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
+from scipy import stats
+
+SLUG = "P0-diagnostic"
+FIG = Path("figures") / SLUG
+FIG.mkdir(parents=True, exist_ok=True)
+SEED = 0
+rng = np.random.default_rng(SEED)
+
+plt.rcParams.update({
+    "figure.figsize": (7, 4), "figure.dpi": 110, "savefig.dpi": 150,
+    "savefig.bbox": "tight", "axes.grid": True, "grid.alpha": 0.3,
+    "axes.spines.top": False, "axes.spines.right": False,
+    "font.size": 11,
+})
+
+def save(fig, name):
+    out = FIG / f"{name}.png"
+    fig.savefig(out)
+    plt.close(fig)
+    print(f"[fig] {out}")
+```
+
+## Items 1–3 — the algebra of densities
+
+**Q1.** You compute a posterior over θ from two experiments that gave the same $\theta^5(1-\theta)^2$ likelihood-in-θ but different leading binomial coefficients (120 vs 21). Do the two normalized posteriors differ? Commit yes/no.
+
+**Q2.** A density on $(0,1)$ is proportional to $\theta^{5}(1-\theta)^{2}$. Name the family and give its mean as a decimal.
+
+**Q3.** Evaluate $\Gamma(6)/\Gamma(4)$ as a whole number.
+
+```python
+# ---- items 1–3: density algebra ----
+from scipy.special import gamma as Gamma_fn
+grid = np.linspace(1e-6, 1 - 1e-6, 4000)
+normd = lambda u, g: u / np.trapezoid(u, g)
+kern = grid**5 * (1 - grid)**2                       # kernel in theta
+p_hi = normd(120.0 * kern, grid); p_lo = normd(21.0 * kern, grid)
+print(f"Q1 max|posterior diff| after dropping C(n,x) = {np.max(np.abs(p_hi - p_lo)):.1e}")
+print(f"Q2 theta^5(1-theta)^2 -> Beta(6,3), mean 6/9 = {6/9:.4f}")
+print(f"Q3 Gamma(6)/Gamma(4) = {Gamma_fn(6)/Gamma_fn(4):.0f}")
+```
+
+- **1** → `8.9e-16`: the θ-free coefficient divides out — proportionality is *in θ*, data are frozen constants. **P1.1**
+- **2** → Beta(6,3) (add 1 to each exponent), mean `0.6667` — read off, never integrated. **P1.2**
+- **3** → `20` = $5!/3!$; Γ is the factorial shifted by one. **P1.6**
+
+## Items 4–6 — expectation as an operator
+
+**Q4.** Roll two fair dice. Give $P(\text{sum}\ge 10)$ as a decimal — as the mean of a boolean.
+
+**Q5.** $N\sim\text{Poisson}(10)$, and given $N$, $X\sim\text{Binomial}(N,0.3)$. Give $\mathbb E[X]$.
+
+**Q6.** ⚠ $X$ is uniform on $\{2,4\}$. Which is larger, $\mathbb E[1/X]$ or $1/\mathbb E[X]$? Give both.
+
+```python
+# ---- items 4–6: expectation operator ----
+d1 = rng.integers(1, 7, 400_000); d2 = rng.integers(1, 7, 400_000)
+print(f"Q4 P(sum>=10) = {np.mean(d1 + d2 >= 10):.4f}  (analytic 6/36 = {6/36:.4f})")
+N = rng.poisson(10, 400_000); X = rng.binomial(N, 0.3)
+print(f"Q5 E[X] = {X.mean():.4f}  (tower rule 0.3*10 = 3)")
+xv = np.array([2.0, 4.0])
+print(f"Q6 E[1/X] = {np.mean(1/xv):.4f}   1/E[X] = {1/xv.mean():.4f}")
+```
+
+- **4** → `0.1667`: probability *is* the mean of an indicator array. **P2.1**
+- **5** → `2.9989` via $\mathbb E[\mathbb E[X\mid N]]=\mathbb E[0.3N]=3$; the tower rule, executed. **P2.4**
+- **6** ⚠ → $\mathbb E[1/X]=$ `0.3750` **exceeds** $1/\mathbb E[X]=$ `0.3333`; $1/x$ is convex so pass-through fails. **P2.6**
+
+## Items 7–9 — precision, the currency of information
+
+**Q7.** ⚠ Two independent measurements of one quantity have variances 2 and 3. Give the variance of the optimal combined estimate.
+
+**Q8.** A Gaussian log-posterior has $-\mathrm d^2/\mathrm d\theta^2\log p = 25$ at its mode. Give the posterior standard deviation.
+
+**Q9.** You have a mean estimate with a known standard error. By what factor must you multiply $n$ to *halve* that SE?
+
+```python
+# ---- items 7–9: precision ----
+print(f"Q7 combined variance of var-2 and var-3 = {1/(1/2 + 1/3):.4f}  (NOT the average 2.5)")
+print(f"Q8 Laplace sd = 1/sqrt(25) = {1/np.sqrt(25):.4f}")
+se_n, se_4n = 3/np.sqrt(100), 3/np.sqrt(400)
+print(f"Q9 SE at n=100 {se_n:.4f}, at n=400 {se_4n:.4f}  -> ratio {se_n/se_4n:.1f}")
+```
+
+- **7** ⚠ → `1.2000`, *smaller than either input*: precisions add ($1/2+1/3$), variances do not average. **P3.1**
+- **8** → `0.2000`: curvature is precision, sd $=1/\sqrt{\text{curvature}}$. **P3.3**
+- **9** → quadruple it — SE $\propto 1/\sqrt n$, so $4\times$ data gives the printed ratio `2.0`. **P3.4**
+
+## Items 10–12 — transforms, domains, and scale
+
+**Q10.** $U\sim\text{Uniform}(0,1)$ and $Y=-\log U$. What distribution is $Y$, and what is $\mathbb E[Y]$?
+
+**Q11.** ⚠ In scipy, `stats.norm(loc=4, scale=4)` — what is its **variance**?
+
+**Q12.** ⚠ A conformal band from $n=50$ calibration scores must cover $\ge 90\%$. Which order-statistic index $k=\lceil(n+1)\alpha\rceil$ do you take?
+
+```python
+# ---- items 10–12: transforms & scale ----
+Y = -np.log(rng.uniform(0, 1, 400_000))
+print(f"Q10 E[-log U] = {Y.mean():.4f}  (Y ~ Exp(1), mean 1)")
+print(f"Q11 Var of norm(loc=4, scale=4) = {stats.norm(4, 4).var():.1f}  (scale is the SD)")
+n, alpha = 50, 0.9
+print(f"Q12 conformal k = ceil((n+1)*alpha) = {int(np.ceil((n + 1) * alpha))} of n={n}")
+```
+
+- **10** → Exponential(1), $\mathbb E[Y]=$ `0.9975`; the Jacobian $|dU/dY|=e^{-Y}$ turns flat into exponential. **P4.2**
+- **11** ⚠ → `16.0`: scipy's `scale` is the standard deviation, not the variance. **P4.3**
+- **12** ⚠ → `k=46`, not 45 — the finite-sample $\lceil(n+1)\alpha\rceil$ rule, or the band undercovers. **P4.6**
+
+## Items 13–15 — bounds, tails, and approximations
+
+**Q13.** ⚠ $X$ is uniform on $\{1,4\}$. Is $\mathbb E[\log X]$ larger or smaller than $\log\mathbb E[X]$?
+
+**Q14.** You test one true null at 20 interim looks, each at level 0.01. Give the union-bound *ceiling* on the family-wise Type-I rate.
+
+**Q15.** $X\sim N(4,\,0.25)$ and $g(X)=\sqrt X$. Give the delta-method $\mathrm{Var}[\sqrt X]$.
+
+```python
+# ---- items 13–15: bounds & approximations ----
+xv = np.array([1.0, 4.0])
+print(f"Q13 E[log X] = {np.mean(np.log(xv)):.4f}   log E[X] = {np.log(xv.mean()):.4f}")
+print(f"Q14 union-bound Type-I ceiling for 20 looks at 0.01 = {20 * 0.01:.2f}")
+gp = 1 / (2 * np.sqrt(4))                              # g'(4) for sqrt
+print(f"Q15 delta Var[sqrt X] = g'(4)^2 * 0.25 = {gp**2 * 0.25:.4f}")
+```
+
+- **13** ⚠ → `0.6931` is *below* `0.9163`: log is concave, so Jensen points down. **P5.1**
+- **14** → `0.20`: $\le k\alpha$, always valid, independence-free (the truth is lower, but this is the reflex). **P5.3**
+- **15** → `0.0156` $=g'(\mu)^2\mathrm{Var}[X]$; every "≈ Gaussian" is a Taylor expansion. **P5.6**
+
+## Items 16–18 — the linear algebra you actually use
+
+**Q16.** $\Sigma=\mathrm{diag}(1,100)$. A unit step along which axis is *farther* in Mahalanobis distance from the origin?
+
+**Q17.** ⚠ A $500\times500$ covariance has every eigenvalue $=0.1$. What does `np.linalg.det` return, and what is the log-determinant?
+
+**Q18.** $\exp(-\tfrac12\cdot 3x^2 + 6x)$ is proportional to a Gaussian. Give its mean and variance.
+
+```python
+# ---- items 16–18: linear algebra ----
+Prec = np.linalg.inv(np.diag([1.0, 100.0]))
+print(f"Q16 unit-step cost: axis1 {Prec[0,0]:.2f} vs axis2 {Prec[1,1]:.4f}  (axis 1 farther)")
+M = 0.1 * np.eye(500)                                  # det = 0.1^500, below float64's 1e-308 floor
+print(f"Q17 det = {np.linalg.det(M):.1e}  (underflows to 0)   slogdet = {np.linalg.slogdet(M)[1]:.1f}")
+Aq, bq = 3.0, 6.0
+print(f"Q18 completing the square: mean b/A = {bq/Aq:.1f}, var 1/A = {1/Aq:.4f}")
+```
+
+- **16** → axis 1: $\Sigma^{-1}=\mathrm{diag}(1,0.01)$, so a small-variance direction costs `1.00` vs `0.0100`. **P6.1**
+- **17** ⚠ → `det = 0.0e+00` underflows (naive `log(det)` $=-\infty$), while `slogdet` gives `-1151.3`. **P6.2**
+- **18** → mean `2.0`, variance `0.3333`: match the quadratic to precision $A$, mean $A^{-1}b$. **P6.3**
+
+## Items 19–21 — numerical and simulation craft
+
+**Q19.** ⚠ What does `logsumexp([1000, 1000])` return, and what does naive `log(sum(exp(...)))` give?
+
+**Q20.** ⚠ You call `rng.gamma(3, 0.25)`. What is the sample mean — 0.75, or 12?
+
+**Q21.** ⚠ Is `1e16 + 1 == 1e16` True or False?
+
+```python
+# ---- items 19–21: computing craft ----
+from scipy.special import logsumexp
+with np.errstate(over="ignore"):
+    naive = np.log(np.sum(np.exp([1000.0, 1000.0])))  # overflows on purpose
+print(f"Q19 logsumexp = {logsumexp([1000.0, 1000.0]):.4f}   naive log(sum(exp)) = {naive}")
+g = rng.gamma(3.0, 0.25, 400_000)                     # numpy: (shape, SCALE=1/rate)
+print(f"Q20 rng.gamma(3, 0.25) mean = {g.mean():.4f}  (scale 0.25 -> mean 0.75, not rate-intent 12)")
+print(f"Q21 (1e16 + 1 == 1e16) = {1e16 + 1 == 1e16}")
+```
+
+- **19** ⚠ → `1000.6931` (= $1000+\log 2$); naive prints `inf` — subtract the max before `exp`. **P7.1**
+- **20** ⚠ → `0.75`: numpy's second Gamma argument is the **scale** $=1/\text{rate}$, so this is rate 4, mean 0.75 (reading 0.25 as the rate would predict 12). **P7.2**
+- **21** ⚠ → `True`: above $2^{53}$ the float64 gap exceeds 1; never `==` floats, never trust a silent counter. **P7.4**
+
+## Items 22–24 — spanning items (two sections each)
+
+**Q22.** A Gaussian log-posterior has curvature $-\ell''=5$ at its mode. Give the Laplace variance, and state whether it is *exact* here.
+
+**Q23.** Flip 100 fair coins. Give $P(\ge 60 \text{ heads})$ — by simulating the null and taking a mean of booleans.
+
+**Q24.** A new sampler targets the posterior from a Beta(1,1) prior plus 8 successes in 20 trials. What posterior mean must it reproduce to earn your trust?
+
+```python
+# ---- items 22–24: spanning ----
+print(f"Q22 Laplace variance for curvature 5 = {1/5:.4f}  (exact for a Gaussian target)")
+flips = (rng.random((200_000, 100)) < 0.5).sum(1)
+print(f"Q23 sim P(>=60 heads) = {np.mean(flips >= 60):.4f}  (analytic {stats.binom.sf(59, 100, 0.5):.4f})")
+a1, b1 = 1 + 8, 1 + (20 - 8)
+print(f"Q24 conjugate posterior mean = Beta({a1},{b1}) mean = {a1/(a1+b1):.4f}  (= 9/22)")
+```
+
+- **22** → variance `0.2000`, and *exact* — curvature = precision, and Laplace is no approximation for a Gaussian. **P3.3 × P5.6**
+- **23** → `0.0284`: probability as a mean of booleans over vectorized reps; the simulated value tracks the analytic `0.0284`. **P2.1 × P7.5**
+- **24** → `0.4091` $=9/22$: posterior updating adds sufficient statistics, and a sampler is guilty until it reproduces this known answer. **P1.3 × P7.6**
+
+## Answer key, routing, and calibration
+
+Each item maps to the section that removes its wall. Missed it → work that section.
+
+| # | Skill tested | Route | Answer | ⚠ |
+|---|---|---|---|---|
+| 1 | ∝ is *in θ*; drop θ-free constants | **P1.1** | `8.9e-16` | |
+| 2 | spot the kernel, read off the mean | **P1.2** | `0.6667` | |
+| 3 | Γ is the factorial | **P1.6** | `20` | |
+| 4 | $P(A)=$ mean of a boolean | **P2.1** | `0.1667` | |
+| 5 | tower rule executed | **P2.4** | `2.9989` | |
+| 6 | $\mathbb E[1/X]\neq 1/\mathbb E[X]$ | **P2.6** | `0.3750` > `0.3333` | ⚠ |
+| 7 | precisions add, variances don't | **P3.1** | `1.2000` | ⚠ |
+| 8 | curvature = precision | **P3.3** | `0.2000` | |
+| 9 | SE $\propto 1/\sqrt n$ | **P3.4** | ×4 (ratio `2.0`) | |
+| 10 | the Jacobian price | **P4.2** | `0.9975` (Exp 1) | |
+| 11 | scipy `scale` is the SD | **P4.3** | `16.0` | ⚠ |
+| 12 | $\lceil(n+1)\alpha\rceil$ quantile | **P4.6** | `46` | ⚠ |
+| 13 | which way Jensen goes | **P5.1** | `0.6931` < `0.9163` | ⚠ |
+| 14 | union bound | **P5.3** | `0.20` | |
+| 15 | delta method / 2nd-order Taylor | **P5.6** | `0.0156` | |
+| 16 | quadratic form = squared distance | **P6.1** | axis 1 (`1.00` vs `0.0100`) | |
+| 17 | never `log(det)`; use `slogdet` | **P6.2** | `0.0e+00` / `-1151.3` | ⚠ |
+| 18 | complete the square (matrix form) | **P6.3** | mean `2.0`, var `0.3333` | |
+| 19 | live in the log domain | **P7.1** | `1000.6931` (naive `inf`) | ⚠ |
+| 20 | rate-vs-scale trap | **P7.2** | `0.75` | ⚠ |
+| 21 | float64 is not ℝ | **P7.4** | `True` | ⚠ |
+| 22 | Laplace variance = 1/curvature | **P3.3 × P5.6** | `0.2000` | |
+| 23 | probability = mean of booleans, simulated | **P2.1 × P7.5** | `0.0284` | |
+| 24 | add sufficient stats; verify vs known | **P1.3 × P7.6** | `0.4091` | |
+
+**Calibration.** Missing **0–4**: skim the routed sections on demand. Missing **5–10**: work the routed sections before module 00. Missing **11+**: work P1–P7 in order, start to finish — the reflexes compound, and the course assumes all of them.

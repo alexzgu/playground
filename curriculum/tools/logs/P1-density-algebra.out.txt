@@ -1,0 +1,22 @@
+C(12,9)/C(11,9) = 1.3333   (the constant we dropped)
+max|post_F − post_S| = 1.33e-15   (identical posteriors)
+max|with − without| = 1.11e-16
+Beta(10,4): mean 10/14 = 0.7143,  kernel vs pdf agree to 3.1e-13
+Gamma(3, rate 5): mean 3/5 = 0.6000,  kernel vs pdf agree to 4.1e-10
+[fig] figures/P1-density-algebra/kernel-readoff.png
+kernel λ⁴e^−λ vs Gamma(5,1): agree to 3.3e-06
+suff stats: Σy = 126, n = 40  →  posterior Gamma(128, 41)
+closed-form vs brute-force grid posterior: agree to 3.2e-13
+forward (7, 5), reversed (7, 5), shuffled (7, 5)
+completed square → mean b/a = 2.0000, var 1/a = 0.5000
+numerical product posterior → mean 2.0000, var 0.5000
+posterior precision = 2.0000, variance = 0.5000, mean = 1.5000
+if σ²=1: precision = 5.0000, mean = 2.4000
+Σ(x−μ)²      = 528.7457
+n(x̄−μ)² + S  = 528.7457   (difference 2.3e-13)
+NIG rate b_n = 73.2549  = prior 3.0 + ½·scatter + ½·shrink-to-prior
+argmin μ = 5.0081 (x̄ = 5.0081),  min g = 116.2375 (S = 116.2375)
+B(a,b) = Γ(a)Γ(b)/Γ(a+b) check: 0.083333 vs 0.083333
+evidence via betaln = 0.104895,  via ∫ = 0.104895
+Γ(1/2) = 1.772454,  √π = 1.772454
+naive Γ·Γ/Γ = nan,   betaln route = 1.480e-302
