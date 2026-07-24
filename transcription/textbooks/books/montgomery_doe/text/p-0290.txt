@@ -1,0 +1,246 @@
+274
+Chapter 6 ■The 2k Factorial Design
+Box and Meyer (1986) and Myers, Montgomery and Anderson-Cook (2009). Also, in order
+for the model residuals to properly convey information about dispersion effects, the location
+model must be correctly specied. Refer to the supplemental text material for this chapter for
+more details and an example.
+E X A M P L E 6 . 5
+Duplicate Measurements on the Response
+A team of engineers at a semiconductor manufacturer ran a
+24 factorial design in a vertical oxidation furnace. Four
+wafers are “stacked” in the furnace, and the response vari-
+able of interest is the oxide thickness on the wafers. The
+four design factors are temperature (A), time (B), pressure
+(C), and gas ow (D). The experiment is conducted by
+loading four wafers into the furnace, setting the process
+variables to the test conditions required by the experimen-
+tal design, processing the wafers, and then measuring the
+oxide thickness on all four wafers. Table 6.18 presents the
+design and the resulting thickness measurements. In this
+table, the four columns labeled “Thickness” contain the
+oxide thickness measurements on each individual wafer,
+and the last two columns contain the sample average and
+sample variance of the thickness measurements on the four
+wafers in each run.
+The proper analysis of this experiment is to consider the
+individual wafer thickness measurements as duplicate
+measurements and not as replicates. If they were really
+replicates, each wafer would have been processed individ-
+ually on a single run of the furnace. However, because all
+four wafers were processed together, they received the
+treatment factors (that is, the levels of the design variables)
+simultaneously, so there is much less variability in the indi-
+vidual wafer thickness measurements than would have been
+observed if each wafer was a replicate. Therefore, the aver-
+age of the thickness measurements is the correct response
+variable to initially consider.
+Table 6.19 presents the effect estimates for this exper-
+iment, using the average oxide thickness as the response
+variable. Note that factors A and B and the AB interac-
+tion have large effects that together account for nearly 90
+y
+■TA B L E 6 . 1 8
+The Oxide Thickness Experiment
+Standard 
+Run
+Order
+Order
+A
+B
+C
+D
+Thickness
+s2
+1
+10
+1
+1
+1
+1
+378
+376
+379
+379
+378
+2
+2
+7
+1
+1
+1
+1
+415
+416
+416
+417
+416
+0.67
+3
+3
+1
+1
+1
+1
+380
+379
+382
+383
+381
+3.33
+4
+9
+1
+1
+1
+1
+450
+446
+449
+447
+448
+3.33
+5
+6
+1
+1
+1
+1
+375
+371
+373
+369
+372
+6.67
+6
+2
+1
+1
+1
+1
+391
+390
+388
+391
+390
+2
+7
+5
+1
+1
+1
+1
+384
+385
+386
+385
+385
+0.67
+8
+4
+1
+1
+1
+1
+426
+433
+430
+431
+430
+8.67
+9
+12
+1
+1
+1
+1
+381
+381
+375
+383
+380
+12.00
+10
+16
+1
+1
+1
+1
+416
+420
+412
+412
+415
+14.67
+11
+8
+1
+1
+1
+1
+371
+372
+371
+370
+371
+0.67
+12
+1
+1
+1
+1
+1
+445
+448
+443
+448
+446
+6
+13
+14
+1
+1
+1
+1
+377
+377
+379
+379
+378
+1.33
+14
+15
+1
+1
+1
+1
+391
+391
+386
+400
+392
+34
+15
+11
+1
+1
+1
+1
+375
+376
+376
+377
+376
+0.67
+16
+13
+1
+1
+1
+1
+430
+430
+428
+428
+429
+1.33 
+y

@@ -1,0 +1,87 @@
+3.3 Other Considerations in the Regression Model
+105
+−2
+−1
+0
+1
+2
+3
+4
+0
+5
+10
+20
+41
+−2
+−1
+0
+1
+2
+−2
+−1
+0
+1
+2
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+−1
+0
+1
+2
+3
+4
+5
+Leverage
+Studentized Residuals
+20
+41
+X
+Y
+X1
+X2
+FIGURE 3.13. Left: Observation 41 is a high leverage point, while 20 is not.
+The red line is the fit to all the data, and the blue line is the fit with observation
+41 removed. Center: The red observation is not unusual in terms of its X1 value
+or its X2 value, but still falls outside the bulk of the data, and hence has high
+leverage. Right: Observation 41 has a high leverage and a high residual.
+panel of Figure 3.13 has high leverage, in that the predictor value for this
+observation is large relative to the other observations. (Note that the data
+displayed in Figure 3.13 are the same as the data displayed in Figure 3.12,
+but with the addition of a single high leverage observation.) The red solid
+line is the least squares fit to the data, while the blue dashed line is the
+fit produced when observation 41 is removed. Comparing the left-hand
+panels of Figures 3.12 and 3.13, we observe that removing the high leverage
+observation has a much more substantial impact on the least squares line
+than removing the outlier. In fact, high leverage observations tend to have
+a sizable impact on the estimated regression line. It is cause for concern if
+the least squares line is heavily affected by just a couple of observations,
+because any problems with these points may invalidate the entire fit. For
+this reason, it is important to identify high leverage observations.
+In a simple linear regression, high leverage observations are fairly easy to
+identify, since we can simply look for observations for which the predictor
+value is outside of the normal range of the observations. But in a multiple
+linear regression with many predictors, it is possible to have an observation
+that is well within the range of each individual predictor’s values, but that
+is unusual in terms of the full set of predictors. An example is shown in
+the center panel of Figure 3.13, for a data set with two predictors, X1 and
+X2. Most of the observations’ predictor values fall within the blue dashed
+ellipse, but the red observation is well outside of this range. But neither its
+value for X1 nor its value for X2 is unusual. So if we examine just X1 or
+just X2, we will fail to notice this high leverage point. This problem is more
+pronounced in multiple regression settings with more than two predictors,
+because then there is no simple way to plot all dimensions of the data
+simultaneously.
+In order to quantify an observation’s leverage, we compute the leverage
+statistic. A large value of this statistic indicates an observation with high leverage
+statistic
+leverage. For a simple linear regression,
+hi = 1
+n +
+(xi −¯x)2
+)n
+i′=1(xi′ −¯x)2 .
+(3.37)

@@ -1,0 +1,48 @@
+7.9 Exercises
+325
+age,
+frac=span,
+xvals=age_grid)
+ax.plot(age_grid,
+fitted,
+label='{:.1f}'.format(span),
+linewidth=4)
+ax.set_xlabel('Age', fontsize=20)
+ax.set_ylabel('Wage', fontsize=20);
+ax.legend(title='span', fontsize=15);
+7.9
+Exercises
+Conceptual
+1. It was mentioned in this chapter that a cubic regression spline with
+one knot at ξ can be obtained using a basis of the form x, x2, x3,
+(x −ξ)3
++, where (x −ξ)3
++ = (x −ξ)3 if x > ξ and equals 0 otherwise.
+We will now show that a function of the form
+f(x) = β0 + β1x + β2x2 + β3x3 + β4(x −ξ)3
++
+is indeed a cubic regression spline, regardless of the values of β0, β1, β2,
+β3, β4.
+(a) Find a cubic polynomial
+f1(x) = a1 + b1x + c1x2 + d1x3
+such that f(x) = f1(x) for all x ≤ξ. Express a1, b1, c1, d1 in
+terms of β0, β1, β2, β3, β4.
+(b) Find a cubic polynomial
+f2(x) = a2 + b2x + c2x2 + d2x3
+such that f(x) = f2(x) for all x > ξ. Express a2, b2, c2, d2 in
+terms of β0, β1, β2, β3, β4. We have now established that f(x) is
+a piecewise polynomial.
+(c) Show that f1(ξ) = f2(ξ). That is, f(x) is continuous at ξ.
+(d) Show that f ′
+1(ξ) = f ′
+2(ξ). That is, f ′(x) is continuous at ξ.
+(e) Show that f ′′
+1 (ξ) = f ′′
+2 (ξ). That is, f ′′(x) is continuous at ξ.
+Therefore, f(x) is indeed a cubic spline.
+Hint: Parts (d) and (e) of this problem require knowledge of single-
+variable calculus. As a reminder, given a cubic polynomial
+f1(x) = a1 + b1x + c1x2 + d1x3,
+the first derivative takes the form
+f ′
+1(x) = b1 + 2c1x + 3d1x2

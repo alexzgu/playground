@@ -1,0 +1,101 @@
+404
+10. Deep Learning
+X1
+X2
+X3
+X4
+X5
+X6
+...
+Xp
+A(1)
+1
+A(1)
+2
+A(1)
+3
+A(1)
+4
+...
+A(1)
+K1
+A(2)
+1
+A(2)
+2
+A(2)
+3
+...
+A(2)
+K2
+f0(X)
+Y0
+f1(X)
+Y1
+...
+...
+f9(X)
+Y9
+Hidden
+layer L2
+Hidden
+layer L1
+Input
+layer
+Output
+layer
+W1
+W2
+B
+FIGURE 10.4. Neural network diagram with two hidden layers and multiple
+outputs, suitable for the MNIST handwritten-digit problem. The input layer has
+p = 784 units, the two hidden layers K1 = 256 and K2 = 128 units respectively,
+and the output layer 10 units. Along with intercepts (referred to as biases in the
+deep-learning community) this network has 235,146 parameters (referred to as
+weights).
+The first hidden layer is as in (10.2), with
+A(1)
+k
+=
+h(1)
+k (X)
+=
+g(w(1)
+k0 + )p
+j=1 w(1)
+kj Xj)
+(10.10)
+for k = 1, . . . , K1. The second hidden layer treats the activations A(1)
+k
+of
+the first hidden layer as inputs and computes new activations
+A(2)
+ℓ
+=
+h(2)
+ℓ(X)
+=
+g(w(2)
+ℓ0 + )K1
+k=1 w(2)
+ℓk A(1)
+k )
+(10.11)
+for ℓ= 1, . . . , K2. Notice that each of the activations in the second layer
+A(2)
+ℓ
+= h(2)
+ℓ(X) is a function of the input vector X. This is the case because
+while they are explicitly a function of the activations A(1)
+k
+from layer L1,
+these in turn are functions of X. This would also be the case with more
+hidden layers. Thus, through a chain of transformations, the network is
+able to build up fairly complex transformations of X that ultimately feed
+into the output layer as features.
+We have introduced additional superscript notation such as h(2)
+ℓ(X) and
+w(2)
+ℓj
+in (10.10) and (10.11) to indicate to which layer the activations and
+weights (coefficients) belong, in this case layer 2. The notation W1 in Fig- weights

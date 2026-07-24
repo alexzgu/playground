@@ -1,0 +1,109 @@
+2.8. QUADRATIC VARIATION
+63
+2.8
+Quadratic variation
+In the next chapter we will come across quantities such as
+Qn =
+n
+
+j=1
+
+B
+j
+n
+
+−B
+j −1
+n
+2
+,
+where Bt is a standard Brownian motion. We can write Qn as
+1
+n
+n
+
+j=1
+Yj,
+where
+Yj = Yj,n =
+
+B
+j
+n
+
+−B
+j−1
+n
+
+1√n
+2
+
+The random variables Y1, , Yn are independent, each with the distribution
+of Z2 where Z is a standard normal. In particular,
+E [Yj] = E
+
+Z2
+= 1,
+E
+
+Y 2
+j
+
+= E
+
+Z4
+= 3
+(One can use integration by parts to calculate E [Z4] or one could just look
+it up somewhere.) Hence Var[Yj] = E
+
+Y 2
+j
+
+−E [Yj]2 = 2, and
+E [Qn] = 1
+n
+n
+
+j=1
+E [Yj] = 1,
+Var [Qn] = 1
+n2
+n
+
+j=1
+Var [Yj] = 2
+n
+As n →∞, the variance of Qn tends to zero and the random variable ap-
+proaches a constant random variable of 1.
+Similarly, for any time t, we let
+Qn(t) =
+
+j≤tn
+
+B
+j
+n
+
+−B
+j −1
+n
+2
+
+As n →∞, the variance of Qn(t) goes to zero and it approaches a constant
+random variable with value t.
+Denition If Xt is a process, the is dened by
+⟨X⟩t = lim
+n∞
+
+j≤tn
+
+X
+j
+n
+
+−X
+j −1
+n
+2
+,
+where the sum is over all j with jn ≤t.

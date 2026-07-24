@@ -1,0 +1,256 @@
+296
+Chapter 6 ■The 2k Factorial Design
+6.21.
+I am always interested in improving my golf scores.
+Since a typical golfer uses the putter for about 35–45 percent
+of his or her strokes, it seems reasonable that improving one’s
+putting is a logical and perhaps simple way to improve a golf
+score (“The man who can putt is a match for any man.”—
+Willie Parks, 1864–1925, two time winner of the British
+Open). An experiment was conducted to study the effects of
+four factors on putting accuracy. The design factors are length
+of putt, type of putter, breaking putt versus straight putt, and
+level versus downhill putt. The response variable is distance
+from the ball to the center of the cup after the ball comes to
+rest. One golfer performs the experiment, a 24 factorial design
+with seven replicates was used, and all putts are made in ran-
+dom order. The results are shown in Table P6.4.
+■TA B L E P 6 . 4
+The Putting Experiment from Problem 6.21
+Design Factors
+Distance from Cup (replicates)
+Length of 
+Break 
+Slope 
+putt (ft)
+Type of putter
+of putt
+of putt
+1
+2
+3
+4
+5
+6
+7
+10
+Mallet
+Straight
+Level
+10.0
+18.0
+14.0
+12.5
+19.0
+16.0
+18.5
+30
+Mallet
+Straight
+Level
+0.0
+16.5
+4.5
+17.5
+20.5
+17.5
+33.0
+10
+Cavity back
+Straight
+Level
+4.0
+6.0
+1.0
+14.5
+12.0
+14.0
+5.0
+30
+Cavity back
+Straight
+Level
+0.0
+10.0
+34.0
+11.0
+25.5
+21.5
+0.0
+10
+Mallet
+Breaking
+Level
+0.0
+0.0
+18.5
+19.5
+16.0
+15.0
+11.0
+30
+Mallet
+Breaking
+Level
+5.0
+20.5
+18.0
+20.0
+29.5
+19.0
+10.0
+10
+Cavity back
+Breaking
+Level
+6.5
+18.5
+7.5
+6.0
+0.0
+10.0
+0.0
+30
+Cavity back
+Breaking
+Level
+16.5
+4.5
+0.0
+23.5
+8.0
+8.0
+8.0
+10
+Mallet
+Straight
+Downhill
+4.5
+18.0
+14.5
+10.0
+0.0
+17.5
+6.0
+30
+Mallet
+Straight
+Downhill
+19.5
+18.0
+16.0
+5.5
+10.0
+7.0
+36.0
+10
+Cavity back
+Straight
+Downhill
+15.0
+16.0
+8.5
+0.0
+0.5
+9.0
+3.0
+30
+Cavity back
+Straight
+Downhill
+41.5
+39.0
+6.5
+3.5
+7.0
+8.5
+36.0
+10
+Mallet
+Breaking
+Downhill
+8.0
+4.5
+6.5
+10.0
+13.0
+41.0
+14.0
+30
+Mallet
+Breaking
+Downhill
+21.5
+10.5
+6.5
+0.0
+15.5
+24.0
+16.0
+10
+Cavity back
+Breaking
+Downhill
+0.0
+0.0
+0.0
+4.5
+1.0
+4.0
+6.5
+30
+Cavity back
+Breaking
+Downhill
+18.0
+5.0
+7.0
+10.0
+32.5
+18.5
+8.0 
+(a) Analyze the data from this experiment. Which factors
+signicantly affect putting performance?
+(b) Analyze the residuals from this experiment. Are there
+any indications of model inadequacy?
+6.22.
+Semiconductor manufacturing processes have long
+and complex assembly ows, so matrix marks and automated
+2d-matrix readers are used at several process steps throughout
+factories. Unreadable matrix marks negatively affect factory
+run rates because manual entry of part data is required before
+manufacturing can resume. A 24 factorial experiment was con-
+ducted to develop a 2d-matrix laser mark on a metal cover that
+protects a substrate-mounted die. The design factors are A 
+laser power (9 and 13 W), B  laser pulse frequency (4000 and
+12,000 Hz), C  matrix cell size (0.07 and 0.12 in.), and D 
+writing speed (10 and 20 in./sec), and the response variable is
+the unused error correction (UEC). This is a measure of the
+unused portion of the redundant information embedded in the
+2d-matrix. A UEC of 0 represents the lowest reading that still
+results in a decodable matrix, while a value of 1 is the highest
+reading. A DMX Verier was used to measure UEC. The data
+from this experiment are shown in Table P6.5.
+(a) Analyze the data from this experiment. Which factors
+signicantly affect UEC?
+(b) Analyze the residuals from this experiment. Are there
+any indications of model inadequacy?
+6.23.
+Reconsider the experiment described in Problem 6.20.
+Suppose that four center points are available and that the UEC
+response at these four runs is 0.98, 0.95, 0.93, and 0.96, respec-
+tively. Reanalyze the experiment incorporating a test for curva-
+ture into the analysis. What conclusions can you draw? What
+recommendations would you make to the experimenters?
+6.24.
+A company markets its products by direct mail. An
+experiment was conducted to study the effects of three factors
+on the customer response rate for a particular product. The three
+factors are A  type of mail used (3rd class, 1st class), B  type
+of descriptive brochure (color, black-and-white), and C 
+offered price ($19.95, $24.95). The mailings are made to two
+groups of 8000 randomly selected customers, with 1000 cus-
+tomers in each group receiving each treatment combination.
+Each group of customers is considered as a replicate. The
+response variable is the number of orders placed. The experi-
+mental data are shown in Table P6.6.

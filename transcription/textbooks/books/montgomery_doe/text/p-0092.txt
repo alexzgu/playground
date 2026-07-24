@@ -1,0 +1,67 @@
+76
+Chapter 3 ■Experiments with a Single Factor: The Analysis of Variance
+can compute the F ratio F0 22,290.18/333.70 66.80
+and compare this to an appropriate upper-tail percentage
+point of the F3,16 distribution. To use a fixed significance
+level approach, suppose that the experimenter has select-
+ed 0.05. From Appendix Table IV we find that
+F0.05,3,16 3.24. Because F0 66.80 3.24, we reject
+H0 and conclude that the treatment means differ; that is,
+the RF power setting significantly affects the mean etch
+■TA B L E 3 . 4
+ANOVA for the Plasma Etching Experiment
+Sum of 
+Degrees of
+Mean
+Source of Variation
+Squares
+Freedom
+Square
+F0
+P-Value
+RF Power
+66,870.55
+3
+22,290.18
+F0 66.80
+0.01
+Error
+5339.20
+16
+333.70
+Total
+72,209.75
+19 
+rate. We could also compute a P-value for this test statis-
+tic. Figure 3.3 shows the reference distribution (F3,16) for
+the test statistic F0. Clearly, the P-value is very small in
+this case. From Appendix Table A-4, we find that F0.01,3,16
+5.29 and because F0 5.29, we can conclude that an
+upper bound for the P-value is 0.01; that is, P 0.01 (the
+exact P-value is P 2.88 109).
+0.8
+0.6
+0.4
+0.2
+0
+0
+4
+8
+12
+66
+70
+Probability density
+F0 = 66.80
+F0
+F0.01,3,16
+F0.05,3,16
+■F I G U R E 3 . 3
+The reference distribution (F3,16) for
+the test statistic F0 in Example 3.1
+Coding the Data. Generally, we need not be too concerned with computing because
+there are many widely available computer programs for performing the calculations. These
+computer programs are also helpful in performing many other analyses associated with exper-
+imental design (such as residual analysis and model adequacy checking). In many cases, these
+programs will also assist the experimenter in setting up the design.
+However, when hand calculations are necessary, it is sometimes helpful to code the
+observations. This is illustrated in the next example.

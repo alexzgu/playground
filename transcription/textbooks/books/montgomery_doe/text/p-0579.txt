@@ -1,0 +1,80 @@
+12.4 Combined Array Designs and the Response Model Approach
+563
+design, the 24 factorial design used in this experiment is an
+example of a combined array design.
+Using the results from Example 6.2, the response model is
+Using Equations (12.5) and (12.6), we can nd the mean
+and variance models as
+and
+195.88x2 179.66x3 150.58x2x3) 2
+2
+z(116.91 82.08x2
+2 69.06x2
+3
+Vz[y(x, z1)] 2
+z(10.81 9.06x2 8.31x3)2 2
+Ez[y(x, z1)] 70.06 4.94x2 7.31x3
+9.06x2z1 8.31x3z1
+ 70.06 10.81z1 4.94x2 7.31x3
+
+18.125
+2 x2z1 
+16.625
+2 x3z1
+
+9.875
+2 x2 
+14.625
+2 x3
+yˆ(x, z1)  70.06 
+21.625
+2 z1
+respectively. Now assume that the low and high levels of
+the noise variable temperature have been run at one stan-
+dard deviation on either side of its typical or average value,
+so that 
+and use 
+(this is the residual
+mean square obtained by tting the response model).
+Therefore, the variance model becomes
+Figure 12.7 presents a contour plot from the Design-Expert
+software package of the response contours from the mean
+model. To construct this plot, we held the noise factor (temper-
+ature) at zero and the nonsignicant controllable factor (pres-
+sure) at zero. Notice that mean ltration rate increases as both
+concentration and stirring rate increase. Design-Expert will
+also automatically construct plots of the square root of the
+variance contours, which it labels propagation of error, or
+POE. Obviously, the POE is just the standard deviation of the
+transmitted variability in the response as a function of the con-
+trollable variables. Figure 12.8 shows a contour plot and a
+three-dimensional response surface plot of the POE, obtained
+from Design-Expert. (In this plot, the noise variable is held
+constant at zero, as explained previously.)
+150.58x2x3 82.08x2
+2 69.06x2
+3
+Vz[y(x, z1)] 136.42 195.88x2 179.66x3
+ˆ 2 19.51
+2
+z 1
+1.000
+0.500
+0.000
+–0.500
+–1.000
+–1.000
+–0.500
+0.000
+x3 = Strirring rate
+x2 = Concentration
+0.500
+1.000
+60
+65
+70
+75
+80
+■F I G U R E 1 2 . 7
+Contours of constant mean ﬁltration rate,
+Example 12.1, with x1 temperature 0

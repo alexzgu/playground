@@ -1,0 +1,145 @@
+326
+Chapter 8 ■Two-Level Fractional Factorial Designs
+interaction is aliased with another two-factor interaction.
+These alias relationships are AB CD, AC BD, and 
+BC AD. The four main effects plus the three two-factor
+interaction alias pairs account for the seven degrees of free-
+dom for the design.
+At this point, we would normally randomize the eight
+runs and perform the experiment. Because we have already
+run the full 24 design, we will simply select the eight
+observed ltration rates from Example 6.2 that correspond
+to the runs in the 
+design. These observations are shown
+in the last column of Table 8.3 as well as in Figure 8.3.
+The estimates of the effects obtained from this 
+design are shown in Table 8.4. To illustrate the calculations,
+the linear combination of observations associated with the
+A effect is
+whereas for the AB effect, we would obtain
+1.00 l AB CD
+[AB] 
+1
+4 (45 100 45 65 75 60 80 96)
+60 80 96) 19.00 l A BCD
+[A] 
+1
+4 (45 100 45 65 75
+241
+IV
+241
+IV
+From inspection of the information in Table 8.4, it is not
+unreasonable to conclude that the main effects A, C, and D
+are large. The AB CD alias chain has a small estimate, so
+the simplest interpretation is that both the AB and CD inter-
+actions are negligible (otherwise, both AB and CD are large,
+but they have nearly identical magnitudes and opposite
+signs—this is fairly unlikely). Furthermore, if A, C, and D
+are the important main effects, then it is logical to conclude
+that the two interaction alias chains AC BD and AD BC
+have large effects because the AC and AD interactions are
+also signicant. In other words, if A, C, and D are signicant
+then the signicant interactions are most likely AC and AD.
+This is an application of Ockham’s razor (after William of
+Ockham), a scientic principle that when one is confronted
+with several different possible interpretations of a phenom-
+ena, the simplest interpretation is usually the correct one.
+Note that this interpretation agrees with the conclusions
+from the analysis of the complete 24 design in Example 6.2.
+Another way to view this interpretation is from the
+standpoint of effect heredity. Suppose that AB is signi-
+cant and that both main effects A and B are signicant.
+This is called strong heredity, and it is the usual situation
+(if an intraction is signicant and only one of the main
+■TA B L E 8 . 3
+The 
+Design with the Deﬁning Relation I ABCD
+Basic Design
+Treatment
+Filtration
+Run
+A
+B
+C
+D ABC
+Combination
+Rate
+1
+
+
+
+
+(1)
+45
+2
+
+
+
+
+ad
+100
+3
+
+
+
+
+bd
+45
+4
+
+
+
+
+ab
+65
+5
+
+
+
+
+cd
+75
+6
+
+
+
+
+ac
+60
+7
+
+
+
+
+bc
+80
+8
+
+
+
+
+abcd
+96
+241
+IV
+(1) = 45 
+abcd = 96
+B
+C
+A
+ab = 65
+bc = 80
+–
++
+D
+ac = 60
+cd = 75
+ad = 100
+bd = 45
+■F I G U R E 8 . 3
+The
+design for the ﬁltration rate
+experiment of Example 8.1
+241
+IV

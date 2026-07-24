@@ -1,0 +1,163 @@
+E X A M P L E 1 0 . 2
+Regression Analysis of a 23 Factorial Design
+A chemical engineer is investigating the yield of a process.
+Three process variables are of interest: temperature, pres-
+sure, and catalyst concentration. Each variable can be run at
+a low and a high level, and the engineer decides to run a 23
+design with four center points. The design and the resulting
+yields are shown in Figure 10.5, where we have shown both
+the natural levels of the design factor and the 1, 1 coded
+variable notation normally employed in 2k factorial designs
+to represent the factor levels.
+Suppose that the engineer decides to t a main effects
+only model, say
+For this model the X matrix and y vector are
+1
+0
+0
+0
+53
+1
+0
+0
+0
+56
+The 23 is an orthogonal design, and even with the added
+center runs it is still orthogonal. Therefore
+XX 
+12
+0
+0
+0
+0
+8
+0
+0
+0
+0
+8
+0
+0
+0
+0
+8
+ and Xy 
+612
+45
+85
+9
+X 
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+0
+0
+1
+1
+1
+1
+1
+1
+1
+1
+0
+0
+1
+1
+1
+1
+1
+1
+1
+1
+0
+0
+ 
+y 
+32
+46
+57
+65
+36
+48
+57
+68
+50
+44
+y 0 1x1 2x2 3x3 
+Because the design is orthogonal, the XX matrix is
+diagonal, the required inverse is also diagonal, and the
+vector of least squares estimates of the regression coeffi-
+cients is
+The tted regression model is
+As we have made use of on many occasions, the regression
+coefcients are closely connected to the effect estimates
+that would be obtained from the usual analysis of a 23
+design. For example, the effect of temperature is (refer to
+Figure 10.5)
+Notice that the regression coefcient for x1 is
+That is, the regression coefcient is exactly one-half the usual
+effect estimate. This will always be true for a 2k design. As
+noted above, we used this result in Chapters 6 through 8 to
+produce regression models, tted values, and residuals for
+several two-level experiments. This example demonstrates
+(11.25)/2 5.625
+56.75 45.50 11.25
+T yT yT 
+yˆ 51.000 5.625x1 10.625x2 1.125x3
+
+51.000
+5.625
+10.625
+1.125
+&ˆ (XX)1Xy 
+1/12
+0
+0
+0
+0
+1/8
+0
+0
+0
+0
+1/8
+0
+0
+0
+0
+1/8
+612
+45
+85
+9
+10.3 Estimation of the Parameters in Linear Regression Models
+457
+Using the Computer. Regression model tting is almost always done using a statis-
+tical software package, such as Minitab or JMP. Table 10.4 shows some of the output obtained
+when Minitab is used to t the viscosity regression model in Example 10.1. Many of the quan-
+tities in this output should be familiar because they have similar meanings to the quantities in
+the output displays for computer analysis of data from designed experiments. We have seen
+many such computer outputs previously in the book. In subsequent sections, we will discuss
+the analysis of variance and t-test information in Table 10.4 in detail and will show exactly
+how these quantities were computed.
+Fitting Regression Models in Designed Experiments. We have often used a
+regression model to present the results of a designed experiment in a quantitative form. We
+now give a complete illustrative example. This is followed by three other brief examples
+that illustrative other useful applications of regression analysis in designed experiments.
+and

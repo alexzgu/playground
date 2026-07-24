@@ -1,0 +1,91 @@
+482
+11. Survival Analysis and Censored Data
+11.5.3
+Example: Brain Cancer Data
+Table 11.2 shows the result of fitting the proportional hazards model to
+the BrainCancer data, which was originally described in Section 11.3. The
+coefficient column displays ˆβj. The results indicate, for instance, that the
+estimated hazard for a male patient is e0.18 = 1.2 times greater than for
+a female patient: in other words, with all other features held fixed, males
+have a 1.2 times greater chance of dying than females, at any point in time.
+However, the p-value is 0.61, which indicates that this difference between
+males and females is not significant.
+As another example, we also see that each one-unit increase in the
+Karnofsky index corresponds to a multiplier of exp(−0.05) = 0.95 in the
+instantaneous chance of dying. In other words, the higher the Karnofsky
+index, the lower the chance of dying at any given point in time. This effect
+is highly significant, with a p-value of 0.0027.
+Coefficient
+Std. error
+z-statistic
+p-value
+sex[Male]
+0.18
+0.36
+0.51
+0.61
+diagnosis[LG Glioma]
+0.92
+0.64
+1.43
+0.15
+diagnosis[HG Glioma]
+2.15
+0.45
+4.78
+0.00
+diagnosis[Other]
+0.89
+0.66
+1.35
+0.18
+loc[Supratentorial]
+0.44
+0.70
+0.63
+0.53
+ki
+-0.05
+0.02
+-3.00
+<0.01
+gtv
+0.03
+0.02
+1.54
+0.12
+stereo[SRT]
+0.18
+0.60
+0.30
+0.77
+TABLE
+11.2. Results
+for
+Cox’s
+proportional
+hazards
+model
+fit
+to
+the
+BrainCancer data, which was first described in Section 11.3. The variable
+diagnosis is qualitative with four levels: meningioma, LG glioma, HG glioma,
+or other. The variables sex, loc, and stereo are binary.
+11.5.4
+Example: Publication Data
+Next, we consider the dataset Publication involving the time to publica-
+tion of journal papers reporting the results of clinical trials funded by the
+National Heart, Lung, and Blood Institute.14 For 244 trials, the time in
+months until publication is recorded. Of the 244 trials, only 156 were pub-
+lished during the study period; the remaining studies were censored. The
+covariates include whether the trial focused on a clinical endpoint (clinend),
+whether the trial involved multiple centers (multi), the funding mechanism
+within the National Institutes of Health (mech), trial sample size (sampsize),
+budget (budget), impact (impact, related to the number of citations), and
+whether the trial produced a positive (significant) result (posres). The last
+covariate is particularly interesting, as a number of studies have suggested
+that positive trials have a higher publication rate.
+14This dataset is described in the following paper: Gordon et al. (2013) Publication of
+trials funded by the National Heart, Lung, and Blood Institute. New England Journal
+of Medicine, 369(20):1926–1934.

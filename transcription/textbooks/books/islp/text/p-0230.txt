@@ -1,0 +1,50 @@
+222
+5. Resampling Methods
+estimates for β0 and β1, the intercept and slope terms for the linear regres-
+sion model that uses horsepower to predict mpg in the Auto data set. We
+will compare the estimates obtained using the bootstrap to those obtained
+using the formulas for SE(ˆβ0) and SE(ˆβ1) described in Section 3.1.2.
+To use our boot_SE() function, we must write a function (its first argu-
+ment) that takes a data frame D and indices idx as its only arguments. But
+here we want to bootstrap a specific regression model, specified by a model
+formula and data. We show how to do this in a few simple steps.
+We start by writing a generic function boot_OLS() for bootstrapping a
+regression model that takes a formula to define the corresponding regres-
+sion. We use the clone() function to make a copy of the formula that can clone()
+be refit to the new dataframe. This means that any derived features such
+as those defined by poly() (which we will see shortly), will be re-fit on the
+resampled data frame.
+In [20]: def boot_OLS(model_matrix , response, D, idx):
+D_ = D.loc[idx]
+Y_ = D_[response]
+X_ = clone(model_matrix).fit_transform(D_)
+return sm.OLS(Y_, X_).fit().params
+This is not quite what is needed as the first argument to boot_SE(). The first
+two arguments which specify the model will not change in the bootstrap
+process, and we would like to freeze them. The function partial() from the partial()
+functools module does precisely this: it takes a function as an argument,
+and freezes some of its arguments, starting from the left. We use it to freeze
+the first two model-formula arguments of boot_OLS().
+In [21]: hp_func = partial(boot_OLS, MS(['horsepower']), 'mpg')
+Typing hp_func? will show that it has two arguments D and idx — it is a
+version of boot_OLS() with the first two arguments frozen — and hence is
+ideal as the first argument for boot_SE().
+The hp_func() function can now be used in order to create bootstrap
+estimates for the intercept and slope terms by randomly sampling from
+among the observations with replacement. We first demonstrate its utility
+on 10 bootstrap samples.
+In [22]: rng = np.random.default_rng(0)
+np.array([hp_func(Auto,
+rng.choice(392,
+392,
+replace=True)) for _ in range(10)])
+Out[22]: array([[39.8806, -0.1568],
+[38.733 , -0.147 ],
+[38.3173, -0.1444],
+[39.9145, -0.1578],
+[39.4335, -0.1507],
+[40.3663, -0.1591],
+[39.6233, -0.1545],
+[39.0581, -0.1495],
+[38.6669, -0.1452],
+[39.6428, -0.1556]])

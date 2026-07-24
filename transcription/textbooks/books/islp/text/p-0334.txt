@@ -1,0 +1,69 @@
+326
+7. Moving Beyond Linearity
+and the second derivative takes the form
+f ′′
+1 (x) = 2c1 + 6d1x.
+2. Suppose that a curve ˆg is computed to smoothly fit a set of n points
+using the following formula:
+ˆg = arg min
+g
+> n
+0
+i=1
+(yi −g(xi))2 + λ
+L 7
+g(m)(x)
+82
+dx
+?
+,
+where g(m) represents the mth derivative of g (and g(0) = g). Provide
+example sketches of ˆg in each of the following scenarios.
+(a) λ = ∞, m = 0.
+(b) λ = ∞, m = 1.
+(c) λ = ∞, m = 2.
+(d) λ = ∞, m = 3.
+(e) λ = 0, m = 3.
+3. Suppose we fit a curve with basis functions b1(X) = X, b2(X) =
+(X −1)2I(X ≥1). (Note that I(X ≥1) equals 1 for X ≥1 and 0
+otherwise.) We fit the linear regression model
+Y = β0 + β1b1(X) + β2b2(X) + ϵ,
+and obtain coefficient estimates ˆβ0 = 1, ˆβ1 = 1, ˆβ2 = −2. Sketch the
+estimated curve between X = −2 and X = 2. Note the intercepts,
+slopes, and other relevant information.
+4. Suppose we fit a curve with basis functions b1(X) = I(0 ≤X ≤2) −
+(X −1)I(1 ≤X ≤2), b2(X) = (X −3)I(3 ≤X ≤4)+I(4 < X ≤5).
+We fit the linear regression model
+Y = β0 + β1b1(X) + β2b2(X) + ϵ,
+and obtain coefficient estimates ˆβ0 = 1, ˆβ1 = 1, ˆβ2 = 3. Sketch the
+estimated curve between X = −2 and X = 6. Note the intercepts,
+slopes, and other relevant information.
+5. Consider two curves, ˆg1 and ˆg2, defined by
+ˆg1 = arg min
+g
+> n
+0
+i=1
+(yi −g(xi))2 + λ
+L 7
+g(3)(x)
+82
+dx
+?
+,
+ˆg2 = arg min
+g
+> n
+0
+i=1
+(yi −g(xi))2 + λ
+L 7
+g(4)(x)
+82
+dx
+?
+,
+where g(m) represents the mth derivative of g.
+(a) As λ →∞, will ˆg1 or ˆg2 have the smaller training RSS?
+(b) As λ →∞, will ˆg1 or ˆg2 have the smaller test RSS?
+(c) For λ = 0, will ˆg1 or ˆg2 have the smaller training and test RSS?

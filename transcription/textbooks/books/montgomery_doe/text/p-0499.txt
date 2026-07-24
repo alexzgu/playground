@@ -1,0 +1,110 @@
+11.2 The Method of Steepest Ascent
+483
+Comparing SSInteraction to 
+gives a lack-of-t statistic
+which is small, indicating that interaction is negligible.
+Another check of the adequacy of the straight-line model is obtained by applying the check for a pure quadratic curva-
+ture effect described in Section 6.8. Recall that this consists of comparing the average response at the four points in the facto-
+rial portion of the design, say 
+40.425, with the average response at the design center, say 
+40.46. If there is quad-
+ratic curvature in the true response function, then 
+is a measure of this curvature. If 11 and 22 are the coefcients
+of the “pure quadratic” terms 
+and , then 
+is an estimate of 11 22. In our example, an estimate of the pure quad-
+ratic term is
+The single-degree-of-freedom sum of squares associated with the null hypothesis, H0: 1122 0, is
+where nF and nC are the number of points in the factorial portion and the number of center points, respectively. Because
+is small, there is no indication of a pure quadratic effect.
+The analysis of variance for this model is summarized in Table 11.2. Both the interaction and curvature checks are not
+signicant, whereas the F test for the overall regression is signicant. Furthermore, the standard error of 
+and 
+is
+Both regression coefcients 
+and 
+are large relative to their standard errors. At this point, we have no reason to question
+the adequacy of the rst-order model.
+To move away from the design center—the point (x1 0, x2 0)—along the path of steepest ascent, we would move
+0.775 units in the x1 direction for every 0.325 units in the x2 direction. Thus, the path of steepest ascent passes through the
+point (x1 0, x2 0) and has a slope 0.325/0.775. The engineer decides to use 5 minutes of reaction time as the basic step
+size. Using the relationship between 1 and x1, we see that 5 minutes of reaction time is equivalent to a step in the coded
+variable x1 of x1 1. Therefore, the steps along the path of steepest ascent are x1 1.0000 and x2 (0.325/0.775)
+ 0.42.
+ˆ 2
+ˆ 1
+se(ˆ i) 
+MSE
+4
+
+ˆ 2
+4 
+0.0430
+4
+0.10 
+ i 1, 2
+ˆ 2
+ˆ 1
+F 
+SSPure Quadratic
+ˆ 2
+0.0027
+0.0430 0.063
+SSPure Quadratic nFnC(yF yC)2
+nF nC
+(4)(5)(0.035)2
+4 5
+0.0027
+ˆ 11 ˆ 22 yF yC 40.425 40.46 0.035
+yF yC
+x2
+2
+x2
+1
+yF yC
+yC
+yF
+F SSInteraction
+ˆ 2
+0.0025
+0.0430 0.058
+ˆ 2
+■TA B L E 1 1 . 2
+Analysis of Variance for the First-Order Model
+Sum of 
+Degrees of 
+Mean 
+Source of Variation
+Squares
+Freedom
+Square
+F0
+P-Value
+Model (1, 2)
+2.8250
+2
+1.4125
+47.83
+0.0002
+Residual
+0.1772
+6
+(Interaction)
+(0.0025)
+1
+0.0025
+0.058
+0.8215
+(Pure quadratic)
+(0.0027)
+1
+0.0027
+0.063
+0.8142
+(Pure error)
+(0.1720)
+4
+0.0430
+Total
+3.0022
+8

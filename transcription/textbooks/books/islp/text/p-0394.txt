@@ -1,0 +1,51 @@
+9.6 Lab: Support Vector Machines
+387
+9.6
+Lab: Support Vector Machines
+In this lab, we use the sklearn.svm library to demonstrate the support
+vector classifier and the support vector machine.
+We import some of our usual libraries.
+In [1]: import numpy as np
+from matplotlib.pyplot import subplots, cm
+import sklearn.model_selection as skm
+from ISLP import load_data, confusion_table
+We also collect the new imports needed for this lab.
+In [2]: from sklearn.svm import SVC
+from ISLP.svm import plot as plot_svm
+from sklearn.metrics import RocCurveDisplay
+We will use the function RocCurveDisplay.from_estimator() to produce RocCurve
+Display.from_
+estimator()
+several ROC plots, using a shorthand roc_curve.
+In [3]: roc_curve = RocCurveDisplay.from_estimator # shorthand
+9.6.1
+Support Vector Classifier
+We now use the SupportVectorClassifier() function (abbreviated SVC()) SupportVector
+Classifier()
+from sklearn to fit the support vector classifier for a given value of the
+parameter C. The C argument allows us to specify the cost of a violation
+to the margin. When the cost argument is small, then the margins will be
+wide and many support vectors will be on the margin or will violate the
+margin. When the C argument is large, then the margins will be narrow and
+there will be few support vectors on the margin or violating the margin.
+Here we demonstrate the use of SVC() on a two-dimensional example, so
+that we can plot the resulting decision boundary. We begin by generating
+the observations, which belong to two classes, and checking whether the
+classes are linearly separable.
+In [4]: rng = np.random.default_rng(1)
+X = rng.standard_normal((50, 2))
+y = np.array([-1]*25+[1]*25)
+X[y==1] += 1
+fig, ax = subplots(figsize=(8,8))
+ax.scatter(X[:,0],
+X[:,1],
+c=y,
+cmap=cm.coolwarm);
+They are not. We now fit the classifier.
+In [5]: svm_linear = SVC(C=10, kernel='linear')
+svm_linear.fit(X, y)
+Out[5]: SVC(C=10, kernel='linear')
+The support vector classifier with two features can be visualized by plot-
+ting values of its decision function. We have included a function for this in decision
+function
+the ISLP package (inspired by a similar example in the sklearn docs).

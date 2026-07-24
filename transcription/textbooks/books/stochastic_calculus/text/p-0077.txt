@@ -1,0 +1,49 @@
+2.10. HEAT EQUATION AND GENERATOR
+71
+distribution that gives measure one to the point 0. This is not really a density,
+but informally we write
+δ(0) = ∞,
+δ(x) = 0, x̸ = 0,
+
+δ(x) dx = 1
+These last equations do not make mathematical sense, but they give a work-
+able heuristic denition.)
+If the Brownian motion has variance σ2, one binomial approximation is
+P Bt+∆t = Bt + σ ∆x= P Bt+∆t = Bt −σ ∆x= 1
+2,
+where ∆x =
+√
+∆t. The factor σ is put in so that
+Var [B(t + ∆t) −B(t)] = σ2 ∆t
+We can use the same argument to derive that this density should satisfy the
+heat equation
+∂tpt(x) = σ2
+2 ∂xxpt(x)
+The coecient σ2 (or in some texts (σ22)) is referred to as the 
+. One can check that a solution to this equation is given by
+pt(x) =
+1
+√
+2πσ2t
+exp
+
+−x2
+2σ2t
+
+
+When the Brownian motion has drift m, the equation gets another term.
+To see what the term should look like, let us rst consider the case of deter-
+ministic linear motion, that is, motion with drift m but no variance. Then if
+pt(x) denotes the density at x at time t, we get the relationship
+pt+∆t(x) = pt(x −m ∆t),
+since particles at x at time t+∆t must have been at x−m∆t at time t. This
+gives
+pt+∆t(x) −pt(x)
+∆t
+=
+pt(x −m ∆t) −pt(x)
+∆t
+=
+−m pt(x) −pt(x −m ∆t)
+m∆t
+

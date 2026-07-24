@@ -1,0 +1,65 @@
+102
+3. Linear Regression
+0
+20
+40
+60
+80
+100
+−3
+−1
+0
+1
+2
+3
+ρ=0.0
+Residual
+0
+20
+40
+60
+80
+100
+−4
+−2
+0
+1
+2
+ρ=0.5
+Residual
+0
+20
+40
+60
+80
+100
+−1.5
+−0.5
+0.5
+1.5
+ρ=0.9
+Residual
+Observation
+FIGURE 3.10. Plots of residuals from simulated time series data sets generated
+with differing levels of correlation ρ between error terms for adjacent time points.
+tern. On the other hand, if the error terms are positively correlated, then
+we may see tracking in the residuals—that is, adjacent residuals may have tracking
+similar values. Figure 3.10 provides an illustration. In the top panel, we see
+the residuals from a linear regression fit to data generated with uncorre-
+lated errors. There is no evidence of a time-related trend in the residuals.
+In contrast, the residuals in the bottom panel are from a data set in which
+adjacent errors had a correlation of 0.9. Now there is a clear pattern in the
+residuals—adjacent residuals tend to take on similar values. Finally, the
+center panel illustrates a more moderate case in which the residuals had a
+correlation of 0.5. There is still evidence of tracking, but the pattern is less
+clear.
+Many methods have been developed to properly take account of corre-
+lations in the error terms in time series data. Correlation among the error
+terms can also occur outside of time series data. For instance, consider a
+study in which individuals’ heights are predicted from their weights. The
+assumption of uncorrelated errors could be violated if some of the indi-
+viduals in the study are members of the same family, eat the same diet,
+or have been exposed to the same environmental factors. In general, the
+assumption of uncorrelated errors is extremely important for linear regres-
+sion as well as for other statistical methods, and good experimental design
+is crucial in order to mitigate the risk of such correlations.

@@ -1,0 +1,48 @@
+13.5 A Re-Sampling Approach to p-Values and False Discovery Rates
+577
+the m = 2,000 fund managers appear to have beaten the market without
+performing correction for multiple testing — for instance, 13 of them have
+p-values below 0.001. By contrast, when the FDR is controlled at level 0.3,
+we can conclude that 279 fund managers are beating the market: we expect
+that no more than around 279×0.3 = 83.7 of these fund managers had good
+performance only due to chance. Thus, we see that FDR control is much
+milder — and more powerful — than FWER control, in the sense that it
+allows us to reject many more null hypotheses, with a cost of substantially
+more false positives.
+The Benjamini–Hochberg procedure has been around since the mid-
+1990s. While a great many papers have been published since then proposing
+alternative approaches for FDR control that can perform better in partic-
+ular scenarios, the Benjamini–Hochberg procedure remains a very useful
+and widely-applicable approach.
+13.5
+A Re-Sampling Approach to p-Values and
+False Discovery Rates
+Thus far, the discussion in this chapter has assumed that we are interested
+in testing a particular null hypothesis H0 using a test statistic T, which
+has some known (or assumed) distribution under H0, such as a normal
+distribution, a t-distribution, a χ2-distribution, or an F-distribution. This
+is referred to as the theoretical null distribution. We typically rely upon theoretical
+null
+distribution
+the availability of a theoretical null distribution in order to obtain a p-
+value associated with our test statistic. Indeed, for most of the types of
+null hypotheses that we might be interested in testing, a theoretical null
+distribution is available, provided that we are willing to make stringent
+assumptions about our data.
+However, if our null hypothesis H0 or test statistic T is somewhat un-
+usual, then it may be the case that no theoretical null distribution is avail-
+able. Alternatively, even if a theoretical null distribution exists, then we
+may be wary of relying upon it, perhaps because some assumption that is
+required for it to hold is violated. For instance, maybe the sample size is
+too small.
+In this section, we present a framework for performing inference in this
+setting, which exploits the availability of fast computers in order to approx-
+imate the null distribution of T, and thereby to obtain a p-value. While this
+framework is very general, it must be carefully instantiated for a specific
+problem of interest. Therefore, in what follows, we consider a specific ex-
+ample in which we wish to test whether the means of two random variables
+are equal, using a two-sample t-test.
+The discussion in this section is more challenging than the preceding
+sections in this chapter, and can be safely skipped by a reader who is
+content to use the theoretical null distribution to compute p-values for his
+or her test statistics.

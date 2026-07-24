@@ -1,0 +1,64 @@
+1. Introduction
+5
+−40
+−20
+0
+20
+40
+60
+−60
+−40
+−20
+0
+20
+−40
+−20
+0
+20
+40
+60
+−60
+−40
+−20
+0
+20
+Z1
+Z1
+Z2
+Z2
+FIGURE 1.4.
+Left: Representation of the NCI60 gene expression data set in
+a two-dimensional space, Z1 and Z2. Each point corresponds to one of the 64
+cell lines. There appear to be four groups of cell lines, which we have represented
+using different colors. Right: Same as left panel except that we have represented
+each of the 14 different types of cancer using a different colored symbol. Cell lines
+corresponding to the same cancer type tend to be nearby in the two-dimensional
+space.
+A Brief History of Statistical Learning
+Though the term statistical learning is fairly new, many of the concepts that
+underlie the field were developed long ago. At the beginning of the nine-
+teenth century, the method of least squares was developed, implementing
+the earliest form of what is now known as linear regression. The approach
+was first successfully applied to problems in astronomy. Linear regression
+is used for predicting quantitative values, such as an individual’s salary.
+In order to predict qualitative values, such as whether a patient survives
+or dies, or whether the stock market increases or decreases, linear discrim-
+inant analysis was proposed in 1936. In the 1940s, various authors put
+forth an alternative approach, logistic regression. In the early 1970s, the
+term generalized linear model was developed to describe an entire class of
+statistical learning methods that include both linear and logistic regression
+as special cases.
+By the end of the 1970s, many more techniques for learning from data
+were available. However, they were almost exclusively linear methods be-
+cause fitting non-linear relationships was computationally difficult at the
+time. By the 1980s, computing technology had finally improved sufficiently
+that non-linear methods were no longer computationally prohibitive. In
+the mid 1980s, classification and regression trees were developed, followed
+shortly by generalized additive models. Neural networks gained popularity
+in the 1980s, and support vector machines arose in the 1990s.
+Since that time, statistical learning has emerged as a new subfield in
+statistics, focused on supervised and unsupervised modeling and prediction.
+In recent years, progress in statistical learning has been marked by the
+increasing availability of powerful and relatively user-friendly software, such
+as the popular and freely available Python system. This has the potential to
+continue the transformation of the field from a set of techniques used and

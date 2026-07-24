@@ -1,0 +1,84 @@
+274
+6. Linear Model Selection and Regularization
+In [22]: Xs = X - X.mean(0)[None,:]
+X_scale = X.std(0)
+Xs = Xs / X_scale[None,:]
+lambdas = 10**np.linspace(8, -2, 100) / Y.std()
+soln_array = skl.ElasticNet.path(Xs,
+Y,
+l1_ratio=0.,
+alphas=lambdas)[1]
+soln_array.shape
+Out[22]: (19, 100)
+Here we extract the array of coefficients corresponding to the solutions
+along the regularization path. By default the skl.ElasticNet.path method
+fits a path along an automatically selected range of λ values, except for
+the case when l1_ratio=0, which results in ridge regression (as is the case
+here).11 So here we have chosen to implement the function over a grid of
+values ranging from λ = 108 to λ = 10−2 scaled by the standard deviation
+of y, essentially covering the full range of scenarios from the null model
+containing only the intercept, to the least squares fit.
+Associated with each value of λ is a vector of ridge regression coefficients,
+that can be accessed by a column of soln_array. In this case, soln_array is
+a 19 × 100 matrix, with 19 rows (one for each predictor) and 100 columns
+(one for each value of λ).
+We transpose this matrix and turn it into a data frame to facilitate
+viewing and plotting.
+In [23]: soln_path = pd.DataFrame(soln_array.T,
+columns=D.columns,
+index=-np.log(lambdas))
+soln_path.index.name = 'negative log(lambda)'
+soln_path
+Out[23]:
+AtBat
+Hits
+HmRun
+Runs
+...
+negative
+log(lambda)
+-12.310855
+0.000800
+0.000889
+0.000695
+0.000851
+...
+-12.078271
+0.001010
+0.001122
+0.000878
+0.001074
+...
+-11.845686
+0.001274
+0.001416
+0.001107
+0.001355
+...
+-11.613102
+0.001608
+0.001787
+0.001397
+0.001710
+...
+-11.380518
+0.002029
+0.002255
+0.001763
+0.002158
+...
+...
+...
+...
+...
+...
+...
+100 rows × 19 columns
+We plot the paths to get a sense of how the coefficients vary with λ. To
+control the location of the legend we first set legend to False in the plot
+method, adding it afterward with the legend() method of ax.
+In [24]: path_fig, ax = subplots(figsize=(8,8))
+soln_path.plot(ax=ax, legend=False)
+ax.set_xlabel('$-\log(\lambda)$', fontsize=20)
+11The reason is rather technical; for all models except ridge, we can find the smallest
+value of λ for which all coefficients are zero. For ridge this value is ∞.

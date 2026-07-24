@@ -1,0 +1,28 @@
+Preface
+Audience
+This is an introductory textbook dealing with the design and analysis of experiments. It is based
+on college-level courses in design of experiments that I have taught over nearly 40 years at
+Arizona State University, the University of Washington, and the Georgia Institute of Technology.
+It also reects the methods that I have found useful in my own professional practice as an engi-
+neering and statistical consultant in many areas of science and engineering, including the research
+and development activities required for successful technology commercialization and product
+realization.
+The book is intended for students who have completed a rst course in statistical meth-
+ods. This background course should include at least some techniques of descriptive statistics,
+the standard sampling distributions, and an introduction to basic concepts of condence
+intervals and hypothesis testing for means and variances. Chapters 10, 11, and 12 require
+some familiarity with matrix algebra.
+Because the prerequisites are relatively modest, this book can be used in a second course
+on statistics focusing on statistical design of experiments for undergraduate students in engi-
+neering, the physical and chemical sciences, statistics, mathematics, and other elds of science.
+For many years I have taught a course from the book at the rst-year graduate level in engi-
+neering. Students in this course come from all of the elds of engineering, materials science,
+physics, chemistry, mathematics, operations research life sciences, and statistics. I have also
+used this book as the basis of an industrial short course on design of experiments for practic-
+ing technical professionals with a wide variety of backgrounds. There are numerous examples
+illustrating all of the design and analysis techniques. These examples are based on real-world
+applications of experimental design and are drawn from many different elds of engineering and
+the sciences. This adds a strong applications flavor to an academic course for engineers
+and scientists and makes the book useful as a reference tool for experimenters in a variety
+of disciplines.
+v

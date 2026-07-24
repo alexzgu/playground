@@ -1,0 +1,72 @@
+6.2 Shrinkage Methods
+241
+1e−02
+1e+00
+1e+02
+1e+04
+−300
+−100
+0
+100
+200
+300
+400
+Standardized Coefficients
+Income
+Limit
+Rating
+Student
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+−300
+−100
+0
+100
+200
+300
+400
+Standardized Coefficients
+λ
+∥ˆβR
+λ ∥2/∥ˆβ∥2
+FIGURE 6.4. The standardized ridge regression coefficients are displayed for
+the Credit data set, as a function of λ and ∥ˆβR
+λ ∥2/∥ˆβ∥2.
+the relative impact of these two terms on the regression coefficient esti-
+mates. When λ = 0, the penalty term has no effect, and ridge regression
+will produce the least squares estimates. However, as λ →∞, the impact of
+the shrinkage penalty grows, and the ridge regression coefficient estimates
+will approach zero. Unlike least squares, which generates only one set of co-
+efficient estimates, ridge regression will produce a different set of coefficient
+estimates, ˆβR
+λ , for each value of λ. Selecting a good value for λ is critical;
+we defer this discussion to Section 6.2.3, where we use cross-validation.
+Note that in (6.5), the shrinkage penalty is applied to β1, . . . , βp, but
+not to the intercept β0. We want to shrink the estimated association of
+each variable with the response; however, we do not want to shrink the
+intercept, which is simply a measure of the mean value of the response
+when xi1 = xi2 = . . . = xip = 0. If we assume that the variables—that is,
+the columns of the data matrix X—have been centered to have mean zero
+before ridge regression is performed, then the estimated intercept will take
+the form ˆβ0 = ¯y = )n
+i=1 yi/n.
+An Application to the Credit Data
+In Figure 6.4, the ridge regression coefficient estimates for the Credit data
+set are displayed. In the left-hand panel, each curve corresponds to the
+ridge regression coefficient estimate for one of the ten variables, plotted
+as a function of λ. For example, the black solid line represents the ridge
+regression estimate for the income coefficient, as λ is varied. At the extreme
+left-hand side of the plot, λ is essentially zero, and so the corresponding
+ridge coefficient estimates are the same as the usual least squares esti-
+mates. But as λ increases, the ridge coefficient estimates shrink towards
+zero. When λ is extremely large, then all of the ridge coefficient estimates
+are basically zero; this corresponds to the null model that contains no pre-
+dictors. In this plot, the income, limit, rating, and student variables are
+displayed in distinct colors, since these variables tend to have by far the
+largest coefficient estimates. While the ridge coefficient estimates tend to
+decrease in aggregate as λ increases, individual coefficients, such as rating
+and income, may occasionally increase as λ increases.

@@ -1,0 +1,93 @@
+446
+10. Deep Learning
+In [39]: summary(mnist_model ,
+input_data=X_,
+col_names=['input_size',
+'output_size',
+'num_params'])
+Out[39]: =====================================================================
+Layer (type:depth-idx)
+Input Shape
+Output Shape
+Param #
+=====================================================================
+MNISTModel
+[256, 1, 28, 28]
+[256, 10]
+--
+Sequential: 1-1
+[256, 1, 28, 28]
+[256, 10]
+--
+Sequential: 2-1
+[256, 1, 28, 28]
+[256, 256]
+--
+Flatten: 3-1
+[256, 1, 28, 28]
+[256, 784]
+--
+Linear: 3-2
+[256, 784]
+[256, 256]
+200,960
+ReLU: 3-3
+[256, 256]
+[256, 256]
+--
+Dropout: 3-4
+[256, 256]
+[256, 256]
+--
+Sequential: 2-2
+[256, 256]
+[256, 128]
+--
+Linear: 3-5
+[256, 256]
+[256, 128]
+32,896
+ReLU: 3-6
+[256, 128]
+[256, 128]
+--
+Dropout: 3-7
+[256, 128]
+[256, 128]
+--
+Linear: 2-3
+[256, 128]
+[256, 10]
+1,290
+=====================================================================
+Total params: 235,146
+Trainable params: 235,146
+Having set up both the model and the data module, fitting this model is
+now almost identical to the Hitters example. In contrast to our regression
+model, here we will use the SimpleModule.classification() method which SimpleModule.
+classifi-
+cation()
+uses the cross-entropy loss function instead of mean squared error.
+In [40]: mnist_module = SimpleModule.classification(mnist_model)
+mnist_logger = CSVLogger('logs', name='MNIST')
+Now we are ready to go. The final step is to supply training data, and
+fit the model.
+In [41]: mnist_trainer = Trainer(deterministic=True,
+max_epochs=30,
+logger=mnist_logger ,
+callbacks=[ErrorTracker()])
+mnist_trainer.fit(mnist_module ,
+datamodule=mnist_dm)
+We have suppressed the output here, which is a progress report on the
+fitting of the model, grouped by epoch. This is very useful, since on large
+datasets fitting can take time. Fitting this model took 245 seconds on a
+MacBook Pro with an Apple M1 Pro chip with 10 cores and 16 GB of
+RAM. Here we specified a validation split of 20%, so training is actually
+performed on 80% of the 60,000 observations in the training set. This is an
+alternative to actually supplying validation data, like we did for the Hitters
+data. SGD uses batches of 256 observations in computing the gradient, and
+doing the arithmetic, we see that an epoch corresponds to 188 gradient
+steps.
+SimpleModule.classification() includes an accuracy metric by default.
+Other classification metrics can be added from torchmetrics. We will use
+our summary_plot() function to display accuracy across epochs.

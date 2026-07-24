@@ -1,0 +1,66 @@
+11.8 Lab: Survival Analysis
+491
+the lifelines.statistics module. The first two arguments are the event
+times, with the second denoting the corresponding (optional) censoring
+indicators.
+In [9]: logrank_test(by_sex['Male']['time'],
+by_sex['Female']['time'],
+by_sex['Male']['status'],
+by_sex['Female']['status'])
+Out[9]:
+t_0
+-1
+null_distribution
+chi squared
+degrees_of_freedom
+1
+test_name
+logrank_test
+test_statistic
+p
+-log2(p)
+1.44 0.23
+2.12
+The resulting p-value is 0.23, indicating no evidence of a difference in
+survival between the two sexes.
+Next, we use the CoxPHFitter() estimator from lifelines to fit Cox CoxPHFitter()
+proportional hazards models. To begin, we consider a model that uses sex
+as the only predictor.
+In [10]: coxph = CoxPHFitter # shorthand
+sex_df = BrainCancer[['time', 'status', 'sex']]
+model_df = MS(['time', 'status', 'sex'],
+intercept=False).fit_transform(sex_df)
+cox_fit = coxph().fit(model_df,
+'time',
+'status')
+cox_fit.summary[['coef', 'se(coef)', 'p']]
+Out[10]:
+coef
+se(coef)
+p
+covariate
+sex[Male]
+0.407667
+0.342004
+0.233263
+The first argument to fit should be a data frame containing at least the
+event time (the second argument time in this case), as well as an op-
+tional censoring variable (the argument status in this case). Note also that
+the Cox model does not include an intercept, which is why we used the
+intercept=False argument to ModelSpec above. The summary() method de-
+livers many columns; we chose to abbreviate its output here. It is possible
+to obtain the likelihood ratio test comparing this model to the one with no
+features as follows:
+In [11]: cox_fit.log_likelihood_ratio_test()
+Out[11]:
+null_distribution
+chi squared
+degrees_freedom
+1
+test_name
+log-likelihood ratio test
+test_statistic
+p
+-log2(p)
+1.44 0.23
+2.12

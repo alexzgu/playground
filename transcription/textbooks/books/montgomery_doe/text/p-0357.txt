@@ -1,0 +1,94 @@
+Thus, design C minimizes the number of words in the dening relation that are of minimum
+length. We call such a design a minimum aberration design. Minimizing aberration in a
+design of resolution R ensures that the design has the minimum number of main effects
+aliased with interactions of order R 1, the minimum number of two-factor interactions
+aliased with interactions of order R 2, and so forth. Refer to Fries and Hunter (1980) for
+more details.
+Table 8.14 presents a selection of 2kp fractional factorial designs for k 15 factors and
+up to n 128 runs. The suggested generators in this table will result in a design of the high-
+est possible resolution. These are also the minimum aberration designs.
+The alias relationships for all of the designs in Table 8.14 for which n 64 are given
+in Appendix Table X(a–w). The alias relationships presented in this table focus on main
+effects and two- and three-factor interactions. The complete dening relation is given for each
+design. This appendix table makes it very easy to select a design of sufcient resolution to
+ensure that any interactions of potential interest can be estimated.
+8.4 The General 2kp Fractional Factorial Design
+341
+■T A B L E 8 . 1 3
+Three Choices of Generators for the 
+Design
+Design A Generators:
+Design B Generators:
+Design C Generators:
+F ABC, G BCD
+F ABC, G ADE
+F ABCD, G ABDE
+I ABCF BCDG ADFG
+I ABCF ADEG BCDEFG
+I ABCDF ABDEG CEFG
+Aliases (two-factor interactions)
+Aliases (two-factor interactions)
+Aliases (two-factor interactions)
+AB  CF
+AB CF
+CE FG
+AC BF
+AC BF
+CF EG
+AD FG
+AD EG
+CG EF
+AG DF
+AE DG
+BD CG
+AF BC
+BG CD
+AG DE
+AF BC DG
+272
+IV
+E X A M P L E 8 . 5
+To illustrate the use of Table 8.14, suppose that we have seven
+factors and that we are interested in estimating the seven main
+effects and getting some insight regarding the two-factor
+interactions. We are willing to assume that three-factor and
+higher interactions are negligible. This information suggests
+that a resolution IV design would be appropriate.
+Table 8.14 shows that there are two resolution IV frac-
+tions available: the 
+with 32 runs and the 
+with 
+16 runs. Appendix Table X contains the complete alias rela-
+tionships for these two designs. The aliases for the 
+16-run design are in Appendix Table X(i). Notice that all
+seven main effects are aliased with three-factor interac-
+tions. The two-factor interactions are all aliased in groups
+of three. Therefore, this design will satisfy our objectives;
+that is, it will allow the estimation of the main effects, and
+273
+IV
+273
+IV
+272
+IV
+it will give some insight regarding two-factor interactions.
+It is not necessary to run the 
+design, which would
+require 32 runs. Appendix Table X(j) shows that this design
+would allow the estimation of all seven main effects and
+that 15 of the 21 two-factor interactions could also be
+uniquely estimated. (Recall that three-factor and higher
+interactions are negligible.) This is probably more informa-
+tion about interactions than is necessary. The complete 
+design is shown in Table 8.15. Notice that it was construct-
+ed by starting with the 16-run 24 design in A, B, C, and D
+as the basic design and then adding the three columns E 
+ABC, F BCD, and G ACD. The generators are I 
+ABCE, I BCDF, and I ACDG (Table 8.14). The com-
+plete defining relation is I ABCE BCDF ADEF 
+ACDG BDEG CEFG ABFG.
+2IV
+73
+272
+IV
+(Continued on p. 343)

@@ -1,0 +1,156 @@
+6.5 A Single Replicate of the 2k Design
+257
+■TA B L E 6 . 1 0
+Pilot Plant Filtration Rate Experiment
+Filtration
+Run
+Factor
+Rate
+Number
+A
+B
+C
+D
+Run Label
+(gal/h)
+1
+
+
+
+
+(1)
+45
+2
+
+
+
+
+a
+71
+3
+
+
+
+
+b
+48
+4
+
+
+
+
+ab
+65
+5
+
+
+
+
+c
+68
+6
+
+
+
+
+ac
+60
+7
+
+
+
+
+bc
+80
+8
+
+
+
+
+abc
+65
+9
+
+
+
+
+d
+43
+10
+
+
+
+
+ad
+100
+11
+
+
+
+
+bd
+45
+12
+
+
+
+
+abd
+104
+13
+
+
+
+
+cd
+75
+14
+
+
+
+
+acd
+86
+15
+
+
+
+
+bcd
+70
+16
+
+
+
+
+abcd
+96
+E X A M P L E 6 . 2
+A Single Replicate of the 24 Design
+A chemical product is produced in a pressure vessel. A
+factorial experiment is carried out in the pilot plant to
+study the factors thought to influence the filtration rate of
+this product. The four factors are temperature (A), pres-
+sure (B), concentration of formaldehyde (C), and stirring
+rate (D). Each factor is present at two levels. The design
+matrix and the response data obtained from a single repli-
+cate of the 24 experiment are shown in Table 6.10 and
+of two-factor interactions was more than two times larger than the median strength of three-
+factor interactions. However, there were many two- and three-factor interactions that were larger
+than the median main effect. Another paper by Bergquist,Vanhatalo, and Nordenvaad (2011) also
+studied the effect of the sparsity question using 22 different experiments with 35 responses. They
+considered both full factorial and fractional factorial designs with factors at two levels. Their
+results largely agree with those of Li et al. (2006), with the exception that three-factor interac-
+tions were less frequent, occurring only about 2 percent of the time. This difference may be par-
+tially explained by the inclusion of experiments with indications of curvature and the need for
+transformations in the Li et al. (2006) study. Bergquist et al. (2011) excluded such experiments.
+Overall, both of these studies conrm the validly of the sparsity of effects principle. 
+When analyzing data from unreplicated factorial designs, occasionally real high-order
+interactions occur. The use of an error mean square obtained by pooling high-order interactions
+is inappropriate in these cases. A method of analysis attributed to Daniel (1959) provides a sim-
+ple way to overcome this problem. Daniel suggests examining a normal probability plot of
+the estimates of the effects. The effects that are negligible are normally distributed, with mean
+zero and variance 2 and will tend to fall along a straight line on this plot, whereas signicant
+effects will have nonzero means and will not lie along the straight line. Thus, the preliminary
+model will be specied to contain those effects that are apparently nonzero, based on the nor-
+mal probability plot. The apparently negligible effects are combined as an estimate of error.

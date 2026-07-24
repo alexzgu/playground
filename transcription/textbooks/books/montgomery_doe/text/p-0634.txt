@@ -1,0 +1,125 @@
+618
+Chapter 14 ■Nested and Split-Plot Designs
+■TA B L E 1 4 . 1 3
+Minitab Balanced ANOVA Analysis of Example 14.2 Using the Restricted Model
+Analysis of Variance (Balanced Designs)
+Factor
+Type
+Levels
+Values
+Layout
+fixed
+2
+1
+2
+Operator(Layout)
+random
+4
+1
+2
+3
+4
+Fixture
+fixed
+3
+1
+2
+3
+Analysis of Variance for Time
+Source
+DF
+SS
+MS
+F
+P
+Layout
+1
+4.083
+4.083
+0.34
+0.581
+Operator(Layout)
+6
+71.917
+11.986
+5.14
+0.002
+Fixture
+2
+82.792
+41.396
+7.55
+0.008
+Layout*Fixture
+2
+19.042
+9.521
+1.74
+0.218
+Fixture*Operator(Layout)
+12
+65.833
+5.486
+2.35
+0.036
+Error
+24
+56.000
+2.333
+Total
+47
+299.667
+Expected Mean Square
+Variance
+Error
+for Each Term (using
+Source
+component
+term
+restricted model)
+1 Layout
+2
+(6) 
+6(2) 
+24Q[1]
+2 Operator(Layout)
+1.609
+6
+(6) 
+6(2)
+3 Fixture
+5
+(6) 
+2(5) 
+16Q[3]
+4 Layout*Fixture
+5
+(6) 
+2(5) 
+8Q[4]
+5 Fixture*Operator(Layout)
+1.576
+6
+(6) 
+2(5)
+6 Error
+2.333
+(6)
+Table 14.14 presents the Minitab analysis of Example 14.2 using the unrestricted form
+of the mixed model. The expected mean squares in the lower portion of this table are slightly
+different from those reported for the restricted model, and so the construction of the test statis-
+tic will be slightly different for the operators (layout) factor. Specically, the F ratio denomina-
+tor for operators (layout) is the xtures operators (layout) interaction in the restricted model
+(12 degrees of freedom for error), and it is the layout xtures interaction in the unrestricted
+model (2 degrees of freedom for error). Because MSlayoutxture MSxtureoperator(layout) and it has
+fewer degrees of freedom, we now nd that the operator within layout effect is only signicant
+at about the 12 percent level (the P-value was 0.002 in the restricted model analysis).
+Furthermore, the variance component estimate 
+1.083 is smaller. However, because there
+is a large xture effect and a signicant xture operator (layout) interaction, we would still
+suspect an operator effect, and so the practical conclusions from this experiment are not greatly
+affected by choosing either the restricted or the unrestricted form of the mixed model. The
+quantities Q[1, 4] and Q[3, 4] are xed-type quadratic terms containing the interaction effect of
+layouts xtures.
+ˆ 2
+

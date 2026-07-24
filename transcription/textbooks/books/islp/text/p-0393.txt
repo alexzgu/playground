@@ -1,0 +1,43 @@
+386
+9. Support Vector Machines
+−6
+−4
+−2
+0
+2
+0
+2
+4
+6
+8
+Loss
+SVM Loss
+Logistic Regression Loss
+yi(β0 + β1xi1 + . . . + βpxip)
+FIGURE 9.12. The SVM and logistic regression loss functions are compared,
+as a function of yi(β0 + β1xi1 + · · · + βpxip). When yi(β0 + β1xi1 + · · · + βpxip) is
+greater than 1, then the SVM loss is zero, since this corresponds to an observation
+that is on the correct side of the margin. Overall, the two loss functions have quite
+similar behavior.
+We have established that the support vector classifier is closely related
+to logistic regression and other preexisting statistical methods. Is the SVM
+unique in its use of kernels to enlarge the feature space to accommodate
+non-linear class boundaries? The answer to this question is “no”. We could
+just as well perform logistic regression or many of the other classification
+methods seen in this book using non-linear kernels; this is closely related
+to some of the non-linear approaches seen in Chapter 7. However, for his-
+torical reasons, the use of non-linear kernels is much more widespread in
+the context of SVMs than in the context of logistic regression or other
+methods.
+Though we have not addressed it here, there is in fact an extension
+of the SVM for regression (i.e. for a quantitative rather than a qualita-
+tive response), called support vector regression. In Chapter 3, we saw that support
+vector
+regression
+least squares regression seeks coefficients β0, β1, . . . , βp such that the sum
+of squared residuals is as small as possible. (Recall from Chapter 3 that
+residuals are defined as yi −β0 −β1xi1 −· · · −βpxip.) Support vector
+regression instead seeks coefficients that minimize a different type of loss,
+where only residuals larger in absolute value than some positive constant
+contribute to the loss function. This is an extension of the margin used in
+support vector classifiers to the regression setting.

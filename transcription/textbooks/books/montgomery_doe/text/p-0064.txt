@@ -1,0 +1,78 @@
+2.4.4
+The Case Where 
+If we are testing
+and cannot reasonably assume that the variances 
+and 
+are equal, then the two-sample 
+t-test must be modied slightly. The test statistic becomes
+(2.31)
+This statistic is not distributed exactly as t. However, the distribution of t0 is well approximat-
+ed by t if we use
+(2.32)
+as the number of degrees of freedom. A strong indication of unequal variances on a normal
+probability plot would be a situation calling for this version of the t-test. You should be able
+to develop an equation for nding that condence interval on the difference in mean for the
+unequal variances case easily.
+v 
+S2
+1
+n1 S2
+2
+n2
+2
+(S2
+1/n1)2
+n1 1 (S2
+2/n2)2
+n2 1
+t0 
+y1 y2
+
+S2
+1
+n1 S2
+2
+n2
+2
+2
+2
+1
+H11 Z 2
+H01 2
+2
+1  2
+2
+48
+Chapter 2 ■Simple Comparative Experiments
+E X A M P L E 2 . 1
+Nerve preservation is important in surgery because acci-
+dental injury to the nerve can lead to post-surgical problems
+such as numbness, pain, or paralysis. Nerves are usually
+identied by their appearance and relationship to nearby
+structures or detected by local electrical stimulation (elec-
+tromyography), but it is relatively easy to overlook them.
+An article in Nature Biotechnology (“Fluorescent Peptides
+Highlight Peripheral Nerves During Surgery in Mice,” Vol.
+29, 2011) describes the use of a uorescently labeled pep-
+tide that binds to nerves to assist in identication. Table 2.3
+shows the normalized uorescence after two hours for
+nerve and muscle tissue for 12 mice (the data were read
+from a graph in the paper).   
+We would like to test the hypothesis that the mean normalized uorescence after two hours is
+greater for nerve tissue then for muscle tissue. That is, if 
+is the mean normalized uorescence
+for nerve tissue and  is the mean normalized uorescence for muscle tissue, we want to test
+The descriptive statistics output from Minitab is shown below:
+H1:1 > 2
+H0:1 2
+
+Variable    N 
+Mean  StDev 
+Minimum 
+Median 
+Maximum
+Nerve      12  4228   1918      450  
+4825     6625
+Non-nerve 
+12 
+2534    961     1130    2650     3900

@@ -1,0 +1,41 @@
+200
+CHAPTER 6. JUMP PROCESSES
+In the next section, we will use the following maximal lemma.
+Lemma 6.3.3. If Xt is a CPP satisfying (6.5), Mt = Xt −tm, and
+K = max
+0≤t≤1 Mt,
+then
+PK≥a≤σ2
+a2 
+Proof. Let
+Kn = maxMjn: j = 1, 2, , n
+Since Xt has piecewise constant paths, K = limn∞Kn and it suces
+to show for each n that
+PKn≥a≤σ2
+a2 
+Fix n and let Zj = Mjn, Zn = maxZj: j = 1, , n. Then Zj is a
+discrete-time martingale, and Corollary 1.7.2 gives
+PZn ≥a≤E[Z2
+n]
+a2
+= E[M 2
+1 ]
+a2
+= σ2
+a2 
+6.4
+Integration with respect to compound
+Poisson processes
+Dening the integral with respect to a compound Poisson process is easy. If
+Xt is a CPP and At is another process, we could let
+t
+0
+As dXs =
+
+0≤s≤t
+As [Xs −Xs−] 
+(6.9)
+As noted before, there are only a nite number of nonzero terms in the sum
+so the sum is well dened. This denition requires no assumptions on the
+process As. However, if we want the integral to satisfy some of the properties
+of the Itˆo integral, we will need to assume more.

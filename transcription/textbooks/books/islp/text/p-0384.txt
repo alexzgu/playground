@@ -1,0 +1,74 @@
+9.3 Support Vector Machines
+377
+−1
+0
+1
+2
+−3
+−2
+−1
+0
+1
+2
+3
+−1
+0
+1
+2
+−3
+−2
+−1
+0
+1
+2
+3
+−1
+0
+1
+2
+−3
+−2
+−1
+0
+1
+2
+3
+−1
+0
+1
+2
+−3
+−2
+−1
+0
+1
+2
+3
+X1
+X1
+X1
+X1
+X2
+X2
+X2
+X2
+FIGURE 9.7.
+A support vector classifier was fit using four different values
+of the tuning parameter C in (9.12)–(9.15). The largest value of C was used
+in the top left panel, and smaller values were used in the top right, bottom left,
+and bottom right panels. When C is large, then there is a high tolerance for
+observations being on the wrong side of the margin, and so the margin will be
+large. As C decreases, the tolerance for observations being on the wrong side of
+the margin decreases, and the margin narrows.
+the other classification methods that we have seen in preceding chapters,
+such as linear discriminant analysis. Recall that the LDA classification rule
+depends on the mean of all of the observations within each class, as well as
+the within-class covariance matrix computed using all of the observations.
+In contrast, logistic regression, unlike LDA, has very low sensitivity to ob-
+servations far from the decision boundary. In fact we will see in Section 9.5
+that the support vector classifier and logistic regression are closely related.
+9.3
+Support Vector Machines
+We first discuss a general mechanism for converting a linear classifier into
+one that produces non-linear decision boundaries. We then introduce the
+support vector machine, which does this in an automatic way.

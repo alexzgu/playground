@@ -1,0 +1,31 @@
+180CHAPTER 5. CHANGE OF MEASURE AND GIRSANOV THEOREM
+5.8
+Exercises
+Exercise 5.1. For each of the following random variables Xj on R, let µj
+be the distribution considered as a probability measure on R. For each pair
+state whether or not µj ≪µk. Since there are six random variables, there
+should be 30 answers.
+X1 normal mean 2, variance 7
+X2 binomial with parameters n = 7, p = 3
+X3 Poisson with parameter 2
+X4 = eX1
+X5 uniform on [0, 1]
+X6 = X1 X3 + X2 assuming X1, X2, X3 independent 
+Exercise 5.2. Consider the martingale betting strategy from Chapter 1. Let
+Wn denote the winnings at time n and let
+Mn = 1 −Wn,
+so that at each time n, Mn equals 0 or 2n. Note that M0 = 1. Let T =
+minn : Mn = 0. Let Fn be the information in M0, M1, , Mn.
+1. Explain why Mn is a nonnegative martingale.
+2. Dene a new probability measure Qn by saying that for any event V
+that is Fn-measurable,
+Qn(V ) = E [Mn 1V ] 
+Show that if m < n and V is Fm-measurable, then Qm(V ) = Qn(V ).
+3. Given the last part, we can write Q rather than just Qn. Find the
+transition probability
+Q
+
+Mn+1 = 2n+1 Mn = 2n
+
+4. Find the Q-probability that T < ∞.
+5. Is Mn a martingale with respect to the measure Q?

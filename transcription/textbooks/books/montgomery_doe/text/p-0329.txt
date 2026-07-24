@@ -1,0 +1,150 @@
+7.6 Confounding the 2k Factorial Design in Four Blocks
+313
+the one given with the original analysis of the experiment in Chapter 6 (refer to Figure 6.11),
+one of the important interactions, AD, is not identied. Consequently, we will not discover
+this important effect that turns out to be one of the keys to solving the original problem. We
+remarked in Chapter 4 that blocking is a noise reduction technique. If we don’t block, then
+the added variability from the nuisance variable effect ends up getting distributed across the
+other design factors.
+Some of the nuisance variability also ends up in the error estimate as well. The resid-
+ual mean square for the model based on the data in Table 7.8 is about 109, which is several
+times larger than the residual mean square based on the original data (see Table 6.13).
+7.6
+Confounding the 2k Factorial Design in Four Blocks
+It is possible to construct 2k factorial designs confounded in four blocks of 2k2 observations
+each. These designs are particularly useful in situations where the number of factors is mod-
+erately large, say k 4, and block sizes are relatively small.
+As an example, consider the 25 design. If each block will hold only eight runs, then four
+blocks must be used. The construction of this design is relatively straightforward. Select two
+effects to be confounded with blocks, say ADE and BCE. These effects have the two dening
+contrasts
+L2 x2 x3 x5
+L1 x1 x4 x5
+■TA B L E 7 . 8
+The Modiﬁed Data from Example 7.2
+Run
+Std.
+Factor A:
+Factor B:
+Factor C:
+Factor D:
+Response
+Order
+Order
+Temperature
+Pressure
+Concentration
+Stirring Rate
+Filtration Rate
+8
+1
+1
+1
+1
+1
+25
+11
+2
+1
+1
+1
+1
+71
+1
+3
+1
+1
+1
+1
+28
+3
+4
+1
+1
+1
+1
+45
+9
+5
+1
+1
+1
+1
+68
+12
+6
+1
+1
+1
+1
+60
+2
+7
+1
+1
+1
+1
+60
+13
+8
+1
+1
+1
+1
+65
+7
+9
+1
+1
+1
+1
+23
+6
+10
+1
+1
+1
+1
+80
+16
+11
+1
+1
+1
+1
+45
+5
+12
+1
+1
+1
+1
+84
+14
+13
+1
+1
+1
+1
+75
+15
+14
+1
+1
+1
+1
+86
+10
+15
+1
+1
+1
+1
+70
+4
+16
+1
+1
+1
+1
+76

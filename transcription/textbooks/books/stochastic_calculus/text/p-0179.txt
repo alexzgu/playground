@@ -1,0 +1,58 @@
+5.6. MARTINGALE APPROACH TO PRICING
+173
+This is a square integrable martingale and ˜VT = ˜V . We would like to nd a
+portfolio (at, bt) satisfying
+Vt = at St + bt Rt,
+that is self-nancing,
+dVt = at dSt + bt dRt
+Recall that if At is an adapted process with
+t
+0
+EQ[A2
+s] ds < ∞,
+then
+Zt =
+t
+0
+As dWs
+is a square integrable martingale. Let us assume for the moment that there
+exists such a process As such that
+˜Vt = ˜V0 +
+t
+0
+As dWs,
+that is
+d ˜Vt = At dWt
+(5.29)
+We compute,
+dVt
+=
+Rt d ˜Vt + ˜Vt dRt
+=
+Rt At dWt + ˜Vt dRt
+=
+At
+σt ˜St
+Rt d ˜St + ˜Vt dRt
+=
+At
+σt ˜St
+[dSt −˜St dRt] + ˜Vt dRt
+=
+At
+σt ˜St
+dSt +
+
+˜Vt −At
+σt
+
+dRt
+Therefore, if
+at =
+At
+σt ˜St
+,
+bt = ˜Vt −At
+σt
+,
+(5.30)

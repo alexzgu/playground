@@ -1,0 +1,45 @@
+72
+CHAPTER 2. BROWNIAN MOTION
+Letting ∆t →0, we get the equation for linear motion at rate m,
+∂tpt(x) = −m ∂xpt(x)
+This is a rst-order equation which means it contains only rst derivatives.
+If Bt is Brownian motion with drift m and variance σ2, then we can do a
+similar argument and show that the density pt(x) satises the second order
+PDE
+∂tpt(x) = −m ∂xpt(x) + σ2
+2 ∂xxpt(x)
+As a check, one can consider the appropriate density,
+pt(x) =
+1
+√
+2πσ2t
+exp
+
+−(x −mt)2
+2σ2t
+
+,
+and show that it satises this equation.
+Before summarizing, we will change the notation slightly. Let pt(x, y)
+denote the density of Bt given B0 = x. Under this notation pt(x) = pt(0, x).
+We will dene an operator on functions. A () is a function L
+from (a linear subspace of) functions to functions satisfying L(af + bg) =
+aL(f) + bL(g) where a, b are constants and f, g are functions. We say that
+a function f : R →R is C2 if it is twice dierentiable and the derivatives
+are continuous functions of x. For any m, σ2, we dene an operator on C2
+functions by
+L∗f(x) = −m f ′(x) + σ2
+2 f ′′(x)
+If f is a function of more variables, such as ft(x, y) we write L∗
+x to indicate
+the operator acting on the variable x,
+L∗
+xft(x, y) = −m ∂xft(x, y) + σ2
+2 ∂xxft(x, y)
+Theorem 2.10.1. SBt Bm -
+σ2. Tpt(x, y) 
+∂tpt(x, y) = L∗
+ypt(x, y)
+p0(x, ·) = δx(·). HL∗
+L∗f(y) = −m f ′(y) + σ2
+2 f ′′(y)

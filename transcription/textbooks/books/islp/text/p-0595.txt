@@ -1,0 +1,47 @@
+13.6 Lab: Multiple Testing
+589
+multipletests() function (abbreviated mult_test()) can be used to carry
+out the Benjamini–Hochberg procedure.
+In [18]: fund_qvalues = mult_test(fund_pvalues , method = "fdr_bh")[1]
+fund_qvalues[:10]
+Out[18]: array([0.09, 0.99, 0.12, 0.92, 0.96, 0.08, 0.08, 0.08, 0.08,
+0.08])
+The q-values output by the Benjamini–Hochberg procedure can be inter- q-values
+preted as the smallest FDR threshold at which we would reject a particular
+null hypothesis. For instance, a q-value of 0.1 indicates that we can reject
+the corresponding null hypothesis at an FDR of 10% or greater, but that
+we cannot reject the null hypothesis at an FDR below 10%.
+If we control the FDR at 10%, then for how many of the fund managers
+can we reject H0,j : µj = 0?
+In [19]: (fund_qvalues <= 0.1).sum()
+Out[19]: 146
+We find that 146 of the 2,000 fund managers have a q-value below 0.1;
+therefore, we are able to conclude that 146 of the fund managers beat the
+market at an FDR of 10%. Only about 15 (10% of 146) of these fund
+managers are likely to be false discoveries.
+By contrast, if we had instead used Bonferroni’s method to control the
+FWER at level α = 0.1, then we would have failed to reject any null
+hypotheses!
+In [20]: (fund_pvalues <= 0.1 / 2000).sum()
+Out[20]: 0
+Figure 13.6 displays the ordered p-values, p(1) ≤p(2) ≤· · · ≤p(2000), for
+the Fund dataset, as well as the threshold for rejection by the Benjamini–
+Hochberg procedure. Recall that the Benjamini–Hochberg procedure iden-
+tifies the largest p-value such that p(j) < qj/m, and rejects all hypotheses
+for which the p-value is less than or equal to p(j). In the code below, we im-
+plement the Benjamini–Hochberg procedure ourselves, in order to illustrate
+how it works. We first order the p-values. We then identify all p-values that
+satisfy p(j) < qj/m (sorted_set_). Finally, selected_ is a boolean array
+indicating which p-values are less than or equal to the largest p-value in
+sorted_[sorted_set_]. Therefore, selected_ indexes the p-values rejected
+by the Benjamini–Hochberg procedure.
+In [21]: sorted_ = np.sort(fund_pvalues)
+m = fund_pvalues.shape[0]
+q = 0.1
+sorted_set_ = np.where(sorted_ < q * np.linspace(1, m, m) / m)[0]
+if sorted_set_.shape[0] > 0:
+selected_ = fund_pvalues < sorted_[sorted_set_].max()
+sorted_set_ = np.arange(sorted_set_.max())
+else:
+selected_ = []
+sorted_set_ = []

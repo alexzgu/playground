@@ -1,0 +1,59 @@
+668
+Chapter 15 ■Other Design and Analysis Topics
+Imposing the assumption that the covariate affects the response variable identically
+across all treatment combinations, an analysis of covariance table similar to the procedure
+given in Section 15.3.1 could be performed. The only difference would be the treatment sum
+of squares. For a 22 factorial with n replicates, the treatment sum of squares (Tyy) would be
+(1/n) 
+. This quantity is the sum of the sums of squares for factors A,
+B, and the AB interaction. The adjusted treatment sum of squares could then be partitioned
+into individual effect components, that is, adjusted main effects sum of squares SSA and SSB,
+and an adjusted interaction sum of squares, SSAB.
+The amount of replication is a key issue when broadening the design structure of the
+treatments. Consider a 23 factorial arrangement. A minimum of two replicates is needed to
+evaluate all treatment combinations with a separate covariate for each treatment combination
+(covariate by treatment interaction). This is equivalent to tting a simple regression model to
+each treatment combination or design cell. With two observations per cell, one degree of
+freedom is used to estimate the intercept (the treatment effect), and the other is used to esti-
+mate the slope (the covariate effect). With this saturated model, no degrees of freedom are avail-
+able to estimate the error. Thus, at least three replicates are needed for a complete analysis of
+covariance, assuming the most general case. This problem becomes more pronounced as the
+number of distinct design cells (treatment combinations) and covariates increases.
+If the amount of replication is limited, various assumptions can be made to allow some
+useful analysis. The simplest assumption (and typically the worst) that can be made is that the
+covariate has no effect. If the covariate is erroneously not considered, the entire analysis and
+subsequent conclusions could be dramatically in error. Another choice is to assume that there
+is no treatment by covariate interaction. Even if this assumption is incorrect, the average
+affect of the covariate across all treatments will still increase the precision of the estimation
+and testing of the treatment effects. One disadvantage of this assumption is that if several
+treatment levels interact with the covariate, the various terms may cancel one another out and
+the covariate term, if estimated alone with no interaction, may be insignicant. A third choice
+would be to assume some of the factors (such as some two-factor and higher interactions) are
+insignicant. This allows some degrees of freedom to be used to estimate error. This course
+of action, however, should be undertaken carefully and the subsequent models evaluated thor-
+oughly because the estimation of error will be relatively imprecise unless enough degrees of
+freedom are allocated for it. With two replicates, each of these assumptions will free some
+degrees of freedom to estimate error and allow useful hypothesis tests to be performed. Which
+assumption to enforce should be dictated by the experimental situation and how much risk the
+experimenter is willing to assume. We caution that in the effects model-building strategy if a
+treatment factor is eliminated, then the resulting two “replicates” of each original 23 are not
+truly replicates. These “hidden replicates” do free 1 degrees of freedom for parameter esti-
+mation but should not be used as replicates to estimate pure error because the execution of the
+original design may not have been randomized that way.
+To illustrate some of these ideas, consider the 23 factorial design with two replicates and
+a covariate shown in Table 15.16. If the response variable y is analyzed without accounting
+for the covariate, the following model results:
+The overall model is signicant at the 0.01 level with R2 0.786 and MSE 470.82.
+The residual analysis indicates no problem with this model except the observation with y 
+103.01 is unusual.
+If the second assumption, common slopes with no treatment by covariate interaction, is
+chosen, the full effects model and the covariate effect can be estimated. The JMP output  is shown
+in Table 15.17. Notice that the MSE has been reduced considerably by considering the covariate.
+The nal resulting analysis after sequentially removing each nonsignicant interaction and the
+yˆ 25.03 11.20A 18.05B 7.24C 18.91AB 14.80AC
+y2
+ij. y2
+.../(2)(2)n
+"2
+i1 "2
+j1

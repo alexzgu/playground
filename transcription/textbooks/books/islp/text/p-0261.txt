@@ -1,0 +1,76 @@
+6.3 Dimension Reduction Methods
+253
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+0
+200
+600
+1000
+1400
+Cross−Validation Error
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+−5
+0
+5
+10
+15
+Standardized Coefficients
+∥ˆβL
+λ ∥1/∥ˆβ∥1
+∥ˆβL
+λ ∥1/∥ˆβ∥1
+FIGURE 6.13.
+Left: Ten-fold cross-validation MSE for the lasso, applied to
+the sparse simulated data set from Figure 6.9. Right: The corresponding lasso
+coefficient estimates are displayed. The two signal variables are shown in color,
+and the noise variables are in gray. The vertical dashed lines indicate the lasso
+fit for which the cross-validation error is smallest.
+observations. In contrast, the least squares solution—displayed on the far
+right of the right-hand panel of Figure 6.13—assigns a large coefficient
+estimate to only one of the two signal variables.
+6.3
+Dimension Reduction Methods
+The methods that we have discussed so far in this chapter have controlled
+variance in two different ways, either by using a subset of the original vari-
+ables, or by shrinking their coefficients toward zero. All of these methods
+are defined using the original predictors, X1, X2, . . . , Xp. We now explore
+a class of approaches that transform the predictors and then fit a least
+squares model using the transformed variables. We will refer to these tech-
+niques as dimension reduction methods.
+dimension
+reduction
+Let Z1, Z2, . . . , ZM represent M < p linear combinations of our original
+linear
+combination
+p predictors. That is,
+Zm =
+p
+0
+j=1
+φjmXj
+(6.16)
+for some constants φ1m, φ2m . . . , φpm, m = 1, . . . , M. We can then fit the
+linear regression model
+yi = θ0 +
+M
+0
+m=1
+θmzim + ϵi,
+i = 1, . . . , n,
+(6.17)
+using least squares. Note that in (6.17), the regression coefficients are given
+by θ0, θ1, . . . , θM. If the constants φ1m, φ2m, . . . , φpm are chosen wisely, then
+such dimension reduction approaches can often outperform least squares
+regression. In other words, fitting (6.17) using least squares can lead to
+better results than fitting (6.1) using least squares.
+The term dimension reduction comes from the fact that this approach
+reduces the problem of estimating the p+1 coefficients β0, β1, . . . , βp to the

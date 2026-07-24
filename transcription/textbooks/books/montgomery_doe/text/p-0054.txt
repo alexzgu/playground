@@ -1,0 +1,106 @@
+The Two-Sample t-Test. Suppose that we could assume that the variances of tension
+bond strengths were identical for both mortar formulations. Then the appropriate test statistic
+to use for comparing two treatment means in the completely randomized design is
+(2.24)
+where 
+and 
+are the sample means, n1 and n2 are the sample sizes,
+is an estimate of the
+common variance 
+computed from
+(2.25)
+and 
+and 
+are the two individual sample variances. The quality Sp
+in the denom-
+inator of Equation 2.24 is often called the standard error of the difference in means in the
+numerator, abbreviated 
+To determine whether to reject H0 :1 2, we would
+compare t0 to the t distribution with n1 n2 2 degrees of freedom. If t0
+, where
+is the upper /2 percentage point of the t distribution with n1 n2 2 degrees of
+freedom, we would reject H0 and conclude that the mean strengths of the two formulations of
+Portland cement mortar differ. This test procedure is usually called the two-sample t-test.
+This procedure may be justied as follows. If we are sampling from independent nor-
+mal distributions, then the distribution of 
+is N[1 2, 2(1/n1 1/n2)]. Thus, if 2
+were known, and if H0 : 1 2 were true, the distribution of
+(2.26)
+would be N(0, 1). However, in replacing in Equation 2.26 by Sp, the distribution of Z0
+changes from standard normal to t with n1 n2 2 degrees of freedom. Now if H0 is true, t0
+in Equation 2.24 is distributed as 
+and, consequently, we would expect 100(1 ) per-
+cent of the values of t0 to fall between
+and 
+. A sample producing a value
+of t0 outside these limits would be unusual if the null hypothesis were true and is evidence
+that H0 should be rejected. Thus the t distribution with n1 n2 2 degrees of freedom is the
+appropriate reference distribution for the test statistic t0. That is, it describes the behavior of
+t0 when the null hypothesis is true. Note that is the probability of type I error for the test.
+Sometimes is called the signiﬁcance level of the test.
+In some problems, one may wish to reject H0 only if one mean is larger than the other.
+Thus, one would specify a one-sided alternative hypothesis H1 : 1 2 and would reject
+H0 only if t0 
+. If one wants to reject H0 only if 1 is less than 2, then the alterna-
+tive hypothesis is H1:1 2, and one would reject H0 if t0 
+To illustrate the procedure, consider the Portland cement data in Table 2.1. For these
+data, we nd that
+Modiﬁed Mortar
+Unmodiﬁed Mortar
+16.76 kgf/cm2
+17.04 kgf/cm2
+0.100
+0.061
+S1 0.316
+S2 0.248
+n1 10
+n2 10
+S2
+2
+S2
+1
+y2
+y1
+t,n1n22.
+t,n1n22
+t/2, n1n22
+t/2, n1n22
+tn1n22
+Z0 
+y1 y2
+
+1
+n1 1
+n2
+y1 y2
+t/2,n1n22
+t/2,n1n22
+se (y1 y2).
+
+1
+n1 1
+n2
+S2
+2
+S2
+1
+S 2
+p (n1 1)S 2
+1 (n2 1)S 2
+2
+n1 n2 2
+2
+1 2
+2 2
+S2
+p
+y2
+y1
+t0 
+y1 y2
+Sp
+1
+n1 1
+n2
+38
+Chapter 2 ■Simple Comparative Experiments

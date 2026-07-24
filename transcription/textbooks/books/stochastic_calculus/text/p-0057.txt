@@ -1,0 +1,45 @@
+2.6. UNDERSTANDING BROWNIAN MOTION
+51
+2.6
+Understanding Brownian motion
+Let Bt be a standard Brownian motion starting at the origin. By doing
+simulations, one can see that although the paths of the process are continuous
+they are very rough. To do simulations, we must discretize time. If we let ∆t
+be chosen, then we will sample the values
+B0, B∆t, B2∆t, B3∆t, 
+The increment B(k+1)∆t −Bk∆t is a normal random variable with mean 0 and
+variance ∆t. If N0, N1, N2, denote independent N(0, 1) random variables
+(which can be generated on a computer), we set
+B(k+1)∆t = Bk∆t +
+√
+∆t Nk,
+which we can write as
+∆Bk∆t = B(k+1)∆t −Bk∆t =
+√
+∆t Nk
+The relationship ∆Bt= Bt+∆t −Bt≈
+√
+∆t is fundamental for under-
+standing Brownian motion. As ∆t →0,
+√
+∆t →0, which is consistent with
+the continuity of the paths. However, we claim that the paths do not have
+derivatives. To see why this should be true, recall that the denition of the
+derivative at time t would be
+lim
+∆t0
+Bt+∆t −Bt
+∆t
+
+As ∆t →0, the absolute value of the numerator is of order
+√
+∆t which is
+much larger than ∆t for small ∆t. Hence, we do not expect the limit to exist.
+In fact, the following stronger statement is true.
+Theorem 2.6.1. W, t →Bt -
+.
+Note carefully the statement of this theorem. It is a stronger statement
+than the similar statement: for every t, with probability one, the derivative
+does not exists at t. As a comparison, consider the following two statements:
+With probability one, for every t, Bt̸ = 1.
+For every t, with probability one, Bt̸ = 1.

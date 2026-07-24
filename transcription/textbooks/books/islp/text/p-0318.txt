@@ -1,0 +1,72 @@
+310
+7. Moving Beyond Linearity
+2003
+2005
+2007
+2009
+−4
+−2
+0
+2
+4
+20
+30
+40
+50
+60
+70
+80
+−8
+−6
+−4
+−2
+0
+2
+−4
+−2
+0
+2
+4
+HS
+<Coll
+Coll
+>Coll
+f1(year)
+f2(age)
+f3(education)
+year
+age
+education
+FIGURE 7.14. The same model is fit as in Figure 7.13, this time excluding the
+observations for which education is <HS. Now we see that increased education
+tends to be associated with higher salaries.
+As usual, we start with some of our standard imports.
+In [1]: import numpy as np, pandas as pd
+from matplotlib.pyplot import subplots
+import statsmodels.api as sm
+from ISLP import load_data
+from ISLP.models import (summarize,
+poly,
+ModelSpec as MS)
+from statsmodels.stats.anova import anova_lm
+We again collect the new imports needed for this lab. Many of these are
+developed specifically for the ISLP package.
+In [2]: from pygam import (s as s_gam,
+l as l_gam,
+f as f_gam,
+LinearGAM,
+LogisticGAM)
+from ISLP.transforms import (BSpline,
+NaturalSpline)
+from ISLP.models import bs, ns
+from ISLP.pygam import (approx_lam ,
+degrees_of_freedom ,
+plot as plot_gam,
+anova as anova_gam)
+7.8.1
+Polynomial Regression and Step Functions
+We start by demonstrating how Figure 7.1 can be reproduced. Let’s begin
+by loading the data.
+In [3]: Wage = load_data('Wage')
+y = Wage['wage']
+age = Wage['age']

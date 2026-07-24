@@ -1,0 +1,248 @@
+294
+Chapter 6 ■The 2k Factorial Design
+6.10.
+In Problem 6.9, the engineer was also interested in
+potential fatigue differences resulting from the two types of bot-
+tles. As a measure of the amount of effort required, he measured
+the elevation of the heart rate (pulse) induced by the task. The
+results follow. Analyze the data and draw conclusions. Analyze
+the residuals and comment on the model’s adequacy.
+Worker
+Bottle Type
+1
+2
+Glass
+39
+45
+20
+13
+58
+35
+16
+11
+Plastic
+44
+35
+13
+10
+42
+21
+16
+15
+6.11.
+Calculate approximate 95 percent condence limits
+for the factor effects in Problem 6.10. Do the results of this
+analysis agree with the analysis of variance performed in
+Problem 6.10?
+6.12.
+An article in the AT&T Technical Journal (March/April
+1986, Vol. 65, pp. 39–50) describes the application of two-level
+factorial designs to integrated circuit manufacturing. A basic
+processing step is to grow an epitaxial layer on polished silicon
+wafers. The wafers mounted on a susceptor are positioned
+inside a bell jar, and chemical vapors are introduced. The sus-
+ceptor is rotated, and heat is applied until the epitaxial layer is
+thick enough. An experiment was run using two factors: arsenic
+ow rate (A) and deposition time (B). Four replicates were run,
+and the epitaxial layer thickness was measured ( m). The data
+are shown in Table P6.1.
+
+■TA B L E P 6 . 1
+The 2 2 Design for Problem 6.12
+Replicate
+Factor Levels
+A
+B
+I
+II
+III
+IV
+Low ()
+High ()
+
+
+14.037
+16.165
+13.972
+13.907
+A
+55%
+59%
+
+
+13.880
+13.860
+14.032
+13.914
+
+
+14.821
+14.757
+14.843
+14.878
+B
+Short
+Long
+
+
+14.888
+14.921
+14.415
+14.932
+(10 min)
+(15 min) 
+(a) Estimate the factor effects.
+(b) Conduct an analysis of variance. Which factors are
+important?
+(c) Write down a regression equation that could be used to
+predict epitaxial layer thickness over the region of arsenic
+ow rate and deposition time used in this experiment.
+(d) Analyze the residuals. Are there any residuals that
+should cause concern?
+(e) Discuss how you might deal with the potential outlier
+found in part (d).
+6.13.
+Continuation of Problem 6.12. Use the regression
+model in part (c) of Problem 6.12 to generate a response sur-
+face contour plot for epitaxial layer thickness. Suppose it is
+critically important to obtain layer thickness of 14.5m. What
+settings of arsenic ow rate and decomposition time would
+you recommend?
+6.14.
+Continuation of Problem 6.13. How would your
+answer to Problem 6.13 change if arsenic ow rate was more
+difcult to control in the process than the deposition time?
+6.15.
+A nickel–titanium alloy is used to make components
+for jet turbine aircraft engines. Cracking is a potentially serious
+problem in the nal part because it can lead to nonrecoverable
+failure. A test is run at the parts producer to determine the effect
+of four factors on cracks. The four factors are pouring temper-
+ature (A), titanium content (B), heat treatment method (C), and
+amount of grain rener used (D). Two replicates of a 24 design
+are run, and the length of crack (in mm 102) induced in a
+sample coupon subjected to a standard test is measured. The
+data are shown in Table P6.2
+■TA B L E P 6 . 2
+The Experiment for problem 6.15
+Replicate
+Treatment
+A
+B
+C
+D
+Combination
+I
+II
+
+
+
+
+(1)
+7.037
+6.376
+
+
+
+
+a
+14.707
+15.219
+
+
+
+
+b
+11.635
+12.089
+
+
+
+
+ab
+17.273
+17.815
+
+
+
+
+c
+10.403
+10.151
+
+
+
+
+ac
+4.368
+4.098
+
+
+
+
+bc
+9.360
+9.253
+
+
+
+
+abc
+13.440
+12.923
+
+
+
+
+d
+8.561
+8.951
+
+
+
+
+ad
+16.867
+17.052
+
+
+
+
+bd
+13.876
+13.658
+
+
+
+
+abd
+19.824
+19.639
+
+
+
+
+cd
+11.846
+12.337
+
+
+
+
+acd
+6.125
+5.904
+
+
+
+
+bcd
+11.190
+10.935
+
+
+
+
+abcd
+15.653
+15.053

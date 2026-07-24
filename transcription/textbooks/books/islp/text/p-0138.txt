@@ -1,0 +1,44 @@
+3.7 Exercises
+129
+6. Using (3.4), argue that in the case of simple linear regression, the
+least squares line always passes through the point (¯x, ¯y).
+7. It is claimed in the text that in the case of simple linear regression
+of Y onto X, the R2 statistic (3.17) is equal to the square of the
+correlation between X and Y (3.18). Prove that this is the case. For
+simplicity, you may assume that ¯x = ¯y = 0.
+Applied
+8. This question involves the use of simple linear regression on the Auto
+data set.
+(a) Use the sm.OLS() function to perform a simple linear regression
+with mpg as the response and horsepower as the predictor. Use
+the summarize() function to print the results. Comment on the
+output. For example:
+i. Is there a relationship between the predictor and the re-
+sponse?
+ii. How strong is the relationship between the predictor and
+the response?
+iii. Is the relationship between the predictor and the response
+positive or negative?
+iv. What is the predicted mpg associated with a horsepower of
+98? What are the associated 95 % confidence and prediction
+intervals?
+(b) Plot the response and the predictor in a new set of axes ax. Use
+the ax.axline() method or the abline() function defined in the
+lab to display the least squares regression line.
+(c) Produce some of diagnostic plots of the least squares regression
+fit as described in the lab. Comment on any problems you see
+with the fit.
+9. This question involves the use of multiple linear regression on the
+Auto data set.
+(a) Produce a scatterplot matrix which includes all of the variables
+in the data set.
+(b) Compute the matrix of correlations between the variables using
+the DataFrame.corr() method.
+.corr()
+(c) Use the sm.OLS() function to perform a multiple linear regression
+with mpg as the response and all other variables except name as
+the predictors. Use the summarize() function to print the results.
+Comment on the output. For instance:
+i. Is there a relationship between the predictors and the re-
+sponse? Use the anova_lm() function from statsmodels to
+answer this question.

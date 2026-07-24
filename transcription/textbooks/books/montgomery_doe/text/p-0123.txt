@@ -1,0 +1,92 @@
+A signicant problem with this approach to using OC curves is that it is usually difcult to
+select a set of treatment means on which the sample size decision should be based. An alternate
+approach is to select a sample size such that if the difference between any two treatment means
+exceeds a specied value, the null hypothesis should be rejected. If the difference between any
+two treatment means is as large as D, it can be shown that the minimum value of 2 is
+(3.45)
+Because this is a minimum value of 2, the corresponding sample size obtained from the
+operating characteristic curve is a conservative value; that is, it provides a power at least as
+great as that specied by the experimenter.
+To illustrate this approach, suppose that in the plasma etching experiment from Example
+3.1, the experimenter wished to reject the null hypothesis with probability at least 0.90 if 
+any two treatment means differed by as much as 75 A/min and 0.01. Then, assuming that
+25 psi, we nd the minimum value of 2 to be
+2 
+n(75)2
+2(4)(252)
+1.125n
+2 nD2
+2a2
+3.7 Determining Sample Size
+107
+E X A M P L E 3 . 1 0
+Consider the plasma etching experiment described in
+Example 3.1. Suppose that the experimenter is interested in
+rejecting the null hypothesis with a probability of at least
+0.90 if the four treatment means are
+She plans to use 0.01. In this case, because 
+2500, we have 
+(1/4)2500 625 and
+Thus,
+6250. Suppose the experimenter feels that
+the standard deviation of etch rate at any particular level of
+4
+i12
+i
+4 4 675 625 50
+3 3 650 625 25
+2 2 600 625 25
+1 1 575 625 50
+
+4
+i1i 
+1 575 2 600
+3 650 and 4 675
+power will be no larger than 25 A/min. Then, by using
+Equation 3.44, we have
+We use the OC curve for a 1 4 1 3 with N a 
+a(n 1) 4(n 1) error degrees of freedom and 
+0.01 (see Appendix Chart V). As a rst guess at the required
+sample size, try n 3 replicates. This yields 2 2.5n 
+2.5(3) 7.5, 2.74, and 4(2) 8 error degrees of free-
+dom. Consequently, from Chart V, we nd that 0.25.
+Therefore, the power of the test is approximately 1 
+1 0.25 0.75, which is less than the required 0.90, and
+so we conclude that n 3 replicates are not sufcient.
+Proceeding in a similar manner, we can construct the fol-
+lowing display:
+2 
+n 
+4
+i1
+2
+i
+a2
+n(6,250)
+4(25)2 2.5n
+n
+2
+
+a(n 1)
+&
+Power (1 &)
+3
+7.5
+2.74
+8
+0.25
+0.75
+4
+10.0
+3.16
+12
+0.04
+0.96
+5
+12.5
+3.54
+16
+0.01
+0.99
+Thus, 4 or 5 replicates are sufcient to obtain a test with the
+required power.

@@ -1,0 +1,77 @@
+528
+12. Unsupervised Learning
+3
+4
+1
+6
+9
+2
+8
+5
+7
+0.0
+0.5
+1.0
+1.5
+2.0
+2.5
+3.0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+−1.5
+−1.0
+−0.5
+0.0
+0.5
+1.0
+−1.5
+−1.0
+−0.5
+0.0
+0.5
+X1
+X2
+FIGURE 12.12.
+An illustration of how to properly interpret a dendrogram
+with nine observations in two-dimensional space. Left: a dendrogram generated
+using Euclidean distance and complete linkage. Observations 5 and 7 are quite
+similar to each other, as are observations 1 and 6. However, observation 9 is no
+more similar to observation 2 than it is to observations 8, 5, and 7, even though
+observations 9 and 2 are close together in terms of horizontal distance. This is
+because observations 2, 8, 5, and 7 all fuse with observation 9 at the same height,
+approximately 1.8. Right: the raw data used to generate the dendrogram can be
+used to confirm that indeed, observation 9 is no more similar to observation 2
+than it is to observations 8, 5, and 7.
+(corresponding to a cut at height 0, so that each observation is in its own
+cluster). In other words, the height of the cut to the dendrogram serves
+the same role as the K in K-means clustering: it controls the number of
+clusters obtained.
+Figure 12.11 therefore highlights a very attractive aspect of hierarchical
+clustering: one single dendrogram can be used to obtain any number of
+clusters. In practice, people often look at the dendrogram and select by eye
+a sensible number of clusters, based on the heights of the fusion and the
+number of clusters desired. In the case of Figure 12.11, one might choose
+to select either two or three clusters. However, often the choice of where to
+cut the dendrogram is not so clear.
+The term hierarchical refers to the fact that clusters obtained by cutting
+the dendrogram at a given height are necessarily nested within the clusters
+obtained by cutting the dendrogram at any greater height. However, on
+an arbitrary data set, this assumption of hierarchical structure might be
+unrealistic. For instance, suppose that our observations correspond to a
+group of men and women, evenly split among Americans, Japanese, and
+French. We can imagine a scenario in which the best division into two
+groups might split these people by gender, and the best division into three
+groups might split them by nationality. In this case, the true clusters are
+not nested, in the sense that the best division into three groups does not
+result from taking the best division into two groups and splitting up one
+of those groups. Consequently, this situation could not be well-represented
+by hierarchical clustering. Due to situations such as this one, hierarchical
+clustering can sometimes yield worse (i.e. less accurate) results than K-
+means clustering for a given number of clusters.

@@ -1,0 +1,51 @@
+1.4
+Guidelines for Designing Experiments
+To use the statistical approach in designing and analyzing an experiment, it is necessary for
+everyone involved in the experiment to have a clear idea in advance of exactly what is to be stud-
+ied, how the data are to be collected, and at least a qualitative understanding of how these data
+are to be analyzed. An outline of the recommended procedure is shown in Table 1.1. We now
+give a brief discussion of this outline and elaborate on some of the key points. For more details,
+see Coleman and Montgomery (1993), and the references therein. The supplemental text
+material for this chapter is also useful.
+1. Recognition of and statement of the problem.
+This may seem to be a rather obvi-
+ous point, but in practice often neither it is simple to realize that a problem requiring
+experimentation exists, nor is it simple to develop a clear and generally accepted state-
+ment of this problem. It is necessary to develop all ideas about the objectives of the
+experiment. Usually, it is important to solicit input from all concerned parties: engi-
+neering, quality assurance, manufacturing, marketing, management, customer, and
+operating personnel (who usually have much insight and who are too often ignored).
+For this reason, a team approach to designing experiments is recommended.
+It is usually helpful to prepare a list of specic problems or questions that are
+to be addressed by the experiment. A clear statement of the problem often contributes
+substantially to better understanding of the phenomenon being studied and the nal
+solution of the problem. 
+It is also important to keep the overall objectives of the experiment in mind.
+There are several broad reasons for running experiments and each type of experiment
+will generate its own list of specic questions that need to be addressed. Some (but
+by no means all) of the reasons for running experiments include:
+a. Factor screening or characterization. When a system or process is new,
+it is usually important to learn which factors have the most inuence on
+the response(s) of interest. Often there are a lot of factors. This usually
+indicates that the experimenters do not know much about the system so
+screening is essential if we are to efciently get the desired performance
+from the system. Screening experiments are extremely important when
+working with new systems or technologies so that valuable resources will
+not be wasted using best guess and OFAT approaches.
+b. Optimization. After the system has been characterized and we are rea-
+sonably certain that the important factors have been identified, the next
+objective is usually optimization, that is, find the settings or levels of
+14
+Chapter 1 ■Introduction
+■TA B L E 1 . 1
+Guidelines for Designing an Experiment
+1. Recognition of and statement of the problem
+Pre-experimental
+2. Selection of the response variablea
+planning
+3. Choice of factors, levels, and rangesa
+4. Choice of experimental design
+5. Performing the experiment
+6. Statistical analysis of the data
+7. Conclusions and recommendations
+aIn practice, steps 2 and 3 are often done simultaneously or in reverse order.

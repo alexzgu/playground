@@ -1,0 +1,36 @@
+16
+CHAPTER 1. MARTINGALES IN DISCRETE TIME
+If PT < ∞= 1, then the random variables Xn = MT 1T > n
+converge to zero with probability one. If E [MT ] < ∞, then we can
+use the dominated convergence theorem to conclude that
+lim
+n∞E[Xn] = 0
+Finally, in order to conclude (1.7) we will make the hypothesis that the
+other term acts nicely.
+Theorem 1.3.2 (Optional Sampling Theorem II). ST 
+Mn Fn. SPT < ∞=
+1, E [MT] < ∞, n,
+lim
+n∞E [Mn1T > n] = 0
+(1.8)
+T,
+E [MT] = E [M0] 
+Let us check that the martingale betting strategy does satisfy the
+conditions of the theorem (it better not since it does not satisfy the conclu-
+sion!) In fact, it does not satisfy (1.8). For this strategy, if T > n, then we
+have lost n times and Wn = 1 −2n. Also, PT > n= 2−n. Therefore,
+lim
+n∞E [Wn1T > n] = lim
+n∞(2n −1) 2−n = 1̸ = 0
+Checking condition (1.8) can be dicult in general. We will give one
+criterion which is useful.
+Theorem 1.3.3 (Optional Sampling Theorem III). ST 
+Mn Fn. SPT < ∞=
+1, E [MT] < ∞, C < ∞n,
+E
+
+Mn∧T2
+≤C
+(1.9)
+T,
+E [MT] = E [M0] 

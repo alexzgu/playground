@@ -1,0 +1,88 @@
+The design has four runs in the cube and six axial runs, and it must have at least one center
+point. Thus the design has a minimum of N 11 trials, and the second-order model in k 3
+variables has p 10 parameters to estimate, so this is a very efcient design with respect to
+the number of runs. The design in Table 11.9 has nC 4 center runs. We selected 1.73
+to give a spherical design because the small composite design cannot be made rotatable.
+The hybrid design is another alternative when it is important to reduce the number of
+runs. A hybrid design for k 3 is shown in Table 11.10. Some of these designs have irregu-
+lar levels, and this can be a limiting factor in their application. However, they are very small
+designs, and they have excellent prediction variance properties. For more details about small
+composite and hybrid designs, refer to Myers, Montgomery and Anderson-Cook (2009).
+Graphical Evaluation of Response Surface Designs. Response surface designs
+are most often used to build models for making predictions. Therefore, the prediction variance
+(dened in Equation 11.15) is of considerable importance in evaluating or comparing designs.
+Two-dimensional contour plots or three-dimensional response surface plots of prediction
+variance (or its square root, prediction standard deviation) such as Figures 11.21 and 11.24
+can be of value in this. However, for a design in k factors, these plots allow only two design
+factors to be displayed on  the plot. Because all remaining k 2 factors are held constant,
+these plots give an incomplete picture of how the prediction variance is distributed over the
+design space. Both the fraction of design space (FDS) plot introduced in Section 6.7 and the
+variance dispersion graph (VDG) developed by Giovannitti-Jensen and Myers (1989) can
+be used to solve this problem.
+A VDG is a graph displaying the minimum, maximum, and average prediction variance
+for a specic design and response model versus the distance of the design point from the center
+of the region. The distance or radius usually varies from zero (the design center) to 
+, which
+for a spherical design is the distance of the most remote point in the design from the center.
+It is customary to plot the scaled prediction variance (SPV)
+(11.16)
+on a VDG. Notice that the SPV is the prediction variance in Equation 11.15 multiplied by the
+number of runs in the design (N) and divided by the error variance 2. Dividing by 2 elimi-
+nates an unknown parameter and multiplying by N often serves to facilitate comparing
+designs of different sizes.
+NV[yˆ(x)]
+2
+Nx(X X)1x
+k
+506
+Chapter 11 ■Response Surface Methods and Designs
+■TA B L E 1 1 . 1 0
+A Hybrid Design for k 3 Factors
+Standard Order
+x1
+x2
+x3
+1
+0.00
+0.00
+1.41
+2
+0.00
+0.00
+1.41
+3
+1.00
+1.00
+0.71
+4
+1.00
+1.00
+0.71
+5
+1.00
+1.00
+0.71
+6
+1.00
+1.00
+0.71
+7
+1.41
+0.00
+0.71
+8
+1.41
+0.00
+0.71
+9
+0.00
+1.41
+0.71
+10
+0.00
+1.41
+0.71
+11
+0.00
+0.00
+0.00

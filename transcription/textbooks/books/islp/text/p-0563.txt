@@ -1,0 +1,35 @@
+13
+Multiple Testing
+Thus far, this textbook has mostly focused on estimation and its close
+cousin, prediction. In this chapter, we instead focus on hypothesis testing,
+which is key to conducting inference. We remind the reader that inference
+was briefly discussed in Chapter 2.
+While Section 13.1 provides a brief review of null hypotheses, p-values,
+test statistics, and other key ideas in hypothesis testing, this chapter as-
+sumes that the reader has had previous exposure to these topics. In par-
+ticular, we will not focus on why or how to conduct a hypothesis test — a
+topic on which entire books can be (and have been) written! Instead, we
+will assume that the reader is interested in testing some particular set of
+null hypotheses, and has a specific plan in mind for how to conduct the
+tests and obtain p-values.
+Much of the emphasis in classical statistics focuses on testing a single null
+hypothesis, such as H0: the expected blood pressure of mice in the control
+group equals the expected blood pressure of mice in the treatment group. Of
+course, we would probably like to discover that there is a difference between
+the mean blood pressure in the two groups. But for reasons that will become
+clear, we construct a null hypothesis corresponding to no difference.
+In contemporary settings, we are often faced with huge amounts of
+data, and consequently may wish to test a great many null hypotheses.
+For instance, rather than simply testing H0, we might want to test m
+null hypotheses, H01, . . . , H0m, where H0j: the expected value of the jth
+biomarker among mice in the control group equals the expected value of the
+jth biomarker among mice in the treatment group. When conducting mul-
+tiple testing, we need to be very careful about how we interpret the results,
+in order to avoid erroneously rejecting far too many null hypotheses.
+This chapter discusses classical as well as more contemporary ways to
+conduct multiple testing in a big-data setting. In Section 13.2, we highlight
+the challenges associated with multiple testing. Classical solutions to these
+© Springer Nature Switzerland AG 2023 
+G. James et al., An Introduction to Statistical Learning, Springer Texts in Statistics, 
+https://doi.org/10.1007/978-3-031-38747-0_13 
+557

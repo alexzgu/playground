@@ -1,0 +1,50 @@
+that sufcient resources are available to perform conrmation runs and ultimately
+accomplish the nal objective of the experiment.
+Finally, it is important to recognize that all experiments are designed exper-
+iments. The important issue is whether they are well designed or not. Good pre-
+experimental planning will usually lead to a good, successful experiment. Failure
+to do such planning usually leads to wasted time, money, and other resources and
+often poor or disappointing results.
+1.5
+A Brief History of Statistical Design
+There have been four eras in the modern development of statistical experimental design. The
+agricultural era was led by the pioneering work of Sir Ronald A. Fisher in the 1920s and early
+1930s. During that time, Fisher was responsible for statistics and data analysis at the
+Rothamsted Agricultural Experimental Station near London, England. Fisher recognized that
+aws in the way the experiment that generated the data had been performed often hampered
+the analysis of data from systems (in this case, agricultural systems). By interacting with sci-
+entists and researchers in many elds, he developed the insights that led to the three basic
+principles of experimental design that we discussed in Section 1.3: randomization, replica-
+tion, and blocking. Fisher systematically introduced statistical thinking and principles into
+designing experimental investigations, including the factorial design concept and the analysis
+of variance. His two books [the most recent editions are Fisher (1958, 1966)] had profound
+inuence on the use of statistics, particularly in agricultural and related life sciences. For an
+excellent biography of Fisher, see Box (1978).
+Although applications of statistical design in industrial settings certainly began in the
+1930s, the second, or industrial, era was catalyzed by the development of response surface
+methodology (RSM) by Box and Wilson (1951). They recognized and exploited the fact that
+many industrial experiments are fundamentally different from their agricultural counterparts
+in two ways: (1) the response variable can usually be observed (nearly) immediately, and 
+(2) the experimenter can quickly learn crucial information from a small group of runs that can
+be used to plan the next experiment. Box (1999) calls these two features of industrial exper-
+iments immediacy and sequentiality. Over the next 30 years, RSM and other design
+techniques spread throughout the chemical and the process industries, mostly in research and
+development work. George Box was the intellectual leader of this movement. However, the
+application of statistical design at the plant or manufacturing process level was still not
+extremely widespread. Some of the reasons for this include an inadequate training in basic
+statistical concepts and methods for engineers and other process specialists and the lack of
+computing resources and user-friendly statistical software to support the application of statis-
+tically designed experiments.
+It was during this second or industrial era that work on optimal design of experi-
+ments began. Kiefer (1959, 1961) and Kiefer and Wolfowitz (1959) proposed a formal
+approach to selecting a design based on specific objective optimality criteria. Their initial
+approach was to select a design that would result in the model parameters being estimat-
+ed with the best possible precision. This approach did not find much application because
+of the lack of computer tools for its implementation. However, there have been great
+advances in both algorithms for generating optimal designs and computing capability over
+the last 25 years. Optimal designs have great application and are discussed at several
+places in the book.
+The increasing interest of Western industry in quality improvement that began in the
+late 1970s ushered in the third era of statistical design. The work of Genichi Taguchi [Taguchi
+1.5 A Brief History of Statistical Design
+21

@@ -1,0 +1,39 @@
+366
+8. Tree-Based Methods
+10. We now use boosting to predict Salary in the Hitters data set.
+(a) Remove the observations for whom the salary information is
+unknown, and then log-transform the salaries.
+(b) Create a training set consisting of the first 200 observations, and
+a test set consisting of the remaining observations.
+(c) Perform boosting on the training set with 1,000 trees for a range
+of values of the shrinkage parameter λ. Produce a plot with
+different shrinkage values on the x-axis and the corresponding
+training set MSE on the y-axis.
+(d) Produce a plot with different shrinkage values on the x-axis and
+the corresponding test set MSE on the y-axis.
+(e) Compare the test MSE of boosting to the test MSE that results
+from applying two of the regression approaches seen in
+Chapters 3 and 6.
+(f) Which variables appear to be the most important predictors in
+the boosted model?
+(g) Now apply bagging to the training set. What is the test set MSE
+for this approach?
+11. This question uses the Caravan data set.
+(a) Create a training set consisting of the first 1,000 observations,
+and a test set consisting of the remaining observations.
+(b) Fit a boosting model to the training set with Purchase as the
+response and the other variables as predictors. Use 1,000 trees,
+and a shrinkage value of 0.01. Which predictors appear to be
+the most important?
+(c) Use the boosting model to predict the response on the test data.
+Predict that a person will make a purchase if the estimated prob-
+ability of purchase is greater than 20 %. Form a confusion ma-
+trix. What fraction of the people predicted to make a purchase
+do in fact make one? How does this compare with the results
+obtained from applying KNN or logistic regression to this data
+set?
+12. Apply boosting, bagging, random forests, and BART to a data set
+of your choice. Be sure to fit the models on a training set and to
+evaluate their performance on a test set. How accurate are the results
+compared to simple methods like linear or logistic regression? Which
+of these approaches yields the best performance?

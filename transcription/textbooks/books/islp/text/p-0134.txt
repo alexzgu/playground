@@ -1,0 +1,93 @@
+3.6 Lab: Linear Regression
+125
+age
+-0.0007
+0.020
+-0.036
+0.971
+lstat:age
+0.0042
+0.002
+2.244
+0.025
+3.6.6
+Non-linear Transformations of the Predictors
+The model matrix builder can include terms beyond just column names and
+interactions. For instance, the poly() function supplied in ISLP specifies poly()
+that columns representing polynomial functions of its first argument are
+added to the model matrix.
+In [32]: X = MS([poly('lstat', degree=2), 'age']).fit_transform(Boston)
+model3 = sm.OLS(y, X)
+results3 = model3.fit()
+summarize(results3)
+Out[32]:
+coef
+std err
+t
+P>|t|
+intercept
+17.7151
+0.781
+22.681
+0.000
+poly(lstat, degree=2)[0]
+-179.2279
+6.733
+-26.620
+0.000
+poly(lstat, degree=2)[1]
+72.9908
+5.482
+13.315
+0.000
+age
+0.0703
+0.011
+6.471
+0.000
+The effectively zero p-value associated with the quadratic term (i.e. the
+third row above) suggests that it leads to an improved model.
+By default, poly() creates a basis matrix for inclusion in the model ma-
+trix whose columns are orthogonal polynomials, which are designed for sta- orthogonal
+polynomial
+ble least squares computations.13 Alternatively, had we included an argu-
+ment raw=True in the above call to poly(), the basis matrix would consist
+simply of lstat and lstat**2. Since either of these bases represent quadratic
+polynomials, the fitted values would not change in this case, just the poly-
+nomial coefficients. Also by default, the columns created by poly() do not
+include an intercept column as that is automatically added by MS().
+We use the anova_lm() function to further quantify the extent to which anova_lm()
+the quadratic fit is superior to the linear fit.
+In [33]: anova_lm(results1, results3)
+Out[33]:
+df_resid
+ssr
+df_diff
+ss_diff
+F
+Pr(>F)
+0
+503.0
+19168.13
+0.0
+NaN
+NaN
+NaN
+1
+502.0
+14165.61
+1.0
+5002.52
+177.28
+7.47e-35
+Here results1 represents the linear submodel containing predictors lstat
+and age, while results3 corresponds to the larger model above with a
+quadratic term in lstat. The anova_lm() function performs a hypothesis
+test comparing the two models. The null hypothesis is that the quadratic
+term in the bigger model is not needed, and the alternative hypothesis is
+that the bigger model is superior. Here the F-statistic is 177.28 and the
+associated p-value is zero. In this case the F-statistic is the square of the
+t-statistic for the quadratic term in the linear model summary for results3
+— a consequence of the fact that these nested models differ by one degree of
+13Actually, poly() is a wrapper for the workhorse and standalone function Poly()
+that does the work in building the model matrix.

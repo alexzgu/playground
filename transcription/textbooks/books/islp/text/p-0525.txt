@@ -1,0 +1,78 @@
+12.3 Missing Values and Matrix Completion
+519
+FIGURE 12.6. As described in the text, in each of 100 trials, we left out 20
+elements of the USArrests dataset. In each trial, we applied Algorithm 12.1 with
+M = 1 to impute the missing elements and compute the principal components.
+Left: For each of the 50 states, the imputed first principal component scores
+(averaged over 100 trials, and displayed with a standard deviation bar) are plotted
+against the first principal component scores computed using all the data. Right:
+The imputed principal component loadings (averaged over 100 trials, and displayed
+with a standard deviation bar) are plotted against the true principal component
+loadings.
+jth movie. One specific early example of this matrix had n = 480,189 cus-
+tomers and p = 17,770 movies. However, on average each customer had seen
+around 200 movies, so 99% of the matrix had missing elements. Table 12.2
+illustrates the setup.
+In order to suggest a movie that a particular customer might like, Netflix
+needed a way to impute the missing values of this data matrix. The key idea
+is as follows: the set of movies that the ith customer has seen will overlap
+with those that other customers have seen. Furthermore, some of those
+other customers will have similar movie preferences to the ith customer.
+Thus, it should be possible to use similar customers’ ratings of movies that
+the ith customer has not seen to predict whether the ith customer will like
+those movies.
+More concretely, by applying Algorithm 12.1, we can predict the ith cus-
+tomer’s rating for the jth movie using ˆxij = )M
+m=1 ˆaimˆbjm. Furthermore,
+we can interpret the M components in terms of “cliques” and “genres”:
+• ˆaim represents the strength with which the ith user belongs to the
+mth clique, where a clique is a group of customers that enjoys movies
+of the mth genre;
+• ˆbjm represents the strength with which the jth movie belongs to the
+mth genre.
+Examples of genres include Romance, Western, and Action.
+Principal component models similar to Algorithm 12.1 are at the heart
+of many recommender systems. Although the data matrices involved are
+−3
+−2
+−1
+0
+1
+2
+3
+−3
+−2
+−1
+0
+1
+2
+3
+True First Principal Component
+Imputed First Principal Component
+●●
+●
+●●●●●●●●●●●●●●●
+●
+●●●●●●●●●●●●●●●●
+●●●
+●●
+●●●●●●
+●●
+2
+4
+6
+8
+10
+12
+2
+4
+6
+8
+10
+12
+True PC Variances
+Imputed PC Variances
+●
+●
+●
+●

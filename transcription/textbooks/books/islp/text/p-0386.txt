@@ -1,0 +1,80 @@
+9.3 Support Vector Machines
+379
+Then (9.12)–(9.15) would become
+maximize
+β0,β11,β12,...,βp1,βp2,ϵ1,...,ϵn, M M
+(9.16)
+subject to yi
+
+β0 +
+p
+0
+j=1
+βj1xij +
+p
+0
+j=1
+βj2x2
+ij
+
+≥M(1 −ϵi),
+n
+0
+i=1
+ϵi ≤C, ϵi ≥0,
+p
+0
+j=1
+2
+0
+k=1
+β2
+jk = 1.
+Why does this lead to a non-linear decision boundary? In the enlarged
+feature space, the decision boundary that results from (9.16) is in fact lin-
+ear. But in the original feature space, the decision boundary is of the form
+q(x) = 0, where q is a quadratic polynomial, and its solutions are gener-
+ally non-linear. One might additionally want to enlarge the feature space
+with higher-order polynomial terms, or with interaction terms of the form
+XjXj′ for j̸ = j′. Alternatively, other functions of the predictors could
+be considered rather than polynomials. It is not hard to see that there
+are many possible ways to enlarge the feature space, and that unless we
+are careful, we could end up with a huge number of features. Then compu-
+tations would become unmanageable. The support vector machine, which
+we present next, allows us to enlarge the feature space used by the support
+vector classifier in a way that leads to efficient computations.
+9.3.2
+The Support Vector Machine
+The support vector machine (SVM) is an extension of the support vector support
+vector
+machine
+classifier that results from enlarging the feature space in a specific way,
+using kernels. We will now discuss this extension, the details of which are
+kernel
+somewhat complex and beyond the scope of this book. However, the main
+idea is described in Section 9.3.1: we may want to enlarge our feature space
+in order to accommodate a non-linear boundary between the classes. The
+kernel approach that we describe here is simply an efficient computational
+approach for enacting this idea.
+We have not discussed exactly how the support vector classifier is com-
+puted because the details become somewhat technical. However, it turns
+out that the solution to the support vector classifier problem (9.12)–(9.15)
+involves only the inner products of the observations (as opposed to the
+observations themselves). The inner product of two r-vectors a and b is
+defined as ⟨a, b⟩= )r
+i=1 aibi. Thus the inner product of two observations
+xi, xi′ is given by
+⟨xi, xi′⟩=
+p
+0
+j=1
+xijxi′j.
+(9.17)
+It can be shown that
+• The linear support vector classifier can be represented as
+f(x) = β0 +
+n
+0
+i=1
+αi⟨x, xi⟩,
+(9.18)

@@ -1,0 +1,45 @@
+3.6 Lab: Linear Regression
+117
+'poly',
+'quit',
+'sm',
+'summarize']
+This shows you everything that Python can find at the top level. There
+are certain objects like __builtins__ that contain references to built-in
+functions like print().
+Every python object has its own notion of namespace, also accessible
+with dir(). This will include both the attributes of the object as well as
+any methods associated with it. For instance, we see 'sum' in the listing
+for an array.
+In [6]: A = np.array([3,5,11])
+dir(A)
+Out[6]:
+...
+'strides',
+'sum',
+'swapaxes',
+...
+This indicates that the object A.sum exists. In this case it is a method that
+can be used to compute the sum of the array A as can be seen by typing
+A.sum?.
+In [7]: A.sum()
+Out[7]: 19
+3.6.2
+Simple Linear Regression
+In this section we will construct model matrices (also called design matri-
+ces) using the ModelSpec() transform from ISLP.models.
+We will use the Boston housing data set, which is contained in the ISLP
+package. The Boston dataset records medv (median house value) for 506
+neighborhoods around Boston. We will build a regression model to pre-
+dict medv using 13 predictors such as rmvar (average number of rooms per
+house), age (proportion of owner-occupied units built prior to 1940), and
+lstat (percent of households with low socioeconomic status). We will use
+statsmodels for this task, a Python package that implements several com-
+monly used regression methods.
+We have included a simple loading function load_data() in the ISLP pack- load_data()
+age:
+In [8]: Boston = load_data("Boston")
+Boston.columns
+Out[8]: Index(['crim', 'zn', 'indus', 'chas', 'nox', 'rm', 'age', 'dis',
+'rad', 'tax', 'ptratio', 'black', 'lstat', 'medv'],
+dtype='object')

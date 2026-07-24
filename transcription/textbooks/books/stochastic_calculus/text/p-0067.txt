@@ -1,0 +1,91 @@
+2.7. COMPUTATIONS FOR BROWNIAN MOTION
+61
+Example 2.7.1. Let a > 0 and let Ta = inft : Bt = a. The random
+variable Ta is called a . We will nd the density of Ta. To do
+this, we rst nd its distribution function
+F(t) = PTa ≤t= P
+
+max
+0≤s≤t Bs ≥a
+
+= 2
+
+1 −Φ(a
+√
+t)
+
+
+The density is obtained by dierentiating
+f(t) = F ′(t) = −2Φ′
+a
+√
+t
+
+−
+a
+2t32
+
+=
+a
+t32 √
+2π e−a2
+2t ,
+0 < t < ∞
+Example 2.7.2. We will compute
+q(r, t) = P Bs = 0 for some r ≤s ≤t
+The scaling rule for Brownian motion (Theorem 2.6.3) shows that q(r, t) =
+q(1, tr), so it suces to compute q(t) = q(1, 1 + t). Let A be the event that
+Bs = 0 for some 1 ≤s ≤1 + t. The Markov property for Brownian motion
+and symmetry imply that
+q(t)
+=
+∞
+−∞
+P[A B1 = r] dPB1 = r
+=
+∞
+−∞
+P[A B1 = r]
+
+1
+√
+2π e−r22 dr
+
+=
+
+2
+π
+∞
+0
+P[A B1 = r] e−r22 dr
+The reection principle and symmetry imply that
+P[A B1 = r] = P
+
+min
+1≤s≤1+t Bs ≤0 B1 = r
+
+=
+P
+
+max
+0≤s≤t Bs ≥r
+
+= 2PBt ≥r= 2 [1 −Φ(r
+√
+t)]
+Combining this we get
+q(t) =
+∞
+−∞
+2 [1 −Φ(r
+√
+t)]
+1
+√
+2πe−r22 dr
+This integral can be computed with polar coordinates. We just give the an-
+swer
+q(t) = 1 −2
+π arctan 1
+√
+t

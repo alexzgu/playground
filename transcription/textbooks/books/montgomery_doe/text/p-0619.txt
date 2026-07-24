@@ -1,0 +1,77 @@
+Assuming that all the factors are random, develop the analysis of
+variance table, including the expected mean squares. Propose
+appropriate test statistics for all effects.
+13.21. The three-factor factorial model for a single replicate is
+If all the factors are random, can any effects be tested? If the
+three-factor and ()ij interactions do not exist, can all the
+remaining effects be tested?
+13.22. In Problem 5.8, assume that both machines and oper-
+ators were chosen randomly. Determine the power of the test
+for detecting a machine effect such that 
+2, where 
+is the variance component for the machine factor. Are two
+replicates sufcient?
+13.23. In the two-factor mixed model analysis of variance,
+show that Cov[()ij, ()ij] (1/a)
+for i i.
+13.24. Show that the method of analysis of variance always
+produces unbiased point estimates of the variance compo-
+nents in any random or mixed model.
+13.25. Invoking the usual normality assumptions, nd an
+expression for the probability that a negative estimate of a
+variance component will be obtained by the analysis of vari-
+ance method. Using this result, write a statement giving the
+probability that 
+0 in a one-factor analysis of variance.
+Comment on the usefulness of this probability statement.
+13.26. Analyze the data in Problem 13.1, assuming that
+operators are xed, using both the unrestricted and the
+restricted forms of the mixed models. Compare the results
+obtained from the two models.
+13.27. Consider the two-factor mixed model. Show that the
+standard error of the xed factor mean (e.g., A) is [MSAB/bn]1/2.
+ˆ 2
+
+2
+
+2
+
+2
+
+()jk ()ik ()ijk ijk
+yijk i j k ()ij
+13.8 Problems
+603
+13.28. Consider the variance components in the random
+model from Problem 13.1.
+(a) Find an exact 95 percent condence interval on 2.
+(b) Find approximate 95 percent condence intervals on
+the other variance components using the Satterthwaite
+method.
+13.29. Use the experiment described in Problem 5.8 and
+assume that both factors are random. Find an exact 95 percent
+condence interval on 2. Construct approximate 95 percent
+condence intervals on the other variance components using
+the Satterthwaite method.
+13.30. Consider the three-factor experiment in Problem 5.19
+and assume that operators were selected at random. Find an
+approximate 95 percent condence interval on the operator
+variance component.
+13.31. Rework Problem 13.26 using the modied large-
+sample approach described in Section 13.7.2. Compare the
+two sets of condence intervals obtained and discuss.
+13.32. Rework Problem 13.28 using the modified large-
+sample method described in Section 13.7.2. Compare this
+confidence interval with the one obtained previously and
+discuss.
+13.33
+Consider the experiment described in Problem 5.8.
+Estimate the variance components using the REML method.
+Compare the confidence intervals to the approximate CIs
+found in Problem 13.29
+13.34
+Consider the experiment in Problem 13.1. Analyze
+the data using REML. Compare the CIs to those obtained in
+Problem 13.28
+13.35. Rework Problem 13.31 using REML. Compare all
+sets of CIs for the variance components.

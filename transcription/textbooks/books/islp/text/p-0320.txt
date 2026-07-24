@@ -1,0 +1,82 @@
+312
+7. Moving Beyond Linearity
+facecolor='gray',
+alpha=0.5)
+for val, ls in zip([preds.predicted_mean ,
+bands[:,0],
+bands[:,1]],
+['b','r--','r--']):
+ax.plot(age_df.values, val, ls, linewidth=3)
+ax.set_title(title, fontsize=20)
+ax.set_xlabel('Age', fontsize=20)
+ax.set_ylabel('Wage', fontsize=20);
+return ax
+We include an argument alpha to ax.scatter() to add some transparency
+to the points. This provides a visual indication of density. Notice the use
+of the zip() function in the for loop above (see Section 2.3.8). We have
+three lines to plot, each with different colors and line types. Here zip()
+conveniently bundles these together as iterators in the loop.7
+iterator
+We now plot the fit of the fourth-degree polynomial using this function.
+In [7]: plot_wage_fit(age_df,
+poly_age,
+'Degree-4 Polynomial');
+With polynomial regression we must decide on the degree of the polyno-
+mial to use. Sometimes we just wing it, and decide to use second or third
+degree polynomials, simply to obtain a nonlinear fit. But we can make such
+a decision in a more systematic way. One way to do this is through hypoth-
+esis tests, which we demonstrate here. We now fit a series of models ranging
+from linear (degree-one) to degree-five polynomials, and look to determine
+the simplest model that is sufficient to explain the relationship between
+wage and age. We use the anova_lm() function, which performs a series of
+ANOVA tests. An analysis of variance or ANOVA tests the null hypothesis analysis of
+variance
+that a model M1 is sufficient to explain the data against the alternative
+hypothesis that a more complex model M2 is required. The determination
+is based on an F-test. To perform the test, the models M1 and M2 must
+be nested: the space spanned by the predictors in M1 must be a subspace
+of the space spanned by the predictors in M2. In this case, we fit five dif-
+ferent polynomial models and sequentially compare the simpler model to
+the more complex model.
+In [8]: models = [MS([poly('age', degree=d)])
+for d in range(1, 6)]
+Xs = [model.fit_transform(Wage) for model in models]
+anova_lm(*[sm.OLS(y, X_).fit()
+for X_ in Xs])
+Out[8]:
+df_resid
+ssr
+df_diff
+ss_diff
+F
+Pr(>F)
+0
+2998.0
+5.022e+06
+0.0
+NaN
+NaN
+NaN
+1
+2997.0
+4.793e+06
+1.0
+228786.010
+143.593
+2.364e-32
+2
+2996.0
+4.778e+06
+1.0
+15755.694
+9.889
+1.679e-03
+3
+2995.0
+4.772e+06
+1.0
+6070.152
+3.810
+5.105e-02
+7In Python speak, an “iterator” is an object with a finite number of values, that can
+be iterated on, as in a loop.

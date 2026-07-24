@@ -1,0 +1,92 @@
+10.4 Hypothesis Testing in Multiple Regression
+463
+Rejection of H0 in Equation 10.20 implies that at least one of the regressor variables x1,
+x2, . . . , xk contributes signicantly to the model. The test procedure involves an analysis of
+variance partitioning of the total sum of squares SST into a sum of squares due to the model
+(or to regression) and a sum of squares due to residual (or error), say
+(10.21)
+Now if the null hypothesis H0 : 1 2 k 0 is true, then SSR/2 is distributed as
+, where the number of degrees of freedom for 2 is equal to the number of regressor vari-
+ables in the model. Also, we can show that SSE/2 is distributed as 
+and that SSE and
+SSR are independent. The test procedure for H0 : 1 2 k 0 is to compute
+(10.22)
+and to reject H0 if F0 exceeds F,k,n k 1. Alternatively, we could use the P-value approach to
+hypothesis testing and, reject H0 if the P-value for the statistic F0 is less than . The test is
+usually summarized in an analysis of variance table such as Table 10.6.
+A computational formula for SSR may be found easily. We have derived a computational
+formula for SSE in Equation 10.16—that is,
+Now, because SST 
+yy 
+, we may rewrite the foregoing
+equation as
+or
+Therefore, the regression sum of squares is
+(10.23)
+and the error sum of squares is
+(10.24)
+and the total sum of squares is
+(10.25)
+SST yy 
+n
+i1
+yi
+2
+n
+SSE yy &ˆXy
+SSR &ˆXy 
+n
+i1
+yi
+2
+n
+SSE SST SSR
+SSE yy 
+n
+i1
+yi
+2
+n
+&ˆXy 
+n
+i1
+yi
+2
+n 
+(n
+i1 yi)2/n
+n
+i1 y2
+i (n
+i1 yi)2/n
+SSE yy &ˆXy
+F0 
+SSR/k
+SSE/(n k 1) MSR
+MSE
+2
+nk1
+2
+k
+SST SSR SSE
+■TA B L E 1 0 . 6
+Analysis of Variance for Signiﬁcance of Regression in Multiple Regression
+Source of 
+Degrees of 
+Variation
+Sum of Squares
+Freedom
+Mean Square
+F0
+Regression
+SSR
+k
+MSR
+MSR/MSE
+Error or residual
+SSE
+n k 1
+MSE
+Total
+SST
+n 1

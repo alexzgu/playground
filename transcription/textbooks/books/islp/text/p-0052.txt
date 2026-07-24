@@ -1,0 +1,46 @@
+42
+2. Statistical Learning
+2.3.3
+Introduction to Numerical Python
+As mentioned earlier, this book makes use of functionality that is contained
+in the numpy library, or package. A package is a collection of modules that numpy
+package
+are not necessarily included in the base Python distribution. The name numpy
+is an abbreviation for numerical Python.
+To access numpy, we must first import it.
+import
+In [7]: import numpy as np
+In the previous line, we named the numpy module np; an abbreviation for module
+easier referencing.
+In numpy, an array is a generic term for a multidimensional set of numbers. array
+We use the np.array() function to define x and y, which are one-dimensional np.array()
+arrays, i.e. vectors.
+In [8]: x = np.array([3, 4, 5])
+y = np.array([4, 9, 7])
+Note that if you forgot to run the import numpy as np command earlier,
+then you will encounter an error in calling the np.array() function in
+the previous line. The syntax np.array() indicates that the function be-
+ing called is part of the numpy package, which we have abbreviated as np.
+Since x and y have been defined using np.array(), we get a sensible result
+when we add them together. Compare this to our results in the previous
+section, when we tried to add two lists without using numpy.
+In [9]: x + y
+Out[9]: array([ 7, 13, 12])
+In numpy, matrices are typically represented as two-dimensional arrays,
+and vectors as one-dimensional arrays.1 We can create a two-dimensional
+array as follows.
+In [10]: x = np.array([[1, 2], [3, 4]])
+x
+Out[10]: array([[1, 2],
+[3, 4]])
+The object x has several attributes, or associated objects. To access an attribute
+attribute of x, we type x.attribute, where we replace attribute with the
+name of the attribute. For instance, we can access the ndim attribute of x ndim
+as follows.
+In [11]: x.ndim
+Out[11]: 2
+The output indicates that x is a two-dimensional array. Similarly, x.dtype
+is the data type attribute of the object x. This indicates that x is comprised data type
+of 64-bit integers:
+1While it is also possible to create matrices using np.matrix(), we will use
+np.array() throughout the labs in this book.

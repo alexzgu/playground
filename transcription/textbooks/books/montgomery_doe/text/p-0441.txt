@@ -1,0 +1,167 @@
+9.5.2
+Nonregular Fractional Factorial Designs 
+for 9 Through 14 Factors in 16 Runs
+Resolution III fractional factorial designs are popular for factor screening problems in situa-
+tions where there are a moderate-to-large number of factors because these designs contain a
+relatively small number of runs and they are effective in identifying the unimportant factors
+and elevating potentially important factors for further experimentation. Designs in 16 runs are
+extremely popular because the number of runs is usually within the resources available to
+most experimenters.  
+Because the regular resolution III designs alias main effects and two-factor interactions,
+and the aliased effects are completely confounded, experimenters often end up with ambigu-
+ous conclusions about which main effects and two-factor interactions are important.
+Resolving these ambiguities requires either additional experimentation (such as use of a fold-
+over design to augment the original fraction) or assumptions about which effects are impor-
+tant or external process knowledge. This is very similar to the situation encountered in the
+previous section, except now main effects are completely confounded with two-factor inter-
+actions. Just as in that section, it is possible to develop no-confounding designs for 9–14 fac-
+tors in 16 runs that are good alternatives to the usual minimum aberration resolution III
+designs when there are only a few main effects and two-factor interactions that are important.
+Table 9.25 is an extension of Table 9.19, showing all possible nonisomorphic nonregular 16
+run designs with from 6 to 15 factors. The recommended designs in Tables 9.26 through 9.31
+are chosen from the designs in this table. They are projections of the Hall designs. The cor-
+relation matrices of the designs are shown in Figures 9.15 through 9.20. All recommended
+designs are rst-order orthogonal (100% D-efcient) and the correlations between main
+effects and two-factor interactions are 
+.
+5
+9.5 Nonregular Fractional Factorial Designs
+425
+■TA B L E 9 . 2 4 
+The No-Confounding Design for the Photoresist Application Experiment  
+Run
+A
+B
+C
+D
+E
+F
+Thickness
+1
+1
+1
+1
+1
+1
+1
+4494
+2
+1
+1
+1
+1
+1
+1
+4592
+3
+1
+1
+1
+1
+1
+1
+4357
+4
+1
+1
+1
+1
+1
+1
+4489
+5
+1
+1
+1
+1
+1
+1
+4513
+6
+1
+1
+1
+1
+1
+1
+4483
+7
+1
+1
+1
+1
+1
+1
+4288
+8
+1
+1
+1
+1
+1
+1
+4448
+9
+1
+1
+1
+1
+1
+1
+4691
+10
+1
+1
+1
+1
+1
+1
+4671
+11
+1
+1
+1
+1
+1
+1
+4219
+12
+1
+1
+1
+1
+1
+1
+4271
+13
+1
+1
+1
+1
+1
+1
+4530
+14
+1
+1
+1
+1
+1
+1
+4632
+15
+1
+1
+1
+1
+1
+1
+4337
+16
+1
+1
+1
+1
+1
+1
+4391

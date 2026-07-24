@@ -1,0 +1,64 @@
+302
+7. Moving Beyond Linearity
+freedom is somewhat technical. We can write
+ˆgλ = Sλy,
+(7.12)
+where ˆgλ is the solution to (7.11) for a particular choice of λ—that is, it
+is an n-vector containing the fitted values of the smoothing spline at the
+training points x1, . . . , xn. Equation 7.12 indicates that the vector of fitted
+values when applying a smoothing spline to the data can be written as a
+n × n matrix Sλ (for which there is a formula) times the response vector
+y. Then the effective degrees of freedom is defined to be
+dfλ =
+n
+0
+i=1
+{Sλ}ii,
+(7.13)
+the sum of the diagonal elements of the matrix Sλ.
+In fitting a smoothing spline, we do not need to select the number or
+location of the knots—there will be a knot at each training observation,
+x1, . . . , xn. Instead, we have another problem: we need to choose the value
+of λ. It should come as no surprise that one possible solution to this problem
+is cross-validation. In other words, we can find the value of λ that makes
+the cross-validated RSS as small as possible. It turns out that the leave-
+one-out cross-validation error (LOOCV) can be computed very efficiently
+for smoothing splines, with essentially the same cost as computing a single
+fit, using the following formula:
+RSScv(λ) =
+n
+0
+i=1
+(yi −ˆg(−i)
+λ
+(xi))2 =
+n
+0
+i=1
+3yi −ˆgλ(xi)
+1 −{Sλ}ii
+42
+.
+The notation ˆg(−i)
+λ
+(xi) indicates the fitted value for this smoothing spline
+evaluated at xi, where the fit uses all of the training observations except
+for the ith observation (xi, yi). In contrast, ˆgλ(xi) indicates the smoothing
+spline function fit to all of the training observations and evaluated at xi.
+This remarkable formula says that we can compute each of these leave-
+one-out fits using only ˆgλ, the original fit to all of the data!5 We have
+a very similar formula (5.2) on page 205 in Chapter 5 for least squares
+linear regression. Using (5.2), we can very quickly perform LOOCV for
+the regression splines discussed earlier in this chapter, as well as for least
+squares regression using arbitrary basis functions.
+Figure 7.8 shows the results from fitting a smoothing spline to the Wage
+data. The red curve indicates the fit obtained from pre-specifying that we
+would like a smoothing spline with 16 effective degrees of freedom. The blue
+curve is the smoothing spline obtained when λ is chosen using LOOCV; in
+this case, the value of λ chosen results in 6.8 effective degrees of freedom
+(computed using (7.13)). For this data, there is little discernible difference
+between the two smoothing splines, beyond the fact that the one with 16
+degrees of freedom seems slightly wigglier. Since there is little difference
+between the two fits, the smoothing spline fit with 6.8 degrees of freedom
+5The exact formulas for computing ˆg(xi) and Sλ are very technical; however, efficient
+algorithms are available for computing these quantities.

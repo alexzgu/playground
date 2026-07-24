@@ -1,0 +1,38 @@
+10.7 Fitting a Neural Network
+431
+FIGURE 10.19. Dropout Learning. Left: a fully connected network. Right: net-
+work with dropout in the input and hidden layer. The nodes in grey are selected
+at random, and ignored in an instance of training.
+10.7.3
+Dropout Learning
+The second row in Table 10.1 is labeled dropout. This is a relatively new dropout
+and efficient form of regularization, similar in some respects to ridge reg-
+ularization. Inspired by random forests (Section 8.2), the idea is to ran-
+domly remove a fraction φ of the units in a layer when fitting the model.
+Figure 10.19 illustrates this. This is done separately each time a training
+observation is processed. The surviving units stand in for those missing,
+and their weights are scaled up by a factor of 1/(1 −φ) to compensate.
+This prevents nodes from becoming over-specialized, and can be seen as
+a form of regularization. In practice dropout is achieved by randomly set-
+ting the activations for the “dropped out” units to zero, while keeping the
+architecture intact.
+10.7.4
+Network Tuning
+The network in Figure 10.4 is considered to be relatively straightforward;
+it nevertheless requires a number of choices that all have an effect on the
+performance:
+• The number of hidden layers, and the number of units per layer.
+Modern thinking is that the number of units per hidden layer can
+be large, and overfitting can be controlled via the various forms of
+regularization.
+• Regularization tuning parameters. These include the dropout rate φ
+and the strength λ of lasso and ridge regularization, and are typically
+set separately at each layer.
+• Details of stochastic gradient descent. These include the batch size,
+the number of epochs, and if used, details of data augmentation (Sec-
+tion 10.3.4.)
+Choices such as these can make a difference. In preparing this MNIST exam-
+ple, we achieved a respectable 1.8% misclassification error after some trial
+and error. Finer tuning and training of a similar network can get under
+1% error on these data, but the tinkering process can be tedious, and can
+result in overfitting if done carelessly.

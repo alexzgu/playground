@@ -1,0 +1,71 @@
+13.4
+Sample Size Determination with Random Effects
+The operating characteristic curves in the Appendix may be used for sample size determina-
+tion in experiments with random factors. We begin with the single-factor random effects
+model of Chapter 3. The type II error probability for the random effects model is
+(13.14)
+Once again, the distribution of the test statistic F0 MSTreatments/MSE under the alternative
+hypothesis is needed. It can be shown that if H1 is true (
+0), the distribution of F0 is cen-
+tral F with a 1 and N a degrees of freedom.
+Because the type II error probability of the random effects model is based on the usual
+central F distribution, we could use the tables of the F distribution in the Appendix to evaluate
+Equation 13.14. However, it is simpler to determine the sensitivity of the test through the use
+of operating characteristic curves. A set of these curves for various values of numerator degrees
+of freedom, denominator degrees of freedom, and of 0.05 or 0.01 is provided in Chart VI of
+the Appendix. These curves plot the probability of type II error against the parameter , where
+(13.15)
+Note that involves two unknown parameters, 2 and 
+. We may be able to estimate 
+if we
+have an idea about how much variability in the population of treatments it is important to detect.
+An estimate of 2 may be chosen using prior experience or judgment. Sometimes it is helpful
+to dene the value of 
+we are interested in detecting in terms of the ratio 
+.
+2
+/2
+2
+
+2
+
+2
+
+1 n2
+
+2
+2
+
+1 PF0 # F,a1,Na2
+# 0
+ 1 PReject H0H0 is false
+13.4 Sample Size Determination with Random Effects
+587
+E X A M P L E 1 3 . 4
+Suppose we have ve treatments selected at random with
+six observations per treatment and   0.05, and we wish
+to determine the power of the test if 
+is equal to 2.
+Because a 5, n 6, and 
+ 2, we may compute
+1 6(1) 2.646
+2
+
+2
+
+From the operating characteristic curve with a 1 4,
+N a  25 degrees of freedom, and  0.05, we nd that
+and thus the power is approximately 0.80.
+ 0.20
+We can also use the percentage increase in the standard deviation of an observation
+method to determine sample size. If the treatments are homogeneous, then the standard devi-
+ation of an observation selected at random is . However, if the treatments are different, the
+standard deviation of a randomly chosen observation is
+If P is the xed percentage increase in the standard deviation of an observation beyond which
+rejection of the null hypothesis is desired,
+2 2
+
+
+1 0.01P
+2 2
+

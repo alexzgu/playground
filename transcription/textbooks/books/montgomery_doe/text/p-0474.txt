@@ -1,0 +1,209 @@
+458
+Chapter 10 ■Fitting Regression Models
+■TA B L E 1 0 . 4
+Minitab Output for the Viscosity Regression Model, Example 10.1
+Regression Analysis
+The regression equation is
+Viscosity 1566 7.62 Temp 8.58 Feed Rate
+Predictor
+Coef
+Std. Dev.
+T
+P
+Constant
+1566.08
+61.59
+25.43
+0.000
+Temp
+7.6213
+0.6184
+12.32
+0.000
+Feed Rat
+8.585
+2.439
+3.52
+0.004
+S 16.36
+R-Sq 92.7%
+R-Sq (adj) 91.6%
+Analysis of Variance
+Source
+DF
+SS
+MS
+F
+P
+Regression
+2
+44157
+22079
+82.50
+0.000
+Residual Error
+13
+3479
+268
+Total
+15
+47636
+Source
+DF
+Seq SS
+Temp
+1
+40841
+Feed Rat
+1
+3316
+that the effect estimates from a 2k design are least squares
+estimates.
+The variance of the regression model parameter are
+found from the diagonal elements of (XX)1. That is,
+,
+and
+V(ˆi) 2
+8 , i 1,2,3.
+V(ˆ0) 2
+12
+The relative variance are
+and
+V(ˆi)
+2
+1
+8, i 1,2,3.
+V(ˆ
+0)
+2
+1
+12
+50
+44
+53
+56
+57
+68
+36
+32
+46
+65
+48
+57
+Run
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+Temp (°C)
+120
+160
+120
+160
+120
+160
+120
+160
+140
+140
+140
+140
+Process Variables
+Pressure (psig)
+40
+80
+40
+80
+40
+80
+40
+80
+60
+60
+60
+60
+Conc (g/l)
+15
+15
+15
+15
+30
+30
+30
+30
+   22.5
+   22.5
+   22.5
+   22.5
+x1
+–1
+  1
+–1
+  1
+–1
+  1
+–1
+  1
+  0
+  0
+  0
+  0
+ Coded Variables
+ 32 
+46
+57
+65
+36
+48
+57
+68
+50
+44
+53
+56
+ Yield, y
+x3
+–1
+–1
+–1
+–1
+  1
+  1
+  1
+  1
+  0
+  0
+  0
+  0
+x2
+–1
+–1
+  1
+  1
+–1
+–1
+  1
+  1
+  0
+  0
+  0
+  0
+x1 =
+,
+,
+Temp – 140
+20
+x2 = Pressure – 60
+20
+x3 = Conc – 22.5
+7.5
+■F I G U R E 1 0 . 5
+Experimental design for Example 10.2

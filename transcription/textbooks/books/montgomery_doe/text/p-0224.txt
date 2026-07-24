@@ -1,0 +1,146 @@
+208
+Chapter 5 ■Introduction to Factorial Designs
+The error sum of squares may be found by subtracting the sum of squares for each main effect
+and interaction from the total sum of squares or by
+(5.35)
+SSE SST SSSubtotals(ABC)
+E X A M P L E 5 . 3
+The Soft Drink Bottling Problem
+A soft drink bottler is interested in obtaining more uniform
+ll heights in the bottles produced by his manufacturing
+process. The lling machine theoretically lls each bottle to
+the correct target height, but in practice, there is variation
+around this target, and the bottler would like to understand
+the sources of this variability better and eventually reduce it.
+The process engineer can control three variables during
+the lling process: the percent carbonation (A), the operat-
+ing pressure in the ller (B), and the bottles produced per
+minute or the line speed (C). The pressure and speed are
+easy to control, but the percent carbonation is more difcult
+to control during actual manufacturing because it varies
+with product temperature. However, for purposes of an
+experiment, the engineer can control carbonation at three
+levels: 10, 12, and 14 percent. She chooses two levels for
+pressure (25 and 30 psi) and two levels for line speed (200
+and 250 bpm). She decides to run two replicates of a facto-
+rial design in these three factors, with all 24 runs taken in
+random order. The response variable observed is the average
+deviation from the target ll height observed in a production
+run of bottles at each set of conditions. The data that resulted
+from this experiment are shown in Table 5.13. Positive devi-
+ations are ll heights above the target, whereas negative
+deviations are ll heights below the target. The circled num-
+bers in Table 5.13 are the three-way cell totals yijk..
+The total corrected sum of squares is found from
+Equation 5.27 as
+ 571 (75)2
+24
+336.625
+SST 
+a
+i1 
+b
+j1 
+c
+k1 
+n
+l1
+y2
+ijkl y2
+....
+abcn
+■TA B L E 5 . 1 3
+Fill Height Deviation Data for Example 5.3
+Operating Pressure (B)
+25 psi
+30 psi
+Percent
+Line Speed (C)
+Line Speed (C)
+Carbonation (A)
+200
+250
+200
+250
+yi...
+3
+1
+1
+1
+10
+1
+4
+0
+1
+0
+1
+1
+2
+4
+0
+2
+2
+6
+12
+1
+1
+1
+3
+3
+5
+5
+11
+20
+5
+7
+7
+10
+14
+4
+9
+6
+13
+9
+16
+11
+21
+59
+B C Totals y.jk.
+6
+15
+20
+34
+75 y....
+y.j..
+21
+54
+A B Totals
+A C Totals
+yij..
+yi.k.
+B
+C
+A
+25
+30
+A
+200
+250
+10
+5
+1
+10
+5
+1
+12
+4
+16
+12
+6
+14
+14
+22
+37
+14
+25
+34

@@ -1,0 +1,97 @@
+14.5 Other Variations of the Split-Plot Design
+633
+E X A M P L E 1 4 . 4
+A researcher is studying the absorption times of a particu-
+lar type of antibiotic capsule. There are three technicians,
+three dosage strengths, and four capsule wall thicknesses of
+interest to the researcher. Each replicate of a factorial
+experiment would require 36 observations. The experi-
+menter has decided on four replicates, and it is necessary to
+run each replicate on a different day. Note that the days can
+be considered as blocks. Within a replicate (or a block)
+(day), the experiment is performed by assigning a unit of
+antibiotic to a technician who conducts the experiment on
+the three dosage strengths and the four wall thicknesses.
+Once a particular dosage strength is formulated, all four
+wall thicknesses are tested at that strength. Then another
+dosage strength is selected and all four wall thicknesses are
+tested. Finally, the third dosage strength and the four wall
+thicknesses are tested. Meanwhile, two other laboratory
+technicians also follow this plan, each starting with a unit
+of antibiotic.
+Note that there are two randomization restrictions with-
+in each replicate (or block): technician and dosage strength.
+The whole plots correspond to the technician. The order in
+which the technicians are assigned the units of antibiotic is
+randomly determined. The dosage strengths form three sub-
+plots. Dosage strength may be randomly assigned to a sub-
+plot. Finally, within a particular dosage strength, the four
+capsule wall thicknesses are tested in random order, form-
+ing four sub-subplots. The wall thicknesses are usually
+called sub-subtreatments. Because there are two random-
+ization restrictions in the experiment (some authors say two
+“splits” in the design), the design is called a split-split-plot
+design. Figure 14.10 illustrates the randomization restric-
+tions and experimental layout in this design.
+■TA B L E 1 4 . 2 4
+(Continued)
+4
+
+
+
+
+
+
+
+
+
+
+
+5
+
+
+
+
+
+
+
+
+
+
+
+6
+
+
+
+
+
+
+
+
+
+
+
+7
+
+
+
+
+
+
+
+
+
+
+
+8
+
+
+
+
+
+
+
+
+
+
+

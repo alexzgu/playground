@@ -1,0 +1,45 @@
+5.1 Cross-Validation
+203
+!"#"$""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""%"
+&""##""!$"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""'!"
+FIGURE 5.1. A schematic display of the validation set approach. A set of n
+observations are randomly split into a training set (shown in blue, containing
+observations 7, 22, and 13, among others) and a validation set (shown in beige,
+and containing observation 91, among others). The statistical learning method is
+fit on the training set, and its performance is evaluated on the validation set.
+sets, a training set containing 196 of the data points, and a validation set
+containing the remaining 196 observations. The validation set error rates
+that result from fitting various regression models on the training sample
+and evaluating their performance on the validation sample, using MSE
+as a measure of validation set error, are shown in the left-hand panel of
+Figure 5.2. The validation set MSE for the quadratic fit is considerably
+smaller than for the linear fit. However, the validation set MSE for the cubic
+fit is actually slightly larger than for the quadratic fit. This implies that
+including a cubic term in the regression does not lead to better prediction
+than simply using a quadratic term.
+Recall that in order to create the left-hand panel of Figure 5.2, we ran-
+domly divided the data set into two parts, a training set and a validation
+set. If we repeat the process of randomly splitting the sample set into two
+parts, we will get a somewhat different estimate for the test MSE. As an
+illustration, the right-hand panel of Figure 5.2 displays ten different vali-
+dation set MSE curves from the Auto data set, produced using ten different
+random splits of the observations into training and validation sets. All ten
+curves indicate that the model with a quadratic term has a dramatically
+smaller validation set MSE than the model with only a linear term. Fur-
+thermore, all ten curves indicate that there is not much benefit in including
+cubic or higher-order polynomial terms in the model. But it is worth noting
+that each of the ten curves results in a different test MSE estimate for each
+of the ten regression models considered. And there is no consensus among
+the curves as to which model results in the smallest validation set MSE.
+Based on the variability among these curves, all that we can conclude with
+any confidence is that the linear fit is not adequate for this data.
+The validation set approach is conceptually simple and is easy to imple-
+ment. But it has two potential drawbacks:
+1. As is shown in the right-hand panel of Figure 5.2, the validation esti-
+mate of the test error rate can be highly variable, depending on pre-
+cisely which observations are included in the training set and which
+observations are included in the validation set.
+2. In the validation approach, only a subset of the observations—those
+that are included in the training set rather than in the validation
+set—are used to fit the model. Since statistical methods tend to per-
+form worse when trained on fewer observations, this suggests that the

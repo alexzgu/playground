@@ -1,0 +1,38 @@
+56
+CHAPTER 2. BROWNIAN MOTION
+Right continuity. For each t
+Ft =
+
+s>t
+Fs
+It is easy to check that the right-hand side is a σ-algebra contain-
+ing Ft. and it is often denoted by Ft+. Right continuity states
+that Ft = Ft+. If the original ltration was not right continuous,
+we can replace it with the ltration Ft+.
+(Strong) completeness. We assume that Ft contains all the null
+sets of F (note that this is stronger than saying that Ft is com-
+plete). If this does not hold initially, we enlarge our σ-algebra to
+include all events of the form A A′ where A Ft and A′ is a
+null set.
+If we start with Brownian motion and let Ft be the σ-algebra generated
+by Bs : s ≤t, then it is not true that Ft = Ft+. However, it is almost
+true in the sense that every set in Ft+ can be written as A A′ where
+A Ft and A′ is a null set. This is a consequence of the Blumenthal
+0 −1 law that states that the σ-algebra F0+ contains only events of
+probability zero or one. We will not prove this here but it is related
+to the Kolmogorov 0 −1 law.
+At this point one may not appreciate why one wants to make these
+assumptions, but we will not try to motivate them further.
+2.6.2
+Brownian motion as a Markov process
+A continuous time process Xt is called Mif for every t, the conditional
+distribution of Xs : s ≥tgiven Xr : r ≤tis the same as the conditional
+distribution given Xt. In other words, the future of the process is conditionally
+independent of the past given the present value.
+Brownian motion is a Markov process. Indeed, if Bt is a Brownian motion
+with parameters (m, σ2), and
+Ys = Bt+s,
+0 ≤s < ∞,
+then the conditional distribution of Ysgiven Ft is that of a Brownian
+motion with initial condition Y0 = Bt. Indeed, if
+ˆBs = Bt+s −Bt,

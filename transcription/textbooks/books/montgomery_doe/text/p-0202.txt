@@ -1,0 +1,85 @@
+186
+Chapter 5 ■Introduction to Factorial Designs
+Now suppose that the interaction contribution to this experiment was not negligible;
+that is, the coefcient 12 was not small. Figure 5.6 presents the response surface and contour
+plot for the model
+(We have let the interaction effect be the average of the two main effects.) Notice that the sig-
+nicant interaction effect “twists” the plane in Figure 5.6a. This twisting of the response
+surface results in curved contour lines of constant response in the x1, x2 plane, as shown in
+Figure 5.6b. Thus, interaction is a form of curvature in the underlying response surface
+model for the experiment.
+The response surface model for an experiment is extremely important and useful. We
+will say more about it in Section 5.5 and in subsequent chapters.
+Generally, when an interaction is large, the corresponding main effects have little prac-
+tical meaning. For the experiment in Figure 5.2, we would estimate the main effect of A to be
+which is very small, and we are tempted to conclude that there is no effect due to A. However,
+when we examine the effects of A at different levels of factor B, we see that this is not the
+case. Factor A has an effect, but it depends on the level of factor B. That is, knowledge of the
+AB interaction is more useful than knowledge of the main effect. A signicant interaction will
+often mask the signicance of main effects. These points are clearly indicated by the inter-
+action plot in Figure 5.4. In the presence of signicant interaction, the experimenter must
+usually examine the levels of one factor, say A, with levels of the other factors xed to draw
+conclusions about the main effect of A.
+5.2
+The Advantage of Factorials
+The advantage of factorial designs can be easily illustrated. Suppose we have two factors A
+and B, each at two levels. We denote the levels of the factors by A, A, B, and B.
+Information on both factors could be obtained by varying the factors one at a time, as shown
+in Figure 5.7. The effect of changing factor A is given by ABAB, and the effect of
+changing factor B is given by ABAB. Because experimental error is present, it is
+desirable to take two observations, say, at each treatment combination and estimate the effects
+of the factors using average responses. Thus, a total of six observations are required.
+A 50 12
+2
+20 40
+2
+1
+yˆ 35.5 10.5x1 5.5x2 8x1x2
+x1
+x2
+x1
+x2
+y
+22
+32
+42
+52
+62
+–1
+–0.6
+–0.2
+0.2
+0.6
+1
+–1
+1
+–0.6
+–0.2
+0.2
+0.6
+(a) The response surface
+(b) The contour plot
+–1
+–0.6
+–0.2
+0.2
+0.6
+1
+–1
+–0.6
+0.2
+–0.2
+0.6
+1
+49
+46
+43
+40
+37
+34
+31
+28
+25
+■F I G U R E 5 . 6
+Response surface and contour plot for the model 35.5 10.5x1 5.5x2 8x1x2
+yˆ

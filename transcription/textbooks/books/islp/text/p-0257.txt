@@ -1,0 +1,78 @@
+6.2 Shrinkage Methods
+249
+0.02
+0.10
+0.50
+2.00
+10.00
+50.00
+0
+20
+40
+60
+80
+100
+Mean Squared Error
+0.4
+0.5
+0.6
+0.7
+0.8
+0.9
+1.0
+0
+20
+40
+60
+80
+100
+R2 on Training Data
+Mean Squared Error
+λ
+FIGURE 6.9.
+Left: Plots of squared bias (black), variance (green), and test
+MSE (purple) for the lasso. The simulated data is similar to that in Figure 6.8,
+except that now only two predictors are related to the response. Right: Comparison
+of squared bias, variance, and test MSE between lasso (solid) and ridge (dotted).
+Both are plotted against their R2 on the training data, as a common form of
+indexing. The crosses in both plots indicate the lasso model for which the MSE is
+smallest.
+There are very efficient algorithms for fitting both ridge and lasso models;
+in both cases the entire coefficient paths can be computed with about the
+same amount of work as a single least squares fit. We will explore this
+further in the lab at the end of this chapter.
+A Simple Special Case for Ridge Regression and the Lasso
+In order to obtain a better intuition about the behavior of ridge regression
+and the lasso, consider a simple special case with n = p, and X a diag-
+onal matrix with 1’s on the diagonal and 0’s in all off-diagonal elements.
+To simplify the problem further, assume also that we are performing regres-
+sion without an intercept. With these assumptions, the usual least squares
+problem simplifies to finding β1, . . . , βp that minimize
+p
+0
+j=1
+(yj −βj)2.
+(6.11)
+In this case, the least squares solution is given by
+ˆβj = yj.
+And in this setting, ridge regression amounts to finding β1, . . . , βp such that
+p
+0
+j=1
+(yj −βj)2 + λ
+p
+0
+j=1
+β2
+j
+(6.12)
+is minimized, and the lasso amounts to finding the coefficients such that
+p
+0
+j=1
+(yj −βj)2 + λ
+p
+0
+j=1
+|βj|
+(6.13)

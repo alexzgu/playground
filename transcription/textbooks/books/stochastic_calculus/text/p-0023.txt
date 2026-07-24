@@ -1,0 +1,45 @@
+1.3. OPTIONAL SAMPLING THEOREM
+17
+To prove this theorem, rst note that with probability one,
+MT 2 = lim
+n∞MT ∧n2 1T ≤n,
+and hence by the H¨older inequality and the monotone convergence
+theorem,
+E [MT ]2 ≤E
+
+MT 2
+= lim
+n∞E
+
+MT ∧n21T ≤n
+
+≤C
+We need to show that (1.9) implies (1.8). If b > 0, then for every n,
+E [Mn1Mn≥b, T > n] ≤E[Mn∧T 2]
+b
+≤C
+b 
+Therefore,
+E [Mn1T > n]
+=
+E [Mn1T > n, Mn≥b]
++E [Mn1T > n, Mn< b]
+≤
+C
+b + b PT > n
+Hence,
+lim sup
+n∞E [Mn1T > n] ≤C
+b + b lim
+n∞PT > n= C
+b 
+Since this holds for every b > 0 we get (1.8).
+Example 1.3.1. Gambler’s ruin for random walk. Let X1, X2, be
+independent, coin-tosses as in (1.6) and let
+Sn = 1 + X1 + · · · + Xn
+Sn is called () starting at 1. We have shown
+that Sn is a martingale. Let K > 1 be a positive integer and let T denote the
+rst time n such that Sn = 0 or Sn = K. Then Mn = Sn∧T is a martingale.
+Also 0 ≤Mn ≤K for all n, so (1.9) is satised. We can apply the optional
+sampling theorem to deduce that
+1 = M0 = E[MT] = 0 · PMT = 0+ K · PMT = K

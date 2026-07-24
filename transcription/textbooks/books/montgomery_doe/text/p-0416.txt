@@ -1,0 +1,138 @@
+Coded Level
+Speed (psi)
+Pressure (rpm)
+1
+100
+10
+0
+120
+15
+1
+140
+20
+Table 9.3 presents models in terms of both these coded variables and the natural levels of
+speed and pressure.
+Figure 9.5 shows the response surface contour plots of constant syrup loss as a function of
+speed and pressure for each nozzle type. These plots reveal considerable useful information about
+400
+Chapter 9 ■Additional Design and Analysis Topics for Factorial and Fractional Factorial Designs
+■TA B L E 9 . 3
+Regression Models for Example 9.1
+Nozzle Type
+x1 Speed (S), x2 Pressure (P) in Coded Units
+ 22.1  3.5x1  16.3x2  
+2.9x1x2
+1
+ 1217.3  31.256S  86.017P  0.12917S2  2.8733P2  0.02875SP
+ 25.6  22.8x1  12.3x2  
+ 0.7x1x2
+2
+ 180.1  9.475S  66.75P  0.035S2  2.2767P2  0.0075SP
+ 15.1  20.3x1  5.9x2  
+ 10.5x1x2
+3
+ 1940.1  46.058S  102.48P  0.18958S2  3.7967P2  0.105SP
+yˆ
+75.8x 2
+1 94.9x 2
+2
+yˆ
+yˆ
+14.1x 2
+1 56.9x 2
+2
+yˆ
+yˆ
+51.7x 2
+1 71.8x 2
+2
+yˆ
+Speed
+Pressure
+100.0
+106.7
+113.3
+120.0
+–20.00
+0.000
+20.00
+40.00
+40.00
+20.00
+0.000
+–20.00
+–40.00
+126.7
+133.3
+140.0
+10.00
+11.67
+13.33
+15.00
+16.67
+18.33
+20.00
+Speed
+(c) Nozzle type 3
+Pressure
+100.0
+106.7
+113.3 120.0
+126.7
+133.3
+140.0
+10.00
+11.67
+13.33
+15.00
+16.67
+18.33
+20.00
+Speed
+(b) Nozzle type 2
+(a) Nozzle type 1
+Pressure
+100.0
+106.7
+113.3
+120.0
+–40.00
+–20.00
+20.00
+20.00
+0.000
+40.00
+60.00
+0.000
+126.7
+133.3 140.0
+10.00
+11.67
+13.33
+15.00
+16.67
+18.33
+20.00
+0.000
+–20.00
+0.000
+40.00 20.00
+60.00
+60.00
+20.00
+80.00
+40.00
+60.00
+60.00
+–60.00
+–40.00
+–40.00
+–60.00
+–20.00
+■F I G U R E 9 . 5
+Contours of constant
+syrup loss (units:
+cc 70) as a function of
+speed and pressure for
+nozzle types 1, 2, and 3,
+Example 9.1

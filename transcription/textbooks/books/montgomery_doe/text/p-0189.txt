@@ -1,0 +1,173 @@
+4.4 Balanced Incomplete Block Designs
+173
+■T A B L E 4 . 2 6
+Minitab (General Linear Model) Analysis for Example 4.5
+General Linear Model
+Factor
+Type
+Levels
+Values
+Catalyst
+fixed
+4
+1 2 3 4
+Block
+fixed
+4
+1 2 3 4
+Analysis of Variance for Time, using Adjusted SS for Tests
+Source
+DF
+Seq SS
+Adj SS
+Adj MS
+F
+P
+Catalyst
+3
+11.667
+22.750
+7.583
+11.67
+0.011
+Block
+3
+66.083
+66.083
+22.028
+33.89
+0.001
+Error
+5
+3.250
+3.250
+0.650
+Total
+11
+81.000
+Tukey 95.0% Simultaneous Confidence Intervals
+Response Variable Time
+All Pairwise Comparisons among Levels of Catalyst
+Catalyst 1 subtracted from:
+Catalyst
+Lower
+Center
+Upper
+-------------------------------
+2
+2.327
+0.2500
+2.827
+(--------*--------)
+3
+1.952
+0.6250
+3.202
+(--------*--------)
+4
+1.048
+3.6250
+6.202
+(--------*--------)
+--------------------------------
+0.0
+2.5
+5.0
+Catalyst 2 subtracted from:
+Catalyst
+Lower
+Center
+Upper
+-------------------------------
+3
+2.202
+0.3750
+2.952
+(--------*--------)
+4
+0.798
+3.3750
+5.952
+(--------*--------)
+--------------------------------
+0.0
+2.5
+5.0
+Catalyst 3 subtracted from:
+Catalyst
+Lower
+Center
+Upper
+-------------------------------
+4
+0.4228
+3.000
+5.577
+(--------*--------)
+--------------------------------
+0.0
+2.5
+5.0
+Tukey Simultaneous Tests
+Response Variable Time
+All Pairwise Comparisons among Levels of Catalyst
+Catalyst 1 subtracted from:
+Level
+Difference
+SE of
+Adjusted
+Catalyst
+of Means
+Difference
+T-Value
+P-Value
+2
+0.2500
+0.6982
+0.3581
+0.9825
+3
+0.6250
+0.6982
+0.8951
+0.8085
+4
+3.6250
+0.6982
+5.1918
+0.0130
+Catalyst 2 subtracted from:
+Level
+Difference
+SE of
+Adjusted
+Catalyst
+of Means
+Difference
+T-Value
+P-Value
+3
+0.3750
+0.6982
+0.5371
+0.9462
+4
+3.3750
+0.6982
+4.8338
+0.0175
+Catalyst 3 subtracted from:
+Level
+Difference
+SE of
+Adjusted
+Catalyst
+of Means
+Difference
+T-Value
+P-Value
+4
+3.000
+0.6982
+4.297
+0.0281

@@ -1,0 +1,58 @@
+114
+CHAPTER 3. STOCHASTIC INTEGRATION
+and recursively dene
+yk(t) = y0 +
+t
+0
+F(s, yk−1(s)) ds
+Note that
+y1(t) −y0(t)≤
+t
+0
+F(s, y0)ds ≤Ct,
+where C = C(y0, t0) = max0≤s≤t0 F(s, y0), and for k ≥1,
+yk+1(t) −yk(t)
+≤
+t
+0
+F(s, yk(s)) −F(s, yk−1(s))ds
+≤
+β
+t
+0
+yk(s) −yk−1(s)ds
+Using this estimate and induction, we see that
+yk+1(t) −yk(t)≤βk C tk+1
+(k + 1)! ,
+0 ≤t ≤t0
+In particular, the limit
+y(t) = lim
+k∞yk(t),
+exists and
+yk(t) −y(t)≤C
+∞
+
+j=k
+βj tj+1
+(j + 1)!
+If we let
+˜y(t) = y0 +
+t
+0
+F(s, y(s)) ds,
+then for each k,
+˜y(t) −yk+1(t)
+≤
+t
+0
+F(s, y(s)) −F(s, yk(s))ds
+≤
+β
+t
+0
+y(s) −yk(s)ds,
+and hence ˜y = y, and y satises (3.22). This argument assumed that
+(3.23) holds for all s, t, x, y, and we put no restriction on t0. If instead
+we had such an estimate only for times near zero and x, y near y0,
+we could establish the same result for some (but not necessarily all)
+positive values of t0.

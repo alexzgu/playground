@@ -1,0 +1,70 @@
+4.6 Generalized Linear Models
+169
+5
+10
+15
+20
+0
+100
+200
+300
+400
+500
+600
+Hour
+Number of Bikers
+5
+10
+15
+20
+0
+1
+2
+3
+4
+5
+6
+Hour
+Log(Number of Bikers)
+FIGURE 4.14. Left: On the Bikeshare dataset, the number of bikers is dis-
+played on the y-axis, and the hour of the day is displayed on the x-axis. Jitter
+was applied for ease of visualization. For the most part, as the mean number of
+bikers increases, so does the variance in the number of bikers. A smoothing spline
+fit is shown in green. Right: The log of the number of bikers is now displayed on
+the y-axis.
+Some of the problems that arise when fitting a linear regression model
+to the Bikeshare data can be overcome by transforming the response; for
+instance, we can fit the model
+log(Y ) =
+p
+0
+j=1
+Xjβj + ϵ.
+Transforming the response avoids the possibility of negative predictions,
+and it overcomes much of the heteroscedasticity in the untransformed data,
+as is shown in the right-hand panel of Figure 4.14. However, it is not quite
+a satisfactory solution, since predictions and inference are made in terms of
+the log of the response, rather than the response. This leads to challenges
+in interpretation, e.g. “a one-unit increase in Xj is associated with an
+increase in the mean of the log of Y by an amount βj”. Furthermore, a
+log transformation of the response cannot be applied in settings where the
+response can take on a value of 0. Thus, while fitting a linear model to
+a transformation of the response may be an adequate approach for some
+count-valued data sets, it often leaves something to be desired. We will see
+in the next section that a Poisson regression model provides a much more
+natural and elegant approach for this task.
+4.6.2
+Poisson Regression on the Bikeshare Data
+To overcome the inadequacies of linear regression for analyzing the Bikeshare
+data set, we will make use of an alternative approach, called Poisson
+regression. Before we can talk about Poisson regression, we must first in- Poisson
+regression
+troduce the Poisson distribution.
+Poisson
+distribution
+Suppose that a random variable Y takes on nonnegative integer values,
+i.e. Y ∈{0, 1, 2, . . .}. If Y follows the Poisson distribution, then
+Pr(Y = k) = e−λλk
+k!
+for k = 0, 1, 2, . . . .
+(4.35)

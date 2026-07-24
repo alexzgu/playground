@@ -1,0 +1,71 @@
+160
+4. Classification
+Density estimates for class k=1
+ˆf11
+ˆf12
+ˆf13
+−4
+−2
+0
+2
+4
+−2
+0
+2
+4
+1
+2
+3
+Density estimates for class k=2
+ˆf21
+ˆf22
+ˆf23
+−4
+−2
+0
+2
+4
+−2
+0
+2
+4
+1
+2
+3
+FIGURE 4.10. In the toy example in Section 4.4.4, we generate data with p = 3
+predictors and K = 2 classes. The first two predictors are quantitative, and the
+third predictor is qualitative with three levels. In each class, the estimated density
+for each of the three predictors is displayed. If the prior probabilities for the two
+classes are equal, then the observation x∗= (0.4, 1.5, 1)T has a 94.4% posterior
+probability of belonging to the first class.
+True default status
+No
+Yes
+Total
+Predicted
+No
+9621
+244
+9865
+default status
+Yes
+46
+89
+135
+Total
+9667
+333
+10000
+TABLE 4.8.
+Comparison of the naive Bayes predictions to the true default
+status for the 10, 000 training observations in the Default data set, when we
+predict default for any observation for which P(Y = default|X = x) > 0.5.
+example, ˆf11(0.4) = 0.368, ˆf12(1.5) = 0.484, ˆf13(1) = 0.226, and ˆf21(0.4) =
+0.030, ˆf22(1.5) = 0.130, ˆf23(1) = 0.616. Plugging these estimates into (4.30)
+results in posterior probability estimates of Pr(Y = 1|X = x∗) = 0.944 and
+Pr(Y = 2|X = x∗) = 0.056.
+Table 4.8 provides the confusion matrix resulting from applying the naive
+Bayes classifier to the Default data set, where we predict a default if the
+posterior probability of a default — that is, P(Y = default|X = x) — ex-
+ceeds 0.5. Comparing this to the results for LDA in Table 4.4, our findings
+are mixed. While LDA has a slightly lower overall error rate, naive Bayes

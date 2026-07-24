@@ -1,0 +1,71 @@
+6.2 Shrinkage Methods
+251
+−3
+−2
+−1
+0
+1
+2
+3
+0.0
+0.1
+0.2
+0.3
+0.4
+0.5
+0.6
+0.7
+−3
+−2
+−1
+0
+1
+2
+3
+0.0
+0.1
+0.2
+0.3
+0.4
+0.5
+0.6
+0.7
+βj
+βj
+g(βj)
+g(βj)
+FIGURE 6.11. Left: Ridge regression is the posterior mode for β under a Gaus-
+sian prior. Right: The lasso is the posterior mode for β under a double-exponential
+prior.
+where X = (X1, . . . , Xp). Multiplying the prior distribution by the likeli-
+hood gives us (up to a proportionality constant) the posterior distribution, posterior
+distribution
+which takes the form
+p(β|X, Y ) ∝f(Y |X, β)p(β|X) = f(Y |X, β)p(β),
+where the proportionality above follows from Bayes’ theorem, and the
+equality above follows from the assumption that X is fixed.
+We assume the usual linear model,
+Y = β0 + X1β1 + · · · + Xpβp + ϵ,
+and suppose that the errors are independent and drawn from a normal dis-
+tribution. Furthermore, assume that p(β) = Fp
+j=1 g(βj), for some density
+function g. It turns out that ridge regression and the lasso follow naturally
+from two special cases of g:
+• If g is a Gaussian distribution with mean zero and standard deviation
+a function of λ, then it follows that the posterior mode for β—that posterior
+mode
+is, the most likely value for β, given the data—is given by the ridge
+regression solution. (In fact, the ridge regression solution is also the
+posterior mean.)
+• If g is a double-exponential (Laplace) distribution with mean zero
+and scale parameter a function of λ, then it follows that the posterior
+mode for β is the lasso solution. (However, the lasso solution is not
+the posterior mean, and in fact, the posterior mean does not yield a
+sparse coefficient vector.)
+The Gaussian and double-exponential priors are displayed in Figure 6.11.
+Therefore, from a Bayesian viewpoint, ridge regression and the lasso follow
+directly from assuming the usual linear model with normal errors, together
+with a simple prior distribution for β. Notice that the lasso prior is steeply
+peaked at zero, while the Gaussian is flatter and fatter at zero. Hence, the
+lasso expects a priori that many of the coefficients are (exactly) zero, while
+ridge assumes the coefficients are randomly distributed about zero.

@@ -1,0 +1,106 @@
+324
+Chapter 8 ■Two-Level Fractional Factorial Designs
+with another effect containing less than R p factors. We usually employ a Roman numeral
+subscript to denote design resolution; thus, the one-half fraction of the 23 design with the
+dening relation I ABC (or I  ABC) is a 
+design.
+Designs of resolution III, IV, and V are particularly important. The denitions of these
+designs and an example of each follow:
+1. Resolution III designs. These are designs in which no main effects are aliased with
+any other main effect, but main effects are aliased with two-factor interactions and
+some two-factor interactions may be aliased with each other. The 231 design in
+Table 8.1 is of resolution III 
+.
+2. Resolution IV designs. These are designs in which no main effect is aliased with
+any other main effect or with any two-factor interaction, but two-factor interactions
+are aliased with each other. A 241 design with I ABCD is a resolution IV design
+.
+3. Resolution V designs. These are designs in which no main effect or two-factor
+interaction is aliased with any other main effect or two-factor interaction, but two-
+factor interactions are aliased with three-factor interactions. A 251 design with 
+I ABCDE is a resolution V design 
+.
+In general, the resolution of a two-level fractional factorial design is equal to the 
+number of letters in the shortest word in the dening relation. Consequently, we could call the
+preceding design types three-, four-, and ve-letter designs, respectively. We usually like to
+employ fractional designs that have the highest possible resolution consistent with the degree
+of fractionation required. The higher the resolution, the less restrictive the assumptions that
+are required regarding which interactions are negligible to obtain a unique interpretation of
+the results.
+8.2.3
+Construction and Analysis of the 
+One-Half Fraction
+A one-half fraction of the 2k design of the highest resolution may be constructed by writing
+down a basic design consisting of the runs for a full 2k1 factorial and then adding the kth fac-
+tor by identifying its plus and minus levels with the plus and minus signs of the highest order
+interaction ABC (K 1). Therefore, the 
+fractional factorial is obtained by writing
+down the full 22 factorial as the basic design and then equating factor C to the AB interaction.
+The alternate fraction would be obtained by equating factor C to the AB interaction. This
+approach is illustrated in Table 8.2. Notice that the basic design always has the right number
+231
+III
+(251
+V )
+(241
+IV )
+(231
+III )
+231
+III
+■TA B L E 8 . 2
+The Two One-Half Fractions of the 23 Design
+Full 22
+Factorial
+(Basic Design)
+, I ABC
+, I ABC
+Run
+A
+B
+A
+B
+C AB
+A
+B
+C AB
+1
+
+
+
+
+
+
+
+
+2
+
+
+
+
+
+
+
+
+3
+
+
+
+
+
+
+
+
+4
+
+
+
+
+
+
+
+
+231
+III
+231
+III

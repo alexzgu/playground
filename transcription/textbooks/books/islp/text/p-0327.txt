@@ -1,0 +1,52 @@
+7.8 Lab: Non-Linear Modeling
+319
+facecolor='gray',
+alpha=0.3)
+for df in [1,3,4,8,15]:
+lam = approx_lam(X_age, age_term, df+1)
+age_term.lam = lam
+gam.fit(X_age, y)
+ax.plot(age_grid,
+gam.predict(age_grid),
+label='{:d}'.format(df),
+linewidth=4)
+ax.set_xlabel('Age', fontsize=20)
+ax.set_ylabel('Wage', fontsize=20);
+ax.legend(title='Degrees of freedom');
+Additive Models with Several Terms
+The strength of generalized additive models lies in their ability to fit mul-
+tivariate regression models with more flexibility than linear models. We
+demonstrate two approaches: the first in a more manual fashion using nat-
+ural splines and piecewise constant functions, and the second using the
+pygam package and smoothing splines.
+We now fit a GAM by hand to predict wage using natural spline functions
+of year and age, treating education as a qualitative predictor, as in (7.16).
+Since this is just a big linear regression model using an appropriate choice
+of basis functions, we can simply do this using the sm.OLS() function.
+We will build the model matrix in a more manual fashion here, since we
+wish to access the pieces separately when constructing partial dependence
+plots.
+In [28]: ns_age = NaturalSpline(df=4).fit(age)
+ns_year = NaturalSpline(df=5).fit(Wage['year'])
+Xs = [ns_age.transform(age),
+ns_year.transform(Wage['year']),
+pd.get_dummies(Wage['education']).values]
+X_bh = np.hstack(Xs)
+gam_bh = sm.OLS(y, X_bh).fit()
+Here the function NaturalSpline() is the workhorse supporting the ns()
+helper function. We chose to use all columns of the indicator matrix for
+the categorical variable education, making an intercept redundant. Finally,
+we stacked the three component matrices horizontally to form the model
+matrix X_bh.
+We now show how to construct partial dependence plots for each of the
+terms in our rudimentary GAM. We can do this by hand, given grids for
+age and year. We simply predict with new X matrices, fixing all but one
+of the features at a time.
+In [29]: age_grid = np.linspace(age.min(),
+age.max(),
+100)
+X_age_bh = X_bh.copy()[:100]
+X_age_bh[:] = X_bh[:].mean(0)[None,:]
+X_age_bh[:,:4] = ns_age.transform(age_grid)
+preds = gam_bh.get_prediction(X_age_bh)
+bounds_age = preds.conf_int(alpha=0.05)

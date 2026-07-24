@@ -1,0 +1,65 @@
+126
+Chapter 3 ■Experiments with a Single Factor: The Analysis of Variance
+(3.62)
+The a 1 equations (Equation 3.62) in a 1 unknowns are called the least squares
+normal equations. Notice that if we add the last a normal equations, we obtain the rst normal
+equation. Therefore, the normal equations are not linearly independent, and no unique solution
+for , 1, . . . , a exists. This has happened because the effects model is overparameterized.
+This difculty can be overcome by several methods. Because we have dened the treatment
+effects as deviations from the overall mean, it seems reasonable to apply the constraint
+(3.63)
+Using this constraint, we obtain as the solution to the normal equations
+(3.64)
+This solution is obviously not unique and depends on the constraint (Equation 3.63) that
+we have chosen. At rst this may seem unfortunate because two different experimenters could
+analyze the same data and obtain different results if they apply different constraints. However,
+certain functions of the model parameters are uniquely estimated, regardless of the con-
+straint. Some examples are i j, which would be estimated by 
+, and the
+ith treatment mean i i, which would be estimated by 
+.
+Because we are usually interested in differences among the treatment effects rather than
+their actual values, it causes no concern that the i cannot be uniquely estimated. In general,
+any function of the model parameters that is a linear combination of the left-hand side of the
+normal equations (Equations 3.48) can be uniquely estimated. Functions that are uniquely
+estimated regardless of which constraint is used are called estimable functions. For more
+information, see the supplemental material for this chapter. We are now ready to use these
+parameter estimates in a general development of the analysis of variance.
+3.10.2
+The General Regression Signiﬁcance Test
+A fundamental part of this procedure is writing the normal equations for the model. These
+equations may always be obtained by forming the least squares function and differentiating it
+with respect to each unknown parameter, as we did in Section 3.9.1. However, an easier
+method is available. The following rules allow the normal equations for any experimental
+design model to be written directly:
+RULE 1. There is one normal equation for each parameter in the model to be estimated.
+RULE 2. The right-hand side of any normal equation is just the sum of all observations
+that contain the parameter associated with that particular normal equation.
+To illustrate this rule, consider the single-factor model. The rst normal equation is for
+the parameter ; therefore, the right-hand side is 
+because all observations contain .
+RULE 3. The left-hand side of any normal equation is the sum of all model parameters,
+where each parameter is multiplied by the number of times it appears in the total on
+the right-hand side. The parameters are written with a circumex 
+to indicate that
+they are estimators and not the true parameter values.
+For example, consider the rst normal equation in a single-factor experiment. According
+to the above rules, it would be
+Nˆ nˆ1 nˆ2 Á nˆa y..
+(ˆ)
+y..
+ˆ i ˆ ˆi yi.
+ˆi ˆj yi. yj.
+ˆi yi. y.. 
+ i 1, 2, . . . , a
+ˆ y..
+
+a
+i1
+ˆi 0
+nˆ                        nˆa  ya.
+o
+o
+nˆ
+  nˆ 2    
+       y2!

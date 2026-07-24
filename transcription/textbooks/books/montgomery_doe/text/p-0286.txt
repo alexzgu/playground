@@ -1,0 +1,146 @@
+270
+Chapter 6 ■The 2k Factorial Design
+Residuals
+–2
+–1
+0
+1
+2
+1
+5
+10
+20
+30
+50
+70
+90
+95
+99
+80
+Normal probability (1 – Pj) × 100
+Pj × 100
+1
+5
+10
+20
+30
+50
+70
+80
+90
+95
+99
+Predicted advance rate
+2
+5
+8
+11
+14
+Residuals
+–2
+–1
+0
+1
+2
+■F I G U R E 6 . 2 2
+Plot of residuals ver-
+sus predicted advance rate for Example 6.3
+Effect estimate
+0
+0.3
+0.6
+0.9
+1.2
+1
+5
+10
+20
+30
+50
+70
+90
+95
+99
+B
+80
+Normal probability (1 – Pj) × 100
+Pj × 100
+1
+5
+10
+20
+30
+50
+70
+80
+90
+95
+99
+C
+D
+■F I G U R E 6 . 2 3
+Normal probability plot of
+effects for Example 6.3 following log transformation
+■F I G U R E 6 . 2 1
+Normal probability plot of
+residuals for Example 6.3
+scale containing B, C, and D. These plots are now satisfac-
+tory. We conclude that the model for y*  ln y requires only
+factors B, C, and D for adequate interpretation. The
+ANOVA for this model is summarized in Table 6.16. The
+model sum of squares is
+and R2  SSModel/SST  7.115/7.288  0.98, so the model
+explains about 98 percent of the variability in the drill
+advance rate.
+7.115
+5.345 1.339 0.431
+SSModel SSB SSC SSD
+Residuals
+–0.2
+–0.1
+0
+0.1
+0.2
+1
+5
+10
+20
+30
+50
+70
+90
+95
+99
+80
+Pj × 100
+Normal probability (1 – Pj) × 100
+1
+5
+10
+20
+30
+50
+70
+80
+90
+95
+99
+Predicted log advance rate
+0
+0.5
+1.0
+1.5
+2.0
+2.5
+Residuals
+–0.1
+0
+0.1
+0.2
+■F I G U R E 6 . 2 4
+Normal probability plot of
+residuals for Example 6.3 following log transformation
+■F I G U R E 6 . 2 5
+Plot of residuals
+versus predicted advance rate for Example
+6.3 following log transformation

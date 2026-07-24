@@ -1,0 +1,6 @@
+134
+3. Linear Regression
+(d) Is there evidence of non-linear association between any of the
+predictors and the response? To answer this question, for each
+predictor X, fit a model of the form
+Y = β0 + β1X + β2X2 + β3X3 + ϵ.

@@ -1,0 +1,32 @@
+12.4 Clustering Methods
+525
+320.9
+235.8
+235.8
+235.8
+235.8
+310.9
+FIGURE 12.9.
+K-means clustering performed six times on the data from
+Figure 12.7 with K = 3, each time with a different random assignment of the
+observations in Step 1 of the K-means algorithm. Above each plot is the value
+of the objective (12.17). Three different local optima were obtained, one of which
+resulted in a smaller value of the objective and provides better separation between
+the clusters. Those labeled in red all achieved the same best solution, with an
+objective value of 235.8.
+12.4.2
+Hierarchical Clustering
+One potential disadvantage of K-means clustering is that it requires us to
+pre-specify the number of clusters K. Hierarchical clustering is an alter-
+native approach which does not require that we commit to a particular
+choice of K. Hierarchical clustering has an added advantage over K-means
+clustering in that it results in an attractive tree-based representation of the
+observations, called a dendrogram.
+In this section, we describe bottom-up or agglomerative
+clustering.
+bottom-up
+agglomerative
+This is the most common type of hierarchical clustering, and refers to
+the fact that a dendrogram (generally depicted as an upside-down tree; see
+Figure 12.11) is built starting from the leaves and combining clusters up to
+the trunk. We will begin with a discussion of how to interpret a dendrogram

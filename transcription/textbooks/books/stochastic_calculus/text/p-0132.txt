@@ -1,0 +1,38 @@
+126
+CHAPTER 4. MORE STOCHASTIC CALCULUS
+with a betting strategy As that changes only at times t0 < t1 < t2 < · · · < 1
+where
+tn = 1 −2−n
+We start by setting At = 1 for 0 ≤t < 12. Then Z12 = B12. Note that
+PZ12 ≥1= PB12 ≥1= PB1 ≥
+√
+2= 1 −Φ(
+√
+2) =: q > 0
+If Z12 ≥1, we stop, that is, we set At = 0 for 12 ≤t ≤1. If Z12 < 1, let
+x = 1 −Z12 > 0. Dene a by the formula
+Pa[B34 −B12] ≥x= q
+We set At = a for 12 ≤t < 34. Note that we only need to know Z12 to
+determine a and hence a is F12-measurable. Also, if a[B34 −B12] ≥x, then
+Z34 =
+34
+0
+As dBs = Z12 + a[B34 −B12] ≥1
+Therefore,
+PZ34 ≥1 Z12 < 1= q,
+and hence
+PZ34 < 1= (1 −q)2
+If Z34 ≥1, we set At = 0 for 34 ≤t ≤1. Otherwise, we proceed as above.
+At each time tn we adjust the bet so that
+PZtn+1 ≥1 Ztn < 1= q,
+and hence
+PZtn < 1≤(1 −q)n
+Using this strategy, with probability one Z1 ≥1, and hence, E[Z1] ≥1.
+Therefore, Zt is not a martingale. Our choice of strategy used discontinu-
+ous bets, but it is not dicult to adapt this example so that t →At is a
+continuous function except at the one time at which the bet changes to zero.
+Although the stochastic integral may not be a martingale, it is almost a
+martingale in the sense that one needs to make the bets arbitrarily large to
+nd a way to change the expectation. The next denition makes precise the
+idea of a process that is a martingale if it is stopped before the values get
+big.

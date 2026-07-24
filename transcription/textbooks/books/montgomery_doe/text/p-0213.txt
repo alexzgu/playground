@@ -1,0 +1,90 @@
+5.3 The Two-Factor Factorial Design
+197
+■F I G U R E 5 . 1 0
+(Continued)
+200
+150
+100
+50
+Life actual
+0
+0
+50
+100
+Life predicted P<.0001
+RSq = 0.77 RMSE = 25.985
+150
+200
+60
+40
+20
+0
+–20
+–40
+Life residual
+–60
+–80
+0
+50
+100
+Life predicted
+150
+200
+(b)
+Summary of Fit
+0.76521
+RSquare
+0.695642
+RSquare Adj
+25.98486
+Root Mean Square Error
+105.5278
+Mean of Response
+36
+Observations (or Sum Wgts)
+Analysis of Variance
+Mean Square
+Sum of Squares
+DF
+Source
+F Ratio
+10.9995
+7427.03
+59416.222
+8
+Model
+Prob > F
+675.21
+18230.750
+27
+Error
+77646.972
+35
+C.Total
+<.001
+Effect Tests
+Source
+Sum of Squares
+DF
+Nparm
+F
+Prob > F
+Ratio
+0.0020
+7.9114
+10683.722
+2
+2
+<.0001
+28.9677
+39118.722
+2
+2
+Material Type
+0.0186
+3.5595
+9613.778
+4
+4
+Temperature
+Material Type Temperature

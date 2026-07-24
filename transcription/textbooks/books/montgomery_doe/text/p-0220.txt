@@ -1,0 +1,102 @@
+204
+Chapter 5 ■Introduction to Factorial Designs
+interaction effect is zero. If there is no interaction present, then ()ij 0 for all i and j, and
+a plausible model is
+(5.22)
+If the model (Equation 5.22) is appropriate, then the residual mean square in Table 5.9 is an
+unbiased estimator of 2, and the main effects may be tested by comparing MSA and MSB to
+MSResidual.
+A test developed by Tukey (1949a) is helpful in determining whether interaction is
+present. The procedure assumes that the interaction term is of a particularly simple form,
+namely,
+where is an unknown constant. By dening the interaction term this way, we may use a
+regression approach to test the signicance of the interaction term. The test partitions the
+residual sum of squares into a single-degree-of-freedom component due to nonadditivity
+(interaction) and a component for error with (a 1)(b 1) 1 degrees of freedom.
+Computationally, we have
+(5.23)
+with one degree of freedom, and
+(5.24)
+with (a 1)(b 1) 1 degrees of freedom. To test for the presence of interaction, we
+compute
+(5.25)
+If F0 F,1,(a1)(b1)1, the hypothesis of no interaction must be rejected.
+F0 
+SSN
+SSError/[(a 1)(b 1) 1]
+SSError SSResidual SSN
+SSN 
+a
+i1 
+b
+j1
+yijyi. y.j y..SSA SSB y2
+..
+ab
+2
+abSSASSB
+()ij ij
+yij i j ij 
+ 
+i 1, 2, . . . , a
+j 1, 2, . . . , b
+■TA B L E 5 . 9
+Analysis of Variance for a Two-Factor Model, One Observation per Cell
+Source of 
+Sum of 
+Degrees of 
+Mean 
+Expected 
+Variation
+Squares
+Freedom
+Square
+Mean Square
+Rows (A)
+a 1
+MSA
+Columns (B)
+b 1
+MSB
+Residual or AB
+Subtraction
+(a 1)(b 1)
+MSResidual
+Total
+ab 1
+
+a
+i1 
+b
+j1
+y2
+ij y2
+..
+ab
+2 
+ ()2
+ij
+(a 1)(b 1)
+2 
+a2
+j
+b 1
+
+b
+j1
+y2
+.j
+a y2
+..
+ab
+2 b2
+i
+a 1
+
+a
+i1
+y2
+i.
+b y2
+..
+ab

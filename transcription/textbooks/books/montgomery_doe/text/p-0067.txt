@@ -1,0 +1,63 @@
+If the population is normal with known variance, or if the population is nonnormal but the sam-
+ple size is large enough so that the central limit theorem applies, then the hypothesis may be
+tested using a direct application of the normal distribution. The one-sample Z-test statistic is
+(2.35)
+If H0 : 0 is true, then the distribution of Z0 is N(0, 1). Therefore, the decision rule for 
+H0: 0 is to reject the null hypothesis if Z0Z/2. A P-value approach could also be used. 
+The value of the mean 0 specied in the null hypothesis is usually determined in one
+of three ways. It may result from past evidence, knowledge, or experimentation. It may be the
+result of some theory or model describing the situation under study. Finally, it may be the
+result of contractual specications.
+The 100(1 ) percent condence interval on the true population mean is
+(2.36)
+y Z/2/n y Z/2/n
+Z0 y 0
+/n
+2.4 Inferences About the Differences in Means, Randomized Designs
+51
+E X A M P L E 2 . 2
+A supplier submits lots of fabric to a textile manufacturer.
+The customer wants to know if the lot average breaking
+strength exceeds 200 psi. If so, she wants to accept the lot.
+Past experience indicates that a reasonable value for the
+variance of breaking strength is 100(psi)2. The hypotheses
+to be tested are
+Note that this is a one-sided alternative hypothesis. Thus,
+we would accept the lot only if the null hypothesis H0 :
+200 could be rejected (i.e., if Z0 Z).
+H1# 200
+H0200
+Four specimens are randomly selected, and the average
+breaking strength observed is –y 214 psi. The value of the
+test statistic is
+If a type I error of 0.05 is specied, we nd ZZ0.05 
+1.645 from Appendix Table I. The P-value would be
+computed using only the area in the upper tail of the stan-
+dard normal distribution, because the alternative hypothesis
+is one-sided. The P-value is P 1 
+(2.80) 1 
+0.99744 0.00256. Thus H0 is rejected, and we conclude
+that the lot average breaking strength exceeds 200 psi.
+
+Z0 y 0
+/n
+214 200
+10/4
+2.80
+If the variance of the population is unknown, we must make the additional assumption
+that the population is normally distributed, although moderate departures from normality will
+not seriously affect the results.
+To test H0 : 0 in the variance unknown case, the sample variance S2 is used to esti-
+mate 2. Replacing with S in Equation 2.35, we have the one-sample t-test statistic
+(2.37)
+The null hypothesis H0 : 0 would be rejected if t0t/2,n1, where t/2,n1 denotes the
+upper /2 percentage point of the t distribution with n 1 degrees of freedom. A P-value
+approach could also be used. The 100(1 ) percent condence interval in this case is
+(2.38)
+2.4.7
+Summary
+Tables 2.4 and 2.5 summarize the t-test and z-test procedures discussed above for sample
+means. Critical regions are shown for both two-sided and one-sided alternative hypotheses.
+y t/2,n1S/n y t/2,n1S/n
+t0 y 0
+S/n

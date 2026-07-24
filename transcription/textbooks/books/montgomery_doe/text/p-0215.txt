@@ -1,0 +1,99 @@
+may be estimated by least squares. Because the model has 1 a b ab parameters to be
+estimated, there are 1 a b ab normal equations. Using the method of Section 3.9, we
+nd that it is not difcult to show that the normal equations are
+(5.14a)
+(5.14b)
+ibnˆ bnˆi n 
+b
+j1
+ˆ
+j n 
+b
+j1
+()ˆ ij yi..
+i 1, 2, . . . , a
+abnˆ bn 
+a
+i1
+ˆi an 
+b
+j1
+ˆ
+j n 
+a
+i1 
+b
+j1
+(ˆ)ij y...
+5.3 The Two-Factor Factorial Design
+199
+–60.75
+–34.25
+–7.75
+Residual
+18.75
+45.25
+Normal % probability
+99
+95
+90
+80
+70
+50
+20
+30
+10
+5
+1
+50
+100
+150
+200
+eijk
+80
+60
+40
+20
+0
+–20
+–40
+–60
+–80
+yijk
+›
+■F I G U R E 5 . 1 1
+Normal probability plot of residuals for Example 5.1
+■F I G U R E 5 . 1 2
+Plot of residuals versus 
+for Example 5.1
+yˆijk
+1
+2
+Material type
+3
+eijk
+60
+40
+20
+0
+–20
+–40
+–60
+–80
+■F I G U R E 5 . 1 3
+Plot of residuals versus material type for Example 5.1
+15
+70
+Temperature (°F)
+125
+eijk
+60
+40
+20
+0
+–20
+–40
+–60
+–80
+■F I G U R E 5 . 1 4
+Plot of residuals versus temperature for Example 5.1

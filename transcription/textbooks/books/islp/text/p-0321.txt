@@ -1,0 +1,98 @@
+7.8 Lab: Non-Linear Modeling
+313
+4
+2994.0
+4.770e+06
+1.0
+1282.563
+0.805
+3.697e-01
+Notice the * in the anova_lm() line above. This function takes a variable
+number of non-keyword arguments, in this case fitted models. When these
+models are provided as a list (as is done here), it must be prefixed by *.
+The p-value comparing the linear models[0] to the quadratic models[1]
+is essentially zero, indicating that a linear fit is not sufficient.8 Similarly the
+p-value comparing the quadratic models[1] to the cubic models[2] is very
+low (0.0017), so the quadratic fit is also insufficient. The p-value comparing
+the cubic and degree-four polynomials, models[2] and models[3], is approx-
+imately 5%, while the degree-five polynomial models[4] seems unnecessary
+because its p-value is 0.37. Hence, either a cubic or a quartic polynomial
+appear to provide a reasonable fit to the data, but lower- or higher-order
+models are not justified.
+In this case, instead of using the anova() function, we could have obtained
+these p-values more succinctly by exploiting the fact that poly() creates
+orthogonal polynomials.
+In [9]: summarize(M)
+Out[9]:
+coef
+std err
+t
+P>|t|
+intercept
+111.7036
+0.729
+153.283
+0.000
+poly(age, degree=4)[0]
+447.0679
+39.915
+11.201
+0.000
+poly(age, degree=4)[1] -478.3158
+39.915
+-11.983
+0.000
+poly(age, degree=4)[2]
+125.5217
+39.915
+3.145
+0.002
+poly(age, degree=4)[3]
+-77.9112
+39.915
+-1.952
+0.051
+Notice that the p-values are the same, and in fact the square of the
+t-statistics are equal to the F-statistics from the anova_lm() function; for
+example:
+In [10]: (-11.983)**2
+Out[10]: 143.59228
+However, the ANOVA method works whether or not we used orthogonal
+polynomials, provided the models are nested. For example, we can use
+anova_lm() to compare the following three models, which all have a linear
+term in education and a polynomial in age of different degrees:
+In [11]: models = [MS(['education', poly('age', degree=d)])
+for d in range(1, 4)]
+XEs = [model.fit_transform(Wage)
+for model in models]
+anova_lm(*[sm.OLS(y, X_).fit() for X_ in XEs])
+Out[11]:
+df_resid
+ssr
+df_diff
+ss_diff
+F
+Pr(>F)
+0
+2997.0
+3.902e+06
+0.0
+NaN
+NaN
+NaN
+1
+2996.0
+3.759e+06
+1.0
+142862.701
+113.992
+3.838e-26
+2
+2995.0
+3.754e+06
+1.0
+5926.207
+4.729
+2.974e-02
+8Indexing starting at zero is confusing for the polynomial degree example, since
+models[1] is quadratic rather than linear!

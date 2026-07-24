@@ -1,0 +1,65 @@
+2.9. MULTIDIMENSIONAL BROWNIAN MOTION
+67
+Brownian motions
+Bt =
+
+B1
+t , , Bd
+t
+
+,
+with perhaps some correlations. If we make the same assumptions that we
+made in the one-dimensional case (independent, identically distributed incre-
+ments and continuous paths), then one can show that the increments must
+be multivariate normal random variables. We use this fact in our denition.
+Denition The d-dimensional process
+Bt =
+
+B1
+t , , Bd
+t
+
+,
+is called a d-B
+m = (m1, , md) Rd d × d Γ 
+Ftif each Bt is Ft-measurable and the following holds.
+B0 = 0.
+If s < t, the distribution of Bt −Bs is joint normal with mean (t −s)m
+and covariance matrix (t −s)Γ.
+If s < t, the random vector Bt −Bs is independent of Fs.
+With probability one, the function t →Bt is continuous.
+In particular, each Bk
+t is a Brownian motion with drift mk and variance
+Γkk with respect to the ltration Ft. If m = 0 and Γ = I, then B1
+t , , Bd
+t
+are independent standard Brownian motions and Bt is called d-
+B.
+Denition If Xt, Yt are processes dened on the same probability space, the
+() is dened by
+⟨X, Y ⟩t = lim
+n∞
+
+j≤tn
+
+X
+j
+n
+
+−X
+j −1
+n
+
+Y
+j
+n
+
+−Y
+j −1
+n
+
+,
+where the sum is over all j with jn ≤t.
+If X = Y , then the covariation is the same as the quadratic variation,
+that is
+⟨X, X⟩t = ⟨X⟩t

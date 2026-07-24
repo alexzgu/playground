@@ -1,0 +1,36 @@
+38
+CHAPTER 2. BROWNIAN MOTION
+central limit theorem, and we will expect normal distributions. Also, because
+all of the increments are small with respect to the sum, the limit process will
+have paths that are continuous. Here the limit is Bwhich we
+discuss in this section.
+In the Poisson case, the limit distribution will not have continuous paths
+but rather will be a . The prototypical case is the Poisson process
+with intensity λ. In this case, Nt denotes the number of occurrences of an
+event by time t. The function t →Nt takes on nonnegative integer values
+and the jumps are always of size +1. It satises the following conditions.
+For each s < t, the random variable Nt −Ns has a Poisson distribution
+with parameter λ(t −s).
+For each s < t, the random variable Nt −Ns is independent of the
+random variables Nr : 0 ≤r ≤s
+We discuss this further in Section 6.2.
+2.2
+Multivariate normal distribution
+Although the normal or Gaussian distribution is a little inconvenient in the
+sense that the distribution function cannot be computed exactly, there are
+many other aspects that make the distribution very convenient. In partic-
+ular, when dealing with many variables, assuming a 
+normal distribution makes computations tractable. In this section we will
+give the basic denitions. Roughly speaking, the basic assumption is that
+if (X1, , Xn, Y ) have a joint normal distribution then not only does each
+variable have a normal distribution but also, the conditional distribution of
+Y given X1, , Xn is normal with mean E[Y X1, , Xn] and a variance
+that depends on the joint distribution but not on the observed data points.
+There are a number of equivalent ways to dene a joint normal distribution.
+We will use the following.
+Denition A nite sequence of random variables (X1, , Xn) has a 
+() (G) distribution if they are linear com-
+binations of independent standard normal random variables. In other words,
+if there exist independent random variables (Z1, , Zm), each N(0, 1), and
+constants mj, ajk such that for j = 1, , n,
+Xj = mj + aj1 Z1 + aj2 Z2 + · · · + ajm Zm

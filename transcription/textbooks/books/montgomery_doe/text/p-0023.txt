@@ -1,0 +1,47 @@
+as shown in Figure 1.6. Notice that there are eight test combinations of these three factors
+across the two levels of each and that these eight trials can be represented geometrically as
+the corners of a cube. This is an example of a 23 factorial design. Because I only want to
+play eight rounds of golf, this experiment would require that one round be played at each
+combination of factors represented by the eight corners of the cube in Figure 1.6. However,
+if we compare this to the two-factor factorial in Figure 1.4, the 23 factorial design would pro-
+vide the same information about the factor effects. For example, there are four tests in both
+designs that provide information about the regular-sized driver and four tests that provide
+information about the oversized driver, assuming that each run in the two-factor design in
+Figure 1.4 is replicated twice.
+Figure 1.7 illustrates how all four factors—driver, ball, beverage, and mode of travel
+(walking or riding)—could be investigated in a 24 factorial design. As in any factorial design,
+all possible combinations of the levels of the factors are used. Because all four factors are at
+two levels, this experimental design can still be represented geometrically as a cube (actually
+a hypercube).
+Generally, if there are k factors, each at two levels, the factorial design would require 2k
+runs. For example, the experiment in Figure 1.7 requires 16 runs. Clearly, as the number of
+factors of interest increases, the number of runs required increases rapidly; for instance, a
+10-factor experiment with all factors at two levels would require 1024 runs. This quickly
+becomes infeasible from a time and resource viewpoint. In the golf experiment, I can only
+play eight rounds of golf, so even the experiment in Figure 1.7 is too large.
+Fortunately, if there are four to ve or more factors, it is usually unnecessary to run all
+possible combinations of factor levels. A fractional factorial experiment is a variation of the
+basic factorial design in which only a subset of the runs is used. Figure 1.8 shows a fractional
+factorial design for the four-factor version of the golf experiment. This design requires only
+8 runs instead of the original 16 and would be called a one-half fraction. If I can play only
+eight rounds of golf, this is an excellent design in which to study all four factors. It will provide
+good information about the main effects of the four factors as well as some information about
+how these factors interact.
+1.1 Strategy of Experimentation
+7
+Driver
+Ball
+Beverage
+■F I G U R E 1 . 6
+A three-factor
+factorial experiment involving type of
+driver, type of ball, and type of beverage
+Walk
+Ride
+Mode of travel
+Driver
+Ball
+Beverage
+■F I G U R E 1 . 7
+A four-factor factorial experiment involving type
+of driver, type of ball, type of beverage, and mode of travel

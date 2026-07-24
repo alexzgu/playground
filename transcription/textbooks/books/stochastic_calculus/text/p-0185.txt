@@ -1,0 +1,45 @@
+5.7. MARTINGALE REPRESENTATION THEOREM
+179
+Suppose we have a binomial model with ∆t = 1N and ∆x =
+√
+∆t =
+1
+√
+N. We have independent random variables
+X∆t, X2∆t, 
+each with
+P Xk∆t = ∆x= P Xk∆t = −∆x= 1
+2
+Let Fk∆t denote the information in X∆t, X2∆t, , , Xk∆t, and assume that
+Mk∆t is a martingale with respect to Fk∆t. The martingale property implies
+that
+E
+
+M(k+1)∆t Fk∆t
+
+= Mk∆t
+(5.33)
+Since M(k+1)∆tis F(k+1)∆t-measurable, its value depends on the values of
+X∆t, X2∆t, , X(k+1)∆t
+When we take a conditional expectation with respect to Fk∆t we are given
+the value of the vector
+Xk∆= (X∆t, X2∆t, , Xk∆t) 
+Given a particular value of Xk∆t, there are only two possible values for
+M(k+1)∆t corresponding to the values when X(k+1)∆t = ∆x and X(k+1)∆t =
+−∆x, respectively. Let us denote the two values by
+[b + a] ∆x,
+[b −a] ∆x,
+where b ∆x is the average of the two values. The two numbers a, b depend on
+Xk∆t and hence are Fk∆t-measurable. The martingale property (5.33) tells
+us that
+b ∆x = Mk∆t,
+and hence
+M(k+1)∆t −Mk∆t = ±a ∆x = a X(k+1)∆t
+If we write J(k+1)∆t for the number a, then J(k+1)∆t is Fk∆t-measurable, and
+Mk∆t = M0 +
+k
+
+j=1
+Jj∆t Xj∆t
+This is the form of the stochastic integral with respect to random walk as in
+Section 1.6.

@@ -1,0 +1,128 @@
+538
+Chapter 11 ■Response Surface Methods and Designs
+■TA B L E 1 1 . 2 1
+(Continued)
+Component
+Coefﬁcient Estimate
+DF
+Standard Error
+95% CI Low
+95% CI High
+A-Monomer
+23.81
+1
+3.36
+16.07
+31.55
+B-Crosslinker
+16.40
+1
+7.68
+1.32
+34.12
+C-Resin
+29.45
+1
+3.36
+21.71
+37.19
+AB
+44.42
+1
+25.31
+13.95
+102.80
+AC
+44.01
+1
+15.94
+80.78
+7.25
+BC
+13.80
+1
+23.32
+39.97
+67.57
+Final Equation in Terms of Pseudocomponents:
+hardness 
+23.81 * A
+16.40 * B
+29.45 * C
+44.42 * A * B
+44.01 * A * C
+13.80 * B * C
+■TA B L E 1 1 . 2 2
+Model Fitting for the Solids Response
+Response: solids
+ANOVA for Mixture Quadratic Model
+Analysis of variance table [Partial sum of squares]
+Source
+Sum of Squares
+DF
+Mean Square
+F Value
+Prob F
+Model
+4297.94
+5
+859.59
+25.78
+0.0001
+Linear Mixture
+2931.09
+2
+1465.66
+43.95
+0.0001
+AB
+211.20
+1
+211.20
+6.33
+0.0360
+AC
+285.67
+1
+285.67
+8.57
+0.0191
+BC
+1036.72
+1
+1036.72
+31.09
+0.0005
+Residual
+266.79
+8
+33.35
+Lack of Fit
+139.92
+4
+34.98
+1.10
+0.4633
+Pure Error
+126.86
+4
+31.72
+Cor Total
+4564.73
+13
+Std. Dev.
+5.77
+R-Squared
+0.9416
+Mean
+33.01
+Adj R-Squared
+0.9050
+C.V.
+17.49
+Pred R-Squared
+0.7827
+PRESS
+991.86
+Adeq Precision
+15.075

@@ -1,0 +1,58 @@
+2.3 Lab: Introduction to Python
+55
+2.3.7
+Loading Data
+Data sets often contain different types of data, and may have names as-
+sociated with the rows or columns. For these reasons, they typically are
+best accommodated using a data frame. We can think of a data frame as data frame
+a sequence of arrays of identical length; these are the columns. Entries in
+the different arrays can be combined to form a row. The pandas library can
+be used to create and work with data frame objects.
+Reading in a Data Set
+The first step of most analyses involves importing a data set into Python.
+Before attempting to load a data set, we must make sure that Python knows
+where to find the file containing it. If the file is in the same location as this
+notebook file, then we are all set. Otherwise, the command os.chdir() can os.chdir()
+be used to change directory. (You will need to call import os before calling
+os.chdir().)
+We will begin by reading in Auto.csv, available on the book website. This
+is a comma-separated file, and can be read in using pd.read_csv():
+pd.read_csv()
+In [73]: import pandas as pd
+Auto = pd.read_csv('Auto.csv')
+Auto
+The book website also has a whitespace-delimited version of this data,
+called Auto.data. This can be read in as follows:
+In [74]: Auto = pd.read_csv('Auto.data', delim_whitespace=True)
+Both Auto.csv and Auto.data are simply text files. Before loading data into
+Python, it is a good idea to view it using a text editor or other software,
+such as Microsoft Excel.
+We now take a look at the column of Auto corresponding to the variable
+horsepower:
+In [75]: Auto['horsepower']
+Out[75]: 0
+130.0
+1
+165.0
+2
+150.0
+3
+150.0
+4
+140.0
+...
+392
+86.00
+393
+52.00
+394
+84.00
+395
+79.00
+396
+82.00
+Name: horsepower , Length: 397, dtype: object
+We see that the dtype of this column is object. It turns out that all values
+of the horsepower column were interpreted as strings when reading in the
+data. We can find out why by looking at the unique values.
+In [76]: np.unique(Auto['horsepower'])

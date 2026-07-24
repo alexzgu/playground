@@ -1,0 +1,51 @@
+196
+4. Classification
+10. Equation 4.32 derived an expression for log
+1
+Pr(Y =k|X=x)
+Pr(Y =K|X=x)
+2
+in the
+setting where p > 1, so that the mean for the kth class, µk, is a p-
+dimensional vector, and the shared covariance Σ is a p × p matrix.
+However, in the setting with p = 1, (4.32) takes a simpler form, since
+the means µ1, . . . , µK and the variance σ2 are scalars. In this simpler
+setting, repeat the calculation in (4.32), and provide expressions for
+ak and bkj in terms of πk, πK, µk, µK, and σ2.
+11. Work out the detailed forms of ak, bkj, and bkjl in (4.33). Your answer
+should involve πk, πK, µk, µK, Σk, and ΣK.
+12. Suppose that you wish to classify an observation X ∈R into apples
+and oranges. You fit a logistic regression model and find that
+6
+Pr(Y = orange|X = x) =
+exp(ˆβ0 + ˆβ1x)
+1 + exp(ˆβ0 + ˆβ1x)
+.
+Your friend fits a logistic regression model to the same data using the
+softmax formulation in (4.13), and finds that
+6
+Pr(Y = orange|X = x) =
+exp(ˆαorange0 + ˆαorange1x)
+exp(ˆαorange0 + ˆαorange1x) + exp(ˆαapple0 + ˆαapple1x).
+(a) What is the log odds of orange versus apple in your model?
+(b) What is the log odds of orange versus apple in your friend’s
+model?
+(c) Suppose that in your model, ˆβ0 = 2 and ˆβ1 = −1. What are
+the coefficient estimates in your friend’s model? Be as specific
+as possible.
+(d) Now suppose that you and your friend fit the same two models
+on a different data set. This time, your friend gets the coefficient
+estimates ˆαorange0 = 1.2, ˆαorange1 = −2, ˆαorange0 = 3, ˆαorange1 =
+0.6. What are the coefficient estimates in your model?
+(e) Finally, suppose you apply both models from (d) to a data set
+with 2,000 test observations. What fraction of the time do you
+expect the predicted class labels from your model to agree with
+those from your friend’s model? Explain your answer.
+Applied
+13. This question should be answered using the Weekly data set, which
+is part of the ISLP package. This data is similar in nature to the
+Smarket data from this chapter’s lab, except that it contains 1, 089
+weekly returns for 21 years, from the beginning of 1990 to the end of
+2010.
+(a) Produce some numerical and graphical summaries of the Weekly
+data. Do there appear to be any patterns?

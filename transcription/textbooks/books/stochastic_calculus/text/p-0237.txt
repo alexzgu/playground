@@ -1,0 +1,45 @@
+6.10. SYMMETRIC STABLE PROCESS
+231
+Proposition 6.10.4. S0 < β < 12, X1, X2, ,
+
+X1 + · · · + Xn
+nβ
+
+TPXj = 0= 1.
+We use the following lemma to prove Proposition 6.10.4.
+Lemma 6.10.5. Suppose X is a nonconstant random variable with
+characteristic function ϕ. Then there exists ϵ > 0 such that if s≤ϵ,
+then
+ϕ(s)≤1 −ϵ s2
+Proof. Let us rst assume that X is bounded with mean m and vari-
+ance σ2 > 0. Then, the characteristic function satises
+ϕ(s) = eims
+
+1 −σ2
+2 s2 + O(s3)
+
+,
+s ↓0,
+and hence there exists ϵ > 0 such that
+ϕ(s)≤
+1 −σ2
+4 s2
+,
+s≤ϵ
+For general nonconstant X, we can nd a bounded interval I such
+that PX I= ρ > 0 and such the variance σ2 of the conditional
+distribution given X I is positive. Then,
+ϕ(s) = ρ E[eisX X I] + (1 −ρ) E[eisX X̸ I]
+There exists ϵ > 0 such that if s≤ϵ, E[eisX X I]≤1−(σ2s24)
+and hence
+ϕ(s)≤ρ
+
+1 −σ2
+4 s2
+
++ 1 −ρ = 1 −ρσ2
+4
+s2
+To prove Proposition 6.10.4, let ϕ denote the characteristic function
+of Xj. Then
+ϕ(s) = ϕ(n−β s)n

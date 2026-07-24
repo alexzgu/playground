@@ -1,0 +1,65 @@
+576
+13. Multiple Testing
+α = 0.05
+α = 0.1
+α = 0.3
+1
+5
+50
+500
+1e−05
+1e−03
+1e−01
+Index
+P−Value
+1
+5
+50
+500
+1e−05
+1e−03
+1e−01
+Index
+P−Value
+1
+5
+50
+500
+1e−05
+1e−03
+1e−01
+Index
+P−Value
+FIGURE 13.6. Each panel displays the same set of m = 2,000 ordered p-values
+for the Fund data. The green lines indicate the p-value thresholds corresponding
+to FWER control, via the Bonferroni procedure, at levels α = 0.05 (left), α = 0.1
+(center), and α = 0.3 (right). The orange lines indicate the p-value thresholds
+corresponding to FDR control, via Benjamini–Hochberg, at levels q = 0.05 (left),
+q = 0.1 (center), and q = 0.3 (right). When the FDR is controlled at level q = 0.1,
+146 null hypotheses are rejected (center); the corresponding p-values are shown
+in blue. When the FDR is controlled at level q = 0.3, 279 null hypotheses are
+rejected (right); the corresponding p-values are shown in blue.
+There is a fundamental difference between the Bonferroni procedure of
+Section 13.3.2 and the Benjamini–Hochberg procedure. In the Bonferroni
+procedure, in order to control the FWER for m null hypotheses at level
+α, we must simply reject null hypotheses for which the p-value is below
+α/m. This threshold of α/m does not depend on anything about the data
+(beyond the value of m), and certainly does not depend on the p-values
+themselves. By contrast, the rejection threshold used in the Benjamini–
+Hochberg procedure is more complicated: we reject all null hypotheses for
+which the p-value is less than or equal to the Lth smallest p-value, where
+L is itself a function of all m p-values, as in (13.10). Therefore, when con-
+ducting the Benjamini–Hochberg procedure, we cannot plan out in advance
+what threshold we will use to reject p-values; we need to first see our data.
+For instance, in the abstract, there is no way to know whether we will reject
+a null hypothesis corresponding to a p-value of 0.01 when using an FDR
+threshold of 0.1 with m = 100; the answer depends on the values of the
+other m −1 p-values. This property of the Benjamini–Hochberg procedure
+is shared by the Holm procedure, which also involves a data-dependent
+p-value threshold.
+Figure 13.6 displays the results of applying the Bonferroni and Benjamini–
+Hochberg procedures on the Fund data set, using the full set of m = 2,000
+fund managers, of which the first five were displayed in Table 13.3. When
+the FWER is controlled at level 0.3 using Bonferroni, only one null hypoth-
+esis is rejected; that is, we can conclude only that a single fund manager is
+beating the market. This is despite the fact that a substantial portion of

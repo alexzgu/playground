@@ -1,0 +1,53 @@
+572
+13. Multiple Testing
+would require a p-value threshold of α/m, for an extremely large value of
+m14.
+Scheffé’s method is designed for exactly this setting. It allows us to com- Scheffé’s
+method
+pute a value αS such that rejecting the null hypothesis H0 in (13.8) if the
+p-value is below αS will control the Type I error at level α. It turns out that
+for the Fund example, in order to control the Type I error at level α = 0.05,
+we must set αS = 0.002. Therefore, we are unable to reject H0 in (13.8), de-
+spite the apparently very small p-value of 0.004. An important advantage of
+Scheffé’s method is that we can use this same threshold of αS = 0.002 in or-
+der to perform a pairwise comparison of any split of the managers into two
+groups: for instance, we could also test H0 : 1
+3 (µ1 + µ2 + µ3) = 1
+2 (µ4 + µ5)
+and H0 : 1
+4 (µ1 + µ2 + µ3 + µ4) = µ5 using the same threshold of 0.002,
+without needing to further adjust for multiple testing.
+To summarize, Holm’s procedure and Bonferroni’s procedure are very
+general approaches for multiple testing correction that can be applied un-
+der all circumstances. However, in certain special cases, more powerful pro-
+cedures for multiple testing correction may be available, in order to control
+the FWER while achieving higher power (i.e. committing fewer Type II
+errors) than would be possible using Holm or Bonferroni. In this section,
+we have illustrated two such examples.
+13.3.3
+Trade-Off Between the FWER and Power
+In general, there is a trade-off between the FWER threshold that we choose,
+and our power to reject the null hypotheses. Recall that power is defined
+as the number of false null hypotheses that we reject divided by the total
+number of false null hypotheses, i.e. S/(m −m0) using the notation of Ta-
+ble 13.2. Figure 13.5 illustrates the results of a simulation setting involving
+m null hypotheses, of which 90% are true and the remaining 10% are false;
+power is displayed as a function of the FWER. In this particular simulation
+setting, when m = 10, a FWER of 0.05 corresponds to power of approxi-
+mately 60%. However, as m increases, the power decreases. With m = 500,
+the power is below 0.2 at a FWER of 0.05, so that we successfully reject
+only 20% of the false null hypotheses.
+Figure 13.5 indicates that it is reasonable to control the FWER when m
+takes on a small value, like 5 or 10. However, for m = 100 or m = 1,000,
+attempting to control the FWER will make it almost impossible to reject
+any of the false null hypotheses. In other words, the power will be extremely
+low.
+Why is this the case? Recall that, using the notation in Table 13.2, the
+FWER is defined as Pr(V ≥1) (13.3). In other other words, controlling the
+FWER at level α guarantees that the data analyst is very unlikely (with
+probability no more than α) to reject any true null hypotheses, i.e. to have
+any false positives. In order to make good on this guarantee when m is
+large, the data analyst may be forced to reject very few null hypotheses, or
+perhaps even none at all (since if R = 0 then also V = 0; see Table 13.2).
+14In fact, calculating the “correct” value of m is quite technical, and outside the scope
+of this book.

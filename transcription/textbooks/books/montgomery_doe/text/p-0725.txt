@@ -1,0 +1,78 @@
+X
+Alias Relationships for 2kp Fractional Factorial Designs with k 15 and n 64 (Continued)
+Designs with 8 Factors
+(l) 284; 1/16 fraction of
+Resolution IV
+8 factors in 16 runs
+Design Generators
+E BCD
+F ACD
+G ABC
+H ABD
+Dening relation:
+I BCDE ACDF ABEF ABCG ADEG BDFG CEFG ABDH
+ACEH BCFH DEFH CDGH BEGH AFGH ABCDEFGH
+Aliases
+A CDF BEF BCG DEG BDH CEH FGH
+AB EF CG DH
+B CDE AEF ACG DFG ADH CFH EGH
+AC DF BG EH
+C BDE ADF ABG EFG AEH BFH DGH
+AD CF EG BH
+D BCE ACF AEG BFG ABH EFH CGH
+AE BF DG CH
+E BCD ABF ADG CFG ACH DFH BGH
+AF CD BE GH
+F ACD ABE BDG CEG BCH DEH AGH
+AG BC DE FH
+G ABC ADE BDF CEF CDH BEH AFH
+AH BD CE FG
+H ABD ACE BCF DEF CDG BEG AFG
+2 blocks of 8: AB EF CG DH
+(m) 283; 1/8 fraction of
+Resolution IV
+8 factors in 32 runs
+Design Generators
+F ABC
+G ABD
+H BCDE
+Dening relation:
+I ABCF ABDG CDFG BCDEH ADEFH ACEGH BEFGH
+Aliases
+A BCF BDG
+AE DFH CGH
+DE BCH AFH
+B ACF ADG
+AF BC DEH
+DH BCE AEF
+C ABF DFG
+AG BD CEH
+EF ADH BGH
+D ABG CFG
+AH DEF CEG
+EG ACH BFH
+E 
+BE CDH FGH
+EH BCD ADF ACG BFG
+F ABC CDG
+BH CDE EFG
+FH ADE BEG
+G ABD CDF
+CD FG BEH
+GH ACE BEF
+H 
+CE BDH AGH
+ABE CEF DEG
+AB CF DG
+CG DF AEH
+ABH CFH DGH
+AC BF EGH
+CH BDE AEG
+ACD BDF BCG AFG
+AD BG EFH
+2 blocks of 16: ABE CEF DEG
+4 blocks of 8: ABE CEF DEG
+ABH CFH DGH
+EH BCD ADF ACG BFG
+Appendix
+709

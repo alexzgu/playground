@@ -1,0 +1,64 @@
+194
+CHAPTER 6. JUMP PROCESSES
+
+m =
+
+x dµ(x),
+Mt = Xt −tm Var[Mt] = tσ2
+P. Let
+ϕ(s) = E[eisYj] =
+∞
+−∞
+eisx dµ#(x),
+denote the characteristic function of a random variable with distribution
+function F. Then,
+E[eisXt] =
+∞
+
+n=0
+PNt = nE[eisXt Nt = n]
+Conditioned on Nt = n, the distribution of Xt is that of Y1 + · · · + Yn, and
+hence
+E[eisXt Nt = n] = ϕ(s)n
+Since Nt is Poisson with mean tλ,
+E[eisXt]
+=
+∞
+
+n=0
+e−tλ (tλ)n
+n!
+ϕ(s)n
+=
+e−tλ
+∞
+
+n=0
+(tλϕ(s))n
+n!
+=
+exp tλ [ϕ(s) −1]
+=
+exp
+
+tλ
+∞
+−∞
+[eisx −1] dµ#(x)
+
+=
+exp
+
+t
+∞
+−∞
+[eisx −1] dµ(x)
+
+
+The second-to-last equality uses the fact that µ# is a probability measure.
+The computation for the generator L follows from the denition of the
+CPP. In a small time ∆t, the probability that there is a jump is λ∆t +
+o(∆t), and given that there is a jump, the amount jumped is given by the
+distribution µ#. In other words, the probability that there is a jump in time
+∆t whose size is in (a, b) is given up to an error of size o(∆t) by
+λ ∆t µ#(a, b) = ∆t µ(a, b)

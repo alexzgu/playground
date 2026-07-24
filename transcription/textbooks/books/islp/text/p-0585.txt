@@ -1,0 +1,58 @@
+13.5 A Re-Sampling Approach to p-Values and False Discovery Rates
+579
+Algorithm 13.3 Re-Sampling p-Value for a Two-Sample t-Test
+1. Compute T, defined in (13.11), on the original data x1, . . . , xnX and
+y1, . . . , ynY .
+2. For b = 1, . . . , B, where B is a large number (e.g. B = 10,000):
+(a) Permute the nX + nY observations at random. Call the first nX
+permuted observations x∗
+1, . . . , x∗
+nX, and call the remaining nY
+observations y∗
+1, . . . , y∗
+nY .
+(b) Compute (13.11) on the permuted data x∗
+1, . . . , x∗
+nX
+and
+y∗
+1, . . . , y∗
+nY , and call the result T ∗b.
+3. The p-value is given by
+!B
+b=1 1(|T ∗b|≥|T |)
+B
+.
+We try out this procedure on the Khan dataset, which consists of expres-
+sion measurements for 2,308 genes in four sub-types of small round blood
+cell tumors, a type of cancer typically seen in children. This dataset is part
+of the ISLR2 package. We restrict our attention to the two sub-types for
+which the most observations are available: rhabdomyosarcoma (nX = 29)
+and Burkitt’s lymphoma (nY = 25).
+A two-sample t-test for the null hypothesis that the 11th gene’s mean
+expression values are equal in the two groups yields T = −2.09. Using
+the theoretical null distribution, which is a t52 distribution (since nX +
+nY −2 = 52), we obtain a p-value of 0.041. (Note that a t52 distribution
+is virtually indistinguishable from a N(0, 1) distribution.) If we instead
+apply Algorithm 13.3 with B = 10,000, then we obtain a p-value of 0.042.
+Figure 13.7 displays the theoretical null distribution, the re-sampling null
+distribution, and the actual value of the test statistic (T = −2.09) for this
+gene. In this example, we see very little difference between the p-values
+obtained using the theoretical null distribution and the re-sampling null
+distribution.
+By contrast, Figure 13.8 shows an analogous set of results for the 877th
+gene. In this case, there is a substantial difference between the theoretical
+and re-sampling null distributions, which results in a difference between
+their p-values.
+In general, in settings with a smaller sample size or a more skewed data
+distribution (so that the theoretical null distribution is less accurate), the
+difference between the re-sampling and theoretical p-values will tend to
+be more pronounced. In fact, the substantial difference between the re-
+sampling and theoretical null distributions in Figure 13.8 is due to the
+fact that a single observation in the 877th gene is very far from the other
+observations, leading to a very skewed distribution.
+13.5.2
+A Re-Sampling Approach to the False Discovery Rate
+Now, suppose that we wish to control the FDR for m null hypotheses,
+H01, . . . , H0m, in a setting in which either no theoretical null distribution
+is available, or else we simply prefer to avoid the use of a theoretical null

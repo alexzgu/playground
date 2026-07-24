@@ -1,0 +1,46 @@
+10.9 Lab: Deep Learning
+457
+Out[76]: [{'test_loss': 1.0863, 'test_accuracy': 0.8550}]
+Comparison to Lasso
+We now fit a lasso logistic regression model using LogisticRegression()
+from sklearn. Since sklearn does not recognize the sparse tensors of torch,
+we use a sparse matrix that is recognized by sklearn.
+In [77]: ((X_train, Y_train),
+(X_valid, Y_valid),
+(X_test, Y_test)) = load_sparse(validation=2000,
+random_state=0,
+root='data/IMDB')
+Similar to what we did in Section 10.9.1, we construct a series of 50
+values for the lasso reguralization parameter λ.
+In [78]: lam_max = np.abs(X_train.T * (Y_train - Y_train.mean())).max()
+lam_val = lam_max * np.exp(np.linspace(np.log(1),
+np.log(1e-4), 50))
+With LogisticRegression() the regularization parameter C is specified as
+the inverse of λ. There are several solvers for logistic regression; here we
+use liblinear which works well with the sparse input format.
+In [79]: logit = LogisticRegression(penalty='l1',
+C=1/lam_max,
+solver='liblinear',
+warm_start=True,
+fit_intercept=True)
+The path of 50 values takes approximately 40 seconds to run.
+In [80]: coefs = []
+intercepts = []
+for l in lam_val:
+logit.C = 1/l
+logit.fit(X_train, Y_train)
+coefs.append(logit.coef_.copy())
+intercepts.append(logit.intercept_)
+The coefficient and intercepts have an extraneous dimension which can
+be removed by the np.squeeze() function.
+In [81]: coefs = np.squeeze(coefs)
+intercepts = np.squeeze(intercepts)
+We’ll now make a plot to compare our neural network results with the
+lasso.
+In [82]: %%capture
+fig, axes = subplots(1, 2, figsize=(16, 8), sharey=True)
+for ((X_, Y_),
+data_,
+color) in zip([(X_train, Y_train),
+(X_valid, Y_valid),
+(X_test, Y_test)],

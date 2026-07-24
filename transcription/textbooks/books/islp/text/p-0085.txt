@@ -1,0 +1,55 @@
+76
+3. Linear Regression
+That is, there is approximately a 95 % chance that the interval
+7
+ˆβ1 −2 · SE(ˆβ1), ˆβ1 + 2 · SE(ˆβ1)
+8
+(3.10)
+will contain the true value of β1.3 Similarly, a confidence interval for β0
+approximately takes the form
+ˆβ0 ± 2 · SE(ˆβ0).
+(3.11)
+In the case of the advertising data, the 95 % confidence interval for β0
+is [6.130, 7.935] and the 95 % confidence interval for β1 is [0.042, 0.053].
+Therefore, we can conclude that in the absence of any advertising, sales will,
+on average, fall somewhere between 6,130 and 7,935 units. Furthermore,
+for each $1,000 increase in television advertising, there will be an average
+increase in sales of between 42 and 53 units.
+Standard errors can also be used to perform hypothesis tests on the hypothesis
+test
+coefficients. The most common hypothesis test involves testing the null
+hypothesis of
+null
+hypothesis
+H0 : There is no relationship between X and Y
+(3.12)
+versus the alternative hypothesis
+alternative
+hypothesis
+Ha : There is some relationship between X and Y .
+(3.13)
+Mathematically, this corresponds to testing
+H0 : β1 = 0
+versus
+Ha : β1̸ = 0,
+since if β1 = 0 then the model (3.5) reduces to Y = β0 + ϵ, and X is
+not associated with Y . To test the null hypothesis, we need to determine
+whether ˆβ1, our estimate for β1, is sufficiently far from zero that we can
+be confident that β1 is non-zero. How far is far enough? This of course
+depends on the accuracy of ˆβ1—that is, it depends on SE(ˆβ1). If SE(ˆβ1) is
+small, then even relatively small values of ˆβ1 may provide strong evidence
+that β1̸ = 0, and hence that there is a relationship between X and Y . In
+contrast, if SE(ˆβ1) is large, then ˆβ1 must be large in absolute value in order
+for us to reject the null hypothesis. In practice, we compute a t-statistic, t-statistic
+given by
+t =
+ˆβ1 −0
+SE(ˆβ1)
+,
+(3.14)
+3Approximately for several reasons. Equation 3.10 relies on the assumption that the
+errors are Gaussian. Also, the factor of 2 in front of the SE(ˆβ1) term will vary slightly
+depending on the number of observations n in the linear regression. To be precise, rather
+than the number 2, (3.10) should contain the 97.5 % quantile of a t-distribution with
+n−2 degrees of freedom. Details of how to compute the 95 % confidence interval precisely
+in R will be provided later in this chapter.

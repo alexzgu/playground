@@ -1,0 +1,64 @@
+220
+CHAPTER 6. JUMP PROCESSES
+Find 0 ≤s ≤12b such that ϕ(s)≥1e. We have for n suciently
+large
+ϕn(s)≤1 −cs2a2rn
+2n
+
+and hence
+lim inf
+n∞2ncs2a2rn ≤1
+Let Yn = 
+j ˜Y1,n. Using the second part, we see that P˜Yj,n =
+Yj,n, j = 1, , n≥c, and hence the Ynare tight, that is, for
+every ϵ > 0, there exists Kϵ such that for all n, PYj,n> Kϵ< ϵ.
+Chebyshev’s inequality gives
+P
+
+Yn≤n˜mn
+2
+
+≤P
+
+Yn −n ˜mn≥n˜mn
+2
+
+≤4n˜σ2
+n
+n2 ˜m2n
+
+If n˜σ2
+n is bounded and nj is a subsequence with nj˜mnj→∞, then
+we would have
+lim sup
+y∞P
+
+Ynj≥nj˜mnj
+2
+
+= 1,
+which contradicts the tightness of Yn. Suppose nj˜σ2
+nj →∞. Then
+tightness gives that ˜mnj2 = o(˜σ2
+nj) and hence E[˜Y1,nj3] ≤E[ ˜Y 2
+1,nj] ∼
+˜σ2
+nj. To be a bit more precise, we would assume that
+Yn −n ˜mn
+
+n˜σ2n
+would approach a normal distribution. If n˜σ2
+n →∞this would indicate
+that Yn is not tight and one can make this precise with the Berry-
+Esseen theorem (using the upper bound on the thrid moment). Hence
+n˜σ2
+n is bounded and hence n˜mnis bounded.
+Using the lemma we can nd a measure µ with µ0= 0 and a
+subsequence nj such that for all bounded continuous functions f that
+vanish in a neighborhood of the origin,
+lim
+j∞
+
+f(x)νnj(dx) =
+
+f(x)µ(dx)

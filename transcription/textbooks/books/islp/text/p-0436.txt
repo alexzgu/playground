@@ -1,0 +1,83 @@
+10.7 Fitting a Neural Network
+429
+For a small enough value of the learning rate ρ, this step will decrease the learning rate
+objective R(θ); i.e. R(θm+1) ≤R(θm). If the gradient vector is zero, then
+we may have arrived at a minimum of the objective.
+How complicated is the calculation (10.26)? It turns out that it is quite
+simple here, and remains simple even for much more complex networks,
+because of the chain rule of differentiation.
+chain rule
+Since R(θ) = )n
+i=1 Ri(θ) = 1
+2
+)n
+i=1(yi −fθ(xi))2 is a sum, its gradient
+is also a sum over the n observations, so we will just examine one of these
+terms,
+Ri(θ) = 1
+2
+1
+yi −β0 −
+K
+0
+k=1
+βkg
+'
+wk0 +
+p
+0
+j=1
+wkjxij
+(22
+.
+(10.28)
+To simplify the expressions to follow, we write zik = wk0 + )p
+j=1 wkjxij.
+First we take the derivative with respect to βk:
+∂Ri(θ)
+∂βk
+=
+∂Ri(θ)
+∂fθ(xi) · ∂fθ(xi)
+∂βk
+=
+−(yi −fθ(xi)) · g(zik).
+(10.29)
+And now we take the derivative with respect to wkj:
+∂Ri(θ)
+∂wkj
+=
+∂Ri(θ)
+∂fθ(xi) · ∂fθ(xi)
+∂g(zik) · ∂g(zik)
+∂zik
+· ∂zik
+∂wkj
+=
+−(yi −fθ(xi)) · βk · g′(zik) · xij.
+(10.30)
+Notice that both these expressions contain the residual yi −fθ(xi). In
+(10.29) we see that a fraction of that residual gets attributed to each of
+the hidden units according to the value of g(zik). Then in (10.30) we see
+a similar attribution to input j via hidden unit k. So the act of differen-
+tiation assigns a fraction of the residual to each of the parameters via the
+chain rule — a process known as backpropagation in the neural network backprop-
+agation
+literature. Although these calculations are straightforward, it takes careful
+bookkeeping to keep track of all the pieces.
+10.7.2
+Regularization and Stochastic Gradient Descent
+Gradient descent usually takes many steps to reach a local minimum. In
+practice, there are a number of approaches for accelerating the process.
+Also, when n is large, instead of summing (10.29)–(10.30) over all n ob-
+servations, we can sample a small fraction or minibatch of them each time minibatch
+we compute a gradient step. This process is known as stochastic gradient
+descent (SGD) and is the state of the art for learning deep neural networks. stochastic
+gradient
+descent
+Fortunately, there is very good software for setting up deep learning mod-
+els, and for fitting them to data, so most of the technicalities are hidden
+from the user.
+We now turn to the multilayer network (Figure 10.4) used in the digit
+recognition problem. The network has over 235,000 weights, which is around
+four times the number of training examples. Regularization is essential here

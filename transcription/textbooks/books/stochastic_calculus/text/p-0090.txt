@@ -1,0 +1,43 @@
+84
+CHAPTER 3. STOCHASTIC INTEGRATION
+The simplest, but still useful, technique is E’where one chooses
+a small increment ∆t and then writes
+f((k + 1)∆t) = f(k∆t) + ∆t C(k∆t, f(k∆t))
+Stochastic calculus is similar, except that one adds randomness to the
+change. We will make sense of equations such as
+dXt = m(t, Xt) dt + σ(t, Xt) dBt,
+(3.1)
+where Bt is a standard Brownian motion. This is an example of a 
+(SDE). We should read this equation as stating that at
+time t, Xt is evolving like a Brownian motion with drift m(t, Xt) and vari-
+ance σ(t, Xt)2. Solving such equations exactly is much harder than for usual
+calculus, and we often have to resort to numerical methods. One technique is
+the Ewhich allows us to do MC
+of the process. This is easy enough to describe so we give the formula now
+X((k + 1)∆t) =
+X(k∆t) + ∆t m(k∆t, X(k∆t)) +
+√
+∆t σ(k∆t, X(k∆t)) Nk,
+where Nk is a N(0, 1) random variable.
+The standard approach to calculus is to dene the derivative, then dene
+the integral, and then give the relationship between the two. One could also
+dene the integral rst. In stochastic calculus, the derivative is not so easily
+dened, so in order to give a mathematical formulation we concentrate on
+dening the stochastic integral. We will say that Xt is a solution to (3.1) if
+Xt = X0 +
+t
+0
+m(s, Xs) ds +
+t
+0
+σ(s, Xs) dBs
+The ds integral is the usual integral from calculus; the integrand m(s, Xs)
+is random, but that does not give any problem in dening the integral. The
+main task will be to give precise meaning to the second term, and more
+generally to
+t
+0
+As dBs
+There are several approaches to stochastic integration. The approach we give,
+which is most commonly used in mathematical nance, is that of the Iˆ
+.

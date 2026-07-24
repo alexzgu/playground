@@ -1,0 +1,53 @@
+is impossible to experiment in some portions of the factor space (such as tempera-
+tures and pressures that are simultaneously beyond certain boundaries leading to
+unsafe operating conditions) or there are infeasible combinations of some factors.
+An example of an optimal design for a problem with a constrained region will be
+given in Chapter 11.
+3. The experimenter needs to t a nonstandard model. Models containing a mix of
+factors of different types. For example, suppose that the experimenter is interested
+in tting a full quadratic model in two variables x1 and x2, but there is a third two-
+level categorical factor z that is also of interest. The model that the experimenter
+wants to entertain is 
+This is a full quadratic model in the two continuous factors and it also contains the main effect
+of the categorical factor plus all interactions between the categorical factor and the linear,
+interaction, and pure quadratic effects of the continuous factors.  If this full 12-parameter
+model is the nal model for the experiment, then the model describes two completely differ-
+ent response functions at the two different levels of the categorical factor. Assuming that the
+experimenter can only conduct 15 runs, there is not a standard response surface design for this
+problem. The closest standard design that would work for this problem would be the 3 3
+2 factorial, which requires 18 runs.
+Designing experiments for these types of problems requires a different approach. We
+can’t look in the textbook or course notes and try to match the designs we nd there to the
+problem. Instead we need to create a custom design that ts our specic problem. Creating
+this custom design requires:
+1. Information about the problem—specically the model that the experimenter wants
+to entertain, the region of interest, the number of runs that can be performed, and
+any requirements about blocking, covariates, etc.
+2. Choosing an optimality criterion—that is, a criterion for selecting the design
+points to be run. In the next section we will give a brief review of optimality crite-
+rion for design experiments.
+3. A software package to construct the design. Sometimes optimal designs are called
+computer-generated designs. Several standard software packages do a good job of
+nding optimal designs.
+It is always better to create a custom design for the actual problem that you want to
+solve than to force your problem to t a standard design. Fortunately, it has been relatively
+easy to construct optimal design for about the last 15 years. The early research work on the
+theory of design optimality began with Kiefer (1959, 1961) and Kiefer and Wolfowitz (1959).
+The rst practical algorithm for construction of optimal designs was developed by Mitchell
+(1974). This was a point exchange method, in which runs from a candidate set of all possible
+runs that the experimenter would consider running were systematically exchanged with the
+runs in a current design until no further improvement in the optimality criterion could be
+achieved. Several variations of the point exchange approach were developed and implement-
+ed over the next 20 years. Meyer and Nachtsheim (1995) developed a coordinate exchange
+algorithm in which individual design coordinates were systematically searched to nd the
+optimal settings. No candidate set of runs was required. This approach quickly became the
+standard one and today almost all efcient optimal design software makes use of the coordi-
+nate exchange approach.
+12zx1x2 11zx2
+1 22zx2
+2 
+y 0 1x1 2x2 12x1x2 11x2
+1 22x2
+2 yz 1zx1 2zx2
+432
+Chapter 9 ■Additional Design and Analysis Topics for Factorial and Fractional Factorial Designs

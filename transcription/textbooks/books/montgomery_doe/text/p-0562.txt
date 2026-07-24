@@ -1,0 +1,189 @@
+546
+Chapter 11 ■Response Surface Methods and Designs
+■TA B L E P 1 1 . 2
+The Crystal Growth Experiment, Problem 11.8
+x1
+x2
+x3
+y
+1
+1
+1
+66
+1
+1
+1
+70
+1
+1
+1
+78
+1
+1
+1
+60
+1
+1
+1
+80
+1
+1
+1
+70
+1
+1
+1
+100
+1
+1
+1
+75
+1.682
+0
+0
+100
+1.682
+0
+0
+80
+0
+1.682
+0
+68
+0
+1.682
+0
+63
+0
+0
+1.682
+65
+0
+0
+1.682
+82
+0
+0
+0
+113
+0
+0
+0
+100
+0
+0
+0
+118
+0
+0
+0
+88
+0
+0
+0
+100
+0
+0
+0
+85
+11.9.
+The data in Table P11.3 were collected by a chemi-
+cal engineer. The response y is ltration time, x1 is tempera-
+ture, and x2 is pressure. Fit a second-order model.
+(a) What operating conditions would you recommend if
+the objective is to minimize the ltration time?
+(b) What operating conditions would you recommend if
+the objective is to operate the process at a mean ltra-
+tion rate very close to 46?
+■TA B L E P 1 1 . 3
+The Experiment for Problem 11.9
+x1
+x2
+y
+1
+1
+54
+1
+1
+45
+1
+1
+32
+1
+1
+47
+1.414
+0
+50
+1.414
+0
+53
+0
+1.414
+47
+0
+1.414
+51
+0
+0
+41
+0
+0
+39
+0
+0
+44
+0
+0
+42
+0
+0
+40
+11.10.
+The hexagon design in Table P11.4 is used in an exper-
+iment that has the objective of tting a second-order model:
+■TA B L E P 1 1 . 4
+A Hexagon Design
+x1
+x2
+y
+1
+0
+68
+0.5
+74
+0.5
+65
+1
+0
+60
+0.5
+63
+0.5
+70
+0
+0
+58
+0
+0
+60
+0
+0
+57
+0
+0
+55
+0
+0
+69
+(a) Fit the second-order model.
+(b) Perform the canonical analysis. What type of surface
+has been found?
+(c) What operating conditions on x1 and x2 lead to the sta-
+tionary point?
+(d) Where would you run this process if the objective is to
+obtain a response that is as close to 65 as possible?
+0.75
+0.75
+0.75
+0.75

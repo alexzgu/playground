@@ -1,0 +1,40 @@
+246
+CHAPTER 8. HARMONIC FUNCTIONS
+If f is C2 and satises the mean value property, then 2f(x) = 0 by
+Proposition 8.1.1. Hence we need only show that f is C2. We will, in fact,
+show that f is C∞.
+It is a standard exercise in advanced calculus to show that for every δ > 0
+we can nd a nonnegative radially symmetric C∞function ϕ = ϕδ such that
+ϕ(y) = 0 for y≥δ and
+
+ϕ(y) dy = 1
+Here dy = dy1 · · · dyd. If x D with y : x −y≤ϵ⊂D, and ϕ = ϕϵ2,
+then the mean value property implies that
+f(x) =
+
+f(x + y) ϕ(y) dy =
+
+f(z) ϕ(z −x) dz
+(8.3)
+Since f is locally bounded and ϕ is bounded and C∞, we can dierentiate
+with respect to x by bringing the derivatives inside the integral.
+The proof showed that we did not need to assume that f is continuous.
+It suces for f to be measurable and locally bounded so that derivatives can
+be taken on the right-hand side of (8.3).
+We will solve the classic Dirichlet problem for harmonic functions. Sup-
+pose D is a bounded open set and F : ∂D →R is a continuous function.
+The goal is to nd a continuous function f : D →R that is harmonic in D
+with f(x) = F(x) for x ∂D. Suppose that such a function f existed. Let
+τ = τD = inft ≥0 : Bt ∂D. Since D is compact, f must be bounded,
+and hence
+Mt = f(Bt∧τ)
+is a continuous, bounded martingale. Arguing as in (8.2) we see that
+f(x) = Ex [f(Bτ)] = Ex [F(Bτ)] 
+(8.4)
+The right-hand side gives the only candidate for the solution. The strong
+Markov property can be used to see that this candidate satises the mean
+value property and the last proposition gives that f is harmonic in D.
+It is a little more subtle to check if f is continuous on D. This requires
+further assumptions on D which can be described most easily in terms of
+Brownian motion. Suppose z ∂D and x D with x near z. Can we say
+that f(x) is near F(z)? Since F is continuous, this will be true if Bτ is near

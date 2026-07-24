@@ -1,0 +1,53 @@
+utilizing the assumption that the experimental error variance is the same over all treatment
+combinations.
+The three material type averages at 70°F arranged in ascending order are
+and
+where we obtained q0.05(3, 27) 3.50 by interpolation in Appendix Table VII. The pairwise
+comparisons yield
+This analysis indicates that at the temperature level 70°F, the mean battery life is the same for
+material types 2 and 3, and that the mean battery life for material type 1 is signicantly lower
+in comparison to both types 2 and 3.
+If interaction is signicant, the experimenter could compare all ab cell means to deter-
+mine which ones differ signicantly. In this analysis, differences between cell means include
+interaction effects as well as both main effects. In Example 5.1, this would give 36 compar-
+isons between all possible pairs of the nine cell means.
+Computer Output. Figure 5.10 presents condensed computer output for the battery life
+data in Example 5.1. Figure 5.10a contains Design-Expert output and Figure 5.10b contains
+JMP output. Note that
+with 8 degrees of freedom. An F test is displayed for the model source of variation. The
+P-value is small ( 0.0001), so the interpretation of this test is that at least one of the three terms
+in the model is signicant. The tests on the individual model terms (A, B, AB) follow. Also,
+That is, about 77 percent of the variability in the battery life is explained by the plate material
+in the battery, the temperature, and the material type–temperature interaction. The residuals
+from the fitted model are displayed on the Design-Expert computer output and 
+the JMP output contains a plot of the residuals versus the predicted response. We now discuss
+the use of these residuals and residual plots in model adequacy checking.
+R2 SSModel
+SSTotal
+59,416.22
+77,646.97 0.7652
+ 59,416.22
+ 10,683.72 39,118.72 9613.78
+SSModel SSMaterial SSTemperature SSInteraction
+2 vs. 1: 
+ 119.75 57.25 62.50 # T0.05 45.47
+3 vs. 2: 
+ 145.75 119.75 26.00 ! T0.05 45.47
+3 vs. 1: 
+ 145.75 57.25 88.50 # T0.05 45.47
+ 45.47
+ 3.50
+675.21
+4
+T0.05 q0.05(3, 27)
+MSE
+n
+y32. 145.75 
+  (material type 3)
+y22. 119.75 
+  (material type 2)
+y12. 57.25 
+ 
+ (material type 1)
+5.3 The Two-Factor Factorial Design
+195

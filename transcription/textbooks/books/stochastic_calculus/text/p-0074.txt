@@ -1,0 +1,46 @@
+68
+CHAPTER 2. BROWNIAN MOTION
+If Bt = (B1
+t , , Bd
+t ) is a Brownian motion with drift 0 and covariance matrix
+Γ, then
+E
+
+(Bi
+t −Bi
+s)(Bk
+t −Bk
+s )
+
+= (t −s) Γik
+As in the quadratic variation, the drift does not contribute to the covariation.
+We state the following result which is proved in the same way as for quadratic
+variation.
+Theorem 2.9.1. IBt d-Bm
+Γ, 
+⟨Bi, Bk⟩t = Γik t
+In particular, if Bt = (B1
+t , , Bd
+t ) is a standard Brownian motion in Rd,
+then the components are independent and
+⟨Bi, Bk⟩t = 0,
+i̸ = k
+2.10
+Heat equation and generator
+Even if one’s interest in Brownian motion comes from other applications, it
+is useful to consider the diusion of heat. Heat ow can be viewed by con-
+sidering a large number of independent heat particleseach doing random
+continuous motion. This viewpoint leads to a deterministic partial dierential
+equation (PDE) that describes the evolution of the temperature. Imagine for
+the moment that the temperature on the line is determined by the density
+of heat particles. Let pt(x) denote the temperature at x at time t. If the heat
+particles are moving independently and randomly then we can assume that
+they are doing Brownian motions. If we also assume that
+
+R
+pt(x) dx = 1,
+then reasonable to see pt(x) as the probability density for Brownian motion.
+2.10.1
+One dimension
+We start by taking advantage of what we already know. Assume Bt is a
+standard Brownian motion starting at the origin and let pt(x) denote the

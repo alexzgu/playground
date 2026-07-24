@@ -1,0 +1,178 @@
+3.12 Problems
+137
+3.45.
+Refer to Problem 3.44.
+(a) How would your answer change if a reasonable esti-
+mate of the experimental error variance were 2 36?
+(b) How would your answer change if a reasonable esti-
+mate of the experimental error variance were 2 49?
+(c) Can you draw any conclusions about the sensitivity of
+your answer in this particular situation about how your
+estimate of affects the decision about sample size?
+(d) Can you make any recommendations about how we
+should use this general approach to choosing n in
+practice?
+3.46.
+Refer to the aluminum smelting experiment described
+in Section 3.8.3. Verify that ratio control methods do not affect
+average cell voltage. Construct a normal probability plot of the
+residuals. Plot the residuals versus the predicted values. Is there
+an indication that any underlying assumptions are violated?
+3.47.
+Refer to the aluminum smelting experiment in
+Section 3.8.3. Verify the ANOVA for pot noise summarized in
+Table 3.16. Examine the usual residual plots and comment on
+the experimental validity.
+3.48.
+Four different feed rates were investigated in an
+experiment on a CNC machine producing a component part
+used in an aircraft auxiliary power unit. The manufacturing
+engineer in charge of the experiment knows that a critical
+part dimension of interest may be affected by the feed rate.
+However, prior experience has indicated that only disper-
+sion effects are likely to be present. That is, changing the
+feed rate does not affect the average dimension, but it could
+affect dimensional variability. The engineer makes five pro-
+duction runs at each feed rate and obtains the standard devi-
+ation of the critical dimension (in 103 mm). The data are
+shown below. Assume that all runs were made in random
+order.
+Production Run
+Feed Rate 
+(in/min)
+1
+2
+3
+4
+5
+10
+0.09
+0.10
+0.13
+0.08
+0.07
+12
+0.06
+0.09
+0.12
+0.07
+0.12
+14
+0.11
+0.08
+0.08
+0.05
+0.06
+16
+0.19
+0.13
+0.15
+0.20
+0.11
+(a) Does feed rate have any effect on the standard devia-
+tion of this critical dimension?
+(b) Use the residuals from this experiment to investigate
+model adequacy. Are there any problems with experi-
+mental validity?
+3.49.
+Consider the data shown in Problem 3.22.
+(a) Write out the least squares normal equations for this
+problem and solve them for 
+and , using the usual
+constraint (
+). Estimate 1 2.
+
+3
+i1ˆi 0
+ˆi
+ˆ
+(b) Solve the equations in (a) using the constraint 
+.
+Are the estimators 
+and 
+the same as you found in
+(a)? Why? Now estimate1 2 and compare your
+answer with that for (a). What statement can you make
+about estimating contrasts in the i?
+(c) Estimate 1, 21 2 3, and 1 2
+using the two solutions to the normal equations. Compare
+the results obtained in each case.
+3.50.
+Apply the general regression signicance test to the
+experiment in Example 3.5. Show that the procedure yields
+the same results as the usual analysis of variance.
+3.51.
+Use the Kruskal–Wallis test for the experiment in
+Problem 3.23. Compare the conclusions obtained with those
+from the usual analysis of variance.
+3.52.
+Use the Kruskal–Wallis test for the experiment in
+Problem 3.23. Are the results comparable to those found by
+the usual analysis of variance?
+3.53.
+Consider the experiment in Example 3.5. Suppose
+that the largest observation on etch rate is incorrectly record-
+ed as 250 A/min. What effect does this have on the usual
+analysis of variance? What effect does it have on the
+Kruskal–Wallis test?
+3.54.
+A textile mill has a large number of looms. Each loom
+is supposed to provide the same output of cloth per minute. To
+investigate this assumption, ve looms are chosen at random,
+and their output is noted at different times. The following data
+are obtained:
+Loom
+Output (lb/min)
+1
+14.0
+14.1
+14.2
+14.0
+14.1
+2
+13.9
+13.8
+13.9
+14.0
+14.0
+3
+14.1
+14.2
+14.1
+14.0
+13.9
+4
+13.6
+13.8
+14.0
+13.9
+13.7
+5
+13.8
+13.6
+13.9
+13.8
+14.0
+(a) Explain why this is a random effects experiment. Are
+the looms equal in output? Use = 0.05.
+(b) Estimate the variability between looms.
+(c) Estimate the experimental error variance.
+(d) Find a 95 percent condence interval for 
+.
+(e) Analyze the residuals from this experiment. Do you think
+that the analysis of variance assumptions are satised?
+(f) Use the REML method to analyze this data. Compare
+the 95 percent condence interval on the error vari-
+ance from REML with the exact chi-square condence
+interval.
+3.55.
+A manufacturer suspects that the batches of raw mate-
+rial furnished by his supplier differ signicantly in calcium
+content. There are a large number of batches currently in the
+warehouse. Five of these are randomly selected for study. 
+2
+ (2
+2)
+ˆ
+ˆi
+ˆ3 0

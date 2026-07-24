@@ -1,0 +1,132 @@
+620
+Chapter 14 ■Nested and Split-Plot Designs
+pooled to form the appropriate quantities required for the design with nested and factorial
+factors as follows:
+Factorial Analysis
+Nested–Factorial Analysis
+Degrees of
+Degrees of
+Sum of Squares
+Freedom
+Sum of Squares
+Freedom
+SSF
+2
+SSF
+2
+SSL
+1
+SSL
+1
+SSFL
+2
+SSFL
+2
+SSO
+3
+SSLO
+3
+SSO(L) SSO SSLO
+6
+SSFO
+6
+SSFOL
+6
+SSFO(L) SSFO SSFOL
+12
+SSE
+24
+SSE
+24
+SST
+47
+SST
+47
+■TA B L E 1 4 . 1 5
+JMP Output for Example 14.2
+Response Time
+Summary of Fit
+RSquare
+0.764291
+RSquare Adj
+0.73623
+Root Mean Square Error
+1.527525
+Mean of Response
+26.08333
+Observations for (or Sum Wgts)
+48
+REML Variance Component Estimates
+Random Effect
+Var Ratio
+Var Component
+Std Error
+95% Lower
+95% Upper
+Pct of Total
+Operator[Layout]
+0.4642857
+1.0833333
+1.2122659
+1.292708
+3.4593745
+21.697
+Operator*Fixture[Layout]
+0.6755952
+1.5763889
+1.1693951
+0.715625
+3.8684033
+31.572
+Residual
+2.3333333
+0.6735753
+1.4226169
+4.5157102
+46.732
+Total
+4.9930556
+100.000
+2 LogLikelihood  195.88509411
+Covariance Matrix of Variance Component Estimates
+Random Effect
+Operator[Layout]
+Operator*Fixture[Layout]
+Residual
+Operator[Layout]
+1.4695886
+0.41802
+3.608e-15
+Operator*Fixture[Layout]
+0.41802
+1.3674849
+0.226852
+Residual
+3.608e-15
+0.226852
+0.4537037
+Fixed Effect Tests
+Source
+Nparm
+DF
+DFDen
+F Ratio
+Prob > F
+Layout
+1
+1
+6
+0.3407
+0.5807
+Fixture
+2
+2
+12
+7.5456
+0.0076*
+Layout*Fixture
+2
+2
+12
+1.7354
+0.2178

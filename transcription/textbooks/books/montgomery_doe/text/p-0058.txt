@@ -1,0 +1,69 @@
+The cumulative frequency scale has been arranged so that if the hypothesized distribution ade-
+quately describes the data, the plotted points will fall approximately along a straight line; if the
+plotted points deviate signicantly from a straight line, the hypothesized model is not appropri-
+ate. Usually, the determination of whether or not the data plot as a straight line is subjective.
+To illustrate the procedure, suppose that we wish to check the assumption that tension
+bond strength in the Portland cement mortar formulation experiment is normally distributed.
+We initially consider only the observations from the unmodied mortar formulation. A
+computer-generated normal probability plot is shown in Figure 2.11. Most normal probability
+plots present 100(j 0.5)/n on the left vertical scale (and occasionally 100[1(j 0.5)/n] is
+plotted on the right vertical scale), with the variable value plotted on the horizontal scale. Some
+computer-generated normal probability plots convert the cumulative frequency to a standard
+normal z score. A straight line, chosen subjectively, has been drawn through the plotted points.
+In drawing the straight line, you should be inuenced more by the points near the middle of
+the plot than by the extreme points. A good rule of thumb is to draw the line approximately
+between the 25th and 75th percentile points. This is how the lines in Figure 2.11 for each sample
+were determined. In assessing the “closeness” of the points to the straight line, imagine a fat
+pencil lying along the line. If all the points are covered by this imaginary pencil, a normal
+distribution adequately describes the data. Because the points for each sample in Figure 2.11
+would pass the fat pencil test, we conclude that the normal distribution is an appropriate model
+for tension bond strength for both the modied and the unmodied mortar.
+We can obtain an estimate of the mean and standard deviation directly from the normal
+probability plot. The mean is estimated as the 50th percentile on the probability plot, and the
+standard deviation is estimated as the difference between the 84th and 50th percentiles. This
+means that we can verify the assumption of equal population variances in the Portland cement
+experiment by simply comparing the slopes of the two straight lines in Figure 2.11. Both lines
+have very similar slopes, and so the assumption of equal variances is a reasonable one. If this
+assumption is violated, you should use the version of the t-test described in Section 2.4.4. The
+supplemental text material has more information about checking assumptions on the t-test.
+When assumptions are badly violated, the performance of the t-test will be affected.
+Generally, small to moderate violations of assumptions are not a major concern, but any fail-
+ure of the independence assumption and strong indications of nonnormality should not be
+ignored. Both the signicance level of the test and the ability to detect differences between
+the means will be adversely affected by departures from assumptions. Transformations are
+one approach to dealing with this problem. We will discuss this in more detail in Chapter 3.
+42
+Chapter 2 ■Simple Comparative Experiments
+■F I G U R E 2 . 1 1
+Normal
+probability plots of tension bond
+strength in the Portland cement
+experiment
+99
+95
+90
+80
+70
+60
+50
+40
+30
+20
+10
+5
+1
+16.0
+16.4
+16.2
+16.6
+16.8
+17.0
+Strength (kgf/cm2)
+17.2
+17.4
+17.6
+17.8
+Percent (cumulative normal probability × 100)
+Modified
+Variable
+Unmodified

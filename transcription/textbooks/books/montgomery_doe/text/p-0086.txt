@@ -1,0 +1,63 @@
+70
+Chapter 3 ■Experiments with a Single Factor: The Analysis of Variance
+whether or not they were explicitly considered in the analysis. Here, the i are random vari-
+ables, and knowledge about the particular ones investigated is relatively useless. Instead, we
+test hypotheses about the variability of the i and try to estimate this variability. This is called
+the random effects model or components of variance model. We discuss the single-factor
+random effects model in Section 3.9. However, we will defer a more complete discussion of
+experiments with random factors to Chapter 13.
+3.3
+Analysis of the Fixed Effects Model
+In this section, we develop the single-factor analysis of variance for the xed effects model.
+Recall that yi. represents the total of the observations under the ith treatment. Let 
+represent
+the average of the observations under the ith treatment. Similarly, let y.. represent the grand
+total of all the observations and 
+represent the grand average of all the observations.
+Expressed symbolically,
+(3.3)
+where N an is the total number of observations. We see that the “dot” subscript notation
+implies summation over the subscript that it replaces.
+We are interested in testing the equality of the a treatment means; that is, E(yij) 
+i i, i 1, 2, . . . , a. The appropriate hypotheses are
+(3.4)
+In the effects model, we break the ith treatment mean i into two components such that 
+i i. We usually think of as an overall mean so that
+This denition implies that
+That is, the treatment or factor effects can be thought of as deviations from the overall mean.1
+Consequently, an equivalent way to write the above hypotheses is in terms of the treatment
+effects i, say
+Thus, we speak of testing the equality of treatment means or testing that the treatment effects
+(the i) are zero. The appropriate procedure for testing the equality of a treatment means is
+the analysis of variance.
+H1i Z 0 
+ for at least one i
+H01 2 Á a 0
+
+a
+i1
+i 0
+
+a
+i1
+i
+a
+
+H1i Z j 
+ for at least one pair (i, j)
+H01 2 Á a
+y.. 
+a
+i1 
+n
+j1
+yij y.. y../N
+yi. 
+n
+j1
+yij 
+ yi. yi./n 
+ i 1, 2, . . . , a
+y..
+yi.
+1 For more information on this subject, refer to the supplemental text material for Chapter 3.

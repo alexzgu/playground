@@ -1,0 +1,77 @@
+11.8 Lab: Survival Analysis
+497
+Out[31]:
+t_0
+-1
+null_distribution
+chi squared
+degrees_of_freedom
+2
+test_name
+multivariate_logrank_test
+test_statistic
+p
+-log2(p)
+20.30 <0.005
+14.65
+Next, we consider the effect of Time.
+In [32]: multivariate_logrank_test(D['Wait time'],
+D['Time'],
+D['Failed'])
+Out[32]:
+t_0
+-1
+null_distribution
+chi squared
+degrees_of_freedom
+2
+test_name
+multivariate_logrank_test
+test_statistic
+p
+-log2(p)
+49.90 <0.005
+35.99
+As in the case of a categorical variable with 2 levels, these results are
+similar to the likelihood ratio test from the Cox proportional hazards model.
+First, we look at the results for Center.
+In [33]: X = MS(['Wait time',
+'Failed',
+'Center'],
+intercept=False).fit_transform(D)
+F = coxph().fit(X, 'Wait time', 'Failed')
+F.log_likelihood_ratio_test()
+Out[33]:
+null_distribution
+chi squared
+degrees_freedom
+2
+test_name
+log-likelihood ratio test
+test_statistic
+p
+-log2(p)
+20.58 <0.005
+14.85
+Next, we look at the results for Time.
+In [34]: X = MS(['Wait time',
+'Failed',
+'Time'],
+intercept=False).fit_transform(D)
+F = coxph().fit(X, 'Wait time', 'Failed')
+F.log_likelihood_ratio_test()
+Out[34]:
+null_distribution
+chi squared
+degrees_freedom
+2
+test_name
+log-likelihood ratio test
+test_statistic
+p
+-log2(p)
+48.12 <0.005
+34.71
+We find that differences between centers are highly significant, as are
+differences between times of day.
+Finally, we fit Cox’s proportional hazards model to the data.

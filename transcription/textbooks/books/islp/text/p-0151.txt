@@ -1,0 +1,82 @@
+142
+4. Classification
+Coefficient
+Std. error
+z-statistic
+p-value
+Intercept
+−10.6513
+0.3612
+−29.5
+<0.0001
+balance
+0.0055
+0.0002
+24.9
+<0.0001
+TABLE 4.1. For the Default data, estimated coefficients of the logistic regres-
+sion model that predicts the probability of default using balance. A one-unit
+increase in balance is associated with an increase in the log odds of default by
+0.0055 units.
+Coefficient
+Std. error
+z-statistic
+p-value
+Intercept
+−3.5041
+0.0707
+−49.55
+<0.0001
+student[Yes]
+0.4049
+0.1150
+3.52
+0.0004
+TABLE 4.2. For the Default data, estimated coefficients of the logistic regression
+model that predicts the probability of default using student status. Student status
+is encoded as a dummy variable, with a value of 1 for a student and a value of 0
+for a non-student, and represented by the variable student[Yes] in the table.
+for an individual with a balance of $1, 000 is
+ˆp(X) =
+e ˆβ0+ ˆβ1X
+1 + e ˆβ0+ ˆβ1X =
+e−10.6513+0.0055×1,000
+1 + e−10.6513+0.0055×1,000 = 0.00576,
+which is below 1 %. In contrast, the predicted probability of default for an
+individual with a balance of $2, 000 is much higher, and equals 0.586 or
+58.6 %.
+One can use qualitative predictors with the logistic regression model us-
+ing the dummy variable approach from Section 3.3.1. As an example, the
+Default data set contains the qualitative variable student. To fit a model
+that uses student status as a predictor variable, we simply create a dummy
+variable that takes on a value of 1 for students and 0 for non-students. The
+logistic regression model that results from predicting probability of default
+from student status can be seen in Table 4.2. The coefficient associated
+with the dummy variable is positive, and the associated p-value is statisti-
+cally significant. This indicates that students tend to have higher default
+probabilities than non-students:
+6
+Pr(default=Yes|student=Yes) =
+e−3.5041+0.4049×1
+1 + e−3.5041+0.4049×1 = 0.0431,
+6
+Pr(default=Yes|student=No) =
+e−3.5041+0.4049×0
+1 + e−3.5041+0.4049×0 = 0.0292.
+4.3.4
+Multiple Logistic Regression
+We now consider the problem of predicting a binary response using multiple
+predictors. By analogy with the extension from simple to multiple linear
+regression in Chapter 3, we can generalize (4.4) as follows:
+log
+*
+p(X)
+1 −p(X)
++
+= β0 + β1X1 + · · · + βpXp,
+(4.6)
+where X = (X1, . . . , Xp) are p predictors. Equation 4.6 can be rewritten as
+p(X) =
+eβ0+β1X1+···+βpXp
+1 + eβ0+β1X1+···+βpXp .
+(4.7)

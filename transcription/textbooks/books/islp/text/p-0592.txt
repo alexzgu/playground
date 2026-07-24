@@ -1,0 +1,54 @@
+586
+13. Multiple Testing
+fund_mini_pvals[i] = ttest_1samp(fund_mini.iloc[:,i], 0).pvalue
+fund_mini_pvals
+Out[9]: array([0.006, 0.918, 0.012, 0.601, 0.756])
+The p-values are low for Managers One and Three, and high for the other
+three managers. However, we cannot simply reject H0,1 and H0,3, since
+this would fail to account for the multiple testing that we have performed.
+Instead, we will conduct Bonferroni’s method and Holm’s method to control
+the FWER.
+To do this, we use the multipletests() function from the statsmodels multiple-
+tests()
+module (abbreviated to mult_test()). Given the p-values, for methods like
+Holm and Bonferroni the function outputs adjusted p-values, which can be adjusted
+p-values
+thought of as a new set of p-values that have been corrected for multiple
+testing. If the adjusted p-value for a given hypothesis is less than or equal
+to α, then that hypothesis can be rejected while maintaining a FWER of
+no more than α. In other words, for such methods, the adjusted p-values
+resulting from the multipletests() function can simply be compared to
+the desired FWER in order to determine whether or not to reject each
+hypothesis. We will later see that we can use the same function to control
+FDR as well.
+The mult_test() function takes p-values and a method argument, as well
+as an optional alpha argument. It returns the decisions (reject below) as
+well as the adjusted p-values (bonf).
+In [10]: reject, bonf = mult_test(fund_mini_pvals , method = "bonferroni")[:2]
+reject
+Out[10]: array([ True, False, False, False, False])
+The p-values bonf are simply the fund_mini_pvalues multiplied by 5 and
+truncated to be less than or equal to 1.
+In [11]: bonf, np.minimum(fund_mini_pvals * 5, 1)
+Out[11]: (array([0.03, 1.
+, 0.06, 1.
+, 1.
+]),
+array([0.03, 1.
+, 0.06, 1.
+, 1.
+]))
+Therefore, using Bonferroni’s method, we are able to reject the null hy-
+pothesis only for Manager One while controlling FWER at 0.05.
+By contrast, using Holm’s method, the adjusted p-values indicate that
+we can reject the null hypotheses for Managers One and Three at a FWER
+of 0.05.
+In [12]: mult_test(fund_mini_pvals , method = "holm", alpha=0.05)[:2]
+Out[12]: (array([ True, False,
+True, False, False]),
+array([0.03, 1.
+, 0.05, 1.
+, 1.
+]))
+As discussed previously, Manager One seems to perform particularly well,
+whereas Manager Two has poor performance.

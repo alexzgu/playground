@@ -1,0 +1,91 @@
+234
+Chapter 6 ■The 2k Factorial Design
+experiments, when we are just starting to study the process or the system, this is often a
+reasonable assumption. In Section 6.8, we will present a simple method for checking this
+assumption and discuss what action to take if it is violated. The book by Mee (2009) is a use-
+ful supplement to this chapter and chapters 7 and 8.
+6.2
+The 22 Design
+The rst design in the 2k series is one with only two factors, say A and B, each run at two lev-
+els. This design is called a 22 factorial design. The levels of the factors may be arbitrarily
+called “low” and “high.” As an example, consider an investigation into the effect of the con-
+centration of the reactant and the amount of the catalyst on the conversion (yield) in a chemi-
+cal process. The objective of the experiment was to determine if adjustments to either of these
+two factors would increase the yield. Let the reactant concentration be factor A and let the two
+levels of interest be 15 and 25 percent. The catalyst is factor B, with the high level denoting the
+use of 2 pounds of the catalyst and the low level denoting the use of only 1 pound. The exper-
+iment is replicated three times, so there are 12 runs. The order in which the runs are made is
+random, so this is a completely randomized experiment. The data obtained are as follows:
+Factor
+Replicate
+A
+B
+Treatment 
+Combination
+I
+II
+III
+Total
+
+
+A low, B low
+28
+25
+27
+80
+
+
+A high, B low
+36
+32
+32
+100
+
+
+A low, B high
+18
+19
+23
+60
+
+
+A high, B high
+31
+30
+29
+90
+The four treatment combinations in this design are shown graphically in Figure 6.1. By
+convention, we denote the effect of a factor by a capital Latin letter. Thus “A” refers to the
+effect of factor A, “B” refers to the effect of factor B, and “AB” refers to the AB interaction.
+In the 22 design, the low and high levels of A and B are denoted by “” and “,” respective-
+ly, on the A and B axes. Thus, on the A axis represents the low level of concentration (15%),
+whereas represents the high level (25%), and on the B axis represents the low level of
+catalyst, and denotes the high level.
+b = 60
+(18 + 19 + 23)
+ab = 90
+(31 + 30 + 29)
+(1) = 80
+(28 + 25 + 27)
+a = 100
+(36 + 32 + 32)
+–
+–
++
++
+Low
+(15%)
+High
+(25%)
+Reactant
+concentration,
+A
+High
+(2 pounds)
+Low
+(1 pound)
+Amount of
+catalyst, B
+■F I G U R E 6 . 1
+Treatment
+combinations in the 22 design

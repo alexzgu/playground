@@ -1,0 +1,45 @@
+11.5 Experiments with Computer Models
+525
+1
+0.5
+0
+–0.5
+X1
+X2
+–1
+–1
+–0.5
+0
+0.5
+1
+■F I G U R E 1 1 . 3 4
+A 10-run Latin hypercube design
+where each column is a random permutation of the levels 1, 2, . . . , n. JMP can create Latin
+hypercube designs. An example of a 10-run Latin hypercube design in two factors from JMP
+on the interval 1 to 1 is shown in Figure 11.34.
+The sphere-packing design in chosen so that the minimum distance between pairs of
+points is maximized. These designs were proposed by Johnson, Moore and Ylvisaker (1990)
+and are also called maximin designs. An example of a 10-run sphere-packing design in two
+factors constructed using JMP is shown in Figure 11.35.
+Uniform designs were proposed by Fang (1980). These designs attempt to place the
+design points so that they are uniformly scattered through the regions as would a sample from
+a uniform distribution. There are a number of algorithms for creating these designs and sev-
+eral measures of uniformity. See the book by Fang, Li and Sudjianto (2006). An example of
+a 10-run uniform design in two factors constructed using JMP is in Figure 11.36.
+Maximum entropy designs were proposed by Shewry and Wynn (1987). Entropy can be
+thought of as a measure of the amount of information contained in the distribution of a data
+set. Suppose that the data comes from a normal distribution with mean vector and covari-
+ance matrix 2R(), where R() is a correlation matrix having elements
+(11.23)
+The quantities rij are the correlations between the responses at two design points. The maxi-
+mum entropy design maximizes the determinant of R(). Figure 11.37 shows a 10-run
+maximum entropy design in two factors created using JMP.
+The Gaussian process model is often used to t the data from a deterministic comput-
+er experiment. These models were introduced as models for computer experiments by Sacks,
+Welch, Mitchell and Wynn (1989). They are desirable because they provide an exact t to the
+observations from the experiment. Now this is no assurance that they will interpolate well at
+locations in the region of interest where there is no data, and no one seriously believes that
+
+k
+s1s(xisxjs)2
+rij e

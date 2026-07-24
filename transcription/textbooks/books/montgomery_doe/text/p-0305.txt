@@ -1,0 +1,48 @@
+6.8 The Addition of Center Points to the 2k Design
+289
+Central composite designs are used extensively in building second-order response sur-
+face models. These designs will be discussed in more detail in Chapter 11.
+We conclude this section with a few additional useful suggestions and observations con-
+cerning the use of center points.
+1. When a factorial experiment is conducted in an ongoing process, consider using the
+current operating conditions (or recipe) as the center point in the design. This often
+assures the operating personnel that at least some of the runs in the experiment are
+going to be performed under familiar conditions, and so the results obtained (at
+least for these runs) are unlikely to be any worse than are typically obtained.
+2. When the center point in a factorial experiment corresponds to the usual operating
+recipe, the experimenter can use the observed responses at the center point to pro-
+vide a rough check of whether anything “unusual” occurred during the experiment.
+That is, the center point responses should be very similar to the responses observed
+historically in routine process operation. Often operating personnel will maintain a
+control chart for monitoring process performance. Sometimes the center point
+responses can be plotted directly on the control chart as a check of the manner in
+which the process was operating during the experiment.
+3. Consider running the replicates at the center point in nonrandom order.
+Specically, run one or two center points at or near the beginning of the experi-
+ment, one or two near the middle, and one or two near the end. By spreading the
+center points out in time, the experimenter has a rough check on the stability of the
+process during the experiment. For example, if a trend has occurred in the response
+while the experiment was performed, plotting the center point responses versus
+time order may reveal this.
+4. Sometimes experiments must be conducted in situations where there is little or no
+prior information about process variability. In these cases, running two or three cen-
+ter points as the rst few runs in the experiment can be very helpful. These runs can
+provide a preliminary estimate of variability. If the magnitude of the variability seems
+reasonable, continue; on the contrary, if larger than anticipated (or reasonable!) vari-
+ability is observed, stop. Often it will be very protable to study the question of why
+the variability is so large before proceeding with the rest of the experiment.
+5. Usually, center points are employed when all design factors are quantitative.
+However, sometimes there will be one or more qualitative or categorical variables
+and several quantitative ones. Center points can still be employed in these cases. To
+illustrate, consider an experiment with two quantitative factors, time and tempera-
+ture, each at two levels, and a single qualitative factor, catalyst type, also with two
+levels (organic and nonorganic). Figure 6.40 shows the 23 design for these factors.
+Notice that the center points are placed in the opposed faces of the cube that involve
+Time
+Temperature
+Catalyst
+type
+■F I G U R E 6 . 4 0
+A 23 factorial
+design with one qualitative factor and
+center points

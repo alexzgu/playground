@@ -1,0 +1,121 @@
+6.6 Additional Examples of Unreplicated 2k Designs
+269
+Half-normal % probability
+10
+20
+30
+70
+50
+90
+80
+99
+95
+0.00
+5.75
+11.50
+|Effect|
+17.25
+C
+AD
+AC
+A
+23.00
+0
+D
+■F I G U R E 6 . 1 8
+Analysis of Example
+6.2 with an outlier removed
+E X A M P L E 6 . 3
+Data Transformation in a Factorial Design
+Daniel (1976) describes a 24 factorial design used to study
+the advance rate of a drill as a function of four factors: drill
+load (A), ow rate (B), rotational speed (C), and the type of
+drilling mud used (D). The data from the experiment are
+shown in Figure 6.19.
+The normal probability plot of the effect estimates from
+this experiment is shown in Figure 6.20. Based on this plot,
+factors B, C, and D along with the BC and BD interactions
+require interpretation. Figure 6.21 is the normal probability
+plot of the residuals and Figure 6.22 is the plot of the resid-
+uals versus the predicted advance rate from the model con-
+taining the identied factors. There are clearly problems
+with normality and equality of variance. A data transforma-
+tion is often used to deal with such problems. Because the
+response variable is a rate, the log transformation seems a
+reasonable candidate.
+Figure 6.23 presents a normal probability plot of the
+effect estimates following the transformation y*  ln y.
+Notice that a much simpler interpretation now seems possi-
+ble because only factors B, C, and D are active. That is,
+expressing the data in the correct metric has simplied its
+structure to the point that the two interactions are no longer
+required in the explanatory model.
+Figures 6.24 and 6.25 present, respectively, a normal
+probability plot of the residuals and a plot of the residuals
+versus the predicted advance rate for the model in the log
+3.24
+3.44
+9.97
+9.07
+1.68
+1.98
+4.98
+5.70
+4.09
+4.53
+11.75
+16.30
+2.07
+2.44
+7.77
+9.43
+D
++
+–
+B
+C
+A
+■F I G U R E 6 . 1 9
+Data from the drilling
+experiment of Example 6.3
+Effect estimate
+0
+1
+2
+BC
+BD
+D
+C
+B
+3
+4
+5
+6
+7
+1
+5
+10
+20
+30
+50
+70
+90
+95
+99
+80
+Normal probability (1 – Pj) × 100
+Pj × 100
+1
+5
+10
+20
+30
+50
+70
+80
+90
+95
+99
+■F I G U R E 6 . 2 0
+Normal probability plot of
+effects for Example 6.3

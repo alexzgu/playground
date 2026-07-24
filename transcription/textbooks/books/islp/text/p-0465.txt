@@ -1,0 +1,51 @@
+458
+10. Deep Learning
+['Training', 'Validation', 'Test'],
+['black', 'red', 'blue']):
+linpred_ = X_ * coefs.T + intercepts[None,:]
+label_ = np.array(linpred_ > 0)
+accuracy_ = np.array([np.mean(Y_ == l) for l in label_.T])
+axes[0].plot(-np.log(lam_val / X_train.shape[0]),
+accuracy_,
+'.--',
+color=color,
+markersize=13,
+linewidth=2,
+label=data_)
+axes[0].legend()
+axes[0].set_xlabel(r'$-\log(\lambda)$', fontsize=20)
+axes[0].set_ylabel('Accuracy', fontsize=20)
+Notice the use of %%capture, which suppresses the displaying of the partially %%capture
+completed figure. This is useful when making a complex figure, since the
+steps can be spread across two or more cells. We now add a plot of the lasso
+accuracy, and display the composed figure by simply entering its name at
+the end of the cell.
+In [83]: imdb_results = pd.read_csv(imdb_logger.experiment.metrics_file_path)
+summary_plot(imdb_results ,
+axes[1],
+col='accuracy',
+ylabel='Accuracy')
+axes[1].set_xticks(np.linspace(0, 30, 7).astype(int))
+axes[1].set_ylabel('Accuracy', fontsize=20)
+axes[1].set_xlabel('Epoch', fontsize=20)
+axes[1].set_ylim([0.5, 1]);
+axes[1].axhline(test_results[0]['test_accuracy'],
+color='blue',
+linestyle='--',
+linewidth=3)
+fig
+From the graphs we see that the accuracy of the lasso logistic regression
+peaks at about 0.88, as it does for the neural network.
+Once again, we end with a cleanup.
+In [84]: del(imdb_model,
+imdb_trainer ,
+imdb_logger ,
+imdb_dm,
+imdb_train,
+imdb_test)
+10.9.6
+Recurrent Neural Networks
+In this lab we fit the models illustrated in Section 10.5.
+Sequential Models for Document Classification
+Here we fit a simple LSTM RNN for sentiment prediction to the IMDb
+movie-review data, as discussed in Section 10.5.1. For an RNN we use

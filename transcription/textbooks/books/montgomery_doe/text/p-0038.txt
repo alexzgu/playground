@@ -1,0 +1,49 @@
+22
+Chapter 1 ■Introduction
+and Wu (1980), Kackar (1985), and Taguchi (1987, 1991)] had a signicant impact on
+expanding the interest in and use of designed experiments. Taguchi advocated using designed
+experiments for what he termed robust parameter design, or
+1. Making processes insensitive to environmental factors or other factors that are dif-
+cult to control
+2. Making products insensitive to variation transmitted from components
+3. Finding levels of the process variables that force the mean to a desired value while
+simultaneously reducing variability around this value.
+Taguchi suggested highly fractionated factorial designs and other orthogonal arrays along
+with some novel statistical methods to solve these problems. The resulting methodology
+generated much discussion and controversy. Part of the controversy arose because Taguchi’s
+methodology was advocated in the West initially (and primarily) by entrepreneurs, and the
+underlying statistical science had not been adequately peer reviewed. By the late 1980s, the
+results of peer review indicated that although Taguchi’s engineering concepts and objectives
+were well founded, there were substantial problems with his experimental strategy and
+methods of data analysis. For specic details of these issues, see Box (1988), Box, Bisgaard,
+and Fung (1988), Hunter (1985, 1989), Myers, Montgomery and Anderson-Cook (2009), and
+Pignatiello and Ramberg (1992). Many of these concerns are also summarized in the exten-
+sive panel discussion in the May 1992 issue of Technometrics [see Nair et al. (1992)].
+There were several positive outcomes of the Taguchi controversy. First, designed exper-
+iments became more widely used in the discrete parts industries, including automotive and
+aerospace manufacturing, electronics and semiconductors, and many other industries that had
+previously made little use of the technique. Second, the fourth era of statistical design began.
+This era has included a renewed general interest in statistical design by both researchers and
+practitioners and the development of many new and useful approaches to experimental prob-
+lems in the industrial world, including alternatives to Taguchi’s technical methods that allow
+his engineering concepts to be carried into practice efciently and effectively. Some of these
+alternatives will be discussed and illustrated in subsequent chapters, particularly in Chapter 12.
+Third, computer software for construction and evaluation of designs has improved greatly
+with many new features and capability. Forth, formal education in statistical experimental
+design is becoming part of many engineering programs in universities, at both undergraduate
+and graduate levels. The successful integration of good experimental design practice into
+engineering and science is a key factor in future industrial competitiveness.
+Applications of designed experiments have grown far beyond the agricultural origins.
+There is not a single area of science and engineering that has not successfully employed sta-
+tistically designed experiments. In recent years, there has been a considerable utilization of
+designed experiments in many other areas, including the service sector of business, nancial
+services, government operations, and many nonprot business sectors. An article appeared in
+Forbes magazine on March 11, 1996, entitled “The New Mantra: MVT,” where MVT stands
+for “multivariable testing,” a term authors use to describe factorial designs. The article notes
+the many successes that a diverse group of companies have had through their use of statisti-
+cally designed experiments.
+1.6
+Summary: Using Statistical Techniques in Experimentation
+Much of the research in engineering, science, and industry is empirical and makes exten-
+sive use of experimentation. Statistical methods can greatly increase the efficiency of
+these experiments and often strengthen the conclusions so obtained. The proper use of 

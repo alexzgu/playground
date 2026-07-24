@@ -1,0 +1,45 @@
+To illustrate the procedure, consider the data in Example 3.1 and suppose that the con-
+trasts of interests are
+and
+The numerical values of these contrasts are
+and
+The standard errors are found from Equation 3.33 as
+and
+From Equation 3.34, the 1 percent critical values are
+and
+Because C1S0.01,1, we conclude that the contrast 1 1 2 3 4 does not equal
+zero; that is, we conclude that the mean etch rates of power settings 1 and 2 as a group differ
+from the means of power settings 3 and 4 as a group. Furthermore, because C2S0.01,2, we
+conclude that the contrast 2 1 4 does not equal zero; that is, the mean etch rates of
+treatments 1 and 4 differ signicantly.
+3.5.7
+Comparing Pairs of Treatment Means
+In many practical situations, we will wish to compare only pairs of means. Frequently, we
+can determine which means differ by testing the differences between all pairs of treatment
+means. Thus, we are interested in contrasts of the form i j for all i j. Although
+the Scheffe method described in the previous section could be easily applied to this problem,
+it is not the most sensitive procedure for such comparisons. We now turn to a consideration
+of methods specically designed for pairwise comparisons between all a population means.
+Suppose that we are interested in comparing all pairs of a treatment means and that the null
+hypotheses that we wish to test are H0 : i j for all i j. There are numerous procedures
+available for this problem. We now present two popular methods for making such comparisons.
+S0.01,2 SC2(a 1)F0.01,a1,Na 11.553(5.29) 45.97
+S0.01,1 SC1(a 1)F0.01,a1,Na 16.343(5.29) 65.09
+SC2 MSE 
+5
+i1
+ (c2
+i2/ni) 333.70(1 1)/5 11.55
+SC1 MSE 
+5
+i1
+ (c2
+i1/ni) 333.70(1 1 1 1)/5 16.34
+551.2 707.0 155.8
+C2 y1. y4.
+551.2 587.4 625.4 707.0 193.80
+C1 y1. y2. y3. y4.
+2 1 4
+1 1 2 3 4
+3.5 Practical Interpretation of Results
+97

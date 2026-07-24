@@ -1,0 +1,58 @@
+18
+CHAPTER 1. MARTINGALES IN DISCRETE TIME
+By solving, we get
+PMT = K= 1
+K 
+This relation is sometimes called the ’for the random
+walk. Note that
+lim
+K∞PMT = K= 0
+If we consider 1 to be the starting stake of a gambler and K to be the amount
+held by a casino, this shows that with a fair game, the gambler will almost
+surely lose. If τ = minn : Sn = 0, then the last equality implies that
+Pτ < ∞= 1. The property that the walk always returns to the origin is
+called .
+Example 1.3.2. Let Sn = X1 + · · · + Xn be simple random walk starting at
+0. We have seen that
+Mn = S2
+n −n
+is a martingale. Let J, K be positive integers and let
+T = minn : Sn = −J or Sn = K
+As in Example 1.3.1, we have
+0 = E[S0] = E[ST] = [1 −PST = K] · (−J) + PST = K· K,
+and solving gives
+PST = K=
+J
+J + K 
+In Exercise 1.13 it is shown that there exists C < ∞such that for all n
+E[M 2
+n∧T] ≤C. Hence we can use Theorem 1.3.3 to conclude that
+0 = E[M0] = E [MT] = E
+
+S2
+T
+
+−E [T] 
+Moreover,
+E
+
+S2
+T
+
+=
+J2 PST = −J+ K2 PST = K
+=
+J2
+K
+J + K + K2
+J
+J + K = JK
+Therefore,
+E[T] = E
+
+S2
+T
+
+= JK
+In particular, the expected amount of time for the random walker starting
+at the origin to get distance K from the origin is K2.

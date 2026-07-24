@@ -1,0 +1,43 @@
+204
+CHAPTER 6. JUMP PROCESSES
+be the CPP with ˆX0 = 0 that takes a jump of size h(y) whenever Xt takes a
+jump of size y. This process has L´evy measure ˆµ where
+ˆµ(h(V )) = µ(V ),
+(6.14)
+with mean ˆm = r. If ˆYt = ˆXt −r t is the compensated CPP, we can write
+(6.13) as
+dSt = St−d ˆXt = St−d ˆYt + r St−dt = St−
+
+d ˆYt + r dt
+
+
+Since St is piecewise continuous, it does not matter in the dt integral whether
+we write St or St−. However, we must write St−in the d ˆXt and d ˆYt integrals.
+If r = 0, that is, if
+∞
+−∞
+[ey −1] dµ(y) = 0,
+then ˆXt and hence St are actually martingales. If r̸ = 0, we let ˜St = e−rt St =
+eXt−rt. Since t →e−rt is dierentiable, we can use the product rule
+d ˜St = St d[e−rt] + e−rt dSt = ˜St−d ˆYt
+Example 6.4.3. We will proceed backwards through the last example to
+solve the exponential dierential equation for compound Poisson processes.
+Suppose ˆXt is a CPP whose L´evy measure ˆµ satises ˆµx : x ≤−1= 0 and
+∞
+−1
+x2 dˆµ(x) < ∞
+Let
+ˆm =
+∞
+−1
+x dˆµ(x) < ∞,
+and let ˆYt = ˆXt −ˆm t be the compensated CPP which is a square integrable
+martingale. Let µ be the measure as dened in (6.14) and let Xt denote the
+corresponding process as in the previous example. In other words, if ˆXt has
+a jump of size y, then Xt has a jump of size h−1(y) = log[1 + y]Then the
+solutions to the exponential dierential equation
+dZt = Zt−d ˆXt,
+dMt = Mt−d ˆYt,
+are
+Zt = Z0 eXt,
+Mt = Z0 eXt−ˆmt

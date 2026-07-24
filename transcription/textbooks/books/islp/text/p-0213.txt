@@ -1,0 +1,48 @@
+5.1 Cross-Validation
+205
+!"#"$"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""%"
+!"#"$"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""%"
+!"#"$"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""%"
+!"#"$"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""%"
+!"#"$"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""%"
+&"
+&"
+&"
+FIGURE 5.3. A schematic display of LOOCV. A set of n data points is repeat-
+edly split into a training set (shown in blue) containing all but one observation,
+and a validation set that contains only that observation (shown in beige). The test
+error is then estimated by averaging the n resulting MSEs. The first training set
+contains all but observation 1, the second training set contains all but observation
+2, and so forth.
+A schematic of the LOOCV approach is illustrated in Figure 5.3.
+LOOCV has a couple of major advantages over the validation set ap-
+proach. First, it has far less bias. In LOOCV, we repeatedly fit the sta-
+tistical learning method using training sets that contain n −1 observa-
+tions, almost as many as are in the entire data set. This is in contrast to
+the validation set approach, in which the training set is typically around
+half the size of the original data set. Consequently, the LOOCV approach
+tends not to overestimate the test error rate as much as the validation
+set approach does. Second, in contrast to the validation approach which
+will yield different results when applied repeatedly due to randomness in
+the training/validation set splits, performing LOOCV multiple times will
+always yield the same results: there is no randomness in the training/vali-
+dation set splits.
+We used LOOCV on the Auto data set in order to obtain an estimate
+of the test set MSE that results from fitting a linear regression model to
+predict mpg using polynomial functions of horsepower. The results are shown
+in the left-hand panel of Figure 5.4.
+LOOCV has the potential to be expensive to implement, since the model
+has to be fit n times. This can be very time consuming if n is large, and if
+each individual model is slow to fit. With least squares linear or polynomial
+regression, an amazing shortcut makes the cost of LOOCV the same as that
+of a single model fit! The following formula holds:
+CV(n) = 1
+n
+n
+0
+i=1
+*yi −ˆyi
+1 −hi
++2
+,
+(5.2)

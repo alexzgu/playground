@@ -1,0 +1,86 @@
+14.2 The General m-Stage Nested Design
+615
+Mean
+hardness
+Observed
+hardness
+Analytical test
+variability
+σ2
+στ
+2
+Heat-to-heat
+variability
+σβ
+2
+Alloy formulation
+variability
+■F I G U R E 1 4 . 6
+Sources of variation in the
+three-stage nested design
+example
+■TA B L E 1 4 . 8
+Analysis of Variance for the Three-Stage Nested Design
+Source of Variation
+Sum of Squares
+Degrees of Freedom
+Mean Square
+A
+a 1
+MSA
+B (within A)
+a(b 1)
+MSB(A)
+C (within B)
+ab(c 1)
+MSC(B)
+Error
+abc(n 1)
+MSE
+Total
+abcn 1
+
+i 
+j 
+k 
+l
+ (yijkl y....)2
+
+i 
+j 
+k 
+l
+ (yijkl yijk.)2
+n
+i 
+j 
+k
+ (yijk. yij..)2
+cn 
+i 
+j
+ (yij.. yi...)2
+bcn
+i
+ (yi... y....)2
+■TA B L E 1 4 . 9
+Expected Mean Squares for a Three-Stage Nested
+Design with A and B Fixed and C Random
+Model Term
+Expected Mean Square
+i
+j(i)
+k(ij)
+l(ijk)
+2
+2 n2
+
+2 n2
+
+cn 2
+j(i)
+a(b 1)
+2 n2
+bcn2
+i
+a 1

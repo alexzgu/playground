@@ -1,0 +1,59 @@
+OFAT experiments are run frequently in practice. (Some individuals actually think that this
+strategy is related to the scientic method or that it is a “sound” engineering principle.) One-
+factor-at-a-time experiments are always less efcient than other methods based on a statistical
+approach to design. We will discuss this in more detail in Chapter 5.
+The correct approach to dealing with several factors is to conduct a factorial experi-
+ment. This is an experimental strategy in which factors are varied together, instead of one
+at a time. The factorial experimental design concept is extremely important, and several
+chapters in this book are devoted to presenting basic factorial experiments and a number of
+useful variations and special cases.
+To illustrate how a factorial experiment is conducted, consider the golf experiment and
+suppose that only two factors, type of driver and type of ball, are of interest. Figure 1.4 shows
+a two-factor factorial experiment for studying the joint effects of these two factors on my golf
+score. Notice that this factorial experiment has both factors at two levels and that all possible
+combinations of the two factors across their levels are used in the design. Geometrically, the
+four runs form the corners of a square. This particular type of factorial experiment is called a
+22 factorial design (two factors, each at two levels). Because I can reasonably expect to play
+eight rounds of golf to investigate these factors, a reasonable plan would be to play two
+rounds of golf at each combination of factor levels shown in Figure 1.4. An experimental
+designer would say that we have replicated the design twice. This experimental design would
+enable the experimenter to investigate the individual effects of each factor (or the main
+effects) and to determine whether the factors interact.
+Figure 1.5a shows the results of performing the factorial experiment in Figure 1.4. The
+scores from each round of golf played at the four test combinations are shown at the corners
+of the square. Notice that there are four rounds of golf that provide information about using
+the regular-sized driver and four rounds that provide information about using the oversized
+driver. By nding the average difference in the scores on the right- and left-hand sides of the
+square (as in Figure 1.5b), we have a measure of the effect of switching from the oversized
+driver to the regular-sized driver, or
+That is, on average, switching from the oversized to the regular-sized driver increases the
+score by 3.25 strokes per round. Similarly, the average difference in the four scores at the top
+3.25
+ Driver effect 92 94 93 91
+4
+88 91 88 90
+4
+1.1 Strategy of Experimentation
+5
+■F I G U R E 1 . 3
+Interaction between
+type of driver and type of beverage for
+the golf experiment
+Beverage type
+Score
+W
+B
+Oversized
+driver
+Regular-sized
+driver
+Type of driver
+Type of ball
+O
+B
+T
+R
+■F I G U R E 1 . 4
+A two-factor
+factorial experiment involving type
+of driver and type of ball

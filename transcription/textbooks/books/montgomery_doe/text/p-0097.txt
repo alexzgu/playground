@@ -1,0 +1,96 @@
+Table 3.6 shows the original data and the residuals for the etch rate data in Example 3.1.
+The normal probability plot is shown in Figure 3.4. The general impression from examining
+this display is that the error distribution is approximately normal. The tendency of the normal
+probability plot to bend down slightly on the left side and upward slightly on the right side
+implies that the tails of the error distribution are somewhat thinner than would be anticipated
+in a normal distribution; that is, the largest residuals are not quite as large (in absolute value)
+as expected. This plot is not grossly nonnormal, however.
+In general, moderate departures from normality are of little concern in the xed effects
+analysis of variance (recall our discussion of randomization tests in Section 3.3.2). An error dis-
+tribution that has considerably thicker or thinner tails than the normal is of more concern than a
+skewed distribution. Because the F test is only slightly affected, we say that the analysis of
+3.4 Model Adequacy Checking
+81
+■TA B L E 3 . 6
+Etch Rate Data and Residuals from Example 3.1a
+Observations ( j)
+Power (w)
+1
+2
+3
+4
+5
+ 
+23.8
+–9.2
+–21.2
+–12.2
+18.8
+160
+575 (13)
+542 (14)
+530 (8)
+539 (5)
+570 (4)
+551.2
+–22.4
+5.6
+2.6
+–8.4
+22.6
+180
+565 (18)
+593 (9)
+590 (6)
+579 (16)
+610 (17)
+587.4
+–25.4
+25.6
+–15.4
+11.6
+3.6
+200
+600 (7)
+651 (19)
+610 (10)
+637 (20)
+629 (1)
+625.4
+18.0
+–7.0
+8.0
+–22.0
+3.0
+220
+725 (2)
+700 (3)
+715 (15)
+685 (11)
+710 (12)
+707.0
+aThe residuals are shown in the box in each cell. The numbers in parentheses indicate the order in which each experimental run was made. 
+yi.
+yˆij
+99
+95
+90
+80
+70
+50
+30
+20
+–25.4
+–12.65
+0.1
+Residual
+12.85
+25.6
+10
+5
+1
+Normal % probability
+■F I G U R E 3 . 4
+Normal probability
+plot of residuals for
+Example 3.1

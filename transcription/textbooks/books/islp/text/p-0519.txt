@@ -1,0 +1,185 @@
+12.2 Principal Components Analysis
+513
+−3
+−2
+−1
+0
+1
+2
+3
+−3
+−2
+−1
+0
+1
+2
+3
+First Principal Component
+Second Principal Component
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+* *
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+−0.5
+0.0
+0.5
+−0.5
+0.0
+0.5
+Murder
+Assault
+UrbanPop
+Rape
+Scaled
+−100
+−50
+0
+50
+100
+150
+−100
+−50
+0
+50
+100
+150
+First Principal Component
+Second Principal Component
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+* *
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+−0.5
+0.0
+0.5
+1.0
+−0.5
+0.0
+0.5
+1.0
+Murder
+Assau
+UrbanPop
+Rape
+Unscaled
+FIGURE 12.4. Two principal component biplots for the USArrests data. Left:
+the same as Figure 12.1, with the variables scaled to have unit standard deviations.
+Right: principal components using unscaled data. Assault has by far the largest
+loading on the first principal component because it has the highest variance among
+the four variables. In general, scaling the variables to have standard deviation one
+is recommended.
+the first principal component loading vector will have a very large loading
+for Assault, since that variable has by far the highest variance. The right-
+hand plot in Figure 12.4 displays the first two principal components for the
+USArrests data set, without scaling the variables to have standard devia-
+tion one. As predicted, the first principal component loading vector places
+almost all of its weight on Assault, while the second principal component
+loading vector places almost all of its weight on UrbanPop. Comparing this
+to the left-hand plot, we see that scaling does indeed have a substantial
+effect on the results obtained.
+However, this result is simply a consequence of the scales on which the
+variables were measured. For instance, if Assault were measured in units
+of the number of occurrences per 100 people (rather than number of oc-
+currences per 100, 000 people), then this would amount to dividing all of
+the elements of that variable by 1, 000. Then the variance of the variable
+would be tiny, and so the first principal component loading vector would
+have a very small value for that variable. Because it is undesirable for the
+principal components obtained to depend on an arbitrary choice of scaling,
+we typically scale each variable to have standard deviation one before we
+perform PCA.
+In certain settings, however, the variables may be measured in the same
+units. In this case, we might not wish to scale the variables to have stan-
+dard deviation one before performing PCA. For instance, suppose that the
+variables in a given data set correspond to expression levels for p genes.
+Then since expression is measured in the same “units” for each gene, we
+might choose not to scale the genes to each have standard deviation one.

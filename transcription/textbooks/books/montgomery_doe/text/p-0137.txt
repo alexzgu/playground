@@ -1,0 +1,101 @@
+where
+Unfortunately, a closed-form expression for the distribution of this linear combination of chi-
+square random variables cannot be obtained. Thus, an exact condence interval for 
+cannot
+be constructed. Approximate procedures are given in Graybill (1961) and Searle (1971a).
+Also see Section 13.6 of Chapter 13.
+It is easy to nd an exact expression for a condence interval on the ratio 
+.
+This ratio is called the intraclass correlation coefﬁcient, and it reects the proportion of the
+variance of an observation [recall that V(yij) 
+2] that is the result of differences between
+treatments. To develop this condence interval for the case of a balanced design, note that
+MSTreatments and MSE are independent random variables and, furthermore, it can be shown that
+Thus,
+(3.57)
+By rearranging Equation 13.11, we may obtain the following:
+(3.58)
+where
+(3.59a)
+and
+(3.59b)
+Note that L and U are 100(1 ) percent lower and upper confidence limits, respective-
+ly, for the ratio 
+. Therefore, a 100(1 ) percent confidence interval for
+is
+(3.60)
+To illustrate this procedure, we nd a 95 percent condence interval on 
+for the strength data in Example 3.11. Recall that MSTreatments  29.73, MSE  1.90, a  4,
+n  4, F0.025,3,12  4.47, and F0.975,3,12  1/F0.025,12,3  1/14.34  0.070. Therefore, from
+Equation 3.59a and b,
+U 1
+4
+29.73
+1.90
+1
+0.070155.633
+L 1
+4
+29.73
+1.90
+1
+4.4710.625
+2
+/(2
+2)
+L
+1 L 
+2
+
+2
+2 
+U
+1 U
+2
+/(2
+2)
+2
+/2
+U 1
+n
+MSTreatments
+MSE
+1
+F1/2,a1,Na
+1
+L 1
+n
+MSTreatments
+MSE
+1
+F/2,a1,Na
+1
+PL 2
+
+2 U1 
+F1/2,a1,Na MSTreatments
+MSE
+2
+n2
+2 F/2,a1,Na1 
+MSTreatments/(n2
+2)
+MSE/2
+Fa1,Na
+2
+
+2
+/(2
+2)
+2
+
+u1 2 n2
+
+n(a 1) and u2 
+2
+n(N a)
+u12
+a1 u22
+Na
+3.9 The Random Effects Model
+121

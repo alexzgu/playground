@@ -1,0 +1,118 @@
+7.8
+Partial Confounding
+We remarked in Section 7.4 that, unless experimenters have a prior estimate of error or are
+willing to assume certain interactions to be negligible, they must replicate the design to
+obtain an estimate of error. Figure 7.3 shows a 23 factorial in two blocks with ABC con-
+founded, replicated four times. From the analysis of variance for this design, shown in
+Table 7.5, we note that information on the ABC interaction cannot be retrieved because
+ABC is confounded with blocks in each replicate. This design is said to be completely
+confounded.
+Consider the alternative shown in Figure 7.7. Once again, there are four replicates of
+the 23 design, but a different interaction has been confounded in each replicate. That is, ABC is
+confounded in replicate I, AB is confounded in replicate II, BC is confounded in replicate III,
+316
+Chapter 7 ■Blocking and Confounding in the 2k Factorial Design
+■TA B L E 7 . 9
+Suggested Blocking Arrangements for the 2k Factorial Design
+Number of
+Number of
+Block
+Effects Chosen to
+Factors, k
+Blocks, 2p
+Size, 2kp
+Generate the Blocks
+Interactions Confounded with Blocks
+3
+2
+4
+ABC
+ABC
+4
+2
+AB, AC
+AB, AC, BC
+4
+2
+8
+ABCD
+ABCD
+4
+4
+ABC, ACD
+ABC, ACD, BD
+8
+2
+AB, BC, CD
+AB, BC, CD, AC, BD, AD, ABCD
+5
+2
+16
+ABCDE
+ABCDE
+4
+8
+ABC, CDE
+ABC, CDE, ABDE
+8
+4
+ABE, BCE, CDE
+ABE, BCE, CDE, AC, ABCD, BD, ADE
+16
+2
+AB, AC, CD, DE
+All two- and four-factor interactions (15 effects)
+6
+2
+32
+ABCDEF
+ABCDEF
+4
+16
+ABCF, CDEF
+ABCF, CDEF, ABDE
+8
+8
+ABEF, ABCD, ACE
+ABEF, ABCD, ACE, BCF, BDE, CDEF, ADF
+16
+4
+ABF, ACF, BDF, DEF
+ABF, ACF, BDF, DEF, BC, ABCD, ABDE, AD,
+ACDE, CE, CDF, BCDEF, ABCEF, AEF, BE
+32
+2
+AB, BC, CD, DE, EF
+All two-, four-, and six-factor interactions (31 effects)
+7
+2
+64
+ABCDEFG
+ABCDEFG
+4
+32
+ABCFG, CDEFG
+ABCFG, CDEFG, ABDE
+8
+16
+ABCD, CDEF, ADFG
+ABC, DEF, AFG, ABCDEF, BCFG, ADEG, BCDEG
+16
+8
+ABCD, EFG, CDE, ADG
+ABCD, EFG, CDE, ADG, ABCDEFG, ABE, BCG,
+CDFG, ADEF, ACEG, ABFG, BCEF, BDEG, ACF,
+BDF
+32
+4
+ABG, BCG, CDG,
+ABG, BCG, CDG, DEG, EFG, AC, BD, CE, DF, AE,
+DEG, EFG
+BF, ABCD, ABDE, ABEF, BCDE, BCEF, CDEF,
+ABCDEFG, ADG, ACDEG, ACEFG, ABDFG, ABCEG,
+BEG, BDEFG, CFG, ADEF, ACDF, ABCF,
+AFG, BCDFG
+64
+2
+AB, BC, CD, DE, EF, FG
+All two-, four-, and six-factor interactions (63 effects)

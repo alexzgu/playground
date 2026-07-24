@@ -1,0 +1,64 @@
+Another possible model for a factorial experiment is the means model
+where the mean of the ijth cell is
+We could also use a regression model as in Section 5.1. Regression models are particularly
+useful when one or more of the factors in the experiment are quantitative. Throughout most
+of this chapter we will use the effects model (Equation 5.1) with an illustration of the regres-
+sion model in Section 5.5.
+In the two-factor factorial, both row and column factors (or treatments), A and B, are of
+equal interest. Specically, we are interested in testing hypotheses about the equality of row
+treatment effects, say
+(5.2a)
+and the equality of column treatment effects, say
+(5.2b)
+We are also interested in determining whether row and column treatments interact. Thus, we
+also wish to test
+(5.2c)
+We now discuss how these hypotheses are tested using a two-factor analysis of variance.
+5.3.2
+Statistical Analysis of the Fixed Effects Model
+Let yi.. denote the total of all observations under the ith level of factor A, y.j. denote the total
+of all observations under the jth level of factor B, yij. denote the total of all observations in the
+H1at least one ()ij Z 0
+H0()ij 0 
+ for all i, j
+H1at least one j Z 0
+H01 2 Á b 0
+H1at least one i Z 0
+H01 2 Á a 0
+ij i j ()ij
+yijk ij ijk 
+i 1, 2, . . . , a
+j 1, 2, . . . , b
+k 1, 2, . . . , n
+5.3 The Two-Factor Factorial Design
+189
+■TA B L E 5 . 2
+General Arrangement for a Two-Factor Factorial Design
+Factor B
+1
+2
+. . .
+b
+1
+y111, y112,
+y121, y122,
+y1b1, y1b2,
+. . . , y11n
+. . . , y12n
+. . . , y1bn
+2
+y211, y212,
+y221, y222,
+y2b1, y2b2,
+Factor A
+. . . , y21n
+. . . , y22n
+. . . , y2bn
+a
+ya11, ya12,
+ya21, ya22,
+yab1, yab2,
+. . . , ya1n
+. . . , ya2n
+. . . , yabn
+o

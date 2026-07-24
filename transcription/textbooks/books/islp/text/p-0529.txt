@@ -1,0 +1,76 @@
+12.4 Clustering Methods
+523
+K-means clustering,
+minimize
+C1,...,CK
+
+
+
+K
+0
+k=1
+1
+|Ck|
+0
+i,i′∈Ck
+p
+0
+j=1
+(xij −xi′j)2
+
+
+.
+(12.17)
+Now, we would like to find an algorithm to solve (12.17)—that is, a
+method to partition the observations into K clusters such that the objective
+of (12.17) is minimized. This is in fact a very difficult problem to solve
+precisely, since there are almost Kn ways to partition n observations into K
+clusters. This is a huge number unless K and n are tiny! Fortunately, a very
+simple algorithm can be shown to provide a local optimum—a pretty good
+solution—to the K-means optimization problem (12.17). This approach is
+laid out in Algorithm 12.2.
+Algorithm 12.2 K-Means Clustering
+1. Randomly assign a number, from 1 to K, to each of the observations.
+These serve as initial cluster assignments for the observations.
+2. Iterate until the cluster assignments stop changing:
+(a) For each of the K clusters, compute the cluster centroid. The
+kth cluster centroid is the vector of the p feature means for the
+observations in the kth cluster.
+(b) Assign each observation to the cluster whose centroid is closest
+(where closest is defined using Euclidean distance).
+Algorithm 12.2 is guaranteed to decrease the value of the objective (12.17)
+at each step. To understand why, the following identity is illuminating:
+1
+|Ck|
+0
+i,i′∈Ck
+p
+0
+j=1
+(xij −xi′j)2 = 2
+0
+i∈Ck
+p
+0
+j=1
+(xij −¯xkj)2,
+(12.18)
+where ¯xkj =
+1
+|Ck|
+)
+i∈Ck xij is the mean for feature j in cluster Ck.
+In Step 2(a) the cluster means for each feature are the constants that
+minimize the sum-of-squared deviations, and in Step 2(b), reallocating the
+observations can only improve (12.18). This means that as the algorithm
+is run, the clustering obtained will continually improve until the result no
+longer changes; the objective of (12.17) will never increase. When the result
+no longer changes, a local optimum has been reached. Figure 12.8 shows
+the progression of the algorithm on the toy example from Figure 12.7.
+K-means clustering derives its name from the fact that in Step 2(a), the
+cluster centroids are computed as the mean of the observations assigned to
+each cluster.
+Because the K-means algorithm finds a local rather than a global opti-
+mum, the results obtained will depend on the initial (random) cluster as-
+signment of each observation in Step 1 of Algorithm 12.2. For this reason,
+it is important to run the algorithm multiple times from different random

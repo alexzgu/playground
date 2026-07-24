@@ -1,0 +1,53 @@
+5.1. ABSOLUTELY CONTINUOUS MEASURES
+147
+If f(x) > 0 for all x, then PX(A) > 0 whenever µ(A) > 0 and hence µ ≪PX.
+If Y is another continuous random variable with density g, let
+AX = x : f(x) > 0,
+AY = y : g(y) > 0
+If AY ⊂AX, then PY ≪PX and we can write
+PY A=
+
+A
+g dµ =
+
+A
+g
+f f dµ =
+
+A
+dPY
+dPX
+dPX,
+where
+dPY
+dPX
+= g
+f 
+If AX AY = ∅, then PX ⊥PY .
+Example 5.1.3. Suppose X is a discrete random variable taking values in
+the countable set A and Y is a continuous random variable with density g.
+If PX, PY denote the distributions, then PX ⊥PY . Indeed,
+PX(R \ A) = 0,
+PY (A) = 0
+These examples demonstrate the following theorem whose proof can be
+found in any book on measure theory. A measure µ is σ-if we can write
+Ω=
+∞
+
+n=1
+An,
+where µ(An) < ∞for each n.
+Theorem 5.1.1 (Radon-Nikodym Theorem). Sµ, ν σ--
+(Ω, F) ν ≪µ. Tf 
+E,
+ν(E) =
+
+E
+f dµ
+(5.1)
+The function f is called the R-Nof ν with respect
+to µ and is denoted
+f = dν
+dµ
+Roughly speaking, the ν measure of a point x is (dνdµ)(x) times the µ
+measure of x. This interpretation is precise in the case of discrete measures,

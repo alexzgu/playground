@@ -1,0 +1,44 @@
+2.3 Lab: Introduction to Python
+45
+[4 5 6]]
+x after we modify top left element of x_reshape:
+[5 2 3 4 5 6]
+Modifying x_reshape also modified x because the two objects occupy the
+same space in memory.
+We just saw that we can modify an element of an array. Can we also mod-
+ify a tuple? It turns out that we cannot — and trying to do so introduces
+an exception, or error.
+exception
+In [23]: my_tuple = (3, 4, 5)
+my_tuple[0] = 2
+TypeError: 'tuple' object does not support item assignment
+We now briefly mention some attributes of arrays that will come in handy.
+An array’s shape attribute contains its dimension; this is always a tuple.
+The ndim attribute yields the number of dimensions, and T provides its
+transpose.
+In [24]: x_reshape.shape, x_reshape.ndim, x_reshape.T
+Out[24]: ((2, 3),
+2,
+array([[5, 4],
+[2, 5],
+[3, 6]]))
+Notice that the three individual outputs (2,3), 2, and array([[5, 4],[2,
+5], [3,6]]) are themselves output as a tuple.
+We will often want to apply functions to arrays. For instance, we can
+compute the square root of the entries using the np.sqrt() function:
+np.sqrt()
+In [25]: np.sqrt(x)
+Out[25]: array([2.24, 1.41, 1.73, 2., 2.24, 2.45])
+We can also square the elements:
+In [26]: x**2
+Out[26]: array([25, 4, 9, 16, 25, 36])
+We can compute the square roots using the same notation, raising to the
+power of 1/2 instead of 2.
+In [27]: x**0.5
+Out[27]: array([2.24, 1.41, 1.73, 2., 2.24, 2.45])
+Throughout this book, we will often want to generate random data. The
+np.random.normal() function generates a vector of random normal variables. np.random.
+normal()
+We can learn more about this function by looking at the help page, via a call
+to np.random.normal?. The first line of the help page reads normal(loc=0.0,
+scale=1.0, size=None). This signature line tells us that the function’s ar- signature

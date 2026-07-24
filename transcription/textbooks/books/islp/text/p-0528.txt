@@ -1,0 +1,48 @@
+522
+12. Unsupervised Learning
+K=2
+K=3
+K=4
+FIGURE 12.7. A simulated data set with 150 observations in two-dimensional
+space. Panels show the results of applying K-means clustering with different values
+of K, the number of clusters. The color of each observation indicates the cluster
+to which it was assigned using the K-means clustering algorithm. Note that there
+is no ordering of the clusters, so the cluster coloring is arbitrary. These cluster
+labels were not used in clustering; instead, they are the outputs of the clustering
+procedure.
+For instance, if the ith observation is in the kth cluster, then i ∈Ck. The
+idea behind K-means clustering is that a good clustering is one for which the
+within-cluster variation is as small as possible. The within-cluster variation
+for cluster Ck is a measure W(Ck) of the amount by which the observations
+within a cluster differ from each other. Hence we want to solve the problem
+minimize
+C1,...,CK
+= K
+0
+k=1
+W(Ck)
+X
+.
+(12.15)
+In words, this formula says that we want to partition the observations into
+K clusters such that the total within-cluster variation, summed over all K
+clusters, is as small as possible.
+Solving (12.15) seems like a reasonable idea, but in order to make it
+actionable we need to define the within-cluster variation. There are many
+possible ways to define this concept, but by far the most common choice
+involves squared Euclidean distance. That is, we define
+W(Ck) =
+1
+|Ck|
+0
+i,i′∈Ck
+p
+0
+j=1
+(xij −xi′j)2,
+(12.16)
+where |Ck| denotes the number of observations in the kth cluster. In other
+words, the within-cluster variation for the kth cluster is the sum of all of
+the pairwise squared Euclidean distances between the observations in the
+kth cluster, divided by the total number of observations in the kth cluster.
+Combining (12.15) and (12.16) gives the optimization problem that defines

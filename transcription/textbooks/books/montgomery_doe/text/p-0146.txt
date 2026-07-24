@@ -1,0 +1,102 @@
+130
+Chapter 3 ■Experiments with a Single Factor: The Analysis of Variance
+3.11.2
+General Comments on the Rank Transformation
+The procedure used in the previous section of replacing the observations by their ranks is
+called the rank transformation. It is a very powerful and widely useful technique. If we
+were to apply the ordinary F test to the ranks rather than to the original data, we would
+obtain
+(3.70)
+as the test statistic [see Conover (1980), p. 337]. Note that as the Kruskal–Wallis statistic H
+increases or decreases, F0 also increases or decreases, so the Kruskal–Wallis test is equivalent
+to applying the usual analysis of variance to the ranks.
+The rank transformation has wide applicability in experimental design problems for
+which no nonparametric alternative to the analysis of variance exists. This includes many of
+the designs in subsequent chapters of this book. If the data are ranked and the ordinary F test
+is applied, an approximate procedure that has good statistical properties results [see Conover
+and Iman (1976, 1981)]. When we are concerned about the normality assumption or the effect
+of outliers or “wild” values, we recommend that the usual analysis of variance be performed
+on both the original data and the ranks. When both procedures give similar results, the analy-
+sis of variance assumptions are probably satised reasonably well, and the standard analysis
+is satisfactory. When the two procedures differ, the rank transformation should be preferred
+because it is less likely to be distorted by nonnormality and unusual observations. In such
+cases, the experimenter may want to investigate the use of transformations for nonnormality
+and examine the data and the experimental procedure to determine whether outliers are pres-
+ent and why they have occurred.
+3.12
+Problems
+F0 
+H/(a 1)
+(N 1 H)/(N a)
+3.1.
+An experimenter has conducted a single-factor exper-
+iment with four levels of the factor, and each factor level has
+been replicated six times. The computed value of the F-statis-
+tic is F0 3.26. Find bounds on the P-value.
+3.2.
+An experimenter has conducted a single-factor
+experiment with six levels of the factor, and each factor level
+has been replicated three times. The computed value of the 
+F- statistic is F0 5.81. Find bounds on the P-value.
+3.3.
+A computer ANOVA output is shown below. Fill in
+the blanks. You may give bounds on the P-value.
+One-way ANOVA
+Source
+DF
+SS
+MS
+F
+P
+Factor
+3
+36.15
+?
+?
+?
+Error
+?
+?
+?
+Total
+19
+196.04
+3.4.
+A computer ANOVA output is shown below. Fill in
+the blanks. You may give bounds on the P-value.
+One-way ANOVA
+Source
+DF
+SS
+MS
+F
+P
+Factor
+?
+?
+246.93
+?
+?
+Error
+25
+186.53
+?
+Total
+29
+1174.24
+3.5.
+An article appeared in The Wall Street Journal on
+Tuesday, April 27, 2010, with the title “Eating Chocolate Is
+Linked to Depression.” The article reported on a study funded
+by the National Heart, Lung and Blood Institute (part of the
+National Institutes of Health) and conducted by faculty at the
+University of California, San Diego, and the University of
+California, Davis. The research was also published in the
+Archives of Internal Medicine (2010, pp. 699–703). The study
+examined 931 adults who were not taking antidepressants and
+did not have known cardiovascular disease or diabetes. The
+group was about 70% men and the average age of the group
+was reported to be about 58. The participants were asked
+about chocolate consumption and then screened for depres-
+sion using a questionnaire. People who score less than 16 on
+the questionnaire are not considered depressed, while those

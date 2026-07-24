@@ -1,0 +1,38 @@
+178CHAPTER 5. CHANGE OF MEASURE AND GIRSANOV THEOREM
+and using the terminal condition aT = 0, we get
+at = 1 −er(t−T )
+rT
+
+(5.32)
+This is a special case where the hedging strategy does not depend on the
+current stock price St. If we want to use the formula we derived, we use
+(5.31) to give
+d ˜Vt = 1 −er(t−T )
+rT
+d ˜St = 1 −er(t−T )
+rT
+σ ˜St dWt
+Plugging this into (5.30) gives (5.32).
+5.7
+Martingale representation theorem
+In the last section we assumed in (5.29) that a continuous martingale could be
+represented as a stochastic integral. In fact, this is always that case. Suppose
+Bt is a standard Brownian motion and Ftis the ltration given by the
+Brownian motion. Suppose there is a claim V at time T and let
+Vt = E[V Ft]
+Then there exists an adapted process At such that
+E[V Ft] = E[V ] +
+t
+0
+As dBs
+In order to be precise, we need to allow a wider class of processes than
+those with continuous and piecewise continuous paths. We will not go into
+detalis here, but any allowable process can be approximated by continuous
+and piecewise continuous processes. From practical perspective, knowing that
+such an As exists is not so useful unless one can give it explicitly. In the
+examples we give the SDE for Vs explicitly.
+This theorem states roughly that all of the randomness in the system
+is given by the Brownian motion Bt and the only way to get martingales
+with only this information is to vary the betting strategyon the Brownian
+motion. To illustrate this idea, we will derive the representation theorem in
+the easier case of random walk.

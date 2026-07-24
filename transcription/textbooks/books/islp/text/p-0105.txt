@@ -1,0 +1,74 @@
+96
+3. Linear Regression
+Coefficient
+Std. error
+t-statistic
+p-value
+Intercept
+6.7502
+0.248
+27.23
+< 0.0001
+TV
+0.0191
+0.002
+12.70
+< 0.0001
+radio
+0.0289
+0.009
+3.24
+0.0014
+TV×radio
+0.0011
+0.000
+20.73
+< 0.0001
+TABLE 3.9. For the Advertising data, least squares coefficient estimates asso-
+ciated with the regression of sales onto TV and radio, with an interaction term,
+as in (3.33).
+will depend on the number of workers, since if no workers are available
+to operate the lines, then increasing the number of lines will not increase
+production. This suggests that it would be appropriate to include an inter-
+action term between lines and workers in a linear model to predict units.
+Suppose that when we fit the model, we obtain
+units
+≈
+1.2 + 3.4 × lines + 0.22 × workers + 1.4 × (lines × workers)
+=
+1.2 + (3.4 + 1.4 × workers) × lines + 0.22 × workers.
+In other words, adding an additional line will increase the number of units
+produced by 3.4 + 1.4 × workers. Hence the more workers we have, the
+stronger will be the effect of lines.
+We now return to the Advertising example. A linear model that uses
+radio, TV, and an interaction between the two to predict sales takes the
+form
+sales
+=
+β0 + β1 × TV + β2 × radio + β3 × (radio × TV) + ϵ
+=
+β0 + (β1 + β3 × radio) × TV + β2 × radio + ϵ.
+(3.33)
+We can interpret β3 as the increase in the effectiveness of TV advertising
+associated with a one-unit increase in radio advertising (or vice-versa). The
+coefficients that result from fitting the model (3.33) are given in Table 3.9.
+The results in Table 3.9 strongly suggest that the model that includes the
+interaction term is superior to the model that contains only main effects. main effect
+The p-value for the interaction term, TV×radio, is extremely low, indicating
+that there is strong evidence for Ha : β3̸ = 0. In other words, it is clear that
+the true relationship is not additive. The R2 for the model (3.33) is 96.8 %,
+compared to only 89.7 % for the model that predicts sales using TV and
+radio without an interaction term. This means that (96.8 −89.7)/(100 −
+89.7) = 69 % of the variability in sales that remains after fitting the ad-
+ditive model has been explained by the interaction term. The coefficient
+estimates in Table 3.9 suggest that an increase in TV advertising of $1,000 is
+associated with increased sales of (ˆβ1+ ˆβ3×radio)×1,000 = 19+1.1×radio
+units. And an increase in radio advertising of $1,000 will be associated with
+an increase in sales of (ˆβ2 + ˆβ3 × TV) × 1,000 = 29 + 1.1 × TV units.
+In this example, the p-values associated with TV, radio, and the interac-
+tion term all are statistically significant (Table 3.9), and so it is obvious
+that all three variables should be included in the model. However, it is
+sometimes the case that an interaction term has a very small p-value, but
+the associated main effects (in this case, TV and radio) do not. The hier-
+archical principle states that if we include an interaction in a model, we hierarchical
+principle

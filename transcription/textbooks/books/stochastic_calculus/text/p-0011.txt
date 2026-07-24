@@ -1,0 +1,56 @@
+1.1. CONDITIONAL EXPECTATION
+5
+We can use this as the denition of conditional expectation in this case,
+E[Y X] =
+∞
+−∞
+y f(y X) dy =
+∞
+−∞y f(X, y) dy
+f(X)
+
+Note that E[Y X] is a random variable which is determined by the value
+of the random variable X. Since it is a random variable, we can take its
+expectation
+E [E[Y X]]
+=
+∞
+−∞
+E[Y X = x] f(x) dx
+=
+∞
+−∞
+∞
+−∞
+y f(y x) dy
+
+f(x) dx
+=
+∞
+−∞
+∞
+−∞
+y f(x, y) dy dx
+=
+E[Y ]
+This calculation illustrates a basic property of conditional expectation.
+Suppose we are interested in the value of a random variable Y and we are
+going to be given data X1, , Xn. Once we observe the data, we make our
+best prediction E[Y X1, , Xn]. If we average our best prediction given
+X1, , Xn over all the possible values of X1, , Xn, we get the best predic-
+tion of Y . In other words,
+E[Y ] = E [E[Y Fn]] 
+More generally, suppose that A is an Fn-measurable event, that is to say, if we
+observe the data X1, , Xn, then we know whether or not A has occurred.
+An example of an F4-measurable event would be
+A = X1 ≥X2, X4 < 4
+Let 1A denote the (or ) associ-
+ated to the event A,
+1A =
+1
+if A occurs
+0
+if A does not occur
+
+Using similar reasoning, we can see that if A is Fn-measurable, then
+E [Y 1A] = E [E[Y Fn] 1A] 

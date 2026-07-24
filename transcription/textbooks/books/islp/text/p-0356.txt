@@ -1,0 +1,45 @@
+8.2 Bagging, Random Forests, Boosting, and Bayesian Additive Regression Trees
+349
+Algorithm 8.2 Boosting for Regression Trees
+1. Set ˆf(x) = 0 and ri = yi for all i in the training set.
+2. For b = 1, 2, . . . , B, repeat:
+(a) Fit a tree ˆf b with d splits (d + 1 terminal nodes) to the training
+data (X, r).
+(b) Update ˆf by adding in a shrunken version of the new tree:
+ˆf(x) ←ˆf(x) + λ ˆf b(x).
+(8.10)
+(c) Update the residuals,
+ri ←ri −λ ˆf b(xi).
+(8.11)
+3. Output the boosted model,
+ˆf(x) =
+B
+0
+b=1
+λ ˆf b(x).
+(8.12)
+Boosting has three tuning parameters:
+1. The number of trees B. Unlike bagging and random forests, boosting
+can overfit if B is too large, although this overfitting tends to occur
+slowly if at all. We use cross-validation to select B.
+2. The shrinkage parameter λ, a small positive number. This controls
+the rate at which boosting learns. Typical values are 0.01 or 0.001, and
+the right choice can depend on the problem. Very small λ can require
+using a very large value of B in order to achieve good performance.
+3. The number d of splits in each tree, which controls the complexity
+of the boosted ensemble. Often d = 1 works well, in which case each
+tree is a stump, consisting of a single split. In this case, the boosted stump
+ensemble is fitting an additive model, since each term involves only a
+single variable. More generally d is the interaction depth, and controls interaction
+depth
+the interaction order of the boosted model, since d splits can involve
+at most d variables.
+In Figure 8.11, we applied boosting to the 15-class cancer gene expression
+data set, in order to develop a classifier that can distinguish the normal
+class from the 14 cancer classes. We display the test error as a function of
+the total number of trees and the interaction depth d. We see that simple
+stumps with an interaction depth of one perform well if enough of them
+are included. This model outperforms the depth-two model, and both out-
+perform a random forest. This highlights one difference between boosting
+and random forests: in boosting, because the growth of a particular tree
+takes into account the other trees that have already been grown, smaller

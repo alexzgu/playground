@@ -1,0 +1,71 @@
+114
+3. Linear Regression
+−1.0
+−0.5
+0.0
+0.5
+1.0
+0.5
+1.0
+1.5
+2.0
+2.5
+3.0
+3.5
+0.2
+0.5
+1.0
+0.00
+0.02
+0.04
+0.06
+0.08
+Mean Squared Error
+−1.0
+−0.5
+0.0
+0.5
+1.0
+1.0
+1.5
+2.0
+2.5
+3.0
+3.5
+0.2
+0.5
+1.0
+0.00
+0.05
+0.10
+0.15
+Mean Squared Error
+y
+y
+x
+x
+1/K
+1/K
+FIGURE 3.19.
+Top Left: In a setting with a slightly non-linear relationship
+between X and Y (solid black line), the KNN fits with K = 1 (blue) and K = 9
+(red) are displayed. Top Right: For the slightly non-linear data, the test set MSE
+for least squares regression (horizontal black) and KNN with various values of
+1/K (green) are displayed. Bottom Left and Bottom Right: As in the top panel,
+but with a strongly non-linear relationship between X and Y .
+to that of KNN for low values of K. However, for K ≥4, KNN out-
+performs linear regression. The second row illustrates a more substantial
+deviation from linearity. In this situation, KNN substantially outperforms
+linear regression for all values of K. Note that as the extent of non-linearity
+increases, there is little change in the test set MSE for the non-parametric
+KNN method, but there is a large increase in the test set MSE of linear
+regression.
+Figures 3.18 and 3.19 display situations in which KNN performs slightly
+worse than linear regression when the relationship is linear, but much bet-
+ter than linear regression for nonlinear situations. In a real life situation
+in which the true relationship is unknown, one might suspect that KNN
+should be favored over linear regression because it will at worst be slightly
+inferior to linear regression if the true relationship is linear, and may give
+substantially better results if the true relationship is non-linear. But in re-
+ality, even when the true relationship is highly non-linear, KNN may still
+provide inferior results to linear regression. In particular, both Figures 3.18

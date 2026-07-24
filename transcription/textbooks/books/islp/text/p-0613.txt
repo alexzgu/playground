@@ -1,0 +1,78 @@
+Index
+607
+regression, 386
+survival
+analysis, 469–502
+curve, 472, 483
+function, 472
+time, 470
+synergy, 70, 89, 95–98, 110–111
+systematic, 16
+t-distribution, 77, 165
+t-statistic, 76
+t-test
+one-sample, 583, 584, 588
+paired, 587
+two-sample, 559, 570, 571, 577–
+581, 584, 590
+test
+error, 35, 37, 176
+MSE, 28–32
+observations, 28
+set, 30
+statistic, 559
+theoretical null distribution, 577
+time series, 101
+total sum of squares, 79
+tracking, 102
+train, 21
+training
+data, 20
+error, 35, 37, 176
+MSE, 28–31
+transformer, 311
+tree, 331–342
+tree-based method, 331
+true negative, 155
+true positive, 155
+true positive rate, 155, 156, 382
+truncated power basis, 296
+Tukey’s method, 571, 585, 587
+tuning parameter, 187, 240, 484
+two-sample t-test, 474
+Type I error, 155, 562–565
+Type I error rate, 563
+Type II error, 155, 563, 568, 584
+unsupervised learning, 25–27, 255,
+260, 503–552
+USArrests data set, 12, 507, 508,
+510, 512, 513, 515, 516,
+518, 519
+validation set, 202
+approach, 202–204
+variable, 15
+dependent, 15
+dummy, 91–94, 97–98
+importance, 346, 360
+independent, 15
+indicator, 35
+input, 15
+output, 15
+qualitative, 91–94, 97–98
+selection, 86, 230, 244
+variance, 18, 31–34, 159
+inflation factor, 108–110, 123
+varying coefficient model, 305
+Wage data set, 1, 2, 8, 9, 12, 290,
+291, 293, 295, 297–300,
+302–306, 309, 315, 327
+weak learner, 343
+weakest link pruning, 336
+Weekly data set, 12, 196, 226
+weight freezing, 412, 419
+weight sharing, 418
+weighted least squares, 103, 304
+weights, 404
+with replacement, 214
+within class covariance, 150
+wrapper, 217

@@ -1,0 +1,57 @@
+534
+12. Unsupervised Learning
+Socks
+Computers
+0
+2
+4
+6
+8
+10
+Socks
+Computers
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+1.2
+Socks
+Computers
+0
+500
+1000
+1500
+FIGURE 12.16. An eclectic online retailer sells two items: socks and computers.
+Left: the number of pairs of socks, and computers, purchased by eight online shop-
+pers is displayed. Each shopper is shown in a different color. If inter-observation
+dissimilarities are computed using Euclidean distance on the raw variables, then
+the number of socks purchased by an individual will drive the dissimilarities ob-
+tained, and the number of computers purchased will have little effect. This might
+be undesirable, since (1) computers are more expensive than socks and so the
+online retailer may be more interested in encouraging shoppers to buy computers
+than socks, and (2) a large difference in the number of socks purchased by two
+shoppers may be less informative about the shoppers’ overall shopping preferences
+than a small difference in the number of computers purchased. Center: the same
+data are shown, after scaling each variable by its standard deviation. Now the
+two products will have a comparable effect on the inter-observation dissimilarities
+obtained. Right: the same data are displayed, but now the y-axis represents the
+number of dollars spent by each online shopper on socks and on computers. Since
+computers are much more expensive than socks, now computer purchase history
+will drive the inter-observation dissimilarities obtained.
+evidence for the cluster than one would expect due to chance. However,
+there has been no consensus on a single best approach. More details can
+be found in ESL.8
+Other Considerations in Clustering
+Both K-means and hierarchical clustering will assign each observation to
+a cluster. However, sometimes this might not be appropriate. For instance,
+suppose that most of the observations truly belong to a small number of
+(unknown) subgroups, and a small subset of the observations are quite
+different from each other and from all other observations. Then since K-
+means and hierarchical clustering force every observation into a cluster, the
+clusters found may be heavily distorted due to the presence of outliers that
+do not belong to any cluster. Mixture models are an attractive approach
+for accommodating the presence of such outliers. These amount to a soft
+version of K-means clustering, and are described in ESL.
+8ESL: The Elements of Statistical Learning by Hastie, Tibshirani and Friedman.

@@ -1,0 +1,53 @@
+398
+9. Support Vector Machines
+(c) Generate an appropriate test data set, and compute the test
+errors corresponding to each of the values of C considered. Which
+value of C leads to the fewest test errors, and how does this
+compare to the values of C that yield the fewest training errors
+and the fewest cross-validation errors?
+(d) Discuss your results.
+7. In this problem, you will use support vector approaches in order to
+predict whether a given car gets high or low gas mileage based on the
+Auto data set.
+(a) Create a binary variable that takes on a 1 for cars with gas
+mileage above the median, and a 0 for cars with gas mileage
+below the median.
+(b) Fit a support vector classifier to the data with various values of
+C, in order to predict whether a car gets high or low gas mileage.
+Report the cross-validation errors associated with different val-
+ues of this parameter. Comment on your results. Note you will
+need to fit the classifier without the gas mileage variable to pro-
+duce sensible results.
+(c) Now repeat (b), this time using SVMs with radial and polyno-
+mial basis kernels, with different values of gamma and degree and
+C. Comment on your results.
+(d) Make some plots to back up your assertions in (b) and (c).
+Hint: In the lab, we used the plot_svm() function for fitted SVMs.
+When p > 2, you can use the keyword argument features to
+create plots displaying pairs of variables at a time.
+8. This problem involves the OJ data set which is part of the ISLP
+package.
+(a) Create a training set containing a random sample of 800
+observations,
+and
+a
+test
+set
+containing
+the
+remaining
+observations.
+(b) Fit a support vector classifier to the training data using
+C = 0.01, with Purchase as the response and the other variables
+as predictors. How many support points are there?
+(c) What are the training and test error rates?
+(d) Use cross-validation to select an optimal C. Consider values in
+the range 0.01 to 10.
+(e) Compute the training and test error rates using this new value
+for C.
+(f) Repeat parts (b) through (e) using a support vector machine
+with a radial kernel. Use the default value for gamma.
+(g) Repeat parts (b) through (e) using a support vector machine
+with a polynomial kernel. Set degree = 2.
+(h) Overall, which approach seems to give the best results on this
+data?

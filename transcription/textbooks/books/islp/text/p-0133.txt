@@ -1,0 +1,76 @@
+124
+3. Linear Regression
+List comprehensions are simple and powerful ways to form lists of Python
+objects. The language also supports dictionary and generator comprehen-
+sion, though these are beyond our scope here. Let’s look at an example.
+We compute the VIF for each of the variables in the model matrix X, using
+the function variance_inflation_factor().
+variance_
+inflation_
+factor()
+In [29]: vals = [VIF(X, i)
+for i in range(1, X.shape[1])]
+vif = pd.DataFrame({'vif':vals},
+index=X.columns[1:])
+vif
+Out[29]:
+vif
+crim
+1.767
+zn
+2.298
+indus
+3.987
+chas
+1.071
+nox
+4.369
+rm
+1.913
+age
+3.088
+dis
+3.954
+rad
+7.445
+tax
+9.002
+ptratio 1.797
+lstat
+2.871
+The function VIF() takes two arguments: a dataframe or array, and a vari-
+able column index. In the code above we call VIF() on the fly for all columns
+in X. We have excluded column 0 above (the intercept), which is not of in-
+terest. In this case the VIFs are not that exciting.
+The object vals above could have been constructed with the following
+for loop:
+In [30]: vals = []
+for i in range(1, X.values.shape[1]):
+vals.append(VIF(X.values, i))
+List comprehension allows us to perform such repetitive operations in a
+more straightforward way.
+3.6.5
+Interaction Terms
+It is easy to include interaction terms in a linear model using ModelSpec().
+Including a tuple ("lstat","age") tells the model matrix builder to include
+an interaction term between lstat and age.
+In [31]: X = MS(['lstat',
+'age',
+('lstat', 'age')]).fit_transform(Boston)
+model2 = sm.OLS(y, X)
+summarize(model2.fit())
+Out[31]:
+coef
+std err
+t
+P>|t|
+intercept
+36.0885
+1.470
+24.553
+0.000
+lstat
+-1.3921
+0.167
+-8.313
+0.000

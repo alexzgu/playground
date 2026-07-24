@@ -1,0 +1,46 @@
+6.6 Exercises
+285
+5. It is well-known that ridge regression tends to give similar coefficient
+values to correlated variables, whereas the lasso may give quite dif-
+ferent coefficient values to correlated variables. We will now explore
+this property in a very simple setting.
+Suppose that n = 2, p = 2, x11 = x12, x21 = x22. Furthermore,
+suppose that y1 +y2 = 0 and x11 +x21 = 0 and x12 +x22 = 0, so that
+the estimate for the intercept in a least squares, ridge regression, or
+lasso model is zero: ˆβ0 = 0.
+(a) Write out the ridge regression optimization problem in this set-
+ting.
+(b) Argue that in this setting, the ridge coefficient estimates satisfy
+ˆβ1 = ˆβ2.
+(c) Write out the lasso optimization problem in this setting.
+(d) Argue that in this setting, the lasso coefficients ˆβ1 and ˆβ2 are
+not unique—in other words, there are many possible solutions
+to the optimization problem in (c). Describe these solutions.
+6. We will now explore (6.12) and (6.13) further.
+(a) Consider (6.12) with p = 1. For some choice of y1 and λ > 0,
+plot (6.12) as a function of β1. Your plot should confirm that
+(6.12) is solved by (6.14).
+(b) Consider (6.13) with p = 1. For some choice of y1 and λ > 0,
+plot (6.13) as a function of β1. Your plot should confirm that
+(6.13) is solved by (6.15).
+7. We will now derive the Bayesian connection to the lasso and ridge
+regression discussed in Section 6.2.2.
+(a) Suppose that yi = β0+)p
+j=1 xijβj +ϵi where ϵ1, . . . , ϵn are inde-
+pendent and identically distributed from a N(0, σ2) distribution.
+Write out the likelihood for the data.
+(b) Assume the following prior for β: β1, . . . , βp are independent
+and identically distributed according to a double-exponential
+distribution with mean 0 and common scale parameter b: i.e.
+p(β) =
+1
+2b exp(−|β|/b). Write out the posterior for β in this
+setting.
+(c) Argue that the lasso estimate is the mode for β under this pos-
+terior distribution.
+(d) Now assume the following prior for β: β1, . . . , βp are independent
+and identically distributed according to a normal distribution
+with mean zero and variance c. Write out the posterior for β in
+this setting.
+(e) Argue that the ridge regression estimate is both the mode and
+the mean for β under this posterior distribution.

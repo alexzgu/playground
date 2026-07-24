@@ -1,0 +1,48 @@
+462
+10. Deep Learning
+For an input shape (5,3), each row represents a lagged version of the
+three variables. The nn.RNN() layer also expects the first row of each obser-
+vation to be earliest in time, so we must reverse the current order. Hence
+we loop over range(5,0,-1) below, which is an example of using a slice()
+to index iterable objects. The general notation is start:end:step.
+In [99]: ordered_cols = []
+for lag in range(5,0,-1):
+for col in cols:
+ordered_cols.append('{0}_{1}'.format(col, lag))
+X = X.reindex(columns=ordered_cols)
+X.columns
+Out[99]: Index(['DJ_return_5', 'log_volume_5', 'log_volatility_5',
+'DJ_return_4', 'log_volume_4', 'log_volatility_4',
+'DJ_return_3', 'log_volume_3', 'log_volatility_3',
+'DJ_return_2', 'log_volume_2', 'log_volatility_2',
+'DJ_return_1', 'log_volume_1', 'log_volatility_1'],
+dtype='object')
+We now reshape the data.
+In [100]: X_rnn = X.to_numpy().reshape((-1,5,3))
+X_rnn.shape
+Out[100]: (6046, 5, 3)
+By specifying the first size as -1, numpy.reshape() deduces its size based on
+the remaining arguments.
+Now we are ready to proceed with the RNN, which uses 12 hidden units,
+and 10% dropout. After passing through the RNN, we extract the final
+time point as val[:,-1] in forward() below. This gets passed through a
+10% dropout and then flattened through a linear layer.
+In [101]: class NYSEModel(nn.Module):
+def __init__(self):
+super(NYSEModel, self).__init__()
+self.rnn = nn.RNN(3,
+12,
+batch_first=True)
+self.dense = nn.Linear(12, 1)
+self.dropout = nn.Dropout(0.1)
+def forward(self, x):
+val, h_n = self.rnn(x)
+val = self.dense(self.dropout(val[:,-1]))
+return torch.flatten(val)
+nyse_model = NYSEModel()
+We fit the model in a similar fashion to previous networks. We supply
+the fit function with test data as validation data, so that when we monitor
+its progress and plot the history function we can see the progress on the
+test data. Of course we should not use this as a basis for early stopping,
+since then the test performance would be biased.
+We form the training dataset similar to our Hitters example.

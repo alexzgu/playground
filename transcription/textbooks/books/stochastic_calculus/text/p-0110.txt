@@ -1,0 +1,57 @@
+104
+CHAPTER 3. STOCHASTIC INTEGRATION
+We now assume for the moment that there exists K < ∞such that
+f ′′(x)≤K for all x. This happens, for example, if f has compact
+support. Then
+f ′(Bs) −f ′(Btj−1,n)≤K Bs −Btj−1,n
+Let At = f ′(Bt) and let A(n)
+t
+be the simple process that equals
+f ′(Btj−1,n) for tj−1,n ≤t < tj,n. For tj−1,n ≤s < tj,n,
+E([At −A(n)
+t
+]2) ≤K2 E([Bs −Btj−1,n]2) = K2 [s −tj−1,n] ≤K2 ∥Πn∥
+Therefore,
+1
+0
+E([At −A(n)
+t
+]2) dt ≤K2 ∥Πn∥
+In particular, we get the following.
+Proposition 3.3.2. Suppose that f ′′ is bounded and Πnis a se-
+quence of partitions with ∥Πn∥< ∞. Let
+Y (n)
+t
+= f(B0) +
+kn
+
+j=1
+f ′(Btj−1,n) [Btj,n −Btj−1,n]
++
+kn
+
+j=1
+f ′′(Btj−1,n)
+2
+[Btj,n −Btj−1,n]2
+Then with probability one
+lim
+n∞max
+0≤t≤1 f(Bt) −Y (n)
+t
+= 0
+If f ′′ is not bounded, we can still prove Itˆo’s formula by using stopping
+times. This general procedure is often called localization. For each K,
+let
+TK = inft : f ′′(Bt)≥K
+Then, our argument shows that with probability one for each K,
+f (Bt∧TK) =
+t∧TK
+0
+f ′(Bs) dBs + 1
+2
+t∧TK
+0
+f ′′(Bs) ds
+However, with probability one TK →∞as K →∞, and hence this
+gives us a formula for f(Bt).

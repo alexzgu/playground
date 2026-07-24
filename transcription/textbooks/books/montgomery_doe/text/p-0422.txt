@@ -1,0 +1,59 @@
+9.2.2
+The 3k Factorial Design in Nine Blocks
+In some experimental situations, it may be necessary to confound the 3k design in nine blocks.
+Thus, eight degrees of freedom will be confounded with blocks. To construct these designs,
+we choose two components of interaction, and, as a result, two more will be confounded auto-
+matically, yielding the required eight degrees of freedom. These two are the generalized inter-
+actions of the two effects originally chosen. In the 3k system, the generalized interactions of
+two effects (e.g., P and Q) are dened as PQ and PQ2 (or P2Q).
+The two components of interaction initially chosen yield two dening contrasts
+(9.3)
+where {i} and {j} are the exponents in the rst and second generalized interactions, respec-
+tively, with the convention that the rst nonzero i and j are unity. The dening contrasts in
+Equation 9.3 imply nine simultaneous equations specied by the pair of values for L1 and L2.
+Treatment combinations having the same pair of values for (L1, L2) are assigned to the same
+block.
+The principal block consists of treatment combinations satisfying L1 L2 0 (mod 3).
+The elements of this block form a group with respect to addition modulus 3; thus, the scheme
+given in Section 9.2.1 can be used to generate the blocks.
+As an example, consider the 34 factorial design confounded in nine blocks of nine runs
+each. Suppose we choose to confound ABC and AB2D2. Their generalized interactions
+are also confounded with blocks. The dening contrasts for ABC and AB2D2 are
+(9.4)
+The nine blocks may be constructed by using the dening contrasts (Equation 9.4) and
+the group-theoretic property of the principal block. The design is shown in Figure 9.8.
+For the 3k design in nine blocks, four components of interaction will be confounded.
+The remaining unconfounded components of these interactions can be determined by sub-
+tracting the sum of squares for the confounded component from the sum of squares for the
+L2 x1 2x2 2x4
+L1 x1 x2 x3
+ (ABC)(AB2D2)2 A3B5CD4 B2CD (B2CD)2 BC 2D2
+ (ABC)(AB2D2) A2B3CD2 (A2B3CD2)2 AC 2D
+L2 1x1 2x2 Á k xk h (mod 3) 
+ h 0, 1, 2
+L1 1x1 2x2 Á k xk u (mod 3) 
+ u 0, 1, 2
+406
+Chapter 9 ■Additional Design and Analysis Topics for Factorial and Fractional Factorial Designs
+■TA B L E 9 . 5
+Analysis of Variance for a 33 Design with AB2C2 Confounded
+Source of Variation
+Degrees of Freedom
+Blocks (AB2C2)
+2
+A
+2
+B
+2
+C
+2
+AB
+4
+AC
+4
+BC
+4
+Error (ABC AB2C ABC2)
+6
+Total
+26

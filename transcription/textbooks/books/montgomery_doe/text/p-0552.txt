@@ -1,0 +1,80 @@
+536
+Chapter 11 ■Response Surface Methods and Designs
+so the use of pseudocomponents allows the use of simplex-type designs when lower
+bounds are a part of the experimental situation. The formulations specified by the simplex
+design for the pseudocomponents are transformed into formulations for the original com-
+ponents by reversing the transformation Equation 11.29. That is, if 
+is the value assigned
+to the ith pseudocomponent on one of the runs in the experiment, the ith original mixture
+component is
+(11.30)
+If the components have both upper and lower bound constraints, the feasible region is
+no longer a simplex; instead, it will be an irregular polytope. Because the experimental region
+is not a “standard” shape, computer-generated optimal designs are very useful for these
+types of mixture problems.
+xi li 1 
+p
+j1
+ljxi
+xi
+E X A M P L E 1 1 . 6
+Paint Formulation
+An experimenter is trying to optimize the formulation of
+automotive clear coat paint. These are complex products
+that have very specific performance requirements.
+Specically, the customer wants the Knoop hardness to
+exceed 25 and the percentage of solids to be below 30. The
+clear coat is a three-component mixture, consisting of a
+monomer (x1), a crosslinker (x2), and a resin (x3). There are
+constraints on the component proportions:
+The result is the constrained region of experimentation
+shown in Figure 11.44. Because the region of interest is not
+a simplex, we will use a D-optimal design for this problem.
+Assuming that both responses are likely to be modeled with
+a quadratic mixture model, we can generate the D-optimal
+design shown in Figure 11.39 using Design-Expert. We
+assumed that in addition to the six runs required to t the
+quadratic mixture model, four additional distinct runs
+would be made to check for lack of t and that four of these
+runs would be replicated to provide an estimate of pure
+error. Design-Expert used the vertices, the edge centers, the
+overall centroid, and the check runs (points located halfway
+between the centroid and the vertices) as the candidate
+points.
+The 14-run design is shown in Table 11.20, along with the
+hardness and solids responses. The results of tting quadratic
+models to both responses are summarized in Tables 11.21
+and 11.22. Notice that quadratic models t nicely to both the
+hardness and the solids responses. The tted equations for
+both responses (in terms of the pseudocomponents) are
+ 50 x3  70
+ 25 x2  40
+ 5 x1  25
+x1 x2 x3 100
+shown in these tables. Contour plots of the responses are
+shown in Figures 11.46 and 11.47.
+Figure 11.48 is an overlay plot of the two response
+surfaces, showing the Knoop hardness contour of 25 and the
+30 percent contour for solids. The feasible region for this
+product is the unshaded region near the center of the plot.
+Obviously, there are a number of choices for the proportions
+of monomer, crosslinker, and resin for the clear coat that
+will give a product satisfying the performance requirements.
+25
+2
+2
+2
+50
+Monomer
+25.00
+5.00
+70
+Resin
+45
+Crosslinker
+2
+■F I G U R E 1 1 . 4 5
+The constrained
+experimental region for the paint formulation
+problem in Example 11.6 (shown in the actual
+component scale)

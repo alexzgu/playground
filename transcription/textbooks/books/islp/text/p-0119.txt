@@ -1,0 +1,48 @@
+110
+3. Linear Regression
+4. How large is the association between each medium and sales?
+We saw in Section 3.1.2 that the standard error of ˆβj can be used to
+construct confidence intervals for βj. For the Advertising data, we
+can use the results in Table 3.4 to compute the 95 % confidence inter-
+vals for the coefficients in a multiple regression model using all three
+media budgets as predictors. The confidence intervals are as follows:
+(0.043, 0.049) for TV, (0.172, 0.206) for radio, and (−0.013, 0.011) for
+newspaper. The confidence intervals for TV and radio are narrow and
+far from zero, providing evidence that these media are related to
+sales. But the interval for newspaper includes zero, indicating that
+the variable is not statistically significant given the values of TV and
+radio.
+We saw in Section 3.3.3 that collinearity can result in very wide stan-
+dard errors. Could collinearity be the reason that the confidence in-
+terval associated with newspaper is so wide? The VIF scores are 1.005,
+1.145, and 1.145 for TV, radio, and newspaper, suggesting no evidence
+of collinearity.
+In order to assess the association of each medium individually on
+sales, we can perform three separate simple linear regressions. Re-
+sults are shown in Tables 3.1 and 3.3. There is evidence of an ex-
+tremely strong association between TV and sales and between radio
+and sales. There is evidence of a mild association between newspaper
+and sales, when the values of TV and radio are ignored.
+5. How accurately can we predict future sales?
+The response can be predicted using (3.21). The accuracy associ-
+ated with this estimate depends on whether we wish to predict an
+individual response, Y = f(X) + ϵ, or the average response, f(X)
+(Section 3.2.2). If the former, we use a prediction interval, and if
+the latter, we use a confidence interval. Prediction intervals will al-
+ways be wider than confidence intervals because they account for the
+uncertainty associated with ϵ, the irreducible error.
+6. Is the relationship linear?
+In Section 3.3.3, we saw that residual plots can be used in order to
+identify non-linearity. If the relationships are linear, then the residual
+plots should display no pattern. In the case of the Advertising data,
+we observe a non-linear effect in Figure 3.5, though this effect could
+also be observed in a residual plot. In Section 3.3.2, we discussed the
+inclusion of transformations of the predictors in the linear regression
+model in order to accommodate non-linear relationships.
+7. Is there synergy among the advertising media?
+The standard linear regression model assumes an additive relation-
+ship between the predictors and the response. An additive model
+is easy to interpret because the association between each predictor
+and the response is unrelated to the values of the other predictors.
+However, the additive assumption may be unrealistic for certain data
+sets. In Section 3.3.2, we showed how to include an interaction term

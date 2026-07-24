@@ -1,0 +1,68 @@
+2. Although the variance model involves only the controllable variables, it also
+involves the interaction regression coefﬁcients between the controllable and noise
+variables. This is how the noise variable inuences the response.
+3. The variance model is a quadratic function of the controllable variables.
+4. The variance model (apart from 2) is just the square of the slope of the tted
+response model in the direction of the noise variable.
+To use these models operationally, we would
+1. Perform an experiment and fit an appropriate response model, such as 
+Equation 12.1.
+2. Replace the unknown regression coefcients in the mean and variance models
+with their least squares estimates from the response model and replace 2 in the
+variance model by the residual mean square found when tting the response
+model.
+3. Optimize the mean and variance model using the standard multiple response opti-
+mization methods discussed in Section 11.3.4.
+It is very easy to generalize these results. Suppose that there are k controllable variables
+and r noise variables. We will write the general response model involving these variables as
+(12.4)
+where f(x) is the portion of the model that involves only the controllable variables and h(x, z)
+are the terms that involve the main effects of the noise factors and the interactions between
+the controllable and noise factors. Typically, the structure for h(x, z) is
+The structure for f(x) will depend on what type of model for the controllable variables the
+experimenter thinks is appropriate. The logical choices are the rst-order model with interac-
+tion and the second-order model. If we assume that the noise variables have mean zero, vari-
+ances 
+, and zero covariances and that the noise variables and the random errors have zero
+covariances, then the mean model for the response is just
+(12.5)
+and the variance model for the response is
+(12.6)
+Myers, Montgomery and Anderson-Cook (2009) give a slightly more general form for Equation
+(12.6) based on applying a conditional variance operator directly to the response model.
+Vz[y(x, z)] 
+r
+i1
+y(x, z)
+zi 
+2
+2
+zi 2
+Ez[y(x, z)] f(x)
+2
+zi
+h(x, z) 
+r
+i1
+izi 
+k
+i1 
+r
+j1
+ij xizj
+y(x, z) f(x) h(x, z) 
+562
+Chapter 12 ■Robust Parameter Design and Process Robustness Studies
+E X A M P L E 1 2 . 1
+To illustrate the foregoing procedure, reconsider Example
+6.2 in which four factors were studied in a 24 factorial
+design to investigate their effect on the ltration rate of a
+chemical product. We will assume that factor A, tempera-
+ture, is potentially difcult to control in the full-scale
+process, but it can be controlled during the experiment
+(which was performed in a pilot plant). The other three fac-
+tors, pressure (B), concentration (C ), and stirring rate (D),
+are easy to control. Thus, the noise factor z1 is temperature,
+and the controllable variables x1, x2, and x3 are pressure,
+concentration, and stirring rate, respectively. Because both
+the controllable factors and the noise factor are in the same

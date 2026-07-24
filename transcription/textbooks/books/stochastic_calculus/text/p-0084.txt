@@ -1,0 +1,41 @@
+78
+CHAPTER 2. BROWNIAN MOTION
+As in the one-dimensional case, we can nd the operator associated to the
+transition density. If we run a Brownian motion with drift m and covariance
+matrix Γ backwards, we get the same covariance matrix but the drift becomes
+−m. Therefore
+For t > 0, the transition probability pt(x, y) satises the equation
+∂tpt(x, y) = L∗
+ypt(x, y),
+where
+L∗f(y) = −m · f(y) + 1
+2
+d
+
+j=1
+d
+
+k=1
+Γjk ∂jkf(y)
+The equations
+∂tpt(x, y) = Lxpt(x, y),
+∂tpt(x, y) = L∗
+ypt(x, y)
+are sometimes called the Kand , re-
+spectively. The name comes from the fact that they can be derived from the
+Chapman-Kolmogorov equations by writing
+pt+∆t(x, y) =
+
+p∆t(x, z) pt(z, y) dz,
+pt+∆t(x, y) =
+
+pt(x, z) p∆t(z, y) dz,
+respectively. The forward equation is also known as the F-P-
+. We will make more use of the backwards equation.
+2.11
+Exercises
+Exercise 2.1. Let Z1, Z2, Z3 be independent N(0, 1) random variables. Let
+X1 = Z1 + Z3, X2 = Z2 + 4Z3, X3 = 2Z1 −2Z2 + rZ3
+where r is a real number.
+1. Explain why X = (X1, X2, X3) has a joint normal distribution.
+2. Find the covariance matrix for X (in terms of r).

@@ -1,0 +1,160 @@
+354
+Chapter 8 ■Two-Level Fractional Factorial Designs
+assuming that three-factor and higher interactions are insignicant. Now from the two linear
+combinations of effects ([i] [i]) and ([i] [i]) we obtain
+i
+From ([i] [i])
+From ([i] [i])
+A
+A CE FG
+BD
+B
+B CF EG
+AD
+C
+C AE BF
+DG
+D
+D
+AB CG EF
+E
+E AC BG
+DF
+F
+F BC AG
+DE
+G
+G BE AF
+CD
+Thus, we have isolated the main effect of D and all of its two-factor interactions. In gen-
+eral, if we add to a fractional design of resolution III or higher a further fraction with the signs
+of a single factor reversed, then the combined design will provide estimates of the main effect
+of that factor and its two-factor interactions. This is sometimes called a single-factor fold over.
+Now suppose we add to a resolution III fractional a second fraction in which the signs
+for all the factors are reversed. This type of fold over (sometimes called a full fold over or a
+reection) breaks the alias links between all main effects and their two-factor interactions.
+That is, we may use the combined design to estimate all of the main effects clear of any two-
+factor interactions. The following example illustrates the full fold-over technique.
+1
+2
+1
+2
+1
+2
+1
+2
+E X A M P L E 8 . 7
+A human performance analyst is conducting an experiment
+to study eye focus time and has built an apparatus in which
+several factors can be controlled during the test. The factors
+he initially regards as important are acuity or sharpness of
+vision (A), distance from target to eye (B), target shape (C),
+illumination level (D), target size (E), target density (F),
+and subject (G). Two levels of each factor are considered.
+He suspects that only a few of these seven factors are of
+major importance and that high-order interactions between
+the factors can be neglected. On the basis of this assump-
+tion, the analyst decides to run a screening experiment to
+identify the most important factors and then to concentrate
+further study on those. To screen these seven factors, he
+runs the treatment combinations from the 
+design in
+Table 8.19 in random order, obtaining the focus times in
+milliseconds, as shown in Table 8.21.
+274
+III
+■TA B L E 8 . 2 1
+A 
+Design for the Eye Focus Time Experiment
+Basic Design
+Run
+A
+B
+C
+D AB
+E AC
+F BC
+G ABC
+Time
+1
+
+
+
+
+
+
+
+def
+85.5
+2
+
+
+
+
+
+
+
+afg
+75.1
+3
+
+
+
+
+
+
+
+beg
+93.2
+4
+
+
+
+
+
+
+
+abd
+145.4
+5
+
+
+
+
+
+
+
+cdg
+83.7
+6
+
+
+
+
+
+
+
+ace
+77.6
+7
+
+
+
+
+
+
+
+bcf
+95.0
+8
+
+
+
+
+
+
+
+abcdefg
+141.8
+274
+III

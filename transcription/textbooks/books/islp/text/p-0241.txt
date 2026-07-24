@@ -1,0 +1,44 @@
+6.1 Subset Selection
+233
+Algorithm 6.2 Forward stepwise selection
+1. Let M0 denote the null model, which contains no predictors.
+2. For k = 0, . . . , p −1:
+(a) Consider all p −k models that augment the predictors in Mk
+with one additional predictor.
+(b) Choose the best among these p −k models, and call it Mk+1.
+Here best is defined as having smallest RSS or highest R2.
+3. Select a single best model from among M0, . . . , Mp using the pre-
+diction error on a validation set, Cp (AIC), BIC, or adjusted R2. Or
+use the cross-validation method.
+around 40, even with extremely fast modern computers. There are compu-
+tational shortcuts—so called branch-and-bound techniques—for eliminat-
+ing some choices, but these have their limitations as p gets large. They also
+only work for least squares linear regression. We present computationally
+efficient alternatives to best subset selection next.
+6.1.2
+Stepwise Selection
+For computational reasons, best subset selection cannot be applied with
+very large p. Best subset selection may also suffer from statistical problems
+when p is large. The larger the search space, the higher the chance of finding
+models that look good on the training data, even though they might not
+have any predictive power on future data. Thus an enormous search space
+can lead to overfitting and high variance of the coefficient estimates.
+For both of these reasons, stepwise methods, which explore a far more
+restricted set of models, are attractive alternatives to best subset selection.
+Forward Stepwise Selection
+Forward stepwise selection is a computationally efficient alternative to best forward
+stepwise
+selection
+subset selection. While the best subset selection procedure considers all
+2p possible models containing subsets of the p predictors, forward step-
+wise considers a much smaller set of models. Forward stepwise selection
+begins with a model containing no predictors, and then adds predictors
+to the model, one-at-a-time, until all of the predictors are in the model.
+In particular, at each step the variable that gives the greatest additional
+improvement to the fit is added to the model. More formally, the forward
+stepwise selection procedure is given in Algorithm 6.2.
+Unlike best subset selection, which involved fitting 2p models, forward
+stepwise selection involves fitting one null model, along with p −k models
+in the kth iteration, for k = 0, . . . , p −1. This amounts to a total of 1 +
+)p−1
+k=0(p−k) = 1+p(p+1)/2 models. This is a substantial difference: when

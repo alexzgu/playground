@@ -1,0 +1,31 @@
+2.11. EXERCISES
+81
+2. f is a Brownian motion?
+Exercise 2.9. Suppose Bt is a standard Brownian motion. For the functions
+ϕ(t, x), 0 < t < 1, −∞< x < ∞, dened below, give a PDE satised by the
+function.
+1. ϕ(t, x) = PBt ≥0 B0 = x
+2. ϕ(t, x) = E[B2
+1 Bt = x]
+3. Repeat the two examples above if Bt is a Brownian motion with drift
+m and variance σ2.
+Exercise 2.10. Suppose Bt is a standard Brownian motion and
+Mt = max
+0≤s≤t Bs
+1. Explain why Mt has the same distribution as
+√
+t M1.
+2. Find the density of M1.
+3. Find E[Mt].
+4. If a > 0, nd E[M1 1M1 ≥a].
+5. Let Ft be the information in Bs : 0 ≤s ≤t. Find E[M2 F1].
+Exercise 2.11. Write a program that will simulate a standard Brownian
+motion using step size ∆t = 01.
+1. Graph at least one realization of the Brownian motion to produce a
+pretty pictureof a Brownian path.
+2. Use simulations to estimate the following probability:
+PBt ≤2 for all t ≤1
+Run the simulation enough times to get a good estimate for the prob-
+ability. Use the reection principle to calculate the actual probability
+and compare the result.
+Exercise 2.12. Prove Theorem 2.6.3.

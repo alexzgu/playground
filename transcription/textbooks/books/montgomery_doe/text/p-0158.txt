@@ -1,0 +1,121 @@
+grand total of all observations, and N ab be the total number of observations. Expressed
+mathematically,
+(4.2)
+(4.3)
+and
+(4.4)
+Similarly,
+is the average of the observations taken under treatment i,
+is the average of the
+observations in block j, and 
+is the grand average of all observations. That is,
+(4.5)
+We may express the total corrected sum of squares as
+(4.6)
+By expanding the right-hand side of Equation 4.6, we obtain
+Simple but tedious algebra proves that the three cross products are zero. Therefore,
+(4.7)
+represents a partition of the total sum of squares. This is the fundamental ANOVA equation
+for the RCBD. Expressing the sums of squares in Equation 4.7 symbolically, we have
+(4.8)
+Because there are N observations, SST has N 1 degrees of freedom. There are a treat-
+ments and b blocks, so SSTreatments and SSBlocks have a 1 and b 1 degrees of freedom, respec-
+tively. The error sum of squares is just a sum of squares between cells minus the sum of squares
+for treatments and blocks. There are ab cells with ab 1 degrees of freedom between them,
+so SSE has ab 1 (a 1) (b 1) (a 1)(b 1) degrees of freedom. Furthermore,
+the degrees of freedom on the right-hand side of Equation 4.8 add to the total on the left; there-
+fore, making the usual normality assumptions on the errors, one may use Theorem 3-1 to show
+SST SSTreatments SSBlocks SSE
+
+a
+i1 
+b
+j1
+(yij y.j yi. y..)2
+
+a
+i1 
+b
+j1
+(yij y..)2 b 
+a
+i1
+(yi. y..)2 a 
+b
+j1
+(y.j y..)2
+2 
+a
+i1 
+b
+j1
+(yi. y..)(yij yi. y.j y..)
+2 
+a
+i1 
+b
+j1
+ (y.j y..)(yij yi. y.j y..)
+
+a
+i1 
+b
+j1
+(yij yi. y.j y..)2 2 
+a
+i1 
+b
+j1
+(yi. y..)(y.j y..)
+
+a
+i1 
+b
+j1
+ (yij y..)2 b 
+a
+i1
+(yi. y..)2 a 
+b
+j1
+ (y.j y..)2
+(y.j y..) (yij yi. y.j y..]2
+
+a
+i1 
+b
+j1
+ (yij y..)2 
+a
+i1 
+b
+j1
+ [(yi. y..)
+yi. yi./b y.j y.j/a y.. y../N
+y..
+y.j
+yi.
+y.. 
+a
+i1 
+b
+j1
+yij 
+a
+i1
+yi. 
+b
+j1
+y.j
+y.j 
+a
+i1
+yij 
+ j 1, 2, . . . , b
+yi. 
+b
+j1
+yij 
+ i 1, 2, . . . , a
+142
+Chapter 4 ■Randomized Blocks, Latin Squares, and Related Designs

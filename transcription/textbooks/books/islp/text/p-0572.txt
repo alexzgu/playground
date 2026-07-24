@@ -1,0 +1,53 @@
+566
+13. Multiple Testing
+FIGURE 13.2. The family-wise error rate, as a function of the number of
+hypotheses tested (displayed on the log scale), for three values of α: α = 0.05
+(orange), α = 0.01 (blue), and α = 0.001 (purple). The dashed line indicates
+0.05. For example, in order to control the FWER at 0.05 when testing m = 50
+null hypotheses, we must control the Type I error for each null hypothesis at level
+α = 0.001.
+Hence, if we test only one null hypothesis, then FWER(α) = 1−(1−α)1 =
+α, so the Type I error rate and the FWER are equal. However, if we perform
+m = 100 independent tests, then FWER(α) = 1 −(1 −α)100. For instance,
+taking α = 0.05 leads to a FWER of 1 −(1 −0.05)100 = 0.994. In other
+words, we are virtually guaranteed to make at least one Type I error!
+Figure 13.2 displays (13.5) for various values of m, the number of hy-
+potheses, and α, the Type I error. We see that setting α = 0.05 results in
+a high FWER even for moderate m. With α = 0.01, we can test no more
+than five null hypotheses before the FWER exceeds 0.05. Only for very
+small values, such as α = 0.001, do we manage to ensure a small FWER,
+at least for moderately-sized m.
+We now briefly return to the example in Section 13.1.1, in which we
+consider testing a single null hypothesis of the form H0 : µt = µc using a
+two-sample t-statistic. Recall from Figure 13.1 that in order to guarantee
+that the Type I error does not exceed 0.02, we decide whether or not to
+reject H0 using a cutpoint of 2.33 (i.e. we reject H0 if |T| ≥2.33). Now,
+what if we wish to test 10 null hypotheses using two-sample t-statistics,
+instead of just one? We will see in Section 13.3.2 that we can guarantee
+that the FWER does not exceed 0.02 by rejecting only null hypotheses
+for which the p-value falls below 0.002. This corresponds to a much more
+stringent cutpoint of 3.09 (i.e. we should reject H0j only if its test statistic
+|Tj| ≥3.09, for j = 1, . . . , 10). In other words, controlling the FWER at
+level α amounts to a much higher bar, in terms of evidence required to
+reject any given null hypothesis, than simply controlling the Type I error
+for each null hypothesis at level α.
+1
+2
+5
+10
+20
+50
+100
+200
+500
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+Number of Hypotheses
+Family−Wise Error Rate
+α = 0.05
+α = 0.01
+α = 0.001

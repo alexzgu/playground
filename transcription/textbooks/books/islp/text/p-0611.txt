@@ -1,0 +1,97 @@
+Index
+605
+return, 198
+RF(), see RandomForestRegressor()
+rng, see np.random.default_rng()
+rng.choice(), 60
+rng.standard_normal(), 60
+roc_curve(), 392
+RocCurveDisplay.from_estimator(),
+387
+savefig(), 50
+scatter(), 49, 61
+scipy.interpolate, 315
+score(), 218, 461
+seed_everything(), 436
+set_index(), 57
+set_title(), 49
+set_xlabel(), 49
+set_xscale(), 198
+set_ylabel(), 49
+set_yscale(), 198
+shape, 43
+ShuffleSplit(), 219
+sim_time(), 495
+SimpleDataModule(), 441
+SimpleModule.classification(),
+446
+SimpleModule.regression(),
+442
+skl, see sklearn.linear_model
+skl.ElasticNet(), 273, 277
+skl.ElasticNet.path, 274
+skl.ElasticNet.path(), 273
+sklearn, 118, 181
+sklearn.ensemble, 360
+sklearn.linear_model, 267
+sklearn.model_selection, 267
+sklearn_selected(), 269
+sklearn_selection_path(),
+270
+sklearn_sm(), 218
+skm, see sklearn.model_selection
+skm.cross_val_predict(), 271
+skm.KFold(), 271
+skm.ShuffleSplit(), 272
+slice(), 51, 462
+sm, see statsmodels
+sm.GLM(), 174, 192, 226
+sm.Logit(), 174
+sm.OLS(), 118, 129, 174, 319
+StandardScaler(), 185, 438,
+537, 555
+statsmodels, 116, 173
+std(), 186
+Stepwise(), 269
+str.contains(), 59
+subplots(), 48
+sum(), 43, 268
+summarize(), 118, 129, 223,
+226
+summary(), 119, 322, 587
+super(), 440
+SupportVectorClassifier(),
+387, 389–391, 393
+SupportVectorRegression(),
+394
+SVC(), see SupportVector-
+Classifier()
+svd(), 539
+SVR(), see SupportVector-
+Regression()
+TensorDataset(), 441
+to_numpy(), 437
+torch, 435
+torchinfo, 436
+torchmetrics, 436
+torchvision, 436
+ToTensor(), 444
+train_test_split(), 186, 216
+transform(), 118, 119
+ttest_1samp(), 584
+ttest_ind(), 590
+ttest_rel(), 587
+tuple, 43
+uniform(), 555
+value_counts(), 66
+var(), 536
+variance_inflation_factor(),
+116, 124
+VIF(), see variance_inflation-
+_factor()
+where(), 355
+zip(), 60, 312
+q-values, 589
+quadratic, 98
+quadratic discriminant analysis, 4,
+135, 156–157, 164–167

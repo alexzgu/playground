@@ -1,0 +1,86 @@
+3.4 Model Adequacy Checking
+85
+E X A M P L E 3 . 4
+In the plasma etch experiment, the normality assumption is
+not in question, so we can apply Bartlett’s test to the etch
+rate data. We rst compute the sample variances in each
+treatment and nd that 
+400.7,
+280.3,
+421.3,
+and
+232.5. Then
+S 2
+4
+S 2
+3
+S 2
+2
+S 2
+1
+and the test statistic is
+From Appendix Table III, we nd that 
+7.81 (the
+P-value is P 0.934), so we cannot reject the null hypoth-
+esis. There is no evidence to counter the claim that all ve
+variances are the same. This is the same conclusion reached
+by analyzing the plot of residuals versus tted values.
+2
+0.05,3
+2
+0 2.3026 (0.21)
+(1.10) 0.43
+S 2
+p 4(400.7) 4(280.3) 4(421.3) 4(232.5)
+16
+333.7
+Because Bartlett’s test is sensitive to the normality assumption, there may be situations where
+an alternative procedure would be useful. Anderson and McLean (1974) present a useful dis-
+cussion of statistical tests for equality of variance. The modiﬁed Levene test [see Levene
+(1960) and Conover, Johnson, and Johnson (1981)] is a very nice procedure that is robust to
+departures from normality. To test the hypothesis of equal variances in all treatments, the
+modied Levene test uses the absolute deviation of the observations yij in each treatment from
+the treatment median, say,
+. Denote these deviations by
+The modied Levene test then evaluates whether or not the means of these deviations are
+equal for all treatments. It turns out that if the mean deviations are equal, the variances of the
+observations in all treatments will be the same. The test statistic for Levene’s test is simply
+the usual ANOVA F statistic for testing equality of means applied to the absolute deviations.
+dij yij y˜i
+i 1, 2, . . . , a
+j 1, 2, . . . , ni
+y˜i
+E X A M P L E 3 . 5
+A civil engineer is interested in determining whether four
+different methods of estimating ood ow frequency pro-
+duce equivalent estimates of peak discharge when applied to
+the same watershed. Each procedure is used six times on the
+watershed, and the resulting discharge data (in cubic feet per
+second) are shown in the upper panel of Table 3.7. The
+analysis of variance for the data, summarized in Table 3.8,
+implies that there is a difference in mean peak discharge
+estimates given by the four procedures. The plot of residu-
+als versus tted values, shown in Figure 3.7, is disturbing
+because the outward-opening funnel shape indicates that the
+constant variance assumption is not satised.
+We will apply the modied Levene test to the peak dis-
+charge data. The upper panel of Table 3.7 contains the treat-
+ment medians 
+and the lower panel contains the deviations
+dij around the medians. Levene’s test consists of conducting
+a standard analysis of variance on the dij. The F test statistic
+that results from this is F0 4.55, for which the P-value is 
+P 0.0137. Therefore, Levene’s test rejects the null
+hypothesis of equal variances, essentially conrming the
+diagnosis we made from visual examination of Figure 3.7.
+The peak discharge data are a good candidate for data trans-
+formation.
+y˜i
+c 1 
+1
+3(3)
+4
+4 1
+161.10
+log10421.3 log10232.5] 0.21
+q 16 log10(333.7) 4[log10400.7 log10280.3

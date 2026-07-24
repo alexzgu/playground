@@ -1,0 +1,65 @@
+of runs (rows), but it is missing one column. The generator I ABC K is then solved for
+the missing column (K) so that K ABC (K 1) denes the product of plus and minus
+signs to use in each row to produce the levels for the kth factor.
+Note that any interaction effect could be used to generate the column for the kth factor.
+However, using any effect other than ABC (K 1) will not produce a design of the high-
+est possible resolution.
+Another way to view the construction of a one-half fraction is to partition the runs into
+two blocks with the highest order interaction ABC K confounded. Each block is a 2k1
+fractional factorial design of the highest resolution.
+Projection of Fractions into Factorials. Any fractional factorial design of resolu-
+tion R contains complete factorial designs (possibly replicated factorials) in any subset of 
+R 1 factors. This is an important and useful concept. For example, if an experimenter has
+several factors of potential interest but believes that only R 1 of them have important
+effects, then a fractional factorial design of resolution R is the appropriate choice of design.
+If the experimenter is correct, the fractional factorial design of resolution R will project into
+a full factorial in the R 1 signicant factors. This property is illustrated in Figure 8.2 for the
+design, which projects into a 22 design in every subset of two factors.
+Because the maximum possible resolution of a one-half fraction of the 2k design is 
+R k, every 2k1 design will project into a full factorial in any (k 1) of the original k factors.
+Furthermore, a 2k1 design may be projected into two replicates of a full factorial in any subset
+of k 2 factors, four replicates of a full factorial in any subset of k 3 factors, and so on.
+231
+III
+8.2 The One-Half Fraction of the 2k Design
+325
+C
+A
+b
+c
+a
+B
+abc
+■F I G U R E 8 . 2
+Projection of a 
+design into three 22 designs
+231
+III
+E X A M P L E 8 . 1
+Consider the ltration rate experiment in Example 6.2. The
+original design, shown in Table 6.10, is a single replicate of
+the 24 design. In that example, we found that the main
+effects A, C, and D and the interactions AC and AD were
+different from zero. We will now return to this experiment
+and simulate what would have happened if a half-fraction
+of the 24 design had been run instead of the full factorial.
+We will use the 241 design with I ABCD, because
+this choice of generator will result in a design of the high-
+est possible resolution (IV). To construct the design, we
+rst write down the basic design, which is a 23 design, as
+shown in the rst three columns of Table 8.3. This basic
+design has the necessary number of runs (eight) but only
+three columns (factors). To nd the fourth factor levels,
+solve I ABCD for D, or D ABC. Thus, the level of D
+in each run is the product of the plus and minus signs in
+columns A, B, and C. The process is illustrated in Table 8.3.
+Because the generator ABCD is positive, this
+design is
+the principal fraction. The design is shown graphically in
+Figure 8.3.
+Using the dening relation, we note that each main
+effect is aliased with a three-factor interaction; that is,
+A A2BCD BCD, B AB2CD ACD, C ABC2D 
+ABD, and D ABCD2 ABC. Furthermore, every two-factor
+241
+IV

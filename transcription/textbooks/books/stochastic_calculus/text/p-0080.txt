@@ -1,0 +1,52 @@
+74
+CHAPTER 2. BROWNIAN MOTION
+This is the solution to the equation
+∂tft(y) = L∗
+yft(y)
+with initial condition f0(y) = f(y). We can write the heat equation as
+a derivative for operators,
+∂tP ∗
+t = L∗P ∗
+t 
+2.10.2
+Expected value at a future time
+Suppose Bt is a Brownian motion with drift m and variance σ2, and let f
+be a function on R. For example, if we consider Bt to be the price of a stock
+and f to be the worth of a call option at strike price S at time t, then
+f(x) = (x −S)+ =
+
+x −S
+if x ≥S
+0
+if x < S
+
+(2.9)
+Let ϕ(t, x) be the expected value of f(Bt) given that B0 = x. We will write
+this as
+ϕ(t, x) = Ex [f(Bt)] = E [f(Bt) B0 = x] 
+Then
+ϕ(t, x) =
+∞
+−∞
+f(y) pt(x, y) dy
+The time derivative can be computed by interchanging dierentiation and
+integration and using the rule from the previous section.
+∂tϕ(t, x)
+=
+∂t
+∞
+−∞
+f(y) pt(x, y) dy
+=
+∞
+−∞
+f(y) ∂tpt(x, y) dy
+=
+∞
+−∞
+f(y) Lxpt(x, y) dy
+=
+Lx
+∞
+−∞
+f(y) pt(x, y) dy = Lxϕ(t, x)

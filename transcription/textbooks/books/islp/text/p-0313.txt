@@ -1,0 +1,50 @@
+7.7 Generalized Additive Models
+305
+Algorithm 7.1 Local Regression At X = x0
+1. Gather the fraction s = k/n of training points whose xi are closest
+to x0.
+2. Assign a weight Ki0 = K(xi, x0) to each point in this neighborhood,
+so that the point furthest from x0 has weight zero, and the closest
+has the highest weight. All but these k nearest neighbors get weight
+zero.
+3. Fit a weighted least squares regression of the yi on the xi using the
+aforementioned weights, by finding ˆβ0 and ˆβ1 that minimize
+n
+0
+i=1
+Ki0(yi −β0 −β1xi)2.
+(7.14)
+4. The fitted value at x0 is given by ˆf(x0) = ˆβ0 + ˆβ1x0.
+20
+30
+40
+50
+60
+70
+80
+0
+50
+100
+200
+300
+Age
+Wage
+Local Linear Regression
+Span is 0.2  (16.4 Degrees of Freedom)
+Span is 0.7  (5.3 Degrees of Freedom)
+FIGURE 7.10. Local linear fits to the Wage data. The span specifies the fraction
+of the data used to compute the fit at each target point.
+7.7
+Generalized Additive Models
+In Sections 7.1–7.6, we present a number of approaches for flexibly predict-
+ing a response Y on the basis of a single predictor X. These approaches can
+be seen as extensions of simple linear regression. Here we explore the prob-
+lem of flexibly predicting Y on the basis of several predictors, X1, . . . , Xp.
+This amounts to an extension of multiple linear regression.
+Generalized additive models (GAMs) provide a general framework for generalized
+additive
+model
+extending a standard linear model by allowing non-linear functions of each
+of the variables, while maintaining additivity. Just like linear models, GAMs
+additivity
+can be applied with both quantitative and qualitative responses. We first

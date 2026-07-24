@@ -1,0 +1,40 @@
+172CHAPTER 5. CHANGE OF MEASURE AND GIRSANOV THEOREM
+The solution to this last equation is a local martingale, but it not necessarily
+a martingale. If it is not a martingale, then some undesirable conclusions
+may result as in our examples above. Our rst assumption will be that it is
+a martingale.
+Assumption 1. The local martingale dened in (5.27) is actually a
+martingale.
+This assumption implies that Q is mutually absolutely continuous with re-
+spect to P. Theorem 5.3.2 gives a number of ways to establish Q ≪P. If
+Q ≪P, then we also get P ≪Q if PMt > 0= 1. Let
+Wt = Bt −
+t
+0
+rs −ms
+σs
+ds,
+which is a Brownian motion with respect to Q. Plugging in we see that
+d ˜St = σt ˜St dWt
+(5.28)
+This shows that ˜St is a martingale with respect to Q. We will want this
+to be a martingale, and we make this assumption.
+Assumption 2. The Q-local martingale ˜St satisfying (5.28) is actually
+a Q-martingale.
+Again, Theorem 5.3.2 gives some sucient conditions for establishing that
+the solution to (5.28) is a Q-martingale. We write EQ and EQ for expectations
+(regular and conditional) with respect to Q.
+Denition A claim V at time T is called a if V ≥0 and
+EQ
+
+˜V 2
+< ∞
+The (-) Vt, 0 ≤t ≤T, of a contingent claim VT is the
+minimum value of a self-nancing portfolio that can be hedged to guarantee
+that its value never drops below zero and at time T equals V .
+Given a contingent claim, we can set
+˜Vt = EQ
+
+˜V Ft
+
+

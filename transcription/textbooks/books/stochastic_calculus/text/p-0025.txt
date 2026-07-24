@@ -1,0 +1,34 @@
+1.4. MARTINGALE CONVERGENCE THEOREM
+19
+Example 1.3.3. As in Example 1.3.2, let Sn = X1 + · · · + Xn be simple
+random walk starting at 0. Let
+T = minn : Sn = 1,
+TJ = minn : Sn = 1 or Sn = −J
+Note that T = limJ∞TJ and
+PT = ∞= lim
+J∞P STJ = −J= lim
+J∞
+1
+J + 1 = 0
+Therefore, PT < ∞= 1, although Example 1.3.2 shows that for every J,
+E[T] ≥E [TJ] = J,
+and hence E[T] = ∞. Also, ST = 1, so we do not have E[S0] = E[ST]From
+this we can see that (1.8) and (1.9) are not satised by this example.
+1.4
+Martingale convergence theorem
+The martingale convergence theorem describes the behavior of a martingale
+Mn as n →∞.
+Theorem 1.4.1 (Martingale Convergence Theorem). SMn -
+FnC < ∞E [Mn] ≤C
+n. TM∞
+
+lim
+n∞Mn = M∞
+It does follow from the theorem that E[M∞] = E[M0]. For example,
+the martingale betting strategy satises the conditions of the theorem since
+E [Wn] = (1 −2−n) · 1 + (2n −1) · 2−n ≤2
+However, W∞= 1 and W0 = 0.
+We will prove the martingale convergence theorem. The proof uses
+a well-known nancial strategy — buy low, sell high. Suppose
+M0, M1, is a martingale such that
+E [Mn] ≤C < ∞,

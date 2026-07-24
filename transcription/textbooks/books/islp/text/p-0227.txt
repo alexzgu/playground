@@ -1,0 +1,55 @@
+5.3 Lab: Cross-Validation and the Bootstrap
+219
+Above we introduced the outer() method of the np.power() function. .outer()
+np.power()
+The outer() method is applied to an operation that has two arguments,
+such as add(), min(), or power(). It has two arrays as arguments, and then
+forms a larger array where the operation is applied to each pair of elements
+of the two arrays.
+In [11]: A = np.array([3, 5, 9])
+B = np.array([2, 4])
+np.add.outer(A, B)
+Out[11]: array([[ 5,
+7],
+[ 7,
+9],
+[11, 13]])
+In the CV example above, we used K = n, but of course we can also use
+K < n. The code is very similar to the above (and is significantly faster).
+Here we use KFold() to partition the data into K = 10 random groups. We KFold()
+use random_state to set a random seed and initialize a vector cv_error in
+which we will store the CV errors corresponding to the polynomial fits of
+degrees one to five.
+In [12]: cv_error = np.zeros(5)
+cv = KFold(n_splits=10,
+shuffle=True,
+random_state=0) # use same splits for each degree
+for i, d in enumerate(range(1,6)):
+X = np.power.outer(H, np.arange(d+1))
+M_CV = cross_validate(M,
+X,
+Y,
+cv=cv)
+cv_error[i] = np.mean(M_CV['test_score'])
+cv_error
+Out[12]: array([24.2077, 19.1853, 19.2763, 19.4785, 19.1372])
+Notice that the computation time is much shorter than that of LOOCV.
+(In principle, the computation time for LOOCV for a least squares linear
+model should be faster than for K-fold CV, due to the availability of the
+formula (5.2) for LOOCV; however, the generic cross_validate() function
+does not make use of this formula.) We still see little evidence that using
+cubic or higher-degree polynomial terms leads to a lower test error than
+simply using a quadratic fit.
+The cross_validate() function is flexible and can take different splitting
+mechanisms as an argument. For instance, one can use the ShuffleSplit() Shuffle
+Split()
+funtion to implement the validation set approach just as easily as K-fold
+cross-validation.
+In [13]: validation = ShuffleSplit(n_splits=1,
+test_size=196,
+random_state=0)
+results = cross_validate(hp_model,
+Auto.drop(['mpg'], axis=1),
+Auto['mpg'],
+cv=validation);
+results['test_score']

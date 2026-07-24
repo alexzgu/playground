@@ -1,0 +1,68 @@
+98
+CHAPTER 3. STOCHASTIC INTEGRATION
+can establish this by taking limits. To show that this characterization
+denes ⟨Z⟩uniquely, we need the following proposition. The total
+variation of a function f : [0, ∞) →R is dened as
+Vt(f) = sup
+n
+
+j=1
+f(tj−1) −f(tj)≤K,
+where the supremum is over all partitions
+0 = t0 < t1 < t2 < · · · < tn = t
+We say f has bounded variation (locally) if Vt(f) < ∞for all t. In-
+creasing functions clearly have bounded variation, and it is not too
+hard to see that the dierence of increasing functions has bounded
+variation. Also, if f is continuous with bounded variation,
+lim
+t0 Vt(f) = 0
+The next proposition shows that nontrivial continuous martingales
+never have paths of bounded variation.
+Proposition 3.2.7. Suppose Mt is a square integrable martingale with
+respect to Ftwith M0 = 0 such that with probability one, the paths
+of Mt are continuous with bounded variation. Then Mt = 0 for every
+t.
+Proof. Since Mt has continuous paths, it suces to show that PMt =
+0= 1 for every rational t. The argument is the same for all t, so
+let us assume t = 1. We rst make the stronger assumption that
+V1(M) ≤K < ∞. Let
+Qn =
+n
+
+j=1
+
+M
+j
+n
+
+−M
+j −1
+n
+2
+,
+δn =
+max
+j=1,,n
+M
+j
+n
+
+−M
+j −1
+n
+
+
+,
+and note that
+Qn ≤δn
+n
+
+j=1
+M
+j
+n
+
+−M
+j −1
+n
+≤δn K

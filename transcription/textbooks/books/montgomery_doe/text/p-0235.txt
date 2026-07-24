@@ -1,0 +1,154 @@
+5.6 Blocking in a Factorial Design
+219
+14
+0
+0.5
+0.25
+Desirability
+0.849109
+25
+Angle
+149.99901
+Speed
+Desirability
+Y
+5.5
+±1.922464
+0.75 1
+6
+4
+2
+0
+–2
+–4
+16
+18
+20
+22
+24
+26
+120
+130
+140
+150
+160
+170
+180
+0
+1
+0.75
+0.5
+0.25
+■TA B L E 5 . 1 9
+(Continued)
+Effect Tests
+Sum of
+Source
+Nparm
+DF
+Squares
+F Ratio
+Prob > F
+Angle
+1
+1
+49.000000
+33.9231
+0.0003*
+Speed
+1
+1
+16.000000
+11.0769
+0.0088*
+Angle*Speed
+1
+1
+8.000000
+5.5385
+0.0431*
+Angle*Angle
+1
+1
+6.4198e-31
+0.0000
+1.0000
+Speed*Speed
+1
+1
+1.333333
+0.9231
+0.3618
+Angle*Speed*Angle
+1
+1
+2.666667
+1.8462
+0.2073
+Speed*Speed*Angle
+1
+1
+42.666667
+29.5385
+0.0004*
+Angle*Speed*Angle*Speed
+1
+1
+8.000000
+5.5385
+0.0431*
+Sorted Parameter Estimates
+Term
+Estimate
+Std Error
+t Ratio
+Prob>|t|
+Angle
+0.7
+0.120185
+5.82
+0.0003*
+(Speed-150)*(Speed-150)*(Angle-20)
+0.00128
+0.000236
+5.43
+0.0004*
+Speed
+0.08
+0.024037
+3.33
+0.0088*
+(Angle-20)*(Speed-150)*(Angle-20)*(Speed-150)
+0.000192
+8.158a-5
+2.35
+0.0431*
+(Angle-20)*(Speed-150)
+0.008
+0.003399
+2.35
+0.0431*
+(Angle-20)*(Speed-150)*(Angle-20)
+0.0016
+0.001178
+1.36
+0.2073
+(Speed-150)*(Speed-150)
+0.0016
+0.001665
+0.96
+0.3618
+(Angle-20)*(Angle-20)
+2.776e-17
+0.041633
+0.00
+1.0000
+Prediction Proﬁler
+5.6
+Blocking in a Factorial Design
+We have discussed factorial designs in the context of a completely randomized experiment.
+Sometimes, it is not feasible or practical to completely randomize all of the runs in a factori-
+al. For example, the presence of a nuisance factor may require that the experiment be run in
+blocks. We discussed the basic concepts of blocking in the context of a single-factor experi-
+ment in Chapter 4. We now show how blocking can be incorporated in a factorial. Some other
+aspects of blocking in factorial designs are presented in Chapters 7, 8, 9, and 13.

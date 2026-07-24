@@ -1,0 +1,94 @@
+iv
+CONTENTS
+3
+Stochastic integration
+83
+3.1
+What is stochastic calculus? . . . . . . . . . . . . . . . . . . .
+83
+3.2
+Stochastic integral
+. . . . . . . . . . . . . . . . . . . . . . . .
+85
+3.2.1
+Review of Riemann integration
+. . . . . . . . . . . . .
+85
+3.2.2
+Integration of simple processes . . . . . . . . . . . . . .
+86
+3.2.3
+Integration of continuous processes
+. . . . . . . . . . .
+89
+3.3
+Itˆo’s formula . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+99
+3.4
+More versions of Itˆo’s formula . . . . . . . . . . . . . . . . . . 105
+3.5
+Diusions
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . 111
+3.6
+Covariation and the product rule
+. . . . . . . . . . . . . . . . 116
+3.7
+Several Brownian motions
+. . . . . . . . . . . . . . . . . . . . 117
+3.8
+Exercises . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 120
+4
+More stochastic calculus
+125
+4.1
+Martingales and local martingales . . . . . . . . . . . . . . . . 125
+4.2
+An example: the Bessel process
+. . . . . . . . . . . . . . . . . 131
+4.3
+Feynman-Kac formula
+. . . . . . . . . . . . . . . . . . . . . . 133
+4.4
+Binomial approximations . . . . . . . . . . . . . . . . . . . . . 137
+4.5
+Continuous martingales . . . . . . . . . . . . . . . . . . . . . . 141
+4.6
+Exercises . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 143
+5
+Change of measure and Girsanov theorem
+145
+5.1
+Absolutely continuous measures . . . . . . . . . . . . . . . . . 145
+5.2
+Giving drift to a Brownian motion
+. . . . . . . . . . . . . . . 150
+5.3
+Girsanov theorem . . . . . . . . . . . . . . . . . . . . . . . . . 153
+5.4
+Black-Scholes formula . . . . . . . . . . . . . . . . . . . . . . . 162
+5.5
+Martingale approach to Black-Scholes equation . . . . . . . . . 166
+5.6
+Martingale approach to pricing
+. . . . . . . . . . . . . . . . . 169
+5.7
+Martingale representation theorem
+. . . . . . . . . . . . . . . 178
+5.8
+Exercises . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 180
+6
+Jump processes
+185
+6.1
+L´evy processes . . . . . . . . . . . . . . . . . . . . . . . . . . . 185
+6.2
+Poisson process . . . . . . . . . . . . . . . . . . . . . . . . . . 188
+6.3
+Compound Poisson process . . . . . . . . . . . . . . . . . . . . 192
+6.4
+Integration with respect to compound Poisson processes . . . . 200
+6.5
+Change of measure . . . . . . . . . . . . . . . . . . . . . . . . 205
+6.6
+Generalized Poisson processes I
+. . . . . . . . . . . . . . . . . 206

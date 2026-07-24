@@ -1,0 +1,52 @@
+11.4 Experimental Designs for Fitting Response Surfaces
+501
+11.4.1
+Designs for Fitting the First-Order Model
+Suppose we wish to t the rst-order model in k variables
+(11.14)
+There is a unique class of designs that minimizes the variance of the regression coefcients
+. These are the orthogonal ﬁrst-order designs. A rst-order design is orthogonal if the
+off-diagonal elements of the (XX) matrix are all zero. This implies that the cross products of
+the columns of the X matrix sum to zero.
+The class of orthogonal rst-order designs includes the 2k factorial and fractions of the
+2k series in which main effects are not aliased with each other. In using these designs, we
+assume that the low and high levels of the k factors are coded to the usual 1 levels.
+The 2k design does not afford an estimate of the experimental error unless some runs
+are replicated. A common method of including replication in the 2k design is to augment the
+design with several observations at the center (the point xi 0, i 1, 2, . . . , k). The addition
+of center points to the 2k design does not inuence the 
+for i 1, but the estimate of 0
+becomes the grand average of all observations. Furthermore, the addition of center points
+does not alter the orthogonality property of the design. Example 11.1 illustrates the use of a
+22 design augmented with ve center points to t a rst-order model.
+Another orthogonal rst-order design is the simplex. The simplex is a regularly sided
+gure with k 1 vertices in k dimensions. Thus, the simplex design for k 2 is an equilat-
+eral triangle, and it is a regular tetrahedron for k 3. Simplex designs in two and three
+dimensions are shown in Figure 11.19.
+11.4.2
+Designs for Fitting the Second-Order Model
+We have informally introduced in Example 11.2 (and even earlier, in Example 6.6) the cen-
+tral composite design or CCD for tting a second-order model. This is the most popular
+class of designs used for tting these models. Generally, the CCD consists of a 2k factorial (or
+fractional factorial of resolution V) with nF factorial runs, 2k axial or star runs, and nC center
+runs. Figure 11.20 shows the CCD for k 2 and k 3 factors.
+The practical deployment of a CCD often arises through sequential experimentation,
+as in Examples 11.1 and 11.2. That is, a 2k has been used to t a rst-order model, this model
+has exhibited lack of t, and the axial runs are then added to allow the quadratic terms to be
+incorporated into the model. The CCD is a very efcient design for tting the second-order
+ˆ i
+ˆ i
+y 0 
+k
+i1
+i xi 
+(a)
+(b)
+x2
+x3
+x2
+x1
+x1
+■F I G U R E 1 1 . 1 9
+The simplex design for (a) k 2 variables and 
+(b) k 3 variables

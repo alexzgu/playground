@@ -1,0 +1,436 @@
+380
+Chapter 8 ■Two-Level Fractional Factorial Designs
+■TA B L E P 8 . 4
+Data for Problem 8.29
+A
+B
+C
+D
+E
+F
+Resist Thickness
+Run
+Volume
+Batch
+Time (sec)
+Speed
+Acc.
+Cover
+Left
+Center
+Right
+Avg.
+Range
+1
+5
+Batch 2
+14
+7350
+5
+Off
+4531
+4531
+4515
+4525.7
+16
+2
+5
+Batch 1
+6
+7350
+5
+Off
+4446
+4464
+4428
+4446
+36
+3
+3
+Batch 1
+6
+6650
+5
+Off
+4452
+4490
+4452
+4464.7
+38
+4
+3
+Batch 2
+14
+7350
+20
+Off
+4316
+4328
+4308
+4317.3
+20
+5
+3
+Batch 1
+14
+7350
+5
+Off
+4307
+4295
+4289
+4297
+18
+6
+5
+Batch 1
+6
+6650
+20
+Off
+4470
+4492
+4495
+4485.7
+25
+7
+3
+Batch 1
+6
+7350
+5
+On
+4496
+4502
+4482
+4493.3
+20
+8
+5
+Batch 2
+14
+6650
+20
+Off
+4542
+4547
+4538
+4542.3
+9
+9
+5
+Batch 1
+14
+6650
+5
+Off
+4621
+4643
+4613
+4625.7
+30
+10
+3
+Batch 1
+14
+6650
+5
+On
+4653
+4670
+4645
+4656
+25
+11
+3
+Batch 2
+14
+6650
+20
+On
+4480
+4486
+4470
+4478.7
+16
+12
+3
+Batch 1
+6
+7350
+20
+Off
+4221
+4233
+4217
+4223.7
+16
+13
+5
+Batch 1
+6
+6650
+5
+On
+4620
+4641
+4619
+4626.7
+22
+14
+3
+Batch 1
+6
+6650
+20
+On
+4455
+4480
+4466
+4467
+25
+15
+5
+Batch 2
+14
+7350
+20
+On
+4255
+4288
+4243
+4262
+45
+16
+5
+Batch 2
+6
+7350
+5
+On
+4490
+4534
+4523
+4515.7
+44
+17
+3
+Batch 2
+14
+7350
+5
+On
+4514
+4551
+4540
+4535
+37
+18
+3
+Batch 1
+14
+6650
+20
+Off
+4494
+4503
+4496
+4497.7
+9
+19
+5
+Batch 2
+6
+7350
+20
+Off
+4293
+4306
+4302
+4300.3
+13
+20
+3
+Batch 2
+6
+7350
+5
+Off
+4534
+4545
+4512
+4530.3
+33
+21
+5
+Batch 1
+14
+6650
+20
+On
+4460
+4457
+4436
+4451
+24
+22
+3
+Batch 2
+6
+6650
+5
+On
+4650
+4688
+4656
+4664.7
+38
+23
+5
+Batch 1
+14
+7350
+20
+Off
+4231
+4244
+4230
+4235
+14
+24
+3
+Batch 2
+6
+7350
+20
+On
+4225
+4228
+4208
+4220.3
+20
+25
+5
+Batch 1
+14
+7350
+5
+On
+4381
+4391
+4376
+4382.7
+15
+26
+3
+Batch 2
+6
+6650
+20
+Off
+4533
+4521
+4511
+4521.7
+22
+27
+3
+Batch 1
+14
+7350
+20
+On
+4194
+4230
+4172
+4198.7
+58
+28
+5
+Batch 2
+6
+6650
+5
+Off
+4666
+4695
+4672
+4677.7
+29
+29
+5
+Batch 1
+6
+7350
+20
+On
+4180
+4213
+4197
+4196.7
+33
+30
+5
+Batch 2
+6
+6650
+20
+On
+4465
+4496
+4463
+4474.7
+33
+31
+5
+Batch 2
+14
+6650
+5
+On
+4653
+4685
+4665
+4667.7
+32
+32
+3
+Batch 2
+14
+6650
+5
+Off
+4683
+4712
+4677
+4690.7
+35
+■TA B L E P 8 . 5
+Factors and Levels for the Winemaking Experiment
+Variable
+Low Level ()
+High Level ()
+A Pinot Noir clone
+Pommard
+Wadenswil
+B Oak type
+Allier
+Troncais
+C Age of barrel
+Old
+New
+D Yeast/skin contact
+Champagne
+Montrachet
+E Stems
+None
+All
+F Barrel toast
+Light
+Medium
+G Whole cluster
+None
+10%
+H Fermentation temperature
+Low (75°F max)
+High (92°F max) 

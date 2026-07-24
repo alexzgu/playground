@@ -1,0 +1,35 @@
+10.3 Convolutional Neural Networks
+409
+FIGURE 10.7. Convolution filters find local features in an image, such as edges
+and small shapes. We begin with the image of the tiger shown on the left, and
+apply the two small convolution filters in the middle. The convolved images high-
+light areas in the original image where details similar to the filters are found.
+Specifically, the top convolved image highlights the tiger’s vertical stripes, whereas
+the bottom convolved image highlights the tiger’s horizontal stripes. We can think
+of the original image as the input layer in a convolutional neural network, and
+the convolved images as the units in the first hidden layer.
+We have used a large image and two large filters in Figure 10.7 for illus-
+tration. For the CIFAR100 database there are 32×32 color pixels per image,
+and we use 3 × 3 convolution filters.
+In a convolution layer, we use a whole bank of filters to pick out a variety
+of differently-oriented edges and shapes in the image. Using predefined
+filters in this way is standard practice in image processing. By contrast,
+with CNNs the filters are learned for the specific classification task. We can
+think of the filter weights as the parameters going from an input layer to a
+hidden layer, with one hidden unit for each pixel in the convolved image.
+This is in fact the case, though the parameters are highly structured and
+constrained (see Exercise 4 for more details). They operate on localized
+patches in the input image (so there are many structural zeros), and the
+same weights in a given filter are reused for all possible patches in the image
+(so the weights are constrained).9
+We now give some additional details.
+• Since the input image is in color, it has three channels represented
+by a three-dimensional feature map (array). Each channel is a two-
+dimensional (32 × 32) feature map — one for red, one for green, and
+one for blue. A single convolution filter will also have three channels,
+one per color, each of dimension 3×3, with potentially different filter
+weights. The results of the three convolutions are summed to form
+a two-dimensional output feature map. Note that at this point the
+color information has been used, and is not passed on to subsequent
+layers except through its role in the convolution.
+9This used to be called weight sharing in the early years of neural networks.

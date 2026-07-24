@@ -1,0 +1,86 @@
+errors of the variance components. If 
+is the MLE of 
+and 
+is its estimated standard
+error, then the approximate 100(1 – )% CI on 
+is 
+JMP uses this approach to nd the approximate CIs 
+and 
+shown in the output. The 
+95 percent CI from REML for 
+is very similar to the chi-square based interval computed
+earlier in Section 3.9.
+3.10
+The Regression Approach to the Analysis of Variance
+We have given an intuitive or heuristic development of the analysis of variance. However, it
+is possible to give a more formal development. The method will be useful later in understand-
+ing the basis for the statistical analysis of more complex designs. Called the general regres-
+sion signiﬁcance test, the procedure essentially consists of nding the reduction in the total
+sum of squares for tting the model with all parameters included and the reduction in sum of
+squares when the model is restricted to the null hypotheses. The difference between these two
+sums of squares is the treatment sum of squares with which a test of the null hypothesis can
+be conducted. The procedure requires the least squares estimators of the parameters in the
+analysis of variance model. We have given these parameter estimates previously (in Section
+3.3.3); however, we now give a formal development.
+3.10.1
+Least Squares Estimation of the Model Parameters
+We now develop estimators for the parameter in the single-factor ANOVA xed-effects model
+using the method of least squares. To nd the least squares estimators of and i, we rst
+form the sum of squares of the errors
+(3.61)
+and then choose values of and i, say 
+and , that minimize L. The appropriate values
+would be the solutions to the a 1 simultaneous equations
+Differentiating Equation 3.61 with respect to and i and equating to zero, we obtain
+and
+which, after simplication, yield
+nˆ nˆ1
+y1!
+Nˆ nˆ1 nˆ2 Á nˆa
+y..
+2 
+n
+j1
+ (yij ˆ ˆi) 0 
+ i 1, 2, . . . , a
+2 
+a
+i1 
+n
+j1
+ (yij ˆ ˆi) 0
+L
+i
+ˆ,ˆi
+0 i 1, 2, . . . , a
+L
+
+ˆ,ˆi
+0
+ˆi
+ˆ
+L 
+a
+i1 
+n
+j1
+2
+ij 
+a
+i1 
+n
+j1
+ (yij i)2
+yij i ij
+2
+2
+2
+
+ˆ Z/2ˆ (ˆ ) ˆ Z/2ˆ (ˆ )
+
+
+ˆ (ˆ )
+
+ˆ
+3.10 The Regression Approach to the Analysis of Variance
+125

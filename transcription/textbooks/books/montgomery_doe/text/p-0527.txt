@@ -1,0 +1,158 @@
+11.4 Experimental Designs for Fitting Response Surfaces
+511
+where Bb is the total of the nb observations in the bth block and G is the grand total of all N
+observations in all m blocks. When blocks are not exactly orthogonal, the general regression
+signicance test (the “extra sum of squares” method) described in Chapter 10 can be used.
+11.4.4
+Optimal Designs for Response Surfaces
+The standard response surface designs discussed in the previous sections, such as the central
+composite design, the Box–Behnken design, and their variations (such as the face-centered
+cube), are widely used because they are quite general and exible designs. If the experimen-
+tal region is either a cube or a sphere, typically a standard response surface design will be
+applicable to the problem. However, occasionally an experimenter encounters a situation
+where a standard response surface design may not be the obvious choice. Optimal designs
+are an alternative to consider in these cases.
+As we have noted before, there are several situations where some type of computer-
+generated design may be appropriate.
+1. An irregular experimental region.
+If the region of interest for the experiment is
+not a cube or a sphere, standard designs may not be the best choice. Irregular regions
+of interest occur fairly often. For example, an experimenter is investigating the prop-
+erties of a particular adhesive. The adhesive is applied to two parts and then cured
+at an elevated temperature. The two factors of interest are the amount of adhesive
+applied and the cure temperature. Over the ranges of these two factors, taken as 1
+to 1 on the usual coded variable scale, the experimenter knows that if too little
+adhesive is applied and the cure temperature is too low, the parts will not bond
+■TA B L E 1 1 . 1 1
+Some Rotatable and Near-Rotatable Central Composite Designs That Block Orthogonally
+5
+6
+7
+k
+2
+3
+4
+5
+Rep.
+6
+Rep.
+7
+Rep.
+Factorial Block(s)
+nF
+4
+8
+16
+32
+16
+64
+32
+128
+64
+Number of blocks
+1
+2
+2
+4
+1
+8
+2
+16
+8
+Number of points in 
+4
+4
+8
+8
+16
+8
+16
+8
+8
+each block
+Number of center 
+3
+2
+2
+2
+6
+1
+4
+1
+1
+points in each block
+Total number of points  
+7
+6
+10
+10
+22
+9
+20
+9
+9
+in each block
+Axial Block
+nA
+4
+6
+8
+10
+10
+12
+12
+14
+14
+nCA
+3
+2
+2
+4
+1
+6
+2
+11
+4
+Total number of points 
+7
+8
+10
+14
+11
+18
+14
+25
+18
+in the axial block
+Total number of points 
+14
+20
+30
+54
+33
+90
+54
+169
+80
+N in the design
+Values of 
+Orthogonal blocking
+1.4142
+1.6330
+2.0000
+2.3664
+2.0000 2.8284
+2.3664 3.3333 2.8284
+Rotatability
+1.4142
+1.6818
+2.0000
+2.3784
+2.0000 2.8284
+2.3784 3.3636 2.8284
+1
+2
+1
+2
+1
+2

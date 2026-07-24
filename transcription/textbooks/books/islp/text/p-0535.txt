@@ -1,0 +1,50 @@
+12.4 Clustering Methods
+529
+Algorithm 12.3 Hierarchical Clustering
+1. Begin with n observations and a measure (such as Euclidean dis-
+tance) of all the
+'n
+2
+(
+= n(n −1)/2 pairwise dissimilarities. Treat each
+observation as its own cluster.
+2. For i = n, n −1, . . . , 2:
+(a) Examine all pairwise inter-cluster dissimilarities among the i
+clusters and identify the pair of clusters that are least dissimilar
+(that is, most similar). Fuse these two clusters. The dissimilarity
+between these two clusters indicates the height in the dendro-
+gram at which the fusion should be placed.
+(b) Compute the new pairwise inter-cluster dissimilarities among
+the i −1 remaining clusters.
+The Hierarchical Clustering Algorithm
+The hierarchical clustering dendrogram is obtained via an extremely simple
+algorithm. We begin by defining some sort of dissimilarity measure between
+each pair of observations. Most often, Euclidean distance is used; we will
+discuss the choice of dissimilarity measure later in this chapter. The algo-
+rithm proceeds iteratively. Starting out at the bottom of the dendrogram,
+each of the n observations is treated as its own cluster. The two clusters
+that are most similar to each other are then fused so that there now are
+n−1 clusters. Next the two clusters that are most similar to each other are
+fused again, so that there now are n −2 clusters. The algorithm proceeds
+in this fashion until all of the observations belong to one single cluster, and
+the dendrogram is complete. Figure 12.13 depicts the first few steps of the
+algorithm, for the data from Figure 12.12. To summarize, the hierarchical
+clustering algorithm is given in Algorithm 12.3.
+This algorithm seems simple enough, but one issue has not been ad-
+dressed. Consider the bottom right panel in Figure 12.13. How did we
+determine that the cluster {5, 7} should be fused with the cluster {8}?
+We have a concept of the dissimilarity between pairs of observations, but
+how do we define the dissimilarity between two clusters if one or both of
+the clusters contains multiple observations? The concept of dissimilarity
+between a pair of observations needs to be extended to a pair of groups
+of observations. This extension is achieved by developing the notion of
+linkage, which defines the dissimilarity between two groups of observa- linkage
+tions. The four most common types of linkage—complete, average, single,
+and centroid—are briefly described in Table 12.3. Average, complete, and
+single linkage are most popular among statisticians. Average and complete
+linkage are generally preferred over single linkage, as they tend to yield
+more balanced dendrograms. Centroid linkage is often used in genomics,
+but suffers from a major drawback in that an inversion can occur, whereby inversion
+two clusters are fused at a height below either of the individual clusters in
+the dendrogram. This can lead to difficulties in visualization as well as in in-
+terpretation of the dendrogram. The dissimilarities computed in Step 2(b)

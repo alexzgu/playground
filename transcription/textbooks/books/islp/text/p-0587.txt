@@ -1,0 +1,58 @@
+13.5 A Re-Sampling Approach to p-Values and False Discovery Rates
+581
+However, the numerator E(V ) on the right-hand side of (13.13) is more
+challenging. This is the expected number of false positives associated with
+rejecting any null hypothesis for which the test statistic exceeds c in abso-
+lute value. At the risk of stating the obvious, estimating V is challenging
+because we do not know which of H01, . . . , H0m are really true, and so we
+do not know which rejected hypotheses are false positives. To overcome this
+problem, we take a re-sampling approach, in which we simulate data under
+H01, . . . , H0m, and then compute the resulting test statistics. The number
+of re-sampled test statistics that exceed c provides an estimate of V .
+In greater detail, in the case of a two-sample t-statistic (13.11) for each
+of the null hypotheses H01, . . . , H0m, we can estimate E(V ) as follows. Let
+x(j)
+1 , . . . , x(j)
+nX and y(j)
+1 , . . . , y(j)
+nY denote the data associated with the jth
+null hypothesis, j = 1, . . . , m. We permute these nX + nY observations at
+random, and then compute the t-statistic on the permuted data. For this
+permuted data, we know that all of the null hypotheses H01, . . . , H0m hold;
+therefore, the number of permuted t-statistics that exceed the threshold c in
+absolute value provides an estimate for E(V ). This estimate can be further
+improved by repeating the permutation process B times, for a large value
+of B, and averaging the results.
+Algorithm 13.4 details this procedure.18 It provides what is known as a
+plug-in estimate of the FDR, because the approximation in (13.13) allows us
+to estimate the FDR by plugging R into the denominator and an estimate
+for E(V ) into the numerator.
+We apply the re-sampling approach to the FDR from Algorithm 13.4,
+as well as the Benjamini–Hochberg approach from Algorithm 13.2 using
+theoretical p-values, to the m = 2,308 genes in the Khan dataset. Results are
+shown in Figure 13.9. We see that for a given number of rejected hypotheses,
+the estimated FDRs are almost identical for the two methods.
+We began this section by noting that in order to control the FDR for m
+hypothesis tests using a re-sampling approach, we could simply compute m
+re-sampling p-values as in Section 13.5.1, and then apply the Benjamini–
+Hochberg procedure of Section 13.4.2 to these p-values. It turns out that if
+we define the jth re-sampling p-value as
+pj =
+)m
+j′=1
+)B
+b=1 1(|T ∗b
+j′ |≥|Tj|)
+Bm
+(13.14)
+for j = 1, . . . , m, instead of as in (13.12), then applying the Benjamini–
+Hochberg procedure to these re-sampled p-values is exactly equivalent to
+Algorithm 13.4. Note that (13.14) is an alternative to (13.12) that pools
+the information across all m hypothesis tests in approximating the null
+distribution.
+13.5.3
+When Are Re-Sampling Approaches Useful?
+In Sections 13.5.1 and 13.5.2, we considered testing null hypotheses of the
+form H0 : E(X) = E(Y ) using a two-sample t-statistic (13.11), for which we
+18To implement Algorithm 13.4 efficiently, the same set of permutations in Step 2(b)i.
+should be used for all m null hypotheses.

@@ -1,0 +1,107 @@
+8.38.
+An article in the International Journal of Research in
+Marketing (“Experimental design on the front lines of market-
+ing: Testing new ideas to increase direct mail sales,” 2006,
+Vol. 23, pp. 309–319) describes the use of a 20-run
+8.10 Problems
+385
+Plackett–Burman design to investigate the effects of 19 fac-
+tors to improve the response rate to a direct mail sales cam-
+paign to attract new customers to a credit card. The 19 factors
+are as follows:
+Factor
+() Control
+() New idea
+A: Envelope teaser
+General offer
+Product-specic offer
+B: Return address
+Blind
+Add company name
+C: “Ofcial” ink-stamp on envelope
+Yes
+No
+D: Postage
+Pre-printed
+Stamp
+E: Additional graphic on envelope
+Yes
+No
+F: Price graphic on letter
+Small
+Large
+G: Sticker
+Yes
+No
+H: Personalize letter copy
+No
+Yes
+I: Copy message
+Targeted
+Generic
+J: Letter headline
+Headline 1
+Headline 2
+K: List of benets
+Standard layout
+Creative layout
+L: Postscript on letter
+Control version
+New P.S.
+M: Signature
+Manager
+Senior executive
+N: Product selection
+Many
+Few
+O: Value of free gift
+High
+Low
+P: Reply envelope
+Control
+New style
+Q: Information on buckslip
+Product info
+Free gift info
+R: 2nd buckslip
+No
+Yes
+S: Interest rate
+Low
+High
+The 20-run Plackett–Burman design is shown in Table P8.10.
+Each test combination in Table P8.17 was mailed to 5,000
+potential customers, and the response rate is the percentage of
+customers who responded positively to the offer.
+(a) Verify that in this design each main effect is aliased
+with all two-factor interactions except those that
+involve that main effect. That is, in the 19 factor
+design, the main effect for each factor is aliased
+with all two-factor interactions involving the 
+other 18 factors, or 153 two-factor interactions
+(18!/2!16!).
+(b) Show that for the 20-run Plackett–Burman design in
+Table P8.17, the weights (or correlations) that multiple
+the two-factor interactions in each alias chain are
+either 0.2, 0.2, or 0.6. Of the 153 interactions
+that are aliased with each main effect, 144 have
+weights of 0.2 or 0.2, while nine interactions have
+weights of 0.6.
+(c) Verify that the ve largest main effects are S, G, R, I,
+and J.
+(d) Factors S (interest rate) and G (presence of a sticker)
+are by far the largest main effects. The correlation
+between the main effect of R (2nd buckslip) and the
+SG interaction is 0.6. This means that a signicant
+SG interaction would bias the estimate of the main
+effect of R by –0.6 times the value of the interaction.
+This suggests that it may not be the main effect of fac-
+tor R that is important, but the two-factor interaction
+between S and G.
+(e) Since this design projects into a full factorial in any
+three factors, obtain the projection in factors S, G, and
+R and verify that it is a full factorial with some runs
+replicated. Fit a full factorial model involving all three
+of these factors and the interactions (you will need to
+use a regression program to do this). Show that S, G,
+and the SG interaction are signicant.

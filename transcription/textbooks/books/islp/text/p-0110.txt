@@ -1,0 +1,54 @@
+3.3 Other Considerations in the Regression Model
+101
+yi −ˆyi, versus the predictor xi. In the case of a multiple regression model,
+since there are multiple predictors, we instead plot the residuals versus
+the predicted (or fitted) values ˆyi. Ideally, the residual plot will show no fitted
+discernible pattern. The presence of a pattern may indicate a problem with
+some aspect of the linear model.
+The left panel of Figure 3.9 displays a residual plot from the linear re-
+gression of mpg onto horsepower on the Auto data set that was illustrated in
+Figure 3.8. The red line is a smooth fit to the residuals, which is displayed in
+order to make it easier to identify any trends. The residuals exhibit a clear
+U-shape, which provides a strong indication of non-linearity in the data.
+In contrast, the right-hand panel of Figure 3.9 displays the residual plot
+that results from the model (3.36), which contains a quadratic term. There
+appears to be little pattern in the residuals, suggesting that the quadratic
+term improves the fit to the data.
+If the residual plot indicates that there are non-linear associations in the
+data, then a simple approach is to use non-linear transformations of the
+predictors, such as log X,
+√
+X, and X2, in the regression model. In the
+later chapters of this book, we will discuss other more advanced non-linear
+approaches for addressing this issue.
+2. Correlation of Error Terms
+An important assumption of the linear regression model is that the error
+terms, ϵ1, ϵ2, . . . , ϵn, are uncorrelated. What does this mean? For instance,
+if the errors are uncorrelated, then the fact that ϵi is positive provides
+little or no information about the sign of ϵi+1. The standard errors that
+are computed for the estimated regression coefficients or the fitted values
+are based on the assumption of uncorrelated error terms. If in fact there is
+correlation among the error terms, then the estimated standard errors will
+tend to underestimate the true standard errors. As a result, confidence and
+prediction intervals will be narrower than they should be. For example,
+a 95 % confidence interval may in reality have a much lower probability
+than 0.95 of containing the true value of the parameter. In addition, p-
+values associated with the model will be lower than they should be; this
+could cause us to erroneously conclude that a parameter is statistically
+significant. In short, if the error terms are correlated, we may have an
+unwarranted sense of confidence in our model.
+As an extreme example, suppose we accidentally doubled our data, lead-
+ing to observations and error terms identical in pairs. If we ignored this, our
+standard error calculations would be as if we had a sample of size 2n, when
+in fact we have only n samples. Our estimated parameters would be the
+same for the 2n samples as for the n samples, but the confidence intervals
+would be narrower by a factor of
+√
+2!
+Why might correlations among the error terms occur? Such correlations
+frequently occur in the context of time series data, which consists of ob- time series
+servations for which measurements are obtained at discrete points in time.
+In many cases, observations that are obtained at adjacent time points will
+have positively correlated errors. In order to determine if this is the case for
+a given data set, we can plot the residuals from our model as a function of
+time. If the errors are uncorrelated, then there should be no discernible pat-

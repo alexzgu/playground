@@ -1,0 +1,147 @@
+332
+Chapter 8 ■Two-Level Fractional Factorial Designs
+we can always run the alternate fraction and complete the 24 design. When this method is used
+to complete the design, both one-half fractions represent blocks of the complete design with
+the highest order interaction confounded with blocks (here ABCD would be confounded).
+Thus, sequential experimentation has the result of losing information only on the highest
+order interaction. Its advantage is that in many cases we learn enough from the one-half frac-
+tion to proceed to the next stage of experimentation, which might involve adding or remov-
+ing factors, changing responses, or varying some of the factors over new ranges. Some of
+these possibilities are illustrated graphically in Figure 8.11.
+E X A M P L E 8 . 3
+Reconsider the experiment in Example 8.1. We have used a
+design and tentatively identied three large main
+effects—A, C, and D. There are two large effects associated
+with two-factor interactions, AC BD and AD BC.
+In Example 8.2, we used the fact that the main effect of B
+was negligible to tentatively conclude that the important
+241
+IV
+The effect estimates (and their aliases) obtained from this
+alternate fraction are
+These estimates may be combined with those obtained
+from the original one-half fraction to yield the following
+estimates of the effects:
+ [AD]
+ 14.25 l AD 
+BC
+ [AC]17.75 l AC 
+BD
+ [AB]
+ 1.25 l AB 
+CD
+ [D]
+ 12.75 l
+D ABC
+ [C]
+ 5.75 l
+C ABD
+ [B]
+ 4.75 l
+B ACD
+ [A]
+ 24.25 l
+A BCD
+i
+From ([i] [i])
+From ([i] [i])
+A
+21.63 : A
+2.63 : BCD
+B
+3.13 : B
+1.63 : ACD
+C
+9.88 : C
+4.13 : ABD
+D
+14.63 : D
+1.88 : ABC
+AB
+0.13 : AB
+1.13 : CD
+AC
+18.13 : AC
+0.38 : BD
+AD
+16.63 : AD
+2.38 :
+BC
+These estimates agree exactly with those from the original
+analysis of the data as a single replicate of a 24 factorial
+design, as reported in Example 6.2. Clearly, it is the AC and
+AD interactions that are large.
+1
+2
+1
+2
+interactions were AC and AD. Sometimes the experimenter
+will have process knowledge that can assist in discriminating
+between interactions likely to be important. However, we can
+always isolate the signicant interaction by running the alter-
+nate fraction, given by I ABCD. It is straightforward to
+show that the design and the responses are as follows:
+Basic Design
+Run
+A
+B
+C
+D ABC
+Treatment Combination
+Filtration Rate
+1
+
+
+
+
+d
+43
+2
+
+
+
+
+a
+71
+3
+
+
+
+
+b
+48
+4
+
+
+
+
+abd
+104
+5
+
+
+
+
+c
+68
+6
+
+
+
+
+acd
+86
+7
+
+
+
+
+bcd
+70
+8
+
+
+
+
+abc
+65

@@ -1,0 +1,55 @@
+562
+13. Multiple Testing
+Truth
+H0
+Ha
+Decision
+Reject H0
+Type I Error
+Correct
+Do Not Reject H0
+Correct
+Type II Error
+TABLE 13.1. A summary of the possible scenarios associated with testing the
+null hypothesis H0. Type I errors are also known as false positives, and Type II
+errors as false negatives.
+what value of the test statistic should be expected, under H0. This is exactly
+what a p-value gives us. In other words, a p-value allows us to transform
+our test statistic, which is measured on some arbitrary and uninterpretable
+scale, into a number between 0 and 1 that can be more easily interpreted.
+Step 4: Decide Whether to Reject the Null Hypothesis
+Once we have computed a p-value corresponding to H0, it remains for
+us to decide whether or not to reject H0. (We do not usually talk about
+“accepting” H0: instead, we talk about “failing to reject” H0.) A small p-
+value indicates that such a large value of the test statistic is unlikely to
+occur under H0, and thereby provides evidence against H0. If the p-value
+is sufficiently small, then we will want to reject H0 (and, therefore, make
+a “discovery”). But how small is small enough to reject H0?
+It turns out that the answer to this question is very much in the eyes
+of the beholder, or more specifically, the data analyst. The smaller the p-
+value, the stronger the evidence against H0. In some fields, it is typical to
+reject H0 if the p-value is below 0.05; this means that, if H0 holds, we would
+expect to see such a small p-value no more than 5% of the time.9 However,
+in other fields, a much higher burden of proof is required: for example, in
+some areas of physics, it is typical to reject H0 only if the p-value is below
+10−9!
+In the example displayed in Figure 13.1, if we use a threshold of 0.05 as
+our cut-off for rejecting the null hypothesis, then we will reject the null. By
+contrast, if we use a threshold of 0.01, then we will fail to reject the null.
+These ideas are formalized in the next section.
+13.1.2
+Type I and Type II Errors
+If the null hypothesis holds, then we say that it is a true null hypothesis; true null
+hypothesis
+otherwise, it is a false null hypothesis. For instance, if we test H0 : µt = µc
+false null
+hypothesis
+as in Section 13.1.1, and there is indeed no difference in the population
+mean blood pressure for mice in the treatment group and mice in the
+control group, then H0 is true; otherwise, it is false. Of course, we do not
+know a priori whether H0 is true or whether it is false: this is why we need
+to conduct a hypothesis test!
+9Though a threshold of 0.05 to reject H0 is ubiquitous in some areas of science, we
+advise against blind adherence to this arbitrary choice. Furthermore, a data analyst
+should typically report the p-value itself, rather than just whether or not it exceeds a
+specified threshold value.

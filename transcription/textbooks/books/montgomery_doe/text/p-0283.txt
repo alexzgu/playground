@@ -1,0 +1,65 @@
+6.5 A Single Replicate of the 2k Design
+267
+In our example, N 16, so the lines are at y  and y  . Thus, for any given value
+of the standard deviation , we can read off the distance between these two lines as an approx-
+imate 95 percent condence interval on the negligible effects.
+In Figure 6.16, we observe that if the experimenter thinks that the standard deviation is
+between 4 and 8, then factors A, C, D, and the AC and AD interactions are signicant. If he or
+she thinks that the standard deviation is as large as 10, factor C may not be signicant. That is,
+for any given assumption about the magnitude of , the experimenter can construct a “yardstick”
+for judging the approximate signicance of effects. The chart can also be used in reverse. For
+example, suppose that we were uncertain about whether factor C is signicant. The experimenter
+could then ask whether it is reasonable to expect that could be as large as 10 or more. If it is
+unlikely that is as large as 10, then we can conclude that C is signicant.
+Effect of Outliers in Unreplicated Designs. Experimenters often worry about the
+impact of outliers in unreplicated designs, concerned that the outlier will invalidate the analy-
+sis and render the results of the experiment useless. This usually isn’t a major concern. The
+reason for this is that the effect estimates are reasonably robust to outliers. To see this,
+consider an unreplicated 24 design with an outlier for (say) the cd treatment combination. The
+effect of any factor, say for example A, is
+and the cd response appears in only one of the averages, in this case 
+. The average 
+is
+an average of eight observations (half of the 16 runs in the 24), so the impact of the outlier cd
+is damped out by averaging it with the other seven runs. This will happen with all of the other
+effect estimates. As an illustration, consider the 24 design in the resin ltration rate experi-
+ment of Example 6.2. Suppose that the run 
+(the correct response was 75). Figure
+6.17a shows the half-normal plot of the effects. It is obvious that the correct set of important
+effects is identied on the graph. However, the half-normal plot gives an indication that an out-
+lier may be present. Notice that the straight line identifying the nonsignicant effects does not
+point toward the origin. In fact, the reference line from the origin is not even close to the
+cd 375
+yA
+yA
+A yAyA
+–6
+–2
+2
+4
+6
+8
+10
+σ
+2
+6
+10
+14
+18
+22
+A
+AD
+D
+C
+AC
+–10
+–14
+–18
+–22
+ +4 σ/ N
+√
+ –4 σ/ N
+√
+■F I G U R E 6 . 1 6
+A conditional
+inference chart for Example 6.2

@@ -1,0 +1,109 @@
+Mee, R. W. (2004). “Efficient Two-Level Designs for
+Estimating All Main Effects and Two-Factor Interactions.”
+Journal of Quality Technology, Vol. 36, pp. 400–412.
+Mee, R. W., and Peralta, M. (2000). “Semifolding 2kp
+Designs.” Technometrics, Vol. 42, No. 2, pp. 122–143.
+Meyer, R. K., and C. J. Nachtsheim (1995). “The Coordinate-
+Exchange Algorithm for Constructing Exact Optimal
+Experimental Designs.” Technometrics, Vol. 37, pp. 60–69. 
+Miller, R. G. (1991). Simultaneous Statistical Inference.
+Springer–Verlag, New York.
+Miller,
+R.
+G.,
+Jr (1977). “Developments in Multiple
+Comparisons, 1966–1976.” Journal of the American
+Statistical Association, Vol. 72, pp. 779–788.
+Milliken, G. A., and D. E. Johnson (1984). Analysis of Messy
+Data, Vol. 1. Van Nostrand Reinhold, New York.
+Mitchell, T. J. (1974). “An Algorithm for the Construction of 
+D-Optimal Experimental Designs.” Technometrics, Vol. 16,
+pp. 203–210. 
+Mitchell, T. J. and M. D. Morris (1992), “The Spatial
+Correlation Approach to Response Surface Estimation”,
+Winter Simulation Conference, pp. 565–571.
+Montgomery, D. C. (2009). Introduction to Statistical Quality
+Control. 6th edition. Wiley, New York.
+Montgomery, D. C. (1999). “Experimental Design for Product
+and Process Design and Development.” Journal of the
+Royal Statistical Society D, Vol. 48, pp. 159–177.
+Montgomery, D. C., C. M. Borror, and J. D. Stanley (1997–1998).
+“Some Cautions in the Use of Plackett– Burman Designs.”
+Quality Engineering, Vol. 10, pp. 371– 381.
+Montgomery, D. C., E. A. Peck, and G. G. Vining (2006).
+Introduction to Linear Regression Analysis. 4th edition.
+Wiley, New York.
+Montgomery, D. C., and G. C. Runger (1993a). “Gauge
+Capability Analysis and Designed Experiments, Part I: Basic
+Methods.” Quality Engineering, Vol. 6, pp. 115–135.
+Montgomery, D. C., and G. C. Runger (1993b). “Gauge
+Capability Analysis and Designed Experiments, Part II:
+Experimental Design Models and Variance Component
+Estimation.” Quality Engineering, Vol. 6, pp. 289–305.
+Montgomery, D. C., and G. C. Runger (1996). “Foldovers of
+2kp Resolution IV Experimental Designs.” Journal of
+Quality Technology, Vol. 28, pp. 446–450.
+Montgomery, D. C., and G. C. Runger (2011). Applied Statistics
+and Probability for Engineers. 5th edition. Wiley, New York.
+Myers, R. H. (1990). Classical and Modern Regression with
+Applications. 2nd edition. PNS-Kent, Boston.
+Myers, R. H., D. C. Montgomery and C. M. Anderson-Cook
+(2009). Response Surface Methodology: Process and
+Product Optimization Using Designed Experiments. 3rd
+edition. Wiley, New York.
+Myers, R. H., and D. C. Montgomery (1997). “A Tutorial on
+Generalized Linear Models.” Journal of Quality Technology,
+Vol. 29, pp. 274–291.
+Myers, R. H., D. C. Montgomery, G. G. Vining and T. J.
+Robinson (2010). Generalized Linear Models with
+Applications in Engineering and the Sciences. 2nd edition
+Wiley, New York.
+Myers, R. H., D. C. Montgomery, G. G. Vining, C. M. Borror,
+and S. M. Kowalski (2004). “Response Surface
+Methodology: A Retrospective and Literature Survey.”
+Journal of Quality Technology, Vol. 36, pp. 53–77.
+Nair, V. N., (editor) (1992). “Taguchi’s Parameter Design: A
+Panel Discussion.” Technometrics, Vol. 34, pp. 127–161.
+Nelder, J. A., and R. W. M. Wedderburn (1972). “Generalized
+Linear Models.” Journal of the Royal Statistical Society A,
+Vol. 135, pp. 370–384.
+Nelson, L. S. (1995a). “Using Nested Designs I: Estimation of
+Standard Deviations.” Journal of Quality Technology, Vol.
+27, No. 2, pp. 169–171.
+Nelson, L. S. (1995b). “Using Nested Designs II: Condence
+Limits for Standard Deviations.” Journal of Quality
+Technology, Vol. 27, No. 3, pp. 265–267.
+Nelson, L. S. (1983). “Variance Estimation Using Staggered,
+Nested Designs.” Journal of Quality Technology, Vol. 15,
+pp. 195–198.
+Nelson, P. R. (1989). “Multiple Comparison of Means Using
+Simultaneous Condence Intervals.” Journal of Quality
+Technology, Vol. 21, No. 4, pp. 232–241.
+Newman, D. (1939). “The Distribution of the Range in Samples
+from a Normal Population, Expressed in Terms of an
+Independent Estimate of Standard Deviation.” Biometrika,
+Vol. 31, pp. 20–30.
+O’Neill, R., and G. B. Wetherill (1971). “The Present State of
+Multiple Comparison Methods.” Journal of the Royal
+Statistical Society B, Vol. 33, pp. 218–241.
+Ostle, B. (1963). Statistics in Research. 2nd edition. Iowa State
+Press, Ames, Iowa.
+Pearson, E. S., and H. O. Hartley (1966). Biometrika Tables for
+Statisticians, Vol. 1. 3rd edition. Cambridge University
+Press, Cambridge.
+Pearson, E. S., and H. O. Hartley (1972). Biometrika Tables for
+Statisticians, Vol. 2. Cambridge University Press,
+Cambridge.
+Pignatiello, J. J., Jr. and J. S. Ramberg (1992). “Top Ten
+Triumphs and Tragedies of Genichi Taguchi.” Quality
+Engineering, Vol. 4, pp. 211–225.
+Plackett, R. L., and J. P. Burman (1946). “The Design of
+Optimum Multifactorial Experiments.” Biometrika, Vol.
+33, pp. 305–325.
+Quenouille, M. H. (1953). The Design and Analysis of
+Experiments. Charles Grifn and Company, London.
+Sacks, J., W. J. Welch, T. J. Mithchell, and H. P. Wynn (1989).
+“Design and Analysis of Computer Experiments,”
+Statistical Science 4(4), pp. 409–423.
+Bibliography
+723

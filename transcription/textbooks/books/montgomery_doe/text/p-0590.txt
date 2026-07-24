@@ -1,0 +1,82 @@
+574
+Chapter 13 ■Experiments with Random Factors
+In some experimental situations, the factor levels are chosen at random from a larger
+population of possible levels, and the experimenter wishes to draw conclusions about the
+entire population of levels, not just those that were used in the experimental design. In this
+situation, the factor is said to be a random factor. We introduced a simple situation in
+Chapter 3, a single-factor experiment where the factor is random, and we used this to intro-
+duce the random effects model for the analysis of variance and components of variance.
+We have also discussed experiments where blocks are random. However, random factors also
+occur regularly in factorial experiments as well as in other types of experiments. In this
+chapter, we focus on methods for the design and analysis of factorial experiments with random
+factors. In Chapter 14, we will present nested and split-plot designs, two situations where
+random factors are frequently encountered in practice.
+13.2
+The Two-Factor Factorial with Random Factors
+Suppose that we have two factors, A and B, and that both factors have a large number of lev-
+els that are of interest (as in Chapter 3, we will assume that the number of levels is innite).
+We will choose at random a levels of factor A and b levels of factor B and arrange these fac-
+tor levels in a factorial experimental design. If the experiment is replicated n times, we may
+represent the observations by the linear model
+(13.1)
+where the model parameters i, j, ()ij, and ijk are all independent random variables. We are
+also going to assume that the random variables i, j, ()ij, and ijk are normally distributed
+with mean zero and variances given by V(i) 
+, V(j) 
+, V[()ij] 
+, and 
+V(ijk) 2. Therefore the variance of any observation is
+(13.2)
+and 
+and 2 are the variance components. The hypotheses that we are interested
+in testing are H0:
+ 0, H0:
+ 0, and H0:
+ 0. Notice the similarity to the single-
+factor random effects model.
+The numerical calculations in the analysis of variance remain unchanged; that is, SSA,
+SSB, SSAB, SS, and SSE are all calculated as in the xed effects case. However, to form the test
+statistics, we must examine the expected mean squares. It may be shown that
+(13.3)
+and
+From the expected mean squares, we see that the appropriate statistic for testing the no-
+interaction hypothesis H0:
+ 0 is
+(13.4)
+F0 MSAB
+MSE
+
+2
+E(MSE) 2
+E(MSAB) 2 n
+2
+E(MSB) 2 n
+2 an
+2
+E(MSA) 2 n
+2 bn
+2
+
+2
+2
+
+2
+
+
+2, 
+2, 
+2 ,
+V(yijk) 2
+2
+2
+2
+2
+
+2
+
+2
+
+yijk i j ()ij ijk 
+i 1, 2, . . . , a
+j 1, 2, . . . , b
+k 1, 2, . . . , n

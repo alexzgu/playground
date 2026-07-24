@@ -1,0 +1,78 @@
+3.4. MORE VERSIONS OF IT ˆO’S FORMULA
+109
+If Xt satises (3.19) and Ht is another adapted process we dene
+t
+0
+Hs dXs =
+t
+0
+Hs Rs ds +
+t
+0
+Hs As dBs
+If we view this in terms of simulation then
+Yt =
+t
+0
+Hs dXs
+can be simulated by
+∆Yt = Ht ∆Xt = Ht [Xt+∆t −Xt] = Ht
+
+Rt ∆t + At
+√
+∆t N
+
+,
+where N ∼N(0, 1).
+Theorem 3.4.2 (Itˆo’s formula III). SXt (3.19) f(t, x)
+C1 t C2 x. T
+df(t, Xt)
+=
+∂tf(t, Xt) dt + ∂xf(t, Xt) dXt + 1
+2 ∂xxf(t, Xt) d⟨X⟩t
+=
+
+∂tf(t, Xt) + Rt ∂xf(t, Xt) + A2
+t
+2 ∂xxf(t, Xt)
+
+dt
++At ∂xf(t, Xt) dBt
+Example 3.4.2. Suppose X is a geometric Brownian motion satisfying
+dXt = m Xt dt + σ Xt dBt
+Let f(t, x) = e−tx3. Then
+∂tf(t, x) = −e−t x3 = −f(t, x),
+∂xf(t, x) = 3x2 e−t = 3
+x f(t, x),
+∂xxf(t, x) = 6x e−t = 6
+x2 f(t, x),
+and
+df(t, Xt)
+=
+∂tf(t, Xt) dt + ∂xf(t, Xt) dXt + 1
+2 ∂xxf(t, Xt) d⟨X⟩t
+=
+
+∂tf(t, Xt) + m Xt ∂xf(t, Xt) + σ2 X2
+t
+2
+∂xxf(t, Xt)
+
+dt
++σ Xt ∂xf(t, Xt) dBt
+=
+
+−1 + 3m + 6σ2
+2
+
+f(t, Xt) dt + 3 σ f(t, Xt) dBt
+d[e−tX3
+t ] = 3e−tX3
+t
+
+−1
+3 + m + σ2
+
+dt + σ dBt
+
+

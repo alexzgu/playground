@@ -1,0 +1,208 @@
+178
+Chapter 4 ■Randomized Blocks, Latin Squares, and Related Designs
+4.9.
+The effect of three different lubricating oils on fuel
+economy in diesel truck engines is being studied. Fuel econo-
+my is measured using brake-specic fuel consumption after
+the engine has been running for 15 minutes. Five different
+truck engines are available for the study, and the experimenters
+conduct the following randomized complete block design.
+Truck
+Oil
+1
+2
+3
+4
+5
+1
+0.500
+0.634
+0.487
+0.329
+0.512
+2
+0.535
+0.675
+0.520
+0.435
+0.540
+3
+0.513
+0.595
+0.488
+0.400
+0.510
+(a) Analyze the data from this experiment.
+(b) Use the Fisher LSD method to make comparisons
+among the three lubricating oils to determine specical-
+ly which oils differ in brake-specic fuel consumption.
+(c) Analyze the residuals from this experiment.
+4.10.
+An article in the Fire Safety Journal (“The Effect of
+Nozzle Design on the Stability and Performance of Turbulent
+Water Jets,” Vol. 4, August 1981) describes an experiment in
+which a shape factor was determined for several different
+nozzle designs at six levels of jet efux velocity. Interest
+focused on potential differences between nozzle designs,
+with velocity considered as a nuisance variable. The data are
+shown below:
+Nozzle
+Jet Efﬂux Velocity (m/s)
+Design
+11.73
+14.37
+16.59
+20.43
+23.46
+28.74
+1
+0.78
+0.80
+0.81
+0.75
+0.77
+0.78
+2
+0.85
+0.85
+0.92
+0.86
+0.81
+0.83
+3
+0.93
+0.92
+0.95
+0.89
+0.89
+0.83
+4
+1.14
+0.97
+0.98
+0.88
+0.86
+0.83
+5
+0.97
+0.86
+0.78
+0.76
+0.76
+0.75
+(a) Does nozzle design affect the shape factor? Compare
+the nozzles with a scatter plot and with an analysis of
+variance, using 0.05.
+(b) Analyze the residuals from this experiment.
+(c) Which nozzle designs are different with respect to
+shape factor? Draw a graph of the average shape factor
+for each nozzle type and compare this to a scaled t dis-
+tribution. Compare the conclusions that you draw from
+this plot to those from Duncan’s multiple range test.
+4.11.
+An article in Communications of the ACM (Vol. 30,
+No. 5, 1987) studied different algorithms for estimating soft-
+ware development costs. Six algorithms were applied to sev-
+eral different software development projects and the percent
+error in estimating the development cost was observed.
+Some of the data from this experiment is shown in the table
+below.
+(a) Do the algorithms differ in their mean cost estimation
+accuracy? 
+(b) Analyze the residuals from this experiment.
+(c) Which algorithm would you recommend for use in
+practice?
+Project
+Algorithm
+1
+2
+3
+4
+5
+6
+1(SLIM
+1244
+21
+82
+2221
+905
+839
+2(COCOMO-A)
+281
+129
+396
+1306
+336
+910
+3(COCOMO-R)
+220
+84
+458
+543
+300
+794
+4(COCONO-C)
+225
+83
+425
+552
+291
+826
+5(FUNCTION
+POINTS)
+19
+11 34
+121
+15
+103
+6(ESTIMALS)
+20
+35 53
+170
+104
+199
+4.12.
+An article in Nature Genetics (2003, Vol. 34, pp.
+85–90) “Treatment-Specic Changes in Gene Expression
+Discriminate in vivo Drug Response in Human Leukemia
+Cells” studied gene expression as a function of different treat-
+ments for leukemia. Three treatment groups are: mercaptop-
+urine (MP) only; low-dose methotrexate (LDMTX) and MP;
+and high-dose methotrexate (HDMTX) and MP. Each group
+contained ten subjects. The responses from a specic gene are
+shown in the table below.
+(a) Is there evidence to support the claim that the treat-
+ment means differ?
+(b) Check the normality assumption. Can we assume
+these samples are from normal populations?
+(c) Take the logarithm of the raw data. Is there evidence to
+support the claim that the treatment means differ for
+the transformed data? 
+(d) Analyze the residuals from the transformed data and
+comment on model adequacy.
+Treatments
+Observations
+MP ONLY
+334.5
+31.6
+701
+41.2 61.2
+69.6
+67.5
+66.6 120.7 881.9
+MP + HDMTX 919.4 404.2 1024.8
+54.1 62.8 671.6 882.1 354.2 321.9
+91.1
+MP + LDMTX 108.4
+26.1
+240.8 191.1 69.7 242.8
+62.7 396.9
+23.6 290.4
+4.13.
+Consider the ratio control algorithm experiment
+described in Section 3.8. The experiment was actually con-
+ducted as a randomized block design, where six time periods
+were selected as the blocks, and all four ratio control algo-
+rithms were tested in each time period. The average cell
+voltage and the standard deviation of voltage (shown in
+parentheses) for each cell are as follows:

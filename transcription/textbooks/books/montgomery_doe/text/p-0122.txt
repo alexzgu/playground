@@ -1,0 +1,192 @@
+106
+Chapter 3 ■Experiments with a Single Factor: The Analysis of Variance
+■F I G U R E 3 . 1 4
+JMP output from Example 3.1
+Response Etch rate
+Whole Model
+RF power
+Least Squares Means Table
+Level
+Least Sq Mean
+Std Error
+Mean
+160
+551.20000
+8.1694553
+551.200
+180
+587.40000
+8.1694553
+587.400
+200
+625.40000
+8.1694553
+625.400
+220
+707.00000
+8.1694553
+707.000
+Residual by Predicted Plot
+30
+20
+10
+0
+–10
+–20
+–30
+Etch rate Predicted
+Etch rate 
+Residual
+550
+600
+650
+700
+Summary of Fit
+6
+0
+6
+2
+9
+.
+0
+e
+r
+a
+u
+q
+S
+R
+6
+9
+1
+2
+1
+9
+.
+0
+j
+d
+A
+e
+r
+a
+u
+q
+S
+R
+6
+4
+7
+6
+2
+.
+8
+1
+r
+o
+rr
+E
+e
+r
+a
+u
+q
+S
+n
+a
+e
+M
+t
+o
+o
+R
+5
+7
+.
+7
+1
+6
+e
+s
+n
+o
+p
+s
+e
+R
+f
+o
+n
+a
+e
+M
+0
+2
+)
+st
+g
+W
+m
+u
+S
+r
+o
+(
+s
+n
+o
+it
+a
+v
+r
+e
+s
+b
+O
+Analysis of Variance
+Source
+DF
+Sum of Squares
+Mean Square
+F Ratio
+Model
+3
+66870.550
+22290.2
+66.7971
+Error
+16
+5339.200
+333.7
+Prob 
+F
+C. Total
+19
+72209.750
+.0001
+Effect Tests
+Source
+Nparm
+DF
+Sum of Squares
+F Ratio
+Prob > F
+RF power
+3
+3
+66870.550
+66.7971
+.0001
+Actual by Predicted Plot
+750
+700
+650
+600
+550
+550
+Etch rate Predicted P < .0001
+RSq = 0.93 RMSE = 18.267
+Etch rate Actual
+600
+650
+700

@@ -1,0 +1,40 @@
+206
+CHAPTER 6. JUMP PROCESSES
+Maybe a bit surprising is the fact that the converse holds. Suppose ν, µ
+are mutually absolutely continuous and let f = dνdµ which we assume is
+strictly positive. With respect to P, Xt satises
+PXt+∆t −Xt V = µ(V ) ∆t + o(∆t),
+and we would like
+QXt+∆t −Xt V = ν(V ) ∆t + o(∆t),
+which would give
+QXt+∆t −Xt V 
+PXt+∆t −Xt V = ν(V )
+µ(V ) + o(∆t)
+To get this we choose
+Mt = exp
+
+s≤t
+f(Xs −Xs−) −rt
+
+,
+r = ν(R) −µ(R)
+Suppose we model an asset price by St = eXt where Xt is a CPP, and
+suppose that ν is any measure equivalent to µ with
+∞
+−∞
+[ey −1] dν(y) = 0
+Then Q is equivalent to P, and (see Example 6.4.2) S is a martingale with
+respect to Q. In particular, there are many dierent measures Q that are
+equivalent to P that make St a martingale. This is in contrast to the case
+when Xt is a Brownian motion where such a measure is unique.
+6.6
+Generalized Poisson processes I
+The generalized Poisson process is like the CPP except that the jump times
+form a dense subset of the real line. Suppose that µ is a measure on R. We
+want to consider the process Xt that, roughly speaking, satises the condition
+that the probability of a jump whose size lies in [a, b] occurring in time ∆t
+is about µ[a, b] ∆t. The CPP assumes that
+µ(R) =
+∞
+−∞
+dµ(x) < ∞,

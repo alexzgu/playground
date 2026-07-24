@@ -1,0 +1,42 @@
+2.4. BROWNIAN MOTION
+45
+If s < t, the random variable Bt −Bs is independent of the values Br
+for r ≤s.
+With probability one, the function t →Bt is a continuous function of
+t.
+If m = 0, σ2 = 1, then Bt is called a B.
+Recall that if Z has a N(0, 1) distribution and Y = σZ + m, then Y has
+a N(m, σ2) distribution. Given that it is easy to show the following.
+If Bt is a standard Brownian motion and
+Yt = σ Bt + mt,
+then Yt is a Brownian motion with drift m and variance σ2.
+Indeed, one just checks that it satises the conditions above. Hence, in or-
+der to establish the of Brownian motion, it suces to construct a
+standard Brownian motion.
+There is a mathematical challenge in studying stochastic processes in-
+dexed by continuous time. The problem is that the set of positive real num-
+bers is , that is, the elements cannot be enumerated t1, t2, . The
+major axiom of probability theory is the fact that if A1, A2, is a 
+sequence of disjoint events, then
+P
+∞
+
+n=1
+An
+
+=
+∞
+
+n=1
+P[An]
+This rule does not hold for uncountable unions. An example that we have
+all had to deal with arises with continuous random variables. Suppose, for
+instance, that Z has a N(0, 1) distribution. Then for each x R,
+PZ = x= 0
+However,
+1 = PZ R= P
+
+x∈R
+Ax
+
+,

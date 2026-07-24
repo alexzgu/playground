@@ -1,0 +1,164 @@
+10.4 Document Classification
+415
+FIGURE 10.11. Accuracy of the lasso and a two-hidden-layer neural network
+on the IMDb data. For the lasso, the x-axis displays −log(λ), while for the neural
+network it displays epochs (number of times the fitting algorithm passes through
+the training set). Both show a tendency to overfit, and achieve approximately the
+same test accuracy.
+Both methods produce a sequence of solutions. The lasso sequence is in-
+dexed by the regularization parameter λ. The neural-net sequence is in-
+dexed by the number of gradient-descent iterations used in the fitting,
+as measured by training epochs or passes through the training set (Sec-
+tion 10.7). Notice that the training accuracy in Figure 10.11 (black points)
+increases monotonically in both cases. We can use the validation error to
+pick a good solution from each sequence (blue points in the plots), which
+would then be used to make predictions on the test data set.
+Note that a two-class neural network amounts to a nonlinear logistic
+regression model. From (10.12) and (10.13) we can see that
+log
+*Pr(Y = 1|X)
+Pr(Y = 0|X)
++
+=
+Z1 −Z0
+(10.15)
+=
+(β10 −β00) +
+K2
+0
+ℓ=1
+(β1ℓ−β0ℓ)A(2)
+ℓ.
+(This shows the redundancy in the softmax function; for K classes we
+really only need to estimate K −1 sets of coefficients. See Section 4.3.5.) In
+Figure 10.11 we show accuracy (fraction correct) rather than classification accuracy
+error (fraction incorrect), the former being more popular in the machine
+learning community. Both models achieve a test-set accuracy of about 88%.
+The bag-of-words model summarizes a document by the words present,
+and ignores their context. There are at least two popular ways to take the
+context into account:
+• The bag-of-n-grams model. For example, a bag of 2-grams records bag-of-n-
+grams
+●●●●●●
+●●●
+●●●
+●
+●
+●
+●
+●
+●
+●●
+●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
+4
+6
+8
+10
+12
+0.6
+0.7
+0.8
+0.9
+1.0
+Lasso
+−log(λ)
+Accuracy
+●●●●●●
+●●●
+●●
+●
+●
+●
+●
+●●
+●●●
+●
+●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
+●●●●●●
+●●●
+●●●
+●
+●
+●
+●
+●●
+●
+●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
+●
+●
+●
+train
+validation
+test
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+5
+10
+15
+20
+0.6
+0.7
+0.8
+0.9
+1.0
+Neural Net
+Epochs
+Accuracy
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●

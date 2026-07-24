@@ -1,0 +1,38 @@
+232
+CHAPTER 6. JUMP PROCESSES
+If the distribution of Xj is nontrivial, then there exists ϵ > 0 such that
+for s≤ϵ,
+ϕ(s)≤1 −ϵ s2,
+and hence for every s̸ = 0,
+ϕ(s)= lim
+n∞ϕ(n−β s)n
+≤
+lim
+n∞
+
+1 −ϵ n−2β s2n
+≤
+lim
+n∞exp
+
+−ϵ s2 n1−2β
+= 0
+Since ϕ is continuous at 0 with ϕ(0) = 1, this is a contradiction.
+Therefore, PXj = c= 1 for some c and since c = (c + · · · + c)nβ,
+c = 0.
+6.11
+Exercises
+Exercise 6.1. Suppose F(t) = PT ≤tis the distribution function of a
+continuous random variable T. Dene theinversefunction G by
+G(r) = supt : F(t) ≤r
+1. Suppose U is a random variable distributed uniformly on [0, 1]. Show
+that G(U) has distribution function F.
+2. Find G in the case that T is exponential with rate λ.
+3. Use the waiting time method as described in Section 6.2 to sample
+from a Poisson process Xt with rate λ = 32. Run at least 3000 trials
+to estimate the distributon of X3.
+4. Compare the simulations with the actual distribution for X3.
+Exercise 6.2. Suppose Yt is a Poisson process with parameter 2.
+1. Find PY3 ≥2.
+2. Find PY4 ≥Y1 + 2 Y1 = 4.
+3. Find PY1 = 1 Y3 = 4.

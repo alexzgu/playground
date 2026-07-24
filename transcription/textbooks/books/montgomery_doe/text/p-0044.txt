@@ -1,0 +1,59 @@
+upper quartile, and a line is drawn through the box at the median. Lines (or whiskers) extend
+from the ends of the box to (typically) the minimum and maximum values. [There are several
+variations of box plots that have different rules for denoting the extreme sample points. See
+Montgomery and Runger (2011) for more details.]
+Figure 2.3 presents the box plots for the two samples of tension bond strength in the
+Portland cement mortar experiment. This display indicates some difference in mean strength
+between the two formulations. It also indicates that both formulations produce reasonably
+symmetric distributions of strength with similar variability or spread.
+Dot diagrams, histograms, and box plots are useful for summarizing the information in
+a sample of data. To describe the observations that might occur in a sample more completely,
+we use the concept of the probability distribution.
+Probability Distributions. The probability structure of a random variable, say y, is
+described by its probability distribution. If y is discrete, we often call the probability distri-
+bution of y, say p(y), the probability mass function of y. If y is continuous, the probability dis-
+tribution of y, say f(y), is often called the probability density function for y.
+Figure 2.4 illustrates hypothetical discrete and continuous probability distributions.
+Notice that in the discrete probability distribution Fig. 2.4a, it is the height of the function
+p(yj) that represents probability, whereas in the continuous case Fig. 2.4b, it is the area under
+28
+Chapter 2 ■Simple Comparative Experiments
+17.50
+17.25
+17.00
+16.75
+16.50
+Modified
+Unmodified
+Mortar formulation
+Strength (kgf/cm2)
+■F I G U R E 2 . 3
+Box plots for the Portland cement 
+tension bond strength experiment
+(a) A discrete distribution
+p(yj)
+f(y)
+y1
+y3
+y2
+y4
+y6
+y8
+y10
+y12
+y14
+y5
+y7
+y9
+y11
+y13
+P(y = yj) = p(yj)
+ yj
+(b) A continuous distribution
+a
+b
+P(a
+ y  b)
+ y
+■F I G U R E 2 . 4
+Discrete and continuous probability distributions

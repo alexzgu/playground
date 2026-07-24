@@ -1,0 +1,47 @@
+233
+C H A P T E R 6
+T h e 2k F a c t o r i a l D e s i g n
+CHAPTER OUTLINE
+6.1 INTRODUCTION
+6.2 THE 22 DESIGN
+6.3 THE 23 DESIGN
+6.4 THE GENERAL 2k DESIGN
+6.5 A SINGLE REPLICATE OF THE 2k DESIGN
+6.6 ADDITIONAL EXAMPLES OF UNREPLICATED 
+2k DESIGNS
+6.7 2k DESIGNS ARE OPTIMAL DESIGNS
+6.8 THE ADDITION OF CENTER POINTS 
+TO THE 2k DESIGN
+6.9 WHY WE WORK WITH CODED DESIGN 
+VARIABLES
+SUPPLEMENTAL MATERIAL FOR CHAPTER 6
+S6.1 Factor Effect Estimates Are Least Squares Estimates
+S6.2 Yates’s Method for Calculating Factor Effects
+S6.3 A Note on the Variance of a Contrast
+S6.4 The Variance of the Predicted Response
+S6.5 Using Residuals to Identify Dispersion Effects
+S6.6 Center Points versus Replication of Factorial Points
+S6.7 Testing for “Pure Quadratic” Curvature 
+Using a t-Test
+6.1
+Introduction
+Factorial designs are widely used in experiments involving several factors where it is neces-
+sary to study the joint effect of the factors on a response. Chapter 5 presented general methods
+for the analysis of factorial designs. However, several special cases of the general factorial
+design are important because they are widely used in research work and also because they form
+the basis of other designs of considerable practical value.
+The most important of these special cases is that of k factors, each at only two levels.
+These levels may be quantitative, such as two values of temperature, pressure, or time; or
+they may be qualitative, such as two machines, two operators, the “high” and “low” levels of
+a factor, or perhaps the presence and absence of a factor. A complete replicate of such a design
+requires 2  2 . . . 2  2k observations and is called a 2k factorial design.
+This chapter focuses on this extremely important class of designs. Throughout this
+chapter, we assume that (1) the factors are xed, (2) the designs are completely randomized,
+and (3) the usual normality assumptions are satised.
+The 2k design is particularly useful in the early stages of experimental work when many
+factors are likely to be investigated. It provides the smallest number of runs with which k fac-
+tors can be studied in a complete factorial design. Consequently, these designs are widely
+used in factor screening experiments.
+Because there are only two levels for each factor, we assume that the response is
+approximately linear over the range of the factor levels chosen. In many factor screening
+The supplemental material is on the textbook website www.wiley.com/college/montgomery.

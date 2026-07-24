@@ -1,0 +1,42 @@
+286
+6. Linear Model Selection and Regularization
+Applied
+8. In this exercise, we will generate simulated data, and will then use
+this data to perform forward and backward stepwise selection.
+(a) Create a random number generator and use its normal() method
+to generate a predictor X of length n = 100, as well as a noise
+vector ϵ of length n = 100.
+(b) Generate a response vector Y of length n = 100 according to
+the model
+Y = β0 + β1X + β2X2 + β3X3 + ϵ,
+where β0, β1, β2, and β3 are constants of your choice.
+(c) Use forward stepwise selection in order to select a model contain-
+ing the predictors X, X2, . . . , X10. What is the model obtained
+according to Cp? Report the coefficients of the model obtained.
+(d) Repeat (c), using backwards stepwise selection. How does your
+answer compare to the results in (c)?
+(e) Now fit a lasso model to the simulated data, again using X, X2,
+. . . , X10 as predictors. Use cross-validation to select the optimal
+value of λ. Create plots of the cross-validation error as a function
+of λ. Report the resulting coefficient estimates, and discuss the
+results obtained.
+(f) Now generate a response vector Y according to the model
+Y = β0 + β7X7 + ϵ,
+and perform forward stepwise selection and the lasso. Discuss
+the results obtained.
+9. In this exercise, we will predict the number of applications received
+using the other variables in the College data set.
+(a) Split the data set into a training set and a test set.
+(b) Fit a linear model using least squares on the training set, and
+report the test error obtained.
+(c) Fit a ridge regression model on the training set, with λ chosen
+by cross-validation. Report the test error obtained.
+(d) Fit a lasso model on the training set, with λ chosen by cross-
+validation. Report the test error obtained, along with the num-
+ber of non-zero coefficient estimates.
+(e) Fit a PCR model on the training set, with M chosen by cross-
+validation. Report the test error obtained, along with the value
+of M selected by cross-validation.
+(f) Fit a PLS model on the training set, with M chosen by cross-
+validation. Report the test error obtained, along with the value
+of M selected by cross-validation.

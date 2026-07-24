@@ -1,0 +1,59 @@
+3.1 Simple Linear Regression
+79
+clear what constitutes a good RSE. The R2 statistic provides an alternative
+measure of fit. It takes the form of a proportion—the proportion of variance
+explained—and so it always takes on a value between 0 and 1, and is
+independent of the scale of Y .
+To calculate R2, we use the formula
+R2 = TSS −RSS
+TSS
+= 1 −RSS
+TSS
+(3.17)
+where TSS = )(yi −¯y)2 is the total sum of squares, and RSS is defined total sum of
+squares
+in (3.16). TSS measures the total variance in the response Y , and can be
+thought of as the amount of variability inherent in the response before the
+regression is performed. In contrast, RSS measures the amount of variability
+that is left unexplained after performing the regression. Hence, TSS −RSS
+measures the amount of variability in the response that is explained (or
+removed) by performing the regression, and R2 measures the proportion of
+variability in Y that can be explained using X. An R2 statistic that is close
+to 1 indicates that a large proportion of the variability in the response is
+explained by the regression. A number near 0 indicates that the regression
+does not explain much of the variability in the response; this might occur
+because the linear model is wrong, or the error variance σ2 is high, or both.
+In Table 3.2, the R2 was 0.61, and so just under two-thirds of the variability
+in sales is explained by a linear regression on TV.
+The R2 statistic (3.17) has an interpretational advantage over the RSE
+(3.15), since unlike the RSE, it always lies between 0 and 1. However, it can
+still be challenging to determine what is a good R2 value, and in general,
+this will depend on the application. For instance, in certain problems in
+physics, we may know that the data truly comes from a linear model with
+a small residual error. In this case, we would expect to see an R2 value that
+is extremely close to 1, and a substantially smaller R2 value might indicate a
+serious problem with the experiment in which the data were generated. On
+the other hand, in typical applications in biology, psychology, marketing,
+and other domains, the linear model (3.5) is at best an extremely rough
+approximation to the data, and residual errors due to other unmeasured
+factors are often very large. In this setting, we would expect only a very
+small proportion of the variance in the response to be explained by the
+predictor, and an R2 value well below 0.1 might be more realistic!
+The R2 statistic is a measure of the linear relationship between X and
+Y . Recall that correlation, defined as
+correlation
+Cor(X, Y ) =
+)n
+i=1(xi −x)(yi −y)
+5)n
+i=1(xi −x)25)n
+i=1(yi −y)2 ,
+(3.18)
+is also a measure of the linear relationship between X and Y .5 This sug-
+gests that we might be able to use r = Cor(X, Y ) instead of R2 in order to
+assess the fit of the linear model. In fact, it can be shown that in the simple
+5We note that in fact, the right-hand side of (3.18) is the sample correlation; thus,
+it would be more correct to write
+!
+Cor(X, Y ); however, we omit the “hat” for ease of
+notation.

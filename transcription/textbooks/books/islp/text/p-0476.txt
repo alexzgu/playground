@@ -1,0 +1,52 @@
+470
+11. Survival Analysis and Censored Data
+exceed that number are censored. The survival analysis methods presented
+in this chapter could be used to analyze this dataset.
+Survival analysis is a very well-studied topic within statistics, due to its
+critical importance in a variety of applications, both in and out of medicine.
+However, it has received relatively little attention in the machine learning
+community.
+11.1
+Survival and Censoring Times
+For each individual, we suppose that there is a true survival time, T, as well survival time
+as a true censoring time, C. (The survival time is also known as the failure censoring
+time
+time or the event time.) The survival time represents the time at which the
+failure time
+event time
+event of interest occurs: for instance, the time at which the patient dies,
+or the customer cancels his or her subscription. By contrast, the censoring
+time is the time at which censoring occurs: for example, the time at which
+the patient drops out of the study or the study ends.
+We observe either the survival time T or else the censoring time C.
+Specifically, we observe the random variable
+Y = min(T, C).
+(11.1)
+In other words, if the event occurs before censoring (i.e. T < C) then we
+observe the true survival time T; however, if censoring occurs before the
+event (T > C) then we observe the censoring time. We also observe a status
+indicator,
+δ =
+=
+1
+if T ≤C
+0
+if T > C.
+Thus, δ = 1 if we observe the true survival time, and δ = 0 if we instead
+observe the censoring time.
+Now, suppose we observe n (Y, δ) pairs, which we denote as (y1, δ1), . . . ,
+(yn, δn). Figure 11.1 displays an example from a (fictitious) medical study
+in which we observe n = 4 patients for a 365-day follow-up period. For
+patients 1 and 3, we observe the time to event (such as death or disease
+relapse) T = ti. Patient 2 was alive when the study ended, and patient 4
+dropped out of the study, or was “lost to follow-up”; for these patients we
+observe C = ci. Therefore, y1 = t1, y3 = t3, y2 = c2, y4 = c4, δ1 = δ3 = 1,
+and δ2 = δ4 = 0.
+11.2
+A Closer Look at Censoring
+In order to analyze survival data, we need to make some assumptions about
+why censoring has occurred. For instance, suppose that a number of patients
+drop out of a cancer study early because they are very sick. An analysis that
+does not take into consideration the reason why the patients dropped out
+will likely overestimate the true average survival time. Similarly, suppose
+that males who are very sick are more likely to drop out of the study than

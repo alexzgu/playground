@@ -1,0 +1,212 @@
+This procedure will always produce a supersaturated design for k N 2 factors in N/2
+runs. If there are fewer than N 2 factors of interest, additional columns can be removed
+from the complete design.
+Supersaturated designs are typically analyzed by regression model-tting methods,
+such as the forward selection method we have illustrated previously. In this procedure, vari-
+ables are selected one at a time for inclusion in the model until no other variables appear use-
+ful in explaining the response. Abraham, Chipman, and Vijayan (1999) and Holcomb,
+Montgomery, and Carlyle (2003) have studied analysis methods for supersaturated designs.
+Generally, these designs can experience large type I and type II errors, but some analysis
+methods can be tuned to emphasize type I errors so that the type II error rate will be moder-
+ate. In a factor screening situation, it is usually more important not to exclude an active fac-
+tor than it is to conclude that inactive factors are important, so type I errors are less critical
+than type II errors. However, because both error rates can be large, the philosophy in using a
+supersaturated design should be to eliminate a large portion of the inactive factors, and not to
+clearly identify the few important or active factors. Holcomb, Montgomery, and Carlyle
+(2003) found that some types of supersaturated designs perform better than others with
+respect to type I and type II errors. Generally, the designs produced by search algorithms were
+outperformed by designs constructed from standard orthogonal designs. Supersaturated
+designs created using the D-optimality criterion also usually work well.
+Supersaturated designs have not had widespread use. However, they are an interesting
+and potentially useful method for experimentation with systems where there are many vari-
+ables and only a very few of these are expected to produce large effects.
+8.9
+Summary
+This chapter has introduced the 2kp fractional factorial design. We have emphasized the
+use of these designs in screening experiments to quickly and efficiently identify the subset
+of factors that are active and to provide some information on interaction. The projective
+property of these designs makes it possible in many cases to examine the active factors in
+8.9 Summary
+375
+■TA B L E 8 . 3 4
+A Supersaturated Design Derived from a 12-Run Hadamard Matrix (Plackett–Burman) Design
+Factor
+Factor
+Factor
+Factor
+Factor
+Factor
+Factor
+Factor
+Factor
+Factor
+Factor
+Run
+I
+1 (A)
+2 (B)
+3 (C)
+4 (D)
+5 (E)
+6 (F)
+7 (G)
+8 (H)
+9 (J)
+10 (K)
+11 (L)
+1
+
+
+
+
+
+
+
+
+
+
+
+
+2
+
+
+
+
+
+
+
+
+
+
+
+
+3
+
+
+
+
+
+
+
+
+
+
+
+
+4
+
+
+
+
+
+
+
+
+
+
+
+
+5
+
+
+
+
+
+
+
+
+
+
+
+
+6
+
+
+
+
+
+
+
+
+
+
+
+
+7
+
+
+
+
+
+
+
+
+
+
+
+
+8
+
+
+
+
+
+
+
+
+
+
+
+
+9
+
+
+
+
+
+
+
+
+
+
+
+
+10
+
+
+
+
+
+
+
+
+
+
+
+
+11
+
+
+
+
+
+
+
+
+
+
+
+
+12
+
+
+
+
+
+
+
+
+
+
+
+

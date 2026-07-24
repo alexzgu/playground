@@ -1,0 +1,59 @@
+4.7 Lab: Logistic Regression, LDA, QDA, and KNN
+187
+Out[58]:
+Truth
+No
+Yes
+Predicted
+No
+880
+58
+Yes
+53
+9
+It turns out that KNN with K = 1 does far better than random guessing
+among the customers that are predicted to buy insurance. Among 62 such
+customers, 9, or 14.5%, actually do purchase insurance. This is double the
+rate that one would obtain from random guessing.
+In [59]: 9/(53+9)
+Out[59]: 0.145
+Tuning Parameters
+The number of neighbors in KNN is referred to as a tuning parameter, also tuning
+parameter
+referred to as a hyperparameter. We do not know a priori what value to
+hyper-
+parameter
+use. It is therefore of interest to see how the classifier performs on test
+data as we vary these parameters. This can be achieved with a for loop,
+described in Section 2.3.8. Here we use a for loop to look at the accuracy of
+our classifier in the group predicted to purchase insurance as we vary the
+number of neighbors from 1 to 5:
+In [60]: for K in range(1,6):
+knn = KNeighborsClassifier(n_neighbors=K)
+knn_pred = knn.fit(X_train, y_train).predict(X_test)
+C = confusion_table(knn_pred, y_test)
+templ = ('K={0:d}: # predicted to rent: {1:>2},' +
+'
+# who did rent {2:d}, accuracy {3:.1%}')
+pred = C.loc['Yes'].sum()
+did_rent = C.loc['Yes','Yes']
+print(templ.format(
+K,
+pred,
+did_rent,
+did_rent / pred))
+K=1: # predicted to rent: 62,# who did rent 9, accuracy 14.5%
+K=2: # predicted to rent: 6,# who did rent 1, accuracy 16.7%
+K=3: # predicted to rent: 20,# who did rent 3, accuracy 15.0%
+K=4: # predicted to rent: 3,# who did rent 0, accuracy 0.0%
+K=5: # predicted to rent: 7,# who did rent 1, accuracy 14.3%
+We see some variability — the numbers for K=4 are very different from the
+rest.
+Comparison to Logistic Regression
+As a comparison, we can also fit a logistic regression model to the data.
+This can also be done with sklearn, though by default it fits something
+like the ridge regression version of logistic regression, which we introduce
+in Chapter 6. This can be modified by appropriately setting the argument
+C below. Its default value is 1 but by setting it to a very large number,
+the algorithm converges to the same solution as the usual (unregularized)
+logistic regression estimator discussed above.

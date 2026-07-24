@@ -1,0 +1,72 @@
+76
+CHAPTER 2. BROWNIAN MOTION
+where ϵ = (ϵ1, , ϵd) and
+bj = ∂jf(0),
+ajk = ∂jkf(0)
+In particular,
+f(Bt) −f(B0) =
+d
+
+j=1
+bj Bj
+t + 1
+2
+d
+
+j=1
+d
+
+k=1
+ajk Bj
+t Bk
+t + o(Bt2)
+We know that
+E
+
+Bj
+t
+
+= mj t,
+E
+
+Bj
+t Bk
+t
+
+= Γjk t,
+and the expectation of the errorterm o(Bt2) is o(t). Hence,
+d
+dtE [f(Bt)] t=0+ = lim
+t0
+E[f(Bt) −f(B0)]
+t
+= Lf(0)
+Suppose f is a measurable function that does not grow too fast at
+innity. For example, we assume that
+e−α|x|2 f(x) →0,
+x→∞,
+for every α > 0. Then
+∞
+−∞
+f(y)pt(x, y) dy < ∞,
+and hence
+ϕ(t, x) := Ptf(x) =
+∞
+−∞
+f(y) pt(x, y) dy < ∞
+is well dened for all t. Moreover, for t > 0, the interchange of inte-
+gration
+∂t
+∞
+−∞
+f(y) pt(x, y) dy =
+∞
+−∞
+f(y) ∂tpt(x, y) dy
+can be justied (say by the dominated convergence theorem). Simi-
+larly, integrals with respect to x can be taken to show that ϕ(t, ·) is
+C∞in x and
+Lxϕ(t, x) =
+∞
+−∞
+f(y) Lxpt(x, y) dy

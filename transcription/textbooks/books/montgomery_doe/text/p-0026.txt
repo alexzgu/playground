@@ -1,0 +1,97 @@
+10
+Chapter 1 ■Introduction
+E X A M P L E 1 . 3
+Designing a Product—I
+A biomedical engineer is designing a new pump for the
+intravenous delivery of a drug. The pump should deliver a
+constant quantity or dose of the drug over a specied peri-
+od of time. She must specify a number of variables or
+design parameters. Among these are the diameter and
+length of the cylinder, the t between the cylinder and the
+plunger, the plunger length, the diameter and wall thickness
+of the tube connecting the pump and the needle inserted
+into the patient’s vein, the material to use for fabricating
+both the cylinder and the tube, and the nominal pressure at
+which the system must operate. The impact of some of
+these parameters on the design can be evaluated by build-
+ing prototypes in which these factors can be varied over
+appropriate ranges. Experiments can then be designed and
+the prototypes tested to investigate which design parame-
+ters are most inuential on pump performance. Analysis of
+this information will assist the engineer in arriving at a
+design that provides reliable and consistent drug delivery.
+E X A M P L E 1 . 4
+Designing a Product—II
+An engineer is designing an aircraft engine. The engine is a
+commercial turbofan, intended to operate in the cruise con-
+guration at 40,000 ft and 0.8 Mach. The design parameters
+include inlet ow, fan pressure ratio, overall pressure, sta-
+tor outlet temperature, and many other factors. The output
+response variables in this system are specic fuel consump-
+tion and engine thrust. In designing this system, it would be
+prohibitive to build prototypes or actual test articles early in
+the design process, so the engineers use a computer model
+of the system that allows them to focus on the key design
+parameters of the engine and to vary them in an effort to
+optimize the performance of the engine. Designed experi-
+ments can be employed with the computer model of the
+engine to determine the most important design parameters
+and their optimal settings.
+75
+80
+60%
+0.5
+140
+150
+Temperature (°F)
+160
+170
+180
+190
+200
+1.0
+1.5
+Time (hours)
+2.0
+2.5
+90%
+95%
+70
+78
+Path leading
+to region of
+higher yield
+Second optimization experiment
+Current
+operating
+conditions
+Initial
+optimization
+experiment
+80%
+82
+70%
+■F I G U R E 1 . 9
+Contour plot of yield as a
+function of reaction time and reaction temperature,
+illustrating experimentation to optimize a process
+To locate the optimum, it is necessary to perform an
+experiment that varies both time and temperature together,
+that is, a factorial experiment. The results of an initial facto-
+rial experiment with both time and temperature run at two
+levels is shown in Figure 1.9. The responses observed at the
+four corners of the square indicate that we should move in
+the general direction of increased temperature and decreased
+reaction time to increase yield. A few additional runs would
+be performed in this direction, and this additional experimen-
+tation would lead us to the region of maximum yield.
+Once we have found the region of the optimum, a second
+experiment would typically be performed. The objective of
+this second experiment is to develop an empirical model of
+the process and to obtain a more precise estimate of the opti-
+mum operating conditions for time and temperature. This
+approach to process optimization is called response surface
+methodology, and it is explored in detail in Chapter 11. The
+second design illustrated in Figure 1.9 is a central compos-
+ite design, one of the most important experimental designs
+used in process optimization studies.

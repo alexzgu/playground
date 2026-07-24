@@ -1,0 +1,93 @@
+13.6 Lab: Multiple Testing
+587
+In [13]: fund_mini.mean()
+Out[13]: Manager1
+3.0
+Manager2
+-0.1
+Manager3
+2.8
+Manager4
+0.5
+Manager5
+0.3
+dtype: float64
+Is there evidence of a meaningful difference in performance between these
+two managers? We can check this by performing a paired t-test using the paired t-test
+ttest_rel() function from scipy.stats:
+ttest_rel()
+In [14]: ttest_rel(fund_mini['Manager1'],
+fund_mini['Manager2']).pvalue
+Out[14]: 0.038
+The test results in a p-value of 0.038, suggesting a statistically significant
+difference.
+However, we decided to perform this test only after examining the data
+and noting that Managers One and Two had the highest and lowest mean
+performances. In a sense, this means that we have implicitly performed
+'5
+2
+(
+= 5(5 −1)/2 = 10 hypothesis tests, rather than just one, as discussed
+in Section 13.3.2. Hence, we use the pairwise_tukeyhsd() function from pairwise_
+tukeyhsd()
+statsmodels.stats.multicomp to apply Tukey’s method in order to adjust
+for multiple testing. This function takes as input a fitted ANOVA regres- ANOVA
+sion model, which is essentially just a linear regression in which all of the
+predictors are qualitative. In this case, the response consists of the monthly
+excess returns achieved by each manager, and the predictor indicates the
+manager to which each return corresponds.
+In [15]: returns = np.hstack([fund_mini.iloc[:,i] for i in range(5)])
+managers = np.hstack([[i+1]*50 for i in range(5)])
+tukey = pairwise_tukeyhsd(returns, managers)
+print(tukey.summary())
+Multiple Comparison of Means - Tukey HSD, FWER=0.05
+===================================================
+group1 group2 meandiff p-adj
+lower
+upper
+reject
+---------------------------------------------------
+1
+2
+-3.1 0.1862 -6.9865 0.7865
+False
+1
+3
+-0.2 0.9999 -4.0865 3.6865
+False
+1
+4
+-2.5 0.3948 -6.3865 1.3865
+False
+1
+5
+-2.7 0.3152 -6.5865 1.1865
+False
+2
+3
+2.9 0.2453 -0.9865 6.7865
+False
+2
+4
+0.6 0.9932 -3.2865 4.4865
+False
+2
+5
+0.4 0.9986 -3.4865 4.2865
+False
+3
+4
+-2.3
+0.482 -6.1865 1.5865
+False
+3
+5
+-2.5 0.3948 -6.3865 1.3865
+False
+4
+5
+-0.2 0.9999 -4.0865 3.6865
+False
+---------------------------------------------------
+The pairwise_tukeyhsd() function provides confidence intervals for the
+difference between each pair of managers (lower and upper), as well as a

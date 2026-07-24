@@ -1,0 +1,66 @@
+11.3 Analysis of a Second-Order Response Surface
+499
+The Design-Expert software package was used to solve Example 11.2 using the desir-
+ability function approach. We chose T 80 as the target for the yield response with U 70
+and set the weight for this individual desirability equal to unity. We set T 65 for the viscos-
+ity response with L 62 and U 68 (to be consistent with specications), with both weights
+r1 r2 1. Finally, we indicated that any molecular weight between 3200 and 3400 was
+acceptable. Two solutions were found.
+Solution 1
+Time 86.5
+Temp 170.5
+D 0.822
+78.8
+65
+3287
+Solution 2
+Time 82
+Temp 178.8
+D 0.792
+78.5
+65
+3400
+Solution 1 has the highest overall desirability. Notice that it results in on-target viscosity and
+acceptable molecular weight. This solution is in the larger of the two operating regions in
+yˆ3
+yˆ2
+yˆ1
+yˆ3
+yˆ2
+yˆ1
+d
+L
+T
+y
+1
+0 < r < 1
+r = 1
+r > 1
+0
+(a) Objective (target) is to maximize y
+d
+T
+U
+y
+1
+0 < r < 1
+r = 1
+r > 1
+0
+(b) Objective (target) is to minimize y
+(c) Objective is for y to be as close as posible to the target
+d
+T
+U
+L
+y
+1
+0
+r1 = 1
+r2 = 1
+r1 > 1
+r2 > 1
+0 < r1 < 1
+0 < r2 < 1
+■F I G U R E 1 1 . 1 7
+Individual desirability functions for simultaneous optimization

@@ -1,0 +1,65 @@
+and
+This one-half fraction, with I   ABC, is usually called the principal fraction.
+Now suppose that we had chosen the other one-half fraction, that is, the treatment com-
+binations in Table 8.1 associated with minus in the ABC column. This alternate, or comple-
+mentary, one-half fraction (consisting of the runs (1), ab, ac, and bc) is shown in Figure 8.1b.
+The dening relation for this design is
+The linear combination of the observations, say [A] , [B] , and [C] , from the alternate frac-
+tion gives us
+Thus, when we estimate A, B, and C with this particular fraction, we are really estimating 
+A BC, B AC, and C AB.
+In practice, it does not matter which fraction is actually used. Both fractions belong to
+the same family; that is, the two one-half fractions form a complete 23 design. This is easily
+seen by reference to parts a and b of Figure 8.1.
+Suppose that after running one of the one-half fractions of the 23 design, the other frac-
+tion was also run. Thus, all eight runs associated with the full 23 are now available. We may
+now obtain de-aliased estimates of all the effects by analyzing the eight runs as a full 23
+design in two blocks of four runs each. This could also be done by adding and subtracting the
+linear combination of effects from the two individual fractions. For example, consider [A] :
+A BC and
+: A BC. This implies that
+and that
+Thus, for all three pairs of linear combinations, we would obtain the following:
+i
+From
+([i] [i])
+From ([i] [i])
+A
+A
+BC
+B
+B
+AC
+C
+C
+AB
+Furthermore, by assembling the full 23 in this fashion with I ABC in the first group
+of runs and I ABC in the second, the 23 confounds ABC with blocks.
+8.2.2
+Design Resolution
+The preceding 231 design is called a resolution III design. In such a design, main effects are
+aliased with two-factor interactions. A design is of resolution R if no p-factor effect is aliased
+1
+2
+1
+2
+1
+2 ([A] [A]) 
+1
+2 (A BC A BC) l BC
+1
+2 ([A] [A]) 
+1
+2 (A BC A BC) l A
+[A]
+ [C]l C AB
+ [B]l B AC
+ [A]l A BC
+
+
+
+I ABC
+C ABC 2 AB
+C ! I C ! ABC
+8.2 The One-Half Fraction of the 2k Design
+323

@@ -1,0 +1,47 @@
+12.5 Lab: Unsupervised Learning
+535
+In addition, clustering methods generally are not very robust to pertur-
+bations to the data. For instance, suppose that we cluster n observations,
+and then cluster the observations again after removing a subset of the n
+observations at random. One would hope that the two sets of clusters ob-
+tained would be quite similar, but often this is not the case!
+A Tempered Approach to Interpreting the Results of Clustering
+We have described some of the issues associated with clustering. However,
+clustering can be a very useful and valid statistical tool if used properly. We
+mentioned that small decisions in how clustering is performed, such as how
+the data are standardized and what type of linkage is used, can have a large
+effect on the results. Therefore, we recommend performing clustering with
+different choices of these parameters, and looking at the full set of results
+in order to see what patterns consistently emerge. Since clustering can be
+non-robust, we recommend clustering subsets of the data in order to get a
+sense of the robustness of the clusters obtained. Most importantly, we must
+be careful about how the results of a clustering analysis are reported. These
+results should not be taken as the absolute truth about a data set. Rather,
+they should constitute a starting point for the development of a scientific
+hypothesis and further study, preferably on an independent data set.
+12.5
+Lab: Unsupervised Learning
+In this lab we demonstrate PCA and clustering on several datasets. As in
+other labs, we import some of our libraries at this top level. This makes
+the code more readable, as scanning the first few lines of the notebook tell
+us what libraries are used in this notebook.
+In [1]: import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from statsmodels.datasets import get_rdataset
+from sklearn.decomposition import PCA
+from sklearn.preprocessing import StandardScaler
+from ISLP import load_data
+We also collect the new imports needed for this lab.
+In [2]: from sklearn.cluster import \
+(KMeans,
+AgglomerativeClustering)
+from scipy.cluster.hierarchy import \
+(dendrogram ,
+cut_tree)
+from ISLP.cluster import compute_linkage
+12.5.1
+Principal Components Analysis
+In this lab, we perform PCA on USArrests, a data set in the R computing
+environment. We retrieve the data using get_rdataset(), which can fetch get_
+rdataset()

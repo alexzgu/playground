@@ -1,0 +1,118 @@
+12.5 Choice of Designs
+569
+as in Example 12.2 by using only the axial runs in the directions of the controllable variables.
+For example, if there were three controllable variables and four noise variables, adding six
+axial runs for factors A, B, and C along with four center runs to the 30-run design in Table
+12.4 would produce a very nice design for tting the response model. The resulting design
+would have 40 runs, and the response model would have 26 parameters.
+Other methods can be used to construct designs for the second-order case. For exam-
+ple, suppose that there are three controllable factors and two noise factors. A modied CCD
+would have 16 runs (a 251) in the cube, six axial runs in the directions of the controllable
+variables, and (say) four center runs. This yields a design with 26 runs to estimate a model
+with 18 parameters. Another alternative would be to use a small composite design in the cube
+(11 runs), along with the six axial runs in the directions of the controllable variables and the
+four center runs. This results in a design with only 21 runs. A D-optimal or I-optimal
+approach could also be used. The 18-run design in Table 12.6 was constructed using Design-
+Expert. Note that this is a saturated design. Remember that as the design gets smaller, in
+general the parameters in the response model may not be estimated as well as they would have
+been with a larger design, and the variance of the predicted response may also be larger. For
+more information on designs for RPD and process robustness studies, see Myers, Montgomery
+and Anderson-Cook (2009) and the references therein.
+■T A B L E 1 2 . 6
+A D-Optimal Design for Fitting a Second-Order Response Model with Three
+Control and Two Noise Variables
+A
+B
+C
+D
+E
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+0
+
+
+
+0
+0
+0
+0
+
+
+
+
+
+
+
+
+
+
+

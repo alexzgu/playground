@@ -1,0 +1,35 @@
+6.2 Shrinkage Methods
+247
+FIGURE 6.7.
+Contours of the error and constraint functions for the lasso
+(left) and ridge regression (right). The solid blue areas are the constraint regions,
+|β1|+|β2| ≤s and β2
+1 +β2
+2 ≤s, while the red ellipses are the contours of the RSS.
+the ellipses expand away from the least squares coefficient estimates, the
+RSS increases. Equations (6.8) and (6.9) indicate that the lasso and ridge
+regression coefficient estimates are given by the first point at which an
+ellipse contacts the constraint region. Since ridge regression has a circular
+constraint with no sharp points, this intersection will not generally occur on
+an axis, and so the ridge regression coefficient estimates will be exclusively
+non-zero. However, the lasso constraint has corners at each of the axes, and
+so the ellipse will often intersect the constraint region at an axis. When this
+occurs, one of the coefficients will equal zero. In higher dimensions, many of
+the coefficient estimates may equal zero simultaneously. In Figure 6.7, the
+intersection occurs at β1 = 0, and so the resulting model will only include
+β2.
+In Figure 6.7, we considered the simple case of p = 2. When p = 3,
+then the constraint region for ridge regression becomes a sphere, and the
+constraint region for the lasso becomes a polyhedron. When p > 3, the
+constraint for ridge regression becomes a hypersphere, and the constraint
+for the lasso becomes a polytope. However, the key ideas depicted in Fig-
+ure 6.7 still hold. In particular, the lasso leads to feature selection when
+p > 2 due to the sharp corners of the polyhedron or polytope.
+Comparing the Lasso and Ridge Regression
+It is clear that the lasso has a major advantage over ridge regression, in
+that it produces simpler and more interpretable models that involve only a
+subset of the predictors. However, which method leads to better prediction
+accuracy? Figure 6.8 displays the variance, squared bias, and test MSE of
+the lasso applied to the same simulated data as in Figure 6.5. Clearly the
+lasso leads to qualitatively similar behavior to ridge regression, in that as λ
+increases, the variance decreases and the bias increases. In the right-hand

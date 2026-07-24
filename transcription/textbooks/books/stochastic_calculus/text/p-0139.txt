@@ -1,0 +1,35 @@
+4.3. FEYNMAN-KAC FORMULA
+133
+The alert reader will note that we cheated a little bit in our derivation
+of ϕ because we assumed that ϕ was C2. After assuming this, we
+obtained a dierential equation and found what ϕ should be. To nish
+a proof, we can start with ϕ as dened in (4.1) or (4.2), and use
+Itˆo’s formula to show that Mt = ϕ(Xt∧τ) is a continuous martingale.
+Since it is also bounded, we can use the optional sampling theorem to
+conclude that
+ϕ(x0) = E[M0] = E[Mτ] = PXτ = R
+This kind of argument is often done in stochastic calculus where one
+rst assumes sucient smoothness of a a function in order to use
+Itˆo’s formula and obtain a dierential equation for the function. Once
+the dierential equation is solved, one can go back and redo the Itˆo’s
+formula calculation rigorously.
+4.3
+Feynman-Kac formula
+Suppose that the price of a stock follows a geometric Brownian motion
+dXt = m Xt dt + σ Xt dBt
+(4.3)
+Suppose that at some future time T we have an option to buy a share of the
+stock at price S. We will exercise the option only if XT ≥S and the value
+of the option at time T is F(XT) where
+F(x) = (x −S)+ = max x −S, 0
+Suppose that there is an ination rate of r so that x dollars at time t in future
+is worth only e−rtx in current dollars. Let ϕ(t, x) be the expected value of
+this option at time t, measured in dollars at time t, given that the current
+price of the stock is x,
+ϕ(t, x) = E
+
+e−r(T −t)F(XT) Xt = x
+
+
+(4.4)
+The Feynman-Kac formula gives a PDE for this quantity.

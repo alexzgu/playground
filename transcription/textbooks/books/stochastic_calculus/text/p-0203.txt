@@ -1,0 +1,42 @@
+6.3. COMPOUND POISSON PROCESS
+197
+Since there are only nitely many jumps, we can see that the second and
+third limits are zero and hence
+⟨M⟩t = ⟨X⟩t =
+
+s≤t
+[Xs −Xs−]2
+This next proposition generalizes the last assertion of the previous propo-
+sition and sheds light on the meaning of the generator L. In some sense, this is
+an analogue of Itˆo’s formula for CPP. Recall that if Xt is a diusion satisfying
+dXt = m(Xt) dt + σ(Xt) dBt,
+then the Markov process Xt has generator
+Lf(x) = m(x) f ′(x) + σ2(x)
+2
+f ′′(x),
+and Itˆo’s formula gives
+df(Xt) = Lf(Xt) dt + f ′(Xt) σ(Xt) dBt
+In other words, if
+Mt = f(Xt) −
+t
+0
+Lf(Xs) ds,
+then Mt a (local) martingale satisfying
+dMt = f ′(Xt) σ(Xt) dBt
+Proposition 6.3.2. SXt PL´
+µ, f x, t,
+E
+
+f(Xt)2 X0 = x
+
+< ∞
+T
+Mt = f(Xt) −
+t
+0
+Lf(Xs) ds
+
+⟨M⟩t = ⟨f(X)⟩t =
+
+s≤t
+[f(Xs) −f(Xs−)]2 

@@ -1,0 +1,63 @@
+4.7 Lab: Logistic Regression, LDA, QDA, and KNN
+183
+Its variance is 1.503.
+In [42]: NB.var_
+Out[42]: array([[1.503, 1.532],
+[1.514, 1.487]])
+How do we know the names of these attributes? We use NB? (or ?NB).
+We can easily verify the mean computation:
+In [43]: X_train[L_train == 'Down'].mean()
+Out[43]: Lag1
+0.042790
+Lag2
+0.033894
+dtype: float64
+Similarly for the variance:
+In [44]: X_train[L_train == 'Down'].var(ddof=0)
+Out[44]: Lag1
+1.503554
+Lag2
+1.532467
+dtype: float64
+The GaussianNB() function calculates variances using the 1/n formula.6
+Since NB() is a classifier in the sklearn library, making predictions uses the
+same syntax as for LDA() and QDA() above.
+In [45]: nb_labels = NB.predict(X_test)
+confusion_table(nb_labels, L_test)
+Out[45]:
+Truth
+Down
+Up
+Predicted
+Down
+29
+20
+Up
+82
+121
+Naive Bayes performs well on these data, with accurate predictions over
+59% of the time. This is slightly worse than QDA, but much better than
+LDA.
+As for LDA, the predict_proba() method estimates the probability that
+each observation belongs to a particular class.
+In [46]: NB.predict_proba(X_test)[:5]
+Out[46]: array([[0.4873, 0.5127],
+[0.4762, 0.5238],
+[0.4653, 0.5347],
+[0.4748, 0.5252],
+[0.4902, 0.5098]])
+4.7.6
+K-Nearest Neighbors
+We will now perform KNN using the KNeighborsClassifier() function. This KNeighbors
+Classifier()
+6There are two formulas for computing the sample variance of n observations
+x1, . . . , xn:
+1
+n
+!n
+i=1(xi −¯x)2 and
+1
+n−1
+!n
+i=1(xi −¯x)2 where ¯x is the sample mean.
+In most cases the distinction is not important.

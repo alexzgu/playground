@@ -1,0 +1,52 @@
+376
+9. Support Vector Machines
+We now consider the role of the tuning parameter C. In (9.15), C bounds
+the sum of the ϵi’s, and so it determines the number and severity of the vio-
+lations to the margin (and to the hyperplane) that we will tolerate. We can
+think of C as a budget for the amount that the margin can be violated
+by the n observations. If C = 0 then there is no budget for violations to
+the margin, and it must be the case that ϵ1 = · · · = ϵn = 0, in which case
+(9.12)–(9.15) simply amounts to the maximal margin hyperplane optimiza-
+tion problem (9.9)–(9.11). (Of course, a maximal margin hyperplane exists
+only if the two classes are separable.) For C > 0 no more than C observa-
+tions can be on the wrong side of the hyperplane, because if an observation
+is on the wrong side of the hyperplane then ϵi > 1, and (9.15) requires
+that )n
+i=1 ϵi ≤C. As the budget C increases, we become more tolerant of
+violations to the margin, and so the margin will widen. Conversely, as C
+decreases, we become less tolerant of violations to the margin and so the
+margin narrows. An example is shown in Figure 9.7.
+In practice, C is treated as a tuning parameter that is generally chosen via
+cross-validation. As with the tuning parameters that we have seen through-
+out this book, C controls the bias-variance trade-off of the statistical learn-
+ing technique. When C is small, we seek narrow margins that are rarely
+violated; this amounts to a classifier that is highly fit to the data, which
+may have low bias but high variance. On the other hand, when C is larger,
+the margin is wider and we allow more violations to it; this amounts to
+fitting the data less hard and obtaining a classifier that is potentially more
+biased but may have lower variance.
+The optimization problem (9.12)–(9.15) has a very interesting property:
+it turns out that only observations that either lie on the margin or that
+violate the margin will affect the hyperplane, and hence the classifier ob-
+tained. In other words, an observation that lies strictly on the correct side
+of the margin does not affect the support vector classifier! Changing the
+position of that observation would not change the classifier at all, provided
+that its position remains on the correct side of the margin. Observations
+that lie directly on the margin, or on the wrong side of the margin for
+their class, are known as support vectors. These observations do affect the
+support vector classifier.
+The fact that only support vectors affect the classifier is in line with our
+previous assertion that C controls the bias-variance trade-off of the support
+vector classifier. When the tuning parameter C is large, then the margin is
+wide, many observations violate the margin, and so there are many support
+vectors. In this case, many observations are involved in determining the
+hyperplane. The top left panel in Figure 9.7 illustrates this setting: this
+classifier has low variance (since many observations are support vectors)
+but potentially high bias. In contrast, if C is small, then there will be fewer
+support vectors and hence the resulting classifier will have low bias but
+high variance. The bottom right panel in Figure 9.7 illustrates this setting,
+with only eight support vectors.
+The fact that the support vector classifier’s decision rule is based only
+on a potentially small subset of the training observations (the support vec-
+tors) means that it is quite robust to the behavior of observations that
+are far away from the hyperplane. This property is distinct from some of

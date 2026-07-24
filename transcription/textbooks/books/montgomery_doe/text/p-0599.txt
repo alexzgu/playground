@@ -1,0 +1,129 @@
+13.3 The Two-Factor Mixed Model
+583
+These results are also given in the Minitab output. Once
+again, a negative estimate of the interaction variance com-
+ponent results. An appropriate course of action would be to
+t a reduced model, as we did in Example 13.1. In the case
+of a mixed model with two factors, this leads to the same
+results as in Example 13.1.
+■TA B L E 1 3 . 4
+Analysis of Variance (Minitab) for the Mixed Model in Example 13.2. The Restricted Model is Assumed
+Analysis of Variance (Balanced Designs)
+Factor
+Type Levels Values
+part
+ random
+20
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+operator fixed
+3
+1
+2
+3
+Analysis of Variance for y
+Source
+DF
+SS
+MS
+F
+P
+part
+19
+1185.425
+62.391
+62.92
+0.000
+operator
+2
+2.617
+1.308
+1.84
+0.173
+part*operator
+38
+27.050
+0.712
+0.72
+0.861
+Error
+60
+59.500
+0.992
+Total
+119
+1274.592
+Source
+Variance
+Error
+Expected Mean Square for Each Term
+component
+term
+(using restricted model)
+1 part
+10.2332
+4
+(4) 6(1)
+2 operator
+3
+(4) 2(3) 40Q[2]
+3 part*operator
+0.1399
+4
+(4) 2(3)
+4 Error
+0.9917
+(4)
+Alternate Mixed Models. Several different versions of the mixed model have been pro-
+posed. These models differ from the restricted version of the mixed model discussed previ-
+ously in the assumptions made about the random components. One of these alternate models
+is now briey discussed.
+Consider the model
+where the i (i 1, 2, . . . , a) are xed effects such that 
+i 0 and j, ()ij, and ijk are
+uncorrelated random variables having zero means and variances V(j)  
+, V[()ij]  
+, and V(ijk) 2. Note that the restriction imposed previously on the interaction effect is
+not used here; consequently, this version of the mixed model is often called the unrestricted
+mixed model.
+We can show that expected mean squares for this model are (refer to the supplemental
+text material for this chapter)
+(13.12)
+E(MSAB) 2 n2
+
+E(MSB) 2 n2
+an2
+
+E(MSA) 2 n2
+
+bn 
+a
+i1
+2
+i
+a 1
+2
+
+2
+
+"a
+i1
+yijk i j ()ij ijk

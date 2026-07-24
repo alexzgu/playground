@@ -1,0 +1,88 @@
+268
+Chapter 6 ■The 2k Factorial Design
+collection of nonsignicant effects. A full normal probability plot would also have provided
+evidence of an outlier. The normal probability plot for this example is shown in Figure 6.17b.
+Notice that there are two distinct lines on the normal probability plot, not a single line passing
+through the nonsignicant effects. This is usually a strong indication that on outlier is present.
+The illustration here involves a very severe outlier (375 instead of 75). This outlier is so
+dramatic that it would likely be spotted easily just by looking at the sample data or certainly
+by examining the residuals.
+What should we do when an outlier is present? If it is a simple data recording or trans-
+position error, an experimenter may be able to correct the outlier, replacing it with the right
+value. One suggestion is to replace it by an estimate (following the tactic introduced in
+Chapter 4 for blocked designs). This will preserve the orthogonality of the design and make
+interpretation easy. Replacing the outlier with an estimate that makes the highest order inter-
+action estimate zero (in this case, replacing cd with a value that makes 
+) is one
+option. Discarding the outlier and analyzing the remaining observations is another option.
+This same approach would be used if one of the observations from the experiment is miss-
+ing. Exercise 6.32 asks the reader to follow through with this suggestion for Example 6.2.
+Modern computer software can analyze the data from 2k designs with missing values
+because they use the method of least squares to estimate the effects, and least squares does not
+require an orthogonal design. The impact of this is that the effect estimates are no longer uncor-
+related as they would be from an orthogonal design. The normal probability plotting technique
+requires that the effect estimates be uncorrelated with equal variance, but the degree of correla-
+tion introduced by a missing observation is relatively small in 2k designs where the number of fac-
+tor k is at least four. The correlation between the effect estimates and the model regression coef-
+cients will not usually cause signicant problems in interpreting the normal probability plot.
+Figure 6.18 presents the half-normal probability plot obtained for the effect estimates
+if the outlier observation 
+in Example 6.2 is omitted. This plot is easy to interpret,
+and exactly the same significant effects are identified as when the full set of experimental
+data was used. The correlation between design factors in this situation is 
+. It can be
+shown that the correlation between the model regression coefcients is larger, that is 0.5, but
+this still does not lead to any difculty in interpreting the half-normal probability plot.
+6.6
+Additional Examples of Unreplicated 2k Designs
+Unreplicated 2k designs are widely used in practice. They may be the most common variation
+of the 2k design. This section presents four interesting applications of these designs, illustrat-
+0.0714
+cd 375
+ABCD 0
+Half-normal % probability
+A
+0.00
+10
+0
+20
+30
+70
+50
+80
+95
+99
+90
+13.91
+27.81
+|Effect|
+(a)
+41.72
+55.63
+AD
+C
+D
+AC
+Normal % probability
+5
+1
+10
+20
+30
+50
+70
+99
+95
+90
+80
+Warning! No terms are selected
+Effect
+(b)
+–1.75
+–55.63
+–28.69
+25.19
+52.13
+■F I G U R E 6 . 1 7
+The effect of outliers. (a) Half-normal probability plot. (b) Normal
+probability plot

@@ -1,0 +1,63 @@
+4.5. CONTINUOUS MARTINGALES
+141
+One can also derive this result by considering L∗as the adjoint of L.
+In other words, L∗is dened by
+∞
+−∞
+L∗f(x) g(x) dx =
+∞
+−∞
+f(x) Lg(x) dx
+If
+Lg(x) = m(x) g′(x) + σ2
+2 g′′(x),
+then integration by parts gives
+L∗f(x) = −[m(x) f(x)]′ + σ2
+2 f ′′(x)
+4.5
+Continuous martingales
+Earlier we made the comment that Brownian motion is the only continuous
+martingale. We will make this explicit in this section.
+Proposition 4.5.1. SMt 
+FtM0 = 0, 
+Mt B,
+⟨M⟩t = lim
+n∞
+
+j<2nt
+
+M
+j + 1
+2n
+
+−M
+j
+2n
+2
+= t
+Tλ R,
+E [expiλMt] = e−λ2t2
+S. Fix λ and let f(x) = eiλx. Note that the derivatives of f are
+uniformly bounded in x. Following the proof of Itˆo’s formula we can show
+that
+f(Mt) −f(M0) = Nt + 1
+2
+t
+0
+f ′′(Ms) ds = Nt −λ2
+2
+t
+0
+f(Ms) ds,
+where Nt is a martingale. In particular, if r < t,
+E[f(Mt) −f(Mr)] = 1
+2 E
+t
+r
+f ′′(Ms) ds
+
+= −λ2
+2
+t
+r
+E[f(Ms)] ds

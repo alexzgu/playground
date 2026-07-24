@@ -1,0 +1,50 @@
+8.3 Lab: Tree-Based Methods
+357
+In order to properly evaluate the performance of a classification tree on
+these data, we must estimate the test error rather than simply computing
+the training error. We split the observations into a training set and a test
+set, build the tree using the training set, and evaluate its performance
+on the test data. This pattern is similar to that in Chapter 6, with the
+linear models replaced here by decision trees — the code for validation is
+almost identical. This approach leads to correct predictions for 68.5% of
+the locations in the test data set.
+In [10]: validation = skm.ShuffleSplit(n_splits=1,
+test_size=200,
+random_state=0)
+results = skm.cross_validate(clf,
+D,
+High,
+cv=validation)
+results['test_score']
+Out[10]: array([0.685])
+Next, we consider whether pruning the tree might lead to improved clas-
+sification performance. We first split the data into a training and test set.
+We will use cross-validation to prune the tree on the training set, and then
+evaluate the performance of the pruned tree on the test set.
+In [11]: (X_train,
+X_test,
+High_train,
+High_test) = skm.train_test_split(X,
+High,
+test_size=0.5,
+random_state=0)
+We first refit the full tree on the training set; here we do not set a max_depth
+parameter, since we will learn that through cross-validation.
+In [12]: clf = DTC(criterion='entropy', random_state=0)
+clf.fit(X_train, High_train)
+accuracy_score(High_test, clf.predict(X_test))
+Out[12]: 0.735
+Next we use the cost_complexity_pruning_path() method of clf to extract cost_
+complexity_
+pruning_
+path()
+cost-complexity values.
+In [13]: ccp_path = clf.cost_complexity_pruning_path(X_train, High_train)
+kfold = skm.KFold(10,
+random_state=1,
+shuffle=True)
+This yields a set of impurities and α values from which we can extract an
+optimal one by cross-validation.
+In [14]: grid = skm.GridSearchCV(clf,
+{'ccp_alpha': ccp_path.ccp_alphas},
+refit=True,

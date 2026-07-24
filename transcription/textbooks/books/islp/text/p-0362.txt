@@ -1,0 +1,48 @@
+8.3 Lab: Tree-Based Methods
+355
+8.3.1
+Fitting Classification Trees
+We first use classification trees to analyze the Carseats data set. In these
+data, Sales is a continuous variable, and so we begin by recoding it as a
+binary variable. We use the where() function to create a variable, called where()
+High, which takes on a value of Yes if the Sales variable exceeds 8, and
+takes on a value of No otherwise.
+In [3]: Carseats = load_data('Carseats')
+High = np.where(Carseats.Sales > 8,
+"Yes",
+"No")
+We now use DecisionTreeClassifier() to fit a classification tree in order DecisionTree
+Classifier()
+to predict High using all variables but Sales. To do so, we must form a
+model matrix as we did when fitting regression models.
+In [4]: model = MS(Carseats.columns.drop('Sales'), intercept=False)
+D = model.fit_transform(Carseats)
+feature_names = list(D.columns)
+X = np.asarray(D)
+We have converted D from a data frame to an array X, which is needed in
+some of the analysis below. We also need the feature_names for annotating
+our plots later.
+There are several options needed to specify the classifier, such as max_depth
+(how deep to grow the tree), min_samples_split (minimum number of ob-
+servations in a node to be eligible for splitting) and criterion (whether to
+use Gini or cross-entropy as the split criterion). We also set random_state
+for reproducibility; ties in the split criterion are broken at random.
+In [5]: clf = DTC(criterion='entropy',
+max_depth=3,
+random_state=0)
+clf.fit(X, High)
+Out[5]: DecisionTreeClassifier(criterion='entropy', max_depth=3)
+In our discussion of qualitative features in Section 3.3, we noted that for
+a linear regression model such a feature could be represented by including a
+matrix of dummy variables (one-hot-encoding) in the model matrix, using
+the formula notation of statsmodels. As mentioned in Section 8.1, there is
+a more natural way to handle qualitative features when building a decision
+tree, that does not require such dummy variables; each split amounts to
+partitioning the levels into two groups. However, the sklearn implementa-
+tion of decision trees does not take advantage of this approach; instead it
+simply treats the one-hot-encoded levels as separate variables.
+In [6]: accuracy_score(High, clf.predict(X))
+Out[6]: 0.7275
+With only the default arguments, the training error rate is 21%. For clas-
+sification trees, we can access the value of the deviance using log_loss(),
+log_loss()

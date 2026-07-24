@@ -1,0 +1,157 @@
+8.39.
+Consider the following experiment:
+Run
+Treatment combination
+1
+d
+2
+ae
+3
+b
+4
+abde
+5
+cde
+6
+ac
+7
+bce
+8
+abcd
+Answer the following questions about this experiment:
+(a) How many factors did this experiment investigate?  
+(b) How many factors are in the basic design?  
+(c) Assume that the factors in the experiment are repre-
+sented by the initial letters of the alphabet (i.e., A, B,
+etc.), what are the design generators for the factors
+beyond the basic design?  
+(d) Is this design a principal fraction?
+(e) What is the complete dening relation? 
+(f) What is the resolution of this design?
+8.40.
+Consider the following experiment:
+Run
+Treatment combination
+y
+1
+(1)
+8
+2
+ad
+10
+3
+bd
+12
+4
+ab
+7
+5
+cd
+13
+6
+ac
+6
+7
+bc
+5
+8
+abcd
+11
+Answer the following questions about this experiment:
+(a) How many factors did this experiment investigate? 
+(b) What is the resolution of this design?
+(c) Calculate the estimates of the main effects.
+(d) What is the complete defining relation for this 
+design?
+8.41.
+An unreplicated 251 fractional factorial experiment
+with four center points has been run in a chemical process.
+The response variable is molecular weight. The experimenter
+has used the following factors:
+Factor
+Natural levels
+Coded levels (x’s)
+A - time
+20, 40 (minutes)
+1, 1
+B - temperature
+160, 180 (deg C)
+1, 1
+8.10 Problems
+387
+C - concentration
+30, 60 (percent)
+1, 1
+D - stirring rate
+100, 150 (RPM)
+1, 1
+E - catalyst type
+1, 2 (Type)
+1. 1
+Suppose that the prediction equation that results from this exper-
+iment is 
+10 3x1 2x2 1x1x2. What is the predicted
+response at A 30, B 165, C 50, D 135, and E 1?
+8.42.
+An unreplicated 241 fractional factorial experiment
+with four center points has been run. The experimenter has
+used the following factors:
+Factor
+Natural levels
+Coded levels (x’s)
+A - time
+10, 50 (minutes)
+1, 1
+B - temperature
+200, 300 (deg C)
+1, 1
+C - concentration
+70, 90 (percent)
+1, 1
+D - pressure
+260, 300 (psi) 
+1, 1
+(a) Suppose that the average of the 16 factorial design
+points is 100 and the average of the center points is
+120, what is the sum of squares for pure quadratic
+curvature?
+(b) Suppose that the prediction equation that results from
+this experiment is 
+50 5x1 2x2 2x1x2. Find
+the predicted response at A 20, B 250, C 80,
+and D 275.
+8.43.
+An unreplicated 241 fractional factorial experiment
+has been run. The experimenter has used the following 
+factors:
+Factor
+Natural levels
+Coded levels (x’s)
+A
+20, 50
+1, 1
+B
+200, 280 
+1, 1
+C
+50, 100 
+1, 1
+D
+150, 200 
+1, 1
+(a) Suppose that this design has four center runs that
+average 100. The average of the 16 factorial design
+points is 95. What is the sum of squares for pure quad-
+ratic curvature?
+(b) Suppose that the prediction equation that results from
+this experiment is 
+100 2x1  10x2 4x1x2.
+What is the predicted response at A  41, B 280,
+C 60, and D 185?
+8.44.
+A 262 factorial experiment with three replicates has
+been run in a pharmaceutical drug manufacturing process.
+The experimenter has used the following factors:
+ˆy
+ˆy
+ˆy

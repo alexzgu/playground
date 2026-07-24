@@ -1,0 +1,100 @@
+14.3 Designs with Both Nested and Factorial Factors
+617
+■TA B L E 1 4 . 1 1
+Expected Mean Squares for Example 14.2
+Model
+Term
+Expected Mean Square
+i
+j
+k(j)
+()ij
+()ik(j)
+(ijk)l
+2
+2 22
+
+2 22
+4  ()2
+ij
+2 62
+
+2 62
+24 2
+j
+2 22
+8 2
+i
+seem to have little effect on the assembly time. Therefore, to
+minimize assembly time, we should concentrate on xture
+types 1 and 3. (Note that the xture totals in Table 14.9 are
+smaller for xture types 1 and 3 than for type 2. This differ-
+ence in xture type means could be formally tested using
+multiple comparisons.) Furthermore, the interaction between
+operators and xtures implies that some operators are more
+effective than others using the same xtures. Perhaps these
+operator–xture effects could be isolated and the less effec-
+tive operators’ performance improved by retraining them.
+■TA B L E 1 4 . 1 2
+Analysis of Variance for Example 14.2
+Sum of
+Degrees of
+Mean
+Source of Variation
+Squares
+Freedom
+Square
+F0
+P-Value
+Fixtures (F)
+82.80
+2
+41.40
+7.54
+0.01
+Layouts (L)
+4.08
+1
+4.09
+0.34
+0.58
+Operators (within layouts), O(L)
+71.91
+6
+11.99
+5.15
+0.01
+FL
+19.04
+2
+9.52
+1.73
+0.22
+FO(L)
+65.84
+12
+5.49
+2.36
+0.04
+Error
+56.00
+24
+2.33
+Total
+299.67
+47
+Computing. A number of statistical software packages can easily analyze nested–
+factorial designs, including both Minitab and JMP. Table 14.13 presents the output from
+Minitab (Balanced ANOVA), assuming the restricted form of the mixed model, for
+Example 14.2. The expected mean squares in the bottom portion of Table 14.13 agree
+with those shown in Table 14.10. Q[1], Q[3], and Q[4] are the fixed-factor effects for 
+layouts, fixtures, and layouts fixtures, respectively. The estimates of the variance
+components are
+2 2.333
+Error:
+2
+1.576
+Fixture  Operator (layout):
+2
+1.609
+Operator (layout):

@@ -1,0 +1,50 @@
+3.4. MORE VERSIONS OF IT ˆO’S FORMULA
+105
+Suppose that f is dened only on an interval I = (a, b) and B0 I.
+Let
+Tϵ = inft : Bt ≤a + ϵ or Bt ≥b −ϵ,
+T = T0
+We can apply Itˆo’s formula to conclude for all t and all ϵ > 0.
+f(Bt∧Tϵ) = f(B0) +
+t∧Tϵ
+0
+f ′(Bs) dBs + 1
+2
+t∧Tϵ
+0
+f ′′(s) ds
+This is sometimes written shorthand as
+df(Bt) = f ′(Bt) dBt + 1
+2 f ′′(Bt) dt,
+0 ≤t < T
+The general strategy for proving the generalizations of Itˆo’s formula
+that we give in the next couple of sections is the same, and we will
+not give the details.
+3.4
+More versions of Itˆo’s formula
+We rst extend Itˆo’s formula to functions that depend on time as well as
+position.
+Theorem 3.4.1 (Itˆo’s Formula II). Sf(t, x) C1
+t C2 x. IBt B, 
+f(t, Bt) = f(0, B0) +
+t
+0
+∂xf(s, Bs) dBs
++
+t
+0
+
+∂sf(s, Bs) + 1
+2 ∂xxf(s, Bs)
+
+ds,
+,
+df(t, Bt) = ∂xf(t, Bt) dBt +
+
+∂tf(t, Bt) + 1
+2 ∂xxf(t, Bt)
+
+dt
+This is derived similarly to the rst version except when we expand with
+a Taylor polynomial around x we get another term:
+f(t + ∆t, x + ∆x) −f(t, x) =

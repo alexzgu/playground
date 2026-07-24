@@ -1,0 +1,71 @@
+r times), and that there are N ar bk total observations. Furthermore, the number of times
+each pair of treatments appears in the same block is
+If a b, the design is said to be symmetric.
+The parameter must be an integer. To derive the relationship for , consider any treat-
+ment, say treatment 1. Because treatment 1 appears in r blocks and there are k 1 other treat-
+ments in each of those blocks, there are r(k 1) observations in a block containing treatment 1.
+These r(k 1) observations also have to represent the remaining a 1 treatments times.
+Therefore, (a 1) r(k 1).
+The statistical model for the BIBD is
+(4.31)
+where yij is the ith observation in the jth block, is the overall mean, i is the effect of the ith
+treatment, j is the effect of the jth block, and ij is the NID (0, 2) random error component.
+The total variability in the data is expressed by the total corrected sum of squares:
+(4.32)
+Total variability may be partitioned into
+where the sum of squares for treatments is adjusted to separate the treatment and the block
+effects. This adjustment is necessary because each treatment is represented in a different set
+of r blocks. Thus, differences between unadjusted treatment totals y1., y2., . . . , ya. are also
+affected by differences between blocks.
+The block sum of squares is
+(4.33)
+where y.j is the total in the jth block. SSBlocks has b 1 degrees of freedom. The adjusted treat-
+ment sum of squares is
+(4.34)
+where Qi is the adjusted total for the ith treatment, which is computed as
+(4.35)
+with nij 1 if treatment i appears in block j and nij 0 otherwise. The adjusted treatment
+totals will always sum to zero. SSTreatments(adjusted) has a 1 degrees of freedom. The error sum
+of squares is computed by subtraction as
+(4.36)
+and has N a b 1 degrees of freedom.
+The appropriate statistic for testing the equality of the treatment effects is
+The ANOVA is summarized in Table 4.23.
+F0 
+MSTreatments(adjusted)
+MSE
+SSE SST SSTreatments(adjusted) SSBlocks
+Qi yi. 1
+k 
+b
+j1
+nijy.j 
+ i 1, 2, . . . , a
+SSTreatments(adjusted) 
+k
+a
+i1
+Q2
+i
+a
+SSBlocks 1
+k 
+b
+j1
+y2
+.j y2
+..
+N
+SST SSTreatments(adjusted) SSBlocks SSE
+SST 
+i 
+j
+y2
+ij y2
+..
+N
+yij i j ij
+r(k 1)
+a 1
+4.4 Balanced Incomplete Block Designs
+169

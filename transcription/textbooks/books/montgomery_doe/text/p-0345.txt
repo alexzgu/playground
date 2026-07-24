@@ -1,0 +1,150 @@
+8.2 The One-Half Fraction of the 2k Design
+329
+Table 8.6 contains the effect estimates, sums of squares,
+and model regression coefcients for the 15 effects from
+this experiment. Figure 8.6 presents a normal probability
+plot of the effect estimates from this experiment. The main
+effects of A, B, and C and the AB interaction are large.
+Remember that, because of aliasing, these effects are really
+A BCDE, B ACDE, C ABDE, and AB CDE.
+However, because it seems plausible that three-factor and
+higher interactions are negligible, we feel safe in conclud-
+ing that only A, B, C, and AB are important effects.
+Table 8.7 summarizes the analysis of variance for this
+experiment. The model sum of squares is SSModel SSA 
+SSB SSC SSAB 5747.25, and this accounts for over
+99 percent of the total variability in yield. Figure 8.7 pres-
+ents a normal probability plot of the residuals, and Figure 8.8
+is a plot of the residuals versus the predicted values. Both
+plots are satisfactory.
+■TA B L E 8 . 6
+Effects, Regression Coefﬁcients, and Sums of Squares for Example 8.2
+Variable
+Name
+1 Level
+1 Level
+A
+Aperture
+Small
+Large
+B
+Exposure time
+20%
+20%
+C
+Develop time
+30 sec
+40 sec
+D
+Mask dimension
+Small
+Large
+E
+Etch time
+14.5 min
+15.5 min
+Variable
+Regression Coefﬁcient
+Estimated Effect
+Sum of Squares
+Overall Average
+30.3125
+A
+5.5625
+11.1250
+495.062
+B
+16.9375
+33.8750
+4590.062
+C
+5.4375
+10.8750
+473.062
+D
+0.4375
+0.8750
+3.063
+E
+0.3125
+0.6250
+1.563
+AB
+3.4375
+6.8750
+189.063
+AC
+0.1875
+0.3750
+0.563
+AD
+0.5625
+1.1250
+5.063
+AE
+0.5625
+1.1250
+5.063
+BC
+0.3125
+0.6250
+1.563
+BD
+0.0625
+0.1250
+0.063
+BE
+0.0625
+0.1250
+0.063
+CD
+0.4375
+0.8750
+3.063
+CE
+0.1875
+0.3750
+0.563
+DE
+0.6875
+1.3750
+7.563
+Effect estimates
+0
+5
+10
+AB
+C
+A
+B
+15
+20
+25
+30
+1
+5
+10
+20
+30
+50
+70
+90
+95
+99
+80
+Normal probability, (1 – Pj) × 100
+Pj × 100
+1
+5
+10
+20
+30
+50
+70
+80
+90
+95
+99
+■F I G U R E 8 . 6
+Normal probability plot of
+effects for Example 8.2

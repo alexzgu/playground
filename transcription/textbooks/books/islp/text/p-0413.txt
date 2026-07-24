@@ -1,0 +1,57 @@
+406
+10. Deep Learning
+Method
+Test Error
+Neural Network + Ridge Regularization
+2.3%
+Neural Network + Dropout Regularization
+1.8%
+Multinomial Logistic Regression
+7.2%
+Linear Discriminant Analysis
+12.7%
+TABLE 10.1. Test error rate on the MNIST data, for neural networks with two
+forms of regularization, as well as multinomial logistic regression and linear dis-
+criminant analysis. In this example, the extra complexity of the neural network
+leads to a marked improvement in test error.
+FIGURE 10.5. A sample of images from the CIFAR100 database: a collection of
+natural images from everyday life, with 100 different classes represented.
+Adding the number of coefficients in W1, W2 and B, we get 235,146 in
+all, more than 33 times the number 785×9 = 7,065 needed for multinomial
+logistic regression. Recall that there are 60,000 images in the training set.
+While this might seem like a large training set, there are almost four times
+as many coefficients in the neural network model as there are observations in
+the training set! To avoid overfitting, some regularization is needed. In this
+example, we used two forms of regularization: ridge regularization, which
+is similar to ridge regression from Chapter 6, and dropout regularization. dropout
+We discuss both forms of regularization in Section 10.7.
+10.3
+Convolutional Neural Networks
+Neural networks rebounded around 2010 with big successes in image classi-
+fication. Around that time, massive databases of labeled images were being
+accumulated, with ever-increasing numbers of classes. Figure 10.5 shows
+75 images drawn from the CIFAR100 database.4 This database consists of
+60,000 images labeled according to 20 superclasses (e.g. aquatic mammals),
+with five classes per superclass (beaver, dolphin, otter, seal, whale). Each
+image has a resolution of 32 × 32 pixels, with three eight-bit numbers per
+pixel representing red, green and blue. The numbers for each image are
+organized in a three-dimensional array called a feature map. The first two feature map
+4See
+Chapter
+3
+of
+Krizhevsky
+(2009)
+“Learning
+multiple
+layers
+of
+fea-
+tures
+from
+tiny
+images”,
+available
+at
+https://www.cs.toronto.edu/~kriz/
+learning-features-2009-TR.pdf.

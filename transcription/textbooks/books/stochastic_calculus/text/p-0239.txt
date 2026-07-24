@@ -1,0 +1,32 @@
+6.11. EXERCISES
+233
+4. Find a nonrandom function a(t) such that
+Xt = Yt −a(t)
+is a martingale, that is, if s ≤t,
+E[Xt Fs] = E[Xt Ys] = Xs
+Here Ft denotes the information in Ys : s ≤t.
+Exercise 6.3. Suppose Xt is a compound Poisson process with λ = 2, and
+measure µ# is given by a N(0, 1) distribution. In other words, the process
+jumps when a Poisson process of rate 2 jumps and when it jumps it chooses
+a jump size from a N(0, 1) distribution.
+Find the function f so that the L´evy measure µ can be written as
+dµ = f(x) dx
+Find E[Xt].
+Find E[X2
+t ]
+What is the generator L of the process Xt?
+Does there exist a process St such that for each t, St is measurable with
+respect to Ft, the information in Xs : 0 ≤s ≤t, and such that
+– With probability one, St is dierentiable with respect to t,
+– Mt = X2
+t −St is a martingale
+If so nd it.
+Exercise 6.4. Let Xt be as in Exercise 6.3 and let
+Zt = expXt
+1. Find E[Zt].
+2. Find a continuous process St, adapted to the information in Ft, with
+St > 0 such that St is dierentiable with respect to t (except at the t
+at which Xt jumps) and
+Mt = Zt −St
+is a martingale? Explain why St is not dierentiable at the jump times
+of Xt.

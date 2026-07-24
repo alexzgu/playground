@@ -1,0 +1,48 @@
+514
+12. Unsupervised Learning
+Uniqueness of the Principal Components
+While in theory the principal components need not be unique, in almost all
+practical settings they are (up to sign flips). This means that two different
+software packages will yield the same principal component loading vectors,
+although the signs of those loading vectors may differ. The signs may differ
+because each principal component loading vector specifies a direction in p-
+dimensional space: flipping the sign has no effect as the direction does not
+change. (Consider Figure 6.14—the principal component loading vector is
+a line that extends in either direction, and flipping its sign would have no
+effect.) Similarly, the score vectors are unique up to a sign flip, since the
+variance of Z is the same as the variance of −Z. It is worth noting that
+when we use (12.5) to approximate xij we multiply zim by φjm. Hence, if
+the sign is flipped on both the loading and score vectors, the final product
+of the two quantities is unchanged.
+Deciding How Many Principal Components to Use
+In general, an n × p data matrix X has min(n −1, p) distinct principal
+components. However, we usually are not interested in all of them; rather,
+we would like to use just the first few principal components in order to
+visualize or interpret the data. In fact, we would like to use the smallest
+number of principal components required to get a good understanding of the
+data. How many principal components are needed? Unfortunately, there is
+no single (or simple!) answer to this question.
+We typically decide on the number of principal components required
+to visualize the data by examining a scree plot, such as the one shown
+in the left-hand panel of Figure 12.3. We choose the smallest number of
+principal components that are required in order to explain a sizable amount
+of the variation in the data. This is done by eyeballing the scree plot, and
+looking for a point at which the proportion of variance explained by each
+subsequent principal component drops off. This drop is often referred to
+as an elbow in the scree plot. For instance, by inspection of Figure 12.3,
+one might conclude that a fair amount of variance is explained by the first
+two principal components, and that there is an elbow after the second
+component. After all, the third principal component explains less than ten
+percent of the variance in the data, and the fourth principal component
+explains less than half that and so is essentially worthless.
+However, this type of visual analysis is inherently ad hoc. Unfortunately,
+there is no well-accepted objective way to decide how many principal com-
+ponents are enough. In fact, the question of how many principal compo-
+nents are enough is inherently ill-defined, and will depend on the specific
+area of application and the specific data set. In practice, we tend to look
+at the first few principal components in order to find interesting patterns
+in the data. If no interesting patterns are found in the first few principal
+components, then further principal components are unlikely to be of inter-
+est. Conversely, if the first few principal components are interesting, then
+we typically continue to look at subsequent principal components until no
+further interesting patterns are found. This is admittedly a subjective ap-

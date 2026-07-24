@@ -1,0 +1,88 @@
+660
+Chapter 15 ■Other Design and Analysis Topics
+E X A M P L E 1 5 . 5
+Consider the experiment described at the beginning of Section 15.3. Three different machines produce a monolament ber
+for a textile company. The process engineer is interested in determining if there is a difference in the breaking strength of
+the ber produced by the three machines. However, the strength of a ber is related to its diameter, with thicker bers being
+generally stronger than thinner ones. A random sample of ve ber specimens is selected from each machine. The ber
+strength (y) and the corresponding diameter (x) for each specimen are shown in Table 15.10.
+The scatter diagram of breaking strength versus the ber diameter (Figure 15.3) shows a strong suggestion of a linear
+relationship between breaking strength and diameter, and it seems appropriate to remove the effect of diameter on strength
+by an analysis of covariance. Assuming that a linear relationship between breaking strength and diameter is appropriate, we
+see that the model is
+Using Equations 15.17 through 15.25, we may compute
+From Equation 15.29, we nd
+with an 2 (3)(5) 2 13 degrees of freedom; and from Equation 15.27, we nd
+with a(n 1) 1 3(5 1) 1 11 degrees of freedom.
+27.99
+206.00 (186.60)2/195.60
+SSE Eyy (Exy)2/Exx
+41.27
+346.40 (282.60)2/261.73
+SSE Syy (Sxy)2/Sxx
+Exy Sxy Txy 282.60 96.00 186.60
+Exx Sxx Txx 261.73 66.13 195.60
+Eyy Syy Tyy 346.40 140.40 206.00
+Txy 1
+n 
+3
+i1
+xi.yi. (x..)(y..)
+an
+1
+5 [(126)(207) (130)(216) (106)(184)] (362)(603)
+(3)(5)
+96.00
+Txx 1
+n 
+3
+i1
+x2
+i. x2
+..
+an 1
+5 [(126)2 (130)2 (106)2] (362)2
+(3)(5) 66.13
+Tyy 1
+n 
+3
+i1
+y2
+i. y2
+..
+an 1
+5 [(207)2 (216)2 (180)2] (603)2
+(3)(5) 140.40
+Sxy 
+3
+i1 
+5
+j1
+xijyij (x..)(y..)
+an
+(20)(36) (25)(41) Á (15)(32) (362)(603)
+(3)(5)
+282.60
+Sxx 
+3
+i1 
+5
+j1
+x2
+ij x2
+..
+an (20)2 (25)2 Á (15)2 (362)2
+(3)(5) 261.73
+Syy 
+3
+i1 
+5
+j1
+y2
+ij y2
+..
+an (36)2 (41)2 Á (32)2 (603)2
+(3)(5) 346.40
+yij i (xij x..) ij 
+i 1, 2, 3
+j 1, 2, . . . , 5

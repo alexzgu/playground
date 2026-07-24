@@ -1,0 +1,80 @@
+5.6. MARTINGALE APPROACH TO PRICING
+177
+Since
+t
+0 Ss ds is Ft-measurable, we get
+T erT ˜Vt
+=
+t
+0
+Ss ds + EQ
+T
+t
+Ss ds Ft
+
+=
+t
+0
+Ss ds +
+T
+t
+EQ [Ss Ft] ds
+The second equality uses a form of Fubini’s theorem that follows from the
+linearity of conditional expectation. Since ˜Ss is a Q-martingale, if s > t,
+EQ [Ss Ft] = ers EQ
+
+˜Ss Ft
+
+= ers ˜St = er(s−t) St
+Therefore,
+T
+t
+EQ [Ss Ft] ds = St
+T
+t
+er(s−t) ds = er(T −t) −1
+r
+St,
+and
+˜Vt
+=
+e−rT
+T
+t
+0
+Ss ds + e−rt −e−rT
+rT
+St
+=
+e−rT
+T
+t
+0
+Ss ds + 1 −e−r(T −t)
+rT
+˜St,
+(5.31)
+Vt = ert ˜Vt = e−r(T −t)
+T
+t
+0
+Ss ds + 1 −e−r(T −t)
+rT
+St
+Note that VT = V which we needed, and the price at time 0 is
+V0 = 1 −e−rT
+rT
+S0
+The hedging portfolio can be worked out with a little thought. We will
+start with all the money in stocks and as time progresses we move money
+into bonds. Suppose that during time interval [t, t+∆t] we convert u∆t units
+of stock into bonds. Then the value of these units of bonds at time T will
+be about u er(T −t) St ∆tIf we choose u = er(t−T )T, then the value will be
+about St ∆tT and hence the value of all our bonds will be about 1
+T
+T
+0 Ss ds
+This gives us
+dat
+dt = −er(t−T )
+T

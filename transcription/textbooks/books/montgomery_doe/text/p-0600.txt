@@ -1,0 +1,65 @@
+584
+Chapter 13 ■Experiments with Random Factors
+and
+Comparing these expected mean squares with those in Equation 13.9, we note that the only
+obvious difference is the presence of the variance component 
+in the expected mean square
+for the random effect. (Actually, there are other differences because of the different deni-
+tions of the variance of the interaction effect in the two models.) Consequently, we would test
+the hypothesis that the variance component for the random effect equals zero (H0:
+0)
+using the statistic
+as contrasted with testing H0:
+ 0 with F0  MSB/MSE in the restricted model.
+The parameters in the two models are closely related. In fact, we may show that
+and
+The analysis of variance method may be used to estimate the variance components.
+Referring to the expected mean squares, we nd that the only change from Equations 13.11
+is that
+(13.13)
+Both of these models are special cases of the mixed model proposed by Scheffe (1956a,
+1959). This model assumes that the observations may be represented by
+where mij and ijk are independent random variables. The structure of mij is
+and
+The variances and covariances of bj and cij are expressed through the covariances of the mij.
+Furthermore, the random effect parameters in other formulations of the mixed model can be
+related to bj and cij. The statistical analysis of Scheffe’s model is identical to that for our
+restricted model, except that in general the statistic MSA/MSAB is not always distributed as F
+when H0: i 0 is true.
+In light of this multiplicity of mixed models, a logical question is: Which model should
+one use? This author prefers the restricted model, although both restricted and unrestricted
+c.j 0 
+ j 1, 2, . . . , b
+
+a
+i1
+i  0
+E(mij) i
+mij i bj cij
+yijk mij ijk 
+i 1, 2, . . . , a
+j 1, 2, . . . , b
+k 1, 2, . . . , n
+ˆ 2
+MSB MSAB
+an
+2
+2
+
+2
+2
+1
+a 2
+
+ ()ij  ()ij ().j
+j j ().j
+i i
+2
+
+F0 MSB
+MSAB
+2
+
+2
+
+E(MSE) 2

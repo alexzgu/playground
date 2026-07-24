@@ -1,0 +1,63 @@
+9.6 Constructing Factorial and Fractional Factorial Designs Using an Optimal Design Tool
+443
+■TA B L E 9 . 4 6
+Relative Variances for the Individual Model Effects
+for the 15-Run D-optimal Design in Table 9.16
+Effect
+Relative Variance
+Intercept
+0.077
+A1
+0.075
+A2
+0.069
+A3
+0.078
+A4
+0.084
+B1
+0.087
+B2
+0.063
+B3
+0.100
+C1
+0.070
+C2
+0.068
+D
+0.077
+E
+0.077
+factor. However, it is nearly orthogonal. To see this, consider the relative variances of the model
+coefcients shown in Table 9.46, and notice that all of the relative variances are very similar.
+9.6.3
+Extensions of the Optimal Design Approach
+We have discussed the use of design optimality for relatively simple situations. There are sev-
+eral extensions of these ideas that practitioners should be aware of.
+A criticism often leveled at the optimal design approach is that the nal design depends
+on the model chosen by the experimenter. DuMouchel and Jones (1994) introduce a Bayesian
+modication of the D-optimal design that affords protection to experimenters against terms that
+are not in the assumed model. They assume that the model contains p primary terms but they
+want to obtain protection against q potential model terms. These potential terms are typically of
+higher order than those in the primary model. Their Bayesian D-optimal designs have N runs,
+where p N p q. These designs allow some of the potential model terms to be t if nec-
+essary. Jones, Lin, and Nachtsheim (2008) use the Bayesian D-optimality approach to construct
+supersaturated fractional factorial designs. Andere-Rendon, Montgomery, and Rollier (1997)
+use this approach to design mixture experiments in the presence of model uncertainty. Mixture
+problems are introduced in Chapter 11.
+We noted earlier that the G-optimal design criterion makes use of an objective function
+that involves minimizes the maximum value of the prediction variance in the design region.
+Constructing G-optimal designs has historically proved difcult because two optimization prob-
+lems must be solved—nding the best coordinate value to change in the current design and
+determining the maximum value of the scaled prediction variance for each new design that is
+evaluated. Rodriguez et al. (2010) describe a commercially viable algorithm for constructing
+G-optimal designs and compare the performance of several G-optimal designs to their I-optimal
+and D-optimal counterparts.
+It is also possible to construct optimal designs for nonlinear models. In linear models the
+optimal design problem is relatively simple because the model covariance matrix XX does not
+contain any of the unknown parameters . However, if the model is nonlinear, this is not the
+case. To nd a D-optimal design for a nonlinear model, we must nd design points that max-
+imize the determinant of DD, where D is a matrix of partial derivatives of the nonlinear model
+expectation function with respect to each model parameter evaluated at each design point. This
+

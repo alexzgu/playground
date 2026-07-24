@@ -1,0 +1,53 @@
+13.1 A Quick Review of Hypothesis Testing
+559
+a comparable or more extreme value of the test statistic under the null
+hypothesis. Finally, based on the p-value, we decide whether to reject the
+null hypothesis. We now briefly discuss each of these steps in turn.
+Step 1: Define the Null and Alternative Hypotheses
+In hypothesis testing, we divide the world into two possibilities: the null
+hypothesis and the alternative hypothesis. The null hypothesis, denoted H0, null
+hypothesis
+alternative
+hypothesis
+is the default state of belief about the world.4 For instance, null hypotheses
+associated with the two questions posed earlier in this chapter are as follows:
+1. The true coefficient βj in a linear regression of Y onto X1, . . . , Xp
+equals zero.
+2. There is no difference between the expected blood pressure of mice
+in the control and treatment groups.
+The null hypothesis is boring by construction: it may well be true, but we
+might hope that our data will tell us otherwise.
+The alternative hypothesis, denoted Ha, represents something different
+and unexpected: for instance, that there is a difference between the ex-
+pected blood pressure of the mice in the two groups. Typically, the alter-
+native hypothesis simply posits that the null hypothesis does not hold: if
+the null hypothesis states that there is no difference between A and B, then
+the alternative hypothesis states that there is a difference between A and
+B.
+It is important to note that the treatment of H0 and Ha is asymmetric.
+H0 is treated as the default state of the world, and we focus on using data
+to reject H0. If we reject H0, then this provides evidence in favor of Ha. We
+can think of rejecting H0 as making a discovery about our data: namely, we
+are discovering that H0 does not hold! By contrast, if we fail to reject H0,
+then our findings are more nebulous: we will not know whether we failed
+to reject H0 because our sample size was too small (in which case testing
+H0 again on a larger or higher-quality dataset might lead to rejection), or
+whether we failed to reject H0 because H0 really holds.
+Step 2: Construct the Test Statistic
+Next, we wish to use our data in order to find evidence for or against
+the null hypothesis. In order to do this, we must compute a test statistic, test statistic
+denoted T, which summarizes the extent to which our data are consistent
+with H0. The way in which we construct T depends on the nature of the
+null hypothesis that we are testing.
+To make things concrete, let xt
+1, . . . , xt
+nt denote the blood pressure mea-
+surements for the nt mice in the treatment group, and let xc
+1, . . . , xc
+nc denote
+the blood pressure measurements for the nc mice in the control group, and
+µt = E(Xt), µc = E(Xc). To test H0 : µt = µc, we make use of a two-sample
+t-statistic,5 defined as
+two-sample
+t-statistic
+4H0 is pronounced “H naught” or “H zero”.

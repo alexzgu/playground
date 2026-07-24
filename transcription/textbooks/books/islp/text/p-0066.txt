@@ -1,0 +1,65 @@
+56
+2. Statistical Learning
+To save space, we have omitted the output of the previous code block. We
+see the culprit is the value ?, which is being used to encode missing values.
+To fix the problem, we must provide pd.read_csv() with an argument
+called na_values. Now, each instance of ? in the file is replaced with the
+value np.nan, which means not a number:
+In [77]: Auto = pd.read_csv('Auto.data',
+na_values=['?'],
+delim_whitespace=True)
+Auto['horsepower'].sum()
+Out[77]: 40952.0
+The Auto.shape attribute tells us that the data has 397 observations, or
+rows, and nine variables, or columns.
+In [78]: Auto.shape
+Out[78]: (397, 9)
+There are various ways to deal with missing data. In this case, since
+only five of the rows contain missing observations, we choose to use the
+Auto.dropna() method to simply remove these rows.
+.dropna()
+In [79]: Auto_new = Auto.dropna()
+Auto_new.shape
+Out[79]: (392, 9)
+Basics of Selecting Rows and Columns
+We can use Auto.columns to check the variable names.
+In [80]: Auto = Auto_new # overwrite the previous value
+Auto.columns
+Out[80]: Index(['mpg', 'cylinders', 'displacement', 'horsepower',
+'weight', 'acceleration', 'year', 'origin', 'name'],
+dtype='object')
+Accessing the rows and columns of a data frame is similar, but not iden-
+tical, to accessing the rows and columns of an array. Recall that the first
+argument to the [] method is always applied to the rows of the array. Sim-
+ilarly, passing in a slice to the [] method creates a data frame whose rows
+are determined by the slice:
+In [81]: Auto[:3]
+Out[81]:
+mpg
+cylinders
+displacement
+horsepower
+weight
+...
+0
+18.0
+8
+307.0
+130.0
+3504.0
+...
+1
+15.0
+8
+350.0
+165.0
+3693.0
+...
+2
+18.0
+8
+318.0
+150.0
+3436.0
+...
+Similarly, an array of Booleans can be used to subset the rows:

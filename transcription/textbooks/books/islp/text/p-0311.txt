@@ -1,0 +1,50 @@
+7.6 Local Regression
+303
+20
+30
+40
+50
+60
+70
+80
+0
+50
+100
+200
+300
+Age
+Wage
+Smoothing Spline
+16 Degrees of Freedom
+6.8 Degrees of Freedom (LOOCV)
+FIGURE 7.8. Smoothing spline fits to the Wage data. The red curve results
+from specifying 16 effective degrees of freedom. For the blue curve, λ was found
+automatically by leave-one-out cross-validation, which resulted in 6.8 effective
+degrees of freedom.
+is preferable, since in general simpler models are better unless the data
+provides evidence in support of a more complex model.
+7.6
+Local Regression
+Local regression is a different approach for fitting flexible non-linear func- local
+regression
+tions, which involves computing the fit at a target point x0 using only the
+nearby training observations. Figure 7.9 illustrates the idea on some simu-
+lated data, with one target point near 0.4, and another near the boundary
+at 0.05. In this figure the blue line represents the function f(x) from which
+the data were generated, and the light orange line corresponds to the local
+regression estimate ˆf(x). Local regression is described in Algorithm 7.1.
+Note that in Step 3 of Algorithm 7.1, the weights Ki0 will differ for each
+value of x0. In other words, in order to obtain the local regression fit at a
+new point, we need to fit a new weighted least squares regression model by
+minimizing (7.14) for a new set of weights. Local regression is sometimes
+referred to as a memory-based procedure, because like nearest-neighbors, we
+need all the training data each time we wish to compute a prediction. We
+will avoid getting into the technical details of local regression here—there
+are books written on the topic.
+In order to perform local regression, there are a number of choices to
+be made, such as how to define the weighting function K, and whether
+to fit a linear, constant, or quadratic regression in Step 3. (Equation 7.14
+corresponds to a linear regression.) While all of these choices make some
+difference, the most important choice is the span s, which is the proportion
+of points used to compute the local regression at x0, as defined in Step 1
+above. The span plays a role like that of the tuning parameter λ in smooth-

@@ -1,0 +1,65 @@
+154CHAPTER 5. CHANGE OF MEASURE AND GIRSANOV THEOREM
+Theorem 5.3.1 (Girsanov Theorem). SMt -
+(5.7), P∗(5.9).
+I
+Wt = Bt −
+t
+0
+As ds,
+P∗, Wt B. I
+,
+dBt = At dt + dWt,
+W P∗-B.
+In other words, if we weight the probability measure P by the martingale,
+then in the new measure P∗, the Brownian motion acquires a drift At. The
+example of the previous section is the martingale (5.6) with At ≡m and a
+constant drift m is obtained.
+Let us give a heuristic derivation of Girsanov’s theorem using a binomial
+approximation. Suppose ∆t is given. In the binomial approximation to P, we
+are equally likely to go up and down,
+P
+
+B(t + ∆t) −B(t) = ±
+√
+∆t B(t)
+
+= 1
+2
+The binomial approximation to (5.7) is
+P
+
+M(t + ∆t) = M(t)
+
+1 ± A(t)
+√
+∆t
+
+B(t)
+
+= 1
+2
+Therefore, in the weighted measure P∗the probability of a jump of ±
+√
+∆
+should be proportional to 1±A(t)
+√
+∆tSince the sum of the two probabilities
+equals one, we see that
+P∗
+B(t + ∆t) −B(t) = ±
+√
+∆t B(t)
+
+= 1
+2
+
+1 ± A(t)
+√
+∆t
+
+
+As we saw in Section 4.4, this implies that
+E∗[B(t + ∆t) −B(t) B(t)] = A(t) ∆t,
+that is, in the probability measure P∗, the process obtains a drift of A(t).
+The condition that Mt be a martingale (and not just a local martingale)
+is necessary for Girsanov’s theorem as we have stated it. Given only (5.7)

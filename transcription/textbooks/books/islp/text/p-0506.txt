@@ -1,0 +1,76 @@
+500
+11. Survival Analysis and Censored Data
+Observation (Y )
+Censoring Indicator (δ)
+Covariate (X)
+26.5
+1
+0.1
+37.2
+1
+11
+57.3
+1
+-0.3
+90.8
+0
+2.8
+20.2
+0
+1.8
+89.8
+0
+0.4
+TABLE 11.4. Data used in Exercise 4.
+(b) Write out an analytical expression for the estimated survival
+function. For instance, your answer might be something along
+the lines of
+WS(t) =
+
+
+
+
+
+0.8
+if t < 31
+0.5
+if 31 ≤t < 77
+0.22
+if 77 ≤t.
+(The previous equation is for illustration only: it is not the cor-
+rect answer!)
+5. Sketch the survival function given by the equation
+WS(t) =
+
+
+
+
+
+0.8
+if t < 31
+0.5
+if 31 ≤t < 77
+0.22
+if 77 ≤t.
+Your answer should look something like Figure 11.9.
+0
+20
+40
+60
+80
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+Time in Days
+Estimated Probability of Survival
+FIGURE 11.9. A Kaplan-Meier survival curve used in Exercise 4.
+6. This problem makes use of the data displayed in Figure 11.1. In
+completing this problem, you can refer to the observation times as
+y1, . . . , y4. The ordering of these observation times can be seen from
+Figure 11.1; their exact values are not required.
+(a) Report the values of δ1, . . . , δ4, K, d1, . . . , dK, r1, . . . , rK, and
+q1, . . . , qK. The relevant notation is defined in Sections 11.1 and
+11.3.

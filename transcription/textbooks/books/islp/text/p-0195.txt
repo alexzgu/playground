@@ -1,0 +1,61 @@
+186
+4. Classification
+MGEMOMV
+1.000086
+MGEMLEEF
+1.000086
+MOSHOOFD
+1.000086
+...
+AZEILPL
+1.000086
+APLEZIER
+1.000086
+AFIETS
+1.000086
+AINBOED
+1.000086
+ABYSTAND
+1.000086
+Length: 85, dtype: float64
+Notice that the standard deviations are not quite 1 here; this is again due
+to some procedures using the 1/n convention for variances (in this case
+scaler()), while others use 1/(n −1) (the std() method). See the footnote .std()
+on page 183. In this case it does not matter, as long as the variables are all
+on the same scale.
+Using the function train_test_split() we now split the observations into train_test_
+split()
+a test set, containing 1000 observations, and a training set containing the
+remaining observations. The argument random_state=0 ensures that we get
+the same split each time we rerun the code.
+In [56]: (X_train,
+X_test,
+y_train,
+y_test) = train_test_split(feature_std ,
+Purchase,
+test_size=1000,
+random_state=0)
+?train_test_split reveals that the non-keyword arguments can be lists,
+arrays, pandas dataframes etc that all have the same length (shape[0]) and
+hence are indexable. In this case they are the dataframe feature_std and indexable
+the response variable Purchase. We fit a KNN model on the training data
+using K = 1, and evaluate its performance on the test data.
+In [57]: knn1 = KNeighborsClassifier(n_neighbors=1)
+knn1_pred = knn1.fit(X_train, y_train).predict(X_test)
+np.mean(y_test != knn1_pred), np.mean(y_test != "No")
+Out[57]: (0.111, 0.067)
+The KNN error rate on the 1,000 test observations is about 11%. At first
+glance, this may appear to be fairly good. However, since just over 6% of
+customers purchased insurance, we could get the error rate down to almost
+6% by always predicting No regardless of the values of the predictors! This
+is known as the null rate.
+null rate
+Suppose that there is some non-trivial cost to trying to sell insurance
+to a given individual. For instance, perhaps a salesperson must visit each
+potential customer. If the company tries to sell insurance to a random
+selection of customers, then the success rate will be only 6%, which may
+be far too low given the costs involved. Instead, the company would like
+to try to sell insurance only to customers who are likely to buy it. So the
+overall error rate is not of interest. Instead, the fraction of individuals that
+are correctly predicted to buy insurance is of interest.
+In [58]: confusion_table(knn1_pred, y_test)

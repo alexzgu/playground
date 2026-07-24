@@ -1,0 +1,51 @@
+12
+CHAPTER 1. MARTINGALES IN DISCRETE TIME
+will be lost. Let Wn denote the winnings in this strategy: W0 = 0 and for
+n ≥1,
+Wn =
+n
+
+j=1
+Bj [Mj −Mj−1] =
+n
+
+j=1
+Bj ∆Mj
+Let us assume that for each n there is a number Kn < ∞such that Bn≤Kn.
+We also assume that we cannot see the result of nth game before betting.
+This last assumption can be expressed mathematically by saying that Bn is
+Fn−1-measurable. In other words, we can adjust our bet based on how well we
+have been doing. We claim that under these assumptions, Wn is a martingale
+with respect to Fn. It is clear that Wn is measurable with respect to Fn, and
+integrability follows from the estimate
+E[Wn]
+≤
+n
+
+j=1
+E[BjMj −Mj−1]
+≤
+n
+
+j=1
+Kj (E[Mj] + E[Mj−1]) < ∞
+Also,
+E[Wn+1 Fn]
+=
+E[Wn + Bn+1(Mn+1 −Mn) Fn]
+=
+E[Wn Fn] + E[Bn+1(Mn+1 −Mn) Fn]
+Since Wn is Fn-measurable, E[Wn Fn] = Wn. Also, since Bn+1 is Fn-
+measurable and M is a martingale,
+E[Bn+1(Mn+1 −Mn) Fn] = Bn+1 E[Mn+1 −Mn Fn] = 0
+Therefore,
+E[Wn+1 Fn] = Wn
+Example 1.2.3 demonstrates an important aspect of martingales. One
+cannot change a discrete-time martingale to a game in one’s favor with a
+betting strategy in a nite amount of time. However, the next example shows
+that if we are allowed an innite amount of time we can beat a fair game.
+Example 1.2.4. Martingale betting strategy. Let X1, X2, be inde-
+pendent random variables with
+PXj = 1= PXj = −1= 1
+2
+(1.6)

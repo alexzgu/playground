@@ -1,0 +1,59 @@
+5.1. ABSOLUTELY CONTINUOUS MEASURES
+149
+σ2, there is a measure Pσ on Ωcalled W(σ2).
+We think of Pσ as the distribution of the function-valuedrandom variable
+t →Bt. If V is a subset of Ω, then Pσ(V ) is the probability that the function
+t →Bt lies in V . We claim that if σ̸ = σ′, then Pσ ⊥Pσ′. In order to show
+this, we need to nd an event E such that Pσ(E) = 1, Pσ′(E) = 0. Let Er
+denote the set of functions f such that
+lim
+n∞
+2n
+
+j=1
+
+f
+j
+2n
+
+−f
+j −1
+2n
+2
+= r2
+Using what we know about the quadratic variation, we see that
+Pσ(Eσ) = 1,
+Pσ′(Eσ′) = 1
+Let Ωdenote the set of continuous functions f : [0, 1] →C which is a
+Banach space (complete, normed, metric space) under the norm
+∥f∥= maxf(s): 0 ≤s ≤1
+Let F denote the corresponding Borel σ-algebra, that is, the smallest
+σ-algebra under which all the open sets under ∥· ∥are measurable.
+The measures Pσ are dened on (Ω, F). It is easy to check that the
+functions Θs(f) = f(s) are measurable functions on this space, and
+hence so are the functions
+Ψn(f) =
+2n
+
+j=1
+
+f
+j
+2n
+
+−f
+j −1
+2n
+2
+,
+and the sets
+Er =
+
+f : lim
+n∞Ψn(f) = r2
+
+We proved that Pσ(Eσ) = 1 in Theorem 2.8.2.
+One rarely needs to deal with measures that are not σ-nite, but
+the Radon-Nikodym derivative does not hold for such measures. For
+example, if µ is counting measure and ν is Lebesgue measure, both on
+R, then ν ≪µ, but there is no f such that (5.1) holds.

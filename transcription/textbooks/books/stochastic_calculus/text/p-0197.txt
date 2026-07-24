@@ -1,0 +1,52 @@
+6.2. POISSON PROCESS
+191
+Note that if X, Y are independent, then
+ΨX+Y = ΨX + ΨY 
+(6.1)
+If X ∼N(m, σ2), then
+Ψ(s) = ims −σ2
+2 s2
+If X is Poisson with mean λ, then
+Ψ(s) = λ [eis −1]
+This can be seen from the computation
+E[eisX] =
+∞
+
+n=0
+eisn PX = n=
+∞
+
+n=0
+(λeis)n
+n!
+e−λ = eλeis e−λ
+If Xt is a L´evy process starting at the origin with characteristic exponent
+Ψ, then i.i.d. increments and the relation (6.1), imply that
+ΨXt = t ΨX1 = t Ψ
+An important property of L´evy processes is the following.
+Suppose X1
+t , X2
+t are independent L´evy processes with ΨX1 = Ψ1, ΨX2 =
+Ψ2Then Xt = X1
+t + X2
+t is a L´evy process with ΨXt = Ψ1 + Ψ2.
+For example if X1
+t is a Brownian motion with drift m and variance σ2 and
+X2
+t is an independent Poisson process with rate λ, then Xt = X1
+t + X2
+t is a
+L´evy process with
+Ψ(s) = ims −σ2 s2
+2
++ λ [eis −1]
+(6.2)
+A L´evy process is a Markov process so we can talk about its generator,
+Lf(x) = lim
+t0
+E[f(Xt) X0 = x] −f(x)
+t
+
+Recall that for a Brownian motion Bt with drift m and variance σ2,
+Lf(x) = m f ′(x) + σ2
+2 f ′′(x)

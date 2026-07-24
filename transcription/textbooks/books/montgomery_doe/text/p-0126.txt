@@ -1,0 +1,94 @@
+110
+Chapter 3 ■Experiments with a Single Factor: The Analysis of Variance
+The quoted level of signicance in the above illustration applies only to one con-
+dence interval. However, the same general approach can be used if the experimenter wishes
+to prespecify a set of condence intervals about which a joint or simultaneous conﬁdence
+statement is made (see the comments about simultaneous confidence intervals in Section
+3.3.3). Furthermore, the confidence intervals could be constructed about more general con-
+trasts in the treatment means than the pairwise comparison illustrated above.
+3.8
+Other Examples of Single-Factor Experiments
+3.8.1
+Chocolate and Cardiovascular Health
+An article in Nature describes an experiment to investigate the effect of consuming chocolate
+on cardiovascular health (“Plasma Antioxidants from Chocolate,” Nature, Vol. 424, 2003,
+pp. 1013). The experiment consisted of using three different types of chocolates: 100 g of dark
+chocolate, 100 g of dark chocolate with 200 mL of full-fat milk, and 200 g of milk chocolate.
+Twelve subjects were used, 7 women and 5 men, with an average age range of 32.2 1 years,
+an average weight of 65.8 3.1 kg, and body-mass index of 21.9 0.4 kg m2. On different
+days a subject consumed one of the chocolate-factor levels and one hour later the total antiox-
+idant capacity of their blood plasma was measured in an assay. Data similar to that summarized
+in the article are shown in Table 3.12.
+Figure 3.15 presents box plots for the data from this experiment. The result is an indication
+that the blood antioxidant capacity one hour after eating the dark chocolate is higher than for the
+other two treatments. The variability in the sample data from all three treatments seems very sim-
+ilar. Table 3.13 is the Minitab ANOVA output. The test statistic is highly signicant (Minitab
+reports a P-value of 0.000, which is clearly wrong because P-values cannot be zero; this means
+that the P-value is less than 0.001), indicating that some of the treatment means are different. The
+output also contains the Fisher LSD analysis for this experiment. This indicates that the mean
+antioxidant capacity after consuming dark chocolate is higher than after consuming dark choco-
+late plus milk or milk chocolate alone, and the mean antioxidant capacity after consuming dark
+chocolate plus milk or milk chocolate alone are equal. Figure 3.16 is the normal probability plot
+of the residual and Figure 3.17 is the plot of residuals versus predicted values. These plots do not
+suggest any problems with model assumptions. We conclude that consuming dark chocolate
+results in higher mean blood antioxidant capacity after one hour than consuming either dark
+chocolate plus milk or milk chocolate alone.
+3.8.2
+A Real Economy Application of a Designed Experiment
+Designed experiments have had tremendous impact on manufacturing industries, including
+the design of new products and the improvement of existing ones, development of new 
+■TA B L E 3 . 1 2
+Blood Plasma Levels One Hour Following Chocolate Consumption
+Subjects (Observations)
+Factor
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+DC
+118.8
+122.6
+115.6
+113.6
+119.5
+115.9
+115.8
+115.1
+116.9
+115.4
+115.6
+107.9
+DC+MK
+105.4
+101.1
+102.7
+97.1
+101.9
+98.9
+100.0
+99.8
+102.6
+100.9
+104.5
+93.5
+MC
+102.1
+105.8
+99.6
+102.7
+98.8
+100.9
+102.8
+98.7
+94.7
+97.8
+99.7
+98.6

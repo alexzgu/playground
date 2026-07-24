@@ -1,0 +1,53 @@
+11.5 Regression Models With a Survival Response
+483
+0
+20
+40
+60
+80
+100
+120
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+Months
+Probability of Not Being Published
+Negative Result
+Positive Result
+FIGURE 11.5. Survival curves for time until publication for the Publication
+data described in Section 11.5.4, stratified by whether or not the study produced
+a positive result.
+Figure 11.5 shows the Kaplan–Meier curves for the time until publication,
+stratified by whether or not the study produced a positive result. We see
+slight evidence that time until publication is lower for studies with a positive
+result. However, the log-rank test yields a very unimpressive p-value of 0.36.
+We now consider a more careful analysis that makes use of all of the
+available predictors. The results of fitting Cox’s proportional hazards model
+using all of the available features are shown in Table 11.3. We find that the
+chance of publication of a study with a positive result is e0.55 = 1.74 times
+higher than the chance of publication of a study with a negative result
+at any point in time, holding all other covariates fixed. The very small
+p-value associated with posres in Table 11.3 indicates that this result is
+highly significant. This is striking, especially in light of our earlier finding
+that a log-rank test comparing time to publication for studies with positive
+versus negative results yielded a p-value of 0.36. How can we explain this
+discrepancy? The answer stems from the fact that the log-rank test did not
+consider any other covariates, whereas the results in Table 11.3 are based
+on a Cox model using all of the available covariates. In other words, after
+we adjust for all of the other covariates, then whether or not the study
+yielded a positive result is highly predictive of the time to publication.
+In order to gain more insight into this result, in Figure 11.6 we display
+estimates of the survival curves associated with positive and negative re-
+sults, adjusting for the other predictors. To produce these survival curves,
+we estimated the underlying baseline hazard h0(t). We also needed to se-
+lect representative values for the other predictors; we used the mean value
+for each predictor, except for the categorical predictor mech, for which we
+used the most prevalent category (R01). Adjusting for the other predictors,
+we now see a clear difference in the survival curves between studies with
+positive versus negative results.
+Other interesting insights can be gleaned from Table 11.3. For example,
+studies with a clinical endpoint are more likely to be published at any
+given point in time than those with a non-clinical endpoint. The funding

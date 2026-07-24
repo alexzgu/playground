@@ -1,0 +1,137 @@
+4.3 The Graeco-Latin Square Design
+167
+E X A M P L E 4 . 4
+Suppose that in the rocket propellant experiment of
+Example 4.3 an additional factor, test assemblies, could be
+of importance. Let there be ve test assemblies denoted by
+the Greek letters , , , , and . The resulting 5 5
+Graeco-Latin square design is shown in Table 4.20.
+Notice that, because the totals for batches of raw mate-
+rial (rows), operators (columns), and formulations (Latin
+letters) are identical to those in Example 4.3, we have
+The totals for the test assemblies (Greek letters) are
+Greek Letter
+Test Assembly Total
+
+y..1. 10
+
+y..2. 6
+
+y..3. 3
+
+y..4. 4
+
+y..5. 13
+and SSFormulations 330.00
+SSBatches 68.00, SSOperators 150.00, 
+Thus, the sum of squares due to the test assemblies is
+The complete ANOVA is summarized in Table 4.21.
+Formulations are signicantly different at 1 percent. In
+comparing Tables 4.21 and 4.12, we observe that removing
+the variability due to test assemblies has decreased the
+experimental error. However, in decreasing the experimen-
+tal error, we have also reduced the error degrees of freedom
+from 12 (in the Latin square design of Example 4.3) to 8.
+Thus, our estimate of error has fewer degrees of freedom,
+and the test may be less sensitive.
+(4)2 132] (10)2
+25
+62.00
+1
+5 [102 (6)2 (3)2
+SSAssemblies 1
+p
+p
+k1
+y2
+..k. y2
+....
+N
+■T A B L E 4 . 2 0
+Graeco-Latin Square Design for the Rocket Propellant Problem
+Batches of
+Operators
+Raw Material
+1
+2
+3
+4
+5
+yi...
+1
+A1
+B5
+C6
+D1
+E1
+14
+2
+B8
+C1
+D5
+E2
+A11
+9
+3
+C7
+D13
+E1
+A2
+B4
+5
+4
+D1
+E6
+A1
+B2
+C3
+3
+5
+E3
+A5
+B5
+C4
+D6
+7
+y...l
+18
+18
+4
+5
+9
+10 y...
+■T A B L E 4 . 2 1
+Analysis of Variance for the Rocket Propellant Problem
+Sum of
+Degrees of
+Source of Variation
+Squares
+Freedom
+Mean Square
+F0
+P-Value
+Formulations
+330.00
+4
+82.50
+10.00
+0.0033
+Batches of raw material
+68.00
+4
+17.00
+Operators
+150.00
+4
+37.50
+Test assemblies
+62.00
+4
+15.50
+Error
+66.00
+8
+8.25
+Total
+676.00
+24 

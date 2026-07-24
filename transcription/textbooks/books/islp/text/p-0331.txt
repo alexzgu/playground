@@ -1,0 +1,69 @@
+7.8 Lab: Non-Linear Modeling
+323
+Out[38]:
+deviance
+df deviance_diff
+df_diff
+F
+pvalue
+0
+3975443.045
+2991.001
+NaN
+NaN
+NaN
+NaN
+1
+3850246.908
+2990.001
+125196.137
+1.000
+101.270
+0.000
+2
+3693142.930
+2987.007
+157103.978
+2.993
+42.448
+0.000
+There is a (verbose) summary() method for the GAM fit. (We do not
+reproduce it here.)
+In [39]: gam_full.summary()
+We can make predictions from gam objects, just like from lm objects, using
+the predict() method for the class gam. Here we make predictions on the
+training set.
+In [40]: Yhat = gam_full.predict(Xgam)
+In order to fit a logistic regression GAM, we use LogisticGAM() from LogisticGAM()
+pygam.
+In [41]: gam_logit = LogisticGAM(age_term +
+l_gam(1, lam=0) +
+f_gam(2, lam=0))
+gam_logit.fit(Xgam, high_earn)
+Out[41]: LogisticGAM(callbacks=[Deviance(), Diffs(), Accuracy()],
+fit_intercept=True, max_iter=100,
+terms=s(0) + l(1) + f(2) + intercept, tol=0.0001, verbose=False)
+In [42]: fig, ax = subplots(figsize=(8, 8))
+ax = plot_gam(gam_logit, 2)
+ax.set_xlabel('Education')
+ax.set_ylabel('Effect on wage')
+ax.set_title('Partial dependence of wage on education',
+fontsize=20);
+ax.set_xticklabels(Wage['education'].cat.categories, fontsize=8);
+The model seems to be very flat, with especially high error bars for the
+first category. Let’s look at the data a bit more closely.
+In [43]: pd.crosstab(Wage['high_earn'], Wage['education'])
+We see that there are no high earners in the first category of education,
+meaning that the model will have a hard time fitting. We will fit a logistic
+regression GAM excluding all observations falling into this category. This
+provides more sensible results.
+To do so, we could subset the model matrix, though this will not remove
+the column from Xgam. While we can deduce which column corresponds to
+this feature, for reproducibility’s sake we reform the model matrix on this
+smaller subset.
+In [44]: only_hs = Wage['education'] == '1. < HS Grad'
+Wage_ = Wage.loc[∼only_hs]
+Xgam_ = np.column_stack([Wage_['age'],
+Wage_['year'],
+Wage_['education'].cat.codes -1])
+high_earn_ = Wage_['high_earn']

@@ -1,0 +1,66 @@
+78
+3. Linear Regression
+Quantity
+Value
+Residual standard error
+3.26
+R2
+0.612
+F-statistic
+312.1
+TABLE 3.2.
+For the Advertising data, more information about the least
+squares model for the regression of number of units sold on TV advertising budget.
+Table 3.2 displays the RSE, the R2 statistic, and the F-statistic (to be
+described in Section 3.2.2) for the linear regression of number of units sold
+on TV advertising budget.
+Residual Standard Error
+Recall from the model (3.5) that associated with each observation is an
+error term ϵ. Due to the presence of these error terms, even if we knew the
+true regression line (i.e. even if β0 and β1 were known), we would not be
+able to perfectly predict Y from X. The RSE is an estimate of the standard
+deviation of ϵ. Roughly speaking, it is the average amount that the response
+will deviate from the true regression line. It is computed using the formula
+RSE =
+9
+1
+n −2RSS =
+:
+;
+;
+<
+1
+n −2
+n
+0
+i=1
+(yi −ˆyi)2.
+(3.15)
+Note that RSS was defined in Section 3.1.1, and is given by the formula
+RSS =
+n
+0
+i=1
+(yi −ˆyi)2.
+(3.16)
+In the case of the advertising data, we see from the linear regression
+output in Table 3.2 that the RSE is 3.26. In other words, actual sales in
+each market deviate from the true regression line by approximately 3,260
+units, on average. Another way to think about this is that even if the
+model were correct and the true values of the unknown coefficients β0
+and β1 were known exactly, any prediction of sales on the basis of TV
+advertising would still be off by about 3,260 units on average. Of course,
+whether or not 3,260 units is an acceptable prediction error depends on the
+problem context. In the advertising data set, the mean value of sales over
+all markets is approximately 14,000 units, and so the percentage error is
+3,260/14,000 = 23 %.
+The RSE is considered a measure of the lack of fit of the model (3.5) to
+the data. If the predictions obtained using the model are very close to the
+true outcome values—that is, if ˆyi ≈yi for i = 1, . . . , n—then (3.15) will
+be small, and we can conclude that the model fits the data very well. On
+the other hand, if ˆyi is very far from yi for one or more observations, then
+the RSE may be quite large, indicating that the model doesn’t fit the data
+well.
+R2 Statistic
+The RSE provides an absolute measure of lack of fit of the model (3.5)
+to the data. But since it is measured in the units of Y , it is not always

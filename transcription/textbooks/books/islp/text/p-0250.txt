@@ -1,0 +1,63 @@
+242
+6. Linear Model Selection and Regularization
+The right-hand panel of Figure 6.4 displays the same ridge coefficient
+estimates as the left-hand panel, but instead of displaying λ on the x-axis,
+we now display ∥ˆβR
+λ ∥2/∥ˆβ∥2, where ˆβ denotes the vector of least squares
+coefficient estimates. The notation ∥β∥2 denotes the ℓ2 norm (pronounced ℓ2 norm
+“ell 2”) of a vector, and is defined as ∥β∥2 =
+G)p
+j=1 βj
+2. It measures the
+distance of β from zero. As λ increases, the ℓ2 norm of ˆβR
+λ will always
+decrease, and so will ∥ˆβR
+λ ∥2/∥ˆβ∥2. The latter quantity ranges from 1 (when
+λ = 0, in which case the ridge regression coefficient estimate is the same
+as the least squares estimate, and so their ℓ2 norms are the same) to 0
+(when λ = ∞, in which case the ridge regression coefficient estimate is a
+vector of zeros, with ℓ2 norm equal to zero). Therefore, we can think of the
+x-axis in the right-hand panel of Figure 6.4 as the amount that the ridge
+regression coefficient estimates have been shrunken towards zero; a small
+value indicates that they have been shrunken very close to zero.
+The standard least squares coefficient estimates discussed in Chapter 3
+are scale equivariant: multiplying Xj by a constant c simply leads to a scale
+equivariant
+scaling of the least squares coefficient estimates by a factor of 1/c. In other
+words, regardless of how the jth predictor is scaled, Xj ˆβj will remain the
+same. In contrast, the ridge regression coefficient estimates can change sub-
+stantially when multiplying a given predictor by a constant. For instance,
+consider the income variable, which is measured in dollars. One could rea-
+sonably have measured income in thousands of dollars, which would result
+in a reduction in the observed values of income by a factor of 1,000. Now due
+to the sum of squared coefficients term in the ridge regression formulation
+(6.5), such a change in scale will not simply cause the ridge regression co-
+efficient estimate for income to change by a factor of 1,000. In other words,
+Xj ˆβR
+j,λ will depend not only on the value of λ, but also on the scaling of the
+jth predictor. In fact, the value of Xj ˆβR
+j,λ may even depend on the scaling
+of the other predictors! Therefore, it is best to apply ridge regression after
+standardizing the predictors, using the formula
+˜xij =
+xij
+G
+1
+n
+)n
+i=1(xij −xj)2
+,
+(6.6)
+so that they are all on the same scale. In (6.6), the denominator is the
+estimated standard deviation of the jth predictor. Consequently, all of the
+standardized predictors will have a standard deviation of one. As a re-
+sult the final fit will not depend on the scale on which the predictors are
+measured. In Figure 6.4, the y-axis displays the standardized ridge regres-
+sion coefficient estimates—that is, the coefficient estimates that result from
+performing ridge regression using standardized predictors.
+Why Does Ridge Regression Improve Over Least Squares?
+Ridge regression’s advantage over least squares is rooted in the bias-variance
+trade-off. As λ increases, the flexibility of the ridge regression fit decreases,
+leading to decreased variance but increased bias. This is illustrated in the
+left-hand panel of Figure 6.5, using a simulated data set containing p = 45
+predictors and n = 50 observations. The green curve in the left-hand panel

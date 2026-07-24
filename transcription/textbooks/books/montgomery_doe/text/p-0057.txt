@@ -1,0 +1,76 @@
+of the test statistic), and the P-value. Notice that the computed value of the t statistic differs
+slightly from our manually calculated value and that the P-value is reported to be P 0.042.
+JMP also reports the P-values for the one-sided alternative hypothesis. Many software pack-
+ages will not report an actual P-value less than some predetermined value such as 0.0001 and
+instead will return a “default” value such as “0.001” or in some cases, zero.
+Checking Assumptions in the t-Test. In using the t-test procedure we make the
+assumptions that both samples are random samples that are drawn from independent popula-
+tions that can be described by a normal distribution, and that the standard deviation or vari-
+ances of both populations are equal. The assumption of independence is critical, and if the run
+order is randomized (and, if appropriate, other experimental units and materials are selected
+at random), this assumption will usually be satised. The equal variance and normality
+assumptions are easy to check using a normal probability plot.
+Generally, probability plotting is a graphical technique for determining whether sample
+data conform to a hypothesized distribution based on a subjective visual examination of the
+data. The general procedure is very simple and can be performed quickly with most statistics
+software packages. The supplemental text material discusses manual construction of nor-
+mal probability plots.
+To construct a probability plot, the observations in the sample are rst ranked from small-
+est to largest. That is, the sample y1, y2, . . . , yn is arranged as y(1), y(2), . . . , y(n) where y(1) is the
+smallest observation, y(2) is the second smallest observation, and so forth, with y(n) the largest. The
+ordered observations y(j) are then plotted against their observed cumulative frequency (j 0.5)/n.
+2.4 Inferences About the Differences in Means, Randomized Designs
+41
+■T A B L E 2 . 2
+Computer Output for the Two-Sample t-Test
+Minitab
+Two-sample T for Modified vs Unmodified
+N
+Mean
+Std. Dev.
+SE Mean
+Modified
+10
+16.764
+0.316
+0.10
+Unmodified
+10
+17.042
+0.248
+0.078
+Difference mu (Modified) mu (Unmodified)
+Estimate for difference: 0.278000
+95% CI for difference: (0.545073, 0.010927)
+T-Test of difference 0 (vs not ): T-Value 2.19 
+P-Value 0.042 DF 18
+Both use Pooled Std. Dev. 0.2843
+JMP t-test
+Unmodified-Modified
+Assuming equal variances
+Difference
+0.278000 t Ratio
+2.186876
+Std Err Dif
+0.127122 DF
+18
+Upper CL Dif
+0.545073 Prob
+|t|
+0.0422
+Lower CL Dif
+0.010927 Prob
+t
+0.0211
+Confidence
+0.95 Prob 
+t
+0.9789
+!
+#
+#
+–0.4
+–0.2
+0.0
+0.1
+0.3

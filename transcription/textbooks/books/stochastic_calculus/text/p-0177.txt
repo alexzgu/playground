@@ -1,0 +1,37 @@
+5.6. MARTINGALE APPROACH TO PRICING
+171
+We choose bt so that this holds (this may require choosing bt to be negative).
+Since V0 = 1, we see that Vt = 1 + Zt where Zt is as in Example 5.6.1. In
+particular, V1 = 2, and this portfolio hedges the claim V ≡2 at time T = 1.
+Similarly for any constant J, we can nd At such that with probability one
+Zt ≥J. Hence given any V0 (even negative values), we can nd a portfolio
+that hedges the claim V ≡2. One disadvantage of these portfolios, however,
+is that they allow the value at times 0 < t < 1 to be negative. It will turn out
+that we can eliminate examples like this by restricting to portfolios whose
+value at all times is nonnegative.
+With the bad examples in mind, we now proceed to develop the theory.
+To start, we will consider discounted prices. Let
+˜St = (R0Rt) St,
+˜Vt = (R0Rt) Vt
+denote the discounted stock price and discounted value, respectively. The
+portfolio (at, bt) is the same whether or not we are using discounted units
+and the discounted value ˜Vt is given by
+˜Vt = at ˜St + bt R0
+(Note that the discounted bond valueis R0.) Using the product formula,
+we see that
+d ˜St = ˜St [(mt −rt) dt + σt dBt] 
+Our goal is to nd a self-nancing portfolio (at, bt) such that with probability
+one
+˜VT = aT ˜ST + bT R0 = ˜V 
+Since this must happen with probability one, we may consider a mutually
+absolutely continuous measure. We let Q be the probability measure (if it
+exists) that is mutually absolutely continuous with respect to P such that
+under Q the discounted stock price is a martingale. Recalling (5.11), we can
+see that the Girsanov theorem tells us to choose
+dQ = Mt dP,
+where Mt satises
+dMt = rt −mt
+σt
+Mt dBt,
+M0 = 1
+(5.27)

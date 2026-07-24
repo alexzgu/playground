@@ -1,0 +1,122 @@
+11.8 Lab: Survival Analysis
+493
+Out[14]:
+sex
+diagnosis
+loc
+ki
+gtv
+stereo
+...
+Female
+Meningioma
+Supratentorial
+80.920
+8.687
+SRT
+...
+Female
+HG glioma
+Supratentorial
+80.920
+8.687
+SRT
+...
+Female
+LG glioma
+Supratentorial
+80.920
+8.687
+SRT
+...
+Female
+Other
+Supratentorial
+80.920
+8.687
+SRT
+...
+We then construct the model matrix based on the model specification
+all_MS used to fit the model, and name the rows according to the levels of
+diagnosis.
+In [15]: modal_X = all_MS.transform(modal_df)
+modal_X.index = levels
+modal_X
+We can use the predict_survival_function() method to obtain the esti- .predict_
+survival_
+function()
+mated survival function.
+In [16]: predicted_survival = fit_all.predict_survival_function(modal_X)
+predicted_survival
+Out[16]:
+Meningioma
+HG glioma
+LG glioma
+Other
+0.070
+0.998
+0.982
+0.995
+0.995
+1.180
+0.998
+0.982
+0.995
+0.995
+1.410
+0.996
+0.963
+0.989
+0.990
+1.540
+0.996
+0.963
+0.989
+0.990
+...
+...
+...
+...
+...
+67.380
+0.689
+0.040
+0.394
+0.405
+73.740
+0.689
+0.040
+0.394
+0.405
+78.750
+0.689
+0.040
+0.394
+0.405
+82.560
+0.689
+0.040
+0.394
+0.405
+85 rows × 4 columns
+This returns a data frame, whose plot methods yields the different survival
+curves. To avoid clutter in the plots, we do not display confidence intervals.
+In [17]: fig, ax = subplots(figsize=(8, 8))
+predicted_survival.plot(ax=ax);
+11.8.2
+Publication Data
+The Publication data presented in Section 11.5.4 can be found in the
+ISLP package. We first reproduce Figure 11.5 by plotting the Kaplan-Meier
+curves stratified on the posres variable, which records whether the study
+had a positive or negative result.
+In [18]: fig, ax = subplots(figsize=(8,8))
+Publication = load_data('Publication')
+by_result = {}
+for result, df in Publication.groupby('posres'):
+by_result[result] = df
+km_result = km.fit(df['time'], df['status'])
+km_result.plot(label='Result=%d' % result, ax=ax)
+As discussed previously, the p-values from fitting Cox’s proportional haz-
+ards model to the posres variable are quite large, providing no evidence
+of a difference in time-to-publication between studies with positive versus
+negative results.

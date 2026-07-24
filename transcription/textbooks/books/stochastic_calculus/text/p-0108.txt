@@ -1,0 +1,68 @@
+102
+CHAPTER 3. STOCHASTIC INTEGRATION
+Also,
+
+n
+
+j=1
+[h(t) −hϵ(t)]
+
+Bjn −B(j−1)n
+2
+≤ϵ
+n
+
+j=1
+
+Bjn −B(j−1)n
+2 →ϵ
+Therefore, the limit in (3.10) is the same as
+lim
+ϵ0
+1
+2
+1
+0
+hϵ(t) dt = 1
+2
+1
+0
+h(t) dt = 1
+2
+1
+0
+f ′′(Bt) dt
+Example 3.3.1. Let f(x) = x2. Then f ′(x) = 2x, f ′′(x) = 2, and hence
+B2
+t = B2
+0 +
+t
+0
+f ′(Bs) dBs + 1
+2
+t
+0
+f ′′(Bs) ds = 2
+t
+0
+Bs dBs + t
+This gives the equation
+t
+0
+Bs dBs = 1
+2 [B2
+t −t],
+which we mentioned in the last section. This example is particularly easy
+because f ′′ is constant. If f ′′ is not constant, then f ′′(Bt) is a random variable,
+and the dt integral is not so easy to compute.
+Example 3.3.2. Let f(x) = eσx where σ > 0. Then f ′(x) = σeσx =
+σ f(x), f ′′(x) = σ2eσx = σ2 f(x). Let Xt = f(Bt) = eσBtThen
+dXt = f ′(Bt) dBt + 1
+2 f ′′(Bt) dt = σ Xt dBt + σ2
+2 Xt dt
+The process Xt is an example of Bwhich we discuss
+in more detail in the next section.
+The derivation of Itˆo’s formula given above is essentially correct but
+ignores some technical details. For ease assume t = 1 and assume we
+have a partition Π of the form
+0 = t0 < t1 < · · · < tn = 1,

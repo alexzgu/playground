@@ -1,0 +1,60 @@
+232
+6. Linear Model Selection and Regularization
+2
+4
+6
+8
+10
+2e+07
+4e+07
+6e+07
+8e+07
+Number of Predictors
+Residual Sum of Squares
+2
+4
+6
+8
+10
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+Number of Predictors
+R2
+FIGURE 6.1. For each possible model containing a subset of the ten predictors
+in the Credit data set, the RSS and R2 are displayed. The red frontier tracks the
+best model for a given number of predictors, according to RSS and R2. Though
+the data set contains only ten predictors, the x-axis ranges from 1 to 11, since one
+of the variables is categorical and takes on three values, leading to the creation of
+two dummy variables.
+Then the model Mk fit on the full training set is delivered for the chosen
+k. These approaches are discussed in Section 6.1.3.
+An application of best subset selection is shown in Figure 6.1. Each
+plotted point corresponds to a least squares regression model fit using a
+different subset of the 10 predictors in the Credit data set, discussed in
+Chapter 3. Here the variable region is a three-level qualitative variable,
+and so is represented by two dummy variables, which are selected sepa-
+rately in this case. Hence, there are a total of 11 possible variables which
+can be included in the model. We have plotted the RSS and R2 statistics
+for each model, as a function of the number of variables. The red curves
+connect the best models for each model size, according to RSS or R2. The
+figure shows that, as expected, these quantities improve as the number of
+variables increases; however, from the three-variable model on, there is little
+improvement in RSS and R2 as a result of including additional predictors.
+Although we have presented best subset selection here for least squares
+regression, the same ideas apply to other types of models, such as logistic
+regression. In the case of logistic regression, instead of ordering models by
+RSS in Step 2 of Algorithm 6.1, we instead use the deviance, a measure deviance
+that plays the role of RSS for a broader class of models. The deviance is
+negative two times the maximized log-likelihood; the smaller the deviance,
+the better the fit.
+While best subset selection is a simple and conceptually appealing ap-
+proach, it suffers from computational limitations. The number of possible
+models that must be considered grows rapidly as p increases. In general,
+there are 2p models that involve subsets of p predictors. So if p = 10,
+then there are approximately 1,000 possible models to be considered, and if
+p = 20, then there are over one million possibilities! Consequently, best sub-
+set selection becomes computationally infeasible for values of p greater than

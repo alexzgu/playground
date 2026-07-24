@@ -1,0 +1,179 @@
+11.8 Problems
+549
+(d) If d1 1, d2 2, and k 3, and the simplex design in
+Problem 11.3 is used to t the model, determine the
+alias structure and compare the results with part (c).
+11.23.
+Suppose that you need to design an experiment to t
+a quadratic model over the region 1 xi 1, i 1, 2
+subject to the constraint x1 x2 1. If the constraint is vio-
+lated, the process will not work properly. You can afford to
+make no more than n 12 runs. Set up the following designs:
+(a) An “inscribed” CCD with center point at x1 x2 0.
+(b) An “inscribed” 32 factorial with center point at x1 x2
+0.25.
+(c) A D-optimal design.
+(d) A modied D-optimal design that is identical to the one
+in part (c), but with all replicate runs at the design center.
+(e) Evaluate the (XX)1 criterion for each design.
+(f) Evaluate the D-efciency for each design relative to
+the D-optimal design in part (c).
+(g) Which design would you prefer? Why?
+11.24.
+Consider a 23 design for tting a rst-order model.
+(a) Evaluate the D-criterion (XX)1 for this design.
+(b) Evaluate the A-criterion tr(XX)1 for this design.
+(c) Find the maximum scaled prediction variance for this
+design. Is this design G-optimal?
+11.25.
+Repeat problem 11.24 using a rst-order model with
+the two-factor interactions.
+11.26.
+A chemical engineer wishes to t a calibration curve
+for a new procedure used to measure the concentration of a
+particular ingredient in a product manufactured in his facility.
+Twelve samples can be prepared, having known concentra-
+tion. The engineer wants to build a model for the measured
+concentrations. He or she suspects that a linear calibration
+curve will be adequate to model the measured concentration
+as a function of the known concentrations; that is, y 0 
+1x , where x is the actual concentration. Four experimen-
+tal designs are under consideration. Design 1 consists of six
+runs at known concentration 1 and six runs at known concen-
+tration 10. Design 2 consists of four runs at concentrations 1,
+5.5, and 10. Design 3 consists of three runs at concentration 1,
+4, 7, and 10. Finally, design 4 consists of three runs at concen-
+trations 1 and 10 and 6 runs at concentration 5.5.
+(a) Plot the scaled variance of prediction for all four
+designs on the same graph over the concentration
+range 1 x 10. Which design would be preferable?
+(b) For each design, calculate the determinant of (XX)1.
+Which design would be preferred according to the
+D-criterion?
+(c) Calculate the D-efciency of each design relative to
+the “best” design that you found in part (b).
+(d) For each design, calculate the average variance of pre-
+diction over the set of points given by x 1, 1.5, 2,
+2.5, . . . , 10. Which design would you prefer accord-
+ing to the V-criterion?
+
+
+
+
+(e) Calculate the V-efciency of each design relative to the
+best design that you found in part (d).
+(f) What is the G-efciency of each design?
+11.27.
+Rework problem 11.26 assuming that the model the
+engineer wishes to t is a quadratic. Obviously, only designs
+2, 3, and 4 can now be considered.
+11.28.
+Suppose that you want to t a second-order model in
+k 5 factors. You cannot afford more than 25 runs. Construct
+both a D-optimal and on I-optimal design for this situation.
+Compare the prediction variance properties of the designs.
+Which design would you prefer?
+11.29.
+Suppose that you want to t a second-order response
+surface model in a situation where there are k 4 factors;
+however, one of the factors is categorical with two levels.
+What model should you consider for this experiment? Suggest
+an appropriate design for this situation.
+11.30.
+An experimenter wishes to run a three-component
+mixture experiment. The constraints in the component propor-
+tions are as follows:
+(a) Set up an experiment to fit a quadratic mixture
+model. Use n 14 runs, with four replicates. Use the
+D-criterion.
+(b) Draw the experimental region.
+(c) Set up an experiment to t a quadratic mixture model
+with n 12 runs, assuming that three of these runs are
+replicates. Use the D-criterion.
+(d) Comment on the two designs you have found.
+11.31.
+Myers, Montgomery and Anderson-Cook (2009)
+describe a gasoline blending experiment involving three mixture
+components. There are no constraints on the mixture propor-
+tions, and the following 10-run design is used:
+Design Point
+x1
+x2
+x3
+y (mi/gal)
+1
+1
+0
+0
+24.5, 25.1
+2
+0
+1
+0
+24.8, 23.9
+3
+0
+0
+1
+22.7, 23.6
+4
+0
+25.1
+5
+0
+24.3
+6
+0
+23.5
+7
+24.8, 24.1
+8
+24.2
+9
+23.9
+10
+23.7
+(a) What type of design did the experimenters use?
+(b) Fit a quadratic mixture model to the data. Is this model
+adequate?
+(c) Plot the response surface contours. What blend would
+you recommend to maximize the miles per gallon?
+2
+3
+1
+6
+1
+6
+1
+6
+2
+3
+1
+6
+1
+6
+1
+6
+2
+3
+1
+3
+1
+3
+1
+3
+1
+2
+1
+2
+1
+2
+1
+2
+1
+2
+1
+2
+0.4 x2  0.7
+0.1 x2  0.3
+0.2 x1  0.4

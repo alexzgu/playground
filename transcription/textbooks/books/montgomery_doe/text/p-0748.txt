@@ -1,0 +1,86 @@
+Index Terms 
+Links 
+ 
+This page has been reformatted by Knovel to provide easier navigation. 
+Interaction 
+4 
+6 
+184 
+ 
+ 
+ 
+234 
+244 
+Interaction and curvature 
+186 
+Interaction between treatments and blocks 
+150 
+Interblock analysis of the BIBD 
+174 
+Interclass correlation coefficient 
+121 
+Intrablock analysis of the BIBD 
+174 
+I-optimal design 
+283 
+433 
+Irregular design regions 
+511 
+Iterative experimentation 
+20 
+ 
+ 
+see also sequential experimentation 
+J 
+J component of interaction 
+397 
+K 
+Kruskal-Wallis test 
+128 
+L 
+Lack of fit 
+251 
+473 
+Latin hypercube designs 
+524 
+Latin square designs 
+158 
+223 
+409 
+Latin square designs and Sudoku puzzles 
+159 
+Least squares normal equations 
+125 
+126 
+452 
+Lenth’s method for analyzing unreplicated 2k designs 
+262 
+Levels of a factor 
+25 
+36 
+66 
+ 
+ 
+see also treatments 
+Levene’s test for equal variances  
+85 
+Leverage points 
+473 
+Linear mixture model 
+532 
+Linear predictor 
+646 
+Linear statistical model 
+69 
+ 
+ 
+see also models for data from experiments 
+Link function 
+646 
+Log link 
+646 
+651 
+Logistic regression model 
+647 
+Logit link 
+647 

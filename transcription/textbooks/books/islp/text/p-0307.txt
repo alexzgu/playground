@@ -1,0 +1,58 @@
+7.4 Regression Splines
+299
+2
+4
+6
+8
+10
+1600
+1620
+1640
+1660
+1680
+Degrees of Freedom of Natural Spline
+Mean Squared Error
+2
+4
+6
+8
+10
+1600
+1620
+1640
+1660
+1680
+Degrees of Freedom of Cubic Spline
+Mean Squared Error
+FIGURE 7.6. Ten-fold cross-validated mean squared errors for selecting the
+degrees of freedom when fitting splines to the Wage data. The response is wage
+and the predictor age. Left: A natural cubic spline. Right: A cubic spline.
+then compute the overall cross-validated RSS. This procedure can be re-
+peated for different numbers of knots K. Then the value of K giving the
+smallest RSS is chosen.
+Figure 7.6 shows ten-fold cross-validated mean squared errors for splines
+with various degrees of freedom fit to the Wage data. The left-hand panel
+corresponds to a natural cubic spline and the right-hand panel to a cu-
+bic spline. The two methods produce almost identical results, with clear
+evidence that a one-degree fit (a linear regression) is not adequate. Both
+curves flatten out quickly, and it seems that three degrees of freedom for
+the natural spline and four degrees of freedom for the cubic spline are quite
+adequate.
+In Section 7.7 we fit additive spline models simultaneously on several
+variables at a time. This could potentially require the selection of degrees
+of freedom for each variable. In cases like this we typically adopt a more
+pragmatic approach and set the degrees of freedom to a fixed number, say
+four, for all terms.
+7.4.5
+Comparison to Polynomial Regression
+Figure 7.7 compares a natural cubic spline with 15 degrees of freedom to a
+degree-15 polynomial on the Wage data set. The extra flexibility in the poly-
+nomial produces undesirable results at the boundaries, while the natural
+cubic spline still provides a reasonable fit to the data. Regression splines
+often give superior results to polynomial regression. This is because unlike
+polynomials, which must use a high degree (exponent in the highest mono-
+mial term, e.g. X15) to produce flexible fits, splines introduce flexibility
+by increasing the number of knots but keeping the degree fixed. Generally,
+this approach produces more stable estimates. Splines also allow us to place
+more knots, and hence flexibility, over regions where the function f seems
+to be changing rapidly, and fewer knots where f appears more stable.

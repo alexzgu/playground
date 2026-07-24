@@ -1,0 +1,74 @@
+652
+Chapter 15 ■Other Design and Analysis Topics
+Generalized linear models have found extensive application in biomedical and phar-
+maceutical research and development. As more software packages incorporate this capabil-
+ity, it will nd widespread application in the general industrial research and development
+environment. The examples in this section used standard experimental designs in conjuction
+with a response distribution from the exponential family. When the experimenter knows in
+advance that a GLM analysis will be required it is possible to design the experiment with
+this in mind. Optimal designs for GLMs are a special type of optimal design for a nonlinear
+model. For more discussion and examples, see Johnson and Montgomery (2009) (2010).
+15.2
+Unbalanced Data in a Factorial Design
+The primary focus of this book has been the analysis of balanced factorial designs—that is,
+cases where there are an equal number of observations n in each cell. However, it is not unusual
+to encounter situations where the number of observations in the cells is unequal. These unbal-
+anced factorial designs occur for various reasons. For example, the experimenter may have
+designed a balanced experiment initially, but because of unforeseen problems in running the
+experiment, resulting in the loss of some observations, he or she ends up with unbalanced data.
+On the other hand, some unbalanced experiments are deliberately designed that way. For
+instance, certain treatment combinations may be more expensive or more difcult to run than
+others, so fewer observations may be taken in those cells. Alternatively, some treatment combi-
+nations may be of greater interest to the experimenter because they represent new or unexplored
+conditions, and so the experimenter may elect to obtain additional replication in those cells.
+The orthogonality property of main effects and interactions present in balanced data
+does not carry over to the unbalanced case. This means that the usual analysis of variance
+techniques do not apply. Consequently, the analysis of unbalanced factorials is much more
+difcult than that for balanced designs.
+In this section, we give a brief overview of methods for dealing with unbalanced fac-
+torials, concentrating on the case of the two-factor xed effects model. Suppose that the
+number of observations in the ijth cell is nij. Furthermore, let ni.  
+nij be the number of
+observations in the ith row (the ith level of factor A), n.j 
+nij be the number of obser-
+vations in the jth column (the jth level of factor B), and n..  
+nij be the total num-
+ber of observations.
+15.2.1
+Proportional Data: An Easy Case
+One situation involving unbalanced data presents little difculty in analysis; this is the case
+of proportional data. That is, the number of observations in the ijth cell is
+(15.11)
+This condition implies that the number of observations in any two rows or columns is propor-
+tional. When proportional data occur, the standard analysis of variance can be employed.
+Only minor modications are required in the manual computing formulas for the sums of
+squares, which become
+SSA 
+a
+i1
+y2
+i..
+ni. y2
+...
+n..
+SST 
+a
+i1 
+b
+j1 
+nij
+k1
+y2
+ijk y2
+...
+n..
+nij 
+ni.n.j
+n..
+"a
+i1 "b
+j1
+a
+i1
+"b
+j1

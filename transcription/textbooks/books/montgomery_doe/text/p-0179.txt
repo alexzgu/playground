@@ -1,0 +1,107 @@
+to select an arbitrary Latin square from a table of such designs, as in Fisher and Yates (1953), or
+start with a standard square, and then arrange the order of the rows, columns, and letters at 
+random. This is discussed more completely in Fisher and Yates (1953).
+Occasionally, one observation in a Latin square is missing. For a p p Latin square,
+the missing value may be estimated by
+(4.29)
+where the primes indicate totals for the row, column, and treatment with the missing value,
+and 
+is the grand total with the missing value.
+Latin squares can be useful in situations where the rows and columns represent factors
+the experimenter actually wishes to study and where there are no randomization restrictions.
+Thus, three factors (rows, columns, and letters), each at p levels, can be investigated in only
+p2 runs. This design assumes that there is no interaction between the factors. More will be said
+later on the subject of interaction.
+Replication of Latin Squares. A disadvantage of small Latin squares is that they
+provide a relatively small number of error degrees of freedom. For example, a 3 3 Latin
+square has only two error degrees of freedom, a 4 4 Latin square has only six error degrees
+of freedom, and so forth. When small Latin squares are used, it is frequently desirable to repli-
+cate them to increase the error degrees of freedom.
+A Latin square may be replicated in several ways. To illustrate, suppose that the 5 5
+Latin square used in Example 4.4 is replicated n times. This could have been done as follows:
+1. Use the same batches and operators in each replicate.
+2. Use the same batches but different operators in each replicate (or, equivalently, use
+the same operators but different batches).
+3. Use different batches and different operators.
+The analysis of variance depends on the method of replication.
+Consider case 1, where the same levels of the row and column blocking factors are used
+in each replicate. Let yijkl be the observation in row i, treatment j, column k, and replicate l.
+There are N np2 total observations. The ANOVA is summarized in Table 4.14.
+y...
+yijk 
+p(yi.. y.j. y...k) 2y...
+(p 2)(p 1)
+4.2 The Latin Square Design
+163
+■T A B L E 4 . 1 4
+Analysis of Variance for a Replicated Latin Square, Case 1
+Source of
+Sum of
+Degrees of
+Mean
+Variation
+Squares
+Freedom
+Square
+F0
+Treatments
+p 1
+Rows
+p 1
+Columns
+p 1
+Replicates
+n 1
+Error
+Subtraction
+(p 1)[n(p 1) 3]
+Total
+np2 1
+y2
+ijkl y2
+....
+N
+SSE
+( p 1)[n( p 1) 3]
+SSReplicates
+n 1
+1
+p2 
+n
+l1
+y2
+...l y2
+....
+N
+SSColumns
+p 1
+1
+np 
+p
+k1
+y2
+..k. y2
+....
+N
+SSRows
+p 1
+1
+np 
+p
+i1
+y2
+i... y2
+....
+N
+MSTreatments
+MSE
+SSTreatments
+p 1
+1
+np 
+p
+j1
+y2
+.j.. y2
+....
+N

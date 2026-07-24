@@ -1,0 +1,59 @@
+11.7 Evolutionary Operation
+543
+Calculation of Effects
+Calculation of Error Limits
+Temperature effect 
+For new average 
+Pressure effect 
+For new effects 
+T P interaction effect 
+Change-in-mean effect 
+For change in mean 1.78
+n
+S 0.60
+
+1
+5( y2 y3 y4 y5 4y1) 0.07
+
+1
+2(y2 y3 y4 y5) 0.64
+2
+n
+S 0.67
+
+1
+2(y3 y5 y2 y4) 0.87
+
+2
+n
+S 0.67
+
+1
+2 (y3 y4 y2 y5) 0.67
+■TA B L E 1 1 . 2 5
+(Continued)
+In light of the results, it seems reasonable to begin a new
+EVOP phase about point (3). Thus, x1 225°F and x2 
+150 psi would become the center of the 22 design in the 
+second phase.
+An important aspect of EVOP is feeding the information
+generated back to the process operators and supervisors.
+This is accomplished by a prominently displayed EVOP
+information board. The information board for this example
+at the end of cycle 3 is shown in Table 11.26.
+■TA B L E 1 1 . 2 6
+EVOP Information Board, Cycle 3
+Error Limits for Averages: 0.67
+Effects with
+Temperature
+0.67 0.67
+95 percent error
+Pressure
+0.87 0.67
+Limits
+T P
+0.64 0.67
+Change in mean
+0.07 0.60
+Standard deviation
+0.58

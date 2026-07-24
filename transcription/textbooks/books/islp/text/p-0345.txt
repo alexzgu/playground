@@ -1,0 +1,54 @@
+338
+8. Tree-Based Methods
+|
+Years < 4.5
+RBI < 60.5
+Putouts < 82
+Years < 3.5
+Years < 3.5
+Hits < 117.5
+Walks < 43.5
+Runs < 47.5
+Walks < 52.5
+RBI < 80.5
+Years < 6.5
+5.487
+4.622
+5.183
+5.394
+6.189
+6.015
+5.571
+6.407
+6.549
+6.459
+7.007
+7.289
+FIGURE 8.4. Regression tree analysis for the Hitters data. The unpruned tree
+that results from top-down greedy splitting on the training data is shown.
+binary splitting to grow a classification tree. However, in the classification
+setting, RSS cannot be used as a criterion for making the binary splits.
+A natural alternative to RSS is the classification error rate. Since we plan classification
+error rate
+to assign an observation in a given region to the most commonly occurring
+class of training observations in that region, the classification error rate is
+simply the fraction of the training observations in that region that do not
+belong to the most common class:
+E = 1 −max
+k (ˆpmk).
+(8.5)
+Here ˆpmk represents the proportion of training observations in the mth
+region that are from the kth class. However, it turns out that classification
+error is not sufficiently sensitive for tree-growing, and in practice two other
+measures are preferable.
+The Gini index is defined by
+Gini index
+G =
+K
+0
+k=1
+ˆpmk(1 −ˆpmk),
+(8.6)
+a measure of total variance across the K classes. It is not hard to see
+that the Gini index takes on a small value if all of the ˆpmk’s are close to
+zero or one. For this reason the Gini index is referred to as a measure of

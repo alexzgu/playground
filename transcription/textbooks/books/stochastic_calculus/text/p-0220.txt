@@ -1,0 +1,48 @@
+214
+CHAPTER 6. JUMP PROCESSES
+This allows us to use the dominated convergence theorem to conclude that
+lim
+ϵ0 Ψϵ(s) =
+1
+−1
+[eisx −1 −isx] dµ(x)
+Since Y = limϵ0 M ϵ, we can conclude that this limit equals Ψ(s).
+The second equation is obtained by taking the limit of (6.6).
+A particular case of the proposition is f(x) = x in which we conclude
+that Yt is a square integrable martingale with
+⟨Y ⟩t =
+
+s≤t
+[Ys −Ys−]2
+The same argument shows that the moment generating function also exists
+and
+E[esYt] = exp
+
+t
+1
+−1
+[esx −1 −sx] dµ(x)
+
+,
+s R
+In particular, E[esYt] < ∞for all s, t. (This is in contrast to CCPs for which
+this expectation could be innite.)
+We will establish existence of the limit in (6.21) both in L2 and with
+probability one. Let us rst consider the case t = 1. Let
+Y ϵ = Y ϵ
+1 = Xϵ
+1 −mϵ
+It suces to prove the existence of
+Y = lim
+ϵ0 Y ϵ
+Let Zn = Y 2−n −Y 2−(n+1), so that
+Y =
+∞
+
+n=0
+Zn
+The random variables Zn are independent, mean zero, and
+∞
+
+n=0
+Var[Zn] < ∞

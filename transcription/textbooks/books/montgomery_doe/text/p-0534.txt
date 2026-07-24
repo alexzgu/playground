@@ -1,0 +1,71 @@
+518
+Chapter 11 ■Response Surface Methods and Designs
+Relative Variance of Coefﬁcients
+Effect
+Variance
+Intercept
+0.909
+X1
+0.115
+X2
+0.092
+X3
+0.088
+X4
+0.088
+X1*X1
+0.319
+X1*X2
+0.124
+X2*X2
+0.591
+X1*X3
+0.120
+X2*X3
+0.093
+X3*X3
+0.839
+X1*X4
+0.120
+X2*X4
+0.093
+X3*X4
+0.090
+X4*X4
+0.839
+requested. A coordinate exchange algorithm was used to
+construct the design. Immediately below the design matrix is
+the prediction variance prole, which shows the variance of
+the predicted response along each of the four directions. The
+crosshair on the plot has been set to coordinates that maximize
+the prediction variance. The fraction of design space plot fol-
+lows, along with a table of relative variances of the model
+coefcients (that is, variance of the coefcients divided by 2).
+Table 11.14 is the JMP output for a 16-run I-optimal
+design. This table also contains the prediction variance pro-
+le showing the maximum prediction variance, the FDS
+plot, and the table of relative variance of the model coef-
+cients. Several important differences between the D and I
+optimal designs can be observed. First, the D-optimal design
+has a smaller maximum prediction variance (1.806 versus
+2.818), but from the FDS plot we observe that the variance
+near the center of the region is smaller for the I-optimal
+design. In other words, the I-optimal design has smaller 
+prediction variance over most of the design space (leading
+to a smaller integrated or average variance) when compared
+to the D-optimal design but has larger prediction variance at
+the extremes of the region. The relative variances of the
+coefcients for the I-optimal design are in almost all cases
+smaller for the D-optimal design. This is not unexpected as
+■TA B L E 1 1 . 1 3
+(Continued)
+Prediction
+variance
+1.5
+1.0
+0.5
+0.0
+0.0 0.1 0.2 0.3 0.4 0.5
+Fraction of space
+0.6 0.7 0.8 0.9 1.0
+Fraction of Design Space Plot

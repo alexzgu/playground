@@ -1,0 +1,61 @@
+294
+7. Moving Beyond Linearity
+ily of functions or transformations that can be applied to a variable X:
+b1(X), b2(X), . . . , bK(X). Instead of fitting a linear model in X, we fit the
+model
+yi = β0 + β1b1(xi) + β2b2(xi) + β3b3(xi) + · · · + βKbK(xi) + ϵi.
+(7.7)
+Note that the basis functions b1(·), b2(·), . . . , bK(·) are fixed and known.
+(In other words, we choose the functions ahead of time.) For polynomial
+regression, the basis functions are bj(xi) = xj
+i, and for piecewise constant
+functions they are bj(xi) = I(cj ≤xi < cj+1). We can think of (7.7) as
+a standard linear model with predictors b1(xi), b2(xi), . . . , bK(xi). Hence,
+we can use least squares to estimate the unknown regression coefficients
+in (7.7). Importantly, this means that all of the inference tools for linear
+models that are discussed in Chapter 3, such as standard errors for the
+coefficient estimates and F-statistics for the model’s overall significance,
+are available in this setting.
+Thus far we have considered the use of polynomial functions and piece-
+wise constant functions for our basis functions; however, many alternatives
+are possible. For instance, we can use wavelets or Fourier series to construct
+basis functions. In the next section, we investigate a very common choice
+for a basis function: regression splines.
+regression
+spline
+7.4
+Regression Splines
+Now we discuss a flexible class of basis functions that extends upon the
+polynomial regression and piecewise constant regression approaches that
+we have just seen.
+7.4.1
+Piecewise Polynomials
+Instead of fitting a high-degree polynomial over the entire range of X, piece-
+wise polynomial regression involves fitting separate low-degree polynomials piecewise
+polynomial
+regression
+over different regions of X. For example, a piecewise cubic polynomial
+works by fitting a cubic regression model of the form
+yi = β0 + β1xi + β2x2
+i + β3x3
+i + ϵi,
+(7.8)
+where the coefficients β0, β1, β2, and β3 differ in different parts of the range
+of X. The points where the coefficients change are called knots.
+knot
+For example, a piecewise cubic with no knots is just a standard cubic
+polynomial, as in (7.1) with d = 3. A piecewise cubic polynomial with a
+single knot at a point c takes the form
+yi =
+=
+β01 + β11xi + β21x2
+i + β31x3
+i + ϵi
+if xi < c
+β02 + β12xi + β22x2
+i + β32x3
+i + ϵi
+if xi ≥c.
+In other words, we fit two different polynomial functions to the data, one
+on the subset of the observations with xi < c, and one on the subset of
+the observations with xi ≥c. The first polynomial function has coefficients

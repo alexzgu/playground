@@ -1,0 +1,83 @@
+3.4 Model Adequacy Checking
+87
+■TA B L E 3 . 9
+Variance-Stabilizing Transformations
+Relationship
+Between "y and #
+$
+% 1 $
+Transformation
+Comment
+y constant
+0
+1
+No transformation
+y 1/2
+1/2
+1/2
+Square root
+Poisson (count) data
+y 
+1
+0
+Log
+y 3/2
+3/2
+1/2
+Reciprocal square root
+y 2
+2
+1
+Reciprocal 
+Empirical Selection of a Transformation. We observed above that if experi-
+menters knew the relationship between the variance of the observations and the mean, they
+could use this information to guide them in selecting the form of the transformation. We now
+elaborate on this point and show one method for empirically selecting the form of the required
+transformation from the data.
+Let E(y) be the mean of y, and suppose that the standard deviation of y is propor-
+tional to a power of the mean of y such that
+We want to nd a transformation on y that yields a constant variance. Suppose that the trans-
+formation is a power of the original data, say
+(3.20)
+Then it can be shown that
+(3.21)
+Clearly, if we set 1 , the variance of the transformed data y* is constant.
+Several of the common transformations discussed previously are summarized in Table
+3.9. Note that 0 implies the log transformation. These transformations are arranged in
+order of increasing strength. By the strength of a transformation, we mean the amount of
+curvature it induces. A mild transformation applied to data spanning a narrow range has lit-
+tle effect on the analysis, whereas a strong transformation applied over a large range may
+have dramatic results. Transformations often have little effect unless the ratio ymax/ymin is
+larger than 2 or 3.
+In many experimental design situations where there is replication, we can empirically
+estimate from the data. Because in the ith treatment combination 
+where 
+is a constant of proportionality, we may take logs to obtain
+(3.22)
+Therefore, a plot of log 
+versus log i would be a straight line with slope . Because we
+don’t know 
+and i, we may substitute reasonable estimates of them in Equation 3.22 and
+use the slope of the resulting straight line t as an estimate of . Typically, we would use the
+standard deviation Si and the average 
+of the ith treatment (or, more generally, the ith treat-
+ment combination or set of experimental conditions) to estimate 
+and i.
+To investigate the possibility of using a variance-stabilizing transformation on the
+peak discharge data from Example 3.5, we plot log Si versus log 
+in Figure 3.8. The slope
+of a straight line passing through these four points is close to 1/2 and from Table 3.9 this
+implies that the square root transformation may be appropriate. The analysis of variance for
+yi.
+yi
+yi.
+yi
+yi
+log yi log  log i
+
+i ,
+yi 
+i
+y* 1
+y* y 
+y 

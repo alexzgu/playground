@@ -1,0 +1,116 @@
+218
+Chapter 5 ■Introduction to Factorial Designs
+Figure 5.19 is the contour plot of tool life for this model
+and Figure 5.20 is a three-dimensional response surface
+plot. These plots conrm the estimate of the optimum oper-
+ating conditions found from the JMP prediction proler.
+Exploration of response surfaces is an important use of
+designed experiments, which we will discuss in more detail
+in Chapter 11.
+■TA B L E 5 . 1 9
+JMP Output for the Expanded Model in Example 5.5
+Summary of Fit
+RSquare
+0.895161
+RSquare Adj
+0.801971
+Root Mean Square Error
+1.20185
+Mean of Response
+1.333333
+Observations (or Sum Wgts)
+18
+Analysis of Variance
+Sum of
+Source
+DF
+Squares
+Mean Square
+F Ratio
+Model
+8
+111.00000
+13.8750
+9.6058
+Error
+9
+13.00000
+1.4444
+Prob > F
+C. Total
+17
+124.00000
+0.0013*
+Parameter Estimates
+Term
+Estimate
+Std Error
+t Ratio
+Prob>|t|
+Intercept
+24
+4.41588
+5.43
+0.0004*
+Angle
+0.7
+0.120185
+5.82
+0.0003*
+Speed
+0.08
+0.024037
+3.33
+0.0088*
+(Angle-20)*(Speed-150)
+0.008
+0.003399
+2.35
+0.0431*
+(Angle-20)*(Angle-20)
+2.776e-17
+0.041633
+0.00
+1.0000
+(Speed-150)*(Speed-150)
+0.0016
+0.001665
+0.96
+0.3618
+(Angle-20)*(Speed-150)*(Angle-20)
+0.0016
+0.001178
+1.36
+0.2073
+(Speed-150)*(Speed-150)*(Angle-20)
+0.00128
+0.000236
+5.43
+0.0004*
+(Angle-20)*(Speed-150)*(Angle-20)*(Speed-150)
+0.000192
+8.158a-5
+2.35
+0.0431*
+Response Y
+Actual by Predicted Plot
+6
+4
+2
+0
+–2
+–4
+–4 –3
+–1
+–2
+0
+1
+Y Predicted P=0.0013
+RSq = 0.90  RMSE = 1.2019
+2
+3
+4
+5
+6
+7
+Y Actual

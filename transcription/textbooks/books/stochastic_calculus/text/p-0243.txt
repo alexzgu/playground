@@ -1,0 +1,24 @@
+Chapter 7
+Fractional Brownian motion
+7.1
+Denition
+The assumptions of independent, stationary increments along with continu-
+ous paths give Brownian motion. In the last chapter we dropped the conti-
+nuity assumption and obtained L´evy processes. In this chapter we will retain
+the assumptions of stationary increments and continuous paths, but will al-
+low the increments to be dependent. The process Xt we construct is called
+Band depends on a parameter H (0, 1) called
+the H. It measures the correlation of the increments.
+When H > 12, the increments are positively correlated, that is, if the
+process has been increasing, then it is more likely to continue increasing.
+When H < 12, the increments are negatively correlated, that is, if the
+process has been increasing, then it is more likely to decrease in the
+future.
+If H = 12, the increments are uncorrelated and the process is the
+same as Brownian motion.
+We will also assume that the process is self-similar.
+If a > 0, then the distribution of
+Yt := a−H Xat
+is the same as that of Xt. In particular, Xt has the same distribution
+as tH X1.
+237

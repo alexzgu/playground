@@ -1,0 +1,68 @@
+80
+3. Linear Regression
+Simple regression of sales on radio
+Coefficient
+Std. error
+t-statistic
+p-value
+Intercept
+9.312
+0.563
+16.54
+< 0.0001
+radio
+0.203
+0.020
+9.92
+< 0.0001
+Simple regression of sales on newspaper
+Coefficient
+Std. error
+t-statistic
+p-value
+Intercept
+12.351
+0.621
+19.88
+< 0.0001
+newspaper
+0.055
+0.017
+3.30
+0.00115
+TABLE 3.3. More simple linear regression models for the Advertising data.
+Coefficients of the simple linear regression model for number of units sold on Top:
+radio advertising budget and Bottom: newspaper advertising budget. A $1,000 in-
+crease in spending on radio advertising is associated with an average increase in
+sales by around 203 units, while the same increase in spending on newspaper ad-
+vertising is associated with an average increase in sales by around 55 units. (Note
+that the sales variable is in thousands of units, and the radio and newspaper
+variables are in thousands of dollars.)
+linear regression setting, R2 = r2. In other words, the squared correlation
+and the R2 statistic are identical. However, in the next section we will
+discuss the multiple linear regression problem, in which we use several pre-
+dictors simultaneously to predict the response. The concept of correlation
+between the predictors and the response does not extend automatically to
+this setting, since correlation quantifies the association between a single
+pair of variables rather than between a larger number of variables. We will
+see that R2 fills this role.
+3.2
+Multiple Linear Regression
+Simple linear regression is a useful approach for predicting a response on the
+basis of a single predictor variable. However, in practice we often have more
+than one predictor. For example, in the Advertising data, we have examined
+the relationship between sales and TV advertising. We also have data for
+the amount of money spent advertising on the radio and in newspapers,
+and we may want to know whether either of these two media is associated
+with sales. How can we extend our analysis of the advertising data in order
+to accommodate these two additional predictors?
+One option is to run three separate simple linear regressions, each of
+which uses a different advertising medium as a predictor. For instance,
+we can fit a simple linear regression to predict sales on the basis of the
+amount spent on radio advertisements. Results are shown in Table 3.3 (top
+table). We find that a $1,000 increase in spending on radio advertising is
+associated with an increase in sales of around 203 units. Table 3.3 (bottom
+table) contains the least squares coefficients for a simple linear regression of
+sales onto newspaper advertising budget. A $1,000 increase in newspaper
+advertising budget is associated with an increase in sales of approximately
+55 units.

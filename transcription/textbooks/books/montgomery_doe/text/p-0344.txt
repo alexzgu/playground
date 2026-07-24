@@ -1,0 +1,172 @@
+328
+Chapter 8 ■Two-Level Fractional Factorial Designs
+■TA B L E 8 . 5
+A 251 Design for Example 8.2
+Basic Design
+Treatment
+Run
+A
+B
+C
+D
+E ABCD
+Combination
+Yield
+1
+
+
+
+
+
+e
+8
+2
+
+
+
+
+
+a
+9
+3
+
+
+
+
+
+b
+34
+4
+
+
+
+
+
+abe
+52
+5
+
+
+
+
+
+c
+16
+6
+
+
+
+
+
+ace
+22
+7
+
+
+
+
+
+bce
+45
+8
+
+
+
+
+
+abc
+60
+9
+
+
+
+
+
+d
+6
+10
+
+
+
+
+
+ade
+10
+11
+
+
+
+
+
+bde
+30
+12
+
+
+
+
+
+abd
+50
+13
+
+
+
+
+
+cde
+15
+14
+
+
+
+
+
+acd
+21
+15
+
+
+
+
+
+bcd
+44
+16
+
+
+
+
+
+abcde
+63
+e = 8 
+abcde = 63
+abe = 52
+abc = 60
+bcb = 44
+acd = 21
+bce = 45
+ace = 22
+–
++
+E
+cde = 15
+ade = 10
+bde = 30
+abd = 50
+a = 9
+c = 16
+b = 34
+d = 6
+–
++
+D
+B
+C
+A
+■F I G U R E 8 . 5
+The
+design for Example 8.2
+251
+V

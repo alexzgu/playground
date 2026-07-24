@@ -1,0 +1,93 @@
+198
+CHAPTER 6. JUMP PROCESSES
+The proof of this proposition is similar to the derivation of Itˆo’s formula.
+We will rst show that Mt is a martingale, that is, E[Mt Fs] = Ms. The
+argument is essentially the same for all s so we will assume that s = 0 and
+X0 = x. We need to show that
+E
+
+f(Xt) −f(X0) −
+t
+0
+Lf(Xs) ds
+
+= 0
+This argument is the same for all t, so let us assume t = 1. Then, as in the
+proof of Itˆo’s formula, we write
+f(X1) −f(X0) −
+1
+0
+Lf(Xs) ds
+=
+n
+
+j=1
+
+f
+
+X j
+n
+
+−f
+
+X (j−1)
+n
+
+−
+jn
+(j−1)n
+Lf(Xs) ds
+
+
+We write the expectation of the right-hand side as the sum of two terms
+n
+
+j=1
+E
+
+f
+
+X j
+n
+
+−f
+
+X (j−1)
+n
+
+−1
+n Lf
+
+X (j−1)
+n
+
+(6.7)
+n
+
+j=1
+E
+
+1
+n Lf
+
+X (j−1)
+n
+
+−
+jn
+(j−1)n
+Lf(Xs) ds
+
+,
+(6.8)
+The denition of L implies that
+E [f(Xt+∆t) Ft] = f(Xt) + Lf(Xt) ∆t + o(∆t),
+and hence
+E [f(Xt+∆t) −f(Xt) −Lf(Xt) ∆t] = o(∆t)
+This shows that the sum in (6.7) has n terms that are o(1n) and hence
+the limit is zero. The terms inside the expectation in (6.8) equal zero unless
+there is a jump between time (j −1)n and jn. This occurs with probability
+O(1n) and in this case the value of the random variable is O(1n). Hence
+the expectations are O(1n2) and the sum of n of them has limit zero.
+The computation of the quadratic variation is essentially the same as in
+Proposition 6.3.1.

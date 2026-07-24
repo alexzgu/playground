@@ -1,0 +1,57 @@
+6.8. THE L´EVY-KHINCHIN CHARACTERIZATION
+223
+Therefore, for every a > 0,
+lim
+n∞n PX1n≥a= 0
+(6.26)
+This implies that there exists a sequence an ↓0 with
+lim
+n∞n PX1n ≥an= 0
+(6.27)
+We claim that all the moments of X1 are nite. To see this let J =
+max0≤t≤1 Xtand nd k such that PJ ≥k≤12. Then using
+continuity of the paths, by stopping at the rst time t that Xt= nk,
+we can see that
+PJ ≥(n + 1)k J ≥nk≤12,
+and hence
+PJ ≥nk≤(12)n,
+from which niteness of the moments follows. Let m = E[X1], σ2 =
+Var[X1], and note that E[X2
+1] = m2 + σ2Our goal is to show that
+X1 ∼N(m, σ2).
+Let
+˜Xj,n = Xj,n 1Xj,n≤an,
+Zn =
+n
+
+j=1
+˜Xj,n
+Let ϕn denote the characteristic function of ˜Xj,n and hence [ϕn]n is
+the characteristic function of Zn. It follows from (6.27) that Zn →X1
+in distribution, so it suces to prove that for every s
+lim
+n∞[ϕn(s)]n = exp
+
+ims −σ2s2
+2
+
+
+Also, it is easy to check that E[Zn] →m, Var[Zn] →σ2 and hence
+E[ ˜X1,n] = m [1 + o(1)]
+n
+,
+E[ ˜X2
+1,n] =
+m2
+n2 + σ2
+n
+
+(1 + o(1))
+Also, since˜X1,n≤an,
+E[˜X1,n3] ≤an E[ ˜X2
+1,n] = an
+m2
+n2 + σ2
+n
+
+[1 + o(1)]

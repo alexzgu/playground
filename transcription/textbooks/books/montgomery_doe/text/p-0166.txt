@@ -1,0 +1,62 @@
+Sometimes the plot of residuals versus 
+has a curvilinear shape; for example, there
+may be a tendency for negative residuals to occur with low 
+values, positive residuals with
+intermediate 
+values, and negative residuals with high 
+values. This type of pattern is sug-
+gestive of interaction between blocks and treatments. If this pattern occurs, a transformation
+should be used in an effort to eliminate or minimize the interaction. In Section 5.3.7, we
+describe a statistical test that can be used to detect the presence of interaction in a random-
+ized block design.
+4.1.3
+Some Other Aspects of the Randomized 
+Complete Block Design
+Additivity of the Randomized Block Model. The linear statistical model that we
+have used for the randomized block design
+is completely additive. This says that, for example, if the rst treatment causes the expected
+response to increase by ve units (1 5) and if the rst block increases the expected response
+by 2 units (1 2), the expected increase in response of both treatment 1 and block 1 together
+is E(y11) 1 1 5 2 7. In general, treatment 1 always increases the
+expected response by 5 units over the sum of the overall mean and the block effect.
+Although this simple additive model is often useful, in some situations it is inadequate.
+Suppose, for example, that we are comparing four formulations of a chemical product using
+six batches of raw material; the raw material batches are considered blocks. If an impurity in
+batch 2 affects formulation 2 adversely, resulting in an unusually low yield, but does not affect
+the other formulations, an interaction between formulations (or treatments) and batches (or
+yij i j ij
+yˆij
+yˆij
+yˆij
+yˆij
+150
+Chapter 4 ■Randomized Blocks, Latin Squares, and Related Designs
+4.17917
+2.24167
+0.304167
+–1.63333
+–3.57083
+1
+2
+3
+4
+Residuals
+Extrusion pressure
+(a)
+1
+2
+3
+4
+Batch of raw material (block)
+(b)
+5
+6
+4.17917
+2.24167
+0.304167
+–1.63333
+–3.57083
+Residuals
+■F I G U R E 4 . 6
+Plot of residuals by extrusion pressure (treatment) and by batches of resin (block) for
+Example 4.1

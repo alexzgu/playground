@@ -1,0 +1,35 @@
+2.10. HEAT EQUATION AND GENERATOR
+77
+Therefore, for t > 0, x →ϕ(t, x) is C2 and we can take the right
+derivative with respect to time,
+lim
+s0
+ϕ(t + s, x) −ϕ(t, x)
+s
+= Lxϕ(t, x),
+using the argument as above. Although this argument only computes
+the right derivative, since for xed x, ϕ(t, x) and Lxϕ(t, x) are contin-
+uous functions of t, we can conclude that
+∂tϕ(t, x) = Lxϕ(t, x),
+t > 0
+We cannot expect this to hold at t = 0, but we can state that if f is
+continuous at x, then
+lim
+t0 ϕ(t, x) = f(x)
+A simple call option works a little dierently. Suppose that Bt is a one-
+dimensional Brownian motion with parameters m, σ2. A simple call option
+at time T > 0 with strike price S allows the owner to buy a share of the
+stock at time T for price S. If the price at time T is BT, then the value of the
+option is f(BT) = (BT −S)+ as in (2.9). We are specifying the value of the
+function at time T rather than at time 0. However, we can use our work to
+give a PDE for the expected value of the option. If t < T, then the expected
+value of this option, given that Bt = x is
+F(t, x) = E [F(BT) Bt = x] = Ex [F(BT −t)] = ϕ(T −t, x)
+Since
+∂tF(t, x) = −∂tϕ(T −t, x) = −Lxϕ(T −t, x) = −LxF(t, x),
+we get the following.
+If f is a function, T > 0 and
+F(t, x) = E[f(BT) Bt = x],
+then for t < T, F satises the 
+∂tF(t, x) = −LxF(t, x),
+with terminal condition F(T, x) = f(x).

@@ -1,0 +1,119 @@
+12.2 Crossed Array Designs
+557
+solution of an RPD problem. For example, consider the two-factor interaction graphs in Figure
+12.1, where x is the controllable factor and z is the noise factor. In Figure 12.1a, there is no inter-
+action between x and z; therefore, there is no setting for the controllable variable x that will
+affect the variability transmitted to the response by the variability in the noise factor z. However,
+in Figure 12.1b, there is a strong interaction between x and z. Note that when x is set to its low
+level, there is much less variability in the response variable than when x is at the high level.
+Thus, unless there is at least one controllable factor—noise factor interaction—there is no robust
+design problem. As we will subsequently see, focusing on identifying and modeling these inter-
+actions is one of the keys to an efcient and effective approach to solving the RPD problem.
+Table 12.2 presents another example of an RPD problem, taken from Byrne and Taguchi
+(1987). This problem involved the development of an elastometric connector that would deliv-
+er the required pull-off force when assembled with a nylon tube. There are four controllable fac-
+tors, each at three levels (A interference, B connector wall thickness, C insertion depth,
+and D percent adhesive), and three noise or uncontrollable factors, each at two levels (E 
+conditioning time, F conditioning temperature, and G conditioning relative humidity).
+Panel (a) of Table 12.2 contains the inner array design for the controllable factors. Notice that the
+design is a three-level fractional factorial, and specically, it is a 342 design. Panel (b) of Table
+12.2 contains a 23 outer array design for the noise factors. Now as before, each run in the inner
+■T A B L E 1 2 . 1
+The Leaf Spring Experiment
+A
+B
+C
+D
+E 
+E 
+s2
+
+
+
+
+7.78, 7.78, 7.81
+7.50, 7.25, 7.12
+7.54
+0.090
+
+
+
+
+8.15, 8.18, 7.88
+7.88, 7.88, 7.44
+7.90
+0.071
+
+
+
+
+7.50, 7.56, 7.50
+7.50, 7.56, 7.50
+7.52
+0.001
+
+
+
+
+7.59, 7.56, 7.75
+7.63, 7.75, 7.56
+7.64
+0.008
+
+
+
+
+7.54, 8.00, 7.88
+7.32, 7.44, 7.44
+7.60
+0.074
+
+
+
+
+7.69, 8.09, 8.06
+7.56, 7.69, 7.62
+7.79
+0.053
+
+
+
+
+7.56, 7.52, 7.44
+7.18, 7.18, 7.25
+7.36
+0.030
+
+
+
+
+7.56, 7.81, 7.69
+7.81, 7.50, 7.59
+7.66
+0.017
+y
+(a) No control × noise interaction
+(b) Significant control × noise interaction
+z
+z
+y
+y
+x = –
+x = –
+x = +
+x = +
+Natural
+variability
+in z
+Natural
+variability
+in z
+Variability in y
+transmitted
+from z
+Variability
+in y
+is reduced
+when x = –
+■F I G U R E 1 2 . 1
+The role of the control noise interaction in robust design

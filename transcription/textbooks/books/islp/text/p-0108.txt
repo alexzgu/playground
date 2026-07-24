@@ -1,0 +1,57 @@
+3.3 Other Considerations in the Regression Model
+99
+50
+100
+150
+200
+10
+20
+30
+40
+50
+Horsepower
+Miles per gallon
+Linear
+Degree 2
+Degree 5
+FIGURE 3.8. The Auto data set. For a number of cars, mpg and horsepower are
+shown. The linear regression fit is shown in orange. The linear regression fit for a
+model that includes horsepower2 is shown as a blue curve. The linear regression
+fit for a model that includes all polynomials of horsepower up to fifth-degree is
+shown in green.
+Coefficient
+Std. error
+t-statistic
+p-value
+Intercept
+56.9001
+1.8004
+31.6
+< 0.0001
+horsepower
+−0.4662
+0.0311
+−15.0
+< 0.0001
+horsepower2
+0.0012
+0.0001
+10.1
+< 0.0001
+TABLE 3.10. For the Auto data set, least squares coefficient estimates associated
+with the regression of mpg onto horsepower and horsepower2.
+fit appears to be substantially better than the fit obtained when just the
+linear term is included. The R2 of the quadratic fit is 0.688, compared to
+0.606 for the linear fit, and the p-value in Table 3.10 for the quadratic term
+is highly significant.
+If including horsepower2 led to such a big improvement in the model, why
+not include horsepower3, horsepower4, or even horsepower5? The green curve
+in Figure 3.8 displays the fit that results from including all polynomials up
+to fifth degree in the model (3.36). The resulting fit seems unnecessarily
+wiggly—that is, it is unclear that including the additional terms really has
+led to a better fit to the data.
+The approach that we have just described for extending the linear model
+to accommodate non-linear relationships is known as polynomial regres-
+sion, since we have included polynomial functions of the predictors in the
+regression model. We further explore this approach and other non-linear
+extensions of the linear model in Chapter 7.

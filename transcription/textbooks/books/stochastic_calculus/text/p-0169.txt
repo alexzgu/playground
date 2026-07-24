@@ -1,0 +1,34 @@
+5.4. BLACK-SCHOLES FORMULA
+163
+In (4.7) we showed that this function satises the PDE
+∂t ˆf(t, x) = r ˆf(t, x) −m x ˆf ′(t, x) −σ2 x2
+2
+ˆf ′′(t, x)
+(5.14)
+Here and throughout this section we use primes for x-derivatives. If one sells
+an option at this price and uses the money to buy a bond at the current
+interest rate, then there is a positive probability of losing money.
+The Black-Scholes approach to pricing is to let f(t, x) be the value of
+a portfolio at time t, given that St = x, that can be in order to
+guarantee a portfolio of value F(ST) at time T. By a portfolio, we mean an
+ordered pair (at, bt) where at, bt denote the number of units of stocks and
+bonds, respectively. Let Vt be the value of the portfolio at time t,
+Vt = at St + bt Rt
+(5.15)
+We will manage the portfolio by switching between stocks and bonds so that,
+no matter how the price of the stock moves, the value at time T will be
+VT = (ST −K)+
+We assume that the portfolio is -, that is, one does not add
+outside resources to the portfolio. The mathematical consequence of this
+assumption is that the change of the value of the portfolio is given only by
+the change of the price of the assets,
+dVt = at dSt + bt dRt
+(5.16)
+It may appear at rst that (5.16) is a consequence of (5.15). However, the
+units of the assets at, bt vary with time and hence we need to use the product
+rule. If Vt is dened by (5.15), the product rule implies that
+d(at St) = at dSt + St dat + d⟨a, S⟩t,
+d(bt Rt) = bt dRt + Rt dbt
+Here we use the fact that Rt is dierentiable in t to see that ⟨b, R⟩t = 0.
+Hence, (5.16) is a strong about the portfolio, and we will use it
+to determine the price and the hedging strategy.

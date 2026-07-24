@@ -1,0 +1,97 @@
+4.45.
+An experimenter wishes to compare four treatments
+in blocks of two runs. Find a BIBD for this experiment with
+six blocks.
+4.46.
+An experimenter wishes to compare eight treat-
+ments in blocks of four runs. Find a BIBD with 14 blocks
+and 3.
+4.47.
+Perform the interblock analysis for the design in
+Problem 4.40.
+4.48.
+Perform the interblock analysis for the design in
+Problem 4.42.
+4.49.
+Verify that a BIBD with the parameters a 8, r 8,
+k 4, and b 16 does not exist.
+4.50.
+Show that the variance of the intrablock estimators 
+is k(a 1)2/(a2).
+4.51.
+Extended incomplete block designs. Occasionally,
+the block size obeys the relationship a k 2a. An
+extended incomplete block design consists of a single
+replicate of each treatment in each block along with an
+incomplete block design with k* k a. In the balanced
+case, the incomplete block design will have parameters 
+k* k a, r* r b, and *. Write out the statistical
+analysis. (Hint: In the extended incomplete block design,
+we have 2r b *.)
+4.52.
+Suppose that a single-factor experiment with ve lev-
+els of the factor has been conducted. There are three replicates
+and the experiment has been conducted as a complete ran-
+domized design. If the experiment had been conducted in
+blocks, the pure error degrees of freedom would be reduced
+by (choose the correct answer):
+(a) 3 
+(b) 5 
+(c) 2 
+(d) 4 
+(e) None of the above 
+4.53.
+Physics graduate student Laura Van Ertia has con-
+ducted a complete randomized design with a single factor,
+hoping to solve the mystery of the unified theory and
+ˆi
+182
+Chapter 4 ■Randomized Blocks, Latin Squares, and Related Designs
+complete her dissertation. The results of this experiment
+are summarized in the following ANOVA display:
+Source
+DF
+SS
+MS
+F
+Factor
+-
+-
+14.18
+-
+Error
+-
+37.75
+-
+Total
+23
+108.63
+Answer the following questions about this experiment.
+(a) The sum of squares for the factor is ______.   
+(b). The number of degrees of freedom for the single fac-
+tor in the experiment is______.
+(c) The number of degrees of freedom for error is ______. 
+(d) The mean square for error is______.   
+(e) The value of the test statistic is______. 
+(f) If the signicance level is 0.05, your conclusions are
+not to reject the null hypothesis. (Yes or No)
+(g) An upper bound on the P-value for the test statistic
+is______.
+(h) A lower bound on the P-value for the test statistic
+is______.
+(i) Laura used ______ levels of the factor in this experi-
+ment.
+(j) Laura replicated this experiment ______ times.
+(k) Suppose that Laura had actually conducted this exper-
+iment as a randomized complete block design and the
+sum of squares for blocks was 12. Reconstruct the
+ANOVA display above to reect this new situation.
+How much has blocking reduced the estimate of
+experimental error?
+4.54.
+Consider the direct mail marketing experiment in
+Problem 4.8. Suppose that this experiment had been run as a
+complete randomized design, ignoring potential regional differ-
+ences, but that exactly the same data was obtained. Reanalyze
+the experiment under this new assumption. What difference
+would ignoring blocking have on the results and conclusions?

@@ -1,0 +1,43 @@
+1
+C H A P T E R
+1
+I n t r o d u c t i o n
+CHAPTER OUTLINE
+1.1 STRATEGY OF EXPERIMENTATION
+1.2 SOME TYPICAL APPLICATIONS 
+OF EXPERIMENTAL DESIGN
+1.3 BASIC PRINCIPLES
+1.4 GUIDELINES FOR DESIGNING EXPERIMENTS
+1.5 A BRIEF HISTORY OF STATISTICAL DESIGN
+1.6 SUMMARY: USING STATISTICAL TECHNIQUES
+IN EXPERIMENTATION
+SUPPLEMENTAL MATERIAL FOR CHAPTER 1
+S1.1 More about Planning Experiments
+S1.2 Blank Guide Sheets to Assist in Pre-Experimental
+Planning
+S1.3 Montgomery’s Theorems on Designed Experiments
+1.1
+Strategy of Experimentation
+Observing a system or process while it is in operation is an important part of the learning
+process, and is an integral part of understanding and learning about how systems and
+processes work. The great New York Yankees catcher Yogi Berra said that “. . . you can
+observe a lot just by watching.” However, to understand what happens to a process when
+you change certain input factors, you have to do more than just watch—you actually have
+to change the factors. This means that to really understand cause-and-effect relationships in
+a system you must deliberately change the input variables to the system and observe the
+changes in the system output that these changes to the inputs produce. In other words, you
+need to conduct experiments on the system. Observations on a system or process can lead
+to theories or hypotheses about what makes the system work, but experiments of the type
+described above are required to demonstrate that these theories are correct.
+Investigators perform experiments in virtually all elds of inquiry, usually to discover
+something about a particular process or system. Each experimental run is a test. More formally,
+we can dene an experiment as a test or series of runs in which purposeful changes are made
+to the input variables of a process or system so that we may observe and identify the reasons
+for changes that may be observed in the output response. We may want to determine which
+input variables are responsible for the observed changes in the response, develop a model
+relating the response to the important input variables and to use this model for process or system
+improvement or other decision-making.
+This book is about planning and conducting experiments and about analyzing the
+resulting data so that valid and objective conclusions are obtained. Our focus is on experi-
+ments in engineering and science. Experimentation plays an important role in technology
+The supplemental material is on the textbook website www.wiley.com/college/montgomery.

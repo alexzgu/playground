@@ -1,0 +1,67 @@
+292
+7. Moving Beyond Linearity
+as predictors. In other words, we fit the model
+Pr(yi > 250|xi) =
+exp(β0 + β1xi + β2x2
+i + · · · + βdxd
+i )
+1 + exp(β0 + β1xi + β2x2
+i + · · · + βdxd
+i ).
+(7.3)
+The result is shown in the right-hand panel of Figure 7.1. The gray marks
+on the top and bottom of the panel indicate the ages of the high earners
+and the low earners. The solid blue curve indicates the fitted probabilities
+of being a high earner, as a function of age. The estimated 95 % confidence
+interval is shown as well. We see that here the confidence intervals are fairly
+wide, especially on the right-hand side. Although the sample size for this
+data set is substantial (n = 3,000), there are only 79 high earners, which
+results in a high variance in the estimated coefficients and consequently
+wide confidence intervals.
+7.2
+Step Functions
+Using polynomial functions of the features as predictors in a linear model
+imposes a global structure on the non-linear function of X. We can instead
+use step functions in order to avoid imposing such a global structure. Here step
+function
+we break the range of X into bins, and fit a different constant in each bin.
+This amounts to converting a continuous variable into an ordered categorical
+variable.
+ordered
+categorical
+variable
+In greater detail, we create cutpoints c1, c2, . . . , cK in the range of X,
+and then construct K + 1 new variables
+C0(X)
+=
+I(X < c1),
+C1(X)
+=
+I(c1 ≤X < c2),
+C2(X)
+=
+I(c2 ≤X < c3),
+...
+CK−1(X)
+=
+I(cK−1 ≤X < cK),
+CK(X)
+=
+I(cK ≤X),
+(7.4)
+where I(·) is an indicator function that returns a 1 if the condition is true, indicator
+function
+and returns a 0 otherwise. For example, I(cK ≤X) equals 1 if cK ≤X, and
+equals 0 otherwise. These are sometimes called dummy variables. Notice
+that for any value of X, C0(X) + C1(X) + · · · + CK(X) = 1, since X must
+be in exactly one of the K + 1 intervals. We then use least squares to fit a
+linear model using C1(X), C2(X), . . . , CK(X) as predictors2:
+yi = β0 + β1C1(xi) + β2C2(xi) + · · · + βKCK(xi) + ϵi.
+(7.5)
+For a given value of X, at most one of C1, C2, . . . , CK can be non-zero.
+Note that when X < c1, all of the predictors in (7.5) are zero, so β0 can
+2We exclude C0(X) as a predictor in (7.5) because it is redundant with the intercept.
+This is similar to the fact that we need only two dummy variables to code a qualitative
+variable with three levels, provided that the model will contain an intercept. The decision
+to exclude C0(X) instead of some other Ck(X) in (7.5) is arbitrary. Alternatively, we
+could include C0(X), C1(X), . . . , CK(X), and exclude the intercept.

@@ -1,0 +1,271 @@
+640
+Chapter 14 ■Nested and Split-Plot Designs
+Mix
+Application
+Day
+Method
+1
+2
+3
+4
+1
+64.5
+66.3
+74.1
+66.5
+1
+2
+68.3
+69.5
+73.8
+70.0
+3
+70.3
+73.1
+78.0
+72.3
+1
+65.2
+65.0
+73.8
+64.8
+2
+2
+69.2
+70.3
+74.5
+68.3
+3
+71.2
+72.8
+79.1
+71.5
+1
+66.2
+66.5
+72.3
+67.7
+3
+2
+69.0
+69.0
+75.4
+68.6
+3
+70.8
+74.2
+80.1
+72.4
+14.21. Repeat Problem 14.20, assuming that the mixes are
+random and the application methods are xed.
+14.22. Consider the split-split-plot design described in
+Example 14.4. Suppose that this experiment is conducted as
+described and that the data shown in Table P14.3 are obtained.
+Analyze the data and draw conclusions.
+14.23. Rework Problem 14.22, assuming that the technicians
+are chosen at random. Use the restricted form of the mixed
+model.
+14.24. Suppose that in Problem 14.22 four technicians had
+been used. Assuming that all the factors are fixed, how
+many blocks should be run to obtain an adequate number
+of degrees of freedom on the test for differences among
+technicians?
+■TA B L E P 1 4 . 3
+The Absorption Time Experiment
+Technician
+Replicates
+Dosage
+1
+2
+3
+(or Blocks)
+Strengths
+1
+2
+3
+1
+2
+3
+1
+2
+3
+Wall Thickness
+1
+95
+71
+108
+96
+70
+108
+95
+70
+100
+1
+2
+104
+82
+115
+99
+84
+100
+102
+81
+106
+3
+101
+85
+117
+95
+83
+105
+105
+84
+113
+4
+108
+85
+116
+97
+85
+109
+107
+87
+115
+1
+95
+78
+110
+100
+72
+104
+92
+69
+101
+2
+2
+106
+84
+109
+101
+79
+102
+100
+76
+104
+3
+103
+86
+116
+99
+80
+108
+101
+80
+109
+4
+109
+84
+110
+112
+86
+109
+108
+86
+113
+1
+96
+70
+107
+94
+66
+100
+90
+73
+98
+3
+2
+105
+81
+106
+100
+84
+101
+97
+75
+100
+3
+106
+88
+112
+104
+87
+109
+100
+82
+104
+4
+113
+90
+117
+121
+90
+117
+110
+91
+112
+1
+90
+68
+109
+98
+68
+106
+98
+72
+101
+4
+2
+100
+84
+112
+102
+81
+103
+102
+78
+105
+3
+102
+85
+115
+100
+85
+110
+105
+80
+110
+4
+114
+88
+118
+118
+85
+116
+110
+95
+120
+14.25.
+Consider the experiment described in Example 14.4.
+Demonstrate how the order in which the treatment combinations
+are run would be determined if this experiment were run as (a) a
+split-split-plot, (b) a split-plot, (c) a factorial design in a random-
+ized block, and (d) a completely randomized factorial design.
+14.26. An article in Quality Engineering (“Quality Quandries:
+Two-Level Factorials Run as Split-Plot Experiments,” Bisgaard
+et al., Vol. 8, No. 4, pp. 705–708, 1996) describes a 25 factorial
+experiment in a plasma process focused on making paper more
+susceptible to ink. Four of the factors (A–D) are difcult to
+change from run to run, so the experimenters set up the reactor
+at the eight sets of conditions specied by the low and high lev-
+els of those factors, and then processed the two paper types
+(factor E) together. The placement of the paper specimens in

@@ -1,0 +1,92 @@
+588
+Chapter 13 ■Experiments with Random Factors
+or
+Therefore, using Equation 13.15, we nd that
+(13.16)
+For a given P, the operating characteristic curves in Appendix Chart VI can be used to nd
+the desired sample size.
+We can also use the operating characteristic curves for sample size determination for
+the two-factor random effects model and the mixed model. Appendix Chart VI is used for the
+random effects model. The parameter , numerator degrees of freedom, and denominator
+degrees of freedom are shown in the top half of Table 13.7. For the mixed model, both Charts
+V and VI in the Appendix must be used. The appropriate values for 2 and are shown in the
+bottom half of Table 13.7.
+13.5
+Rules for Expected Mean Squares
+An important part of any experimental design problem is conducting the analysis of variance.
+This involves determining the sum of squares for each component in the model and the num-
+ber of degrees of freedom associated with each sum of squares. Then, to construct appropriate
+1 n2
+
+2 1 n[(1 0.01P)2 1]
+2
+
+2 (1 0.01P)2 1
+■TA B L E 1 3 . 7
+Operating Characteristic Curve Parameters for Tables V and VI of the Appendix for the Two-Factor Random Effects
+and Mixed Models
+The Random Effects Model
+Factor
+
+Numerator Degrees of Freedom
+Denominator Degrees of Freedom
+A
+a 1
+(a 1)(b 1)
+B
+b 1
+(a 1)(b 1)
+AB
+(a 1)(b 1)
+ab(n 1)
+The Mixed Model
+Numerator Degrees 
+Denominator Degrees 
+Appendix 
+Factor
+Parameter
+of Freedom
+of Freedom
+Chart
+A (Fixed)
+a 1
+(a 1)(b 1)
+V
+B (Random)
+b 1
+ab(n 1)
+VI
+AB
+(a 1)(b 1)
+ab(n 1)
+VI 
+1 
+n2
+
+2
+1 
+an2
+
+2
+2 
+bn
+2
+i1
+i
+2
+a[2 n
+2 ]
+1 
+n2
+
+2
+1 
+an2
+
+2 n2
+
+1 
+bn2
+
+2 n2
+

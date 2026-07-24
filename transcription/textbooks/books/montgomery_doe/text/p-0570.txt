@@ -1,0 +1,38 @@
+554
+C H A P T E R 1 2
+R o b u s t P a r a m e t e r
+D e s i g n a n d P r o c e s s
+R o b u s t n e s s S t u d i e s
+CHAPTER OUTLINE
+12.1 INTRODUCTION
+12.2 CROSSED ARRAY DESIGNS
+12.3 ANALYSIS OF THE CROSSED ARRAY DESIGN
+12.4 COMBINED ARRAY DESIGNS AND THE
+RESPONSE MODEL APPROACH
+12.5 CHOICE OF DESIGNS
+SUPPLEMENTAL MATERIAL FOR CHAPTER 12
+S12.1 The Taguchi Approach to Robust Parameter Design
+S12.2 Taguchi’s Technical Methods
+12.1
+Introduction
+Robust parameter design (RPD) is an approach to product realization activities that focuses
+on choosing the levels of controllable factors (or parameters) in a process or a product to achieve
+two objectives: (1) to ensure that the mean of the output response is at a desired level or target
+and (2) to ensure that the variability around this target value is as small as possible. When an
+RPD study is conducted on a process, it is usually called a process robustness study. The
+general RPD problem was developed by a Japanese engineer, Genichi Taguchi, and intro-
+duced in the United States in the 1980s (see Taguchi and Wu, 1980; Taguchi, 1987). Taguchi
+proposed an approach to solving the RPD problem based on designed experiments and some
+novel methods for analysis of the resulting data. His philosophy and technical methods gen-
+erated widespread interest among engineers and statisticians, and during the 1980s his
+methodology was used at many large corporations, including AT&T Bell Laboratories, Ford
+Motor Company, and Xerox. These techniques generated controversy and debate in the
+statistical and engineering communities. The controversy was not about the basic RPD prob-
+lem, which is an extremely important one, but rather about the experimental procedures and
+the data analysis methods that Taguchi advocated. Extensive analysis revealed that Taguchi’s
+technical methods were usually inefcient and, in many cases, ineffective. Consequently, a
+period of extensive research and development on new approaches to the RPD problem
+followed. From these efforts, response surface methodology (RSM) emerged as an approach
+to the RPD problem that not only allows us to employ Taguchi’s robust design concept but
+also provides a sounder and more efcient approach to design and analysis.
+The supplemental material is on the textbook website www.wiley.com/college/montgomery.

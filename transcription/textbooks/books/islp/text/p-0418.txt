@@ -1,0 +1,58 @@
+32
+16
+32
+8
+16
+4
+32
+2
+500
+100
+convolve
+convolve
+convolve
+pool
+pool
+pool
+flatten
+8
+FIGURE 10.8. Architecture of a deep CNN for the CIFAR100 classification task.
+Convolution layers are interspersed with 2 × 2 max-pool layers, which reduce the
+size by a factor of 2 in both dimensions.
+This is followed by a max-pool layer, which reduces the size of the feature
+map in each channel by a factor of four: two in each dimension.
+This convolve-then-pool sequence is now repeated for the next two layers.
+Some details are as follows:
+• Each subsequent convolve layer is similar to the first. It takes as input
+the three-dimensional feature map from the previous layer and treats
+it like a single multi-channel image. Each convolution filter learned
+has as many channels as this feature map.
+• Since the channel feature maps are reduced in size after each pool
+layer, we usually increase the number of filters in the next convolve
+layer to compensate.
+• Sometimes we repeat several convolve layers before a pool layer. This
+effectively increases the dimension of the filter.
+These operations are repeated until the pooling has reduced each channel
+feature map down to just a few pixels in each dimension. At this point the
+three-dimensional feature maps are flattened — the pixels are treated as
+separate units — and fed into one or more fully-connected layers before
+reaching the output layer, which is a softmax activation for the 100 classes
+(as in (10.13)).
+There are many tuning parameters to be selected in constructing such a
+network, apart from the number, nature, and sizes of each layer. Dropout
+learning can be used at each layer, as well as lasso or ridge regularization
+(see Section 10.7). The details of constructing a convolutional neural net-
+work can seem daunting. Fortunately, terrific software is available, with
+extensive examples and vignettes that provide guidance on sensible choices
+for the parameters. For the CIFAR100 official test set, the best accuracy as
+of this writing is just above 75%, but undoubtedly this performance will
+continue to improve.
+10.3.4
+Data Augmentation
+An additional important trick used with image modeling is data augment- data aug-
+mentation
+ation. Essentially, each training image is replicated many times, with each
+replicate randomly distorted in a natural way such that human recognition
+is unaffected. Figure 10.9 shows some examples. Typical distortions are
+10.3 Convolutional Neural Networks
+411

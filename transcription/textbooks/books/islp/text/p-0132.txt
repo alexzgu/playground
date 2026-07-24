@@ -1,0 +1,105 @@
+3.6 Lab: Linear Regression
+123
+Out[26]: Index(['crim', 'zn', 'indus', 'chas', 'nox', 'rm', 'age', 'dis',
+'rad', 'tax', 'ptratio', 'lstat'],
+dtype='object')
+We can now fit the model with all the variables in terms using the same
+model matrix builder.
+In [27]: X = MS(terms).fit_transform(Boston)
+model = sm.OLS(y, X)
+results = model.fit()
+summarize(results)
+Out[27]:
+coef
+std err
+t
+P>|t|
+intercept
+41.6173
+4.936
+8.431
+0.000
+crim
+-0.1214
+0.033
+-3.678
+0.000
+zn
+0.0470
+0.014
+3.384
+0.001
+indus
+0.0135
+0.062
+0.217
+0.829
+chas
+2.8400
+0.870
+3.264
+0.001
+nox
+-18.7580
+3.851
+-4.870
+0.000
+rm
+3.6581
+0.420
+8.705
+0.000
+age
+0.0036
+0.013
+0.271
+0.787
+dis
+-1.4908
+0.202
+-7.394
+0.000
+rad
+0.2894
+0.067
+4.325
+0.000
+tax
+-0.0127
+0.004
+-3.337
+0.001
+ptratio
+-0.9375
+0.132
+-7.091
+0.000
+lstat
+-0.5520
+0.051
+-10.897 0.000
+What if we would like to perform a regression using all of the variables but
+one? For example, in the above regression output, age has a high p-value.
+So we may wish to run a regression excluding this predictor. The following
+syntax results in a regression using all predictors except age (output not
+shown).
+In [28]: minus_age = Boston.columns.drop(['medv', 'age'])
+Xma = MS(minus_age).fit_transform(Boston)
+model1 = sm.OLS(y, Xma)
+summarize(model1.fit())
+3.6.4
+Multivariate Goodness of Fit
+We can access the individual components of results by name (dir(results)
+shows us what is available). Hence results.rsquared gives us the R2, and
+np.sqrt(results.scale) gives us the RSE.
+Variance inflation factors (section 3.3.3) are sometimes useful to assess
+the effect of collinearity in the model matrix of a regression model. We will
+compute the VIFs in our multiple regression fit, and use the opportunity
+to introduce the idea of list comprehension.
+list compre-
+hension
+List Comprehension
+Often we encounter a sequence of objects which we would like to transform
+for some other task. Below, we compute the VIF for each feature in our X
+matrix and produce a data frame whose index agrees with the columns of
+X. The notion of list comprehension can often make such a task easier.

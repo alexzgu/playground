@@ -1,0 +1,56 @@
+96
+CHAPTER 3. STOCHASTIC INTEGRATION
+where N ∼N(0, 1).
+The rules of stochastic calculus are not the same as those of usual calculus.
+As an example, consider the integral
+Zt =
+t
+0
+Bs dBs
+Although Bt is not a bounded process, it is continuous, adapted and
+t
+0
+E[B2
+s] ds =
+t
+0
+s ds = t2
+2 < ∞,
+so Zt is a square integrable martingale. If one naively followed the rules of
+calculus, one might hope that
+Zt = 1
+2
+
+B2
+t −B2
+0
+
+= B2
+t
+2 
+However, a quick check shows that this cannot be correct. The left-hand side
+is a martingale with Z0 = 0 and hence
+E[Zt] = 0
+However,
+E
+
+B2
+t 2
+
+= t2̸ = 0
+In the next section we will derive the main tool for calculating integrals, Iˆ’
+. Using this we will show that, in fact,
+Zt = 1
+2 [B2
+t −t]
+(3.8)
+This is a very special case. In general, one must do more than just subtract the
+expectation. One thing to note about the solution — for t > 0, the random
+variable on the right-hand side of (3.8) does not have a normal distribution.
+Even though stochastic integrals are dened as limits of normal increments,
+the bettingfactor At can depend on the past and this allows one to get
+non-normal random variables. If the integrand At = f(t) is nonrandom, then
+the integral
+t
+0
+f(s) dBs,

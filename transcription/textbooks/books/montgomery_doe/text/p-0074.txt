@@ -1,0 +1,136 @@
+58
+Chapter 2 ■Simple Comparative Experiments
+The appropriate reference distribution for F0 is the F distribution with n1 1 numerator
+degrees of freedom and n2 1 denominator degrees of freedom. The null hypothesis would
+be rejected if F0 
+or if F0 
+, where  
+and
+denote the upper /2 and lower 1 (/2) percentage points of the F distribu-
+tion with n1 1 and n2 1 degrees of freedom. Table IV of the Appendix gives only upper-
+tail percentage points of F; however, the upper- and lower-tail points are related by
+(2.49)
+Critical values for the one-sided alternative hypothesis are given in Table 2.8. Test procedures
+for more than two variances are discussed in Section 3.4.3. We will also discuss the use of the
+variance or standard deviation as a response variable in more general experimental settings.
+F1,v1,v2 
+1
+F,v2,v1
+F1(/2),n11,n21
+F/2,n11,n21
+F1(/2),n11,n21
+F/2,n11,n21
+E X A M P L E 2 . 3
+A chemical engineer is investigating the inherent variability
+of two types of test equipment that can be used to monitor
+the output of a production process. He suspects that the old
+equipment, type 1, has a larger variance than the new one.
+Thus, he wishes to test the hypothesis
+Two random samples of n1 12 and n2 10 observations
+are taken, and the sample variances are 
+14.5 and 
+
+S2
+2
+S2
+1
+H12
+1 # 2
+2
+H02
+1 2
+2
+10.8. The test statistic is
+From Appendix Table IV we nd that F0.05,11,9 3.10, so
+the null hypothesis cannot be rejected. That is, we have
+found insufcient statistical evidence to conclude that the
+variance of the old equipment is greater than the variance of
+the new equipment.
+F0 S2
+1
+S2
+2
+14.5
+10.8 1.34
+■T A B L E
+2 . 8
+Tests on Variances of Normal Distributions
+Fixed Signiﬁcance Level
+Hypothesis
+Test Statistic
+Criteria for Rejection
+H0 : 2 
+or
+H1 : 2 
+H0 : 2 
+H1 : 2 
+H0 : 2 
+H1 : 2 
+H0 :
+H1 :
+H0 :
+H1 :
+H0 :
+H1 : 2
+1 # 2
+2
+2
+1 2
+2
+2
+1 ! 2
+2
+2
+1 2
+2
+2
+1 Z 2
+2
+2
+1 2
+2
+2
+0 # 2
+,n1
+2
+0
+2
+0
+2
+0 ! 2
+1,n1
+2
+0 (n 1)S2
+2
+0
+2
+0
+2
+0
+2
+0 ! 2
+1/2,n1
+2
+0
+2
+0 # 2
+/2,n1
+2
+0
+F0 S2
+1
+S2
+2
+F0 S2
+2
+S2
+1
+F0 S2
+1
+S2
+2
+or
+F0 # F,n11,n21
+F0 # F,n21,n11
+F0 ! F1/2,n11,n21
+F0 # F/2,n11,n21

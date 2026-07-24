@@ -1,0 +1,104 @@
+356
+8. Tree-Based Methods
+−2
+0
+m
+0
+k
+nmk log ˆpmk,
+where nmk is the number of observations in the mth terminal node that
+belong to the kth class.
+In [7]: resid_dev = np.sum(log_loss(High, clf.predict_proba(X)))
+resid_dev
+Out[7]: 0.4711
+This is closely related to the entropy, defined in (8.7). A small deviance
+indicates a tree that provides a good fit to the (training) data.
+One of the most attractive properties of trees is that they can be graphi-
+cally displayed. Here we use the plot() function to display the tree structure
+(not shown here).
+In [8]: ax = subplots(figsize=(12,12))[1]
+plot_tree(clf,
+feature_names=feature_names ,
+ax=ax);
+The most important indicator of Sales appears to be ShelveLoc.
+We can see a text representation of the tree using export_text(), which export_text()
+displays the split criterion (e.g. Price <= 92.5) for each branch. For leaf
+nodes it shows the overall prediction (Yes or No). We can also see the number
+of observations in that leaf that take on values of Yes and No by specifying
+show_weights=True.
+In [9]: print(export_text(clf,
+feature_names=feature_names ,
+show_weights=True))
+Out[9]: |--- ShelveLoc[Good] <= 0.50
+|
+|--- Price <= 92.50
+|
+|
+|--- Income <= 57.00
+|
+|
+|
+|--- weights: [7.00, 3.00] class: No
+|
+|
+|--- Income >
+57.00
+|
+|
+|
+|--- weights: [7.00, 29.00] class: Yes
+|
+|--- Price >
+92.50
+|
+|
+|--- Advertising <= 13.50
+|
+|
+|
+|--- weights: [183.00, 41.00] class: No
+|
+|
+|--- Advertising >
+13.50
+|
+|
+|
+|--- weights: [20.00, 25.00] class: Yes
+|--- ShelveLoc[Good] >
+0.50
+|
+|--- Price <= 135.00
+|
+|
+|--- US[Yes] <= 0.50
+|
+|
+|
+|--- weights: [6.00, 11.00] class: Yes
+|
+|
+|--- US[Yes] >
+0.50
+|
+|
+|
+|--- weights: [2.00, 49.00] class: Yes
+|
+|--- Price >
+135.00
+|
+|
+|--- Income <= 46.00
+|
+|
+|
+|--- weights: [6.00, 0.00] class: No
+|
+|
+|--- Income >
+46.00
+|
+|
+|
+|--- weights: [5.00, 6.00] class: Yes

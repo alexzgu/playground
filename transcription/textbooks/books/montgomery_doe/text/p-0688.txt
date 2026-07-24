@@ -1,0 +1,161 @@
+■TA B L E 1 5 . 1 9 (Continued)
+Parameter Estimates
+Term
+Estimate
+Std Error
+t Ratio
+Prob>|t|
+Intercept
+10.063551
+1.018886
+9.88
+0.0101*
+x
+2.1420242
+0.361866
+5.92
+0.0274*
+X1
+13.887593
+1.29103
+10.76
+0.0085*
+X2
+19.4443
+1.12642
+17.26
+0.0033*
+X3
+5.0908008
+1.114861
+4.57
+0.0448*
+X1*X2
+19.59556
+0.701412
+27.94
+0.0013*
+X1*X3
+0.23434
+1.259161
+0.19
+0.8695
+X2*X3
+0.368071
+0.887678
+0.41
+0.7186
+X1*(x-5.28875)
+2.1171372
+0.429771
+4.93
+0.0388*
+X2*(x-5.28875)
+3.0175357
+0.364713
+8.27
+0.0143*
+X3*(x-5.28875)
+0.096716
+0.356887
+0.27
+0.8118
+X1*X2*(x-5.28875)
+2.949107
+0.190284
+15.50
+0.0041*
+X1*X3*(x-5.28875)
+0.012116
+0.415868
+0.03
+0.9794
+X2*X3*(x-5.28875)
+0.0848196
+0.401999
+0.21
+0.8524
+Sorted Parameter Estimates
+Term
+Estimate
+Std Error
+t Ratio
+Prob>|t|
+X1*X2
+19.59556
+0.701412
+27.94
+0.0013*
+X2
+19.4443
+1.12642
+17.26
+0.0033*
+X1*X2*(x-5.28875)
+2.949107
+0.190284
+15.50
+0.0041*
+X1
+13.887593
+1.29103
+10.76
+0.0085*
+X2*(x-5.28875)
+3.0175357
+0.364713
+8.27
+0.0143*
+x
+2.1420242
+0.361866
+5.92
+0.0274*
+X1*(x-5.28875)
+2.1171372
+0.429771
+4.93
+0.0388*
+X3
+5.0908008
+1.114861
+4.57
+0.0448*
+X2*X3
+0.368071
+0.887678
+0.41
+0.7186
+X3*(x-5.28875)
+0.096716
+0.356887
+0.27
+0.8118
+X2*X3*(x-5.28875)
+0.0848196
+0.401999
+0.21
+0.8524
+X1*X3*
+0.23434
+1.259161
+0.19
+0.8695
+X1*X3*(x-5.28875)
+0.012116
+0.415868
+0.03
+0.9794
+672
+Chapter 15 ■Other Design and Analysis Topics
+all the usual tests of model adequacy are still appropriate and are strongly recommended as
+part of the ANCOVA model building process.
+Another situation involving covariates arises often in practice. The experimenter has
+available a collection of experimental units, and these units can be described or characterized
+by some measured quantities than have the potential to affect the outcome of the experiment
+in which they are used. This happens frequently in clinical studies where the experimental
+units are patients and they are characterized in terms of factors such as gender, age, blood pres-
+sure, weight, or other parameters relevant to the specic study. The design factors for the
+experiment can include type of pharmacological agent, dosage, and how frequently the dose
+is administered. The experimenter wants to select a subset of the experimental units that is
+optimal with respect to the design factors that are to be studied. In this type of problem the

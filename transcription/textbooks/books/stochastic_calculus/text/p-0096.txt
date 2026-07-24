@@ -1,0 +1,60 @@
+90
+CHAPTER 3. STOCHASTIC INTEGRATION
+It suces to prove (3.3) for each xed value of t and for ease we will
+choose t = 1. By construction, the A(n)
+t
+are simple processes satisfy-
+ing A(n)
+t
+≤C. Since (with probability one) the function t →At is
+continuous, we have
+A(n)
+t
+→At,
+and hence by the bounded convergence theorem applied to Lebesgue
+measure,
+lim
+n∞Yn = 0,
+where
+Yn =
+1
+0
+[A(n)
+t
+−At]2 dt
+(3.4)
+Since the random variables Ynare uniformly bounded, this implies
+lim
+n∞E
+1
+0
+[A(n)
+t
+−At]2 dt
+
+= lim
+n∞E[Yn] = 0
+Given the lemma, we can dene
+t
+0
+As dBs,
+for a bounded, continuous process As as follows. Find a sequence of simple
+process A(n)
+s
+satisfying (3.3). Then it can be shown that for each t there is
+an square integrable random variable Zt such that
+Zt = lim
+n∞
+t
+0
+A(n)
+s
+dBs
+We dene
+t
+0
+As dBs = Zt
+The integral satises four properties which should start becoming familiar.
+Proposition 3.2.3. SBt B
+Ft, At, Ct , 
+.

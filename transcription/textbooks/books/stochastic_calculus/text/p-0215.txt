@@ -1,0 +1,40 @@
+6.6. GENERALIZED POISSON PROCESSES I
+209
+Also,
+
+|x|>1
+eixs −1dµ(x) ≤2 µx : x> 1< ∞
+For the generator L we assume that f is C1 and hence for y near the
+origin
+f(x + y) −f(x) = O(y)
+Then,
+
+|x|≤1
+f(x + y) −f(x)dµ(y) < ∞
+Finiteness of the integral
+
+|x|>1
+f(x + y) −f(x)dµ(y)
+requires some assumptions on the growth of f at innity.
+We can relax the conditions somewhat by requiring (6.16) to hold but
+replacing (6.15) with the weaker condition
+1
+−1
+xdµ(x) < ∞
+(6.17)
+Indeed, if (6.16) and (6.17) hold we can write
+µ = µ1 + µ2,
+where µ1 is µ restricted to x≤1and µ2 is µ restricted to x> 1. To
+µ1 we associate the generalized Poisson process X1
+t and to µ2 we associate
+an independent CPP, and then set Xt = X1
+t + X2
+t . In this case it is possible
+that E[Xt] = ∞. However, the formulas for Ψ and L are the same as above.
+Example 6.6.1 (Positive Stable Processes). Suppose that 0 < β < 1 and µ
+is dened by
+dµ(x) = c x−(1+β) dx,
+0 < x < ∞,
+where c > 0. In other words, the probability of a jump of size between x and
+x + ∆x in time ∆t, is approximately
+c x−(1+β) (∆t) (∆x)

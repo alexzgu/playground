@@ -1,0 +1,50 @@
+318
+7. Moving Beyond Linearity
+Out[23]: LinearGAM(callbacks=[Deviance(), Diffs()], fit_intercept=True,
+max_iter=100, scale=None, terms=s(0) + intercept, tol=0.0001,
+verbose=False)
+The pygam library generally expects a matrix of features so we reshape age
+to be a matrix (a two-dimensional array) instead of a vector (i.e. a one-
+dimensional array). The -1 in the call to the reshape() method tells numpy
+to impute the size of that dimension based on the remaining entries of the
+shape tuple.
+Let’s investigate how the fit changes with the smoothing parameter lam.
+The function np.logspace() is similar to np.linspace() but spaces points np.logspace()
+evenly on the log-scale. Below we vary lam from 10−2 to 106.
+In [24]: fig, ax = subplots(figsize=(8,8))
+ax.scatter(age, y, facecolor='gray', alpha=0.5)
+for lam in np.logspace(-2, 6, 5):
+gam = LinearGAM(s_gam(0, lam=lam)).fit(X_age, y)
+ax.plot(age_grid,
+gam.predict(age_grid),
+label='{:.1e}'.format(lam),
+linewidth=3)
+ax.set_xlabel('Age', fontsize=20)
+ax.set_ylabel('Wage', fontsize=20);
+ax.legend(title='$\lambda$');
+The pygam package can perform a search for an optimal smoothing pa-
+rameter.
+In [25]: gam_opt = gam.gridsearch(X_age, y)
+ax.plot(age_grid,
+gam_opt.predict(age_grid),
+label='Grid search',
+linewidth=4)
+ax.legend()
+fig
+Alternatively, we can fix the degrees of freedom of the smoothing spline
+using a function included in the ISLP.pygam package. Below we find a value
+of λ that gives us roughly four degrees of freedom. We note here that these
+degrees of freedom include the unpenalized intercept and linear term of the
+smoothing spline, hence there are at least two degrees of freedom.
+In [26]: age_term = gam.terms[0]
+lam_4 = approx_lam(X_age, age_term, 4)
+age_term.lam = lam_4
+degrees_of_freedom(X_age, age_term)
+Out[26]: 4.000000100004728
+Let’s vary the degrees of freedom in a similar plot to above. We choose the
+degrees of freedom as the desired degrees of freedom plus one to account
+for the fact that these smoothing splines always have an intercept term.
+Hence, a value of one for df is just a linear fit.
+In [27]: fig, ax = subplots(figsize=(8,8))
+ax.scatter(X_age,
+y,

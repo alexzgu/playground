@@ -1,0 +1,112 @@
+John, P. W. M. (1962). “Three-Quarter Replicates of 2n
+“Designs.” Biometrics, Vol. 18, pp. 171–184.
+John, P. W. M. (1964). “Blocking a 3(2nk) Design.”
+Technometrics, Vol. 6, pp. 371–376.
+John, P. W. M. (1971). Statistical Design and Analysis of
+Experiments. Macmillan, New York.
+Johnson, M. E., L. M. Moore, and D. Ylvisaker (1990),
+“Minimax and Maxmin Distance Design”, Journal of
+Statistical Planning and Inference, Vol. 26, pp 131–148.
+Johnson, R. T., and D. C. Montgomery (2009). “Choice of
+Second-Order Response Surface Designs for Logistic and
+Poisson Regression Models.” International Journal of
+Experimental Design and Process Optimization, Vol. 1,
+pp. 2–23.
+Johnson, R. T., and D. C. Montgomery (2010). “Designing
+Experiments for Nonlinear Models—An Introduction.”
+Quality and Reliability Engineering International, Vol. 26,
+pp. 431–441.
+Johnson, L., and S. Burrows (2011). “For Starbucks, It’s in the
+Bag.” Quality Progress, March, pp. 18–23.
+Jones, B., and R. T. Johnson (2009). “Design and Analysis for
+the Gaussian Process Model.” Quality and Reliability
+Engineering International, Vol. 25, pp. 515–524.
+Jones, B., and D. C. Montgomery (2010). “Alternatives to
+Resolution IV Screening Designs in 16 Runs.”
+International Journal of Experimental Design and Process
+Optimisation, Vol. 1, No. 4, pp. 285–295.
+Jones, B., and C. J. Nachtsheim (2009). “Split-Plot Designs:
+What, Why, and How.” Journal of Quality Technology,
+Vol. 41, pp. 340–361.
+Jones, B., and C. J. Nachtsheim (2011a). “Efcient Designs with
+Minimal Aliasing.” Technometrics, Vol. 53, pp. 62–71.
+Jones, B., and C. J. Nachtsheim (2011b). “A Class of Three-
+Level Designs for Denitive Screening in the Presence of
+Second-Order Effects.” Journal of Quality Technology,
+Vol. 43, pp. 1–15. 
+Jones, B., Lin, D. K. J., and C. J. Nachtsheim (2008). “Bayesian
+D-optimal Supersaturated Designs.” Journal of Statistical
+Planning and Inference, Vol. 138, pp. 86–92.
+Kackar, R. N. (1985). “Off-Line Quality Control, Parameter
+Design, and the Taguchi Method.” Journal of Quality
+Technology, Vol. 17, pp. 176–188.
+Kempthorne, O. (1952). The Design and Analysis of
+Experiments. Wiley, New York.
+Keuls, M. (1952). “The Use of the Studentized Range in
+Connection with an Analysis of Variance.” Euphytica,
+Vol. 1, pp. 112–122.
+Khuri, A. I., and J. A. Cornell (1996). Response Surfaces:
+Designs and Analyses. 2nd edition. Dekker, New York.
+Kiefer, J. (1961). “Optimum Designs in Regression Problems II.”
+Annals of Mathematical Statistics, Vol. 32, pp. 298–325.
+Kiefer, J., and J. Wolfowitz (1959). “Optimum Designs in
+Regression Problems.” Annals of Mathematical Statistics,
+Vol. 30, pp. 271–294.
+Kruskal, W. H., and W. A. Wallis (1952). “Use of Ranks on One
+Criterion Variance Analysis.” Journal of the American
+Statistical Association, Vol. 47, pp. 583–621 (corrections
+appear in Vol. 48, pp. 907–911).
+Larntz, K., and P. Whitcomb (1998). “Use of Replication in
+Almost Unreplicated Factorials.” Presented at the Fall
+Technical Conference, Corning, NY.
+Lenth, R. V. (1989). “Quick and Easy Analysis of Unreplicated
+Factorials.” Technometrics, Vol. 31, pp. 469–473.
+Leon, R. V., A. C. Shoemaker, and R. N. Kackar (1987).
+“Performance Measures Independent of Adjustment.”
+Technometrics, Vol. 29, pp. 253–265.
+Levene, H. (1960). “Robust Tests for Equality of Variance.” in
+Contributions to Probability and Statistics, Z. Olkin (ed.).
+Stanford University Press, Palo Alto, CA, pp. 278–292.
+Li, W. W., and C. F. J. Wu (1997). “Columnwise-Pairwise
+Algorithms with Applications to the Construction of
+Supersaturated Designs.”
+Technometrics,
+Vol. 39,
+pp. 171–179.
+Li, X., Sudarsanam, N., and D. D. Frey (2006). “Regularities
+in Data from Factorial Experiments.” Complexity, Vol. 11,
+No. 5, pp. 33–45.
+Lin, D. K. J. (1993). “A New Class of Supersaturated Designs.”
+Technometrics, Vol. 35, pp. 28–31.
+Lin, D. K. J. (1995). “Generating Systematic Supersaturated
+Designs.” Technometrics, Vol. 37, pp. 213–223.
+Lin, D. K. J. (2000). “Recent Developments in Supersaturated
+Designs.”
+in Statistical Process Monitoring and
+Optimization, S. H. Park and G. G. Vining (eds). Marcel
+Dekker, New York, pp. 305–319.
+Loughin, T. M. (1998). “Calibration of the Lenth Test for
+Unreplicated Factorial Designs.” Journal of Quality
+Technology, Vol. 30, pp. 171–175.
+Loughin, T. M., and W. Noble (1997). “A Permutation Test for
+Effects in an Unreplicated Factorial Design.” Technometrics,
+Vol. 39, pp. 180–190.
+Macharia, H., and P. Goos (2010). “D-Optimal and D-Efcient
+Equivalent Estimation Second-Order Split-Plot Designs.”
+Journal of Quality Technology, Vol. 42, pp. 358–372. 
+Margolin, B. H. (1967). “Systematic Methods of Analyzing 2n3m
+Factorial Experiments with Applications.” Technometrics,
+Vol. 9, pp. 245–260.
+Margolin, B. H. (1969). “Results on Factorial Designs of
+Resolution IV for the 2n and 2n3m Series.” Technometrics,
+Vol. 11, pp. 431–444.
+McCullagh, P., and J. A. Nelder (1989). Generalized Linear
+Models. 2nd edition. Chapman and Hall, New York.
+McKay, N. D., W. J. Conover, and R. J. Beckman (1979), “A
+Comparison of Three Methods for Selecting Values of
+Input Variables in the Analysis of Output from a Computer
+Code”, Technometrics, Vol. 21, pp 239–245.
+Mee, R. W. (2009). A Comprehensive Guide to Factorial Two-
+Level Experimentation. Springer, New York.
+722
+Bibliography

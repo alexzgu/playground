@@ -1,0 +1,69 @@
+6.8 The Addition of Center Points to the 2k Design
+285
+The second graph is a fraction of design space (FDS) plot, which shows the unscaled
+prediction variance on the vertical scale and the fraction of design space on the horizontal
+scale. This graph also has an adjustable crosshair that is shown at the 50 percent point on the
+fraction of design space scale. The crosshairs indicate that the unscaled prediction variance
+will be at most 0.425 2 (remember that the unscaled prediction variance divides by 2, that’s
+why the point on the vertical scale is 0.425) over a region that covers 50 percent of the design
+region. Therefore, an FDS plot gives a simple display of how the prediction variance is dis-
+tributed throughout the design region. An ideal FDS plot would be at with a small value of
+the unscaled prediction variance. FDS plots are an ideal way to compare designs in terms of
+their potential prediction performance.
+The nal display in the JMP output is a surface plot of the unscaled prediction variance.
+The contours of constant prediction variance for the 22 are circular; that is, all points in the
+design space that are at the same distance from the center of the design have the same predic-
+tion variance.
+6.8
+The Addition of Center Points to the 2k Design
+A potential concern in the use of two-level factorial designs is the assumption of linearity in
+the factor effects. Of course, perfect linearity is unnecessary, and the 2k system will work
+quite well even when the linearity assumption holds only very approximately. In fact, we have
+noted that if interaction terms are added to a main effect or rst-order model, resulting in
+(6.28)
+then we have a model capable of representing some curvature in the response function. This cur-
+vature, of course, results from the twisting of the plane induced by the interaction terms ijxixj.
+In some situations, the curvature in the response function will not be adequately mod-
+eled by Equation 6.28. In such cases, a logical model to consider is
+(6.29)
+where the jj represent pure second-order or quadratic effects. Equation 6.29 is called a
+second-order response surface model.
+In running a two-level factorial experiment, we usually anticipate tting the rst-order
+model in Equation 6.28, but we should be alert to the possibility that the second-order model
+in Equation 6.29 is more appropriate. There is a method of replicating certain points in a 2k
+factorial that will provide protection against curvature from second-order effects as well as
+allow an independent estimate of error to be obtained. The method consists of adding center
+points to the 2k design. These consist of nC replicates run at the points xi  0 (i  1, 2, . . . , k).
+One important reason for adding the replicate runs at the design center is that center points
+do not affect the usual effect estimates in a 2k design. When we add center points, we assume
+that the k factors are quantitative.
+To illustrate the approach, consider a 22 design with one observation at each of the
+factorial points (, ), (, ), (, ), and (, ) and nC observations at the center point
+(0, 0). Figures 6.37 and 6.38 illustrate the situation. Let 
+be the average of the four runs at
+the four factorial points, and 
+be the average of the nC runs at the center point. If the differ-
+ence 
+is small, then the center points lie on or near the plane passing through the
+factorial points, and there is no quadratic curvature. On the other hand, if 
+is large,
+yF yC
+yF yC
+yC
+yF
+y 0 
+k
+j1
+jxj 
+i!j
+ijxixj 
+k
+j1
+jjx2
+j 
+y 0 
+k
+j1
+jxj 
+i!j
+ijxixj 

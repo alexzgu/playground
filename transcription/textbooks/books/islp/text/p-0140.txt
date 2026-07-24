@@ -1,0 +1,54 @@
+3.7 Exercises
+131
+(b) Now perform a simple linear regression of x onto y without an
+intercept, and report the coefficient estimate, its standard error,
+and the corresponding t-statistic and p-values associated with
+the null hypothesis H0 : β = 0. Comment on these results.
+(c) What is the relationship between the results obtained in (a) and
+(b)?
+(d) For the regression of Y onto X without an intercept, the t-
+statistic for H0 : β = 0 takes the form ˆβ/SE(ˆβ), where ˆβ is
+given by (3.38), and where
+SE(ˆβ) =
+@ )n
+i=1(yi −xi ˆβ)2
+(n −1) )n
+i′=1 x2
+i′ .
+(These formulas are slightly different from those given in Sec-
+tions 3.1.1 and 3.1.2, since here we are performing regression
+without an intercept.) Show algebraically, and confirm numeri-
+cally in R, that the t-statistic can be written as
+(√n −1) )n
+i=1 xiyi
+5
+()n
+i=1 x2
+i )()n
+i′=1 y2
+i′) −()n
+i′=1 xi′yi′)2 .
+(e) Using the results from (d), argue that the t-statistic for the re-
+gression of y onto x is the same as the t-statistic for the regression
+of x onto y.
+(f) In R, show that when regression is performed with an intercept,
+the t-statistic for H0 : β1 = 0 is the same for the regression of y
+onto x as it is for the regression of x onto y.
+12. This problem involves simple linear regression without an intercept.
+(a) Recall that the coefficient estimate ˆβ for the linear regression of
+Y onto X without an intercept is given by (3.38). Under what
+circumstance is the coefficient estimate for the regression of X
+onto Y the same as the coefficient estimate for the regression of
+Y onto X?
+(b) Generate an example in Python with n = 100 observations in
+which the coefficient estimate for the regression of X onto Y
+is different from the coefficient estimate for the regression of Y
+onto X.
+(c) Generate an example in Python with n = 100 observations in
+which the coefficient estimate for the regression of X onto Y is
+the same as the coefficient estimate for the regression of Y onto
+X.
+13. In this exercise you will create some simulated data and will fit simple
+linear regression models to it. Make sure to use the default random
+number generator with seed set to 1 prior to starting part (a) to
+ensure consistent results.

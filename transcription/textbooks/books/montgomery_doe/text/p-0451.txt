@@ -1,0 +1,133 @@
+9.6 Constructing Factorial and Fractional Factorial Designs Using an Optimal Design Tool
+435
+E X A M P L E 9 . 4
+An Experiment with Unusual Blocking Requirements
+Suppose an investigator wishes to run a screening experi-
+ment with six continuous factors and can perform three runs
+in one day. The budget for the experiment allows for 12
+runs. So, the experiment will involve four days of experi-
+mentation with three runs per day. There could be signicant
+day-to-day variation, so days should be treated as block.
+The 12-run Plackett–Burman design is a natural choice
+for a main effects model but there is no blocking scheme for
+these designs that accommodates blocks of three runs. So,
+no textbook design quite matches this problem description. 
+Table 9.36 shows the factor settings and block assign-
+ments for the 12-run I-optimal design for a main effects
+model tailored to t the problem. This design has a D-
+efciency of 95.4 percent. The most notable feature of this
+design is that each factor has one setting at the middle of its
+range. This means that if any factor has a strong quadratic
+effect, there is a good chance both of detecting the curva-
+ture and identifying the active factor. By contrast, a two-
+level design has no way to detect strong curvature if it
+exists without adding center points. 
+■T A B L E 9 . 3 6
+An I-Optimal Design for 6 Factors in 4 Blocks of Size 3 
+A
+B
+C
+D
+E
+F
+Day
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+0
+1
+1
+1
+1
+1
+2
+1
+1
+1
+1
+1
+1
+2
+1
+1
+1
+0
+1
+0
+2
+1
+1
+1
+1
+1
+1
+3
+1
+1
+1
+1
+1
+1
+3
+1
+1
+1
+1
+1
+1
+3
+1
+1
+0
+1
+1
+1
+4
+1
+1
+1
+1
+1
+1
+4
+1
+0
+1
+1
+0
+1
+4
+Optimal design construction methodology can also be used to create specialized frac-
+tional factorial designs. We saw examples of this in the presentation of no-confounding design
+earlier in this chapter. To illustrate the usefulness of optimal design techniques, consider the
+case of resolution IV designs. We know that there are regular resolution IV designs available
+for 6, 7, and 8 factors in 16 runs, and no-confounding designs that are good competitors for
+these regular designs (the no-confounding designs can be thought of as resolution III.5
+designs). However, for 9 factors the smallest regular resolution IV fraction is the 294, which
+has 32 runs. This is a large number of runs. Since a resolution IV design must have at least
+2k runs, an 18-run optimal design could be a good competitor to the regular design. Table 9.37
+presents the 18-run design constructed using the D-optimality criterion.
+The alias relationships (for only the main effects and two-factor interactions) for the
+design in Table 9.37 are
+[A] A, [B] B, [C] C, [D] D, [E] E, [F] F, [G] G, [H] H, [J] J
+[AB] AB 0.429 BC 0.429 BD 0.429 BE 0.429 BF 0.143 BG 0.429 BH
+0.429 BJ 0.571 CG 0.571 CH 0.571 DG 0.571 DJ 0.571 EF
+0.571 EG 0.571 FG 0.571 GH 0.571 GJ

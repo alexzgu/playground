@@ -1,0 +1,70 @@
+4.3 Logistic Regression
+143
+Coefficient
+Std. error
+z-statistic
+p-value
+Intercept
+−10.8690
+0.4923
+−22.08
+<0.0001
+balance
+0.0057
+0.0002
+24.74
+<0.0001
+income
+0.0030
+0.0082
+0.37
+0.7115
+student[Yes]
+−0.6468
+0.2362
+−2.74
+0.0062
+TABLE 4.3. For the Default data, estimated coefficients of the logistic regression
+model that predicts the probability of default using balance, income, and student
+status. Student status is encoded as a dummy variable student[Yes], with a value
+of 1 for a student and a value of 0 for a non-student. In fitting this model, income
+was measured in thousands of dollars.
+Just as in Section 4.3.2, we use the maximum likelihood method to estimate
+β0, β1, . . . , βp.
+Table 4.3 shows the coefficient estimates for a logistic regression model
+that uses balance, income (in thousands of dollars), and student status to
+predict probability of default. There is a surprising result here. The p-
+values associated with balance and the dummy variable for student status
+are very small, indicating that each of these variables is associated with
+the probability of default. However, the coefficient for the dummy variable
+is negative, indicating that students are less likely to default than non-
+students. In contrast, the coefficient for the dummy variable is positive in
+Table 4.2. How is it possible for student status to be associated with an
+increase in probability of default in Table 4.2 and a decrease in probability
+of default in Table 4.3? The left-hand panel of Figure 4.3 provides a graph-
+ical illustration of this apparent paradox. The orange and blue solid lines
+show the average default rates for students and non-students, respectively,
+as a function of credit card balance. The negative coefficient for student in
+the multiple logistic regression indicates that for a fixed value of balance
+and income, a student is less likely to default than a non-student. Indeed,
+we observe from the left-hand panel of Figure 4.3 that the student default
+rate is at or below that of the non-student default rate for every value of
+balance. But the horizontal broken lines near the base of the plot, which
+show the default rates for students and non-students averaged over all val-
+ues of balance and income, suggest the opposite effect: the overall student
+default rate is higher than the non-student default rate. Consequently, there
+is a positive coefficient for student in the single variable logistic regression
+output shown in Table 4.2.
+The right-hand panel of Figure 4.3 provides an explanation for this dis-
+crepancy. The variables student and balance are correlated. Students tend
+to hold higher levels of debt, which is in turn associated with higher prob-
+ability of default. In other words, students are more likely to have large
+credit card balances, which, as we know from the left-hand panel of Fig-
+ure 4.3, tend to be associated with high default rates. Thus, even though
+an individual student with a given credit card balance will tend to have a
+lower probability of default than a non-student with the same credit card
+balance, the fact that students on the whole tend to have higher credit card
+balances means that overall, students tend to default at a higher rate than
+non-students. This is an important distinction for a credit card company
+that is trying to determine to whom they should offer credit. A student is
+riskier than a non-student if no information about the student’s credit card

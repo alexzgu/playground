@@ -1,0 +1,70 @@
+202
+Chapter 5 ■Introduction to Factorial Designs
+Finally, the minimum value of 2 corresponding to a difference of D between any two inter-
+action effects is
+(5.19)
+To illustrate the use of these equations, consider the battery life data in Example 5.1.
+Suppose that before running the experiment we decide that the null hypothesis should be
+rejected with a high probability if the difference in mean battery life between any two tem-
+peratures is as great as 40 hours. Thus a difference of D 40 has engineering signicance,
+and if we assume that the standard deviation of battery life is approximately 25, then Equation
+5.18 gives
+as the minimum value of 2. Assuming that 0.05, we can now use Appendix Table V to
+construct the following display:
+1 Numerator
+2 Error Degrees
+n
+2
+
+Degrees of Freedom
+of Freedom
+&
+2
+2.56
+1.60
+2
+9
+0.45
+3
+3.84
+1.96
+2
+18
+0.18
+4
+5.12
+2.26
+2
+27
+0.06
+Note that n 4 replicates give a risk of about 0.06, or approximately a 94 percent
+chance of rejecting the null hypothesis if the difference in mean battery life at any two tem-
+perature levels is as large as 40 hours. Thus, we conclude that four replicates are enough to
+provide the desired sensitivity as long as our estimate of the standard deviation of battery life
+is not seriously in error. If in doubt, the experimenter could repeat the above procedure with
+other values of to determine the effect of misestimating this parameter on the sensitivity of
+the design.
+5.3.6
+The Assumption of No Interaction in a 
+Two-Factor Model
+Occasionally, an experimenter feels that a two-factor model without interaction is appro-
+priate, say
+(5.20)
+We should be very careful in dispensing with the interaction terms, however, because the
+presence of signicant interaction can have a dramatic impact on the interpretation of the
+data.
+The statistical analysis of a two-factor factorial model without interaction is straightfor-
+ward. Table 5.8 presents the analysis of the battery life data from Example 5.1, assuming that
+yijk i j ijk 
+ 
+i 1, 2, . . . , a
+j 1, 2, . . . , b
+k 1, 2, . . . , n
+ 1.28n
+n(3)(40)2
+2(3)(25)2
+2 naD2
+2b2
+2 
+nD2
+22[(a 1)(b 1) 1]

@@ -1,0 +1,81 @@
+In some RSM problems, it may be necessary to nd the relationship between the
+canonical variables {wi} and the design variables {xi}. This is particularly true if it is
+impossible to operate the process at the stationary point. As an illustration, suppose that in
+Example 11.2 we could not operate the process at 1 87 minutes and 2 176.5°F because
+this combination of factors results in excessive cost. We now wish to “back away” from the
+stationary point to a point of lower cost without incurring large losses in yield. The canonical
+form of the model indicates that the surface is less sensitive to yield loss in the w1 direction.
+Exploration of the canonical form requires converting points in the (w1, w2) space to points in
+the (x1, x2) space.
+In general, the variables x are related to the canonical variables w by
+where M is a (k k) orthogonal matrix. The columns of M are the normalized eigenvectors
+associated with the {i). That is, if mi is the ith column of M, then mi is the solution to
+(11.10)
+for which 
+.
+We illustrate the procedure using the tted second-order model in Example 11.2. For 1 
+0.9634, Equation 11.10 becomes
+or
+We wish to obtain the normalized solution to these equations, that is, the one for which
+. There is no unique solution to these equations, so it is most convenient to
+assign an arbitrary value to one unknown, solve the system, and normalize the solution.
+Letting 
+, we find 
+0.3027. To normalize this solution, we divide 
+and 
+by
+This yields the normalized solution
+and
+which is the rst column of the M matrix.
+Using 2 1.4141, we can repeat the above procedure, obtaining m12 0.9571
+and m22 0.2898 as the second column of M. Thus, we have
+The relationship between the w and x variables is
+
+w1
+w2
+0.2898
+0.9574
+0.9571
+0.2898
+x1 0.389
+x2 0.306
+M 
+0.2898
+0.9571
+0.9571
+0.2898
+m21 
+m*21
+1.0448 
+1
+1.0448 0.9571
+m11 
+m*11
+1.0448 0.3027
+1.0448 0.2898
+(m*11)2 (m*21)2 (0.3027)2 (1)2 1.0448
+m*21
+m*11
+m*11
+m*21 1
+m2
+11 m2
+21 1
+ 0.1250m11 0.0377m21 0
+0.4129m11 0.1250m21 0
+
+(1.376 0.9634)
+0.1250
+0.1250
+(1.001 0.9634)
+m11
+m21
+0
+0
+k
+j1m2
+ji 1
+(B iI)mi 0
+w M(x xs)
+494
+Chapter 11 ■Response Surface Methods and Designs

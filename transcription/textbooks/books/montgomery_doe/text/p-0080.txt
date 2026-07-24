@@ -1,0 +1,174 @@
+Formulation 1
+Formulation 2
+206
+193
+192
+177
+176
+198
+188
+207
+210
+197
+185
+188
+205
+185
+194
+206
+200
+189
+187
+189
+178
+201
+197
+203
+(a) Construct normal probability plots for both samples.
+Do these plots support assumptions of normality and
+equal variance for both samples?
+(b) Do the data support the claim that the mean deection
+temperature under load for formulation 1 exceeds that
+of formulation 2? Use 0.05.
+(c) What is the P-value for the test in part (a)?
+2.36.
+Refer to the data in Problem 2.35. Do the data support
+a claim that the mean deection temperature under load for
+formulation 1 exceeds that of formulation 2 by at least 3°F?
+2.37.
+In semiconductor manufacturing wet chemical
+etching is often used to remove silicon from the backs of
+wafers prior to metalization. The etch rate is an important
+characteristic of this process. Two different etching solutions
+are being evaluated. Eight randomly selected wafers have
+been etched in each solution, and the observed etch rates (in
+mils/min) are as follows.
+Solution 1
+Solution 2
+9.9
+10.6
+10.2
+10.6
+9.4
+10.3
+10.0
+10.2
+10.0
+9.3
+10.7
+10.4
+10.3
+9.8
+10.5
+10.3
+(a) Do the data indicate that the claim that both solutions
+have the same mean etch rate is valid? Use 0.05
+and assume equal variances.
+(b) Find a 95 percent condence interval on the difference
+in mean etch rates.
+(c) Use normal probability plots to investigate the adequa-
+cy of the assumptions of normality and equal variances.
+2.38.
+Two popular pain medications are being compared
+on the basis of the speed of absorption by the body.
+Specically, tablet 1 is claimed to be absorbed twice as fast
+as tablet 2. Assume that 
+and 
+are known. Develop a test
+statistic for
+2.39.
+Continuation of Problem 2.38. An article in Nature
+(1972, pp. 225–226) reported on the levels of monoamine oxi-
+dase in blood platelets for a sample of 43 schizophrenic
+H121 Z 2
+H021 2
+2
+2
+2
+1
+64
+Chapter 2 ■Simple Comparative Experiments
+patients resulting in 
+2.69 and s1 2.30 while for a sam-
+ple of 45 normal patients the results were 
+6.35 and s2 
+4.03. The units are nm/mg protein/h. Use the results of the
+previous problem to test the claim that the mean monoamine
+oxidase level for normal patients is at last twice the mean level
+for schizophrenic patients. Assume that the sample sizes are
+large enough to use the sample standard deviations as the true
+parameter values.
+2.40.
+Suppose we are testing
+where 
+> 
+are known. Our sampling resources are con-
+strained such that n1 n2 N. Show that an allocation of the
+observation n1 n2 to the two samp that lead the most powerful
+test is in the ratio n1/n2 1/2.
+2.41.
+Continuation of Problem 2.40. Suppose that we
+want to construct a 95% two-sided condence interval on the
+difference in two means where the two sample standard devi-
+ations are known to be 1 4 and 2 8. The total sample
+size is restricted to N 30. What is the length of the 95% CI
+if the sample sizes used by the experimenter are n1 n2 15?
+How much shorter would the 95% CI have been if the exper-
+imenter had used an optimal sample size allocation?
+2.42.
+Develop Equation 2.46 for a 100(1 ) percent con-
+dence interval for the variance of a normal distribution.
+2.43.
+Develop Equation 2.50 for a 100(1 ) percent con-
+dence interval for the ratio 
+, where 
+and 
+are the
+variances of two normal distributions.
+2.44.
+Develop an equation for nding a 100 (1 ) percent
+condence interval on the difference in the means of two nor-
+mal distributions where 
+. Apply your equation to the
+Portland cement experiment data, and nd a 95 percent con-
+dence interval.
+2.45.
+Construct a data set for which the paired t-test statis-
+tic is very large, but for which the usual two-sample or pooled
+t-test statistic is small. In general, describe how you created
+the data. Does this give you any insight regarding how the
+paired t-test works?
+2.46.
+Consider the experiment described in Problem 2.26.
+If the mean burning times of the two ares differ by as much
+as 2 minutes, nd the power of the test. What sample size
+would be required to detect an actual difference in mean burn-
+ing time of 1 minute with a power of at least 0.90?
+2.47.
+Reconsider the bottle lling experiment described in
+Problem 2.24. Rework this problem assuming that the two
+population variances are unknown but equal.
+2.48.
+Consider the data from Problem 2.24. If the mean ll
+volume of the two machines differ by as much as 0.25 ounces,
+what is the power of the test used in Problem 2.19? What sam-
+ple size would result in a power of at least 0.9 if the actual dif-
+ference in mean ll volume is 0.25 ounces?
+2
+1 Z 2
+2
+2
+2
+2
+1
+2
+1/2
+2
+2
+2
+2
+1
+H11 Z 2
+H01 2
+y2
+y1

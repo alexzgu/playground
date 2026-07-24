@@ -1,0 +1,252 @@
+6.10 Problems
+297
+(a) Analyze the data from this experiment. Which factors
+signicantly affect the customer response rate?
+(b) Analyze the residuals from this experiment. Are there
+any indications of model inadequacy?
+(c) What would you recommend to the company?
+6.25.
+Consider the single replicate of the 24 design in
+Example 6.2. Suppose that we had arbitrarily decided to ana-
+lyze the data assuming that all three- and four-factor interac-
+tions were negligible. Conduct this analysis and compare your
+results with those obtained in the example. Do you think that
+it is a good idea to arbitrarily assume interactions to be negli-
+gible even if they are relatively high-order ones?
+6.26.
+An experiment was run in a semiconductor fabrication
+plant in an effort to increase yield. Five factors, each at two
+levels, were studied. The factors (and levels) were A aperture
+setting (small, large), B  exposure time (20% below nominal,
+20% above nominal), C  development time (30 and 45 s), D 
+mask dimension (small, large), and E  etch time (14.5 and 15.5
+min). The unreplicated 25 design shown below was run.
+(1) 7
+d  8
+e  8
+de  6
+a  9
+ad  10
+ae  12
+ade  10
+b  34
+bd  32
+be  35
+bde  30
+ab  55
+abd  50
+abe  52
+abde  53
+c  16
+cd  18
+ce  15
+cde  15
+ac  20
+acd  21
+ace  22
+acde  20
+bc  40
+bcd  44
+bce  45
+bcde  41
+abc  60
+abcd  61
+abce  65
+abcde  63
+■TA B L E P 6 . 5
+The 24 Experiment for Problem 6.22
+Standard 
+Run 
+Laser 
+Pulse 
+Cell 
+Writing 
+Order
+Order
+Power
+Frequency
+Size
+Speed
+UEC
+8
+1
+1.00
+1.00
+1.00
+1.00
+0.8
+10
+2
+1.00
+1.00
+1.00
+1.00
+0.81
+12
+3
+1.00
+1.00
+1.00
+1.00
+0.79
+9
+4
+1.00
+1.00
+1.00
+1.00
+0.6
+7
+5
+1.00
+1.00
+1.00
+1.00
+0.65
+15
+6
+–1.00
+1.00
+1.00
+1.00
+0.55
+2
+7
+1.00
+1.00
+1.00
+1.00
+0.98
+6
+8
+1.00
+1.00
+1.00
+1.00
+0.67
+16
+9
+1.00
+1.00
+1.00
+1.00
+0.69
+13
+10
+1.00
+1.00
+1.00
+1.00
+0.56
+5
+11
+1.00
+1.00
+1.00
+1.00
+0.63
+14
+12
+1.00
+1.00
+1.00
+1.00
+0.65
+1
+13
+1.00
+1.00
+1.00
+1.00
+0.75
+3
+14
+1.00
+1.00
+1.00
+1.00
+0.72
+4
+15
+1.00
+1.00
+1.00
+1.00
+0.98
+11
+16
+1.00
+1.00
+1.00
+1.00
+0.63
+■TA B L E P 6 . 6
+The Direct Mail Experiment from Problem 6.24
+Coded Factors
+Number of Orders
+Factor Levels
+Run
+A
+B
+C
+Replicate 1
+Replicate 2
+Low (1)
+High (1)
+1
+
+
+
+50
+54
+A (class)
+3rd
+1st
+2
+
+
+
+44
+42
+B (type)
+BW
+Color
+3
+
+
+
+46
+48
+C ($)
+$19.95
+$24.95
+4
+
+
+
+42
+43
+5
+
+
+
+49
+46
+6
+
+
+
+48
+45
+7
+
+
+
+47
+48
+8
+
+
+
+56
+54 

@@ -1,0 +1,49 @@
+444
+10. Deep Learning
+In [32]: del(Hitters,
+hit_model, hit_dm,
+hit_logger,
+hit_test, hit_train,
+X, Y,
+X_test, X_train,
+Y_test, Y_train,
+X_test_t, Y_test_t,
+hit_trainer , hit_module)
+10.9.2
+Multilayer Network on the MNIST Digit Data
+The torchvision package comes with a number of example datasets, includ-
+ing the MNIST digit data. Our first step is to retrieve the training and test
+data sets; the MNIST() function within torchvision.datasets is provided for MNIST()
+this purpose. The data will be downloaded the first time this function is
+executed, and stored in the directory data/MNIST.
+In [33]: (mnist_train ,
+mnist_test) = [MNIST(root='data',
+train=train,
+download=True,
+transform=ToTensor())
+for train in [True, False]]
+mnist_train
+Out[33]: Dataset MNIST
+Number of datapoints: 60000
+Root location: data
+Split: Train
+StandardTransform
+Transform: ToTensor()
+There are 60,000 images in the training data and 10,000 in the test data.
+The images are 28 × 28, and stored as a matrix of pixels. We need to
+transform each one into a vector.
+Neural networks are somewhat sensitive to the scale of the inputs, much
+as ridge and lasso regularization are affected by scaling. Here the inputs
+are eight-bit grayscale values between 0 and 255, so we rescale to the unit
+interval.26 This transformation, along with some reordering of the axes, is
+performed by the ToTensor() transform from the torchvision.transforms
+package.
+As in our Hitters example, we form a data module from the training and
+test datasets, setting aside 20% of the training images for validation.
+In [34]: mnist_dm = SimpleDataModule(mnist_train ,
+mnist_test ,
+validation=0.2,
+num_workers=max_num_workers ,
+batch_size=256)
+26Note: eight bits means 28, which equals 256. Since the convention is to start at 0,
+the possible values range from 0 to 255.

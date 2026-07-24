@@ -1,0 +1,41 @@
+2.4 Exercises
+65
+Applied
+8. This exercise relates to the College data set, which can be found in
+the file College.csv on the book website. It contains a number of
+variables for 777 different universities and colleges in the US. The
+variables are
+• Private : Public/private indicator
+• Apps : Number of applications received
+• Accept : Number of applicants accepted
+• Enroll : Number of new students enrolled
+• Top10perc : New students from top 10 % of high school class
+• Top25perc : New students from top 25 % of high school class
+• F.Undergrad : Number of full-time undergraduates
+• P.Undergrad : Number of part-time undergraduates
+• Outstate : Out-of-state tuition
+• Room.Board : Room and board costs
+• Books : Estimated book costs
+• Personal : Estimated personal spending
+• PhD : Percent of faculty with Ph.D.s
+• Terminal : Percent of faculty with terminal degree
+• S.F.Ratio : Student/faculty ratio
+• perc.alumni : Percent of alumni who donate
+• Expend : Instructional expenditure per student
+• Grad.Rate : Graduation rate
+Before reading the data into Python, it can be viewed in Excel or a
+text editor.
+(a) Use the pd.read_csv() function to read the data into Python. Call
+the loaded data college. Make sure that you have the directory
+set to the correct location for the data.
+(b) Look at the data used in the notebook by creating and running
+a new cell with just the code college in it. You should notice
+that the first column is just the name of each university in a
+column named something like Unnamed: 0. We don’t really want
+pandas to treat this as data. However, it may be handy to have
+these names for later. Try the following commands and similarly
+look at the resulting data frames:
+college2 = pd.read_csv('College.csv', index_col=0)
+college3 = college.rename({'Unnamed: 0': 'College'},
+axis=1)
+college3 = college3.set_index('College')

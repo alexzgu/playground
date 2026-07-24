@@ -1,0 +1,73 @@
+2.2 Assessing Model Accuracy
+33
+2
+5
+10
+20
+0.0
+0.5
+1.0
+1.5
+2.0
+2.5
+Flexibility
+2
+5
+10
+20
+0.0
+0.5
+1.0
+1.5
+2.0
+2.5
+Flexibility
+2
+5
+10
+20
+0
+5
+10
+15
+20
+Flexibility
+MSE
+Bias
+Var
+FIGURE 2.12.
+Squared bias (blue curve), variance (orange curve), Var(ϵ)
+(dashed line), and test MSE (red curve) for the three data sets in Figures 2.9–2.11.
+The vertical dotted line indicates the flexibility level corresponding to the smallest
+test MSE.
+In contrast, the orange least squares line is relatively inflexible and has low
+variance, because moving any single observation will likely cause only a
+small shift in the position of the line.
+On the other hand, bias refers to the error that is introduced by approxi-
+mating a real-life problem, which may be extremely complicated, by a much
+simpler model. For example, linear regression assumes that there is a linear
+relationship between Y and X1, X2, . . . , Xp. It is unlikely that any real-life
+problem truly has such a simple linear relationship, and so performing lin-
+ear regression will undoubtedly result in some bias in the estimate of f. In
+Figure 2.11, the true f is substantially non-linear, so no matter how many
+training observations we are given, it will not be possible to produce an
+accurate estimate using linear regression. In other words, linear regression
+results in high bias in this example. However, in Figure 2.10 the true f
+is very close to linear, and so given enough data, it should be possible for
+linear regression to produce an accurate estimate. Generally, more flexible
+methods result in less bias.
+As a general rule, as we use more flexible methods, the variance will
+increase and the bias will decrease. The relative rate of change of these
+two quantities determines whether the test MSE increases or decreases. As
+we increase the flexibility of a class of methods, the bias tends to initially
+decrease faster than the variance increases. Consequently, the expected
+test MSE declines. However, at some point increasing flexibility has little
+impact on the bias but starts to significantly increase the variance. When
+this happens the test MSE increases. Note that we observed this pattern
+of decreasing test MSE followed by increasing test MSE in the right-hand
+panels of Figures 2.9–2.11.
+The three plots in Figure 2.12 illustrate Equation 2.7 for the examples in
+Figures 2.9–2.11. In each case the blue solid curve represents the squared
+bias, for different levels of flexibility, while the orange curve corresponds to
+the variance. The horizontal dashed line represents Var(ϵ), the irreducible
+error. Finally, the red curve, corresponding to the test set MSE, is the sum

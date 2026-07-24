@@ -1,0 +1,56 @@
+statistical techniques in experimentation requires that the experimenter keep the following
+points in mind:
+1. Use your nonstatistical knowledge of the problem. Experimenters are usually
+highly knowledgeable in their elds. For example, a civil engineer working on a
+problem in hydrology typically has considerable practical experience and formal
+academic training in this area. In some elds, there is a large body of physical the-
+ory on which to draw in explaining relationships between factors and responses.
+This type of nonstatistical knowledge is invaluable in choosing factors, determining
+factor levels, deciding how many replicates to run, interpreting the results of the
+analysis, and so forth. Using a designed experiment is no substitute for thinking
+about the problem.
+2. Keep the design and analysis as simple as possible. Don’t be overzealous in the use
+of complex, sophisticated statistical techniques. Relatively simple design and analysis
+methods are almost always best. This is a good place to reemphasize steps 1–3 of the
+procedure recommended in Section 1.4. If you do the pre-experiment planning care-
+fully and select a reasonable design, the analysis will almost always be relatively
+straightforward. In fact, a well-designed experiment will sometimes almost analyze
+itself! However, if you botch the pre-experimental planning and execute the experi-
+mental design badly, it is unlikely that even the most complex and elegant statistics
+can save the situation.
+3. Recognize the difference between practical and statistical signicance. Just because
+two experimental conditions produce mean responses that are statistically different,
+there is no assurance that this difference is large enough to have any practical value.
+For example, an engineer may determine that a modication to an automobile fuel
+injection system may produce a true mean improvement in gasoline mileage of 
+0.1 mi/gal and be able to determine that this is a statistically signicant result.
+However, if the cost of the modication is $1000, the 0.1 mi/gal difference is proba-
+bly too small to be of any practical value.
+4. Experiments are usually iterative. Remember that in most situations it is unwise to
+design too comprehensive an experiment at the start of a study. Successful design
+requires the knowledge of important factors, the ranges over which these factors are
+varied, the appropriate number of levels for each factor, and the proper methods and
+units of measurement for each factor and response. Generally, we are not well
+equipped to answer these questions at the beginning of the experiment, but we learn
+the answers as we go along. This argues in favor of the iterative, or sequential,
+approach discussed previously. Of course, there are situations where comprehensive
+experiments are entirely appropriate, but as a general rule most experiments should be
+iterative. Consequently, we usually should not invest more than about 25 percent of
+the resources of experimentation (runs, budget, time, etc.) in the initial experiment.
+Often these rst efforts are just learning experiences, and some resources must be
+available to accomplish the nal objectives of the experiment.
+1.7 Problems
+23
+1.7
+Problems
+1.1.
+Suppose that you want to design an experiment to
+study the proportion of unpopped kernels of popcorn.
+Complete steps 1–3 of the guidelines for designing experi-
+ments in Section 1.4. Are there any major sources of variation
+that would be difcult to control?
+1.2.
+Suppose that you want to investigate the factors that
+potentially affect cooking rice.
+(a) What would you use as a response variable in this
+experiment? How would you measure the response?

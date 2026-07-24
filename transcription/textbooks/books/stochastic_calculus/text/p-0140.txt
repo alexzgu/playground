@@ -1,0 +1,67 @@
+134
+CHAPTER 4. MORE STOCHASTIC CALCULUS
+Since it is not any harder, we generalize and assume that Xt satises the
+SDE
+dXt = m(t, Xt) dt + σ(t, Xt) dBt,
+X0 = x0,
+and that there is a payoF(XT) at some future time T. Suppose also that
+there is an ination rate r(t, x) so that if Rt denotes the value at time t of
+R0 dollars at time 0,
+dRt = r(t, Xt) Rt dt,
+Rt = R0 exp
+t
+0
+r(s, Xs) ds
+
+
+If ϕ(t, x) denote the expected value of the payoin time t dollars given
+Xt = x, then
+ϕ(t, x) = E
+
+exp
+
+−
+T
+t
+r(s, Xs) ds
+
+F(XT) Xt = x
+
+
+(4.5)
+We will use Itˆo’s formula to derive a PDE for ϕ under the assumption that
+ϕ is C1 in t and C2 in x.
+Let
+Mt = E
+
+R−1
+T F(XT) Ft
+
+
+The tower property for conditional expectation implies that if s < t,
+E[Mt Fs] = E[E(MT Ft) Fs] = E[MT Fs] = Ms
+In other words, Mt is a martingale. Since Rt is Ft-measurable, we see that
+Mt = R−1
+t
+E
+
+exp
+
+−
+T
+t
+r(s, Xs) ds
+
+F(XT) Ft
+
+
+However, since Xt is a Markov process, the only relevant information in Ft
+is given by the value Xt. Hence, by the denition of ϕ,
+Mt = R−1
+t
+ϕ(t, Xt)
+(4.6)
+Our conclusion is that Mt as given in (4.6) must be a martingale. Itˆo’s formula
+gives
+dϕ(t, Xt) = ∂tϕ(t, Xt) dt + ∂xϕ(t, Xt) dXt + 1
+2 ∂xx ϕ(t, Xt) d⟨X⟩t

@@ -1,0 +1,50 @@
+6.5 Lab: Linear Models and Regularization Methods
+271
+ax.set_ylim([50000,250000]);
+Notice the expression None in Y[:,None] above. This adds an axis (dimen-
+sion) to the one-dimensional array Y, which allows it to be recycled when
+subtracted from the two-dimensional Yhat_in.
+We are now ready to use cross-validation to estimate test error along
+the model path. We must use only the training observations to perform
+all aspects of model-fitting — including variable selection. Therefore, the
+determination of which model of a given size is best must be made using
+only the training observations in each training fold. This point is subtle but
+important. If the full data set is used to select the best subset at each step,
+then the validation set errors and cross-validation errors that we obtain
+will not be accurate estimates of the test error.
+We now compute the cross-validated predicted values using 5-fold cross-
+validation.
+In [14]: K = 5
+kfold = skm.KFold(K,
+random_state=0,
+shuffle=True)
+Yhat_cv = skm.cross_val_predict(full_path,
+Hitters,
+Y,
+cv=kfold)
+Yhat_cv.shape
+skm.KFold()
+skm.cross_
+val_predict()
+Out[14]: (263, 20)
+The prediction matrix Yhat_cv is the same shape as Yhat_in; the difference
+is that the predictions in each row, corresponding to a particular sample
+index, were made from models fit on a training fold that did not include
+that row.
+At each model along the path, we compute the MSE in each of the cross-
+validation folds. These we will average to get the mean MSE, and can also
+use the individual values to compute a crude estimate of the standard error
+of the mean.9 Hence we must know the test indices for each cross-validation
+split. This can be found by using the split() method of kfold. Because we
+fixed the random state above, whenever we split any array with the same
+number of rows as Y we recover the same training and test indices, though
+we simply ignore the training indices below.
+In [15]: cv_mse = []
+for train_idx, test_idx in kfold.split(Y):
+errors = (Yhat_cv[test_idx] - Y[test_idx,None])**2
+cv_mse.append(errors.mean(0)) # column means
+cv_mse = np.array(cv_mse).T
+cv_mse.shape
+Out[15]: (20, 5)
+9The estimate is crude because the five error estimates are based on overlapping
+training sets, and hence are not independent.

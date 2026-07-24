@@ -1,0 +1,35 @@
+14
+CHAPTER 1. MARTINGALES IN DISCRETE TIME
+then the process is called a . If it is replaced with
+E[Mn Fm] ≤Mm,
+then it is called a . In other words, games that are always
+in one’s favor are submartingales and games that are always against one are
+supermartingales. (At most games in Las Vegas, one’s winnings give a super-
+martingale.) Under this denition, a martingale is both a submartingale and
+a supermartingale. The terminology may seem backwards at rst: submartin-
+gales get bigger and supermartingales get smaller. The terminology was set
+to be consistent with the related notion of subharmonic and superharmonic
+functions. Martingales are related to harmonic functions.
+1.3
+Optional sampling theorem
+Suppose M0, M1, M2, is a martingale with respect to the ltration Fn.
+In the last section we discussed the discrete stochastic integral. Here we will
+consider a particular case of a betting strategy where one bets 1 up to some
+time and then one bets 0 afterwards. Let T be the stopping timefor the
+strategy. Then the winnings at time t is
+M0 +
+n
+
+j=1
+Bj [Mj −Mj−1],
+where Bj = 1 if j ≤T and Bj = 0 if j > T. We can write this as
+Mn∧T,
+where n T is shorthand for minn, T. The time T is random, but it must
+satisfy the condition that the betting rule is allowable.
+Denition A nonnegative integer-valued random variable T is a 
+with respect to the ltration Fnif for each n the event T = nis
+Fn-measurable.
+The following theorem is a special case of the discrete stochastic integral.
+It restates the fact that one cannot beat a martingale in nite time. We
+call this the ; it is also called the 
+.

@@ -1,0 +1,151 @@
+11.8 Problems
+545
+11.2.
+An industrial engineer has developed a computer
+simulation model of a two-item inventory system. The deci-
+sion variables are the order quantity and the reorder point for
+each item. The response to be minimized is total inventory
+cost. The simulation model is used to produce the data shown
+in Table P11.1. Identify the experimental design. Find the path
+of steepest descent.
+■TA B L E P 1 1 . 1
+The Inventory Experiment, Problem 11.2
+Item 1
+Order
+Reorder 
+Quantity (1)
+Point (2)
+100
+25
+140
+45
+140
+25
+140
+25
+100
+45
+100
+45
+100
+25
+140
+45
+120
+35
+120
+35
+120
+35
+Item 2
+Order
+Reorder
+Total
+Quantity (3)
+Point (4)
+Cost
+250
+40
+625
+250
+40
+670
+300
+40
+663
+250
+80
+654
+300
+40
+648
+250
+80
+634
+300
+80
+692
+300
+80
+686
+275
+60
+680
+275
+60
+674
+275
+60
+681
+11.3.
+Verify that the following design is a simplex. Fit the
+rst-order model and nd the path of steepest ascent.
+x1
+x2
+x3
+y
+0
+1
+18.5
+0
+1
+19.8
+0
+1
+17.4
+0
+1
+22.5
+2
+2
+2
+2
+11.4.
+For the rst-order model
+nd the path of steepest ascent. The variables are coded as 1
+xi 1.
+11.5.
+The region of experimentation for three factors are
+time (40 T1 80 min), temperature (200 T2 300°C),
+and pressure (20 P 50 psig). A rst-order model in coded
+variables has been t to yield data from a 23 design. The
+model is
+Is the point T1 85, T2 325, P 60 on the path of steepest
+ascent?
+11.6.
+The region of experimentation for two factors are
+temperature (100 T 300°F) and catalyst feed rate (10 
+C 30 lb/in). A rst-order model in the usual 1 coded vari-
+ables has been t to a molecular weight response, yielding the
+following model:
+(a) Find the path of steepest ascent.
+(b) It is desired to move to a region where molecular
+weights are above 2500. On the basis of the informa-
+tion you have from experimentation in this region,
+about how many steps along the path of steepest
+ascent might be required to move to the region of
+interest?
+11.7.
+The path of steepest ascent is usually computed
+assuming that the model is truly first order; that is, there is
+no interaction. However, even if there is interaction, steep-
+est ascent ignoring the interaction still usually produces
+good results. To illustrate, suppose that we have fit the
+model
+using coded variables (1 xi 1).
+(a) Draw the path of steepest ascent that you would obtain
+if the interaction were ignored.
+(b) Draw the path of steepest ascent that you would obtain
+with the interaction included in the model. Compare
+this with the path found in part (a).
+11.8.
+The data shown in the Table P11.2 were collected in
+an experiment to optimize crystal growth as a function of
+three variables x1, x2, and x3. Large values of y (yield in grams)
+are desirable. Fit a second-order model and analyze the tted
+surface. Under what set of conditions is maximum growth
+achieved?
+yˆ 20 5x1 8x2 3x1x2
+yˆ 2000 125x1 40x2
+yˆ 30 5x1 2.5x2 3.5x3
+yˆ 60 1.5x1 0.8x2 2.0x3

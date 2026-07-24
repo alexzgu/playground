@@ -1,0 +1,58 @@
+3.1 Simple Linear Regression
+77
+Coefficient
+Std. error
+t-statistic
+p-value
+Intercept
+7.0325
+0.4578
+15.36
+< 0.0001
+TV
+0.0475
+0.0027
+17.67
+< 0.0001
+TABLE 3.1. For the Advertising data, coefficients of the least squares model
+for the regression of number of units sold on TV advertising budget. An increase
+of $1,000 in the TV advertising budget is associated with an increase in sales by
+around 50 units. (Recall that the sales variable is in thousands of units, and the
+TV variable is in thousands of dollars.)
+which measures the number of standard deviations that ˆβ1 is away from 0. If
+there really is no relationship between X and Y , then we expect that (3.14)
+will have a t-distribution with n −2 degrees of freedom. The t-distribution
+has a bell shape and for values of n greater than approximately 30 it is
+quite similar to the standard normal distribution. Consequently, it is a
+simple matter to compute the probability of observing any number equal
+to |t| or larger in absolute value, assuming β1 = 0. We call this probability
+the p-value. Roughly speaking, we interpret the p-value as follows: a small p-value
+p-value indicates that it is unlikely to observe such a substantial association
+between the predictor and the response due to chance, in the absence of
+any real association between the predictor and the response. Hence, if we
+see a small p-value, then we can infer that there is an association between
+the predictor and the response. We reject the null hypothesis—that is, we
+declare a relationship to exist between X and Y —if the p-value is small
+enough. Typical p-value cutoffs for rejecting the null hypothesis are 5% or
+1%, although this topic will be explored in much greater detail in Chap-
+ter 13. When n = 30, these correspond to t-statistics (3.14) of around 2
+and 2.75, respectively.
+Table 3.1 provides details of the least squares model for the regression of
+number of units sold on TV advertising budget for the Advertising data.
+Notice that the coefficients for ˆβ0 and ˆβ1 are very large relative to their
+standard errors, so the t-statistics are also large; the probabilities of seeing
+such values if H0 is true are virtually zero. Hence we can conclude that
+β0̸ = 0 and β1̸ = 0.4
+3.1.3
+Assessing the Accuracy of the Model
+Once we have rejected the null hypothesis (3.12) in favor of the alternative
+hypothesis (3.13), it is natural to want to quantify the extent to which the
+model fits the data. The quality of a linear regression fit is typically assessed
+using two related quantities: the residual standard error (RSE) and the R2
+R2
+statistic.
+4In Table 3.1, a small p-value for the intercept indicates that we can reject the null
+hypothesis that β0 = 0, and a small p-value for TV indicates that we can reject the null
+hypothesis that β1 = 0. Rejecting the latter null hypothesis allows us to conclude that
+there is a relationship between TV and sales. Rejecting the former allows us to conclude
+that in the absence of TV expenditure, sales are non-zero.

@@ -1,0 +1,49 @@
+3.6 Lab: Linear Regression
+121
+Defining Functions
+While there is a function within the ISLP package that adds a line to an
+existing plot, we take this opportunity to define our first function to do so. def
+In [20]: def abline(ax, b, m):
+"Add a line with slope m and intercept b to ax"
+xlim = ax.get_xlim()
+ylim = [m * xlim[0] + b, m * xlim[1] + b]
+ax.plot(xlim, ylim)
+A few things are illustrated above. First we see the syntax for defining a
+function: def funcname(...). The function has arguments ax, b, m where
+ax is an axis object for an exisiting plot, b is the intercept and m is the slope
+of the desired line. Other plotting options can be passed on to ax.plot by
+including additional optional arguments as follows:
+In [21]: def abline(ax, b, m, *args, **kwargs):
+"Add a line with slope m and intercept b to ax"
+xlim = ax.get_xlim()
+ylim = [m * xlim[0] + b, m * xlim[1] + b]
+ax.plot(xlim, ylim, *args, **kwargs)
+The addition of *args allows any number of non-named arguments to
+abline, while *kwargs allows any number of named arguments (such as
+linewidth=3) to abline. In our function, we pass these arguments verbatim
+to ax.plot above. Readers interested in learning more about functions are
+referred to the section on defining functions in docs.python.org/tutorial.
+Let’s use our new function to add this regression line to a plot of medv
+vs. lstat.
+In [22]: ax = Boston.plot.scatter('lstat', 'medv')
+abline(ax,
+results.params[0],
+results.params[1],
+'r--',
+linewidth=3)
+Thus, the final call to ax.plot() is ax.plot(xlim, ylim, 'r--', linewidth=3).
+We have used the argument 'r--' to produce a red dashed line, and added
+an argument to make it of width 3. There is some evidence for non-linearity
+in the relationship between lstat and medv. We will explore this issue later
+in this lab.
+As mentioned above, there is an existing function to add a line to a plot
+— ax.axline() — but knowing how to write such functions empowers us
+to create more expressive displays.
+Next we examine some diagnostic plots, several of which were discussed
+in Section 3.3.3. We can find the fitted values and residuals of the fit as
+attributes of the results object. Various influence measures describing the
+regression model are computed with the get_influence() method. As we .get_
+influence()
+will not use the fig component returned as the first value from subplots(),
+we simply capture the second returned value in ax below.
+In [23]: ax = subplots(figsize=(8,8))[1]

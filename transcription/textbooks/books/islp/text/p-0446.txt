@@ -1,0 +1,46 @@
+10.9 Lab: Deep Learning
+439
+param_grid ,
+cv=cv,
+scoring='neg_mean_absolute_error')
+grid.fit(X_train, Y_train);
+We extract the lasso model with best cross-validated mean absolute error,
+and evaluate its performance on X_test and Y_test, which were not used
+in cross-validation.
+In [17]: trained_lasso = grid.best_estimator_
+Yhat_test = trained_lasso.predict(X_test)
+np.fabs(Yhat_test - Y_test).mean()
+Out[17]: 257.2382
+This is similar to the results we got for the linear model fit by least squares.
+However, these results can vary a lot for different train/test splits; we en-
+courage the reader to try a different seed in code block 12 and rerun the
+subsequent code up to this point.
+Specifying a Network: Classes and Inheritance
+To fit the neural network, we first set up a model structure that describes
+the network. Doing so requires us to define new classes specific to the model
+we wish to fit. Typically this is done in pytorch by sub-classing a generic
+representation of a network, which is the approach we take here. Although
+this example is simple, we will go through the steps in some detail, since it
+will serve us well for the more complex examples to follow.
+In [18]: class HittersModel(nn.Module):
+def __init__(self, input_size):
+super(HittersModel , self).__init__()
+self.flatten = nn.Flatten()
+self.sequential = nn.Sequential(
+nn.Linear(input_size, 50),
+nn.ReLU(),
+nn.Dropout(0.4),
+nn.Linear(50, 1))
+def forward(self, x):
+x = self.flatten(x)
+return torch.flatten(self.sequential(x))
+The class statement identifies the code chunk as a declaration for a class
+HittersModel that inherits from the base class nn.Module. This base class is
+ubiquitous in torch and represents the mappings in the neural networks.
+Indented beneath the class statement are the methods of this class: in
+this case __init__ and forward. The __init__ method is called when an
+instance of the class is created as in the cell below. In the methods, self
+always refers to an instance of the class. In the __init__ method, we have
+attached two objects to self as attributes: flatten and sequential. These
+are used in the forward method to describe the map that this module
+implements.

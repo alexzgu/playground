@@ -1,0 +1,86 @@
+display design 3 is different from both designs 1 and 2 and that the mean increase in sales for dis-
+play 3 exceeds that of both designs 1 and 2. Notice that JMP automatically includes some useful
+graphics in the output, a plot of the actual observations versus the predicted values from the model,
+and a plot of the residuals versus the predicted values. There is some mild indication that display
+design 3 may exhibit more variability in sales increase than the other two designs.
+■TA B L E 3 . 1 4
+JMP Output for the End-Aisle Display Experiment
+Response Sales Increase
+Whole Model
+Summary of Fit
+RSquare
+0.856364
+RSquare Adj
+0.832425
+Root Mean Square Error
+0.512383
+Mean of Response
+6.762667
+Observations (or Sum Wgts)
+15
+Analysis of Variance
+Source
+DF
+Sum of Squares
+Mean Square
+F Ratio
+Model
+2
+18.783053
+9.39153
+35.7722
+Error
+12
+3.150440
+0.26254
+ProbF
+C.Total
+14
+21.933493
+.0001
+Effect Tests
+Source
+Nparm
+DF
+Sum of Squares
+F Ratio
+Prob F
+Display
+2
+2
+18.783053
+35.7722
+.001
+Residual by Predicted Plot
+1.0
+0.5
+0.0
+–0.5
+–1.0
+Sales increase predicted
+Sales increase
+ residual
+6.0 6.5
+5.0
+7.5
+8.5
+9.5
+Actual by Predicted Plot
+9.5
+8.5
+8
+7
+6.5
+5.5
+5
+6.0 6.5
+5.0
+P < .0001 RSq = 0.86 RMSE = 0.5124
+Sales
+increase actual
+Sales increase predicted
+7.5
+8.5
+9.5
+3.8 Other Examples of Single-Factor Experiments
+113

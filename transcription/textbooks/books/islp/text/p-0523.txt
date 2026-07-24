@@ -1,0 +1,70 @@
+12.3 Missing Values and Matrix Completion
+517
+Algorithm 12.1 Iterative Algorithm for Matrix Completion
+1. Create a complete data matrix ˜X of dimension n × p of which the
+(i, j) element equals
+˜xij =
+K xij
+if (i, j) ∈O
+¯xj
+if (i, j) /∈O,
+where ¯xj is the average of the observed values for the jth variable in
+the incomplete data matrix X. Here, O indexes the observations that
+are observed in X.
+2. Repeat steps (a)–(c) until the objective (12.14) fails to decrease:
+(a) Solve
+minimize
+A∈Rn×M,B∈Rp×M
+
+
+
+p
+0
+j=1
+n
+0
+i=1
+>
+˜xij −
+M
+0
+m=1
+aimbjm
+?2
+
+
+(12.13)
+by computing the principal components of ˜X.
+(b) For each element (i, j) /∈O, set ˜xij ←)M
+m=1 ˆaimˆbjm.
+(c) Compute the objective
+0
+(i,j)∈O
+>
+xij −
+M
+0
+m=1
+ˆaimˆbjm
+?2
+.
+(12.14)
+3. Return the estimated missing entries ˜xij, (i, j) /∈O.
+is pretty accurate. Over 100 random runs of this experiment, the average
+correlation between the true and imputed values of the missing elements
+is 0.63, with a standard deviation of 0.11. Is this good performance? To
+answer this question, we can compare this correlation to what we would
+have gotten if we had estimated these 20 values using the complete data
+— that is, if we had simply computed ˆxij = zi1φj1, where zi1 and φj1 are
+elements of the first principal component score and loading vectors of the
+complete data.7 Using the complete data in this way results in an average
+correlation of 0.79 between the true and estimated values for these 20 el-
+ements, with a standard deviation of 0.08. Thus, our imputation method
+does worse than the method that uses all of the data (0.63 ± 0.11 versus
+0.79 ± 0.08), but its performance is still pretty good. (And of course, the
+method that uses all of the data cannot be applied in a real-world setting
+with missing data.)
+Figure 12.6 further indicates that Algorithm 12.1 performs fairly well on
+this dataset.
+7This is an unattainable gold standard, in the sense that with missing data, we of
+course cannot compute the principal components of the complete data.

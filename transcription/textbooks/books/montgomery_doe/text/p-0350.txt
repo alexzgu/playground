@@ -1,0 +1,55 @@
+334
+Chapter 8 ■Two-Level Fractional Factorial Designs
+one-quarter fraction of the 2k design has two generators. If P and Q represent the generators cho-
+sen, then I P and I Q are called the generating relations for the design. The signs of P and
+Q (either or ) determine which one of the one-quarter fractions is produced. All four frac-
+tions associated with the choice of generators P and Q are members of the same family.
+The fraction for which both P and Q are positive is the principal fraction.
+The complete deﬁning relation for the design consists of all the columns that are equal
+to the identity column I. These will consist of P, Q, and their generalized interaction PQ;
+that is, the dening relation is I P Q PQ.  We call the elements P, Q, and PQ in the
+dening relation words. The aliases of any effect are produced by the multiplication of the
+column for that effect by each word in the dening relation. Clearly, each effect has three
+aliases. The experimenter should be careful in choosing the generators so that potentially
+important effects are not aliased with each other.
+As an example, consider the 262 design. Suppose we choose I ABCE and I BCDF
+as the design generators. Now the generalized interaction of the generators ABCE and BCDF
+is ADEF; therefore, the complete dening relation for this design is
+Consequently, this is a resolution IV design. To nd the aliases of any effect (e.g., A), multi-
+ply that effect by each word in the dening relation. For A, this produces
+It is easy to verify that every main effect is aliased by three- and ve-factor interactions,
+whereas two-factor interactions are aliased with each other and with higher order interactions.
+Thus, when we estimate A, for example, we are really estimating A BCE  DEF 
+ABCDF. The complete alias structure of this design is shown in Table 8.8. If three-factor and
+higher interactions are negligible, this design gives clear estimates of the main effects.
+To construct the design, rst write down the basic design, which consists of the 16 runs
+for a full 262 24 design in A, B, C, and D. Then the two factors E and F are added by asso-
+ciating their plus and minus levels with the plus and minus signs of the interactions ABC and
+BCD, respectively. This procedure is shown in Table 8.9.
+Another way to construct this design is to derive the four blocks of the 26 design with
+ABCE and BCDF confounded and then choose the block with treatment combinations that are
+positive on ABCE and BCDF. This would be a 262 fractional factorial with generating rela-
+tions I ABCE and I BCDF, and because both generators ABCE and BCDF are positive,
+this is the principal fraction.
+A BCE ABCDF DEF
+I ABCE BCDF ADEF
+■TA B L E 8 . 8
+Alias Structure for the 
+Design with I ABCE BCDF ADEF
+A BCE DEF ABCDF
+AB CE ACDF BDEF
+B ACE CDF ABDEF
+AC BE ABDF CDEF
+C ABE BDF ACDEF
+AD EF BCDE ABCF
+D BCF AEF ABCDE
+AE BC DF ABCDEF
+E ABC ADF BCDEF
+AF DE BCEF ABCD
+F BCD ADE ABCEF
+BD CF ACDE ABEF
+BF CD ACEF ABDE
+ABD CDE ACF BEF
+ACD BDE ABF CEF
+262
+IV

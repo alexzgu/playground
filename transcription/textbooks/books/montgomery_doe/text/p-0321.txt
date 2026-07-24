@@ -1,0 +1,101 @@
+7.2 Blocking a Replicated 2k Factorial Design
+305
+7.2
+Blocking a Replicated 2k Factorial Design
+Suppose that the 2k factorial design has been replicated n times. This is identical to the situation
+discussed in Chapter 5, where we showed how to run a general factorial design in blocks. If there
+are n replicates, then each set of nonhomogeneous conditions denes a block, and each replicate
+is run in one of the blocks. The runs in each block (or replicate) would be made in random order.
+The analysis of the design is similar to that of any blocked factorial experiment; for example, see
+the discussion in Section 5.6. If blocks are random, the REML method can be used to nd both
+a point estimate and an approximate condance interval for the variance component for blocks.
+E X A M P L E 7 . 1
+Consider the chemical process experiment rst described in
+Section 6.2. Suppose that only four experimental trials can
+be made from a single batch of raw material. Therefore,
+three batches of raw material will be required to run all
+three replicates of this design. Table 7.1 shows the design,
+where each batch of raw material corresponds to a block.
+The ANOVA for this blocked design is shown in Table
+7.2. All of the sums of squares are calculated exactly as in
+a standard, unblocked 2k design. The sum of squares for
+blocks is calculated from the block totals. Let B1, B2, and B3
+represent the block totals (see Table 7.1). Then
+There are two degrees of freedom among the three blocks.
+Table 7.2 indicates that the conclusions from this analysis,
+had the design been run in blocks, are identical to those in
+Section 6.2 and that the block effect is relatively small.
+6.50
+(113)2 (106)2 (111)2
+4
+(330)2
+12
+SSBlocks 
+3
+i1
+B2
+i
+4 y2
+...
+12
+■TA B L E 7 . 1
+Chemical Process Experiment in Three Blocks
+Block 1
+Block 2
+Block 3
+Block totals:
+B3 111
+B2 106
+B1 113
+ab 29
+ab 30
+ab 31
+b 23
+b 19
+b 18
+a 32
+a 32
+a 36
+(1) 27
+(1) 25
+(1) 28
+■TA B L E 7 . 2
+Analysis of Variance for the Chemical Process Experiment in Three Blocks
+Sum of
+Degrees of
+Mean
+Source of Variation
+Squares
+Freedom
+Square
+F0
+P-Value
+Blocks
+6.50
+2
+3.25
+A (concentration)
+208.33
+1
+208.33
+50.32
+0.0004
+B (catalyst)
+75.00
+1
+75.00
+18.12
+0.0053
+AB
+8.33
+1
+8.33
+2.01
+0.2060
+Error
+24.84
+6
+4.14
+Total
+323.00
+11

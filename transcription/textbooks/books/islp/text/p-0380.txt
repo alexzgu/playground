@@ -1,0 +1,47 @@
+9.2 Support Vector Classifiers
+373
+0
+1
+2
+3
+−1.0
+−0.5
+0.0
+0.5
+1.0
+1.5
+2.0
+X1
+X2
+FIGURE 9.4.
+There are two classes of observations, shown in blue and in
+purple. In this case, the two classes are not separable by a hyperplane, and so the
+maximal margin classifier cannot be used.
+margin classifier. In this case, the optimization problem (9.9)–(9.11) has no
+solution with M > 0. An example is shown in Figure 9.4. In this case, we
+cannot exactly separate the two classes. However, as we will see in the next
+section, we can extend the concept of a separating hyperplane in order to
+develop a hyperplane that almost separates the classes, using a so-called
+soft margin. The generalization of the maximal margin classifier to the
+non-separable case is known as the support vector classifier.
+9.2
+Support Vector Classifiers
+9.2.1
+Overview of the Support Vector Classifier
+In Figure 9.4, we see that observations that belong to two classes are not
+necessarily separable by a hyperplane. In fact, even if a separating hyper-
+plane does exist, then there are instances in which a classifier based on
+a separating hyperplane might not be desirable. A classifier based on a
+separating hyperplane will necessarily perfectly classify all of the training
+observations; this can lead to sensitivity to individual observations. An ex-
+ample is shown in Figure 9.5. The addition of a single observation in the
+right-hand panel of Figure 9.5 leads to a dramatic change in the maxi-
+mal margin hyperplane. The resulting maximal margin hyperplane is not
+satisfactory—for one thing, it has only a tiny margin. This is problematic
+because as discussed previously, the distance of an observation from the
+hyperplane can be seen as a measure of our confidence that the obser-
+vation was correctly classified. Moreover, the fact that the maximal mar-
+gin hyperplane is extremely sensitive to a change in a single observation
+suggests that it may have overfit the training data.
+In this case, we might be willing to consider a classifier based on a hy-
+perplane that does not perfectly separate the two classes, in the interest of

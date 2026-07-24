@@ -1,0 +1,208 @@
+(a) What type of design did the experimenters use?
+(b) What are the alias relationships in this design?
+(c) Do any of the process variables affect average camber?
+(d) Do any of the process variables affect the variability in
+camber measurements?
+(e) If it is important to reduce camber as much as possi-
+ble, what recommendations would you make?
+8.29.
+A spin coater is used to apply photoresist to a bare sil-
+icon wafer. This operation usually occurs early in the semi-
+conductor manufacturing process, and the average coating
+thickness and the variability in the coating thickness have an
+important impact on downstream manufacturing steps. Six
+variables are used in the experiment. The variables and their
+high and low levels are as follows:
+Factor
+Low Level
+High Level
+Final spin speed
+7350 rpm
+6650 rpm
+Acceleration rate
+5
+20
+Volume of resist applied
+3 cc
+5 cc
+Time of spin
+14 sec
+6 sec
+Resist batch variation
+Batch 1
+Batch 2
+Exhaust pressure
+Cover off
+Cover on
+8.10 Problems
+379
+The experimenter decides to use a 261 design and to make
+three readings on resist thickness on each test wafer. The data
+are shown in Table P8.4.
+(a) Verify that this is a 261 design. Discuss the alias rela-
+tionships in this design.
+(b) What factors appear to affect average resist thickness?
+(c) Because the volume of resist applied has little effect
+on average thickness, does this have any important
+practical implications for the process engineers?
+(d) Project this design into a smaller design involving only
+the signicant factors. Graphically display the results.
+Does this aid in interpretation?
+(e) Use the range of resist thickness as a response variable.
+Is there any indication that any of these factors affect the
+variability in resist thickness?
+(f) Where would you recommend that the engineers run
+the process?
+8.30.
+Harry Peterson-Nedry (a friend of the author) owns a
+vineyard and winery in Newberg, Oregon. He grows several
+varieties of grapes and produces wine. Harry has used factori-
+al designs for process and product development in the wine-
+making segment of the business. This problem describes the
+experiment conducted for the 1985 Pinot Noir. Eight vari-
+ables, shown in Table P8.5, were originally studied in this
+experiment:
+■TA B L E P 8 . 3
+Data from the Experiment in Problem 8.28
+Camber for Replicate (in./in.)
+Total 
+Mean 
+Standard 
+Run
+1
+2
+3
+4
+(104 in./in.)
+(104 in./in.)
+Deviation
+1
+0.0167
+0.0128
+0.0149
+0.0185
+629
+157.25
+24.418
+2
+0.0062
+0.0066
+0.0044
+0.0020
+192
+48.00
+20.976
+3
+0.0041
+0.0043
+0.0042
+0.0050
+176
+44.00
+4.083
+4
+0.0073
+0.0081
+0.0039
+0.0030
+223
+55.75
+25.025
+5
+0.0047
+0.0047
+0.0040
+0.0089
+223
+55.75
+22.410
+6
+0.0219
+0.0258
+0.0147
+0.0296
+920
+230.00
+63.639
+7
+0.0121
+0.0090
+0.0092
+0.0086
+389
+97.25
+16.029
+8
+0.0255
+0.0250
+0.0226
+0.0169
+900
+225.00
+39.42
+9
+0.0032
+0.0023
+0.0077
+0.0069
+201
+50.25
+26.725
+10
+0.0078
+0.0158
+0.0060
+0.0045
+341
+85.25
+50.341
+11
+0.0043
+0.0027
+0.0028
+0.0028
+126
+31.50
+7.681
+12
+0.0186
+0.0137
+0.0158
+0.0159
+640
+160.00
+20.083
+13
+0.0110
+0.0086
+0.0101
+0.0158
+455
+113.75
+31.12
+14
+0.0065
+0.0109
+0.0126
+0.0071
+371
+92.75
+29.51
+15
+0.0155
+0.0158
+0.0145
+0.0145
+603
+150.75
+6.75
+16
+0.0093
+0.0124
+0.0110
+0.0133
+460
+115.00
+17.45
+Each run was replicated four times, and a camber measurement
+was taken on the substrate. The data are shown in Table P8.3.

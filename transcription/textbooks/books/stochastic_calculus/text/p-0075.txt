@@ -1,0 +1,50 @@
+2.10. HEAT EQUATION AND GENERATOR
+69
+density of Bt. Since Bt ∼N(0, t), we know that
+pt(x) =
+1
+√
+2πt e−x2
+2t 
+(2.6)
+We view this as a function of two variables t, x. If we are interested in the
+position at time s + t, we can use the Markovian nature of Brownian motion
+to rst observe the position at time s and then to consider what happens in
+the next time interval of length t. This leads to the C-K
+
+ps+t(x) =
+∞
+−∞
+ps(y) pt(x −y) dy
+(2.7)
+A straightforward calculation, which we omit, shows that if pt(x) is given by
+(2.6), then pt(x) satises (2.7). We emphasize that (2.7) uses the Markovian
+property: if we are interested in the position at time t + s and are given the
+information up to time s, the only information that is relevant is the position
+at time s.
+We will give a heuristic derivation of the PDE that describes the evolution
+of pt(x). For a number of our heuristic derivations we will use a 
+where we view the Brownian motion as satisfying
+P Bt+∆t = Bt + ∆x= P Bt+∆t = Bt −∆x= 1
+2,
+where ∆x =
+√
+∆t. In the approximation, to be at x at time t + ∆t one must
+be at x ± ∆x at time t which gives
+pt+∆t(x) ≈1
+2 pt(x −∆x) + 1
+2 pt(x + ∆x)
+Using ∆t = (∆x)2, this implies
+pt+∆t(x) −pt(x)
+∆t
+= pt(x + ∆x) + pt(x −∆x) −2 pt(x)
+2 (∆x)2
+
+(2.8)
+We now let ∆t →0 in (2.8). The denition of the partial derivative implies
+that
+lim
+∆t0
+pt+∆t(x) −pt(x)
+∆t
+= ∂tpt(x)

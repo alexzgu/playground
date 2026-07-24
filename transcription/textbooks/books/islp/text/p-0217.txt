@@ -1,0 +1,54 @@
+5.1 Cross-Validation
+209
+that LOOCV will give approximately unbiased estimates of the test error,
+since each training set contains n−1 observations, which is almost as many
+as the number of observations in the full data set. And performing k-fold
+CV for, say, k = 5 or k = 10 will lead to an intermediate level of bias,
+since each training set contains approximately (k −1)n/k observations—
+fewer than in the LOOCV approach, but substantially more than in the
+validation set approach. Therefore, from the perspective of bias reduction,
+it is clear that LOOCV is to be preferred to k-fold CV.
+However, we know that bias is not the only source for concern in an esti-
+mating procedure; we must also consider the procedure’s variance. It turns
+out that LOOCV has higher variance than does k-fold CV with k < n. Why
+is this the case? When we perform LOOCV, we are in effect averaging the
+outputs of n fitted models, each of which is trained on an almost identical
+set of observations; therefore, these outputs are highly (positively) corre-
+lated with each other. In contrast, when we perform k-fold CV with k < n,
+we are averaging the outputs of k fitted models that are somewhat less
+correlated with each other, since the overlap between the training sets in
+each model is smaller. Since the mean of many highly correlated quantities
+has higher variance than does the mean of many quantities that are not
+as highly correlated, the test error estimate resulting from LOOCV tends
+to have higher variance than does the test error estimate resulting from
+k-fold CV.
+To summarize, there is a bias-variance trade-off associated with the
+choice of k in k-fold cross-validation. Typically, given these considerations,
+one performs k-fold cross-validation using k = 5 or k = 10, as these values
+have been shown empirically to yield test error rate estimates that suffer
+neither from excessively high bias nor from very high variance.
+5.1.5
+Cross-Validation on Classification Problems
+In this chapter so far, we have illustrated the use of cross-validation in the
+regression setting where the outcome Y is quantitative, and so have used
+MSE to quantify test error. But cross-validation can also be a very useful
+approach in the classification setting when Y is qualitative. In this setting,
+cross-validation works just as described earlier in this chapter, except that
+rather than using MSE to quantify test error, we instead use the number
+of misclassified observations. For instance, in the classification setting, the
+LOOCV error rate takes the form
+CV(n) = 1
+n
+n
+0
+i=1
+Erri,
+(5.4)
+where Erri = I(yi̸ = ˆyi). The k-fold CV error rate and validation set error
+rates are defined analogously.
+As an example, we fit various logistic regression models on the two-
+dimensional classification data displayed in Figure 2.13. In the top-left
+panel of Figure 5.7, the black solid line shows the estimated decision bound-
+ary resulting from fitting a standard logistic regression model to this data
+set. Since this is simulated data, we can compute the true test error rate,
+which takes a value of 0.201 and so is substantially larger than the Bayes

@@ -1,0 +1,118 @@
+8.4 The General 2kp Fractional Factorial Design
+345
+E X A M P L E 8 . 6
+A ve-axis CNC machine is used to produce an impeller for
+a jet turbine engine. The blade proles are an important
+quality characteristic. Specically, the deviation of the
+blade prole from the prole specied on the engineering
+drawing is of interest. An experiment is run to determine
+which machine parameters affect prole deviation. The
+eight factors selected for the design are as follows:
+Factor
+Low Level () High Level ()
+A x-Axis shift 
+0
+15
+(0.001 in.)
+B y-Axis shift 
+0
+15
+(0.001 in.)
+C z-Axis shift (0.001 in.)
+0
+15
+D Tool supplier
+1
+2
+E a-Axis shift (0.001 deg)
+0
+30
+F Spindle speed (%)
+90
+110
+G Fixture height (0.001 in.)
+0
+15
+H Feed rate (%)
+90
+110
+One test blade on each part is selected for inspection. The
+prole deviation is measured using a coordinate measuring
+machine, and the standard deviation of the difference
+between the actual prole and the specied prole is used
+as the response variable.
+The machine has four spindles. Because there may be
+differences in the spindles, the process engineers feel that
+the spindles should be treated as blocks.
+The engineers feel condent that three-factor and high-
+er interactions are not too important, but they are reluctant
+to ignore the two-factor interactions. From Table 8.14, two
+designs initially appear appropriate: the 
+design with 16
+runs and the 
+design with 32 runs. Appendix Table X(1)
+indicates that if the 16-run design is used, there will be
+fairly extensive aliasing of two-factor interactions.
+Furthermore, this design cannot be run in four blocks with-
+out confounding four two-factor interactions with blocks.
+Therefore, the experimenters decide to use the 
+design
+in four blocks. This confounds one three-factor interaction
+alias chain and one two-factor interaction (EH) and its
+three-factor interaction aliases with blocks. The EH interac-
+283
+IV
+283
+IV
+284
+IV
+tion is the interaction between the a-axis shift and the feed
+rate, and the engineers consider an interaction between
+these two variables to be fairly unlikely.
+Table 8.16 contains the design and the resulting
+responses as standard deviation 103 in.. Because the
+response variable is a standard deviation, it is often best to
+perform the analysis following a log transformation. The
+effect estimates are shown in Table 8.17. Figure 8.19 is a
+normal probability plot of the effect estimates, using ln
+(standard deviation 103) as the response variable. The
+only large effects are A x-axis shift, B y-axis shift,
+and the alias chain involving AD BG. Now AD is the 
+x-axis shift-tool supplier interaction, and BG is the y-axis
+shift-xture height interaction, and since these two interac-
+tions are aliased it is impossible to separate them based on
+the data from the current experiment. Since both interac-
+tions involve one large main effect it is also difcult to
+apply any “obvious” simplifying logic such as effect heredity
+to the situation either. If there is some engineering knowl-
+edge or process knowledge available that sheds light on the
+situation, then perhaps a choice could be made between the
+two interactions; otherwise, more data will be required to
+separate these two effects. (The problem of adding runs to
+a fractional factorial to de-alias interactions is discussed in
+Sections 8.6 and 8.7.)
+Suppose that process knowledge suggests that the
+appropriate interaction is likely to be AD. Table 8.18 is the
+resulting analysis of variance for the model with factors A,
+B, D, and AD (factor D was included to preserve the hierar-
+chy principle). Notice that the block effect is small, sug-
+gesting that the machine spindles are not very different.
+Figure 8.20 is a normal probability plot of the residuals
+from this experiment. This plot is suggestive of slightly
+heavier than normal tails, so possibly other transformations
+should be considered. The AD interaction plot is in Figure
+8.21. Notice that tool supplier (D) and the magnitude of the
+x-axis shift (A) have a profound impact on the variability of
+the blade prole from design specications. Running A at
+the low level (0 offset) and buying tools from supplier 1
+gives the best results. Figure 8.22 shows the projection of
+this 
+design into four replicates of a 23 design in factors
+A, B, and D. The best combination of operating conditions
+is A at the low level (0 offset), B at the high level (0.015 in
+offset), and D at the low level (tool supplier 1).
+283
+IV
+principal block contains those treatment combinations that have an even number of letters in
+common with ABD. These are also the treatment combinations for which L x1 x2 x4 
+0 (mod 2).

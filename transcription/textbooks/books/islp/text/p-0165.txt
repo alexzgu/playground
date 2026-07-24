@@ -1,0 +1,82 @@
+156
+4. Classification
+True class
+−or Null
++ or Non-null
+Total
+Predicted
+−or Null
+True Neg. (TN)
+False Neg. (FN)
+N∗
+class
++ or Non-null
+False Pos. (FP)
+True Pos. (TP)
+P∗
+Total
+N
+P
+TABLE 4.6. Possible results when applying a classifier or diagnostic test to a
+population.
+Name
+Definition
+Synonyms
+False Pos. rate
+FP/N
+Type I error, 1−Specificity
+True Pos. rate
+TP/P
+1−Type II error, power, sensitivity, recall
+Pos. Pred. value
+TP/P∗
+Precision, 1−false discovery proportion
+Neg. Pred. value
+TN/N∗
+TABLE 4.7. Important measures for classification and diagnostic testing, derived
+from quantities in Table 4.6.
+alternative (non-null) hypothesis. In the context of the Default data, “+”
+indicates an individual who defaults, and “−” indicates one who does not.
+Table 4.7 lists many of the popular performance measures that are used in
+this context. The denominators for the false positive and true positive rates
+are the actual population counts in each class. In contrast, the denominators
+for the positive predictive value and the negative predictive value are the
+total predicted counts for each class.
+4.4.3
+Quadratic Discriminant Analysis
+As we have discussed, LDA assumes that the observations within each class
+are drawn from a multivariate Gaussian distribution with a class-specific
+mean vector and a covariance matrix that is common to all K classes.
+Quadratic discriminant analysis (QDA) provides an alternative approach. quadratic
+discriminant
+analysis
+Like LDA, the QDA classifier results from assuming that the observations
+from each class are drawn from a Gaussian distribution, and plugging es-
+timates for the parameters into Bayes’ theorem in order to perform pre-
+diction. However, unlike LDA, QDA assumes that each class has its own
+covariance matrix. That is, it assumes that an observation from the kth
+class is of the form X ∼N(µk, Σk), where Σk is a covariance matrix for
+the kth class. Under this assumption, the Bayes classifier assigns an obser-
+vation X = x to the class for which
+δk(x)
+=
+−1
+2(x −µk)T Σ−1
+k (x −µk) −1
+2 log |Σk| + log πk
+=
+−1
+2xT Σ−1
+k x + xT Σ−1
+k µk −1
+2µT
+k Σ−1
+k µk −1
+2 log |Σk| + log πk
+(4.28)
+is largest. So the QDA classifier involves plugging estimates for Σk, µk,
+and πk into (4.28), and then assigning an observation X = x to the class
+for which this quantity is largest. Unlike in (4.24), the quantity x appears
+as a quadratic function in (4.28). This is where QDA gets its name.
+Why does it matter whether or not we assume that the K classes share a
+common covariance matrix? In other words, why would one prefer LDA to

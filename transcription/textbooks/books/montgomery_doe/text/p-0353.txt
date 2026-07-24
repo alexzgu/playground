@@ -1,0 +1,154 @@
+8.3 The One-Quarter Fraction of the 2k Design
+337
+■TA B L E 8 . 1 1
+Effects, Sums of Squares, and Regression Coefﬁcients for Example 8.4
+Variable
+Name
+1 Level
+1 Level
+A
+Mold temperature
+1.000
+1.000
+B
+Screw speed
+1.000
+1.000
+C
+Holding time
+1.000
+1.000
+D
+Cycle time
+1.000
+1.000
+E
+Gate size
+1.000
+1.000
+F
+Hold pressure
+1.000
+1.000
+Variablea
+Regression Coefﬁcient
+Estimated Effect
+Sum of Squares
+Overall Average
+27.3125
+A
+6.9375
+13.8750
+770.062
+B
+17.8125
+35.6250
+5076.562
+C
+0.4375
+0.8750
+3.063
+D
+0.6875
+1.3750
+7.563
+E
+0.1875
+0.3750
+0.563
+F
+0.1875
+0.3750
+0.563
+AB CE
+5.9375
+11.8750
+564.063
+AC BE
+0.8125
+1.6250
+10.562
+AD EF
+2.6875
+5.3750
+115.562
+AE BC DF
+0.9375
+1.8750
+14.063
+AF DE
+0.3125
+0.6250
+1.563
+BD CF
+0.0625
+0.1250
+0.063
+BF CD
+0.0625
+0.1250
+0.063
+ABD
+0.0625
+0.1250
+0.063
+ABF
+2.4375
+4.8750
+95.063
+aOnly main effects and two-factor interactions.
+Effect estimates
+AB
+A
+B
+–5
+0
+5
+10
+15
+20
+25
+30
+35
+40
+1
+5
+10
+20
+30
+50
+70
+90
+95
+99
+80
+Normal probability, (1 – Pj) × 100
+Pj × 100
+1
+5
+10
+20
+30
+50
+70
+80
+90
+95
+99
+Low
+High
+Mold temperature, A
+Shrinkage (×10)
+4
+60
+B+
+B+
+B–
+B–
+■F I G U R E 8 . 1 2
+Normal probability plot of
+effects for Example 8.4
+■F I G U R E 8 . 1 3
+Plot of AB (mold
+temperature–screw speed) interaction for
+Example 8.4

@@ -1,0 +1,28 @@
+6.11. EXERCISES
+235
+Exercise 6.8. Suppose Xt is a generalized Poisson process with L´evy mea-
+sure µ given by
+dµ(x) = dx
+x ,
+0 < x < 1
+1. Is this a generalized Poisson process of Type I?
+2. Find E[Xt], Var[Xt].
+3. What is the probability that there are no jumps of size greater than
+12 by time t = 2?
+4. Let
+f(t, x) = E
+
+X4
+t X0 = x
+
+
+Find the function g(x) such that
+d
+dtf(t, x) t=0= g(x)
+Exercise 6.9. Suppose Xt is as in Exercise 6.8 and Bt is an independent
+standard Brownian motion. Let Yt = Xt + t + 2Bt and answer the same
+questions for Yt.
+Exercise 6.10. Do Exercise 6.8 where
+dµ(x) =
+dx
+x52, 0 < x< 1

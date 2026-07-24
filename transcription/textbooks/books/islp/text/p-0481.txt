@@ -1,0 +1,84 @@
+11.4 The Log-Rank Test
+475
+Group 1
+Group 2
+Total
+Died
+q1k
+q2k
+qk
+Survived
+r1k −q1k
+r2k −q2k
+rk −qk
+Total
+r1k
+r2k
+rk
+TABLE 11.1. Among the set of patients at risk at time dk, the number of patients
+who died and survived in each of two groups is reported.
+which examines how the events in each group unfold sequentially in time.
+Recall from Section 11.3 that d1 < d2 < · · · < dK are the unique death
+times among the non-censored patients, rk is the number of patients at
+risk at time dk, and qk is the number of patients who died at time dk. We
+further define r1k and r2k to be the number of patients in groups 1 and 2,
+respectively, who are at risk at time dk. Similarly, we define q1k and q2k to
+be the number of patients in groups 1 and 2, respectively, who died at time
+dk. Note that r1k + r2k = rk and q1k + q2k = qk.
+At each death time dk, we construct a 2 × 2 table of counts of the form
+shown in Table 11.1. Note that if the death times are unique (i.e. no two
+individuals die at the same time), then one of q1k and q2k equals one, and
+the other equals zero.
+The main idea behind the log-rank test statistic is as follows. In order
+to test H0 : E(X) = µ for some random variable X, one approach is to
+construct a test statistic of the form
+W =
+X −µ
+5
+Var(X)
+.
+(11.4)
+To construct the log-rank test statistic, we compute a quantity that takes
+exactly the form (11.4), with X = )K
+k=1 q1k, where q1k is given in the top
+left of Table 11.1.
+In greater detail, if there is no difference in survival between the two
+groups, and conditioning on the row and column totals in Table 11.1, the
+expected value of q1k is
+µk = r1k
+rk
+qk.
+(11.5)
+So the expected value of X = )K
+k=1 q1k is µ = )K
+k=1
+r1k
+rk qk. Furthermore,
+it can be shown5 that the variance of q1k is
+Var (q1k) = qk(r1k/rk)(1 −r1k/rk)(rk −qk)
+rk −1
+.
+(11.6)
+Though q11, . . . , q1K may be correlated, we nonetheless estimate
+Var
+> K
+0
+k=1
+q1k
+?
+≈
+K
+0
+k=1
+Var (q1k) =
+K
+0
+k=1
+qk(r1k/rk)(1 −r1k/rk)(rk −qk)
+rk −1
+.
+(11.7)
+4The log-rank test is also known as the Mantel–Haenszel test
+or Cochran–Mantel–
+Haenszel test.
+5For details, see Exercise 7 at the end of this chapter.

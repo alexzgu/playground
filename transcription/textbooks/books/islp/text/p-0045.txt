@@ -1,0 +1,59 @@
+2.2 Assessing Model Accuracy
+35
+our estimate ˆf to the training observations:
+1
+n
+n
+0
+i=1
+I(yi̸ = ˆyi).
+(2.8)
+Here ˆyi is the predicted class label for the ith observation using ˆf. And
+I(yi̸ = ˆyi) is an indicator variable that equals 1 if yi̸ = ˆyi and zero if yi = ˆyi. indicator
+variable
+If I(yi̸ = ˆyi) = 0 then the ith observation was classified correctly by our
+classification method; otherwise it was misclassified. Hence Equation 2.8
+computes the fraction of incorrect classifications.
+Equation 2.8 is referred to as the training error rate because it is com- training
+error
+puted based on the data that was used to train our classifier. As in the
+regression setting, we are most interested in the error rates that result from
+applying our classifier to test observations that were not used in training.
+The test error rate associated with a set of test observations of the form test error
+(x0, y0) is given by
+Ave (I(y0̸ = ˆy0)) ,
+(2.9)
+where ˆy0 is the predicted class label that results from applying the classifier
+to the test observation with predictor x0. A good classifier is one for which
+the test error (2.9) is smallest.
+The Bayes Classifier
+It is possible to show (though the proof is outside of the scope of this
+book) that the test error rate given in (2.9) is minimized, on average, by a
+very simple classifier that assigns each observation to the most likely class,
+given its predictor values. In other words, we should simply assign a test
+observation with predictor vector x0 to the class j for which
+Pr(Y = j|X = x0)
+(2.10)
+is largest. Note that (2.10) is a conditional probability: it is the probability conditional
+probability
+that Y = j, given the observed predictor vector x0. This very simple clas-
+sifier is called the Bayes classifier. In a two-class problem where there are Bayes
+classifier
+only two possible response values, say class 1 or class 2, the Bayes classifier
+corresponds to predicting class one if Pr(Y = 1|X = x0) > 0.5, and class
+two otherwise.
+Figure 2.13 provides an example using a simulated data set in a two-
+dimensional space consisting of predictors X1 and X2. The orange and
+blue circles correspond to training observations that belong to two different
+classes. For each value of X1 and X2, there is a different probability of the
+response being orange or blue. Since this is simulated data, we know how
+the data were generated and we can calculate the conditional probabilities
+for each value of X1 and X2. The orange shaded region reflects the set of
+points for which Pr(Y = orange|X) is greater than 50 %, while the blue
+shaded region indicates the set of points for which the probability is below
+50 %. The purple dashed line represents the points where the probability
+is exactly 50 %. This is called the Bayes decision boundary. The Bayes Bayes
+decision
+boundary
+classifier’s prediction is determined by the Bayes decision boundary; an
+observation that falls on the orange side of the boundary will be assigned

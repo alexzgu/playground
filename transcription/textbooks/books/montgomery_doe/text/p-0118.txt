@@ -1,0 +1,60 @@
+102
+Chapter 3 ■Experiments with a Single Factor: The Analysis of Variance
+3.6
+Sample Computer Output
+Computer programs for supporting experimental design and performing the analysis of variance
+are widely available. The output from one such program, Design-Expert, is shown in Figure
+3.12, using the data from the plasma etching experiment in Example 3.1. The sum of squares
+corresponding to the “Model” is the usual SSTreatments for a single-factor design. That source is
+further identied as “A.” When there is more than one factor in the experiment, the model sum
+of squares will be decomposed into several sources (A, B, etc.). Notice that the analysis of vari-
+ance summary at the top of the computer output contains the usual sums of squares, degrees of
+freedom, mean squares, and test statistic F0. The column “Prob F” is the P-value (actually,
+the upper bound on the P-value because probabilities less than 0.0001 are defaulted to 0.0001).
+In addition to the basic analysis of variance, the program displays some other useful
+information. The quantity “R-squared” is dened as
+and is loosely interpreted as the proportion of the variability in the data “explained” by the
+ANOVA model. Thus, in the plasma etching experiment, the factor “power” explains about
+92.61 percent of the variability in etch rate. Clearly, we must have 0 R2 1, with larg-
+er values being more desirable. There are also some other R2-like statistics displayed in
+the output. The “adjusted” R2 is a variation of the ordinary R2 statistic that reflects the
+number of factors in the model. It can be a useful statistic for more complex experiments
+with several design factors when we wish to evaluate the impact of increasing or decreas-
+ing the number of model terms. “Std. Dev.” is the square root of the error mean square,
+, and “C.V.” is the coefficient of variation, defined as 
+. The
+coefficient of variation measures the unexplained or residual variability in the data as a per-
+centage of the mean of the response variable. “PRESS” stands for “prediction error sum of
+squares,” and it is a measure of how well the model for the experiment is likely to predict
+the responses in a new experiment. Small values of PRESS are desirable. Alternatively, one
+can calculate an R2 for prediction based on PRESS (we will show how to do this later). This
+in our problem is 0.8845, which is not unreasonable, considering that the model
+accounts for about 93 percent of the variability in the current experiment. The “adequate
+precision” statistic is computed by dividing the difference between the maximum predict-
+ed response and the minimum predicted response by the average standard deviation of all
+predicted responses. Large values of this quantity are desirable, and values that exceed four
+usually indicate that the model will give reasonable performance in prediction.
+Treatment means are estimated, and the standard error (or sample standard deviation of
+each treatment mean,
+) is displayed. Differences between pairs of treatment means
+are investigated by using a hypothesis testing version of the Fisher LSD method described in
+Section 3.5.7.
+The computer program also calculates and displays the residuals, as dened in Equation
+3.16. The program will also produce all of the residual plots that we discussed in Section 3.4.
+There are also several other residual diagnostics displayed in the output. Some of these will be
+discussed later. Design-Expert also displays the studentized residual (called “Student Residual”
+in the output), calculate as 
+where Leverageij is a measure of the inuence of the ijth observation on the model. We will dis-
+cuss leverage in more detail and show how it is calculated in chapter 10. Studentized residuals
+rij 
+eij
+MSE (1 Leverageij)
+MSE/n
+R2
+Pred
+(MSE/y )100
+333.70 18.27
+R2 SSModel
+SSTotal
+66,870.55
+72,209.75 0.9261

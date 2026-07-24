@@ -1,0 +1,95 @@
+454
+10. Deep Learning
+In [67]: for i, imgfile in enumerate(imgfiles):
+img_df = class_labels.copy()
+img_df['prob'] = img_probs[i]
+img_df = img_df.sort_values(by='prob', ascending=False)[:3]
+print(f'Image: {imgfile}')
+print(img_df.reset_index().drop(columns=['idx']))
+Image: book_images/Cape_Weaver.jpg
+label
+prob
+0
+jacamar
+0.287283
+1
+bee_eater
+0.046768
+2
+bulbul
+0.037507
+Image: book_images/Flamingo.jpg
+label
+prob
+0
+flamingo
+0.591761
+1
+spoonbill
+0.012386
+2
+American_egret
+0.002105
+Image: book_images/Hawk_Fountain.jpg
+label
+prob
+0
+great_grey_owl
+0.287959
+1
+kite
+0.039478
+2
+fountain
+0.029384
+Image: book_images/Hawk_cropped.jpg
+label
+prob
+0
+kite
+0.301830
+1
+jay
+0.121674
+2
+magpie
+0.015513
+Image: book_images/Lhasa_Apso.jpg
+label
+prob
+0
+Lhasa
+0.151143
+1
+Shih-Tzu
+0.129850
+2
+Tibetan_terrier
+0.102358
+Image: book_images/Sleeping_Cat.jpg
+label
+prob
+0
+tabby
+0.173627
+1
+tiger_cat
+0.110414
+2
+doormat
+0.093447
+We see that the model is quite confident about Flamingo.jpg, but a little
+less so for the other images.
+We end this section with our usual cleanup.
+In [68]: del(cifar_test,
+cifar_train ,
+cifar_dm,
+cifar_module ,
+cifar_logger ,
+cifar_optimizer ,
+cifar_trainer)
+10.9.5
+IMDB Document Classification
+We now implement models for sentiment classification (Section 10.4) on
+the IMDB dataset. As mentioned above code block 8, we are using a prepro-
+cessed version of the IMDB dataset found in the keras package. As keras uses

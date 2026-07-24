@@ -1,0 +1,63 @@
+1. Choose a step size in one of the process variables, say xj. Usually, we would select
+the variable we know the most about, or we would select the variable that has the
+largest absolute regression coefcient 
+.
+2. The step size in the other variables is
+3. Convert the xi from coded variables to the natural variables.
+To illustrate, consider the path of steepest ascent computed in Example 11.1. Because
+x1 has the largest regression coefcient, we select reaction time as the variable in step 1 of the
+above procedure. Five minutes of reaction time is the step size (based on process knowledge).
+In terms of the coded variables, this is x1 1.0. Therefore, from guideline 2, the step size
+in temperature is
+To convert the coded step sizes (x1 1.0 and x2 0.42) to the natural units of time and
+temperature, we use the relationships
+which results in
+and
+11.3
+Analysis of a Second-Order Response Surface
+When the experimenter is relatively close to the optimum, a model that incorporates
+curvature is usually required to approximate the response. In most cases, the second-order
+model
+(11.4)
+is adequate. In this section, we will show how to use this fitted model to find the optimum
+set of operating conditions for the x’s and to characterize the nature of the response
+surface.
+11.3.1
+Location of the Stationary Point
+Suppose we wish to find the levels of x1, x2, . . . , xk that optimize the predicted response.
+This point, if it exists, will be the set of x1, x2, . . . , xk for which the partial derivatives
+. This point, say x1,s, x2,s, . . . , xk,s, is called the station-
+ary point. The stationary point could represent a point of maximum response, a point of
+yˆ/x1 yˆ/x2 Á yˆ/xk 0
+y 0 
+k
+i1
+ixi 
+k
+i1
+ii x2
+i 
+i< j
+ijxi xj 
+2 x2(5) 0.42(5) 2F
+1 x1(5) 1.0(5) 5 min
+x1 1
+5 
+ and 
+ x2 2
+5
+x2 
+ˆ 2
+ˆ 1/x1
+
+0.325
+(0.775/1.0) 0.42
+xi 
+ˆ i
+ˆ j/xj
+ 
+ i 1, 2, . . . , k 
+ i Z j
+ˆ j
+486
+Chapter 11 ■Response Surface Methods and Designs

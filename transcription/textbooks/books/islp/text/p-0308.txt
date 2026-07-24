@@ -1,0 +1,61 @@
+300
+7. Moving Beyond Linearity
+20
+30
+40
+50
+60
+70
+80
+50
+100
+150
+200
+250
+300
+Age
+Wage
+Natural Cubic Spline
+Polynomial
+FIGURE 7.7. On the Wage data set, a natural cubic spline with 15 degrees
+of freedom is compared to a degree-15 polynomial. Polynomials can show wild
+behavior, especially near the tails.
+7.5
+Smoothing Splines
+In the last section we discussed regression splines, which we create by spec-
+ifying a set of knots, producing a sequence of basis functions, and then
+using least squares to estimate the spline coefficients. We now introduce a
+somewhat different approach that also produces a spline.
+7.5.1
+An Overview of Smoothing Splines
+In fitting a smooth curve to a set of data, what we really want to do is
+find some function, say g(x), that fits the observed data well: that is, we
+want RSS = )n
+i=1(yi −g(xi))2 to be small. However, there is a problem
+with this approach. If we don’t put any constraints on g(xi), then we can
+always make RSS zero simply by choosing g such that it interpolates all
+of the yi. Such a function would woefully overfit the data—it would be far
+too flexible. What we really want is a function g that makes RSS small,
+but that is also smooth.
+How might we ensure that g is smooth? There are a number of ways to
+do this. A natural approach is to find the function g that minimizes
+n
+0
+i=1
+(yi −g(xi))2 + λ
+L
+g′′(t)2dt
+(7.11)
+where λ is a nonnegative tuning parameter. The function g that minimizes
+(7.11) is known as a smoothing spline.
+smoothing
+spline
+What does (7.11) mean? Equation 7.11 takes the “Loss+Penalty” for-
+mulation that we encounter in the context of ridge regression and the lasso
+in Chapter 6. The term )n
+i=1(yi −g(xi))2 is a loss function that encour- loss function
+ages g to fit the data well, and the term λ
+M
+g′′(t)2dt is a penalty term
+that penalizes the variability in g. The notation g′′(t) indicates the second
+derivative of the function g. The first derivative g′(t) measures the slope

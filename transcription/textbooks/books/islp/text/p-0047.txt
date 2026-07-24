@@ -1,0 +1,53 @@
+2.2 Assessing Model Accuracy
+37
+teger K and a test observation x0, the KNN classifier first identifies the
+K points in the training data that are closest to x0, represented by N0.
+It then estimates the conditional probability for class j as the fraction of
+points in N0 whose response values equal j:
+Pr(Y = j|X = x0) = 1
+K
+0
+i∈N0
+I(yi = j).
+(2.12)
+Finally, KNN classifies the test observation x0 to the class with the largest
+probability from (2.12).
+Figure 2.14 provides an illustrative example of the KNN approach. In
+the left-hand panel, we have plotted a small training data set consisting of
+six blue and six orange observations. Our goal is to make a prediction for
+the point labeled by the black cross. Suppose that we choose K = 3. Then
+KNN will first identify the three observations that are closest to the cross.
+This neighborhood is shown as a circle. It consists of two blue points and
+one orange point, resulting in estimated probabilities of 2/3 for the blue
+class and 1/3 for the orange class. Hence KNN will predict that the black
+cross belongs to the blue class. In the right-hand panel of Figure 2.14 we
+have applied the KNN approach with K = 3 at all of the possible values for
+X1 and X2, and have drawn in the corresponding KNN decision boundary.
+Despite the fact that it is a very simple approach, KNN can often pro-
+duce classifiers that are surprisingly close to the optimal Bayes classifier.
+Figure 2.15 displays the KNN decision boundary, using K = 10, when ap-
+plied to the larger simulated data set from Figure 2.13. Notice that even
+though the true distribution is not known by the KNN classifier, the KNN
+decision boundary is very close to that of the Bayes classifier. The test error
+rate using KNN is 0.1363, which is close to the Bayes error rate of 0.1304.
+The choice of K has a drastic effect on the KNN classifier obtained.
+Figure 2.16 displays two KNN fits to the simulated data from Figure 2.13,
+using K = 1 and K = 100. When K = 1, the decision boundary is overly
+flexible and finds patterns in the data that don’t correspond to the Bayes
+decision boundary. This corresponds to a classifier that has low bias but
+very high variance. As K grows, the method becomes less flexible and
+produces a decision boundary that is close to linear. This corresponds to
+a low-variance but high-bias classifier. On this simulated data set, neither
+K = 1 nor K = 100 give good predictions: they have test error rates of
+0.1695 and 0.1925, respectively.
+Just as in the regression setting, there is not a strong relationship be-
+tween the training error rate and the test error rate. With K = 1, the
+KNN training error rate is 0, but the test error rate may be quite high. In
+general, as we use more flexible classification methods, the training error
+rate will decline but the test error rate may not. In Figure 2.17, we have
+plotted the KNN test and training errors as a function of 1/K. As 1/K in-
+creases, the method becomes more flexible. As in the regression setting, the
+training error rate consistently declines as the flexibility increases. However,
+the test error exhibits a characteristic U-shape, declining at first (with a
+minimum at approximately K = 10) before increasing again when the
+method becomes excessively flexible and overfits.

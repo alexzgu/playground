@@ -1,0 +1,60 @@
+4.1 The Randomized Complete Block Design
+151
+blocks) has occurred. Similarly, interactions between treatments and blocks can occur when
+the response is measured on the wrong scale. Thus, a relationship that is multiplicative in the
+original units, say
+is linear or additive in a log scale since, for example,
+or
+Although this type of interaction can be eliminated by a transformation, not all interactions
+are so easily treated. For example, transformations do not eliminate the formulation–batch
+interaction discussed previously. Residual analysis and other diagnostic checking procedures
+can be helpful in detecting nonadditivity.
+If interaction is present, it can seriously affect and possibly invalidate the analysis of
+variance. In general, the presence of interaction inates the error mean square and may
+adversely affect the comparison of treatment means. In situations where both factors, as well
+as their possible interaction, are of interest, factorial designs must be used. These designs are
+discussed extensively in Chapters 5 through 9.
+Random Treatments and Blocks. Our presentation of the randomized complete
+block design thus far has focused on the case when both the treatments and blocks were con-
+sidered as xed factors. There are many situations where either treatments or blocks (or both)
+are random factors. It is very common to nd that the blocks are random. This is usually what
+the experimenter would like to do, because we would like for the conclusions from the exper-
+iment to be valid across the population of blocks that the ones selected for the experiments
+were sampled from. First, we consider the case where the treatments are xed and the blocks
+are random. Equation 4.1 is still the appropriate statistical model, but now the block effects
+are random, that is, we assume that the j , j  1, 2,..., b are NID(0, 2
+) random variables.
+This is a special case of a mixed model (because it contains both xed and random factors).
+In Chapters 13 and 14 we will discuss mixed models in more detail and provide several exam-
+ples of situations where they occur. Our discussion here is limited to the RCBD.  
+Assuming that the RCBD model Equation 4.1 is appropriate, if the blocks are random
+and the treatments are xed we can show that:
+(4.14)
+Thus, the variance of the observations is constant, the covariance between any two observa-
+tions in different blocks is zero, but the covariance between two observations from the same
+block is 
+. The expected mean squares from the usual ANOVA partitioning of the total sum
+of squares are 
+(4.15)
+E(MSE) 2
+E(MSBlocks) 2 a2
+
+E(MSTreatments) 2 
+b
+a
+i1
+2
+i
+a 1
+2
+
+Cov(yij, yij) 2
+i Z i
+Cov(yij, yij) 0,   j Z j
+V(yij) 2
+2
+E(yij) i,
+i 1, 2,..., a
+E(y*ij ) * *i *j
+ln E(yij) ln ln i ln j
+E(yij) ij

@@ -1,0 +1,65 @@
+280
+6. Linear Model Selection and Regularization
+In [45]: path_fig, ax = subplots(figsize=(8,8))
+soln_path.plot(ax=ax, legend=False)
+ax.legend(loc='upper left')
+ax.set_xlabel('$-\log(\lambda)$', fontsize=20)
+ax.set_ylabel('Standardized coefficiients', fontsize=20);
+The smallest cross-validated error is lower than the test set MSE of the null
+model and of least squares, and very similar to the test MSE of 115526.71
+of ridge regression (page 278) with λ chosen by cross-validation.
+In [46]: np.min(tuned_lasso.mse_path_.mean(1))
+Out[46]: 114690.73
+Let’s again produce a plot of the cross-validation error.
+In [47]: lassoCV_fig , ax = subplots(figsize=(8,8))
+ax.errorbar(-np.log(tuned_lasso.alphas_),
+tuned_lasso.mse_path_.mean(1),
+yerr=tuned_lasso.mse_path_.std(1) / np.sqrt(K))
+ax.axvline(-np.log(tuned_lasso.alpha_), c='k', ls='--')
+ax.set_ylim([50000,250000])
+ax.set_xlabel('$-\log(\lambda)$', fontsize=20)
+ax.set_ylabel('Cross-validated MSE', fontsize=20);
+However, the lasso has a substantial advantage over ridge regression in
+that the resulting coefficient estimates are sparse. Here we see that 6 of the
+19 coefficient estimates are exactly zero. So the lasso model with λ chosen
+by cross-validation contains only 13 variables.
+In [48]: tuned_lasso.coef_
+Out[48]: array([-210.01008773,
+243.4550306 ,
+0.
+,
+0.
+,
+0.
+,
+97.69397357,
+-41.52283116,
+-0.
+,
+0.
+,
+39.62298193,
+205.75273856,
+124.55456561,
+-126.29986768,
+15.70262427,
+-59.50157967,
+75.24590036,
+21.62698014,
+-12.04423675,
+-0.
+])
+As in ridge regression, we could evaluate the test error of cross-validated
+lasso by first splitting into test and training sets and internally running
+cross-validation on the training set. We leave this as an exercise.
+6.5.3
+PCR and PLS Regression
+Principal Components Regression
+Principal components regression (PCR) can be performed using PCA() from PCA()
+the sklearn.decomposition module. We now apply PCR to the Hitters
+data, in order to predict Salary. Again, ensure that the missing values
+have been removed from the data, as described in Section 6.5.1.
+We use LinearRegression() to fit the regression model here. Note that Linear
+Regression()
+it fits an intercept by default, unlike the OLS() function seen earlier in
+Section 6.5.1.

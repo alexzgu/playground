@@ -1,0 +1,60 @@
+140
+4. Classification
+low balances we now predict the probability of default as close to, but never
+below, zero. Likewise, for high balances we predict a default probability
+close to, but never above, one. The logistic function will always produce
+an S-shaped curve of this form, and so regardless of the value of X, we
+will obtain a sensible prediction. We also see that the logistic model is
+better able to capture the range of probabilities than is the linear regression
+model in the left-hand plot. The average fitted probability in both cases is
+0.0333 (averaged over the training data), which is the same as the overall
+proportion of defaulters in the data set.
+After a bit of manipulation of (4.2), we find that
+p(X)
+1 −p(X) = eβ0+β1X.
+(4.3)
+The quantity p(X)/[1−p(X)] is called the odds, and can take on any value odds
+between 0 and ∞. Values of the odds close to 0 and ∞indicate very low
+and very high probabilities of default, respectively. For example, on average
+1 in 5 people with an odds of 1/4 will default, since p(X) = 0.2 implies an
+odds of
+0.2
+1−0.2 = 1/4. Likewise, on average nine out of every ten people with
+an odds of 9 will default, since p(X) = 0.9 implies an odds of
+0.9
+1−0.9 = 9.
+Odds are traditionally used instead of probabilities in horse-racing, since
+they relate more naturally to the correct betting strategy.
+By taking the logarithm of both sides of (4.3), we arrive at
+log
+*
+p(X)
+1 −p(X)
++
+= β0 + β1X.
+(4.4)
+The left-hand side is called the log odds or logit. We see that the logistic log odds
+logit
+regression model (4.2) has a logit that is linear in X.
+Recall from Chapter 3 that in a linear regression model, β1 gives the
+average change in Y associated with a one-unit increase in X. By contrast,
+in a logistic regression model, increasing X by one unit changes the log
+odds by β1 (4.4). Equivalently, it multiplies the odds by eβ1 (4.3). However,
+because the relationship between p(X) and X in (4.2) is not a straight line,
+β1 does not correspond to the change in p(X) associated with a one-unit
+increase in X. The amount that p(X) changes due to a one-unit change in
+X depends on the current value of X. But regardless of the value of X, if
+β1 is positive then increasing X will be associated with increasing p(X),
+and if β1 is negative then increasing X will be associated with decreasing
+p(X). The fact that there is not a straight-line relationship between p(X)
+and X, and the fact that the rate of change in p(X) per unit change in X
+depends on the current value of X, can also be seen by inspection of the
+right-hand panel of Figure 4.2.
+4.3.2
+Estimating the Regression Coefficients
+The coefficients β0 and β1 in (4.2) are unknown, and must be estimated
+based on the available training data. In Chapter 3, we used the least squares
+approach to estimate the unknown linear regression coefficients. Although
+we could use (non-linear) least squares to fit the model (4.4), the more
+general method of maximum likelihood is preferred, since it has better sta-
+tistical properties. The basic intuition behind using maximum likelihood

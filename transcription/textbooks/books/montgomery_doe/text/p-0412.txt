@@ -1,0 +1,71 @@
+complexity of the design low and simultaneously obtain some protection against
+curvature. Then, if curvature is important, the two-level design can be augmented
+with axial runs to obtain a central composite design, as shown in Figure 6.37.
+This sequential strategy of experimentation is far more efcient than running a 3k
+factorial design with quantitative factors.
+9.1.2
+The 32 Design
+The simplest design in the 3k system is the 32 design, which has two factors, each at three lev-
+els. The treatment combinations for this design are shown in Figure 9.1. Because there are 
+32 9 treatment combinations, there are eight degrees of freedom between these treatment
+combinations. The main effects of A and B each have two degrees of freedom, and the AB
+interaction has four degrees of freedom. If there are n replicates, there will be n32 1 total
+degrees of freedom and 32(n 1) degrees of freedom for error.
+The sums of squares for A, B, and AB may be computed by the usual methods for fac-
+torial designs discussed in Chapter 5. Each main effect can be represented by a linear and a
+quadratic component, each with a single degree of freedom, as demonstrated in Equation 9.1.
+Of course, this is meaningful only if the factor is quantitative.
+The two-factor interaction AB may be partitioned in two ways. Suppose that both
+factors A and B are quantitative. The rst method consists of subdividing AB into the four
+single-degree-of-freedom components corresponding to ABLL, ABLQ, ABQL, and ABQQ.
+This can be done by tting the terms 12x1x2, 122x1 , 112 x2, and 1122
+, respectively, as
+demonstrated in Example 5.5. For the tool life data, this yields 
+8.00,
+
+42.67,
+2.67, and 
+8.00. Because this is an orthogonal partitioning of AB,
+note that SSAB 
+
+
+
+61.34.
+The second method is based on orthogonal Latin squares. This method does not
+require that the factors be quantitative, and it is usually associated with the case where all fac-
+tors are qualitative. Consider the totals of the treatment combinations for the data in Example 5.5.
+These totals are shown in Figure 9.3 as the circled numbers in the squares. The two factors A
+and B correspond to the rows and columns, respectively, of a 3 3 Latin square. In Figure 9.3,
+two particular 33 Latin squares are shown superimposed on the cell totals.
+These two Latin squares are orthogonal; that is, if one square is superimposed on the
+other, each letter in the rst square will appear exactly once with each letter in the second
+square. The totals for the letters in the (a) square are Q 18, R 2, and S 8, and the
+sum of squares between these totals is [182 (2)2 82]/(3)(2) [242/(9)(2)] 33.34, with
+two degrees of freedom. Similarly, the letter totals in the (b) square are Q 0, R 6, and
+S 18, and the sum of squares between these totals is [02 62 182]/(3)(2) [242/(9)(2)] 
+28.00, with two degrees of freedom. Note that the sum of these two components is
+with 2 2 4 degrees of freedom.
+33.34 28.00 61.34 SSAB
+SSABQQ
+SSABQL
+SSABLQ
+SSABLL
+SSABQQ
+SSABQL
+SSABLQ
+SSABLL
+x2
+1x2
+2
+x2
+1
+x2
+2
+396
+Chapter 9 ■Additional Design and Analysis Topics for Factorial and Fractional Factorial Designs
+■F I G U R E 9 . 3
+Treatment combination
+totals from Example 5.5
+with two orthogonal
+Latin squares superim-
+posed

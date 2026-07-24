@@ -1,0 +1,53 @@
+120
+3. Linear Regression
+Out[15]: intercept
+34.553841
+lstat
+-0.950049
+dtype: float64
+The get_prediction() method can be used to obtain predictions, and .get_
+prediction()
+produce confidence intervals and prediction intervals for the prediction of
+medv for given values of lstat.
+We first create a new data frame, in this case containing only the vari-
+able lstat, with the values for this variable at which we wish to make
+predictions. We then use the transform() method of design to create the
+corresponding model matrix.
+In [16]: new_df = pd.DataFrame({'lstat':[5, 10, 15]})
+newX = design.transform(new_df)
+newX
+Out[16]:
+intercept
+lstat
+0
+1.0
+5
+1
+1.0
+10
+2
+1.0
+15
+Next we compute the predictions at newX, and view them by extracting
+the predicted_mean attribute.
+In [17]: new_predictions = results.get_prediction(newX);
+new_predictions.predicted_mean
+Out[17]: array([29.80359411, 25.05334734, 20.30310057])
+We can produce confidence intervals for the predicted values.
+In [18]: new_predictions.conf_int(alpha=0.05)
+Out[18]: array([[29.00741194, 30.59977628],
+[24.47413202, 25.63256267],
+[19.73158815, 20.87461299]])
+Prediction intervals are computing by setting obs=True:
+In [19]: new_predictions.conf_int(obs=True, alpha=0.05)
+Out[19]: array([[17.56567478, 42.04151344],
+[12.82762635, 37.27906833],
+[ 8.0777421 , 32.52845905]])
+For instance, the 95% confidence interval associated with an lstat value of
+10 is (24.47, 25.63), and the 95% prediction interval is (12.82, 37.28). As
+expected, the confidence and prediction intervals are centered around the
+same point (a predicted value of 25.05 for medv when lstat equals 10), but
+the latter are substantially wider.
+Next we will plot medv and lstat using DataFrame.plot.scatter(), and .plot.
+scatter()
+wish to add the regression line to the resulting plot.

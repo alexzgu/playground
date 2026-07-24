@@ -1,0 +1,94 @@
+These quantities can be computed in the columns of a spreadsheet (Excel). Then each column
+can be squared and summed to produce the sum of squares. Alternatively, computing formu-
+las can be expressed in terms of treatment and block totals. These formulas are
+(4.9)
+(4.10)
+(4.11)
+and the error sum of squares is obtained by subtraction as
+(4.12)
+SSE SST SSTreatments SSBlocks
+SSBlocks 1
+a 
+b
+j1
+y2
+.j y2
+..
+N
+SSTreatments 1
+b 
+a
+i1
+y2
+i. y2
+..
+N
+SST 
+a
+i1 
+b
+j1
+y2
+ij y2
+..
+N
+144
+Chapter 4 ■Randomized Blocks, Latin Squares, and Related Designs
+■T A B L E 4 . 2
+Analysis of Variance for a Randomized Complete Block Design
+Source
+Degrees
+of Variation
+Sum of Squares
+of Freedom
+Mean Square
+F0
+Treatments
+SSTreatments
+a 1
+Blocks
+SSBlocks
+b 1
+Error
+SSE
+(a 1)(b 1)
+Total
+SST
+N 1
+SSE
+(a 1)(b 1)
+SSBlocks
+b 1
+MSTreatments
+MSE
+SSTreatments
+a 1
+E X A M P L E 4 . 1
+A medical device manufacturer produces vascular grafts
+(articial veins). These grafts are produced by extruding
+billets of polytetrauoroethylene (PTFE) resin combined
+with a lubricant into tubes. Frequently, some of the tubes in
+a production run contain small, hard protrusions on the
+external surface. These defects are known as “icks.” The
+defect is cause for rejection of the unit.
+The product developer responsible for the vascular
+grafts suspects that the extrusion pressure affects the occur-
+rence of icks and therefore intends to conduct an experi-
+ment to investigate this hypothesis. However, the resin is
+manufactured by an external supplier and is delivered to the
+medical device manufacturer in batches. The engineer also
+suspects that there may be signicant batch-to-batch varia-
+tion, because while the material should be consistent with
+respect to parameters such as molecular weight, mean par-
+ticle size, retention, and peak height ratio, it probably isn’t
+due to manufacturing variation at the resin supplier and nat-
+ural variation in the material. Therefore, the product devel-
+oper decides to investigate the effect of four different levels
+of extrusion pressure on icks using a randomized com-
+plete block design considering batches of resin as blocks.
+The RCBD is shown in Table 4.3. Note that there are four
+levels of extrusion pressure (treatments) and six batches of
+resin (blocks). Remember that the order in which the extru-
+sion pressures are tested within each block is random. The
+response variable is yield, or the percentage of tubes in the
+production run that did not contain any icks.

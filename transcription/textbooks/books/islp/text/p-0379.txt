@@ -1,0 +1,50 @@
+372
+9. Support Vector Machines
+cross the boundary set by the margin. The fact that the maximal margin
+hyperplane depends directly on only a small subset of the observations is
+an important property that will arise later in this chapter when we discuss
+the support vector classifier and support vector machines.
+9.1.4
+Construction of the Maximal Margin Classifier
+We now consider the task of constructing the maximal margin hyperplane
+based on a set of n training observations x1, . . . , xn ∈Rp and associated
+class labels y1, . . . , yn ∈{−1, 1}. Briefly, the maximal margin hyperplane
+is the solution to the optimization problem
+maximize
+β0,β1,...,βp,M M
+(9.9)
+subject to
+p
+0
+j=1
+β2
+j = 1,
+(9.10)
+yi(β0 + β1xi1 + β2xi2 + · · · + βpxip) ≥M ∀i = 1, . . . , n. (9.11)
+This optimization problem (9.9)–(9.11) is actually simpler than it looks.
+First of all, the constraint in (9.11) that
+yi(β0 + β1xi1 + β2xi2 + · · · + βpxip) ≥M ∀i = 1, . . . , n
+guarantees that each observation will be on the correct side of the hyper-
+plane, provided that M is positive. (Actually, for each observation to be
+on the correct side of the hyperplane we would simply need yi(β0 +β1xi1 +
+β2xi2+· · ·+βpxip) > 0, so the constraint in (9.11) in fact requires that each
+observation be on the correct side of the hyperplane, with some cushion,
+provided that M is positive.)
+Second, note that (9.10) is not really a constraint on the hyperplane, since
+if β0 + β1xi1 + β2xi2 + · · · + βpxip = 0 defines a hyperplane, then so does
+k(β0 + β1xi1 + β2xi2 + · · · + βpxip) = 0 for any k̸ = 0. However, (9.10) adds
+meaning to (9.11); one can show that with this constraint the perpendicular
+distance from the ith observation to the hyperplane is given by
+yi(β0 + β1xi1 + β2xi2 + · · · + βpxip).
+Therefore, the constraints (9.10) and (9.11) ensure that each observation
+is on the correct side of the hyperplane and at least a distance M from the
+hyperplane. Hence, M represents the margin of our hyperplane, and the
+optimization problem chooses β0, β1, . . . , βp to maximize M. This is exactly
+the definition of the maximal margin hyperplane! The problem (9.9)–(9.11)
+can be solved efficiently, but details of this optimization are outside of the
+scope of this book.
+9.1.5
+The Non-separable Case
+The maximal margin classifier is a very natural way to perform classifi-
+cation, if a separating hyperplane exists. However, as we have hinted, in
+many cases no separating hyperplane exists, and so there is no maximal

@@ -1,0 +1,199 @@
+[AC] AC 0.143 BC 0.143 BD 0.143 BE 0.143 BF 0.286 BG 0.857 BH
+0.143 BJ 0.143 CG 0.143 CH DF 0.143 DG 0.143 DJ 0.143 EF
+0.143 EG EJ 0.143 FG 0.857 GH 0.143 GJ
+[AD] AD 0.143 BC 0.143 BD 0.143 BE 0.143 BF 0.286 BG 0.143 BH
+0.857 BJ CF 0.143 CG 0.143 CH 0.143 DG 0.143 DJ 0.143 EF
+0.143 EG EH 0.143 FG 0.143 GH 0.857 GJ
+[AE] AE 0.143 BC 0.143 BD 0.143 BE 0.857 BF 0.286 BG 0.143 BH
+0.143 BJ 0.143 CG 0.143 CH CJ 0.143 DG DH 0.143 DJ
+0.143 EF 0.143 EG 0.857 FG 0.143 GH 0.143 GJ
+[AF] AF 0.143 BC 0.143 BD 0.857 BE 0.143 BF 0.286 BG 0.143 BH
+0.143 BJ CD 0.143 CG 0.143 CH 0.143 DG 0.143 DJ 0.143 EF
+0.857 EG 0.143 FG 0.143 GH 0.143 GJ  HJ
+[AG] AG 0.571 BC 0.571 BD 0.571 BE 0.571 BF 0.143 BG 0.571 BH
+0.571 BJ 0.429 CG 0.571 CH 0.429 DG 0.571 DJ 0.571 EF
+0.429 EG 0.429 FG 0.429 GH 0.429 GJ
+[AH] AH 0.857 BC 0.143 BD 0.143 BE 0.143 BF 0.286 BG 0.143 BH
+0.143 BJ 0.857 CG 0.143 CH DE 0.143 DG 0.143 DJ 0.143 EF
+0.143 EG 0.143 FG FJ 0.143 GH 0.143 GJ
+[AJ] AJ 0.143 BC 0.857 BD 0.143 BE 0.143 BF 0.286 BG 0.143 BH
+0.143 BJ CE 0.143 CG 0.143 CH 0.857 DG 0.143 DJ 0.143 EF
+0.143 EG 0.143 FG FH 0.143 GH 0.143 GJ
+We see that, as in any resolution IV, design the main effects are estimated free of any two-
+factor interactions, and the two-factor interactions are aliased with each other. However, note that
+there is partial aliasing of the two-factor interaction effects (for example, BC appears in more than
+436
+Chapter 9 ■Additional Design and Analysis Topics for Factorial and Fractional Factorial Designs
+■TA B L E 9 . 3 7
+An 18-run Minimum Run Resolution IV Design in k 9 Factors
+A
+B
+C
+D
+E
+F
+G
+H
+J
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

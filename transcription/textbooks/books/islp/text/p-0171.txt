@@ -1,0 +1,135 @@
+162
+4. Classification
+variance matrix in order to show that
+log
+* Pr(Y = k|X = x)
+Pr(Y = K|X = x)
++
+=
+log
+* πkfk(x)
+πKfK(x)
++
+=
+log
+>
+πk exp
+'
+−1
+2(x −µk)T Σ−1(x −µk)
+(
+πK exp
+'
+−1
+2(x −µK)T Σ−1(x −µK)
+(
+?
+=
+log
+* πk
+πK
++
+−1
+2(x −µk)T Σ−1(x −µk)
++1
+2(x −µK)T Σ−1(x −µK)
+=
+log
+* πk
+πK
++
+−1
+2(µk + µK)T Σ−1(µk −µK)
++ xT Σ−1(µk −µK)
+=
+ak +
+p
+0
+j=1
+bkjxj,
+(4.32)
+where ak = log
+1
+πk
+πK
+2
+−1
+2(µk + µK)T Σ−1(µk −µK) and bkj is the jth
+component of Σ−1(µk −µK). Hence LDA, like logistic regression, assumes
+that the log odds of the posterior probabilities is linear in x.
+Using similar calculations, in the QDA setting (4.31) becomes
+log
+* Pr(Y = k|X = x)
+Pr(Y = K|X = x)
++
+= ak +
+p
+0
+j=1
+bkjxj +
+p
+0
+j=1
+p
+0
+l=1
+ckjlxjxl,
+(4.33)
+where ak, bkj, and ckjl are functions of πk, πK, µk, µK, Σk and ΣK. Again,
+as the name suggests, QDA assumes that the log odds of the posterior
+probabilities is quadratic in x.
+Finally, we examine (4.31) in the naive Bayes setting. Recall that in
+this setting, fk(x) is modeled as a product of p one-dimensional functions
+fkj(xj) for j = 1, . . . , p. Hence,
+log
+* Pr(Y = k|X = x)
+Pr(Y = K|X = x)
++
+=
+log
+* πkfk(x)
+πKfK(x)
++
+=
+log
+>
+πk
+Fp
+j=1 fkj(xj)
+πK
+Fp
+j=1 fKj(xj)
+?
+=
+log
+* πk
+πK
++
++
+p
+0
+j=1
+log
+* fkj(xj)
+fKj(xj)
++
+=
+ak +
+p
+0
+j=1
+gkj(xj),
+(4.34)
+where ak = log
+1
+πk
+πK
+2
+and gkj(xj) = log
+1
+fkj(xj)
+fKj(xj)
+2
+. Hence, the right-hand
+side of (4.34) takes the form of a generalized additive model, a topic that is
+discussed further in Chapter 7.

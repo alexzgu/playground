@@ -1,0 +1,61 @@
+7.3. SIMULATION
+241
+The random variables on the right-hand side are independent and
+c−2 Var
+0
+−∞
+[ϕ(t −r) −ϕ(−r)] dBr
+
+=
+0
+−∞
+[(t −r)H−1
+2 −(−r)H−1
+2]2 dr
+=
+∞
+0
+[(t + r)H−1
+2 −rH−1
+2]2 dr
+=
+∞
+0
+[(t + st)H−1
+2 −(st)H−1
+2]2 t ds
+=
+t2H
+∞
+0
+[(1 + s)H−1
+2 −sH−1
+2]2 ds,
+c−2 Var
+t
+0
+ϕ(t −r) dBr
+
+=
+t
+0
+(t −r)2H−1 dr = t2H
+2H 
+If we choose c as in (7.3), we get E[X2
+t ] = t2H
+7.3
+Simulation
+Because the fractional Brownian motion has long range dependence it is not
+obvious how to do simulations. The stochastic integral represetation (7.2)
+is dicult to use because it uses the value of the Brownian motion for all
+negative times. However, there is a way to do simulations that uses only the
+fact that fBmH is a Gaussian process with continuous paths. Let us choose
+a step size ∆t = 1N; continuity tells us that it should suce to sample
+Y1, Y2, 
+where Yj = XjN. For each n, the random vector (Y1, , Yn) has a centered
+Gaussian distribution with covariance matrix Γ = [Γjk]. Given Γ we claim
+that we can nd numbers ajk with ajk = 0 if k > j, and independent standard
+normal random variables Z1, Z2, such that
+Yn = an1 Z1 + · · · + ann Zn
+(7.3)
+In matrix notation, A = [ajk] is a lower triangular matrix such that Γ = AAT.

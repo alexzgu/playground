@@ -1,0 +1,84 @@
+100
+CHAPTER 3. STOCHASTIC INTEGRATION
+The Taylor approximation gives
+f
+j
+n
+
+−f
+j −1
+n
+
+= f ′
+j −1
+n
+1
+n + o
+1
+n
+
+
+Hence,
+f(1) = f(0) + lim
+n∞
+n
+
+j=1
+f ′
+j −1
+n
+1
+n + lim
+n∞
+n
+
+j=1
+o
+1
+n
+
+
+The rst limit on the right-hand side is the Riemann sum approximation of
+the denite integral and the second limit equals zero since n o(1n) →0.
+Therefore,
+f(1) = f(0) +
+1
+0
+f ′(t) dt
+Itˆo’s formula is similar but it requires considering both rst and second
+derivatives.
+Theorem 3.3.1 (Itˆo’s formula I). Sf C2 Bt 
+B. Tt,
+f(Bt) = f(B0) +
+t
+0
+f ′(Bs) dBs + 1
+2
+t
+0
+f ′′(Bs) ds
+The theorem is often written in the dierential form
+df(Bt) = f ′(Bt) dBt + 1
+2 f ′′(Bt) dt
+In other words, the process Yt = f(Bt) at time t evolves like a Brownian
+motion with drift f ′′(Bt)2 and variance f ′(Bt)2. Note that f ′(Bt) is a con-
+tinuous adapted process so the stochastic integral is well dened.
+To see where the formula comes from, let us assume for ease that t = 1.
+Let us expand f in a second-order Taylor approximation,
+f(x + y) = f(x) + f ′(x) y + 1
+2 f ′′(x) y2 + o(y2),
+where o(y2)y2 →0 as y →0. Similarly to above, we write
+f(B1) −f(B0) =
+n
+
+j=1
+
+f
+
+Bjn
+
+−f
+
+B(j−1)n
+
+

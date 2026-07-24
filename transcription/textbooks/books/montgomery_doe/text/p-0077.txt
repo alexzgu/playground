@@ -1,0 +1,158 @@
+2.7 Problems
+61
+(a) Set up appropriate hypotheses on the mean .
+(b) Test these hypotheses using 0.05. What are your
+conclusions?
+(c) Find the P-value for this test.
+(d) Construct a 95 percent condence interval on the mean
+shaft diameter.
+2.19.
+A normally distributed random variable has an
+unknown mean and a known variance 2 9. Find the sam-
+ple size required to construct a 95 percent condence interval
+on the mean that has total length of 1.0.
+2.20.
+The shelf life of a carbonated beverage is of interest.
+Ten bottles are randomly selected and tested, and the follow-
+ing results are obtained:
+Days
+108
+138
+124
+163
+124
+159
+106
+134
+115
+139
+(a) We would like to demonstrate that the mean shelf life
+exceeds 120 days. Set up appropriate hypotheses for
+investigating this claim.
+(b) Test these hypotheses using 0.01. What are your
+conclusions?
+(c) Find the P-value for the test in part (b).
+(d) Construct a 99 percent condence interval on the mean
+shelf life.
+2.21.
+Consider the shelf life data in Problem 2.20. Can shelf
+life be described or modeled adequately by a normal distribu-
+tion? What effect would the violation of this assumption have
+on the test procedure you used in solving Problem 2.15?
+2.22.
+The time to repair an electronic instrument is a normal-
+ly distributed random variable measured in hours. The repair
+times for 16 such instruments chosen at random are as follows:
+Hours
+159
+280
+101
+212
+224
+379
+179
+264
+222
+362
+168
+250
+149
+260
+485
+170
+(a) You wish to know if the mean repair time exceeds 225
+hours. Set up appropriate hypotheses for investigating
+this issue.
+(b) Test the hypotheses you formulated in part (a). What
+are your conclusions? Use 0.05.
+(c) Find the P-value for the test.
+(d) Construct a 95 percent condence interval on mean
+repair time.
+2.23.
+Reconsider the repair time data in Problem 2.22. Can
+repair time, in your opinion, be adequately modeled by a nor-
+mal distribution?
+2.24.
+Two machines are used for lling plastic bottles with
+a net volume of 16.0 ounces. The lling processes can be
+assumed to be normal, with standard deviations of 1 0.015
+and 2 0.018. The quality engineering department suspects
+that both machines ll to the same net volume, whether or not
+this volume is 16.0 ounces. An experiment is performed by
+taking a random sample from the output of each machine.
+Machine 1
+Machine 2
+16.03
+16.01
+16.02
+16.03
+16.04
+15.96
+15.97
+16.04
+16.05
+15.98
+15.96
+16.02
+16.05
+16.02
+16.01
+16.01
+16.02
+15.99
+15.99
+16.00
+(a) State the hypotheses that should be tested in this
+experiment.
+(b) Test these hypotheses using 0.05. What are your
+conclusions?
+(c) Find the P-value for this test.
+(d) Find a 95 percent condence interval on the difference
+in mean ll volume for the two machines.
+2.25.
+Two types of plastic are suitable for use by an elec-
+tronic calculator manufacturer. The breaking strength of this
+plastic is important. It is known that 1 2 1.0 psi. From
+random samples of n1 10 and n2 12 we obtain 
+162.5
+and
+155.0. The company will not adopt plastic 1 unless
+its breaking strength exceeds that of plastic 2 by at least 10
+psi. Based on the sample information, should they use plastic
+1? In answering this question, set up and test appropriate
+hypotheses using 0.01. Construct a 99 percent condence
+interval on the true mean difference in breaking strength.
+2.26.
+The following are the burning times (in minutes) of
+chemical ares of two different formulations. The design
+engineers are interested in both the mean and variance of the
+burning times.
+Type 1
+Type 2
+65
+82
+64
+56
+81
+67
+71
+69
+57
+59
+83
+74
+66
+75
+59
+82
+82
+70
+65
+79
+(a) Test the hypothesis that the two variances are equal.
+Use 0.05.
+(b) Using the results of (a), test the hypothesis that the
+mean burning times are equal. Use 0.05. What is
+the P-value for this test?
+y2
+y1

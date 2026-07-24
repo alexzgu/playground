@@ -1,0 +1,36 @@
+182CHAPTER 5. CHANGE OF MEASURE AND GIRSANOV THEOREM
+Exercise 5.6. Suppose a, m > 0 and Wt is a Brownian motion with drift m
+and variance 1. Let
+Ta = inft : Wt = a
+Find the density of Ta. Hint: look at Examples 2.7.1 and 5.2.2.
+Exercise 5.7. Suppose the price of a stock St follows a geometric Brownian
+motion
+dSt = St [3 dt + dBt] ,
+whee Bt is a standard Brownian motion with respect to a measure P. Suppose
+there is a risk-free bond with rate r = 05. Let Q be the measure, mutually
+absolutely continuous with respect to P, under which the discounted stock
+price ˜St is a martingale.
+1. Give the SDE for ˜St in terms of Wt, a standard Brownian motion with
+respect to Q.
+2. Suppose there is a claim at time T = 2 of V = S2
+2. Is this a contingent
+claim?
+3. Find the discounted value ˜Vt of the claim for 0 ≤t ≤2.
+4. Give the SDE for ˜Vt in terms of the Brownian motion W.
+5. Find the portfolio (at, bt) that hedges the claim.
+6. Find the value Vt.
+Exercise 5.8. Repeat Exercise 5.7 with V = S3
+2.
+Exercise 5.9. Repeat Exercise 5.7 with claim
+V =
+2
+0
+s Ss ds
+Exercise 5.10. Repeat Exercise 5.7 with claim
+V =
+2
+0
+S2
+s ds
+Exercise 5.11. Here we do the calculus needed to nish the derivation of
+the Black-Scholes formula in Example 5.5.1.

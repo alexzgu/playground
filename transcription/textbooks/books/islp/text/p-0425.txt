@@ -1,0 +1,74 @@
+418
+10. Deep Learning
+process each element in the sequence, i.e. they are not functions of ℓ. This
+is a form of weight sharing used by RNNs, and similar to the use of filters weight
+sharing
+in convolutional neural networks (Section 10.3.1.) As we proceed from be-
+ginning to end, the activations Aℓaccumulate a history of what has been
+seen before, so that the learned context can be used for prediction.
+For regression problems the loss function for an observation (X, Y ) is
+(Y −OL)2,
+(10.18)
+which only references the final output OL = β0+)K
+k=1 βkALk. Thus O1, O2,
+. . . , OL−1 are not used. When we fit the model, each element Xℓof the input
+sequence X contributes to OL via the chain (10.16), and hence contributes
+indirectly to learning the shared parameters W, U and B via the loss
+(10.18). With n input sequence/response pairs (xi, yi), the parameters are
+found by minimizing the sum of squares
+n
+0
+i=1
+(yi−oiL)2 =
+n
+0
+i=1
+1
+yi−
+'
+β0+
+K
+0
+k=1
+βkg
+'
+wk0+
+p
+0
+j=1
+wkjxiLj+
+K
+0
+s=1
+uksai,L−1,s
+((22
+.
+(10.19)
+Here we use lowercase letters for the observed yi and vector sequences
+xi = {xi1, xi2, . . . , xiL},15 as well as the derived activations.
+Since the intermediate outputs Oℓare not used, one may well ask why
+they are there at all. First of all, they come for free, since they use the same
+output weights B needed to produce OL, and provide an evolving prediction
+for the output. Furthermore, for some learning tasks the response is also a
+sequence, and so the output sequence {O1, O2, . . . , OL} is explicitly needed.
+When used at full strength, recurrent neural networks can be quite com-
+plex. We illustrate their use in two simple applications. In the first, we
+continue with the IMDb sentiment analysis of the previous section, where
+we process the words in the reviews sequentially. In the second application,
+we illustrate their use in a financial time series forecasting problem.
+10.5.1
+Sequential Models for Document Classification
+Here we return to our classification task with the IMDb reviews. Our ap-
+proach in Section 10.4 was to use the bag-of-words model. Here the plan
+is to use instead the sequence of words occurring in a document to make
+predictions about the label for the entire document.
+We have, however, a dimensionality problem: each word in our document
+is represented by a one-hot-encoded vector (dummy variable) with 10,000
+elements (one per word in the dictionary)! An approach that has become
+popular is to represent each word in a much lower-dimensional embedding embedding
+space. This means that rather than representing each word by a binary
+vector with 9,999 zeros and a single one in some position, we will represent
+it instead by a set of m real numbers, none of which are typically zero. Here
+m is the embedding dimension, and can be in the low 100s, or even less.
+This means (in our case) that we need a matrix E of dimension m×10,000,
+15This is a sequence of vectors; each element xiℓis a p-vector.

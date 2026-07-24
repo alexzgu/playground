@@ -1,0 +1,50 @@
+276
+6. Linear Model Selection and Regularization
+Estimating Test Error of Ridge Regression
+Choosing an a priori value of λ for ridge regression is difficult if not im-
+possible. We will want to use the validation method or cross-validation to
+select the tuning parameter. The reader may not be surprised that the
+Pipeline() approach can be used in skm.cross_validate() with either a
+validation method (i.e. validation) or k-fold cross-validation.
+We fix the random state of the splitter so that the results obtained will
+be reproducible.
+In [30]: validation = skm.ShuffleSplit(n_splits=1,
+test_size=0.5,
+random_state=0)
+ridge.alpha = 0.01
+results = skm.cross_validate(ridge,
+X,
+Y,
+scoring='neg_mean_squared_error',
+cv=validation)
+-results['test_score']
+Out[30]: array([134214.0])
+The test MSE is 1.342e+05. Note that if we had instead simply fit a model
+with just an intercept, we would have predicted each test observation using
+the mean of the training observations. We can get the same result by fitting
+a ridge regression model with a very large value of λ. Note that 1e10 means
+1010.
+In [31]: ridge.alpha = 1e10
+results = skm.cross_validate(ridge,
+X,
+Y,
+scoring='neg_mean_squared_error',
+cv=validation)
+-results['test_score']
+Out[31]: array([231788.32])
+Obviously choosing λ = 0.01 is arbitrary, so we will use cross-validation or
+the validation-set approach to choose the tuning parameter λ. The object
+GridSearchCV() allows exhaustive grid search to choose such a parameter.
+Grid
+SearchCV()
+We first use the validation set method to choose λ.
+In [32]: param_grid = {'ridge__alpha': lambdas}
+grid = skm.GridSearchCV(pipe,
+param_grid ,
+cv=validation,
+scoring='neg_mean_squared_error')
+grid.fit(X, Y)
+grid.best_params_['ridge__alpha']
+grid.best_estimator_
+Out[32]: Pipeline(steps=[('scaler', StandardScaler()),
+('ridge', ElasticNet(alpha=0.005899, l1_ratio=0))])

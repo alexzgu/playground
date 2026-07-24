@@ -1,0 +1,151 @@
+104
+Chapter 3 ■Experiments with a Single Factor: The Analysis of Variance
+One-way ANOVA: Etch Rate versus Power
+Source
+Power
+Error
+Total
+DF
+3
+16
+19
+SS
+66871
+5339
+72210
+MS
+22290
+334
+Level
+160
+180
+200
+220
+N
+5
+5
+5
+5
+Mean
+551.20
+587.40
+625.40
+707.00
+Std.Dev.
+20.02
+16.74
+20.53
+15.25
+Power
+180
+200
+220
+Lower
+3.11
+41.11
+122.71
+Center
+36.20
+74.20
+155.80
+Upper
+69.29
+107.29
+188.89
+Power
+200
+220
+Lower
+4.91
+86.51
+Center
+38.00
+119.60
+Upper
+71.09
+152.69
+(
+(
+F
+66.80
+P
+0.000
+S = 18.27
+R–Sq = 92.61%
+R–Sq (adj) = 91.22%
+Individual 95% CIs For Mean Based on
+Pooled StDev
+*
+(
+(
+*
+(
+(
+*
+(
+(
+*
+(
+(
+*
+(
+(
+*
+(
+(
+*
+550
+600
+700
+650
+–100
+0
+200
+100
+(
+(
+*
+(
+(
+*
+–100
+0
+200
+100
+Pooled Std. Dev. = 18.27
+Individual confidence level = 98.87%
+Power = 160 subtracted from
+Power = 180 subtracted from
+Turkey 95% Simultaneous Confidence Intervals
+All Pairwise Comparisons among Levels of Power
+Power
+220
+Lower
+48.51
+Center
+81.60
+Upper
+114.69
+(
+(
+*
+–100
+0
+200
+100
+Power = 200 subtracted from
+■F I G U R E 3 . 1 3
+Minitab computer output for Example 3.1
+are considered to be more effective in identifying potential rather than either the ordinary resid-
+uals or standardized residuals.
+Finally, notice that the computer program also has some interpretative guidance embed-
+ded in the output. This “advisory” information is fairly standard in many PC-based statistics
+packages. Remember in reading such guidance that it is written in very general terms and may
+not exactly suit the report writing requirements of any specic experimenter. This advisory
+output may be hidden upon request by the user.
+Figure 3.13 presents the output from Minitab for the plasma etching experiment. The out-
+put is very similar to the Design-Expert output in Figure 3.12. Note that condence intervals on
+each individual treatment mean are provided and that the pairs of means are compared using
+Tukey’s method. However, the Tukey method is presented using the condence interval format
+instead of the hypothesis-testing format that we used in Section 3.5.7. None of the Tukey con-
+dence intervals includes zero, so we would conclude that all of the means are different.

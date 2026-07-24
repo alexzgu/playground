@@ -1,0 +1,99 @@
+2.3 Lab: Introduction to Python
+57
+In [82]: idx_80 = Auto['year'] > 80
+Auto[idx_80]
+However, if we pass in a list of strings to the [] method, then we obtain a
+data frame containing the corresponding set of columns.
+In [83]: Auto[['mpg', 'horsepower']]
+Out[83]:
+mpg
+horsepower
+0
+18.0
+130.0
+1
+15.0
+165.0
+2
+18.0
+150.0
+3
+16.0
+150.0
+4
+17.0
+140.0
+...
+...
+...
+392
+27.0
+86.0
+393
+44.0
+52.0
+394
+32.0
+84.0
+395
+28.0
+79.0
+396
+31.0
+82.0
+392 rows x 2 columns
+Since we did not specify an index column when we loaded our data frame,
+the rows are labeled using integers 0 to 396.
+In [84]: Auto.index
+Out[84]: Int64Index([
+0,
+1,
+2,
+3,
+4,
+5,
+6,
+7,
+8,
+9,
+...
+387, 388, 389, 390, 391, 392, 393, 394, 395, 396],
+dtype='int64', length=392)
+We can use the set_index() method to re-name the rows using the contents .set_index()
+of Auto['name'].
+In [85]: Auto_re = Auto.set_index('name')
+Auto_re
+Out[85]:
+mpg
+cylinders
+displacement
+...
+name
+chevrolet chevelle malibu
+18.0
+8
+307.0
+...
+buick skylark 32
+15.0
+8
+350.0
+...
+plymouth satellite
+18.0
+8
+318.0
+...
+amc rebel sst
+16.0
+8
+304.0
+...
+In [86]: Auto_re.columns
+Out[86]: Index(['mpg', 'cylinders', 'displacement', 'horsepower',
+'weight', 'acceleration', 'year', 'origin'],
+dtype='object')
+We see that the column 'name' is no longer there.
+Now that the index has been set to name, we can access rows of the data
+frame by name using the loc[] method of Auto:
+.loc[]

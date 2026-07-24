@@ -1,0 +1,179 @@
+Ratio
+Control
+Time Period
+Algorithm
+1
+2
+3
+1
+4.93 (0.05)
+4.86 (0.04)
+4.75 (0.05)
+2
+4.85 (0.04)
+4.91 (0.02)
+4.79 (0.03)
+3
+4.83 (0.09)
+4.88 (0.13)
+4.90 (0.11)
+4
+4.89 (0.03)
+4.77 (0.04)
+4.94 (0.05)
+Ratio
+Control
+Time Period
+Algorithm
+4
+5
+6
+1
+4.95 (0.06)
+4.79 (0.03)
+4.88 (0.05)
+2
+4.85 (0.05)
+4.75 (0.03)
+4.85 (0.02)
+3
+4.75 (0.15)
+4.82 (0.08)
+4.90 (0.12)
+4
+4.86 (0.05)
+4.79 (0.03)
+4.76 (0.02)
+(a) Analyze the average cell voltage data. (Use 
+0.05.) Does the choice of ratio control algorithm
+affect the average cell voltage?
+(b) Perform an appropriate analysis on the standard devi-
+ation of voltage. (Recall that this is called “pot noise.”)
+Does the choice of ratio control algorithm affect the
+pot noise?
+(c) Conduct any residual analyses that seem appropriate.
+(d) Which ratio control algorithm would you select if your
+objective is to reduce both the average cell voltage and
+the pot noise?
+4.14.
+An aluminum master alloy manufacturer produces
+grain reners in ingot form. The company produces the prod-
+uct in four furnaces. Each furnace is known to have its own
+unique operating characteristics, so any experiment run in the
+foundry that involves more than one furnace will consider fur-
+naces as a nuisance variable. The process engineers suspect
+that stirring rate affects the grain size of the product. Each fur-
+nace can be run at four different stirring rates. A randomized
+block design is run for a particular rener, and the resulting
+grain size data is as follows.
+Furnace
+Stirring Rate (rpm)
+1
+2
+3
+4
+5
+8
+4
+5
+6
+10
+14
+5
+6
+9
+15
+14
+6
+9
+2
+20
+17
+9
+3
+6
+(a) Is there any evidence that stirring rate affects grain size?
+(b) Graph the residuals from this experiment on a normal
+probability plot. Interpret this plot.
+4.5 Problems
+179
+(c) Plot the residuals versus furnace and stirring rate.
+Does this plot convey any useful information?
+(d) What should the process engineers recommend con-
+cerning the choice of stirring rate and furnace for
+this particular grain refiner if small grain size is
+desirable?
+4.15.
+Analyze the data in Problem 4.4 using the general
+regression signicance test.
+4.16.
+Assuming that chemical types and bolts are xed,
+estimate the model parameters i and j in Problem 4.3.
+4.17.
+Draw an operating characteristic curve for the design
+in Problem 4.4. Does the test seem to be sensitive to small dif-
+ferences in the treatment effects?
+4.18.
+Suppose that the observation for chemical type 2 and
+bolt 3 is missing in Problem 4.3. Analyze the problem by esti-
+mating the missing value. Perform the exact analysis and
+compare the results.
+4.19.
+Consider the hardness testing experiment in Problem
+4.7. Suppose that the observation for tip 2 in coupon 3 is
+missing. Analyze the problem by estimating the missing
+value.
+4.20.
+Two missing values in a randomized block. Suppose
+that in Problem 4.3 the observations for chemical type 2 and
+bolt 3 and chemical type 4 and bolt 4 are missing.
+(a) Analyze the design by iteratively estimating the missing
+values, as described in Section 4.1.3.
+(b) Differentiate SSE with respect to the two missing val-
+ues, equate the results to zero, and solve for estimates
+of the missing values. Analyze the design using these
+two estimates of the missing values.
+(c) Derive general formulas for estimating two missing
+values when the observations are in different blocks.
+(d) Derive general formulas for estimating two missing
+values when the observations are in the same block.
+4.21.
+An industrial engineer is conducting an experiment on
+eye focus time. He is interested in the effect of the distance of
+the object from the eye on the focus time. Four different
+distances are of interest. He has ve subjects available for the
+experiment. Because there may be differences among individu-
+als, he decides to conduct the experiment in a randomized block
+design. The data obtained follow. Analyze the data from this
+experiment (use 0.05) and draw appropriate conclusions.
+Subject
+Distance (ft)
+1
+2
+3
+4
+5
+4
+10
+6
+6
+6
+6
+6
+7
+6
+6
+1
+6
+8
+5
+3
+3
+2
+5
+10
+6
+4
+4
+2
+3

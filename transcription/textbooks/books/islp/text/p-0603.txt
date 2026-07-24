@@ -1,0 +1,63 @@
+Index
+accuracy, 415
+activation, 400
+activation function, 401
+additive, 11, 94–98, 110–111
+additivity, 305, 306
+adjusted R2, 87, 231, 232, 236–
+238
+Advertising data set, 15, 16, 19,
+69, 71–73, 77, 78, 80, 82,
+83, 85, 87–90, 95, 96, 109–
+111
+agglomerative clustering, 525
+Akaike information criterion, 87,
+231, 232, 236–238
+alternative hypothesis, 76, 559
+analysis of variance, 312
+ANOVA, 587
+area under the curve, 155, 486–
+487
+argument, 40
+array, 42
+attribute, 42
+AUC, 155
+Auto data set, 12, 66, 98–101, 129,
+197, 202–207, 327, 398
+auto-correlation, 421
+autoregression, 423
+axes, 48
+backfitting, 307, 328
+backpropagation, 429
+backward stepwise selection, 87,
+234–235
+bag-of-n-grams, 415
+bag-of-words, 414
+bagging, 11, 24, 331, 343–346, 354,
+360–361
+BART, 343, 350, 353, 354, 362–
+363
+baseline, 93, 145, 161
+basis function, 293–294, 296
+Bayes
+classifier, 35–37, 147
+decision boundary, 148
+error, 35–37
+Bayes’ theorem, 146, 250
+Bayesian, 250–251, 353
+Bayesian additive regression trees,
+331, 343, 350, 350, 353,
+354, 362–363
+Bayesian information criterion, 87,
+231, 232, 236–238
+Benjamini–Hochberg procedure, 575–
+577
+Bernoulli distribution, 172
+best subset selection, 231, 246
+bias, 31–34, 74, 90, 159, 405
+bias-variance
+decomposition, 32
+© Springer Nature Switzerland AG 2023 
+G. James et al., An Introduction to Statistical Learning, Springer Texts in Statistics, 
+https://doi.org/10.1007/978-3-031-38747-0 
+597

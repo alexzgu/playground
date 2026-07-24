@@ -1,0 +1,84 @@
+510
+12. Unsupervised Learning
+the ith observation xij. This representation can be written as
+xij ≈
+M
+0
+m=1
+zimφjm.
+(12.5)
+We can state this more formally by writing down an optimization prob-
+lem. Suppose the data matrix X is column-centered. Out of all approxima-
+tions of the form xij ≈)M
+m=1 aimbjm, we could ask for the one with the
+smallest residual sum of squares:
+minimize
+A∈Rn×M,B∈Rp×M
+
+
+
+p
+0
+j=1
+n
+0
+i=1
+>
+xij −
+M
+0
+m=1
+aimbjm
+?2
+
+.
+(12.6)
+Here, A is an n × M matrix whose (i, m) element is aim, and B is a p × M
+element whose (j, m) element is bjm.
+It can be shown that for any value of M, the columns of the matrices
+ˆA and ˆB that solve (12.6) are in fact the first M principal components
+score and loading vectors. In other words, if ˆA and ˆB solve (12.6), then
+ˆaim = zim and ˆbjm = φjm.4 This means that the smallest possible value of
+the objective in (12.6) is
+p
+0
+j=1
+n
+0
+i=1
+>
+xij −
+M
+0
+m=1
+zimφjm
+?2
+.
+(12.7)
+In summary, together the M principal component score vectors and M
+principal component loading vectors can give a good approximation to the
+data when M is sufficiently large. When M = min(n −1, p), then the
+representation is exact: xij = )M
+m=1 zimφjm.
+12.2.3
+The Proportion of Variance Explained
+In Figure 12.2, we performed PCA on a three-dimensional data set (left-
+hand panel) and projected the data onto the first two principal component
+loading vectors in order to obtain a two-dimensional view of the data (i.e.
+the principal component score vectors; right-hand panel). We see that this
+two-dimensional representation of the three-dimensional data does success-
+fully capture the major pattern in the data: the orange, green, and cyan
+observations that are near each other in three-dimensional space remain
+nearby in the two-dimensional representation. Similarly, we have seen on
+the USArrests data set that we can summarize the 50 observations and 4
+variables using just the first two principal component score vectors and the
+first two principal component loading vectors.
+We can now ask a natural question: how much of the information in
+a given data set is lost by projecting the observations onto the first few
+principal components? That is, how much of the variance in the data is not
+contained in the first few principal components? More generally, we are
+interested in knowing the proportion of variance explained (PVE) by each proportion
+of variance
+explained
+4Technically, the solution to (12.6) is not unique. Thus, it is more precise to state
+that any solution to (12.6) can be easily transformed to yield the principal components.

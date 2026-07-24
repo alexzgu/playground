@@ -1,0 +1,76 @@
+13.3 The Family-Wise Error Rate
+567
+Manager
+Mean, ¯x
+Standard Deviation, s
+t-statistic
+p-value
+One
+3.0
+7.4
+2.86
+0.006
+Two
+-0.1
+6.9
+-0.10
+0.918
+Three
+2.8
+7.5
+2.62
+0.012
+Four
+0.5
+6.7
+0.53
+0.601
+Five
+0.3
+6.8
+0.31
+0.756
+TABLE 13.3. The first two columns correspond to the sample mean and sample
+standard deviation of the percentage excess return, over n = 50 months, for the
+first five managers in the Fund dataset. The last two columns provide the t-statistic
+(√n · ¯
+X/S) and associated p-value for testing H0j : µj = 0, the null hypothesis
+that the (population) mean return for the jth hedge fund manager equals zero.
+13.3.2
+Approaches to Control the Family-Wise Error Rate
+In this section, we briefly survey some approaches to control the FWER.
+We will illustrate these approaches on the Fund dataset, which records the
+monthly percentage excess returns for 2,000 fund managers over n = 50
+months.13 Table 13.3 provides relevant summary statistics for the first five
+managers.
+We first present the Bonferroni method and Holm’s step-down proce-
+dure, which are very general-purpose approaches for controlling the FWER
+that can be applied whenever m p-values have been computed, regardless
+of the form of the null hypotheses, the choice of test statistics, or the
+(in)dependence of the p-values. We then briefly discuss Tukey’s method
+and Scheffé’s method in order to illustrate the fact that, in certain sit-
+uations, more specialized approaches for controlling the FWER may be
+preferable.
+The Bonferroni Method
+As in the previous section, suppose we wish to test H01, . . . , H0m. Let Aj
+denote the event that we make a Type I error for the jth null hypothesis,
+for j = 1, . . . , m. Then
+FWER = Pr(falsely reject at least one null hypothesis)
+= Pr(∪m
+j=1Aj)
+≤
+m
+0
+j=1
+Pr(Aj).
+(13.6)
+In (13.6), the inequality results from the fact that for any two events A
+and B, Pr(A ∪B) ≤Pr(A) + Pr(B), regardless of whether A and B are
+independent. The Bonferroni method, or Bonferroni correction, sets the
+threshold for rejecting each hypothesis test to α/m, so that Pr(Aj) ≤α/m.
+Equation 13.6 implies that
+FWER(α/m) ≤m × α
+m = α,
+13Excess returns correspond to the additional return the fund manager achieves beyond
+the market’s overall return. So if the market increases by 5% during a given period and
+the fund manager achieves a 7% return, their excess return would be 7% −5% = 2%.

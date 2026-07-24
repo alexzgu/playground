@@ -1,0 +1,64 @@
+170
+4. Classification
+Here, λ > 0 is the expected value of Y , i.e. E(Y ). It turns out that λ also
+equals the variance of Y , i.e. λ = E(Y ) = Var(Y ). This means that if Y
+follows the Poisson distribution, then the larger the mean of Y , the larger
+its variance. (In (4.35), the notation k!, pronounced “k factorial”, is defined
+as k! = k × (k −1) × (k −2) × . . . × 3 × 2 × 1.)
+The Poisson distribution is typically used to model counts; this is a nat-
+ural choice for a number of reasons, including the fact that counts, like
+the Poisson distribution, take on nonnegative integer values. To see how
+we might use the Poisson distribution in practice, let Y denote the num-
+ber of users of the bike sharing program during a particular hour of the
+day, under a particular set of weather conditions, and during a particu-
+lar month of the year. We might model Y as a Poisson distribution with
+mean E(Y ) = λ = 5. This means that the probability of no users dur-
+ing this particular hour is Pr(Y = 0) =
+e−550
+0!
+= e−5 = 0.0067 (where
+0! = 1 by convention). The probability that there is exactly one user
+is Pr(Y = 1) =
+e−551
+1!
+= 5e−5 = 0.034, the probability of two users is
+Pr(Y = 2) = e−552
+2!
+= 0.084, and so on.
+Of course, in reality, we expect the mean number of users of the bike
+sharing program, λ = E(Y ), to vary as a function of the hour of the day,
+the month of the year, the weather conditions, and so forth. So rather
+than modeling the number of bikers, Y , as a Poisson distribution with a
+fixed mean value like λ = 5, we would like to allow the mean to vary as a
+function of the covariates. In particular, we consider the following model
+for the mean λ = E(Y ), which we now write as λ(X1, . . . , Xp) to emphasize
+that it is a function of the covariates X1, . . . , Xp:
+log(λ(X1, . . . , Xp)) = β0 + β1X1 + · · · + βpXp
+(4.36)
+or equivalently
+λ(X1, . . . , Xp) = eβ0+β1X1+···+βpXp.
+(4.37)
+Here, β0, β1, . . . , βp are parameters to be estimated. Together, (4.35) and
+(4.36) define the Poisson regression model. Notice that in (4.36), we take
+the log of λ(X1, . . . , Xp) to be linear in X1, . . . , Xp, rather than having
+λ(X1, . . . , Xp) itself be linear in X1, . . . , Xp; this ensures that λ(X1, . . . , Xp)
+takes on nonnegative values for all values of the covariates.
+To estimate the coefficients β0, β1, . . . , βp, we use the same maximum
+likelihood approach that we adopted for logistic regression in Section 4.3.2.
+Specifically, given n independent observations from the Poisson regression
+model, the likelihood takes the form
+ℓ(β0, β1, . . . , βp) =
+n
+E
+i=1
+e−λ(xi)λ(xi)yi
+yi!
+,
+(4.38)
+where λ(xi) = eβ0+β1xi1+···+βpxip, due to (4.37). We estimate the coef-
+ficients that maximize the likelihood ℓ(β0, β1, . . . , βp), i.e. that make the
+observed data as likely as possible.
+We now fit a Poisson regression model to the Bikeshare data set. The
+results are shown in Table 4.11 and Figure 4.15. Qualitatively, the results
+are similar to those from linear regression in Section 4.6.1. We again see
+that bike usage is highest in the spring and fall and during rush hour,

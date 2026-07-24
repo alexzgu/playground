@@ -1,0 +1,61 @@
+10.5 Recurrent Neural Networks
+419
+this
+is
+one
+of
+the
+best
+films
+actually
+the
+best
+I
+have
+ever
+seen
+the
+film
+starts
+one
+fall
+day
+One−hot
+Embed
+FIGURE 10.13. Depiction of a sequence of 20 words representing a single doc-
+ument: one-hot encoded using a dictionary of 16 words (top panel) and embedded
+in an m-dimensional space with m = 5 (bottom panel).
+where each column is indexed by one of the 10,000 words in our dictionary,
+and the values in that column give the m coordinates for that word in the
+embedding space.
+Figure 10.13 illustrates the idea (with a dictionary of 16 rather than
+10,000, and m = 5). Where does E come from? If we have a large corpus
+of labeled documents, we can have the neural network learn E as part
+of the optimization. In this case E is referred to as an embedding layer, embedding
+layer
+and a specialized E is learned for the task at hand. Otherwise we can
+insert a precomputed matrix E in the embedding layer, a process known
+as weight freezing. Two pretrained embeddings, word2vec and GloVe, are weight
+freezing
+word2vec
+GloVe
+widely used.16 These are built from a very large corpus of documents by
+a variant of principal components analysis (Section 12.2). The idea is that
+the positions of words in the embedding space preserve semantic meaning;
+e.g. synonyms should appear near each other.
+So far, so good. Each document is now represented as a sequence of m-
+vectors that represents the sequence of words. The next step is to limit
+each document to the last L words. Documents that are shorter than L
+get padded with zeros upfront. So now each document is represented by a
+series consisting of L vectors X = {X1, X2, . . . , XL}, and each Xℓin the
+sequence has m components.
+We now use the RNN structure in Figure 10.12. The training corpus
+consists of n separate series (documents) of length L, each of which gets
+processed sequentially from left to right. In the process, a parallel series of
+hidden activation vectors Aℓ, ℓ= 1, . . . , L is created as in (10.16) for each
+document. Aℓfeeds into the output layer to produce the evolving prediction
+Oℓ. We use the final value OL to predict the response: the sentiment of the
+review.
+16 word2vec is described in Mikolov, Chen, Corrado, and Dean (2013), available
+at https://code.google.com/archive/p/word2vec. GloVe is described in Pennington,
+Socher, and Manning (2014), available at https://nlp.stanford.edu/projects/glove.

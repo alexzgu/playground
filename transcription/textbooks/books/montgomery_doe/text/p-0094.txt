@@ -1,0 +1,61 @@
+78
+Chapter 3 ■Experiments with a Single Factor: The Analysis of Variance
+We could use the ANOVA F test to test H0 : 1 2. Alternatively, we could use a somewhat
+different approach. Suppose we consider all the possible ways of allocating the 10 numbers
+in the above sample to the two treatments. There are 10!/5!5! 252 possible arrangements
+of the 10 observations. If there is no difference in treatment means, all 252 arrangements are
+equally likely. For each of the 252 arrangements, we calculate the value of the F statistic using
+Equation 3.7. The distribution of these F values is called a randomization distribution, and
+a large value of F indicates that the data are not consistent with the hypothesis H0 : 1 2.
+For example, if the value of F actually observed was exceeded by only ve of the values of
+the randomization distribution, this would correspond to rejection of H0 : 1 2 at a signif-
+icance level of 5/252 0.0198 (or 1.98 percent). Notice that no normality assumption is
+required in this approach.
+The difficulty with this approach is that, even for relatively small problems, it is
+computationally prohibitive to enumerate the exact randomization distribution. However,
+numerous studies have shown that the exact randomization distribution is well approxi-
+mated by the usual normal-theory F distribution. Thus, even without the normality
+assumption, the ANOVA F test can be viewed as an approximation to the randomization
+test. For further reading on randomization tests in the analysis of variance, see Box,
+Hunter, and Hunter (2005).
+3.3.3
+Estimation of the Model Parameters
+We now present estimators for the parameters in the single-factor model
+and condence intervals on the treatment means. We will prove later that reasonable estimates
+of the overall mean and the treatment effects are given by
+(3.11)
+These estimators have considerable intuitive appeal; note that the overall mean is estimated
+by the grand average of the observations and that any treatment effect is just the difference
+between the treatment average and the grand average.
+A conﬁdence interval estimate of the ith treatment mean may be easily determined.
+The mean of the ith treatment is
+A point estimator of i would be 
+. Now, if we assume that the errors
+are normally distributed, each treatment average 
+is distributed NID(i, 2/n). Thus, if 2
+were known, we could use the normal distribution to dene the condence interval. Using the
+MSE as an estimator of 2, we would base the condence interval on the t distribution.
+Therefore, a 100(1 ) percent condence interval on the ith treatment mean i is
+(3.12)
+Differences in treatments are frequently of great practical interest. A 100(1 ) percent con-
+dence interval on the difference in any two treatments means, say i j, would be
+(3.13)
+yi. yj. t/2,Na
+2MSE
+n
+i j yi. yj. t/2,Na
+2MSE
+n
+yi. t/2,Na
+MSE
+n
+i yi. t/2,Na
+MSE
+n
+yi.
+ˆ i ˆ ˆi yi.
+i i
+iˆ yi. y.., 
+ i 1, 2, . . . , a
+ˆ y..
+yij i ij

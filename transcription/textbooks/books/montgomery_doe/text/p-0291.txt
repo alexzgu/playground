@@ -1,0 +1,160 @@
+6.6 Additional Examples of Unreplicated 2k Designs
+275
+percent of the variability in average oxide thickness.
+Figure 6.31 is a normal probability plot of the effects. From
+examination of this display, we would conclude that factors
+A, B, and C and the AB and AC interactions are important.
+The analysis of variance display for this model is shown in
+Table 6.20.
+The model for predicting average oxide thickness is
+The residual analysis of this model is satisfactory.
+The experimenters are interested in obtaining an aver-
+age oxide thickness of 400 A, and product specications
+require that the thickness must lie between 390 and 410 A.
+Figure 6.32 presents two contour plots of average thick-
+ness, one with factor C (or x3), pressure, at the low level
+(that is, x3  1) and the other with C (or x3) at the high
+level (that is, x3  1). From examining these contour
+plots, it is obvious that there are many combinations of
+time and temperature (factors A and B) that will produce
+acceptable results. However, if pressure is held constant at
+the low level, the operating “window” is shifted toward the
+left, or lower, end of the time axis, indicating that lower
+cycle times will be required to achieve the desired oxide
+thickness.
+It is interesting to observe the results that would be
+obtained if we incorrectly consider the individual wafer
+oxide thickness measurements as replicates. Table 6.21
+presents a full-model ANOVA based on treating the exper-
+iment as a replicated 24 factorial. Notice that there are many
+signicant factors in this analysis, suggesting a much more
+complex model than the one that we found when using the
+average oxide thickness as the response. The reason for this
+is that the estimate of the error variance in Table 6.21 is too
+small (
+). The residual mean square in Table 6.21
+reects a combination of the variability between wafers
+within a run and variability between runs. The estimate of
+error obtained from Table 6.20 is much larger,
+,
+and it is primarily a measure of the between-run variability.
+This is the best estimate of error to use in judging the sig-
+nicance of process variables that are changed from run to
+run.
+A logical question to ask is: What harm results from
+identifying too many factors as important, as the incorrect
+analysis in Table 6.21 would certainly do. The answer is that
+trying to manipulate or optimize the unimportant factors
+would be a waste of resources, and it could result in adding
+unnecessary variability to other responses of interest.
+When there are duplicate measurements on the
+response, these observations almost always contain useful
+information about some aspect of process variability. For
+example, if the duplicate measurements are multiple tests
+by a gauge on the same experimental unit, then the dupli-
+cate measurements give some insight about gauge capabil-
+ity. If the duplicate measurements are made at different
+locations on an experimental unit, they may give some
+information about the uniformity of the response variable
+ˆ 2 17.61
+ˆ 2 6.12
+9.06x2 5.19x3 8.44x1x2 5.31x1x3
+yˆ 399.19 21.56x1 
+■TA B L E 6 . 1 9
+Effect Estimates for Example 6.5, Response Variable Is
+Average Oxide Thickness
+Model
+Effect
+Sum of
+Percent 
+Term
+Estimate
+Squares
+Contribution
+A
+43.125
+7439.06
+67.9339
+B
+18.125
+1314.06
+12.0001
+C
+10.375
+430.562
+3.93192
+D
+1.625
+10.5625
+0.0964573
+AB
+16.875
+1139.06
+10.402
+AC
+10.625
+451.563
+4.12369
+AD
+1.125
+5.0625
+0.046231
+BC
+3.875
+60.0625
+0.548494
+BD
+3.875
+60.0625
+0.548494
+CD
+1.125
+5.0625
+0.046231
+ABC
+0.375
+0.5625
+0.00513678
+ABD
+2.875
+33.0625
+0.301929
+ACD
+0.125
+0.0625
+0.000570753
+BCD
+0.625
+1.5625
+0.0142688
+ABCD
+0.125
+0.0625
+0.000570753 
+–10.63
+2.81
+AB
+B
+A
+C
+AC
+16.25
+Effect
+29.69
+43.13
+Normal % probability
+99
+95
+90
+80
+70
+50
+30
+20
+10
+5
+1
+■F I G U R E 6 . 3 1
+Normal probability plot of
+the effects for the average oxide thickness response,
+Example 6.5

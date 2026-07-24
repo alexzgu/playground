@@ -1,0 +1,46 @@
+416
+10. Deep Learning
+the consecutive co-occurrence of every distinct pair of words. “Bliss-
+fully long” can be seen as a positive phrase in a movie review, while
+“blissfully short” a negative.
+• Treat the document as a sequence, taking account of all the words in
+the context of those that preceded and those that follow.
+In the next section we explore models for sequences of data, which have
+applications in weather forecasting, speech recognition, language transla-
+tion, and time-series prediction, to name a few. We continue with this IMDb
+example there.
+10.5
+Recurrent Neural Networks
+Many data sources are sequential in nature, and call for special treatment
+when building predictive models. Examples include:
+• Documents such as book and movie reviews, newspaper articles, and
+tweets. The sequence and relative positions of words in a document
+capture the narrative, theme and tone, and can be exploited in tasks
+such as topic classification, sentiment analysis, and language transla-
+tion.
+• Time series of temperature, rainfall, wind speed, air quality, and so
+on. We may want to forecast the weather several days ahead, or cli-
+mate several decades ahead.
+• Financial time series, where we track market indices, trading volumes,
+stock and bond prices, and exchange rates. Here prediction is often
+difficult, but as we will see, certain indices can be predicted with
+reasonable accuracy.
+• Recorded speech, musical recordings, and other sound recordings. We
+may want to give a text transcription of a speech, or perhaps a lan-
+guage translation. We may want to assess the quality of a piece of
+music, or assign certain attributes.
+• Handwriting, such as doctor’s notes, and handwritten digits such as
+zip codes. Here we want to turn the handwriting into digital text, or
+read the digits (optical character recognition).
+In a recurrent neural network (RNN), the input object X is a sequence. recurrent
+neural
+network
+Consider a corpus of documents, such as the collection of IMDb movie re-
+views. Each document can be represented as a sequence of L words, so
+X = {X1, X2, . . . , XL}, where each Xℓrepresents a word. The order of
+the words, and closeness of certain words in a sentence, convey semantic
+meaning. RNNs are designed to accommodate and take advantage of the
+sequential nature of such input objects, much like convolutional neural net-
+works accommodate the spatial structure of image inputs. The output Y
+can also be a sequence (such as in language translation), but often is a
+scalar, like the binary sentiment label of a movie review document.

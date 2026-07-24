@@ -1,0 +1,83 @@
+246
+6. Linear Model Selection and Regularization
+When p = 2, then (6.8) indicates that the lasso coefficient estimates have
+the smallest RSS out of all points that lie within the diamond defined by
+|β1| + |β2| ≤s. Similarly, the ridge regression estimates have the smallest
+RSS out of all points that lie within the circle defined by β2
+1 + β2
+2 ≤s.
+We can think of (6.8) as follows. When we perform the lasso we are trying
+to find the set of coefficient estimates that lead to the smallest RSS, subject
+to the constraint that there is a budget s for how large )p
+j=1 |βj| can be.
+When s is extremely large, then this budget is not very restrictive, and so
+the coefficient estimates can be large. In fact, if s is large enough that the
+least squares solution falls within the budget, then (6.8) will simply yield
+the least squares solution. In contrast, if s is small, then )p
+j=1 |βj| must be
+small in order to avoid violating the budget. Similarly, (6.9) indicates that
+when we perform ridge regression, we seek a set of coefficient estimates
+such that the RSS is as small as possible, subject to the requirement that
+)p
+j=1 β2
+j not exceed the budget s.
+The formulations (6.8) and (6.9) reveal a close connection between the
+lasso, ridge regression, and best subset selection. Consider the problem
+minimize
+β
+
+
+
+
+
+n
+0
+i=1
+
+yi −β0 −
+p
+0
+j=1
+βjxij
+
+
+2
+
+
+
+
+subject to
+p
+0
+j=1
+I(βj̸ = 0) ≤s.
+(6.10)
+Here I(βj̸ = 0) is an indicator variable: it takes on a value of 1 if βj̸ = 0, and
+equals zero otherwise. Then (6.10) amounts to finding a set of coefficient
+estimates such that RSS is as small as possible, subject to the constraint
+that no more than s coefficients can be nonzero. The problem (6.10) is
+equivalent to best subset selection. Unfortunately, solving (6.10) is com-
+putationally infeasible when p is large, since it requires considering all
+'p
+s
+(
+models containing s predictors. Therefore, we can interpret ridge regression
+and the lasso as computationally feasible alternatives to best subset selec-
+tion that replace the intractable form of the budget in (6.10) with forms
+that are much easier to solve. Of course, the lasso is much more closely
+related to best subset selection, since the lasso performs feature selection
+for s sufficiently small in (6.8), while ridge regression does not.
+The Variable Selection Property of the Lasso
+Why is it that the lasso, unlike ridge regression, results in coefficient esti-
+mates that are exactly equal to zero? The formulations (6.8) and (6.9) can
+be used to shed light on the issue. Figure 6.7 illustrates the situation. The
+least squares solution is marked as ˆβ, while the blue diamond and circle
+represent the lasso and ridge regression constraints in (6.8) and (6.9), re-
+spectively. If s is sufficiently large, then the constraint regions will contain
+ˆβ, and so the ridge regression and lasso estimates will be the same as the
+least squares estimates. (Such a large value of s corresponds to λ = 0 in
+(6.5) and (6.7).) However, in Figure 6.7 the least squares estimates lie out-
+side of the diamond and the circle, and so the least squares estimates are
+not the same as the lasso and ridge regression estimates.
+Each of the ellipses centered around ˆβ represents a contour: this means contour
+that all of the points on a particular ellipse have the same RSS value. As

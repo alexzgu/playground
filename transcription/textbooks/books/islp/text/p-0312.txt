@@ -1,0 +1,293 @@
+304
+7. Moving Beyond Linearity
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+−1.0
+−0.5
+0.0
+0.5
+1.0
+1.5
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+OOO
+O
+O
+O
+O
+O
+O
+O
+O
+OO
+O
+O
+OO
+O
+O
+O
+O
+O
+O
+OO
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+OO
+O
+O
+O
+O
+O
+OO
+O
+O
+O
+O
+OO
+O
+O
+OO
+O
+O
+O
+OO
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+OO
+O
+O
+O
+O
+OO
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+OOO
+O
+O
+O
+O
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+−1.0
+−0.5
+0.0
+0.5
+1.0
+1.5
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+OOO
+O
+O
+O
+O
+O
+O
+O
+O
+OO
+O
+O
+OO
+O
+O
+O
+O
+O
+O
+OO
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+OO
+O
+O
+O
+O
+O
+OO
+O
+O
+O
+O
+OO
+O
+O
+OO
+O
+O
+O
+OO
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+OO
+O
+O
+O
+O
+OO
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+OO
+O
+O
+OO
+O
+O
+O
+O
+O
+O
+OO
+O
+O
+O
+O
+O
+O
+O
+O
+O
+O
+OO
+O
+O
+O
+O
+O
+OO
+O
+O
+O
+O
+OO
+O
+O
+OO
+O
+O
+Local Regression
+FIGURE 7.9. Local regression illustrated on some simulated data, where the
+blue curve represents f(x) from which the data were generated, and the light
+orange curve corresponds to the local regression estimate ˆf(x). The orange colored
+points are local to the target point x0, represented by the orange vertical line. The
+yellow bell-shape superimposed on the plot indicates weights assigned to each
+point, decreasing to zero with distance from the target point. The fit ˆf(x0) at x0
+is obtained by fitting a weighted linear regression (orange line segment), and using
+the fitted value at x0 (orange solid dot) as the estimate ˆf(x0).
+ing splines: it controls the flexibility of the non-linear fit. The smaller the
+value of s, the more local and wiggly will be our fit; alternatively, a very
+large value of s will lead to a global fit to the data using all of the train-
+ing observations. We can again use cross-validation to choose s, or we can
+specify it directly. Figure 7.10 displays local linear regression fits on the
+Wage data, using two values of s: 0.7 and 0.2. As expected, the fit obtained
+using s = 0.7 is smoother than that obtained using s = 0.2.
+The idea of local regression can be generalized in many different ways.
+In a setting with multiple features X1, X2, . . . , Xp, one very useful general-
+ization involves fitting a multiple linear regression model that is global in
+some variables, but local in another, such as time. Such varying coefficient
+models are a useful way of adapting a model to the most recently gathered varying
+coefficient
+model
+data. Local regression also generalizes very naturally when we want to fit
+models that are local in a pair of variables X1 and X2, rather than one.
+We can simply use two-dimensional neighborhoods, and fit bivariate linear
+regression models using the observations that are near each target point
+in two-dimensional space. Theoretically the same approach can be imple-
+mented in higher dimensions, using linear regressions fit to p-dimensional
+neighborhoods. However, local regression can perform poorly if p is much
+larger than about 3 or 4 because there will generally be very few training
+observations close to x0. Nearest-neighbors regression, discussed in Chap-
+ter 3, suffers from a similar problem in high dimensions.

@@ -1,0 +1,91 @@
+84
+Chapter 3 ■Experiments with a Single Factor: The Analysis of Variance
+The usual approach to dealing with nonconstant variance when it occurs for the above
+reasons is to apply a variance-stabilizing transformation and then to run the analysis of
+variance on the transformed data. In this approach, one should note that the conclusions of
+the analysis of variance apply to the transformed populations.
+Considerable research has been devoted to the selection of an appropriate transformation.
+If experimenters know the theoretical distribution of the observations, they may utilize this
+information in choosing a transformation. For example, if the observations follow the Poisson
+distribution, the square root transformation
+or 
+would be used. If 
+the data follow the lognormal distribution, the logarithmic transformation
+is
+appropriate. For binomial data expressed as fractions, the arcsin transformation
+is useful. When there is no obvious transformation, the experimenter usually
+empirically seeks a transformation that equalizes the variance regardless of the value of the mean.
+We offer some guidance on this at the conclusion of this section. In factorial experiments, which
+we introduce in Chapter 5, another approach is to select a transformation that minimizes the inter-
+action mean square, resulting in an experiment that is easier to interpret. In Chapter 15, we discuss
+in more detail methods for analytically selecting the form of the transformation. Transformations
+made for inequality of variance also affect the form of the error distribution. In most cases, the
+transformation brings the error distribution closer to normal. For more discussion of transforma-
+tions, refer to Bartlett (1947), Dolby (1963), Box and Cox (1964), and Draper and Hunter (1969).
+Statistical Tests for Equality of Variance. Although residual plots are frequently
+used to diagnose inequality of variance, several statistical tests have also been proposed. These
+tests may be viewed as formal tests of the hypotheses
+A widely used procedure is Bartlett’s test. The procedure involves computing a statis-
+tic whose sampling distribution is closely approximated by the chi-square distribution with 
+a 1 degrees of freedom when the a random samples are from independent normal popula-
+tions. The test statistic is
+(3.19)
+where
+and 
+is the sample variance of the ith population.
+The quantity q is large when the sample variances 
+differ greatly and is equal to zero
+when all 
+are equal. Therefore, we should reject H0 on values of 
+that are too large; that
+is, we reject H0 only when
+where 
+is the upper percentage point of the chi-square distribution with a 1 degrees
+of freedom. The P-value approach to decision making could also be used.
+Bartlett’s test is very sensitive to the normality assumption. Consequently, when the
+validity of this assumption is doubtful, Bartlett’s test should not be used.
+2
+,a1
+2
+0 # 2
+,a1
+2
+0
+S 2
+i
+S 2
+i
+S 2
+i
+S 2
+p 
+a
+i1
+ (ni 1)S 2
+i
+N a
+c 1 
+1
+3(a 1)
+a
+i1
+ (ni 1)1 (N a)1
+q (N a)log10 S 2
+p 
+a
+i1
+ (ni 1)log10 S 2
+i
+2
+0 2.3026 q
+c
+H1above not true for at least one 2
+i
+H02
+1 2
+2 Á 2
+a
+y*ij arcsin yij
+y*ij log yij
+y*ij 1 yij
+y*ij yij

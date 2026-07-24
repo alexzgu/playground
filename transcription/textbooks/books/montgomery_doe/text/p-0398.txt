@@ -1,0 +1,208 @@
+382
+Chapter 8 ■Two-Level Fractional Factorial Designs
+(a) Analyze the data and draw conclusions.  
+(b) Compare your ndings with those from the full facto-
+rial in Example 6.39.
+(c) Are there any potential interactions that need further
+study? What additional runs do you recommend?
+Select these runs from the full factorial design in
+Problem 6.39 and analyze the new design. Discuss
+your conclusions.
+8.33.
+Consider the 24 factorial experiment for surfactin pro-
+duction in Problem 6.40. Suppose that the experimenters
+could only afford eight runs. Set up the 241 fractional facto-
+rial design with I ABCD and select the responses for the
+runs from the full factorial data in Example 6.40.  
+(a) Analyze the data and draw conclusions.  
+(b) Compare your ndings with those from the full facto-
+rial in Example 6.40. 
+8.34.
+Consider the 24 factorial experiment in Problem 6.42.
+Suppose that the experimenters could only afford eight runs.
+Set up the 241 fractional factorial design with I ABCD and
+select the responses for the runs from the full factorial data in
+Example 6.42.
+(a) Analyze the data for all of the responses and draw con-
+clusions.
+(b) Compare your ndings with those from the full facto-
+rial in Example 6.42. 
+8.35.
+An article in the Journal of Chromatography A
+(“Simultaneous Supercritical Fluid Derivatization and
+Extraction of Formaldehyde by the Hantzsch Reaction,” 2000,
+Vol. 896, pp. 51–59) describes an experiment where the
+Hantzsch reaction is used to produce the chemical derivatiza-
+tion of formaldehyde in a supercritical medium. Pressure,
+temperature, and other parameters such as static and dynamic
+extraction time must be optimized to increase the yield of this
+kinetically controlled reaction. A 251 fractional factorial
+design with one center run was used to study the signicant
+parameters affecting the supercritical process in terms of res-
+olution and sensitivity. Ultraviolet–visible spectrophotometry
+was used as the detection technique. The experimental design
+and the responses are shown in Table P8.7.
+■TA B L E P 8 . 7
+The 25-1 Fractional Factorial Design for Problem 8.35
+P
+T
+s
+d
+c
+Experiment
+(MPa)
+(C)
+(min)
+(min)
+(l)
+Resolution
+Sensitivity
+1
+13.8
+50
+2
+2
+100
+0.00025
+0.057
+2
+55.1
+50
+2
+2
+10
+0.33333
+0.094
+3
+13.8
+120
+2
+2
+10
+0.02857
+0.017
+4
+55.1
+120
+2
+2
+100
+0.20362
+1.561
+5
+13.8
+50
+15
+2
+10
+0.00027
+0.010
+6
+55.1
+50
+15
+2
+100
+0 52632
+0.673
+7
+13.8
+120
+15
+2
+100
+0.00026
+0.028
+8
+55.1
+120
+15
+2
+10
+0.52632
+1.144
+9
+13.8
+50
+2
+15
+10
+0 42568
+0.142
+10
+55.1
+50
+2
+15
+100
+0.60150
+0.399
+11
+13.8
+120
+2
+15
+100
+0.06098
+0.767
+12
+55.1
+120
+2
+15
+10
+0.74165
+1.086
+13
+13.8
+50
+15
+15
+100
+0.08780
+0.252
+14
+55.1
+50
+15
+15
+10
+0.40000
+0.379
+15
+13.8
+120
+15
+15
+10
+0.00026
+0.028
+16
+55.1
+120
+15
+15
+100
+0.28091
+3.105
+Central
+34.5
+85
+8.5
+8.5
+55
+0.75000
+1.836
+(a) Analyze the data from this experiment and draw con-
+clusions.
+(b) Analyze the residuals. Are there any concerns about
+model adequacy or violations of assumptions?
+(c) Does the single center point cause any concerns about
+curvature or the possible need for second-order terms?
+(d) Do you think that running one center point was a good
+choice in this design?
+8.36.
+An article in Thin Solid Films (504, “A Study of
+Si/SiGe Selective Epitaxial Growth by Experimental Design
+Approach,” 2006, Vol. 504, pp. 95–100) describes the use of
+a fractional factorial design to investigate the sensitivity of

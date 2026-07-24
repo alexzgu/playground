@@ -1,0 +1,27 @@
+524
+12. Unsupervised Learning
+Data
+Step 1
+Iteration 1, Step 2a
+Iteration 1, Step 2b
+Iteration 2, Step 2a
+Final Results
+FIGURE 12.8.
+The progress of the K-means algorithm on the example of
+Figure 12.7 with K=3. Top left: the observations are shown. Top center: in
+Step 1 of the algorithm, each observation is randomly assigned to a cluster. Top
+right: in Step 2(a), the cluster centroids are computed. These are shown as large
+colored disks. Initially the centroids are almost completely overlapping because
+the initial cluster assignments were chosen at random. Bottom left: in Step 2(b),
+each observation is assigned to the nearest centroid. Bottom center: Step 2(a) is
+once again performed, leading to new cluster centroids. Bottom right: the results
+obtained after ten iterations.
+initial configurations. Then one selects the best solution, i.e. that for which
+the objective (12.17) is smallest. Figure 12.9 shows the local optima ob-
+tained by running K-means clustering six times using six different initial
+cluster assignments, using the toy data from Figure 12.7. In this case, the
+best clustering is the one with an objective value of 235.8.
+As we have seen, to perform K-means clustering, we must decide how
+many clusters we expect in the data. The problem of selecting K is far from
+simple. This issue, along with other practical considerations that arise in
+performing K-means clustering, is addressed in Section 12.4.3.

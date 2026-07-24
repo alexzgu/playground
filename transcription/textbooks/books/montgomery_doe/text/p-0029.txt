@@ -1,0 +1,62 @@
+saltwater quenching produces a higher hardness in this particular aluminum alloy than
+does oil quenching.
+Often when the runs in an experiment are randomized, two (or more) consecutive runs
+will have exactly the same levels for some of the factors. For example, suppose we have three
+factors in an experiment: pressure, temperature, and time. When the experimental runs are
+randomized, we nd the following:
+Run number
+Pressure (psi)
+Temperature (C)
+Time (min)
+i
+30
+100
+30
+i 1
+30
+125
+45
+i 2
+40
+125
+45
+Notice that between runs i and i 1, the levels of pressure are identical and between runs 
+i 1 and i 2, the levels of both temperature and time are identical. To obtain a true repli-
+cate, the experimenter needs to “twist the pressure knob” to an intermediate setting between
+runs i and i 1, and reset pressure to 30 psi for run i 1. Similarly, temperature and time
+should be reset to intermediate levels between runs i 1 and i 2 before being set to their
+design levels for run i 2. Part of the experimental error is the variability associated with hit-
+ting and holding factor levels.
+There is an important distinction between replication and repeated measurements.
+For example, suppose that a silicon wafer is etched in a single-wafer plasma etching process,
+and a critical dimension (CD) on this wafer is measured three times. These measurements are
+not replicates; they are a form of repeated measurements, and in this case the observed vari-
+ability in the three repeated measurements is a direct reection of the inherent variability in
+the measurement system or gauge and possibly the variability in this CD at different locations
+on the wafer where the measurement were taken. As another illustration, suppose that as part
+of an experiment in semiconductor manufacturing four wafers are processed simultaneously
+in an oxidation furnace at a particular gas ow rate and time and then a measurement is taken
+on the oxide thickness of each wafer. Once again, the measurements on the four wafers are
+not replicates but repeated measurements. In this case, they reect differences among the
+wafers and other sources of variability within that particular furnace run. Replication reects
+sources of variability both between runs and (potentially) within runs.
+Blocking is a design technique used to improve the precision with which comparisons
+among the factors of interest are made. Often blocking is used to reduce or eliminate the vari-
+ability transmitted from nuisance factors—that is, factors that may inuence the experimen-
+tal response but in which we are not directly interested. For example, an experiment in a
+chemical process may require two batches of raw material to make all the required runs.
+However, there could be differences between the batches due to supplier-to-supplier variabil-
+ity, and if we are not specically interested in this effect, we would think of the batches of
+raw material as a nuisance factor. Generally, a block is a set of relatively homogeneous exper-
+imental conditions. In the chemical process example, each batch of raw material would form
+a block, because the variability within a batch would be expected to be smaller than the vari-
+ability between batches. Typically, as in this example, each level of the nuisance factor
+becomes a block. Then the experimenter divides the observations from the statistical design
+into groups that are run in each block. We study blocking in detail in several places in the text,
+including Chapters 4, 5, 7, 8, 9, 11, and 13. A simple example illustrating the blocking prin-
+cipal is given in Section 2.5.1.
+The three basic principles of experimental design, randomization, replication, and
+blocking are part of every experiment. We will illustrate and emphasize them repeatedly
+throughout this book.
+1.3 Basic Principles
+13

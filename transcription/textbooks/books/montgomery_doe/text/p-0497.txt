@@ -1,0 +1,46 @@
+11.2 The Method of Steepest Ascent
+481
+and the rst-order response surface, that is, the contours of , is a series of parallel lines such
+as shown in Figure 11.4. The direction of steepest ascent is the direction in which increases
+most rapidly. This direction is normal to the tted response surface. We usually take as the path
+of steepest ascent the line through the center of the region of interest and normal to the t-
+ted surface. Thus, the steps along the path are proportional to the regression coefcients 
+.
+The actual step size is determined by the experimenter based on process knowledge or other
+practical considerations.
+Experiments are conducted along the path of steepest ascent until no further increase
+in response is observed. Then a new first-order model may be fit, a new path of steepest
+ascent determined, and the procedure continued. Eventually, the experimenter will arrive in
+the vicinity of the optimum. This is usually indicated by lack of fit of a first-order model.
+At that time, additional experiments are conducted to obtain a more precise estimate of the
+optimum.
+ˆ
+i
+yˆ
+yˆ
+x1
+y = 10
+x2
+y = 20
+y = 30
+y = 40
+y = 50
+Region of fitted
+first-order response
+surface
+Path of steepest ascent
+‹
+‹
+‹
+‹
+‹
+■F I G U R E 1 1 . 4
+First-
+order response surface and path
+of steepest ascent
+E X A M P L E 1 1 . 1
+A chemical engineer is interested in determining the operating conditions that maximize the yield of a process. Two
+controllable variables influence process yield: reaction time and reaction temperature. The engineer is currently oper-
+ating the process with a reaction time of 35 minutes and a temperature of 155°F, which result in yields of around 
+40 percent. Because it is unlikely that this region contains the optimum, she fits a first-order model and applies the
+method of steepest ascent.

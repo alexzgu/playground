@@ -1,0 +1,58 @@
+152CHAPTER 5. CHANGE OF MEASURE AND GIRSANOV THEOREM
+where Bt is a standard Brownian motion dened on the probability space
+(Ω, F, P). If r R, then we can nd a new probability measure Q such that
+dBt = r dt + dWt,
+where Wt is a Brownian motion with respect to Q. Then,
+dXt = Xt [(m + σr) dt + σ dWt] 
+Hence with respect to Q, Xt is a geometric Brownian motion with the same
+volatility but a new drift. From this we can see that the measures for geo-
+metric Brownian motions σ are equivalent.
+Example 5.2.2. We compute a quantity for Brownian motion with drift
+by using a standard Brownian motion. Suppose Bt is a standard Brownian
+motion, a > 0, m R, and Mt is the martingale in (5.3). Let Ta = inft :
+Bt = a. Then under the new measure Q, Bt is a Brownian motion with drift
+m. Note that
+QTa < ∞= E [MTa 1Ta < ∞] = E [MTa] 
+Here the expectation E is with respect to the original measure under which
+B is a standard Brownian motion; the second equality follows from the fact
+that PTa < ∞= 1. Therefore,
+QTa < ∞
+=
+E
+
+exp
+
+mBTa −m2 Ta
+2
+
+=
+eam E
+
+exp
+
+−m2 Ta
+2
+
+
+In Example 2.7.1 we computed the density of Ta for Brownian motion. Given
+this we could compute the expectation on the right-hand side. However we
+will choose a dierent method. We know that driftless Brownian motion will
+hit the line y = a with probability one, and hence so will Brownian motion
+with m > 0. Therefore, if m > 0, QTa < ∞= 1 and
+E
+
+exp
+
+−m2 Ta
+2
+
+= e−am
+If the Brownian motion has drift −m, then
+QTa < ∞= e−am E
+
+exp
+
+−m2 Ta
+2
+
+= e−2am

@@ -1,0 +1,87 @@
+654
+Chapter 15 ■Other Design and Analysis Topics
+15.2.2
+Approximate Methods
+When unbalanced data are not too far from the balanced case, it is sometimes possible to use
+approximate procedures that convert the unbalanced problem into a balanced one. This, of
+course, makes the analysis only approximate, but the analysis of balanced data is so easy that
+we are frequently tempted to use this approach. In practice, we must decide when the data are
+not sufciently different from the balanced case to make the degree of approximation intro-
+duced relatively unimportant. We now briey describe some of these approximate methods.
+We assume that every cell has at least one observation (i.e., nij 1).
+Estimating Missing Observations. If only a few nij are different, a reasonable pro-
+cedure is to estimate the missing values. For example, consider the unbalanced design in
+Table 15.8. Clearly, estimating the single missing value in cell 2,2 is a reasonable approach.
+For a model with interaction, the estimate of the missing value in the ijth cell that minimizes
+the error sum of squares is 
+That is, we estimate the missing value by taking the average of
+the observations that are available in that cell.
+The estimated value is treated just like actual data. The only modication to the analy-
+sis of variance is to reduce the error degrees of freedom by the number of missing observa-
+tions that have been estimated. For example, if we estimate the missing value in cell 2,2 in
+Table 15.8, we would use 26 error degrees of freedom instead of 27.
+Setting Data Aside. Consider the data in Table 15.9. Note that cell 2,2 has only one
+more observation than the others. Estimating missing values for the remaining eight cells
+is probably not a good idea here because this would result in estimates constituting about
+18 percent of the final data. An alternative is to set aside one of the observations in cell 2,2,
+giving a balanced design with n 4 replicates.
+The observation that is set aside should be chosen randomly. Furthermore, rather than
+completely discarding the observation, we could return it to the design, and then randomly
+choose another observation to set aside and repeat the analysis. And, we hope, these two
+analyses will not lead to conicting interpretations of the data. If they do, we suspect that the
+observation that was set aside is an outlier or a wild value and should be handled accordingly.
+In practice, this confusion is unlikely to occur when only small numbers of observations are
+set aside and the variability within the cells is small.
+Method of Unweighted Means. In this approach, introduced by Yates (1934), the
+cell averages are treated as data and are subjected to a standard balanced data analysis to
+obtain sums of squares for rows, columns, and interaction. The error mean square is found as
+(15.12)
+MSE 
+
+a
+i1 
+b
+j1 
+nij
+k1
+ (yijk yij.)2
+n.. ab
+yij.
+■TA B L E 1 5 . 8
+The nij Values for an Unbalanced Design
+Columns
+Rows
+1
+2
+3
+1
+4
+4
+4
+2
+4
+3
+4
+3
+4
+4
+4
+■TA B L E 1 5 . 9
+The nij Values for an Unbalanced Design
+Columns
+Rows
+1
+2
+3
+1
+4
+4
+4
+2
+4
+5
+4
+3
+4
+4
+4 

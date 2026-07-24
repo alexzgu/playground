@@ -1,0 +1,139 @@
+15.3 The Analysis of Covariance
+673
+■TA B L E 1 5 . 2 0
+JMP Output for the Experiment in Table 15.16, Reduced Model
+Response Y
+Summary of Fit
+RSquare
+0.999743
+RSquare Adj
+0.99945
+Root Mean Square Error
+0.898184
+Mean of Response
+25.02875
+Observations (or Sum Wgts)
+16
+Analysis of Variance
+Source
+DF
+Sum of Squares
+Mean Square
+F Ratio
+Model
+8
+21986.334
+2748.29
+3406.688
+Error
+7
+5.647
+0.81
+Prob > F
+C. Total
+15
+21991.981
+<.0001*
+Parameter Estimates
+Term
+Estimate
+Std Error
+t Ratio
+Prob>|t|
+Intercept
+10.234044
+0.544546
+18.79
+<.0001*
+x
+2.05036
+0.118305
+17.33
+<.0001*
+X1
+13.694768
+0.273254
+50.12
+<.0001*
+X2
+19.709839
+0.272411
+72.35
+<.0001*
+X3
+5.4433644
+0.321496
+16.93
+<.0001*
+X1*X2
+19.40839
+0.27236
+71.26
+<.0001*
+X1*(x-5.28875)
+2.0628522
+0.121193
+17.02
+<.0001*
+X2*(x-5.28875)
+3.0321079
+0.116027
+26.13
+<.0001*
+X1*X2*(x-5.28875)
+3.031387
+0.11686
+25.94
+<.0001*
+Sorted Parameter Estimates
+Term
+Estimate
+Std Error
+t Ratio
+Prob>|t|
+X2
+19.709839
+0.272411
+72.35
+<.0001*
+X1*X2
+19.40839
+0.27236
+71.26
+<.0001*
+X1
+13.694768
+0.273254
+50.12
+<.0001*
+X2(x-5.28875)
+3.0321079
+0.116027
+26.13
+<.0001*
+X1*X2*(x-5.28875)
+3.031387
+0.11686
+25.94
+<.0001*
+x
+2.05036
+0.118305
+17.33
+<.0001*
+X1*(x-5.28875)
+2.0628522
+0.121193
+17.02
+<.0001*
+X3
+5.4433644
+0.321496
+16.93
+<.0001*
+experimenter knows the values of the covariates in advance of running the experiment and
+wants to obtain the best possible design taking the values of the covariates into account. This
+design problem can be solved using the D-optimality criterion 9 the mathematical details are
+beyond the scope of this book, but see the supplemental material for this chapter).
+To illustrate, suppose that a chemical manufacturer is producing an additive for motor oil.
+He knows that nal properties of his additive depend on two design factors that he can control

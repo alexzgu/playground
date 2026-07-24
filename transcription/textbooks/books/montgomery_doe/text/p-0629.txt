@@ -1,0 +1,82 @@
+14.1 The Two-Stage Nested Design
+613
+■TA B L E 1 4 . 7
+JMP Output for the Nested Design in Example 14.1, Suppliers Fixed and Batches Random
+Response Y
+Summary of Fit
+RSquare
+0.518555
+RSquare Adj
+0.489376
+Root Mean Square Error
+1.624466
+Mean of Response
+0.361111
+Observations (or Sum Wgts)
+36
+REML Variance Component Estimates
+Random Effect
+Var Ratio
+Var Component
+Std Error
+95% Lower
+95% Upper
+Pct of Total
+Supplier [Batches]
+0.6479532
+1.7098765
+1.2468358
+0.733922
+4.1536747
+39.319
+Residual
+2.6388889
+0.7617816
+1.6089119
+5.1070532
+60.681
+Total
+4.3487654
+100.000
+2 LogLikelihood 145.04119391
+Covariance Matrix of Variance Component Estimates
+Random Effect
+Supplier [Batches]
+Residual
+Supplier [Batches]
+1.5545995
+0.193437
+Residual
+0.193437
+0.5803112
+Fixed Effect Tests
+Source Nparm
+DF
+DFDen
+F Ratio
+Prob F
+Supplier 2
+2
+9
+0.9690
+0.4158
+Measurement
+1
+Measurement
+1
+Sample
+1
+Lot 1 ...
+Stage 1
+Stage 2
+Stage 3
+Measurement
+2
+Sample
+2
+■F I G U R E 1 4 . 4
+A three-stage staggered nested design
+exactly a degrees of freedom. For more information on the use and analysis of these designs,
+see Bainbridge (1965), Smith and Beverly (1981), and Nelson (1983, 1995a, 1995b). The
+supplemental text material for this chapter contains a complete example of a staggered
+nested design.

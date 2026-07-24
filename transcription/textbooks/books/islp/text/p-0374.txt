@@ -1,0 +1,33 @@
+9
+Support Vector Machines
+In this chapter, we discuss the support vector machine (SVM), an approach
+for classification that was developed in the computer science community in
+the 1990s and that has grown in popularity since then. SVMs have been
+shown to perform well in a variety of settings, and are often considered one
+of the best “out of the box” classifiers.
+The support vector machine is a generalization of a simple and intu-
+itive classifier called the maximal margin classifier, which we introduce in
+Section 9.1. Though it is elegant and simple, we will see that this classifier
+unfortunately cannot be applied to most data sets, since it requires that
+the classes be separable by a linear boundary. In Section 9.2, we introduce
+the support vector classifier, an extension of the maximal margin classifier
+that can be applied in a broader range of cases. Section 9.3 introduces the
+support vector machine, which is a further extension of the support vec-
+tor classifier in order to accommodate non-linear class boundaries. Support
+vector machines are intended for the binary classification setting in which
+there are two classes; in Section 9.4 we discuss extensions of support vector
+machines to the case of more than two classes. In Section 9.5 we discuss
+the close connections between support vector machines and other statistical
+methods such as logistic regression.
+People often loosely refer to the maximal margin classifier, the support
+vector classifier, and the support vector machine as “support vector
+machines”. To avoid confusion, we will carefully distinguish between these
+three notions in this chapter.
+9.1
+Maximal Margin Classifier
+In this section, we define a hyperplane and introduce the concept of an
+optimal separating hyperplane.
+© Springer Nature Switzerland AG 2023 
+G. James et al., An Introduction to Statistical Learning, Springer Texts in Statistics, 
+https://doi.org/10.1007/978-3-031-38747-0_9 
+367

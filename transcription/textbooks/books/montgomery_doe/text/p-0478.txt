@@ -1,0 +1,228 @@
+462
+Chapter 10 ■Fitting Regression Models
+from the alternate fraction to the original eight runs. The X
+matrix for the model now becomes
+Notice that the columns x1x2 and x3x4 are now no longer
+identical, and we can t the model including both the x1x2
+(AB) and x3x4 (CD) interactions. The magnitudes of the
+regression coefcients will give insight regarding which
+interactions are important.
+Although adding a single run will de-alias the AB and CD
+interactions, this approach does have a disadvantage. Suppose
+that there is a time effect (or a block effect) between the rst
+eight runs and the last run added above. Add a column to the
+X matrix for blocks, and you obtain the following:
+X 
+1
+1
+1
+1
+1
+1
+1
+1
+1
+x1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+x2
+1
+1
+1
+1
+1
+1
+1
+1
+1
+x3
+1
+1
+1
+1
+1
+1
+1
+1
+1
+x4
+1
+1
+1
+1
+1
+1
+1
+1
+1
+x1x2
+1
+1
+1
+1
+1
+1
+1
+1
+1
+x3x4
+1
+1
+1
+1
+1
+1
+1
+1
+1
+block
+1
+1
+1
+1
+1
+1
+1
+1
+1
+X 
+1
+1
+1
+1
+1
+1
+1
+1
+1
+x1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+x2
+1
+1
+1
+1
+1
+1
+1
+1
+1
+x3
+1
+1
+1
+1
+1
+1
+1
+1
+1
+x4
+1
+1
+1
+1
+1
+1
+1
+1
+1
+x1x2
+1
+1
+1
+1
+1
+1
+1
+1
+1
+x3x4
+1
+1
+1
+1
+1
+1
+1
+1
+1
+We have assumed the block factor was at the low or “ ”
+level during the rst eight runs, and at the high or “ ”
+level during the ninth run. It is easy to see that the sum of
+the cross products of every column with the block column
+does not sum to zero, meaning that blocks are no longer
+orthogonal to treatments, or that the block effect now
+affects the estimates of the model regression coefcients.
+To block orthogonally, you must add an even number of
+runs. For example, the four runs
+x1
+x2
+x3
+x4
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+will de-alias AB from CD and allow orthogonal blocking
+(you can see this by writing out the X matrix as we did pre-
+viously). This is equivalent to a partial fold over, in terms
+of the number of runs that are required.
+In general, it is usually straightforward to examine the
+X matrix for the reduced model obtained from a fractional
+factorial and determine which runs to augment the origi-
+nal design with to de-alias interactions of potential inter-
+est. Furthermore, the impact of specific augmentation
+strategies can be evaluated using the general results for
+regression models given later in this chapter. There are also
+computer-based optimal design methods for constructing
+designs that can be useful for design augmentation to
+de-alias effects (refer to the supplemental material for
+Chapter 8). 
+10.4
+Hypothesis Testing in Multiple Regression
+In multiple linear regression problems, certain tests of hypotheses about the model parame-
+ters are helpful in measuring the usefulness of the model. In this section, we describe several
+important hypothesis-testing procedures. These procedures require that the errors i in the
+model be normally and independently distributed with mean zero and variance 2, abbreviated
+~, NID(0, 2). As a result of this assumption, the observations yi are normally and independ-
+ently distributed with mean 0 
+jxij and variance 2.
+10.4.1
+Test for Signiﬁcance of Regression
+The test for signicance of regression is a test to determine whether a linear relationship exists
+between the response variable y and a subset of the regressor variables x1, x2, . . . , xk. The
+appropriate hypotheses are
+(10.20)
+H1j Z 0   for at least one j
+H01 2 Á k 0
+
+k
+j1

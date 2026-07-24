@@ -1,0 +1,193 @@
+454
+Chapter 10 ■Fitting Regression Models
+Properties of the Estimators. The method of least squares produces an unbiased esti-
+mator of the parameter & in the linear regression model. This may be easily demonstrated by
+taking the expected value of 
+as follows:
+because E() 0 and (XX)1XX I. Thus,
+is an unbiased estimator of &.
+The variance property of 
+is expressed in the covariance matrix:
+(10.18)
+which is just a symmetric matrix whose ith main diagonal element is the variance of the indi-
+vidual regression coefcient 
+and whose (ij)th element is the covariance between 
+and 
+.
+The covariance matrix of 
+is
+(10.19)
+If 2 in Equation 10.19 is replaced with the estimate 
+from Equation 10.12, we obtain an
+estimate of the covariance matrix of . The square roots of the main diagonal elements of this
+matrix are the standard errors of the model parameters.
+&ˆ
+ˆ 2
+Cov(&ˆ ) 2(XX)1
+&ˆ
+ˆ
+j
+ˆ
+i
+ˆ
+i
+Cov(&ˆ)  E[&ˆ E(&ˆ )][&ˆ E(&ˆ)]
+&ˆ
+&ˆ
+E[(XX)1XX& (XX)1X] &
+E(&ˆ) E[(XX)1Xy] E[(XX)1X(X& )]
+&ˆ
+E X A M P L E 1 0 . 1
+Sixteen observations on the viscosity of a polymer (y) and
+two process variables—reaction temperature (x1) and cata-
+lyst feed rate (x2)—are shown in Table 10.2. We will t a
+multiple linear regression model
+to these data. The X matrix and y vector are
+1
+1
+1
+1
+1
+1
+97
+95
+100
+85
+86
+87
+13
+11
+8
+12
+9
+12
+ 
+ 
+  2440
+2364
+2404
+2317
+2309
+2328
+1
+1
+1
+1
+1
+1
+1
+1
+X  1
+1
+80
+93
+100
+82
+90
+99
+81
+96
+94
+93
+8
+9
+10
+12
+11
+8
+8
+10
+12
+11
+ 
+ 
+2256
+2340
+2426
+2293
+2330
+2368
+2250
+2409
+y 
+2364
+2379
+y 0 1x1 2x2 
+The XX matrix is
+and the Xy vector is
+The least squares estimate of & is
+or
+&ˆ (XX)1Xy
+Xy 
+1
+80
+8
+1
+93
+9
+Á
+Á
+Á
+1
+87
+12
+2256
+2340
+o
+2328
+
+37,577
+3,429,550
+385,562
+
+16
+1458
+164
+1458
+133,560
+14,946
+164
+14,946
+1,726
+XX 
+1
+80
+8
+1
+93
+9
+Á
+Á
+Á
+1
+87
+12
+1
+1
+o
+1
+80
+93
+o
+87
+8
+9
+o
+12
+
+1566.07777
+7.62129
+8.58485
+0.223453
+4.763947  105
+2.222381  102
+37,577
+3,429,550
+385,562
+&ˆ 
+14.176004
+0.129746
+0.223453
+0.129746
+1.429184  103
+4,763947  105

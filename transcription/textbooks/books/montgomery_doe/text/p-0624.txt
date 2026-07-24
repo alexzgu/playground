@@ -1,0 +1,101 @@
+■TA B L E 1 4 . 5
+Incorrect Analysis of the Two-Stage Nested Design in Example 14.1 as a Factorial (Suppliers Fixed, Batches Random)
+Source of 
+Sum of
+Degrees of
+Mean
+Variation
+Squares
+Freedom
+Square
+F0
+P-Value
+Suppliers (S)
+15.06
+2
+7.53
+1.02
+0.42
+Batches (B)
+25.64
+3
+8.55
+3.24
+0.04
+S B interaction
+44.28
+6
+7.38
+2.80
+0.03
+Error
+63.33
+24
+2.64
+Total
+148.31
+35
+608
+Chapter 14 ■Nested and Split-Plot Designs
+The practical implications of this experiment and the analysis are very important. The
+objective of the experimenter is to nd the source of the variability in raw material purity. If
+it results from differences among suppliers, we may be able to solve the problem by select-
+ing the “best” supplier. However, that solution is not applicable here because the major source
+of variability is the batch-to-batch purity variation within suppliers. Therefore, we must attack
+the problem by working with the suppliers to reduce their batch-to-batch variability. This may
+involve modications to the suppliers’production processes or their internal quality assurance
+system.
+Notice what would have happened if we had incorrectly analyzed this design as a two-
+factor factorial experiment. If batches are considered to be crossed with suppliers, we obtain
+batch totals of 2, 3, 2, and 16, with each batch suppliers cell containing three replicates.
+Thus, a sum of squares due to batches and an interaction sum of squares can be computed. The
+complete factorial analysis of variance is shown in Table 14.5, assuming the mixed model.
+This analysis indicates that batches differ signicantly and that there is a signicant
+interaction between batches and suppliers. However, it is difcult to give a practical interpre-
+tation of the batches suppliers interaction. For example, does this signicant interaction
+mean that the supplier effect is not constant from batch to batch? Furthermore, the signicant
+interaction coupled with the nonsignicant supplier effect could lead the analyst to conclude
+that suppliers really differ but their effect is masked by the signicant interaction.
+Computing. Some statistical software packages will perform the analysis for a nested
+design. Table 14.6 presents the output from the Balanced ANOVA procedure in Minitab
+(using the restricted model). The numerical results are in agreement with the manual calcula-
+tions reported in Table 14.4. Minitab also reports the expected mean squares in the lower
+■TA B L E 1 4 . 4
+Analysis of Variance for the Data in Example 14.1
+Sum of 
+Degrees of 
+Mean 
+Expected Mean
+Source of Variation
+Squares
+Freedom
+Square
+Square
+F0
+P-Value
+Suppliers
+15.06
+2
+7.53
+0.97
+0.42
+Batches (within 
+suppliers)
+69.92
+9
+7.77
+2.94
+0.02
+Error
+63.33
+24
+2.64
+2
+Total
+148.31
+35
+2 32
+
+2 32
+6 2
+i

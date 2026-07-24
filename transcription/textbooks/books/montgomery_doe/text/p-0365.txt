@@ -1,0 +1,61 @@
+8.5
+Alias Structures in Fractional Factorials and Other Designs
+In this chapter, we show how to nd the alias relationships in a 2kp fractional factorial design
+by use of the complete dening relation. This method works well in simple designs, such as
+the regular fractions we use most frequently, but it does not work as well in more complex
+settings, such as some of the nonregular fractions and partial fold-over designs that we will
+discuss subsequently. Furthermore, there are some fractional factorials that do not have den-
+ing relations, such as the Plackett–Burman designs in Section 8.6.3, so the dening relation
+method will not work for these types of designs at all.
+Fortunately, there is a general method available that works satisfactorily in many situa-
+tions. The method uses the polynomial or regression model representation of the model, say
+where y is an 
+vector of the responses, X1 is an n p1 matrix containing the design matrix
+expanded to the form of the model that the experimenter is tting, &1 is a p1 1 vector of the
+model parameters, and is an n 1 vector of errors. The least squares estimate of &1 is
+Suppose that the true model is 
+where X2 is an n p2 matrix containing additional variables that are not in the tted model and
+&2 is a p2 1 vector of the parameters associated with these variables. It can be shown that
+(8.1)
+The matrix 
+is called the alias matrix. The elements of this matrix oper-
+ating on &2 identify the alias relationships for the parameters in the vector &1.
+We illustrate the application of this procedure with a familiar example. Suppose that we
+have conducted a 231 design with dening relation I ABC or I x1x2x3. The model that the
+experimenter plans to t is the main-effects-only model
+y 0 1x1 2x2 3x3 
+A (X1X1)1X1X2
+&1 A&2
+E(ˆ&1) &1 (X1X1)1X1X2&2
+y X1&1 X2&2 
+&ˆ
+1 (X1X1)1X1y
+
+n 1
+y X1&1 
+8.5 Alias Structures in Fractional Factorials and Other Designs
+349
+■F I G U R E 8 . 2 2
+The 
+design in Example 
+8.6 projected into four replicates of a 23 design in 
+factors A, B, and D
+283
+IV
+1.247
+1.273
+1.370
+1.310
+1.504
+0.9595
+1.745
+0.8280
+0
++15
+1
+2
++15
+0
+B, y-Axis shift
+A, x-Axis shift
+D, Tool supplier

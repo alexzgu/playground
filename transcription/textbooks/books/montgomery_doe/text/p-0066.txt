@@ -1,0 +1,92 @@
+50
+Chapter 2 ■Simple Comparative Experiments
+The number of degrees of freedom are calculated from Equation 2.32:
+If we are going to nd a P-value from a table of the t-distribution, we should round the degrees
+of freedom down to 16. Most computer programs interpolate to determine the P-value. The
+Minitab output for the two-sample t-test is shown below. Since the P-value reported is small
+(0.015), we would reject the null hypothesis and conclude that the mean normalized uores-
+cence for nerve tissue is greater than the mean normalized uorescence for muscle tissue.
+16.1955
+v 
+
+S1
+2
+n1 S2
+2
+n2
+2
+(S1
+2 n1)2
+n1 1 (S2
+2   n2)2
+n2 1
+
+
+(1918)2
+12
+(961)2
+12 
+2
+[(1918)2  12]2
+11
+[(961)2 12]2
+11
+Difference = mu (Nerve) - mu (Non-nerve)
+Estimate for difference:  1694
+95% lower bound for difference:  613
+T-Test of difference = 0 (vs >): T-Value = 2.74  P-Value = 0.007  DF = 16
+2.4.5
+The Case Where 
+and 
+Are Known
+If the variances of both populations are known, then the hypotheses
+may be tested using the statistic
+(2.33)
+If both populations are normal, or if the sample sizes are large enough so that the central limit
+theorem applies, the distribution of Z0 is N(0, 1) if the null hypothesis is true. Thus, the criti-
+cal region would be found using the normal distribution rather than the t. Specically, we
+would reject H0 if Z0Z/2, where Z/2 is the upper /2 percentage point of the standard nor-
+mal distribution. This procedure is sometimes called the two-sample Z-test. A P-value
+approach can also be used with this test. The P-value would be found as P 
+where 
+(x) is the cumulative standard normal distribution evaluated at the point x.
+Unlike the t-test of the previous sections, the test on means with known variances does not
+require the assumption of sampling from normal populations. One can use the central limit the-
+orem to justify an approximate normal distribution for the difference in sample means 
+The 100(1 ) percent condence interval on 1 2 where the variances are known is
+(2.34)
+As noted previously, the condence interval is often a useful supplement to the hypothesis test-
+ing procedure.
+2.4.6
+Comparing a Single Mean to a Speciﬁed Value
+Some experiments involve comparing only one population mean to a specied value, say,
+0. The hypotheses are
+H00
+y1 y2 Z/2
+2
+1
+n1 2
+2
+n2 1 2 y1 y2 Z/2
+2
+1
+n1 2
+2
+n2
+y1 y2
+
+2 [1 (Z0)],
+Z0 
+y1 y2
+
+2
+1
+n1 2
+2
+n2
+H11 Z 2
+H01 2
+2
+2
+2
+1

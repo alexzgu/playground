@@ -1,0 +1,85 @@
+118
+CHAPTER 3. STOCHASTIC INTEGRATION
+Suppose that B1
+t , , Bd
+t are independent Brownian motions with respect to
+the ltration Ft, and that A1
+t, , Ad
+t are adapted processes. We write
+dXt = Ht dt +
+d
+
+j=1
+Aj
+t dBj
+t ,
+to mean
+Xt = X0 +
+t
+0
+Hs ds +
+d
+
+j=1
+t
+0
+Aj
+s dBj
+s
+The covariation process can be computed if we remember the rule
+⟨Bi, Bj⟩= 0,
+i̸ = j
+In particular, if
+Yt = Y0 +
+t
+0
+Ks ds +
+d
+
+j=1
+t
+0
+Cj
+s dBj
+s,
+then
+d⟨X, Y ⟩t =
+d
+
+j=1
+Aj
+t Cj
+t dt
+Itˆo’s formula for several processes can be obtained by expanding in a Taylor
+approximation. As before, we need the rst order term in the time variable
+and all second order terms in the space variables. We state the theorem; the
+proof is essentially the same as for the previous version. The reader may note
+that this version includes all the previous versions as special cases, so we call
+this the nal form. If f : [0, ∞) × Rd →R is a function, we write
+˙f(t, x) = ∂tf(t, x),
+∂jf(t, x) = ∂xjf(t, x),
+∂jkf(t, x) = ∂xjxkf(t, x)
+If Xt = (X1
+t , , Xn
+t ) we write
+f(t, Xt) · dXt =
+n
+
+k=1
+∂kf(t, Xt) dXk
+t 
+Theorem 3.7.1 (Itˆo’s formula, nal form). SB1
+t , , Bd
+t -
+B, X1
+t , , Xn
+t 
+dXk
+t = Hk
+t dt +
+d
+
+i=1
+Ai,k
+t dBi
+t

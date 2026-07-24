@@ -1,0 +1,59 @@
+306
+Chapter 7 ■Blocking and Confounding in the 2k Factorial Design
+7.3
+Confounding in the 2k Factorial Design
+In many problems it is impossible to perform a complete replicate of a factorial design in one
+block. Confounding is a design technique for arranging a complete factorial experiment in
+blocks, where the block size is smaller than the number of treatment combinations in one
+replicate. The technique causes information about certain treatment effects (usually high-
+order interactions) to be indistinguishable from, or confounded with, blocks. In this chap-
+ter we concentrate on confounding systems for the 2k factorial design. Note that even though
+the designs presented are incomplete block designs because each block does not contain all
+the treatments or treatment combinations, the special structure of the 2k factorial system
+allows a simplied method of analysis.
+We consider the construction and analysis of the 2k factorial design in 2p incomplete
+blocks, where p k. Consequently, these designs can be run in two blocks (p 1), four
+blocks ( p 2), eight blocks ( p 3), and so on.
+7.4
+Confounding the 2k Factorial Design in Two Blocks
+Suppose that we wish to run a single replicate of the 22 design. Each of the 22 4 treatment
+combinations requires a quantity of raw material, for example, and each batch of raw materi-
+al is only large enough for two treatment combinations to be tested. Thus, two batches of raw
+material are required. If batches of raw material are considered as blocks, then we must assign
+two of the four treatment combinations to each block.
+Figure 7.1 shows one possible design for this problem. The geometric view, Figure
+7.1a, indicates that treatment combinations on opposing diagonals are assigned to different
+blocks. Notice from Figure 7.1b that block 1 contains the treatment combinations (1) and ab
+and that block 2 contains a and b. Of course, the order in which the treatment combinations
+are run within a block is randomly determined. We would also randomly decide which block
+to run rst. Suppose we estimate the main effects of A and B just as if no blocking had
+occurred. From Equations 6.1 and 6.2, we obtain
+Note that both A and B are unaffected by blocking because in each estimate there is one plus
+and one minus treatment combination from each block. That is, any difference between block
+1 and block 2 will cancel out.
+B 
+1
+2[ab b a (1)]
+A 
+1
+2[ab a b (1)]
+–
+–
+–
++
++
+(a) Geometric view
+(b) Assignment of the four
+runs to two blocks
+= Run in block 1
+Block 1
+Block 2
+= Run in block 2
+A
+B
+(1)
+ab
+a
+b
+■F I G U R E 7 . 1
+A 22 design in two blocks

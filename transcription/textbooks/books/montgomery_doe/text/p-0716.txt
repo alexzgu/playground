@@ -1,0 +1,101 @@
+700
+Appendix
+VI
+Operating Characteristic Curves for the Random Effects Model Analysis 
+of Variance (Continued)
+0.80
+1.00
+0.70
+0.60
+0.50
+Probability of accepting the hypothesis
+0.30
+0.40
+0.20
+0.10
+0.01
+0.02
+0.03
+0.04
+0.05
+0.06
+0.07
+0.08
+1
+2
+1
+λ (for α = 0.01)
+α = 0.05
+α = 0.01
+λ (for α = 0.05)
+2
+3
+4
+5
+6
+3
+4
+5
+6
+7
+8
+ν1 = 7
+ν2 = 6
+∞
+60
+30
+20
+15
+12
+10
+8
+9
+7
+0.80
+1.00
+0.70
+0.60
+0.50
+Probability of accepting the hypothesis
+0.30
+0.40
+0.20
+0.10
+0.01
+0.02
+0.03
+0.04
+0.05
+0.06
+0.07
+0.08
+1
+2
+1
+λ (for α = 0.05)
+α = 0.05
+α = 0.01
+λ (for α = 0.01)
+2
+3
+4
+5
+6
+3
+4
+5
+6
+7
+8
+ν1 = 8
+ν2 = 6
+∞
+60
+30
+20
+15
+12
+10
+8
+9
+7

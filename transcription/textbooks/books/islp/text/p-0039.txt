@@ -1,0 +1,62 @@
+2.2 Assessing Model Accuracy
+29
+0
+20
+40
+60
+80
+100
+2
+4
+6
+8
+10
+12
+X
+Y
+2
+5
+10
+20
+0.0
+0.5
+1.0
+1.5
+2.0
+2.5
+Flexibility
+Mean Squared Error
+FIGURE 2.9. Left: Data simulated from f, shown in black. Three estimates of
+f are shown: the linear regression line (orange curve), and two smoothing spline
+fits (blue and green curves). Right: Training MSE (grey curve), test MSE (red
+curve), and minimum possible test MSE over all methods (dashed line). Squares
+represent the training and test MSEs for the three fits shown in the left-hand
+panel.
+If these are approximately equal to y1, y2, . . . , yn, then the training MSE
+given by (2.5) is small. However, we are really not interested in whether
+ˆf(xi) ≈yi; instead, we want to know whether ˆf(x0) is approximately equal
+to y0, where (x0, y0) is a previously unseen test observation not used to train
+the statistical learning method. We want to choose the method that gives
+the lowest test MSE, as opposed to the lowest training MSE. In other words, test MSE
+if we had a large number of test observations, we could compute
+Ave(y0 −ˆf(x0))2,
+(2.6)
+the average squared prediction error for these test observations (x0, y0).
+We’d like to select the model for which this quantity is as small as possible.
+How can we go about trying to select a method that minimizes the test
+MSE? In some settings, we may have a test data set available—that is,
+we may have access to a set of observations that were not used to train
+the statistical learning method. We can then simply evaluate (2.6) on the
+test observations, and select the learning method for which the test MSE is
+smallest. But what if no test observations are available? In that case, one
+might imagine simply selecting a statistical learning method that minimizes
+the training MSE (2.5). This seems like it might be a sensible approach,
+since the training MSE and the test MSE appear to be closely related.
+Unfortunately, there is a fundamental problem with this strategy: there
+is no guarantee that the method with the lowest training MSE will also
+have the lowest test MSE. Roughly speaking, the problem is that many
+statistical methods specifically estimate coefficients so as to minimize the
+training set MSE. For these methods, the training set MSE can be quite
+small, but the test MSE is often much larger.
+Figure 2.9 illustrates this phenomenon on a simple example. In the left-
+hand panel of Figure 2.9, we have generated observations from (2.1) with

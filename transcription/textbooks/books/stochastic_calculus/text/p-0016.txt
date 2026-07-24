@@ -1,0 +1,32 @@
+10
+CHAPTER 1. MARTINGALES IN DISCRETE TIME
+1.2
+Martingales
+A martingale is a model of a fair game. Suppose X1, X2, is a sequence of
+random variables to which we associate the ltration Fnwhere Fn is the
+information contained in X1, , Xn.
+Denition A sequence of random variables M0, M1, is called a 
+Fnif:
+For each n, Mn is an Fn-measurable random variable with E[Mn] < ∞.
+If m < n, then
+E[Mn Fm] = Mm
+(1.4)
+We can also write (1.4) as
+E[Mn −Mm Fm] = 0
+If we think of Mn as the winnings of a game, then this implies that no matter
+what has happened up to time m, the expected winnings in the next n −m
+games is 0. Sometimes one just says M0, M1, is a martingalewithout
+reference to the ltration. In this case, the assumed ltration is Fn, the
+information in M0, , Mn. In order to establish (1.4) it suces to show for
+all n,
+E[Mn+1 Fn] = Mn
+(1.5)
+In order to see this, we can use the tower property (1.2) for conditional
+expectation to see that
+E[Mn+2 Fn] = E [ E[Mn+2 Fn+1] Fn] = E[Mn+1 Fn] = Mn,
+and so forth. Also note that if Mn is a martingale, then
+E[Mn] = E [E[Mn F0]] = E[M0]
+Example 1.2.1. Suppose X1, X2, are independent random variables with
+E[Xj] = 0 for each j. Let S0 = 0 and Sn = X1 + · · · + Xn. In the last section
+we showed that if m < n, then E[Sn Fm] = Sm. Hence, Sn is a martingale
+with respect to Fn, the information in X1, , Xn.

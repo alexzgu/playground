@@ -1,0 +1,45 @@
+3.5. DIFFUSIONS
+113
+The fundamental theorem of calculus implies that
+lim
+t0 Yt = m(0, X0) f ′(X0) + σ2(0, X0)
+2
+f ′′(X0)
+Moreover, the random variables Yt are uniformly bounded which allows us
+to take the limit inside the expectation,
+Lf(x) = lim
+t0
+Ex[f(Xt)] −f(x)
+t
+= m(0, x) f ′(x) + σ2(0, x)
+2
+f ′′(x)
+Similarly, if we dene
+Ltf(x) = lim
+s0
+E[f(Xt+s) −f(Xt) Xt = x]
+s
+,
+we get
+Ltf(x) = m(t, x) f ′(x) + σ2(t, x)
+2
+f ′′(x)
+The assumption that m, σ are bounded is stronger than we would like (for
+example, the dierential equation (3.14) for geometric Brownian motion does
+not satisfy this), but one can ease this by stopping the path before it gets
+too large. We will not worry about this now.
+In this section we assumed we had a solution to the SDE (3.21). This
+leads naturally to the question: given functions m(t, x), σ(t, x), can we
+nd a process Xt satisfying (3.21)?
+Consider rst the deterministic equation
+y′(t) = F(t, y(t)),
+y(0) = y0
+(3.22)
+We will assume that F is uniformly Lipschitz, that is, there exists
+β < ∞such that for all t, x, y,
+F(t, x) −F(t, y)≤β x −y
+(3.23)
+We can construct a solution to (3.22) valid for 0 ≤t ≤t0 by using
+the following method called Picard iteration. We start with the initial
+function
+y0(t) = y0,

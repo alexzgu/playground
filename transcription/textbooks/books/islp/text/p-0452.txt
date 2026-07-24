@@ -1,0 +1,54 @@
+10.9 Lab: Deep Learning
+445
+Let’s take a look at the data that will get fed into our network. We loop
+through the first few chunks of the test dataset, breaking after 2 batches:
+In [35]: for idx, (X_ ,Y_) in enumerate(mnist_dm.train_dataloader()):
+print('X: ', X_.shape)
+print('Y: ', Y_.shape)
+if idx >= 1:
+break
+X:
+torch.Size([256, 1, 28, 28])
+Y:
+torch.Size([256])
+X:
+torch.Size([256, 1, 28, 28])
+Y:
+torch.Size([256])
+We see that the X for each batch consists of 256 images of size 1x28x28.
+Here the 1 indicates a single channel (greyscale). For RGB images such as
+CIFAR100 below, we will see that the 1 in the size will be replaced by 3 for
+the three RGB channels.
+Now we are ready to specify our neural network.
+In [36]: class MNISTModel(nn.Module):
+def __init__(self):
+super(MNISTModel, self).__init__()
+self.layer1 = nn.Sequential(
+nn.Flatten(),
+nn.Linear(28*28, 256),
+nn.ReLU(),
+nn.Dropout(0.4))
+self.layer2 = nn.Sequential(
+nn.Linear(256, 128),
+nn.ReLU(),
+nn.Dropout(0.3))
+self._forward = nn.Sequential(
+self.layer1,
+self.layer2,
+nn.Linear(128, 10))
+def forward(self, x):
+return self._forward(x)
+We see that in the first layer, each 1x28x28 image is flattened, then
+mapped to 256 dimensions where we apply a ReLU activation with 40%
+dropout. A second layer maps the first layer’s output down to 128 di-
+mensions, applying a ReLU activation with 30% dropout. Finally, the 128
+dimensions are mapped down to 10, the number of classes in the MNIST
+data.
+In [37]: mnist_model = MNISTModel()
+We can check that the model produces output of expected size based on
+our existing batch X_ above.
+In [38]: mnist_model(X_).size()
+Out[38]: torch.Size([256, 10])
+Let’s take a look at the summary of the model. Instead of an input_size
+we can pass a tensor of correct shape. In this case, we pass through the
+final batched X_ from above.

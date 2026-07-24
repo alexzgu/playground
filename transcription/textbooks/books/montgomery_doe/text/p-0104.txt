@@ -1,0 +1,92 @@
+88
+Chapter 3 ■Experiments with a Single Factor: The Analysis of Variance
+the transformed data y* 
+is presented in Table 3.10, and a plot of residuals versus the
+predicted response is shown in Figure 3.9. This residual plot is much improved in compar-
+ison to Figure 3.7, so we conclude that the square root transformation has been helpful.
+Note that in Table 3.10 we have reduced the degrees of freedom for error and total by 1 to
+account for the use of the data to estimate the transformation parameter .
+In practice, many experimenters select the form of the transformation by simply trying
+several alternatives and observing the effect of each transformation on the plot of residuals
+versus the predicted response. The transformation that produced the most satisfactory resid-
+ual plot is then selected. Alternatively, there is a formal method called the Box-Cox Method
+for selecting a variance-stability transformation. In chapter 15 we discuss and illustrate this
+procedure. It is widely used and implemented in many software packages.
+3.4.4
+Plots of Residuals Versus Other Variables
+If data have been collected on any other variables that might possibly affect the response, the
+residuals should be plotted against these variables. For example, in the tensile strength exper-
+iment of Example 3.1, strength may be signicantly affected by the thickness of the ber, so
+the residuals should be plotted versus ber thickness. If different testing machines were used
+to collect the data, the residuals should be plotted against machines. Patterns in such residual
+plots imply that the variable affects the response. This suggests that the variable should be
+either controlled more carefully in future experiments or included in the analysis.
+y
+1
+0
+2
+3
+log yi
+log Si
+1.5
+1.0
+0.5
+–0.5
+–1
+–1
+0
+■F I G U R E 3 . 8
+Plot of log Si versus log
+for the peak discharge data from Example 3.5
+yi.
+1
+0
+2
+3
+y^
+ij
+4
+5
+eij
+1.00
+0.75
+0.50
+0.25
+–0.25
+–0.50
+–0.75
+–1.00
+0
+*
+■F I G U R E 3 . 9
+Plot of residuals from trans-
+formed data versus 
+for the peak discharge data in
+Example 3.5
+yˆ*ij
+■TA B L E 3 . 1 0
+Analysis of Variance for Transformed Peak Discharge Data, y* 
+Source of 
+Sum of 
+Degrees of 
+Mean 
+Variation
+Squares
+Freedom
+Square
+F0
+P-Value
+Methods
+32.6842
+3
+10.8947
+76.99
+0.001
+Error
+2.6884
+19
+0.1415
+Total
+35.3726
+22 
+y

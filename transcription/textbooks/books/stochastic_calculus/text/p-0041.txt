@@ -1,0 +1,27 @@
+Chapter 2
+Brownian motion
+2.1
+Limits of sums of independent variables
+We will discuss two major results about sums of random variables that we
+hope the reader has seen. They both discuss the limit distribution of
+X1 + X2 + · · · + Xn
+where X1, X2, , Xn are independent, identically distributed random vari-
+ables.
+Suppose X1, X2, have mean µ and variance σ2 < ∞. Let
+Zn = (X1 + · · · + Xn) −nµ
+σ √n
+
+We let Φ denote the standard normal distribution function,
+Φ(b) =
+b
+−∞
+1
+√
+2π e−x22 dx
+While this function cannot be written down explicitly, the numerical values
+are easily accessible in tables and computer software packages.
+Theorem 2.1.1 (Central Limit Theorem). An →∞, 
+Zn . M, a < b, 
+lim
+n∞Pa ≤Zn ≤b= Φ(b) −Φ(a)
+35

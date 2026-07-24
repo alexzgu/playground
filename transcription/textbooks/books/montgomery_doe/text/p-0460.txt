@@ -1,0 +1,141 @@
+matrix is a function of the unknown parameters, so nding a D-optimal design would require
+knowledge of the model parameters. One possible approach to this problem is to assume 
+values for the unknown s. This would produce a conditional D-optimal design.   
+An alternative is to use a Bayesian approach employing a prior distribution f() to spec-
+ify the uncertainty in the p parameter values. This leads to a design criterion 
+(9.9)
+This is the expectation of the logarithm of the information matrix. This criterion was proposed
+by Chaloner and Larntz (1989) for the single-factor logistic regression model. The difculty in
+using Equation 9.9 as a design criterion is that the p-dimensional integral must be evaluated a
+very large number of times. Gotwalt, Jones, and Steinberg (2009) have recently developed a
+clever quadrature scheme that greatly reduces the computing time to evaluate the integral in
+Equation 9.9 with excellent accuracy. This procedure is implemented in the nonlinear design
+routine of JMP, and allows computationally efcient construction of D-optimal designs for
+nonlinear models. Gotwalt et al.(2009) present examples of the use of this technique. Also see
+Johnson and Montgomery (2010).
+A very important type of nonlinear model that occurs frequently in industrial experimen-
+tation is the generalized linear model. This is a family of models that unify linear and nonlin-
+ear regression models with response distributions that are a member of the exponential family
+(which includes the binomial, Poisson, normal, exponential, and gamma distributions).
+Important special cases include logistic regression, Poisson regression, and regression with
+exponential responses. Often an experimenter will know in advance that the response distribu-
+tion is binomial (for example). Then a design for a logistic regression model would be appro-
+priate. The method described in Gotwalt et al. (2009) can be used to construct D-optimal
+designs for this experiment. For examples of designed experiments for generalized linear
+models, also see Johnson and Montgomery (2009) and Myers et al. (2010).
+9.7
+Problems
+(D) log DDf ()d
+444
+Chapter 9 ■Additional Design and Analysis Topics for Factorial and Fractional Factorial Designs
+9.1.
+The effects of developer strength (A) and develop-
+ment time (B) on the density of photographic plate lm are
+being studied. Three strengths and three times are used, and
+four replicates of a 32 factorial experiment are run. The data
+from this experiment follow. Analyze the data using the stan-
+dard methods for factorial experiments.
+Development Time (minutes)
+Developer
+Strength
+10
+14
+18
+1
+0
+2
+1
+3
+2
+5
+5
+4
+4
+2
+4
+6
+2
+4
+6
+6
+8
+9
+10
+7
+5
+7
+7
+8
+5
+3
+7
+10
+10
+10
+12
+10
+8
+7
+8
+7
+9
+8
+9.2.
+Compute the I and J components of the two-factor
+interaction in Problem 9.1.
+9.3.
+An experiment was performed to study the effect of
+three different types of 32-ounce bottles (A) and three different
+shelf types (B)—smooth permanent shelves, end-aisle displays
+with grilled shelves, and beverage coolers—on the time it takes
+to stock ten 12-bottle cases on the shelves. Three workers (fac-
+tor C) were employed in the experiment, and two replicates of a
+33 factorial design were run. The observed time data are shown
+in the following table. Analyze the data and draw conclusions.
+Replicate I
+Per-
+End
+Worker
+Bottle Type
+manent
+Aisle
+Cooler
+Plastic
+3.45
+4.14
+5.80
+1
+28-mm glass
+4.07
+4.38
+5.48
+38-mm glass
+4.20
+4.26
+5.67
+Plastic
+4.80
+5.22
+6.21
+2
+28-mm glass
+4.52
+5.15
+6.25
+38-mm glass
+4.96
+5.17
+6.03
+Plastic
+4.08
+3.94
+5.14
+3
+28-mm glass
+4.30
+4.53
+4.99
+38-mm glass
+4.17
+4.86
+4.85

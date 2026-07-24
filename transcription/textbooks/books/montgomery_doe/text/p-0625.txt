@@ -1,0 +1,103 @@
+portion of Table 14.6. Remember that the symbol Q[1] is a quadratic term that represents the
+xed effect of suppliers, so in our notation
+Therefore, the xed effect term in the Minitab expected mean square for suppliers 12Q[1] 
+12 
+/(3 1) 6 
+, which matches the result given by the algorithm in Table 14.4.
+Sometimes a specialized computer program for analyzing nested designs is not avail-
+able. However, notice from comparing Tables 14.4 and 14.5 that
+That is, the sum of squares for batches within suppliers consists of the sum of squares of the
+batches plus the sum of squares for the batches suppliers interaction. The degrees of free-
+dom have a similar property; that is,
+Therefore, a computer program for analyzing factorial designs could also be used for the
+analysis of nested designs by pooling the “main effect” of the nested factor and interactions
+of that factor with the factor under which it is nested.
+14.1.2
+Diagnostic Checking
+The major tool used in diagnostic checking is residual analysis. For the two-stage nested
+design, the residuals are
+eijk yijk yˆijk
+Batches
+3
+Batches  Suppliers
+6
+Batches within Suppliers
+9
+SSB SSSB 25.64 44.28 69.92 SSB(S)
+"3
+i1 2
+i
+"3
+i1 2
+i
+Q[1] 
+a
+i1
+2
+i
+a 1
+■TA B L E 1 4 . 6
+Minitab Output (Balanced ANOVA) for Example 14.1
+Analysis of Variance (Balanced Designs)
+Factor
+Type
+Levels
+Values
+Supplier
+fixed
+3
+1
+2
+3
+Batch(Supplier)
+random
+4
+1
+2
+3
+4
+Analysis of Variance for Purity
+Source
+DF
+SS
+MS
+F
+P
+Supplier
+2
+15.056
+7.528
+0.97
+0.416
+Batch(Supplier)
+9
+69.917
+7.769
+2.94
+0.017
+Error
+24
+63.333
+2.639
+Total
+35
+148.306
+Source
+Variance
+Error
+Expected Mean Square for Each Term
+component
+term
+(using restricted model)
+1 Supplier
+2
+(3) 3(2) 12Q[1]
+2 Batch(Supplier)
+1.710
+3
+(3) 3(2)
+3 Error
+2.639
+(3)
+14.1 The Two-Stage Nested Design
+609

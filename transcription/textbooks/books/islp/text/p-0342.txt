@@ -1,0 +1,46 @@
+8.1 The Basics of Decision Trees
+335
+|
+t1
+t2
+t3
+t4
+R1
+R1
+R2
+R2
+R3
+R3
+R4
+R4
+R5
+R5
+X1
+X1
+X1
+X2
+X2
+X2
+X1 ≤t1
+X2 ≤t2
+X1 ≤t3
+X2 ≤t4
+FIGURE 8.3. Top Left: A partition of two-dimensional feature space that could
+not result from recursive binary splitting. Top Right: The output of recursive
+binary splitting on a two-dimensional example. Bottom Left: A tree corresponding
+to the partition in the top right panel. Bottom Right: A perspective plot of the
+prediction surface corresponding to that tree.
+each of the resulting regions. However, this time, instead of splitting the
+entire predictor space, we split one of the two previously identified regions.
+We now have three regions. Again, we look to split one of these three regions
+further, so as to minimize the RSS. The process continues until a stopping
+criterion is reached; for instance, we may continue until no region contains
+more than five observations.
+Once the regions R1, . . . , RJ have been created, we predict the response
+for a given test observation using the mean of the training observations in
+the region to which that test observation belongs.
+A five-region example of this approach is shown in Figure 8.3.
+Tree Pruning
+The process described above may produce good predictions on the training
+set, but is likely to overfit the data, leading to poor test set performance.
+This is because the resulting tree might be too complex. A smaller tree

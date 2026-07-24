@@ -1,0 +1,33 @@
+Chapter 8
+Harmonic functions
+8.1
+Dirichlet problem
+Recall that the Laplacian of a function f on Rd is dened by
+2f(x) =
+d
+
+j=1
+∂jjf(x)
+The Laplacian is closely related to mean values of functions. The ()
+f ϵ x is dened by
+MV (x; ϵ, f) =
+
+|y−x|=ϵ f(y) dσ(y)
+
+|y−x|=ϵ 1 dσ(y) ,
+where σ denotes (d −1)-dimensional surface measure. The mean value can
+also be described in terms of Brownian motion. Suppose Bt is a d-dimensional
+Brownian motion starting at x and let
+τϵ = inft : Bt −B0= ϵ
+Since Brownian motion is rotationally invariant, the distribution of Bτϵ is
+uniform over the sphere y : y −x= ϵ. Hence we can write
+MV (x; ϵ, f) = Ex [f(Bτϵ)] 
+(8.1)
+Proposition 8.1.1. Sf C2 x Rd.
+T
+2f(x) = 2d lim
+ϵ0
+MV (x; ϵ, f) −f(x)
+ϵ2
+
+243

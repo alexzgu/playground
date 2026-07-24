@@ -1,0 +1,44 @@
+592
+13. Multiple Testing
+T_vals[j] = ttest_ind(D2[col],
+D4[col],
+equal_var=True).statistic
+D_ = np.hstack([D2[col], D4[col]])
+D_null = D_.copy()
+for b in range(B):
+rng.shuffle(D_null)
+ttest_ = ttest_ind(D_null[:n_],
+D_null[n_:],
+equal_var=True)
+Tnull_vals[j,b] = ttest_.statistic
+Next, we compute the number of rejected null hypotheses R, the esti-
+mated number of false positives WV , and the estimated FDR, for a range
+of threshold values c in Algorithm 13.4. The threshold values are chosen
+using the absolute values of the test statistics from the 100 genes.
+In [28]: cutoffs = np.sort(np.abs(T_vals))
+FDRs, Rs, Vs = np.empty((3, m))
+for j in range(m):
+R = np.sum(np.abs(T_vals) >= cutoffs[j])
+V = np.sum(np.abs(Tnull_vals) >= cutoffs[j]) / B
+Rs[j] = R
+Vs[j] = V
+FDRs[j] = V / R
+Now, for any given FDR, we can find the genes that will be rejected.
+For example, with FDR controlled at 0.1, we reject 15 of the 100 null
+hypotheses. On average, we would expect about one or two of these genes
+(i.e. 10% of 15) to be false discoveries. At an FDR of 0.2, we can reject
+the null hypothesis for 28 genes, of which we expect around six to be false
+discoveries.
+The variable idx stores which genes were included in our 100 randomly-
+selected genes. Let’s look at the genes whose estimated FDR is less than
+0.1.
+In [29]: sorted(idx[np.abs(T_vals) >= cutoffs[FDRs < 0.1].min()])
+At an FDR threshold of 0.2, more genes are selected, at the cost of having
+a higher expected proportion of false discoveries.
+In [30]: sorted(idx[np.abs(T_vals) >= cutoffs[FDRs < 0.2].min()])
+The next line generates Figure 13.11, which is similar to Figure 13.9,
+except that it is based on only a subset of the genes.
+In [31]: fig, ax = plt.subplots()
+ax.plot(Rs, FDRs, 'b', linewidth=3)
+ax.set_xlabel("Number of Rejections")
+ax.set_ylabel("False Discovery Rate");

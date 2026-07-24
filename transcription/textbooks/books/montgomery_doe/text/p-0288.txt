@@ -1,0 +1,87 @@
+272
+Chapter 6 ■The 2k Factorial Design
+The residuals from a 2k design provide much information about the problem under
+study. Because residuals can be thought of as observed values of the noise or error, they often
+give insight into process variability. We can systematically examine the residuals from an
+unreplicated 2k design to provide information about process variability.
+Consider the residual plot in Figure 6.28. The standard deviation of the eight residu-
+als where B is at the low level is S(B)  0.83, and the standard deviation of the eight
+residuals where B is at the high level is S(B)  2.72. The statistic
+(6.24)
+has an approximate normal distribution if the two variances 2(B) and 2(B) are equal. To
+illustrate the calculations, the value of 
+is
+Table 6.17 presents the complete set of contrasts for the 24 design along with the residuals
+for each run from the panel process experiment in Example 6.4. Each column in this table con-
+tains an equal number of plus and minus signs, and we can calculate the standard deviation of the
+residuals for each group of signs in each column, say S(i) and S(i), i  1, 2, . . . , 15. Then
+(6.25)
+F*i ln S 2(i)
+S 2(i)
+ 
+ i 1, 2, . . . , 15
+2.37
+ln (2.72)2
+(0.83)2
+F*B ln S 2(B)
+S 2(B)
+F*B
+F*B ln S 2(B)
+S 2(B)
+B = Clamp
+ time
+Residuals
+0
+5
+–5
+C = Resin
+flow
+A = Temperature (°F)
+B = Clamp
+time (min)
+20
+10
+R = 0.5 
+R = 1 
+R = 3.5
+R = 4.5 
+R = 6.5 
+R = 2 
+R = 4.5
+295 
+325 
+7
+9
+0.75
+5.75
+3.25
+7.25
+12.25
+11.75
+5.5
+7.0
+R = 1.5 
+■F I G U R E 6 . 2 8
+Plot of residuals versus
+clamp time for Example 6.4
+■F I G U R E 6 . 2 9
+Cube plot of temperature,
+clamp time, and resin ﬂow for Example 6.4
+The dispersion effect of clamp time is also very evident
+from the cube plot in Figure 6.29, which plots the average
+number of defects per panel and the range of the number of
+defects at each point in the cube dened by factors A, B, and
+C. The average range when B is at the high level (the back
+face of the cube in Figure 6.29) is 
+ 4.75 and when B is
+at the low level, it is 
+ 1.25.
+RB
+RB
+As a result of this experiment, the engineer decided to run
+the process at low temperature and high resin ow to reduce
+the average number of defects, at low clamp time to reduce the
+variability in the number of defects per panel, and at low press
+closing time (which had no effect on either location or disper-
+sion). The new set of operating conditions resulted in a new
+process average of less than one defect per panel.

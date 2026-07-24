@@ -1,0 +1,56 @@
+140
+CHAPTER 4. MORE STOCHASTIC CALCULUS
+Recall that
+Lf(x) = m(x) f ′(x) + σ2
+2 f ′′(x)
+If m is constant, then as we saw before, one obtains L∗from L by just
+changing the sign of the drift. For varying m we get another term. We will
+derive the expression for L∗by using the binomial approximation
+PX(t + ∆t) −X(t) = ±σ
+√
+∆t X(t)= 1
+2
+
+1 ± m(Xt)
+σ
+√
+∆t
+
+
+Let ϵ =
+√
+∆t, ϵ2 = ∆t. To be at position x = kϵ at time t + ϵ2, one must be
+at position x ± σ ϵ at time t. This gives the relation
+p(t + ϵ2, x) = p(t, x −σϵ) 1
+2
+
+1 + m(x −σϵ) ϵ
+σ
+
++p(t, x + σϵ) 1
+2
+
+1 −m(x + σϵ)
+σ
+ϵ
+
+
+(4.10)
+We know that
+p(t + ϵ2, x) = p(t, x) + ∂tp(t, x) ϵ2 + o(ϵ2)
+(4.11)
+The denition of the derivative (see Section 2.10.1), implies that
+p(t, x + σϵ) + p(t, x −σϵ)
+2
+= p(t, x) + σ2 ϵ2
+2
+∂xxp(t, x) + o(ϵ2)
+p(t, x ± σϵ) = p(t, x) ± ∂xp(t, x) σϵ + o(ϵ),
+m(x ± σϵ) = m(x) ± m′(x) σϵ + o(ϵ),
+Plugging in, we see that the right-hand side of (4.10) equals
+p(t, x) + ϵ2
+σ2
+2 ∂xxp(t, x) −m′(x) p(t, x) −m(x) ∂xp(t, x)
+
++ o(ϵ2)
+Comparing this with (4.11) gives us the result.

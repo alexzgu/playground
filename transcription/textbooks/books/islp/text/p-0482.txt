@@ -1,0 +1,64 @@
+476
+11. Survival Analysis and Censored Data
+Therefore, to compute the log-rank test statistic, we simply proceed as
+in (11.4), with X = )K
+k=1 q1k, making use of (11.5) and (11.7). That is, we
+calculate
+W =
+)K
+k=1 (q1k −µk)
+G)K
+k=1 Var (q1k)
+=
+)K
+k=1
+1
+q1k −qk
+rk r1k
+2
+G)K
+k=1
+qk(r1k/rk)(1−r1k/rk)(rk−qk)
+rk−1
+.
+(11.8)
+When the sample size is large, the log-rank test statistic W has ap-
+proximately a standard normal distribution; this can be used to compute
+a p-value for the null hypothesis that there is no difference between the
+survival curves in the two groups.6
+Comparing the survival times of females and males on the BrainCancer
+data gives a log-rank test statistic of W = 1.2, which corresponds to a two-
+sided p-value of 0.2 using the theoretical null distribution, and a p-value
+of 0.25 using the permutation null distribution with 1,000 permutations.
+Thus, we cannot reject the null hypothesis of no difference in survival curves
+between females and males.
+The log-rank test is closely related to Cox’s proportional hazards model,
+which we discuss in Section 11.5.2.
+11.5
+Regression Models With a Survival Response
+We now consider the task of fitting a regression model to survival data.
+As in Section 11.1, the observations are of the form (Y, δ), where Y =
+min(T, C) is the (possibly censored) survival time, and δ is an indicator
+variable that equals 1 if T ≤C. Furthermore, X ∈Rp is a vector of p
+features. We wish to predict the true survival time T.
+Since the observed quantity Y is positive and may have a long right
+tail, we might be tempted to fit a linear regression of log(Y ) on X. But
+as the reader will surely guess, censoring again creates a problem since
+we are actually interested in predicting T and not Y . To overcome this
+difficulty, we instead make use of a sequential construction, similar to the
+constructions of the Kaplan–Meier survival curve in Section 11.3 and the
+log-rank test in Section 11.4.
+11.5.1
+The Hazard Function
+The hazard function or hazard rate — also known as the force of mortality hazard
+function
+— is formally defined as
+h(t) = lim
+∆t→0
+Pr(t < T ≤t + ∆t|T > t)
+∆t
+,
+(11.9)
+6Alternatively, we can estimate the p-value via permutations, using ideas that will
+be presented in Section 13.5. The permutation distribution is obtained by randomly
+swapping the labels for the observations in the two groups.

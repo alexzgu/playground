@@ -1,0 +1,69 @@
+210
+CHAPTER 6. JUMP PROCESSES
+Note that
+∞
+ϵ
+c x−(1+β) dx = c
+β ϵ−β,
+1
+0
+x dµ(x) = c
+1
+0
+x−β dx =
+c
+1 −β < ∞,
+∞
+0
+x dµ(x) = c
+∞
+0
+x−β dx = ∞
+Therefore, µ satises (6.16) and (6.17), but not (6.15). The corresponding
+generalized Poisson process has
+Ψ(s) = c
+∞
+0
+[eisx −1] x−(1+β) dx
+With careful integration, this integral can be computed but we omit it. Using
+the change of variables y = rx, we can see that if r > 0, then
+Ψ(rs) = c
+∞
+0
+[eirsx −1] x−(1+β) dx = crβ
+∞
+0
+[eisy −1] y−(1+β) dy
+This implies that the distribution of rX1 is the same as that of Xrβ. In
+particular, X1n has the same distribution as n−1β X1 and hence we can
+write
+X1 = Z1 + · · · + Zn
+n1β
+,
+Zj = n1β [Xjn −X(j−1)n],
+where Z1, , Zn are independent with the same distribution as X1. The
+process Xt is called the with exponent β.
+Example 6.6.2 (Gamma process). Suppose λ > 0 and µ is dened by
+dµ(x) = e−λx
+x
+dx,
+0 < x < ∞
+Note that
+∞
+0
+dµ(x) = ∞,
+∞
+0
+x dµ(x) < ∞
+Using a table of integrals, we can see that the characteristic exponent is
+Ψ(s) =
+∞
+0
+[eisx −1] dµ(x) =
+∞
+0
+e(is−λ)x −e−λx
+x
+dx = log
+λ
+λ −is

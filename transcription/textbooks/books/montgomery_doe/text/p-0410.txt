@@ -1,0 +1,56 @@
+C H A P T E R 9
+A d d i t i o n a l D e s i g n a n d 
+A n a l y s i s To p i c s f o r 
+F a c t o r i a l a n d F r a c t i o n a l
+F a c t o r i a l D e s i g n s
+T
+he two-level series of factorial and fractional factorial designs discussed in Chapters 6, 7, and 8
+are widely used in industrial research and development. This chapter discusses some extensions
+and variations of these designs one important case is the situation where all the factors are present
+at three levels. These 3k designs and their fractions are discussed in this chapter. We will also con-
+sider cases where some factors have two levels and other factors have either three or four levels. In
+chapter 8 use introduced Plackett–Burman designs and observed that they are nonregular fractions.
+The general case of nonregular fractions with all factors at two levels is discussed in more detail
+here. We also illustrate how optimal design tools can be useful for constructing designs in many
+important situations.
+CHAPTER OUTLINE
+9.1 THE 3k FACTORIAL DESIGN
+9.1.1 Notation and Motivation for the 3k
+Design
+9.1.2 The 32 Design
+9.1.3 The 33 Design
+9.1.4 The General 3k Design
+9.2 CONFOUNDING IN THE 3k
+FACTORIAL DESIGN
+9.2.1 The 3k Factorial Design in Three Blocks
+9.2.2 The 3k Factorial Design in Nine Blocks
+9.2.3 The 3k Factorial Design in 3p Blocks
+9.3 FRACTIONAL REPLICATION 
+OF THE 3k FACTORIAL DESIGN
+9.3.1 The One-Third Fraction of the 3k
+Factorial Design
+9.3.2 Other 3kp Fractional Factorial Designs
+9.4 FACTORIALS WITH MIXED LEVELS
+9.4.1 Factors at Two and Three Levels
+9.4.2 Factors at Two and Four Levels
+9.5 NONREGULAR FRACTIONAL FACTORIAL
+DESIGNS
+9.5.1 Nonregular Fractional Factorial Designs for 6, 7,
+and 8 Factors in 16 Runs
+9.5.2 Nonregular Fractional Factorial Designs for 9
+Through 14 Factors in 16 Runs
+9.5.3 Analysis of Nonregular Fractional Factorial
+Designs
+9.6. CONSTRUCTING FACTORIAL AND FRACTIONAL
+FACTORIAL DESIGNS USING AN OPTIMAL
+DESIGN TOOL
+9.6.1 Design Optimality Criterion
+9.6.2 Examples of Optimal Designs
+9.6.3 Extensions of the Optimal Design Approach
+SUPPLEMENTAL MATERIAL FOR CHAPTER 9
+S9.1 Yates’s Algorithm for the 3k Design
+S9.2 Aliasing in Three-Level and Mixed-Level Designs
+S9.3 More about Decomposing Sums of Squares in Three-
+Level Designs
+The supplemental material is on the textbook website www.wiley.com/college/montgomery.
+394

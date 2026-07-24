@@ -1,0 +1,164 @@
+8.6 Resolution III Designs
+355
+Seven main effects and their aliases may be estimated
+from these data. From Equation 8.2, we see that the effects
+and their aliases are
+For example, the estimate of the main effect of A and its
+aliases is
+The three largest effects are [A], [B], and [D]. The simplest
+interpretation of the results of this experiment is that the
+main effects of A, B, and D are all signicant. However, this
+interpretation is not unique, because one could also logical-
+ly conclude that A, B, and the AB interaction, or perhaps B,
+D, and the BD interaction, or perhaps A, D, and the AD
+interaction are the true effects.
+Notice that ABD is a word in the dening relation for
+this design. Therefore, this 
+design does not project into
+a full 23 factorial in ABD; instead, it projects into two repli-
+cates of a 231 design, as shown in Figure 8.23. Because the
+231 design is a resolution III design, A will be aliased with
+BD, B will be aliased with AD, and D will be aliased with
+274
+III
+77.6 95.0 141.8) 20.63
+[A] 
+1
+4 (85.5 75.1 93.2 145.4 83.7
+ [G] 2.43 l G CD BE AF
+[F] 0.63 l F BC AG DE
+ [E] 0.28 l E AC BG DF
+ [D]  28.88 l D AB CG EF
+ [C] 0.28 l C AE BF DG
+ [B]  38.38 l B AD CF EG
+ [A]  20.63 l A BD CE FG
+AB, so the interactions cannot be separated from the main
+effects. The experimenter here may have been unlucky. If
+he had assigned the factor illumination level to C instead of
+D, the design would have projected into a full 23 design,
+and the interpretation could have been simpler.
+To separate the main effects and the two-factor interac-
+tions, the full fold-over technique is used, and a second
+fraction is run with all the signs reversed. This fold-over
+design is shown in Table 8.22 along with the observed
+responses. Notice that when we construct a full fold over of
+a resolution III design, we (in effect) change the signs on
+the generators that have an odd number of letters. The
+effects estimated by this fraction are
+A
+2
+2
+2
+2
+–
++
+D
+–
+–
++
++
+B
+■F I G U R E 8 . 2 3
+The 
+design
+projected into two replicates of a 
+design in A, B, and D
+231
+III
+274
+III
+■TA B L E 8 . 2 2
+A Fold-Over 
+Design for the Eye Focus Experiment
+Basic Design
+Run
+A
+B
+C
+D AB
+E AC
+F BC
+G ABC
+Time
+1
+
+
+
+
+
+
+
+abcg
+91.3
+2
+
+
+
+
+
+
+
+bcde
+136.7
+3
+
+
+
+
+
+
+
+acdf
+82.4
+4
+
+
+
+
+
+
+
+cefg
+73.4
+5
+
+
+
+
+
+
+
+abef
+94.1
+6
+
+
+
+
+
+
+
+bdfg
+143.8
+7
+
+
+
+
+
+
+
+adeg
+87.3
+8
+
+
+
+
+
+
+
+(1)
+71.9
+274
+III

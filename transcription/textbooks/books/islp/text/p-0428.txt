@@ -1,0 +1,45 @@
+10.5 Recurrent Neural Networks
+421
+Log(Trading Volume)
+−1.0
+0.0
+0.5
+1.0
+Dow Jones Return
+−0.04
+0.00
+0.04
+1965
+1970
+1975
+1980
+1985
+−13
+−11
+−9
+−8
+Log(Volatility)
+FIGURE 10.14. Historical trading statistics from the New York Stock Exchange.
+Daily values of the normalized log trading volume, DJIA return, and log volatility
+are shown for a 24-year period from 1962–1986. We wish to predict trading volume
+on any day, given the history on all earlier days. To the left of the red bar (January
+2, 1980) is training data, and to the right test data.
+• Log trading volume. This is the fraction of all outstanding shares that
+are traded on that day, relative to a 100-day moving average of past
+turnover, on the log scale.
+• Dow Jones return. This is the difference between the log of the Dow
+Jones Industrial Index on consecutive trading days.
+• Log volatility. This is based on the absolute values of daily price
+movements.
+Predicting stock prices is a notoriously hard problem, but it turns out that
+predicting trading volume based on recent past history is more manageable
+(and is useful for planning trading strategies).
+An observation here consists of the measurements (vt, rt, zt) on day t, in
+this case the values for log_volume, DJ_return and log_volatility. There
+are a total of T = 6,051 such triples, each of which is plotted as a time series
+in Figure 10.14. One feature that strikes us immediately is that the day-
+to-day observations are not independent of each other. The series exhibit
+auto-correlation — in this case values nearby in time tend to be similar auto-
+correlation
+to each other. This distinguishes time series from other data sets we have
+encountered, in which observations can be assumed to be independent of

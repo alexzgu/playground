@@ -1,0 +1,50 @@
+12.5 Lab: Unsupervised Learning
+541
+To conduct Step 1 of the algorithm, we initialize Xhat — this is ˜X in
+Algorithm 12.1 — by replacing the missing values with the column means
+of the non-missing entries. These are stored in Xbar below after running
+np.nanmean() over the row axis. We make a copy so that when we assign np.nanmean()
+values to Xhat below we do not also overwrite the values in Xna.
+In [28]: Xhat = Xna.copy()
+Xbar = np.nanmean(Xhat, axis=0)
+Xhat[r_idx, c_idx] = Xbar[c_idx]
+Before we begin Step 2, we set ourselves up to measure the progress of
+our iterations:
+In [29]: thresh = 1e-7
+rel_err = 1
+count = 0
+ismiss = np.isnan(Xna)
+mssold = np.mean(Xhat[∼ismiss]**2)
+mss0 = np.mean(Xna[∼ismiss]**2)
+Here ismiss is a logical matrix with the same dimensions as Xna; a given
+element is True if the corresponding matrix element is missing. The notation
+∼ismiss negates this boolean vector. This is useful because it allows us to
+access both the missing and non-missing entries. We store the mean of the
+squared non-missing elements in mss0. We store the mean squared error
+of the non-missing elements of the old version of Xhat in mssold (which
+currently agrees with mss0). We plan to store the mean squared error of
+the non-missing elements of the current version of Xhat in mss, and will then
+iterate Step 2 of Algorithm 12.1 until the relative error, defined as (mssold
+- mss) / mss0, falls below thresh = 1e-7. 9
+In Step 2(a) of Algorithm 12.1, we approximate Xhat using low_rank();
+we call this Xapp. In Step 2(b), we use Xapp to update the estimates for
+elements in Xhat that are missing in Xna. Finally, in Step 2(c), we compute
+the relative error. These three steps are contained in the following while
+loop:
+In [30]: while rel_err > thresh:
+count += 1
+# Step 2(a)
+Xapp = low_rank(Xhat, M=1)
+# Step 2(b)
+Xhat[ismiss] = Xapp[ismiss]
+# Step 2(c)
+mss = np.mean(((Xna - Xapp)[∼ismiss])**2)
+rel_err = (mssold - mss) / mss0
+mssold = mss
+print("Iteration: {0}, MSS:{1:.3f}, Rel.Err {2:.2e}"
+.format(count, mss, rel_err))
+9Algorithm 12.1 tells us to iterate Step 2 until (12.14) is no longer decreasing. Deter-
+mining whether (12.14) is decreasing requires us only to keep track of mssold - mss.
+However, in practice, we keep track of (mssold - mss) / mss0 instead: this makes
+it so that the number of iterations required for Algorithm 12.1 to converge does not
+depend on whether we multiplied the raw data X by a constant factor.

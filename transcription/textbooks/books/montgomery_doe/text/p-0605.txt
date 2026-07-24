@@ -1,0 +1,67 @@
+test statistics, the expected mean squares must be determined. In complex design situations,
+particularly those involving random or mixed models, it is frequently helpful to have a formal
+procedure for this process.
+We will present a set of rules for writing down the number of degrees of freedom for
+each model term and the expected mean squares for any balanced factorial, nested2, or nested
+factorial experiment. (Note that partially balanced arrangements, such as Latin squares and
+incomplete block designs, are specically excluded.) Other rules are available; for example,
+see Scheffe (1959), Bennett and Franklin (1954), Corneld and Tukey (1956), and Searle
+(1971a, 1971b). By examining the expected mean squares, one may develop the appropriate
+statistic for testing hypotheses about any model parameter. The test statistic is a ratio of mean
+squares that is chosen such that the expected value of the numerator mean square differs
+from the expected value of the denominator mean square only by the variance component or
+the xed factor in which we are interested.
+It is always possible to determine the expected mean squares in any model as we did in
+Chapter 3—that is, by the direct application of the expectation operator. This brute force
+method, as it is often called, can be very tedious. The rules that follow always produce the
+expected mean squares without resorting to the brute force approach, and they are relatively
+simple to use. We illustrate the rules using the two-factor xed effects factorial model assum-
+ing that there are n replicates.
+Rule 1.
+The error term in the model is ij . . . m, where the subscript m denotes the repli-
+cation subscript. For the two-factor model, this rule implies that the error term is ijk.
+The variance component associated with ij . . . m is 2.
+Rule 2.
+In addition to an overall mean () and an error term ij . . . m, the model con-
+tains all the main effects and any interactions that the experimenter assumes exist.
+If all possible interactions between k factors exist, then there are 
+two-factor
+interactions,
+three-factor interactions, . . . , 1 k-factor interaction. If one of the
+factors in a term appears in parentheses, then there is no interaction between that
+factor and the other factors in that term.
+Rule 3.
+For each term in the model other than and the error term, divide the sub-
+scripts into three classes: (a) live—those subscripts that are present in the term and are
+not in parentheses; (b) dead—those subscripts that are present in the term and are in
+parentheses; and (c) absent—those subscripts that are present in the model but not in
+that particular term. Note that the two-factor xed effects model has no dead sub-
+scripts, but we will encounter such models later. Thus, in the two-factor model, for the
+term ()ij, i and j are live and k is absent.
+Rule 4. Degrees of freedom.
+The number of degrees of freedom for any effect in the
+model is the product of the number of levels associated with each dead subscript and
+the number of levels minus 1 associated with each live subscript. For example, the
+number of degrees of freedom associated with ()ij is (a 1) (b 1). The number
+of degrees of freedom for error is obtained by subtracting the sum of all other degrees
+of freedom from N 1, where N is the total number of observations.
+Rule 5.
+Each term in the model has either a variance component (random effect) or a
+xed factor (xed effect) associated with it. If an interaction contains at least one ran-
+dom effect, the entire interaction is considered as random. A variance component has
+Greek letters as subscripts to identify the particular random effect. Thus, in a two-
+factor mixed model with factor A xed and factor B random, the variance component
+for B is 
+, and the variance component for AB is 
+. A fixed effect is always
+2
+
+2
+
+(k
+3)
+(k
+2)
+13.5 Rules for Expected Mean Squares
+589
+2Nested designs are discussed in Chapter 14. 

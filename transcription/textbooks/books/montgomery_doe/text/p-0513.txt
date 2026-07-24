@@ -1,0 +1,92 @@
+11.3 Analysis of a Second-Order Response Surface
+497
+process, then as the unshaded portion of Figure 11.16 shows, a number of combinations of
+time and temperature will result in a satisfactory process. The experimenter can visually
+examine the contour plot to determine appropriate operating conditions. For example, it is
+likely that the experimenter would be most interested in the larger of the two feasible oper-
+ating regions shown in Figure 11.16.
+When there are more than three design variables, overlaying contour plots becomes
+awkward because the contour plot is two dimensional, and k 2 of the design variables must
+be held constant to construct the graph. Often a lot of trial and error is required to determine
+which factors to hold constant and what levels to select to obtain the best view of the surface.
+Therefore, there is practical interest in more formal optimization methods for multiple
+responses.
+Time
+(a) The contour plot
+Temperature
+77.93
+80.29
+82.64
+85.00
+87.36
+89.71
+92.07
+167.9
+170.3
+172.6
+175.0
+177.4
+179.7
+182.1
+3025
+3205
+3386
+3566
+3746
+3927
+3566
+3266
+2845
+182.1
+179.2
+176.4
+173.6
+170.8
+167.9
+77.93
+80.76
+83.59
+86.41
+89.24
+92.07
+Temperature
+Time
+Mn
+(b) The response surface plot
+■F I G U R E 1 1 . 1 5
+Contour plot and response surface plot of molecular weight, Example 11.2
+Time
+Temperature
+77.93
+80.29
+82.64
+85.00
+87.36
+89.71
+92.07
+167.9
+170.3
+172.6
+175.0
+177.4
+179.7
+182.1
+Yield
+78.50
+Yield
+78.50
+Viscosity
+62.00
+Viscosity
+68.00
+Viscosity
+68.00
+Viscosity
+62.00
+Mn
+34.00
+■F I G U R E 1 1 . 1 6
+Region of the optimum found by
+overlaying yield, viscosity, and
+molecular weight response
+surfaces, Example 11.2

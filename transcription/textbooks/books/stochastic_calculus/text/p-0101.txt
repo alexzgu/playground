@@ -1,0 +1,52 @@
+3.2. STOCHASTIC INTEGRAL
+95
+Continuity of paths is much more than is needed for the stochastic
+integral to exist. If At is a uniformly bounded, adapted process, and
+we let
+A(n)
+t
+= n
+t
+t−1
+n
+As ds,
+(3.7)
+then A(n)
+t
+is an adapted continuous process. This requires some as-
+sumptions on the process At so that integrals as in (3.4) and (3.7)
+exists, at least as Lebesgue integrals, and so that we can use Fubini’s
+theorem to interchange expectation and integrals on the line. The
+condition to guarantee this is called progressive measurablility, but we
+will not go into details here. If the At are uniformly bounded, then the
+Lebesgue density theory implies that A(n)
+t
+→At for Lebesgue almost
+every t. Hence, with probability one,
+1
+0
+[A(n)
+t
+−At]2 dt −→0,
+and since the processes are bounded the convergence is also in L2. For
+such processes we can dene the stochastic integral as above as an
+L2-limit.
+We will write the stochastic dierential
+dXt = At dBt,
+to mean that Xt satises
+Xt = X0 +
+t
+0
+As dBs
+This has been made mathematically precise by the denition of the integral.
+Intuitively, we think of Xt as a process that at time t evolves like a Brownian
+motion with zero drift and variance A2
+t. This is well dened for any adapted,
+continuous process At, and Xt is a continuous function of t. In particular, if
+ϕ is a bounded continuous function, then we can hope to solve the equation
+dXt = ϕ(Xt) dBt
+Solving such an equation can be dicult (see the end of Section 3.5), but
+simulating such a process is straightforward using the stochastic Euler rule:
+Xt+∆t = Xt + ϕ(Xt)
+√
+∆t N,

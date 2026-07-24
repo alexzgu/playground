@@ -1,0 +1,73 @@
+6.4 The General 2k Design
+253
+Now t0.025,8  2.31 and t0.025,8 se(Effect)  2.31(23.73)  54.82, so approximate 95
+percent condence intervals on the factor effects are
+This analysis indicates that A, C, and AC are important factors because they are the only factor
+effect estimates for which the approximate 95 percent condence intervals do not include zero.
+Dispersion Effects. The process engineer working on the plasma etching tool was
+also interested in dispersion effects; that is, do any of the factors affect variability in etch rate
+from run to run? One way to answer the question is to look at the range of etch rates for each
+of the eight runs in the 23 design. These ranges are plotted on the cube in Figure 6.8. Notice
+that the ranges in etch rates are much larger when both Gap and Power are at their high lev-
+els, indicating that this combination of factor levels may lead to more variability in etch rate
+than other recipes. Fortunately, etch rates in the desired range of 900 A/m can be achieved
+with settings of Gap and Power that avoid this situation.
+6.4
+The General 2k Design
+The methods of analysis that we have presented thus far may be generalized to the case of a
+2k factorial design, that is, a design with k factors each at two levels. The statistical model
+for a 2k design would include k main effects,
+two-factor interactions,
+three-factor inter-
+actions, . . . , and one k-factor interaction. That is, the complete model would contain 2k 1
+effects for a 2k design. The notation introduced earlier for treatment combinations is also used
+here. For example, in a 25 design abd denotes the treatment combination with factors A, B,
+and D at the high level and factors C and E at the low level. The treatment combinations may
+be written in standard order by introducing the factors one at a time, with each new factor
+being successively combined with those that precede it. For example, the standard order for
+a 24 design is (1), a, b, ab, c, ac, bc, abc, d, ad, bd, abd, cd, acd, bcd, and abcd.
+The general approach to the statistical analysis of the 2k design is summarized in Table
+6.8. As we have indicated previously, a computer software package is usually employed in
+this analysis process.
+(k
+3)
+(k
+2)
+ABC:
+ 5.625 54.82
+BC:
+2.125 54.82
+AC:  153.625 54.82
+AB:
+24.875 54.82
+C:
+ 306.125 54.82
+B:
+ 7.375 54.82
+A: 101.625 54.82
+Power (C)
+Gap (A)
+C2 F6 Flow
+325 w
+R = 15 
+R = 59 
+R = 12 
+R = 32
+R = 7
+R = 119 
+R = 19
+R = 131
+225 w
+0.80 cm 
+1.20 cm 
+125 sccm 
+200 sccm 
+–
+–
+–
++
++
++
+■F I G U R E 6 . 8
+Ranges
+of etch rates for Example 6.1

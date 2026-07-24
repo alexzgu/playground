@@ -1,0 +1,58 @@
+11.7 Additional Topics
+487
+0
+20
+40
+60
+80
+100
+120
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+Months
+Probability of Not Being Published
+Low Risk
+Medium Risk
+High Risk
+FIGURE 11.8. For the Publication data introduced in Section 11.5.4, we
+compute tertiles of “risk” in the test set using coefficients estimated on the training
+set. There is clear separation between the resulting survival curves.
+the (possibly-censored) times y1, . . . , yn, as well as the censoring indicators
+δ1, . . . , δn.
+Therefore, Harrell’s concordance index (or C-index) computes the pro- Harrell’s
+concordance
+index
+portion of observation pairs for which ˆηi′ > ˆηi and yi > yi′:
+C =
+)
+i,i′:yi>yi′ I(ˆηi′ > ˆηi)δi′
+)
+i,i′:yi>yi′ δi′
+,
+where the indicator variable I(ˆηi′ > ˆηi) equals one if ˆηi′ > ˆηi, and equals
+zero otherwise. The numerator and denominator are multiplied by the sta-
+tus indicator δi′, since if the i′th observation is uncensored (i.e. if δi′ = 1),
+then yi > yi′ implies that ti > ti′. By contrast, if δi′ = 0, then yi > yi′
+does not imply that ti > ti′.
+We fit a Cox proportional hazards model on the training set of the
+Publication data, and computed the C-index on the test set. This yielded
+C = 0.733. Roughly speaking, given two random papers from the test set,
+the model can predict with 73.3% accuracy which will be published first.
+11.7.2
+Choice of Time Scale
+In the examples considered thus far in this chapter, it has been fairly clear
+how to define time. For example, in the Publication example, time zero for
+each paper was defined to be the calendar time at the end of the study,
+and the failure time was defined to be the number of months that elapsed
+from the end of the study until the paper was published.
+However, in other settings, the definitions of time zero and failure time
+may be more subtle. For example, when examining the association between
+risk factors and disease occurrence in an epidemiological study, one might
+use the patient’s age to define time, so that time zero is the patient’s date
+of birth. With this choice, the association between age and survival cannot
+be measured; however, there is no need to adjust for age in the analysis.
+When examining covariates associated with disease-free survival (i.e. the

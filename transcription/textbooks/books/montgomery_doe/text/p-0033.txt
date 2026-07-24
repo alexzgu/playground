@@ -1,0 +1,67 @@
+Once the experimenter has selected the design factors, he or she must choose
+the ranges over which these factors will be varied and the specic levels at which runs
+will be made. Thought must also be given to how these factors are to be controlled at
+the desired values and how they are to be measured. For instance, in the ow solder
+experiment, the engineer has dened 12 variables that may affect the occurrence of
+solder defects. The experimenter will also have to decide on a region of interest for
+each variable (that is, the range over which each factor will be varied) and on how
+many levels of each variable to use. Process knowledge is required to do this. This
+process knowledge is usually a combination of practical experience and theoretical
+understanding. It is important to investigate all factors that may be of importance and
+to be not overly inuenced by past experience, particularly when we are in the early
+stages of experimentation or when the process is not very mature.
+When the objective of the experiment is factor screening or process charac-
+terization, it is usually best to keep the number of factor levels low. Generally, two
+levels work very well in factor screening studies. Choosing the region of interest is
+also important. In factor screening, the region of interest should be relatively large—
+that is, the range over which the factors are varied should be broad. As we learn more
+about which variables are important and which levels produce the best results, the
+region of interest in subsequent experiments will usually become narrower.
+The cause-and-effect diagram can be a useful technique for organizing
+some of the information generated in pre-experimental planning. Figure 1.10 is the
+cause-and-effect diagram constructed while planning an experiment to resolve
+problems with wafer charging (a charge accumulation on the wafers) encountered
+in an etching tool used in semiconductor manufacturing. The cause-and-effect dia-
+gram is also known as a fishbone diagram because the “effect” of interest or the
+response variable is drawn along the spine of the diagram and the potential causes
+or design factors are organized in a series of ribs. The cause-and-effect diagram
+uses the traditional causes of measurement, materials, people, environment, meth-
+ods, and machines to organize the information and potential design factors. Notice
+that some of the individual causes will probably lead directly to a design factor that
+1.4 Guidelines for Designing Experiments
+17
+Charge monitor
+calibration
+Charge monitor
+wafer probe failure
+Faulty hardware
+readings
+Incorrect part
+materials
+Parts condition
+Humid/Temp
+Time parts exposed
+to atmosphere
+Improper procedures
+Water flow to flood gun
+Flood gun
+installation
+Flood gun rebuild
+procedure
+Parts cleaning
+procedure
+Wheel speed
+Gas flow
+Vacuum
+Machines
+Methods
+Environment
+Measurement
+Materials
+People
+Wafer charging
+Unfamiliarity with normal
+wear conditions
+■F I G U R E 1 . 1 0
+A cause-and-effect diagram for the etching process 
+experiment

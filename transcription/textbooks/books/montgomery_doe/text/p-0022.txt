@@ -1,0 +1,81 @@
+of the square and the four scores at the bottom measures the effect of the type of ball used
+(see Figure 1.5c):
+Finally, a measure of the interaction effect between the type of ball and the type of driver can
+be obtained by subtracting the average scores on the left-to-right diagonal in the square from
+the average scores on the right-to-left diagonal (see Figure 1.5d), resulting in
+The results of this factorial experiment indicate that driver effect is larger than either the
+ball effect or the interaction. Statistical testing could be used to determine whether any of
+these effects differ from zero. In fact, it turns out that there is reasonably strong statistical evi-
+dence that the driver effect differs from zero and the other two effects do not. Therefore, this
+experiment indicates that I should always play with the oversized driver.
+One very important feature of the factorial experiment is evident from this simple
+example; namely, factorials make the most efcient use of the experimental data. Notice that
+this experiment included eight observations, and all eight observations are used to calculate
+the driver, ball, and interaction effects. No other strategy of experimentation makes such an
+efcient use of the data. This is an important and useful feature of factorials.
+We can extend the factorial experiment concept to three factors. Suppose that I wish
+to study the effects of type of driver, type of ball, and the type of beverage consumed on my
+golf score. Assuming that all three factors have two levels, a factorial design can be set up
+0.25
+ Ball–driver interaction effect 92 94 88 90
+4
+88 91 93 91
+4
+0.75
+ Ball effect 88 91 92 94
+4
+88 90 93 91
+4
+6
+Chapter 1 ■Introduction
+O
+R
+Type of driver
+(b) Comparison of scores leading
+to the driver effect
+Type of ball
+B
+T
+O
+R
+Type of driver
+(c) Comparison of scores
+leading to the ball effect
+Type of ball
+B
+T
+O
+R
+88, 90
+88, 91
+93, 91
+92, 94
+Type of driver
+(a) Scores from the golf experiment
+Type of ball
+B
+T
+O
+R
+Type of driver
+(d) Comparison of scores
+leading to the ball–driver
+interaction effect
+Type of ball
+B
+T
++
+–
++
+–
++
+–
++
+–
+–
+–
++
++
+■F I G U R E 1 . 5
+Scores from the golf experiment in Figure 1.4 and calculation of the
+factor effects

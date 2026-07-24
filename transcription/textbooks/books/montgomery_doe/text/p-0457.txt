@@ -1,0 +1,105 @@
+9.6 Constructing Factorial and Fractional Factorial Designs Using an Optimal Design Tool
+441
+■TA B L E 9 . 4 2
+Relative Variances for the Individual Model Effects
+for the 24-Run D-optimal Design in Table 9.41
+Effect
+Relative Variance
+Intercept
+0.046
+A1
+0.045
+A2
+0.045
+B1
+0.046
+B2
+0.044
+C
+0.045
+A*B1
+0.044
+A*B2
+0.047
+A*B3
+0.046
+A*B4
+0.044
+A*C1
+0.046
+A*C2
+0.046
+B*C1
+0.046
+B*C2
+0.046
+■TA B L E 9 . 4 3
+A 14-Run D-optimal Design for Two Three-level Factors
+and One Two-level Factor
+Run
+Factor A
+Factor B
+Factor C
+1
+L1
+L3
+1
+2
+L3
+L2
+1
+3
+L1
+L1
+1
+4
+L1
+L2
+1
+5
+L3
+L3
+1
+6
+L2
+L3
+1
+7
+L1
+L1
+1
+8
+L3
+L1
+1
+9
+L2
+L3
+1
+10
+L3
+L3
+1
+11
+L2
+L2
+1
+12
+L2
+L1
+1
+13
+L1
+L2
+1
+14
+L3
+L1
+1
+(this should not be a surprise—a larger sample size gives smaller variances of the estimates)
+and more uneven, indicating that this design is much further from orthogonal than was the 
+24-run design.
+As a nal illustration of the power and exibility of optimal designs for mixed-level
+fractional factorials, suppose that an experimenter has ve factors: A is categorical with ve
+levels, B is categorical with four levels, C is categorical with three levels, and B and C are
+continuous with two levels. The experimenter is interested in estimating all of the main effects

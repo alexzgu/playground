@@ -1,0 +1,59 @@
+6.2 The 22 Design
+239
+When the natural variables have only two levels, this coding will produce the familiar 1
+notation for the levels of the coded variables. To illustrate this for our example, note that
+Thus, if the concentration is at the high level (Conc  25%), then x1  1; if the concentra-
+tion is at the low level (Conc  15%), then x1  1. Furthermore,
+Thus, if the catalyst is at the high level (Catalyst  2 pounds), then x2  1; if the catalyst
+is at the low level (Catalyst  1 pound), then x2  1.
+The tted regression model is
+where the intercept is the grand average of all 12 observations, and the regression coefcients
+and 
+are one-half the corresponding factor effect estimates. The regression coefcient is
+one-half the effect estimate because a regression coefcient measures the effect of a one-unit
+change in x on the mean of y, and the effect estimate is based on a two-unit change (from 1
+to 1). This simple method of estimating the regression coefcients results in least squares
+parameter estimates. We will return to this topic again in Section 6.7. Also see the supple-
+mental material for this chapter.
+Residuals and Model Adequacy. The regression model can be used to obtain the
+predicted or tted value of y at the four points in the design. The residuals are the differences
+between the observed and tted values of y. For example, when the reactant concentration is
+at the low level (x1  1) and the catalyst is at the low level (x2  1), the predicted yield
+is
+There are three observations at this treatment combination, and the residuals are
+The remaining predicted values and residuals are calculated similarly. For the high level of
+the reactant concentration and the low level of the catalyst,
+and
+e6 32 34.165 2.165
+e5 32 34.165 2.165
+e4 36 34.165 1.835
+yˆ 27.5 
+8.33
+2 (1) 
+5.00
+2 (1) 34.165
+e3 27 25.835 1.165
+e2 25 25.835 0.835
+e1 28 25.835 2.165
+yˆ 27.5 
+8.33
+2 (1) 
+5.00
+2 (1) 25.835
+ˆ
+2
+ˆ
+1
+yˆ 27.5 
+8.33
+2 x1 
+5.00
+2 x2
+Catalyst 1.5
+0.5
+x2 Catalyst (1 2)/2
+(2 1)/2
+Conc 20
+5
+x1 Conc (15 25)/2
+(25 15)/2

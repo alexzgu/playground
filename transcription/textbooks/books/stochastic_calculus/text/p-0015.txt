@@ -1,0 +1,34 @@
+1.1. CONDITIONAL EXPECTATION
+9
+E[Sm(Sn −Sm) Fm] = Sm E[Sn −Sm Fm] = Sm E[Sn −Sm] = 0,
+E[(Sn −Sm)2 Fm] = E[(Sn −Sm)2] = Var(Sn −Sm) = σ2 (n −m),
+and hence,
+E[S2
+n Fm] = S2
+m + σ2 (n −m)
+Example 1.1.3. In the same setup as Example 1.1.1, let us also assume
+that X1, X2, are identically distributed. We will compute E[X1 Sn].
+Note that the information contained in the one data point Sn is less than the
+information contained in X1, , Xn. However, since the random variables
+are identically distributed, it must be the case that
+E[X1 Sn] = E[X2 Sn] = · · · = E[Xn Sn]
+Linearity implies that
+n E[X1 Sn] =
+n
+
+j=1
+E[Xj Sn] = E[X1 + · · · + Xn Sn] = E[Sn Sn] = Sn
+Therefore,
+E[X1 Sn] = Sn
+n 
+It may be at rst surprising that the answer does not depend on E[X1].
+Denition If X1, X2, is a sequence of random variables, then the asso-
+ciated (discrete time) is the collection Fnwhere Fn denotes the
+information in X1, , Xn.
+One assumption in the denition of a ltration, which may sometimes
+not reect reality, is that information is never lost. If m < n, then everything
+known at time m is still known at time n. Sometimes a ltration is given
+starting at time n = 1 and sometimes starting at n = 0. If it starts at time
+n = 1, we dene F0 to be no information.
+More generally, a (discrete time) ltration Fnis an increasing se-
+quence of σ-algebras.

@@ -1,0 +1,89 @@
+214
+5. Resampling Methods
+0.4
+0.5
+0.6
+0.7
+0.8
+0.9
+0
+50
+100
+150
+200
+0.3
+0.4
+0.5
+0.6
+0.7
+0.8
+0.9
+0
+50
+100
+150
+200
+True
+Bootstrap
+0.3
+0.4
+0.5
+0.6
+0.7
+0.8
+0.9
+α
+α
+α
+FIGURE 5.10. Left: A histogram of the estimates of α obtained by generating
+1,000 simulated data sets from the true population. Center: A histogram of the
+estimates of α obtained from 1,000 bootstrap samples from a single data set.
+Right: The estimates of α displayed in the left and center panels are shown as
+boxplots. In each panel, the pink line indicates the true value of α.
+Z∗1. The sampling is performed with replacement, which means that the with
+replacement
+same observation can occur more than once in the bootstrap data set. In
+this example, Z∗1 contains the third observation twice, the first observation
+once, and no instances of the second observation. Note that if an observation
+is contained in Z∗1, then both its X and Y values are included. We can use
+Z∗1 to produce a new bootstrap estimate for α, which we call ˆα∗1. This
+procedure is repeated B times for some large value of B, in order to produce
+B different bootstrap data sets, Z∗1, Z∗2, . . . , Z∗B, and B corresponding α
+estimates, ˆα∗1, ˆα∗2, . . . , ˆα∗B. We can compute the standard error of these
+bootstrap estimates using the formula
+SEB(ˆα) =
+:
+;
+;
+<
+1
+B −1
+B
+0
+r=1
+>
+ˆα∗r −1
+B
+B
+0
+r′=1
+ˆα∗r′
+?2
+.
+(5.8)
+This serves as an estimate of the standard error of ˆα estimated from the
+original data set.
+The bootstrap approach is illustrated in the center panel of Figure 5.10,
+which displays a histogram of 1,000 bootstrap estimates of α, each com-
+puted using a distinct bootstrap data set. This panel was constructed on
+the basis of a single data set, and hence could be created using real data.
+Note that the histogram looks very similar to the left-hand panel, which
+displays the idealized histogram of the estimates of α obtained by generat-
+ing 1,000 simulated data sets from the true population. In particular the
+bootstrap estimate SE(ˆα) from (5.8) is 0.087, very close to the estimate of
+0.083 obtained using 1,000 simulated data sets. The right-hand panel dis-
+plays the information in the center and left panels in a different way, via
+boxplots of the estimates for α obtained by generating 1,000 simulated data
+sets from the true population and using the bootstrap approach. Again, the
+boxplots have similar spreads, indicating that the bootstrap approach can
+be used to effectively estimate the variability associated with ˆα.

@@ -1,0 +1,80 @@
+Choice of Sample Size. Choosing the sample size, or the number of blocks to run,
+is an important decision when using an RCBD. Increasing the number of blocks increases
+the number of replicates and the number of error degrees of freedom, making design more
+sensitive. Any of the techniques discussed in Section 3.7 for selecting the number of repli-
+cates to run in a completely randomized single-factor experiment may be applied directly to
+the RCBD. For the case of a xed factor, the operating characteristic curves in Appendix
+Chart V may be used with
+(4.19)
+where there are a 1 numerator degrees of freedom and (a 1)(b 1) denominator degrees
+of freedom.
+2 
+b
+a
+i1
+2
+i
+a2
+4.1 The Randomized Complete Block Design
+153
+TA B L E 4 . 6
+JMP Output for Example 4.1 with Blocks Assumed Random
+Response Y
+Summary of Fit
+RSquare
+0.756688
+RSquare Adj
+0.720192
+Root Mean Square Error
+2.706612
+Mean of Response
+89.79583
+Observations (or Sum Wgts)
+24
+REML Variance Component Estimates
+Random Effect
+Var Ratio
+Var Component
+Std Error
+95% Lower
+95% Upper
+Pct of Total
+Block
+1.0621666
+7.7811667
+6.116215
+4.206394
+19.768728
+51.507
+Residual
+7.32575
+2.6749857
+3.9975509
+17.547721
+48.493
+Total
+15.106917
+100.000
+Covariance Matrix of Variance Component Estimates
+Random Effect
+Block
+Residual
+Block
+37.408085
+1.788887
+Residual
+1.788887
+7.1555484
+Fixed Effect Tests
+Source
+Nparm
+DF
+DFDen
+F Ratio
+Prob > F
+Pressure
+3
+3
+15
+8.1071
+0.0019*

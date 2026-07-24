@@ -1,0 +1,41 @@
+4
+CHAPTER 1. MARTINGALES IN DISCRETE TIME
+X1, , Xn,
+E[Y Fn] = ϕ(X1, , Xn)
+We say that E[Y Fn] is Fn-.
+The denitions in the last paragraph are certainly vague. We can use
+measure theory to be precise. We assume that the random variables
+Y, X1, X2, are dened on a probability space (Ω, F, P). Here F is
+a σ-algebra or σ-eld of subsets of Ω, that is, a collection of subsets
+satisfying
+∅F;
+A F implies that Ω\ A F;
+A1, A2, F implies that ∞
+n=1 An F.
+The information Fn is the smallest sub σ-algebra G of F such that
+X1, , Xn are G-measurable. The latter statement means that for all
+t R, the event Xj ≤tFn. The no informationσ-algebra F0
+is the trivial σ-algebra containing only ∅and Ω.
+The denition of conditional expectation is a little tricky, so let us try
+to motivate it by considering an example from undergraduate probability
+courses. Suppose that (X, Y ) have a joint density
+f(x, y),
+0 < x, y < ∞,
+with marginal densities
+f(x) =
+∞
+−∞
+f(x, y) dy,
+g(y) =
+∞
+−∞
+f(x, y) dx
+The conditional density f(yx) is dened by
+f(yx) = f(x, y)
+f(x) 
+This is well dened provided that f(x) > 0, and if f(x) = 0, then x is an
+impossiblevalue for X to take. We can write
+E[Y X = x] =
+∞
+−∞
+y f(y x) dy

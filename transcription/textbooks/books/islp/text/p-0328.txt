@@ -1,0 +1,52 @@
+320
+7. Moving Beyond Linearity
+partial_age = preds.predicted_mean
+center = partial_age.mean()
+partial_age -= center
+bounds_age -= center
+fig, ax = subplots(figsize=(8,8))
+ax.plot(age_grid, partial_age , 'b', linewidth=3)
+ax.plot(age_grid, bounds_age[:,0], 'r--', linewidth=3)
+ax.plot(age_grid, bounds_age[:,1], 'r--', linewidth=3)
+ax.set_xlabel('Age')
+ax.set_ylabel('Effect on wage')
+ax.set_title('Partial dependence of age on wage', fontsize=20);
+Let’s explain in some detail what we did above. The idea is to create a new
+prediction matrix, where all but the columns belonging to age are constant
+(and set to their training-data means). The four columns for age are filled
+in with the natural spline basis evaluated at the 100 values in age_grid.
+1. We made a grid of length 100 in age, and created a matrix X_age_bh
+with 100 rows and the same number of columns as X_bh.
+2. We replaced every row of this matrix with the column means of the
+original.
+3. We then replace just the first four columns representing age with the
+natural spline basis computed at the values in age_grid.
+The remaining steps should by now be familiar.
+We also look at the effect of year on wage; the process is the same.
+In [30]: year_grid = np.linspace(2003, 2009, 100)
+year_grid = np.linspace(Wage['year'].min(),
+Wage['year'].max(),
+100)
+X_year_bh = X_bh.copy()[:100]
+X_year_bh[:] = X_bh[:].mean(0)[None,:]
+X_year_bh[:,4:9] = ns_year.transform(year_grid)
+preds = gam_bh.get_prediction(X_year_bh)
+bounds_year = preds.conf_int(alpha=0.05)
+partial_year = preds.predicted_mean
+center = partial_year.mean()
+partial_year -= center
+bounds_year -= center
+fig, ax = subplots(figsize=(8,8))
+ax.plot(year_grid, partial_year , 'b', linewidth=3)
+ax.plot(year_grid, bounds_year[:,0], 'r--', linewidth=3)
+ax.plot(year_grid, bounds_year[:,1], 'r--', linewidth=3)
+ax.set_xlabel('Year')
+ax.set_ylabel('Effect on wage')
+ax.set_title('Partial dependence of year on wage', fontsize=20);
+We now fit the model (7.16) using smoothing splines rather than nat-
+ural splines. All of the terms in (7.16) are fit simultaneously, taking each
+other into account to explain the response. The pygam package only works
+with matrices, so we must convert the categorical series education to its
+array representation, which can be found with the cat.codes attribute of
+education. As year only has 7 unique values, we use only seven basis func-
+tions for it.

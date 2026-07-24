@@ -1,0 +1,45 @@
+116
+3. Linear Regression
+3.6
+Lab: Linear Regression
+3.6.1
+Importing packages
+We import our standard libraries at this top level.
+In [1]: import numpy as np
+import pandas as pd
+from matplotlib.pyplot import subplots
+New imports
+Throughout this lab we will introduce new functions and libraries. However,
+we will import them here to emphasize these are the new code objects in
+this lab. Keeping imports near the top of a notebook makes the code more
+readable, since scanning the first few lines tells us what libraries are used.
+In [2]: import statsmodels.api as sm
+We will provide relevant details about the functions below as they are
+needed.
+Besides importing whole modules, it is also possible to import only a
+few items from a given module. This will help keep the namespace clean. namespace
+We will use a few specific objects from the statsmodels package which we statsmodels
+import here.
+In [3]: from statsmodels.stats.outliers_influence \
+import variance_inflation_factor as VIF
+from statsmodels.stats.anova import anova_lm
+As one of the import statements above is quite a long line, we inserted a
+line break \ to ease readability.
+We will also use some functions written for the labs in this book in the
+ISLP package.
+In [4]: from ISLP import load_data
+from ISLP.models import (ModelSpec as MS,
+summarize,
+poly)
+Inspecting Objects and Namespaces
+The function dir() provides a list of objects in a namespace.
+dir()
+In [5]: dir()
+Out[5]: ['In',
+'MS',
+'_',
+'__',
+'___',
+'__builtin__',
+'__builtins__',
+...

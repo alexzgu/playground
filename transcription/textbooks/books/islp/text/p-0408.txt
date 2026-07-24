@@ -1,0 +1,66 @@
+10.1 Single Layer Neural Networks
+401
+−4
+−2
+0
+2
+4
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+z
+g(z)
+sigmoid
+ReLU
+FIGURE 10.2. Activation functions. The piecewise-linear ReLU function is pop-
+ular for its efficiency and computability. We have scaled it down by a factor of
+five for ease of comparison.
+where g(z) is a nonlinear activation function that is specified in advance. activation
+function
+We can think of each Ak as a different transformation hk(X) of the original
+features, much like the basis functions of Chapter 7. These K activations
+from the hidden layer then feed into the output layer, resulting in
+f(X) = β0 +
+K
+0
+k=1
+βkAk,
+(10.3)
+a linear regression model in the K = 5 activations. All the parameters
+β0, . . . , βK and w10, . . . , wKp need to be estimated from data. In the early
+instances of neural networks, the sigmoid activation function was favored,
+sigmoid
+g(z) =
+ez
+1 + ez =
+1
+1 + e−z ,
+(10.4)
+which is the same function used in logistic regression to convert a linear
+function into probabilities between zero and one (see Figure 10.2). The
+preferred choice in modern neural networks is the ReLU (rectified linear ReLU
+unit) activation function, which takes the form
+rectified
+linear unit
+g(z) = (z)+ =
+K 0
+if z < 0
+z
+otherwise.
+(10.5)
+A ReLU activation can be computed and stored more efficiently than a
+sigmoid activation. Although it thresholds at zero, because we apply it to a
+linear function (10.2) the constant term wk0 will shift this inflection point.
+So in words, the model depicted in Figure 10.1 derives five new features
+by computing five different linear combinations of X, and then squashes
+each through an activation function g(·) to transform it. The final model
+is linear in these derived variables.
+The name neural network originally derived from thinking of these hidden
+units as analogous to neurons in the brain — values of the activations
+Ak = hk(X) close to one are firing, while those close to zero are silent
+(using the sigmoid activation function).
+The nonlinearity in the activation function g(·) is essential, since without
+it the model f(X) in (10.1) would collapse into a simple linear model in

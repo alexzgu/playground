@@ -1,0 +1,85 @@
+10.8 Interpolation and Double Descent
+433
+−4
+−2
+0
+2
+4
+−3
+−2
+−1
+0
+1
+2
+3
+8 Degrees of Freedom
+−4
+−2
+0
+2
+4
+−3
+−2
+−1
+0
+1
+2
+3
+20 Degrees of Freedom
+−4
+−2
+0
+2
+4
+−3
+−2
+−1
+0
+1
+2
+3
+42 Degrees of Freedom
+−4
+−2
+0
+2
+4
+−3
+−2
+−1
+0
+1
+2
+3
+80 Degrees of Freedom
+FIGURE 10.21. Fitted functions ˆfd(X) (orange), true function f(X) (black)
+and the observed 20 training data points. A different value of d (degrees of freedom)
+is used in each panel. For d ≥20 the orange curves all interpolate the training
+points, and hence the training error is zero.
+degrees of freedom.22 Recall from Section 7.4 that fitting a natural spline
+with d degrees of freedom amounts to fitting a least-squares regression
+of the response onto a set of d basis functions. The upper-left panel of
+Figure 10.21 shows the data, the true function f(X), and ˆf8(X), the fitted
+natural spline with d = 8 degrees of freedom.
+Next, we fit a natural spline with d = 20 degrees of freedom. Since n = 20,
+this means that n = d, and we have zero training error; in other words, we
+have interpolated the training data! We can see from the top-right panel of
+Figure 10.21 that ˆf20(X) makes wild excursions, and hence the test error
+will be large.
+We now continue to fit natural splines to the data, with increasing values
+of d. For d > 20, the least squares regression of Y onto d basis functions
+is not unique: there are an infinite number of least squares coefficient es-
+timates that achieve zero error. To select among them, we choose the one
+with the smallest sum of squared coefficients, )d
+j=1 ˆβ2
+j . This is known as
+the minimum-norm solution.
+The two lower panels of Figure 10.21 show the minimum-norm natural
+spline fits with d = 42 and d = 80 degrees of freedom. Incredibly, ˆf42(X)
+is quite a bit less less wild than ˆf20(X), even though it makes use of more
+degrees of freedom. And ˆf80(X) is not much different. How can this be?
+Essentially, ˆf20(X) is very wild because there is just a single way to interpo-
+late n = 20 observations using d = 20 basis functions, and that single way
+results in a somewhat extreme fitted function. By contrast, there are an
+22This implies the choice of d knots, here chosen at d equi-probability quantiles of the
+training data. When d > n, the quantiles are found by interpolation.

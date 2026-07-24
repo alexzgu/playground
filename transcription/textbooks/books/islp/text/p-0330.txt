@@ -1,0 +1,67 @@
+322
+7. Moving Beyond Linearity
+ax.set_title('Partial dependence of wage on education',
+fontsize=20);
+ax.set_xticklabels(Wage['education'].cat.categories, fontsize=8);
+ANOVA Tests for Additive Models
+In all of our models, the function of year looks rather linear. We can perform
+a series of ANOVA tests in order to determine which of these three models
+is best: a GAM that excludes year (M1), a GAM that uses a linear function
+of year (M2), or a GAM that uses a spline function of year (M3).
+In [36]: gam_0 = LinearGAM(age_term + f_gam(2, lam=0))
+gam_0.fit(Xgam, y)
+gam_linear = LinearGAM(age_term +
+l_gam(1, lam=0) +
+f_gam(2, lam=0))
+gam_linear.fit(Xgam, y)
+Out[36]: LinearGAM(callbacks=[Deviance(), Diffs()], fit_intercept=True,
+max_iter=100, scale=None, terms=s(0) + l(1) + f(2) + intercept,
+tol=0.0001, verbose=False)
+Notice our use of age_term in the expressions above. We do this because
+earlier we set the value for lam in this term to achieve four degrees of
+freedom.
+To directly assess the effect of year we run an ANOVA on the three
+models fit above.
+In [37]: anova_gam(gam_0, gam_linear, gam_full)
+Out[37]:
+deviance
+df deviance_diff
+df_diff
+F
+pvalue
+0
+3714362.366
+2991.004
+NaN
+NaN
+NaN
+NaN
+1
+3696745.823
+2990.005
+17616.543
+0.999
+14.265
+0.002
+2
+3693142.930
+2987.007
+3602.894
+2.998
+0.972
+0.436
+We find that there is compelling evidence that a GAM with a linear function
+in year is better than a GAM that does not include year at all (p-value=
+0.002). However, there is no evidence that a non-linear function of year
+is needed (p-value=0.435). In other words, based on the results of this
+ANOVA, M2 is preferred.
+We can repeat the same process for age as well. We see there is very clear
+evidence that a non-linear term is required for age.
+In [38]: gam_0 = LinearGAM(year_term +
+f_gam(2, lam=0))
+gam_linear = LinearGAM(l_gam(0, lam=0) +
+year_term +
+f_gam(2, lam=0))
+gam_0.fit(Xgam, y)
+gam_linear.fit(Xgam, y)
+anova_gam(gam_0, gam_linear, gam_full)

@@ -1,0 +1,64 @@
+464
+Chapter 10 ■Fitting Regression Models
+These computations are almost always performed with regression software. For instance,
+Table 10.4 shows some of the output from Minitab for the viscosity regression model in
+Example 10.1. The upper portion in this display is the analysis of variance for the model. The
+test of signicance of regression in this example involves the hypotheses
+The P-value in Table 10.4 for the F statistic (Equation 10.22) is very small, so we would con-
+clude that at least one of the two variables—temperature (x1) and feed rate (x2)—has a nonzero
+regression coefcient.
+Table 10.4 also reports the coefcient of multiple determination R2, where
+(10.26)
+Just as in designed experiments, R2 is a measure of the amount of reduction in the variability
+of y obtained by using the regressor variables x1, x2, . . . , xk in the model. However, as we
+have noted previously, a large value of R2 does not necessarily imply that the regression model
+is a good one. Adding a variable to the model will always increase R2, regardless of whether
+the additional variable is statistically signicant or not. Thus, it is possible for models that
+have large values of R2 to yield poor predictions of new observations or estimates of the mean
+response.
+Because R2 always increases as we add terms to the model, some regression model
+builders prefer to use an adjusted R2 statistic dened as
+(10.27)
+In general, the adjusted R2 statistic will not always increase as variables are added to the model.
+In fact, if unnecessary terms are added, the value of 
+will often decrease.
+For example, consider the viscosity regression model. The adjusted R2 for the model is
+shown in Table 10.4. It is computed as
+which is very close to the ordinary R2. When R2 and 
+differ dramatically, there is a good
+chance that nonsignicant terms have been included in the model.
+10.4.2
+Tests on Individual Regression Coefﬁcients
+and Groups of Coefﬁcients
+We are frequently interested in testing hypotheses on the individual regression coefcients.
+Such tests would be useful in determining the value of each regressor variable in the regres-
+sion model. For example, the model might be more effective with the inclusion of additional
+variables or perhaps with the deletion of one or more of the variables already in the model.
+Adding a variable to the regression model always causes the sum of squares for regres-
+sion to increase and the error sum of squares to decrease. We must decide whether the increase
+in the regression sum of squares is sufcient to warrant using the additional variable in the model.
+Furthermore, adding an unimportant variable to the model can actually increase the mean square
+error, thereby decreasing the usefulness of the model.
+R2
+adj
+1 
+15
+13(1 0.92697) 0.915735
+R2
+adj 1 
+n 1
+n p(1 R2)
+R2
+adj
+R2
+adj 1 SSE/(n p)
+SST/(n 1) 1 
+n 1
+n p(1 R2)
+R2 SSR
+SST
+1 SSE
+SST
+H1j Z 0 
+ for at least one j
+H01 2  0

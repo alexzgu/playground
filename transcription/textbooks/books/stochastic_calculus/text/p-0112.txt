@@ -1,0 +1,58 @@
+106
+CHAPTER 3. STOCHASTIC INTEGRATION
+∂tf(t, x) ∆t + o(∆t) + ∂xf(t, x) ∆x + 1
+2∂xxf(t, x) (∆x)2 + o((∆x)2)
+If we set ∆t = 1n and write a telescoping sum for f(1, B1) −f(0, B0) we
+get terms as (3.9)– (3.11) as well as two more terms:
+lim
+n∞
+n
+
+j=1
+∂tf((j −1)n, B(j−1)n) (1n),
+(3.12)
+lim
+n∞
+n
+
+j=1
+o(1n)
+(3.13)
+The limit in (3.13) equals zero, and the sum in (3.12) is a Riemann sum
+approximation of a integral and hence the limit is
+1
+0
+∂tf(t, Bt) dt
+Example 3.4.1. Let f(t, x) = eat+bx. Then
+∂tf(t, x) = a f(t, x),
+∂xf(t, x) = b f(t, x),
+∂xxf(t, x) = b2 f(t, x)
+Therefore, if Xt = f(t, Bt) = exp at + bBt,
+dXt
+=
+
+∂tf(t, Bt) + 1
+2 ∂xxf(t, Bt)
+
+dt + ∂xf(t, Bt) dBt
+=
+
+a + b2
+2
+
+Xt dt + b Xt dBt
+Denition A process Xt is a Bwith m and
+σ if it satises the SDE
+dXt = m Xt dt + σ Xt dBt = Xt [m dt + σ dBt] ,
+(3.14)
+where Bt is a standard Brownian motion.
+Example 3.4.1 shows that if Bt is a standard Brownian motion and
+Xt = X0 exp
+
+m −σ2
+2
+
+t + σ Bt
+
+,
+(3.15)

@@ -1,0 +1,63 @@
+3.2. STOCHASTIC INTEGRAL
+93
+If At is adapted with continuous paths, but not necessarily bounded, we
+can still dene
+Zt =
+t
+0
+As dBs
+as follows. For each n < ∞, let Tn = mint : At= nand let A(n)
+s
+= As∧Tn
+Then A(n)
+s
+is a bounded, continuous process and
+Z(n)
+t
+=
+t
+0
+A(n)
+s
+dBs
+is well dened. We dene
+Zt = lim
+n∞Z(n)
+t
+
+The existence of this limit is easy to establish. Indeed, let
+Kt = max
+0≤s≤t As
+Then for n ≥Kt, A(n)
+s
+= As for 0 ≤s ≤t, and hence
+Z(n)
+t
+= Zt,
+t ≥Kt
+There is a subtlety here. Since Kt is a random variable, the n that one
+needs to choose may depend on the path. Although Zt is well dened in the
+limit and satises linearity and continuity, we will see in Section 4.1 that it
+might not satisfy the martingale property. Let us not worry about this at the
+moment. We will state the following.
+Proposition 3.2.5. SBt B
+Ft, At, Ct .
+Linearity. Ia, b r < t, 
+t
+0
+(aAs + bCs) dBs = a
+t
+0
+As dBs + b
+t
+0
+Cs dBs,
+t
+0
+As dBs =
+r
+0
+As dBs +
+t
+r
+As dBs

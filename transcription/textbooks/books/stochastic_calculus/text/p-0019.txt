@@ -1,0 +1,41 @@
+1.2. MARTINGALES
+13
+We will refer to such random variables as coin-tossingrandom variables
+where 1 corresponds to heads and −1 corresponds to tails. Let M0 = 0, Mn =
+X1 + · · · + Xn. We have seen that Mn is a martingale. We will consider
+the following betting strategy. We start by betting
+1. If we win, we quit;
+otherwise, we bet
+2 on the next game. If we win the second game, we quit;
+otherwise we double our bet to 4 and play. Each time we lose, we double our
+bet. At the time that we win, we will be ahead
+1. With probability one, we
+will eventually win the game, so this strategy is a way to beat a fair game.
+The winnings in this game can be written as
+Wn =
+n
+
+j=1
+Bj ∆Mj =
+n
+
+j=1
+Bj Xj,
+where the bet B1 = 1 and for j > 1,
+Bj = 2j−1 if X1 = X2 = · · · = Xj−1 = −1,
+and otherwise Bj = 0. This is an example of a discrete stochastic integral as
+in the previous example, and hence, we know that Wn must be a martingale.
+In particular, for each n, E[Wn] = 0. We can check this directly by noting
+that Wn = 1 unless X1 = X2 = · · · = Xn = −1 in which case
+Wn = −1 −21 −22 −· · · −2n−1 = −[2n −1]
+This last event happens with probability (12)n, and hence
+E[Wn] = 1 · [1 −2−n] −[2n −1] · 2−n = 0
+However, we will eventually win which means that with probability one
+W∞= lim
+n∞Wn = 1,
+and
+1 = E[W∞] > E[W0] = 0
+We have beaten the game (but it takes an innite amount of time to guarantee
+it).
+If the condition (1.4) is replaced with
+E[Mn Fm] ≥Mm,

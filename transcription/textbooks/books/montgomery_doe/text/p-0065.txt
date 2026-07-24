@@ -1,0 +1,89 @@
+2.4 Inferences About the Differences in Means, Randomized Designs
+49
+TA B L E 2 . 3
+Normalized Fluorescence After Two Hours
+Observation
+Nerve
+Muscle
+1
+6625
+3900
+2
+6000
+3500
+3
+5450
+3450
+4
+5200
+3200
+5
+5175
+2980
+6
+4900
+2800
+7
+4750
+2500
+8
+4500
+2400
+9
+3985
+2200
+10
+900
+1200
+11
+450
+1150
+12
+2800
+1130
+0
+1000 2000 3000
+Normalized Fluorescence
+4000 5000 6000 7000 8000 9000
+99
+95
+90
+80
+70
+60
+50
+40
+30
+Percent
+20
+10
+5
+1
+Nerve
+Variable
+Non-nerve
+Notice that the two sample standard deviations are quite different, so the assumption of equal
+variances in the pooled t-test may not be appropriate. Figure 2.14 is the normal probability
+plot from Minitab for the two samples. This plot also indicates that the two population vari-
+ances are probably not the same.
+Because the equal variance assumption is not appropriate here, we will use the two-
+sample t-test described in this section to test the hypothesis of equal means. The test statistic,
+Equation 2.31, is 
+
+4228 2534
+
+(1918)2
+12
+(961)2
+12
+2.7354
+t0 
+y1 y2
+
+S2
+1
+n1 S2
+2
+n2
+■F I G U R E 2 . 1 4
+Normalized Fluorescence Data from Table 2.3

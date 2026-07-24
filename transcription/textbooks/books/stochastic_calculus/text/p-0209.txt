@@ -1,0 +1,48 @@
+6.4. INTEGRATION WITH RESPECT TO COMPOUND POISSON PROCESSES203
+Left-continuity implies that with probability one for all t
+At = lim
+n∞An
+t ,
+and hence
+t
+0
+As dMs = lim
+n∞
+t
+0
+An
+s dMs
+Using uniform boundedness, one can interchange limits and expecta-
+tions to get (6.11) and (6.12).
+Finally to remove the boundedness assumption, we let Tn = inft :
+At= nand let At,n = At∧Tn. As n →∞, At,n →At, and we can
+argue as before.
+Example 6.4.2. Suppose Xt is a CPP with L´evy measure µ satisfying
+∞
+−∞
+e2y dµ(y) < ∞
+Let f(x) = ex and St = f(Xt) = eXt which we can consider as a simple model
+of an asset price with jumps. This is an analogue of geometric Brownian
+motion for jump processes. Note that
+f(x + y) −f(x) = ex h(y)
+where
+h(y) = ey −1,
+and hence
+Lf(x) =
+∞
+−∞
+[f(x + y) −f(x)] dµ(y) = rex,
+where
+r =
+∞
+−∞
+h(y) dµ(y) < ∞
+Note that
+St −St−= St−h(Xt −Xt−)
+(6.13)
+In particular, the jump times for S are the same as the jump times for X.
+Let
+ˆXt =
+
+s≤t
+h(Xt −Xt−)

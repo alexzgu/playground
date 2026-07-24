@@ -1,0 +1,54 @@
+When comparing treatments with a control, it is a good idea to use more observations
+for the control treatment (say na) than for the other treatments (say n), assuming equal num-
+bers of observations for the remaining a 1 treatments. The ratio na/n should be chosen to
+be approximately equal to the square root of the total number of treatments. That is, choose
+na/n 
+.
+a
+E X A M P L E 3 . 9
+To illustrate Dunnett’s test, consider the experiment from
+Example 3.1 with treatment 4 considered as the control. In
+this example, a 4, a 1 3, f 16, and ni n 5. At
+the 5 percent level, we nd from Appendix Table VIII that
+d0.05(3, 16) 2.59. Thus, the critical difference becomes
+(Note that this is a simplication of Equation 3.42 resulting
+from a balanced design.) Thus, any treatment mean that dif-
+d0.05(3, 16)
+2MSE
+n
+2.59
+2(333.70)
+5
+29.92
+3.5.8
+Comparing Treatment Means with a Control
+In many experiments, one of the treatments is a control, and the analyst is interested in
+comparing each of the other a 1 treatment means with the control. Thus, only a 1
+comparisons are to be made. A procedure for making these comparisons has been devel-
+oped by Dunnett (1964). Suppose that treatment a is the control and we wish to test the
+hypotheses
+for i 1, 2, . . . , a 1. Dunnett’s procedure is a modication of the usual t-test. For each
+hypothesis, we compute the observed differences in the sample means
+The null hypothesis H0 : i a is rejected using a type I error rate if
+(3.42)
+where the constant d(a 1, f ) is given in Appendix Table VIII. (Both two- and one-sided
+tests are possible.) Note that is the joint signiﬁcance level associated with all a  1 tests.
+yi. ya.# d(a 1, f )MSE
+1
+ni 1
+na
+yi. ya. 
+ i 1, 2, . . . , a 1
+H1i a
+H0i a
+3.5 Practical Interpretation of Results
+101
+fers in absolute value from the control by more than 29.92
+would be declared signicantly different. The observed dif-
+ferences are
+Note that all differences are signicant. Thus, we
+would conclude that all power settings are different from
+the control.
+3 vs. 4: y3. y4. 625.4 707.0 81.6
+2 vs. 4: y2. y4. 587.4 707.0 119.6
+1 vs. 4: y1. y4. 551.2 707.0 155.8

@@ -1,0 +1,90 @@
+202
+CHAPTER 6. JUMP PROCESSES
+T
+Zt =
+t
+0
+As dMs
+
+E
+
+Z2
+t
+
+= σ2
+t
+0
+E
+
+A2
+s
+
+ds
+(6.10)
+Rather than assuming that As is left-continuous, we can assume that As
+has cadlag paths, but then we change the denition in (6.9) to
+t
+0
+As dXs =
+
+0≤s≤t
+As−[Xs −Xs−] 
+Proof of Proposition 6.4.1. If s < t, then arguing as before,
+E[As (Mt −Ms) Fs] = As E[Mt −Ms Fs] = 0,
+(6.11)
+E[A2
+s (Mt −Ms)2]
+=
+E
+
+E(A2
+s (Mt −Ms)2 Fs)
+
+=
+E
+
+A2
+s E[(Mt −Ms)2]
+
+=
+σ2 (t −s) E[A2
+s]
+(6.12)
+For each t, the probability that Mt−̸ = Mt = 0. Therefore, with proba-
+bility one, for all rational times t, Mt = Mt−. Suppose that As is a sim-
+ple process that changes values only at times in 0, 1n, 2n, 3n, .
+Then with probability one, for all t, if jn ≤t < (j + 1)n,
+Zt =
+t
+0
+As dMs =
+j−1
+
+i=0
+A
+i
+n
+
+M
+i + 1
+n
+
+−M
+i
+n
+
+
+This expression uses the fact Mt = Mt−for all rational t. Using this
+expression and (6.11) and (6.12) we see that Zt is a square integrable
+martingale satisfying (6.10).
+We now assume that At is adapted, left-continuous, and uniformly
+bounded, that is, with probability one, At≤C for all t. Dene An
+t
+by
+An
+t = Ajn
+if
+j
+n < t ≤j + 1
+n
+

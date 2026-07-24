@@ -1,0 +1,126 @@
+Appendix
+697
+VI
+Operating Characteristic Curves for the Random Effects Model Analysis 
+of Variancea
+0.80
+1.00
+0.70
+0.60
+0.50
+Probability of accepting the hypothesis
+0.30
+0.40
+0.20
+0.10
+0.01
+0.02
+0.03
+0.04
+0.05
+0.06
+0.07
+0.08
+10
+30
+50
+70
+90
+110
+130
+150
+170
+190
+10
+30
+λ (for α = 0.01)
+α = 0.05
+α = 0.01
+λ (for α = 0.05)
+50
+70
+90
+110
+130
+150
+170
+190
+ν2 = 6
+20
+10
+∞
+20
+10
+8
+6 = ν2
+ν1 = 1
+∞
+0.80
+1.00
+0.70
+0.60
+0.50
+Probability of accepting the hypothesis
+0.30
+0.40
+0.20
+0.10
+0.01
+0.02
+0.03
+0.04
+0.05
+0.06
+0.07
+0.08
+1
+λ (for α = 0.01)
+α = 0.05
+α = 0.01
+∞60
+30
+20
+15
+12
+10
+8
+7
+6 = ν2
+3
+ν1 = 2
+ν2 = 6
+∞
+60
+30
+20
+15
+12
+10
+8
+7
+1
+3
+λ (for α = 0.05)
+5
+7
+9
+11
+13
+15
+17
+19
+21
+23
+5
+7
+9
+11
+13
+15
+17
+19
+21
+23
+25
+aReproduced with permission from Engineering Statistics, 2nd edition, by A. H. Bowker and G. J. Lieberman, Prentice Hall, Inc.,
+Englewood Cliffs, N.J., 1972.

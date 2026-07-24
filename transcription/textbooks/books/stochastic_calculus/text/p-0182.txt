@@ -1,0 +1,51 @@
+176CHAPTER 5. CHANGE OF MEASURE AND GIRSANOV THEOREM
+we see that
+d ˜Vt = d[R−1
+t
+ϕ(t, St)] = Jt dt + At dWt,
+where
+Jt = R−1
+t
+
+∂tϕ(t, St) + σ(t, St)2 S2
+t
+2
+ϕ′′(t, St)
++r(t, St) St ϕ′(t, St) −r(t, St)ϕ(t, St)
+
+,
+At = R−1
+t
+St σ(t, St) ϕ′(t, St) = ˜St σ(t, St) ϕ′(t, St)
+Since ˜Vt is a Q-martingale, Jt = 0, giving the Black-Scholes PDE again, and
+d ˜Vt = At dWtPlugging into (5.30), we recover the hedging portfolio,
+at =
+At
+σ(t, St) ˜St
+= ϕ′(t, St),
+bt = ˜Vt −
+At
+σ(t, St) = R−1
+t
+[Vt −St ϕ′(t, St)] 
+This can be compared to (5.19).
+Example 5.6.4. Suppose St is a geometric Brownian motion
+dSt = St [m dt + σ dBt] ,
+and the bond rate is constant r. Suppose that the claim is the average stock
+price over the interval [0, T],
+V = 1
+T
+T
+0
+St dt
+In the new measure Q, the discounted stock price ˜St = e−rt St satises
+d ˜St = σ ˜St dWt,
+where Wt is a Q-Brownian motion. The discounted value is
+˜Vt = EQ
+e−rT
+T
+T
+0
+Ss ds Ft
+
+

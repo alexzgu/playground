@@ -1,0 +1,58 @@
+10.9 Lab: Deep Learning
+451
+ReLU: 2-7
+[128, 512]
+[128, 512]
+--
+Linear: 2-8
+[128, 512]
+[128, 100]
+51,300
+======================================================================
+Total params: 964,516
+Trainable params: 964,516
+The total number of trainable parameters is 964,516. By studying the size
+of the parameters, we can see that the channels halve in both dimensions
+after each of these max-pooling operations. After the last of these we have
+a layer with 256 channels of dimension 2 × 2. These are then flattened to
+a dense layer of size 1,024; in other words, each of the 2 × 2 matrices is
+turned into a 4-vector, and put side-by-side in one layer. This is followed
+by a dropout regularization layer, then another dense layer of size 512, and
+finally, the output layer.
+Up to now, we have been using a default optimizer in SimpleModule(). For
+these data, experiments show that a smaller learning rate performs better
+than the default 0.01. We use a custom optimizer here with a learning rate
+of 0.001. Besides this, the logging and training follow a similar pattern
+to our previous examples. The optimizer takes an argument params that
+informs the optimizer which parameters are involved in SGD (stochastic
+gradient descent).
+We saw earlier that entries of a module’s parameters are tensors. In
+passing the parameters to the optimizer we are doing more than simply
+passing arrays; part of the structure of the graph is encoded in the tensors
+themselves.
+In [56]: cifar_optimizer = RMSprop(cifar_model.parameters(), lr=0.001)
+cifar_module = SimpleModule.classification(cifar_model ,
+optimizer=cifar_optimizer)
+cifar_logger = CSVLogger('logs', name='CIFAR100')
+In [57]: cifar_trainer = Trainer(deterministic=True,
+max_epochs=30,
+logger=cifar_logger ,
+callbacks=[ErrorTracker()])
+cifar_trainer.fit(cifar_module ,
+datamodule=cifar_dm)
+This model takes 10 minutes or more to run and achieves about 42%
+accuracy on the test data. Although this is not terrible for 100-class data
+(a random classifier gets 1% accuracy), searching the web we see results
+around 75%. Typically it takes a lot of architecture carpentry, fiddling with
+regularization, and time, to achieve such results.
+Let’s take a look at the validation and training accuracy across epochs.
+In [58]: log_path = cifar_logger.experiment.metrics_file_path
+cifar_results = pd.read_csv(log_path)
+fig, ax = subplots(1, 1, figsize=(6, 6))
+summary_plot(cifar_results ,
+ax,
+col='accuracy',
+ylabel='Accuracy')
+ax.set_xticks(np.linspace(0, 10, 6).astype(int))
+ax.set_ylabel('Accuracy')
+ax.set_ylim([0, 1]);

@@ -1,0 +1,42 @@
+of event time. Frequently as much as 10 ms of event time must be modeled. Clearly the need
+to limit experimentation or simulation is great. Therefore the typical approach of factor screen-
+ing followed by optimization might well be applied to this scenario.
+Remember that the response surface approach is based on a philosophy of sequential
+experimentation, with the objective of approximating the response with a low-order polynomi-
+al in a relatively small region of interest that contains the optimum solution. Some computer
+experimenters advocate a somewhat different philosophy. They seek to nd a model that
+approximates the true response surface over a much wider range of the design variables,
+sometimes extending over the entire region of operability. As mentioned earlier in this sec-
+tion, this can lead to situations where the model that is considered is much more complex than
+the rst- and second-order polynomials typically employed in response surface methodology
+[see, for example, Barton (1992, 1994), Mitchell and Morris (1992), and Simpson and
+Peplinski (1997)].
+The choice of a design for a computer simulation experiment presents some interesting
+alternatives. If the experimenter is considering a polynomial model, then an optimal design
+such as a D-optimal or I-optimal design is a possible choice. In recent years, various types of
+space-ﬁlling designs have been suggested for computer experiments. Space-lling designs
+are often thought to be particularly appropriate for deterministic computer models because in
+general they spread the design points out nearly evenly or uniformly (in some sense) throughout
+the region of experimentation. This is a desirable feature if the experimenter doesn’t know the
+form of the model that is required, and believes that interesting phenomena are likely to be
+found in different regions of the experimental space. Furthermore, most space-lling designs
+do not contain any replicate runs. For a deterministic computer model this is desirable,
+because a single run of the computer model at a design point provides all of the information
+about the response at that point. Many space-lling designs do not contain replicates even if
+some factors are dropped and they are projected into lower dimensions.
+The rst space-lling design proposed was the Latin hypercube design [McKay,
+Conover and Beckman (1979)]. A Latin hypercube in n runs for k factors in an n k matrix
+524
+Chapter 11 ■Response Surface Methods and Designs
+Partial part list
+Outer case
+Constrainment ring
+Shroud
+Impeller fragment
+Backface
+Inlet
+Transition duct
+Inlet case
+■F I G U R E 1 1 . 3 3
+Finite element model for compressor containment
+analysis of a turbine engine and partial parts list

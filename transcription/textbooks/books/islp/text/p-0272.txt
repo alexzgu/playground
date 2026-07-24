@@ -1,0 +1,80 @@
+264
+6. Linear Model Selection and Regularization
+−1.5
+−1.0
+−0.5
+0.0
+0.5
+1.0
+−10
+−5
+0
+5
+10
+−1.5
+−1.0
+−0.5
+0.0
+0.5
+1.0
+−10
+−5
+0
+5
+10
+X
+X
+Y
+Y
+FIGURE 6.22. Left: Least squares regression in the low-dimensional setting.
+Right: Least squares regression with n = 2 observations and two parameters to be
+estimated (an intercept and a coefficient).
+5
+10
+15
+0.2
+0.4
+0.6
+0.8
+1.0
+Number of Variables
+R2
+5
+10
+15
+0.0
+0.2
+0.4
+0.6
+0.8
+Number of Variables
+Training MSE
+5
+10
+15
+1
+5
+50
+500
+Number of Variables
+Test MSE
+FIGURE 6.23.
+On a simulated example with n = 20 training observations,
+features that are completely unrelated to the outcome are added to the model.
+Left: The R2 increases to 1 as more features are included. Center: The training
+set MSE decreases to 0 as more features are included. Right: The test set MSE
+increases as more features are included.
+each of which was completely unrelated to the response. As shown in the
+figure, the model R2 increases to 1 as the number of features included in the
+model increases, and correspondingly the training set MSE decreases to 0
+as the number of features increases, even though the features are completely
+unrelated to the response. On the other hand, the MSE on an independent
+test set becomes extremely large as the number of features included in the
+model increases, because including the additional predictors leads to a vast
+increase in the variance of the coefficient estimates. Looking at the test
+set MSE, it is clear that the best model contains at most a few variables.
+However, someone who carelessly examines only the R2 or the training set
+MSE might erroneously conclude that the model with the greatest number
+of variables is best. This indicates the importance of applying extra care
+when analyzing data sets with a large number of variables, and of always
+evaluating model performance on an independent test set.

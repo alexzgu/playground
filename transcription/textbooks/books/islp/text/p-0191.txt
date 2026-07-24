@@ -1,0 +1,49 @@
+182
+4. Classification
+In [36]: qda_pred = qda.predict(X_test)
+confusion_table(qda_pred, L_test)
+Out[36]:
+Truth
+Down
+Up
+Predicted
+Down
+30
+20
+Up
+81
+121
+Interestingly, the QDA predictions are accurate almost 60% of the time,
+even though the 2005 data was not used to fit the model.
+In [37]: np.mean(qda_pred == L_test)
+Out[37]: 0.599
+This level of accuracy is quite impressive for stock market data, which
+is known to be quite hard to model accurately. This suggests that the
+quadratic form assumed by QDA may capture the true relationship more
+accurately than the linear forms assumed by LDA and logistic regression.
+However, we recommend evaluating this method’s performance on a larger
+test set before betting that this approach will consistently beat the market!
+4.7.5
+Naive Bayes
+Next, we fit a naive Bayes model to the Smarket data. The syntax is similar
+to that of LDA() and QDA(). By default, this implementation GaussianNB() of GaussianNB()
+the naive Bayes classifier models each quantitative feature using a Gaussian
+distribution. However, a kernel density method can also be used to estimate
+the distributions.
+In [38]: NB = GaussianNB()
+NB.fit(X_train, L_train)
+Out[38]: GaussianNB()
+The classes are stored as classes_.
+In [39]: NB.classes_
+Out[39]: array(['Down', 'Up'], dtype='<U4')
+The class prior probabilities are stored in the class_prior_ attribute.
+In [40]: NB.class_prior_
+Out[40]: array([0.49, 0.51])
+The parameters of the features can be found in the theta_ and var_
+attributes. The number of rows is equal to the number of classes, while the
+number of columns is equal to the number of features. We see below that
+the mean for feature Lag1 in the Down class is 0.043.
+In [41]: NB.theta_
+Out[41]: array([[ 0.043,
+0.034],
+[-0.040, -0.031]])

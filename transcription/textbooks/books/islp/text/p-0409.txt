@@ -1,0 +1,70 @@
+402
+10. Deep Learning
+X1, . . . , Xp. Moreover, having a nonlinear activation function allows the
+model to capture complex nonlinearities and interaction effects. Consider
+a very simple example with p = 2 input variables X = (X1, X2), and
+K = 2 hidden units h1(X) and h2(X) with g(z) = z2. We specify the other
+parameters as
+β0 = 0,
+β1 = 1
+4,
+β2 = −1
+4,
+w10 = 0,
+w11 = 1,
+w12 =
+1,
+w20 = 0,
+w21 = 1,
+w22 = −1.
+(10.6)
+From (10.2), this means that
+h1(X)
+=
+(0 + X1 + X2)2,
+h2(X)
+=
+(0 + X1 −X2)2.
+(10.7)
+Then plugging (10.7) into (10.1), we get
+f(X)
+=
+0 + 1
+4 · (0 + X1 + X2)2 −1
+4 · (0 + X1 −X2)2
+=
+1
+4
+N
+(X1 + X2)2 −(X1 −X2)2O
+=
+X1X2.
+(10.8)
+So the sum of two nonlinear transformations of linear functions can give
+us an interaction! In practice we would not use a quadratic function for
+g(z), since we would always get a second-degree polynomial in the original
+coordinates X1, . . . , Xp. The sigmoid or ReLU activations do not have such
+a limitation.
+Fitting a neural network requires estimating the unknown parameters in
+(10.1). For a quantitative response, typically squared-error loss is used, so
+that the parameters are chosen to minimize
+n
+0
+i=1
+(yi −f(xi))2 .
+(10.9)
+Details about how to perform this minimization are provided in Section 10.7.
+10.2
+Multilayer Neural Networks
+Modern neural networks typically have more than one hidden layer, and
+often many units per layer. In theory a single hidden layer with a large
+number of units has the ability to approximate most functions. However,
+the learning task of discovering a good solution is made much easier with
+multiple layers each of modest size.
+We will illustrate a large dense network on the famous and publicly
+available MNIST handwritten digit dataset.1 Figure 10.3 shows examples of
+these digits. The idea is to build a model to classify the images into their
+correct digit class 0–9. Every image has p = 28 × 28 = 784 pixels, each
+of which is an eight-bit grayscale value between 0 and 255 representing
+1See LeCun, Cortes, and Burges (2010) “The MNIST database of handwritten digits”,
+available at http://yann.lecun.com/exdb/mnist.

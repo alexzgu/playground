@@ -1,0 +1,61 @@
+3.7 Determining Sample Size
+105
+Figure 3.14 is the output from JMP for the plasma etch experiment in Example 3.1.
+The output information is very similar to that from Design-Expert and Minitab. The plots
+of actual observations versus the predicted values and residuals versus the predicted values
+are default output. There is an option in JMP to provide the Fisher LSD procedure or
+Tukey’s method to compare all pairs of means.
+3.7
+Determining Sample Size
+In any experimental design problem, a critical decision is the choice of sample size—that is,
+determining the number of replicates to run. Generally, if the experimenter is interested 
+in detecting small effects, more replicates are required than if the experimenter is interested in
+detecting large effects. In this section, we discuss several approaches to determining sample
+size. Although our discussion focuses on a single-factor design, most of the methods can be
+used in more complex experimental situations.
+3.7.1
+Operating Characteristic Curves
+Recall that an operating characteristic (OC) curve is a plot of the type II error probability
+of a statistical test for a particular sample size versus a parameter that reects the extent to
+which the null hypothesis is false. These curves can be used to guide the experimenter in
+selecting the number of replicates so that the design will be sensitive to important potential
+differences in the treatments.
+We consider the probability of type II error of the xed effects model for the case of
+equal sample sizes per treatment, say
+(3.43)
+To evaluate the probability statement in Equation 3.43, we need to know the distribution of
+the test statistic F0 if the null hypothesis is false. It can be shown that, if H0 is false, the statistic
+F0 MSTreatments/MSE is distributed as a noncentral F random variable with a 1 and N a
+degrees of freedom and the noncentrality parameter . If 0, the noncentral F distribution
+becomes the usual (central) F distribution.
+Operating characteristic curves given in Chart V of the Appendix are used to evaluate
+the probability statement in Equation 3.43. These curves plot the probability of type II error
+() against a parameter , where
+(3.44)
+The quantity 2 is related to the noncentrality parameter . Curves are available for 0.05
+and 0.01 and a range of degrees of freedom for numerator and denominator.
+In using the OC curves, the experimenter must specify the parameter and the value of
+2. This is often difcult to do in practice. One way to determine is to choose the actual val-
+ues of the treatment means for which we would like to reject the null hypothesis with high
+probability. Thus, if 1, 2, . . . , a are the specied treatment means, we nd the i in Equation
+3.48 as i i 
+, where 
+(1/a)
+i is the average of the individual treatment means.
+The estimate of 2 may be available from prior experience, a previous experiment or a prelim-
+inary test (as suggested in Chapter 1), or a judgment estimate. When we are uncertain about
+the value of 2, sample sizes could be determined for a range of likely values of 2 to study the
+effect of this parameter on the required sample size before a nal choice is made.
+"a
+i1
+
+
+2 
+n 
+a
+i1
+2
+i
+a2
+1 P{F0 # F,a1,NaH0 is false}
+1 P{Reject H0H0 is false}

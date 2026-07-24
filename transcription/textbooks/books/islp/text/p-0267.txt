@@ -1,0 +1,74 @@
+6.3 Dimension Reduction Methods
+259
+0
+10
+20
+30
+40
+0
+10
+20
+30
+40
+50
+60
+70
+PCR
+Number of Components
+Mean Squared Error
+Squared Bias
+Test MSE
+Variance
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+0
+10
+20
+30
+40
+50
+60
+70
+Ridge Regression and Lasso
+Shrinkage Factor
+Mean Squared Error
+FIGURE 6.19. PCR, ridge regression, and the lasso were applied to a simu-
+lated data set in which the first five principal components of X contain all the
+information about the response Y . In each panel, the irreducible error Var(ϵ) is
+shown as a horizontal dashed line. Left: Results for PCR. Right: Results for lasso
+(solid) and ridge regression (dotted). The x-axis displays the shrinkage factor
+of the coefficient estimates, defined as the ℓ2 norm of the shrunken coefficient
+estimates divided by the ℓ2 norm of the least squares estimate.
+in the regression model, the bias decreases, but the variance increases. This
+results in a typical U-shape for the mean squared error. When M = p = 45,
+then PCR amounts simply to a least squares fit using all of the original
+predictors. The figure indicates that performing PCR with an appropriate
+choice of M can result in a substantial improvement over least squares, es-
+pecially in the left-hand panel. However, by examining the ridge regression
+and lasso results in Figures 6.5, 6.8, and 6.9, we see that PCR does not
+perform as well as the two shrinkage methods in this example.
+The relatively worse performance of PCR in Figure 6.18 is a consequence
+of the fact that the data were generated in such a way that many princi-
+pal components are required in order to adequately model the response.
+In contrast, PCR will tend to do well in cases when the first few principal
+components are sufficient to capture most of the variation in the predictors
+as well as the relationship with the response. The left-hand panel of Fig-
+ure 6.19 illustrates the results from another simulated data set designed to
+be more favorable to PCR. Here the response was generated in such a way
+that it depends exclusively on the first five principal components. Now the
+bias drops to zero rapidly as M, the number of principal components used
+in PCR, increases. The mean squared error displays a clear minimum at
+M = 5. The right-hand panel of Figure 6.19 displays the results on these
+data using ridge regression and the lasso. All three methods offer a signif-
+icant improvement over least squares. However, PCR and ridge regression
+slightly outperform the lasso.
+We note that even though PCR provides a simple way to perform re-
+gression using M < p predictors, it is not a feature selection method. This
+is because each of the M principal components used in the regression is a
+linear combination of all p of the original features. For instance, in (6.19),
+Z1 was a linear combination of both pop and ad. Therefore, while PCR of-
+ten performs quite well in many practical settings, it does not result in the

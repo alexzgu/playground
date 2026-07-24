@@ -1,0 +1,48 @@
+12.4 Clustering Methods
+533
+5
+10
+15
+20
+0
+5
+10
+15
+20
+Variable Index
+Observation 1
+Observation 2
+Observation 3
+1
+2
+3
+FIGURE 12.15.
+Three observations with measurements on 20 variables are
+shown. Observations 1 and 3 have similar values for each variable and so there
+is a small Euclidean distance between them. But they are very weakly correlated,
+so they have a large correlation-based distance. On the other hand, observations
+1 and 2 have quite different values for each variable, and so there is a large
+Euclidean distance between them. But they are highly correlated, so there is a
+small correlation-based distance between them.
+• Should the observations or features first be standardized in some way?
+For instance, maybe the variables should be scaled to have standard
+deviation one.
+• In the case of hierarchical clustering,
+– What dissimilarity measure should be used?
+– What type of linkage should be used?
+– Where should we cut the dendrogram in order to obtain clusters?
+• In the case of K-means clustering, how many clusters should we look
+for in the data?
+Each of these decisions can have a strong impact on the results obtained.
+In practice, we try several different choices, and look for the one with
+the most useful or interpretable solution. With these methods, there is no
+single right answer—any solution that exposes some interesting aspects of
+the data should be considered.
+Validating the Clusters Obtained
+Any time clustering is performed on a data set we will find clusters. But we
+really want to know whether the clusters that have been found represent
+true subgroups in the data, or whether they are simply a result of clustering
+the noise. For instance, if we were to obtain an independent set of observa-
+tions, then would those observations also display the same set of clusters?
+This is a hard question to answer. There exist a number of techniques for
+assigning a p-value to a cluster in order to assess whether there is more

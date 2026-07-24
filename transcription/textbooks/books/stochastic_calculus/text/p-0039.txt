@@ -1,0 +1,35 @@
+1.8. EXERCISES
+33
+Exercise 1.14. Suppose that X1, X2, are independent random variables
+with E[Xj] = 0, Var[Xj] = σ2
+j, and suppose that
+∞
+
+n=1
+σ2
+n < ∞
+Let S0 = 0 and Sn = X1 + · · · + Xn for n > 0. Let Fn denote the information
+contained in X1, , Xn.
+Show that Sn is a martingale with respect to Fn.
+Show that there exists C < ∞such that for all n, E[S2
+n] ≤C.
+Show that with probability one the limit
+S∞= lim
+n∞Sn,
+exists.
+Show that
+E[S∞] = 0,
+Var[S∞] =
+∞
+
+n=1
+σ2
+n
+Exercise 1.15.
+Suppose Y is a random variable and ϕ is a convex function, that
+is, if 0 ≤λ ≤1,
+ϕ(λx + (1 −λ) y) ≤λ ϕ(x) + (1 −λ) ϕ(y)
+Suppose that E[ϕ(Y )] < ∞. Show that E(ϕ(Y ) X) ≥ϕ(E(Y 
+X))(Hint: you will need to review Jensen’s inequality.)
+Show that if Mn is a martingale with respect to Fnand r ≥1,
+then Yn = Mnr is a submartingale.

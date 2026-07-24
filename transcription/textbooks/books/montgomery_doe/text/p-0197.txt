@@ -1,0 +1,202 @@
+Acid Concentration
+Batch
+1
+2
+3
+1
+A26
+B16
+C19
+2
+B18
+C21
+D18
+3
+C20
+D12
+E16
+4
+D15
+E15
+A22
+5
+E10
+A24
+B17
+Acid Concentration
+Batch
+4
+5
+1
+D16
+E13
+2
+E11
+A21
+3
+A25
+B13
+4
+B14
+C17
+5
+C17
+D14
+4.36.
+Suppose that in Problem 4.23 the engineer suspects
+that the workplaces used by the four operators may represent
+an additional source of variation. A fourth factor, workplace
+(, , , ) may be introduced and another experiment con-
+ducted, yielding the Graeco-Latin square that follows.
+Analyze the data from this experiment (use 0.05) and
+draw conclusions.
+Order of
+Operator
+Assembly
+1
+2
+3
+4
+1
+C11 B10
+D14
+A8
+2
+B8
+C12
+A10
+D12
+3
+A9
+D11
+B7
+C15
+4
+D9
+A8
+C18
+B6
+4.37.
+Construct a 5 5 hypersquare for studying the
+effects of ve factors. Exhibit the analysis of variance table
+for this design.
+4.38.
+Consider the data in Problems 4.23 and 4.36.
+Suppressing the Greek letters in problem 4.36, analyze the
+data using the method developed in Problem 4.32.
+4.39.
+Consider the randomized block design with one miss-
+ing value in Problem 4.19. Analyze this data by using the
+exact analysis of the missing value problem discussed in
+Section 4.1.4. Compare your results to the approximate analy-
+sis of these data given from Problem 4.19.
+4.40.
+An engineer is studying the mileage performance
+characteristics of ve types of gasoline additives. In the road
+test he wishes to use cars as blocks; however, because of a
+4.5 Problems
+181
+time constraint, he must use an incomplete block design. He
+runs the balanced design with the ve blocks that follow.
+Analyze the data from this experiment (use 0.05) and
+draw conclusions.
+Car
+Additive
+1
+2
+3
+4
+5
+1
+17
+14
+13
+12
+2
+14
+14
+13
+10
+3
+12
+13
+12
+9
+4
+13
+11
+11
+12
+5
+11
+12
+10
+8
+4.41.
+Construct a set of orthogonal contrasts for the data in
+Problem 4.33. Compute the sum of squares for each contrast.
+4.42.
+Seven different hardwood concentrations are being
+studied to determine their effect on the strength of the paper
+produced. However, the pilot plant can only produce three
+runs each day. As days may differ, the analyst uses the bal-
+anced incomplete block design that follows. Analyze the data
+from this experiment (use 0.05) and draw conclusions.
+Hardwood
+Days
+Concentration (%)
+1
+2
+3
+4
+2
+114
+4
+126
+120
+6
+137
+117
+8
+141
+129
+149
+10
+145
+150
+12
+120
+14
+136
+Hardwood
+Days
+Concentration (%)
+5
+6
+7
+2
+120
+117
+4
+119
+6
+134
+8
+10
+143
+12
+118
+123
+14
+130
+127
+4.43.
+Analyze the data in Example 4.5 using the general
+regression signicance test.
+4.44.
+Prove that 
+is the adjusted sum of squares
+for treatments in a BIBD.
+k(a
+i1Q2
+i/(a)

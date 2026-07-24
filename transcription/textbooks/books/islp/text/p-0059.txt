@@ -1,0 +1,47 @@
+2.3 Lab: Introduction to Python
+49
+In [41]: fig, ax = subplots(figsize=(8, 8))
+ax.plot(x, y, 'o');
+Different values of this additional argument can be used to produce different
+colored lines as well as different linestyles.
+As an alternative, we could use the ax.scatter() function to create a .scatter()
+scatterplot.
+In [42]: fig, ax = subplots(figsize=(8, 8))
+ax.scatter(x, y, marker='o');
+Notice that in the code blocks above, we have ended the last line with a
+semicolon. This prevents ax.plot(x, y) from printing text to the notebook.
+However, it does not prevent a plot from being produced. If we omit the
+trailing semi-colon, then we obtain the following output:
+In [43]: fig, ax = subplots(figsize=(8, 8))
+ax.scatter(x, y, marker='o')
+Out[43]: <matplotlib.collections.PathCollection at 0x7fb3d9c8f310 >
+Figure(432x288)
+In what follows, we will use trailing semicolons whenever the text that
+would be output is not germane to the discussion at hand.
+To label our plot, we make use of the set_xlabel(), set_ylabel(), and .set_xlabel()
+.set_ylabel()
+set_title() methods of ax.
+.set_title()
+In [44]: fig, ax = subplots(figsize=(8, 8))
+ax.scatter(x, y, marker='o')
+ax.set_xlabel("this is the x-axis")
+ax.set_ylabel("this is the y-axis")
+ax.set_title("Plot of X vs Y");
+Having access to the figure object fig itself means that we can go in and
+change some aspects and then redisplay it. Here, we change the size from
+(8, 8) to (12, 3).
+fig.set_size_inches(12,3)
+fig
+Occasionally we will want to create several plots within a figure. This
+can be achieved by passing additional arguments to subplots(). Below, we
+create a 2 × 3 grid of plots in a figure of size determined by the figsize
+argument. In such situations, there is often a relationship between the
+axes in the plots. For example, all plots may have a common x-axis. The
+subplots() function can automatically handle this situation when passed
+the keyword argument sharex=True. The axes object below is an array
+pointing to different plots in the figure.
+In [45]: fig, axes = subplots(nrows=2,
+ncols=3,
+figsize=(15, 5))
+We now produce a scatter plot with 'o' in the second column of the first
+row and a scatter plot with '+' in the third column of the second row.

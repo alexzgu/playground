@@ -1,0 +1,57 @@
+24
+2. Statistical Learning
+Flexibility
+Interpretability
+Low
+High
+Low
+High
+Subset Selection
+Lasso
+Least Squares
+Generalized Additive Models
+Trees
+Bagging, Boosting
+Support Vector Machines
+Deep Learning
+FIGURE 2.7.
+A representation of the tradeoff between flexibility and inter-
+pretability, using different statistical learning methods. In general, as the flexibility
+of a method increases, its interpretability decreases.
+One might reasonably ask the following question: why would we ever
+choose to use a more restrictive method instead of a very flexible approach?
+There are several reasons that we might prefer a more restrictive model.
+If we are mainly interested in inference, then restrictive models are much
+more interpretable. For instance, when inference is the goal, the linear
+model may be a good choice since it will be quite easy to understand
+the relationship between Y and X1, X2, . . . , Xp. In contrast, very flexible
+approaches, such as the splines discussed in Chapter 7 and displayed in
+Figures 2.5 and 2.6, and the boosting methods discussed in Chapter 8, can
+lead to such complicated estimates of f that it is difficult to understand
+how any individual predictor is associated with the response.
+Figure 2.7 provides an illustration of the trade-off between flexibility and
+interpretability for some of the methods that we cover in this book. Least
+squares linear regression, discussed in Chapter 3, is relatively inflexible but
+is quite interpretable. The lasso, discussed in Chapter 6, relies upon the lasso
+linear model (2.4) but uses an alternative fitting procedure for estimating
+the coefficients β0, β1, . . . , βp. The new procedure is more restrictive in es-
+timating the coefficients, and sets a number of them to exactly zero. Hence
+in this sense the lasso is a less flexible approach than linear regression.
+It is also more interpretable than linear regression, because in the final
+model the response variable will only be related to a small subset of the
+predictors—namely, those with nonzero coefficient estimates. Generalized
+additive models (GAMs), discussed in Chapter 7, instead extend the lin- generalized
+additive
+model
+ear model (2.4) to allow for certain non-linear relationships. Consequently,
+GAMs are more flexible than linear regression. They are also somewhat
+less interpretable than linear regression, because the relationship between
+each predictor and the response is now modeled using a curve. Finally,
+fully non-linear methods such as bagging, boosting, support vector machines bagging
+boosting
+with non-linear kernels, and neural networks (deep learning), discussed in
+support
+vector
+machine
+Chapters 8, 9, and 10, are highly flexible approaches that are harder to
+interpret.

@@ -1,0 +1,168 @@
+368
+Chapter 8 ■Two-Level Fractional Factorial Designs
+to completely resolve all of the effects. We discussed this in Section 8.6.2 for the case of 
+resolution III designs and introduced fold over as a sequential experimentation strategy. In the
+resolution III situation, main effects are aliased with two-factor interaction, so the purpose of the
+fold over is to separate the main effects from the two-factor interactions. It is also possible to fold
+over resolution IV designs to separate two-factor interactions that are aliased with each other.
+Montgomery and Runger (1996) observe that an experimenter may have several objec-
+tives in folding over a resolution IV design, such as
+1. breaking as many two-factor interaction alias chains as possible,
+2. breaking the two-factor interactions on a specic alias chain, or
+3. breaking the two-factor interaction aliases involving a specic factor.
+However, one has to be careful in folding over a resolution IV design. The full fold-over rule
+that we used for resolution III designs, simply run another fraction with all of the signs
+reversed, will not work for the resolution IV case. If this rule is applied to a resolution IV
+design, the result will be to produce exactly the same design with the runs in a different order.
+Try it! Use the 
+in Table 8.9 and see what happens when you reverse all of the signs in
+the test matrix.
+The simplest way to fold over a resolution IV design is to switch the signs on a single
+variable of the original design matrix. This single-factor fold over allows all the two-factor
+interactions involving the factor whose signs are switched to be separated and accomplishes
+the third objective listed above.
+To illustrate how a single-factor fold over is accomplished for a resolution IV design,
+consider the 
+design in Table 8.31 (the runs are in standard order, not run order). This
+experiment was conducted to study the effects of six factors on the thickness of photoresist
+coating applied to a silicon wafer. The design factors are A spin speed, B acceleration,
+262
+IV
+262
+IV
+■TA B L E 8 . 3 1
+The Initial 
+Design for the Spin Coater Experiment
+A
+B
+C
+D
+E
+F
+Speed
+Vol 
+Time 
+Resist
+Exhaust
+Thickness 
+RPM
+Acceleration
+(cc)
+(sec)
+Viscosity
+Rate
+(mil)
+
+
+
+
+
+
+4524
+
+
+
+
+
+
+4657
+
+
+
+
+
+
+4293
+
+
+
+
+
+
+4516
+
+
+
+
+
+
+4508
+
+
+
+
+
+
+4432
+
+
+
+
+
+
+4197
+
+
+
+
+
+
+4515
+
+
+
+
+
+
+4521
+
+
+
+
+
+
+4610
+
+
+
+
+
+
+4295
+
+
+
+
+
+
+4560
+
+
+
+
+
+
+4487
+
+
+
+
+
+
+4485
+
+
+
+
+
+
+4195
+
+
+
+
+
+
+4510
+262
+IV

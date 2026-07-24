@@ -1,0 +1,62 @@
+448
+Chapter 9 ■Additional Design and Analysis Topics for Factorial and Fractional Factorial Designs
+9.32.
+Suppose that you must design an experiment to
+investigate seven continuous factors. Running all factors at
+two levels is thought to be appropriate but that only the two-
+factor interactions involving factor A are of interest.
+(a) How many runs are required to estimate all of the rel-
+evant effects?
+(b) Find a minimum-run D-optimal design that is suitable
+for this problem.
+9.33.
+Suppose that you must design an experiment to inves-
+tigate six continuous factors. It is thought that running all 
+factors at two levels is adequate but that only the AB, AC, and
+AD two-factor interactions are of interest.  
+(a) How many runs are required to estimate all of the
+effects that are of interest?
+(b) Find a minimum-run D-optimal design that is suitable
+for this problem.
+9.34.
+Suppose that you must design an experiment with six
+categorical factors. Factor A has six levels, factor B has ve
+levels, factor C has ve levels, factor D has three levels, and
+factors E and F have two levels. You are interested in main
+effects and two-factor interactions.
+(a) How many runs are required to estimate all of the
+effects that are of interest?
+(b) Find a D-optimal design that is suitable for this problem.
+(c) Suppose that the experimenter decides that this design
+requires too many runs. What strategy would you 
+recommend?
+concentration of nitrogen source (soybean meal), and temper-
+ature of incubation for their effects on the production of anti-
+fungal antibiotic by the isolate Thermomonospora sp MTCC
+3340. A 33 factorial design was conducted and the results are
+shown in the table on the previous page.
+(a) Analyze the data from this experiment.
+(b) Fit a second-order model to the activity response.
+Construct contour plots and response surface plots to
+assist in interpreting the results of this experiment.
+(c) What operating conditions would you recommend to
+optimize this process?
+9.29.
+Construct a minimum-run D-optimal resolution IV
+design for 10 factors. Find the alias relationships. What
+approach would you recommend for analyzing the data from
+this experiment?
+9.30.
+Construct a minimum-run D-optimal resolution IV
+design for 12 factors. Find the alias relationships. What
+approach would you recommend for analyzing the data from
+this experiment?
+9.31.
+Suppose that you must design an experiment to inves-
+tigate nine continuous factors. It is thought that running all
+factors at two levels is adequate but that all two-factor inter-
+actions are of interest.
+(a) How many runs are required to estimate all main
+effects and two-factor interactions?
+(b) Find a minimum-run D-optimal design that is suitable
+for this problem.

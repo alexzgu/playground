@@ -1,0 +1,40 @@
+Plackett–Burman designs are examples of nonregular designs. This term appears
+frequently in the experimental design literature. Basically, a regular design is one in which
+all effects can be estimated independently of the other effects and in the case of a fractional
+factorial, the effects that cannot be estimated are completely aliased with the other effects.
+Obviously, a full factorial such as the 2k is a regular design, and so are the 2kp fractional fac-
+torials because while all of the effects cannot be estimated the “constants” in the alias chains
+for these designs are always either zero or plus or minus unity. That is, the effects that are not
+estimable because of the fractionation are completely aliased (some say completely con-
+founded) with the effects that can be estimated. In nonregular designs, because some of the
+nonzero constants in the alias chains are not equal to 1, there is always at least a chance that
+some information on the aliased effects may be available.
+The projection properties of the nongeometric Plackett–Burman designs are interesting, and
+in many cases, useful. For example, consider the 12-run design in Table 8.24. This design will proj-
+ect into three replicates of a full 22 design in any two of the original 11 factors. In three factors, the
+projected design is a full 23 factorial plus a 
+fractional factorial (see Figure 8.24a). All
+Plackett–Burman designs will project into a full factorial plus some additional runs in any three
+factors. Thus, the resolution III Plackett–Burman design has projectivity 3, meaning it will col-
+lapse into a full factorial in any subset of three factors (actually, some of the larger
+Plackett–Burman designs, such as those with 68, 72, 80, and 84 runs, have projectivity 4). In con-
+trast, the 
+design only has projectivity 2. The four-dimensional projections of the 12- run
+design are shown in Figure 8.24b. Notice that there are 11 distinct runs. This design can t all four
+of the main effects and all 6 two-factor interactions, assuming that all other main effects and inter-
+actions are negligible. The design in Fig. 8.24b needs 5 additional runs to form a complete 24 (with
+one additional run) and only a single run to form a 241 (with 5 additional runs). Regression meth-
+ods can be used to t models involving main effects and interactions using those projected designs.
+2kp
+III
+231
+III
+8.6 Resolution III Designs
+359
+(a) Projection into three factors
+(b) Projection into four factors
+–
++
+■F I G U R E 8 . 2 4
+Projection of the 12-run Plackett–
+Burman design into three- and four-factor designs

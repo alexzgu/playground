@@ -1,0 +1,114 @@
+X
+Alias Relationships for 2kp Fractional Factorial Designs with k 15 and n 64
+Designs with 3 Factors
+(a) 231; 1/2 fraction of
+Resolution III
+3 factors in 4 runs
+Design Generators
+C AB
+Dening relation:
+I ABC
+Aliases
+A BC
+B AC
+C AB
+Designs with 4 Factors
+(b) 241; 1/2 fraction of
+Resolution IV
+4 factors in 8 runs
+Design Generators
+D ABC
+Dening relation:
+I ABCD
+Aliases
+Designs with 5 Factors
+(c) 252; 1/4 fraction of
+Resolution III
+5 factors in 8 runs
+Design Generators
+D AB
+E AC
+Dening relation:
+I ABD ACE BCDE
+Aliases
+(d) 251; 1/2 fraction of
+Resolution V
+5 factors in 16 runs
+Design Generators
+E ABCD
+Dening relation:
+I ABCDE
+Aliases
+Each main effect is aliased with a single 4-factor interaction.
+BC ADE 
+ DE ABC
+AE BCD 
+ CE ABD
+AD BCE 
+ CD ABE
+AC BDE 
+ BE ACD
+AB CDE 
+ BD ACE
+CD
+
+BE
+
+ABC
+
+ADE
+BC
+
+DE
+
+ACD
+
+ABE
+E
+
+AC
+
+BCD
+D
+
+AB
+
+BCE
+C
+
+AE
+
+BDE
+B
+
+AD
+
+CDE
+A
+
+BD
+
+CE
+AD
+
+BC
+AC
+
+BD
+AB
+
+CD
+D
+
+ABC
+C
+
+ABD
+B
+
+ACD
+A
+
+BCD
+706
+Appendix

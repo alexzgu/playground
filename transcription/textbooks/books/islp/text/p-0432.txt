@@ -1,0 +1,48 @@
+10.6 When to Use Deep Learning
+425
+The RNN we used scanned the document from beginning to end; alter-
+native bidirectional RNNs scan the sequences in both directions.
+bidirectional
+In language translation the target is also a sequence of words, in a
+language different from that of the input sequence. Both the input se-
+quence and the target sequence are represented by a structure similar to
+Figure 10.12, and they share the hidden units. In this so-called Seq2Seq Seq2Seq
+learning, the hidden units are thought to capture the semantic meaning
+of the sentences. Some of the big breakthroughs in language modeling and
+translation resulted from the relatively recent improvements in such RNNs.
+Algorithms used to fit RNNs can be complex and computationally costly.
+Fortunately, good software protects users somewhat from these complexi-
+ties, and makes specifying and fitting these models relatively painless. Many
+of the models that we enjoy in daily life (like Google Translate) use state-
+of-the-art architectures developed by teams of highly skilled engineers, and
+have been trained using massive computational and data resources.
+10.6
+When to Use Deep Learning
+The performance of deep learning in this chapter has been rather impres-
+sive. It nailed the digit classification problem, and deep CNNs have really
+revolutionized image classification. We see daily reports of new success sto-
+ries for deep learning. Many of these are related to image classification
+tasks, such as machine diagnosis of mammograms or digital X-ray images,
+ophthalmology eye scans, annotations of MRI scans, and so on. Likewise
+there are numerous successes of RNNs in speech and language translation,
+forecasting, and document modeling. The question that then begs an an-
+swer is: should we discard all our older tools, and use deep learning on every
+problem with data? To address this question, we revisit our Hitters dataset
+from Chapter 6.
+This is a regression problem, where the goal is to predict the Salary of
+a baseball player in 1987 using his performance statistics from 1986. After
+removing players with missing responses, we are left with 263 players and
+19 variables. We randomly split the data into a training set of 176 players
+(two thirds), and a test set of 87 players (one third). We used three methods
+for fitting a regression model to these data.
+• A linear model was used to fit the training data, and make predictions
+on the test data. The model has 20 parameters.
+• The same linear model was fit with lasso regularization. The tuning
+parameter was selected by 10-fold cross-validation on the training
+data. It selected a model with 12 variables having nonzero coefficients.
+• A neural network with one hidden layer consisting of 64 ReLU units
+was fit to the data. This model has 1,345 parameters.20
+20The model was fit by stochastic gradient descent with a batch size of 32 for 1,000
+epochs, and 10% dropout regularization. The test error performance flattened out and
+started to slowly increase after 1,000 epochs. These fitting details are discussed in Sec-
+tion 10.7.

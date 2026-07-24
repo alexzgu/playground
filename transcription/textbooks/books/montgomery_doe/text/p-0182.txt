@@ -1,0 +1,112 @@
+The Graeco-Latin square design can be used to control systematically three sources of
+extraneous variability, that is, to block in three directions. The design allows investigation of
+four factors (rows, columns, Latin letters, and Greek letters), each at p levels in only p2 runs.
+Graeco-Latin squares exist for all p 3 except p 6.
+The statistical model for the Graeco-Latin square design is
+(4.30)
+where yijkl is the observation in row i and column l for Latin letter j and Greek letter k, i is
+the effect of the ith row, j is the effect of Latin letter treatment j, k is the effect of Greek
+letter treatment k, l is the effect of column l, and ijkl is an NID (0, 2) random error com-
+ponent. Only two of the four subscripts are necessary to completely identify an observation.
+The analysis of variance is very similar to that of a Latin square. Because the Greek let-
+ters appear exactly once in each row and column and exactly once with each Latin letter, the
+factor represented by the Greek letters is orthogonal to rows, columns, and Latin letter treat-
+ments. Therefore, a sum of squares due to the Greek letter factor may be computed from the
+Greek letter totals, and the experimental error is further reduced by this amount. The computa-
+tional details are illustrated in Table 4.19. The null hypotheses of equal row, column, Latin let-
+ter, and Greek letter treatments would be tested by dividing the corresponding mean square by
+mean square error. The rejection region is the upper tail point of the Fp1,(p3)(p1) distribution.
+yijkl i j k l ijkl
+i 1, 2 , . . . , p
+j 1, 2 , . . . , p
+k 1, 2 , . . . , p
+l 1, 2 , . . . , p
+166
+Chapter 4 ■Randomized Blocks, Latin Squares, and Related Designs
+■T A B L E 4 . 1 9
+Analysis of Variance for a Graeco-Latin Square Design
+Source of Variation
+Sum of Squares
+Degrees of Freedom
+Latin letter treatments
+p 1
+Greek letter treatments
+p 1
+Rows
+p 1
+Columns
+p 1
+Error
+SSE (by subtraction)
+(p 3)(p 1)
+Total
+p2 1
+SST 
+i 
+j 
+k 
+l
+y2
+ijkl y2
+....
+N
+SSColumns 1
+p 
+p
+l1
+y2
+...l y2
+....
+N
+SSRows 1
+p 
+p
+i1
+y2
+i... y2
+....
+N
+SSG 1
+p 
+p
+k1
+y2
+..k. y2
+....
+N
+SSL 1
+p 
+p
+j1
+y2
+.j.. y2
+....
+N
+■T A B L E 4 . 1 8
+4 4 Graeco-Latin Square Design
+Column
+Row
+1
+2
+3
+4
+1
+A
+B
+C
+D
+2
+B
+A
+D
+C
+3
+C
+D
+A
+B
+4
+D
+C
+B
+A

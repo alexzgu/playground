@@ -1,0 +1,203 @@
+132
+Chapter 3 ■Experiments with a Single Factor: The Analysis of Variance
+3.10.
+A product developer is investigating the tensile strength
+of a new synthetic ber that will be used to make cloth for
+men’s shirts. Strength is usually affected by the percentage of
+cotton used in the blend of materials for the ber. The engineer
+conducts a completely randomized experiment with ve levels
+of cotton content and replicates the experiment ve times. The
+data are shown in the following table.
+Cotton
+Weight 
+Percent
+Observations
+15
+7
+7
+15
+11
+9
+20
+12
+17
+12
+18
+18
+25
+14
+19
+19
+18
+18
+30
+19
+25
+22
+19
+23
+35
+7
+10
+11
+15
+11
+(a) Is there evidence to support the claim that cotton con-
+tent affects the mean tensile strength? Use 
+0.05.
+(b) Use the Fisher LSD method to make comparisons
+between the pairs of means. What conclusions can you
+draw?
+(c) Analyze the residuals from this experiment and com-
+ment on model adequacy.
+3.11.
+Reconsider the experiment described in Problem
+3.10. Suppose that 30 percent cotton content is a control. Use
+Dunnett’s test with 0.05 to compare all of the other
+means with the control.
+3.12.
+A pharmaceutical manufacturer wants to investigate
+the bioactivity of a new drug. A completely randomized
+single-factor experiment was conducted with three dosage
+levels, and the following results were obtained.
+Dosage
+Observations
+20 g
+24
+28
+37
+30
+30 g
+37
+44
+31
+35
+40 g
+42
+47
+52
+38
+(a) Is there evidence to indicate that dosage level affects
+bioactivity? Use 0.05.
+(b) If it is appropriate to do so, make comparisons
+between the pairs of means. What conclusions can you
+draw?
+(c) Analyze the residuals from this experiment and com-
+ment on model adequacy.
+3.13.
+A rental car company wants to investigate whether the
+type of car rented affects the length of the rental period. An
+experiment is run for one week at a particular location, and 
+10 rental contracts are selected at random for each car type.
+The results are shown in the following table.
+Type of Car
+Observations
+Subcompact
+3
+5
+3
+7
+6
+5
+3
+2
+1
+6
+Compact
+1
+3
+4
+7
+5
+6
+3
+2
+1
+7
+Midsize
+4
+1
+3
+5
+7
+1
+2
+4
+2
+7
+Full size
+3
+5
+7
+5
+10
+3
+4
+7
+2
+7
+(a) Is there evidence to support a claim that the type of car
+rented affects the length of the rental contract? Use 
+0.05. If so, which types of cars are responsible for
+the difference?
+(b) Analyze the residuals from this experiment and com-
+ment on model adequacy.
+(c) Notice that the response variable in this experiment is
+a count. Should this cause any potential concerns
+about the validity of the analysis of variance?
+3.14.
+I belong to a golf club in my neighborhood. I divide the
+year into three golf seasons: summer (June–September), winter
+(November–March), and shoulder (October, April, and May). 
+I believe that I play my best golf during the summer (because I
+have more time and the course isn’t crowded) and shoulder
+(because the course isn’t crowded) seasons, and my worst golf
+is during the winter (because when all of the part-year residents
+show up, the course is crowded, play is slow, and I get frustrat-
+ed). Data from the last year are shown in the following table.
+Season
+Observations
+Summer
+83
+85
+85
+87
+90
+88 88 84
+91 90
+Shoulder
+91
+87
+84
+87
+85
+86 83
+Winter
+94
+91
+87
+85
+87
+91 92 86
+(a) Do the data indicate that my opinion is correct? Use 
+0.05.
+(b) Analyze the residuals from this experiment and com-
+ment on model adequacy.
+3.15.
+A regional opera company has tried three approaches
+to solicit donations from 24 potential sponsors. The 24 poten-
+tial sponsors were randomly divided into three groups of
+eight, and one approach was used for each group. The dollar
+amounts of the resulting contributions are shown in the fol-
+lowing table.
+Approach
+Contributions (in $)
+1
+1000 1500 1200 1800
+1600 1100 1000 1250
+2
+1500 1800 2000 1200
+2000 1700 1800 1900
+3
+900 1000 1200 1500
+1200 1550 1000 1100

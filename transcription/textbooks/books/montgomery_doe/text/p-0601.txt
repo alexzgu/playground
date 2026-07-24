@@ -1,0 +1,116 @@
+models are widely encountered in the literature. The restricted model is actually slightly more
+general than the unrestricted model, because in the restricted model the covariance between
+two observations from the same level of the random factor can be either positive or negative,
+whereas this covariance can only be positive in the unrestricted model. If the correlative
+structure of the random components is not large, then either mixed model is appropriate,
+and there are only minor differences between these models. On the contrary, the unrestricted
+form of the mixed model is preferred when the design is unbalanced, because it is easier to
+work with, and some computer packages always assume the unrestricted model when dis-
+playing expected mean squares. (SAS is an example, JMP uses the unrestricted model, and
+the default in Minitab is the unrestricted model, although that can be easily changed.) When
+we subsequently refer to mixed models, we assume the restricted model structure.
+However, if there are large correlations in the data, then Scheffe’s model may have to be
+employed. The choice of model should always be dictated by the data. The article by
+Hocking (1973) is a clear summary of various mixed models.
+13.3 The Two-Factor Mixed Model
+585
+E X A M P L E 1 3 . 3
+The Unrestricted Model
+Some computer software packages support only one
+mixed model. Minitab supports both the restricted and
+unrestricted model, although as noted above the default is
+to the unrestricted model. Table 13.5 shows the Minitab
+output for the experiment in Example 13.2 using the
+unrestricted model. Note that the expected mean squares
+are in agreement with those in Equation 13.12. The con-
+clusions are identical to those from the restricted model
+analysis, and the variance component estimates are very
+similar.
+■TA B L E 1 3 . 5
+Analysis of the Experiment in Example 13.2 Using the Unrestricted Model
+Analysis of Variance (Balanced Designs)
+Factor
+Type 
+Levels 
+Values
+Part
+random
+20
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+operator fixed
+3
+1
+2
+3
+Analysis of Variance for y
+Source
+DF
+SS
+MS
+F
+P
+part
+19
+1185.425
+62.391
+87.65
+0.000
+operator
+2
+2.617
+1.308
+1.84
+0.173
+part*operator
+38
+27.050
+0.712
+0.72
+0.861
+Error
+60
+59.500
+0.992
+Total
+119
+1274.592
+Source
+Variance
+Error
+Expected Mean Square for Each Term
+component
+term
+(using unrestricted model)
+1 part
+10.2798
+3
+(4) 2(3) 6(1)
+2 operator
+3
+(4) 2(3) Q[2]
+3 part*operator
+0.1399
+4
+(4) 2(3)
+4 Error
+0.9917
+(4) 

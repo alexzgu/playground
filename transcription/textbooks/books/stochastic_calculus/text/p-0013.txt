@@ -1,0 +1,35 @@
+1.1. CONDITIONAL EXPECTATION
+7
+Proposition 1.1.1. SX1, X2, 
+Fn n. TE[Y 
+Fn] .
+IY Fn-, E[Y Fn] = Y .
+IA Fn-, E [E[Y Fn] 1A] = E [Y 1A]. I
+,
+E [E[Y Fn]] = E[Y ]
+SX1, , Xn Y . TFn 
+Y 
+E[Y Fn] = E[Y ]
+Linearity. IY, Z a, b , 
+E[aY + bZ Fn] = a E[Y Fn] + b E[Z Fn]
+(1.1)
+Projection or Tower Property. Im < n, 
+E [ E[Y Fn] Fm ] = E[Y Fm]
+(1.2)
+IZ Fn-, 
+Fn, Z ,
+E[Y Z Fn] = Z E[Y Fn]
+(1.3)
+The proof of this proposition is not very dicult given our choice of
+denition for the conditional expectation. We will discuss only a couple
+of cases here, leaving the rest for the reader. To prove the linearity
+property, we know that a E[Y Fn] + b E[Z Fn] is an Fn-measurable
+random variable. Also if A Fn, then linearity of expectation implies
+that
+E [1A (a E[Y Fn] + b E[Z Fn])]
+=
+aE [1A E[Y Fn]] + b E [1A E[Z Fn]]
+=
+aE [1A Y ] + bE [1A Z]
+=
+E [1A (aY + bZ)] 

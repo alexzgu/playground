@@ -1,0 +1,143 @@
+6.6 Additional Examples of Unreplicated 2k Designs
+271
+■TA B L E 6 . 1 6
+Analysis of Variance for Example 6.3 following the Log Transformation
+Source of 
+Sum of 
+Degrees of 
+Mean 
+Variation
+Squares
+Freedom
+Square
+F0
+P-Value
+B (Flow)
+5.345
+1
+5.345
+381.79
+0.0001
+C (Speed)
+1.339
+1
+1.339
+95.64
+0.0001
+D (Mud)
+0.431
+1
+0.431
+30.79
+0.0001
+Error
+0.173
+12
+0.014
+Total
+7.288
+15 
+E X A M P L E 6 . 4
+Location and Dispersion Effects in an Unreplicated
+Factorial
+A 24 design was run in a manufacturing process producing
+interior sidewall and window panels for commercial air-
+craft. The panels are formed in a press, and under present
+conditions the average number of defects per panel in a
+press load is much too high. (The current process average
+is 5.5 defects per panel.) Four factors are investigated using
+a single replicate of a 24 design, with each replicate corre-
+sponding to a single press load. The factors are temperature
+(A), clamp time (B), resin ow (C), and press closing time
+(D). The data for this experiment are shown in Figure 6.26.
+A normal probability plot of the factor effects is shown in
+Figure 6.27. Clearly, the two largest effects are A  5.75 and
+C  4.25. No other factor effects appear to be large, and A
+and C explain about 77 percent of the total variability. We
+therefore conclude that lower temperature (A) and higher
+resin ow (C) would reduce the incidence of panel defects.
+Careful residual analysis is an important aspect of any
+experiment. A normal probability plot of the residuals
+showed no anomalies, but when the experimenter plotted
+the residuals versus each of the factors A through D, the
+plot of residuals versus B (clamp time) presented the
+pattern shown in Figure 6.28. This factor, which is unim-
+portant insofar as the average number of defects per panel
+is concerned, is very important in its effect on process vari-
+ability, with the lower clamp time resulting in less variabil-
+ity in the average number of defects per panel in a press
+load.
+0.5
+8
+1.5
+9.5
+5
+11
+3.5
+9
+1
+6
+5
+A = Temperature (°F)
+B = Clamp time (min)
+C = Resin flow
+D = Closing time (s)
+5
+6
+12.5
+8
+15.5
+D
+B
+C
+A
+295
+7
+10
+15
+325
+9
+20
+30
+Factors
+Low (–)
+High (+)
+Factor effects
+–10
+–5
+0
+5
+10
+1
+5
+10
+20
+30
+50
+70
+90
+95
+99
+80
+Normal probability (1 – Pj) × 100
+Pj × 100
+1
+5
+10
+20
+30
+50
+70
+80
+90
+95
+99
+C
+A
+■F I G U R E 6 . 2 6
+Data for the panel
+process experiment of Example 6.4
+■F I G U R E 6 . 2 7
+Normal probability plot of the
+factor effects for the panel process experiment of
+Example 6.4

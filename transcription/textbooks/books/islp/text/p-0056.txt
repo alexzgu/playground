@@ -1,0 +1,70 @@
+46
+2. Statistical Learning
+guments are loc, scale, and size. These are keyword arguments, which keyword
+means that when they are passed into the function, they can be referred
+to by name (in any order).3 By default, this function will generate random
+normal variable(s) with mean (loc) 0 and standard deviation (scale) 1; fur-
+thermore, a single random variable will be generated unless the argument
+to size is changed.
+We now generate 50 independent random variables from a N(0, 1) dis-
+tribution.
+In [28]: x = np.random.normal(size=50)
+x
+Out[28]: array([-1.19,
+0.41,
+0.9 , -0.44, -0.9 , -0.38,
+0.13,
+1.87,
+-0.35,
+1.16,
+0.79, -0.97, -1.21,
+0.06, -1.62, -0.6 ,
+-0.77, -2.12,
+0.38, -1.22, -0.06, -1.97, -1.74, -0.56,
+1.7 , -0.95,
+0.56,
+0.35,
+0.87,
+0.88, -1.66, -0.32,
+-0.3 , -1.36,
+0.92, -0.31,
+1.28, -1.94,
+1.07,
+0.07,
+0.79, -0.46,
+2.19, -0.27, -0.64,
+0.85,
+0.13,
+0.46,
+-0.09,
+0.7 ])
+We create an array y by adding an independent N(50, 1) random variable
+to each element of x.
+In [29]: y = x + np.random.normal(loc=50, scale=1, size=50)
+The np.corrcoef() function computes the correlation matrix between x and np.corrcoef()
+y. The off-diagonal elements give the correlation between x and y.
+In [30]: np.corrcoef(x, y)
+Out[30]: array([[1.
+, 0.69],
+[0.69, 1.
+]])
+If you’re following along in your own Jupyter notebook, then you probably
+noticed that you got a different set of results when you ran the past few
+commands. In particular, each time we call np.random.normal(), we will get
+a different answer, as shown in the following example.
+In [31]: print(np.random.normal(scale=5, size=2))
+print(np.random.normal(scale=5, size=2))
+Out[31]: [4.28 2.59]
+[4.62 -2.54]
+In order to ensure that our code provides exactly the same results each
+time it is run, we can set a random seed using the np.random.default_rng() random seed
+np.random.
+default_rng()
+function. This function takes an arbitrary, user-specified integer argument.
+If we set a random seed before generating random data, then re-running
+our code will yield the same results. The object rng has essentially all the
+3Python also uses positional arguments. Positional arguments do not need to use a
+keyword. To see an example, type in np.sum?. We see that a is a positional argument,
+i.e. this function assumes that the first unnamed argument that it receives is the array
+to be summed. By contrast, axis and dtype are keyword arguments: the position in
+which these arguments are entered into np.sum() does not matter.

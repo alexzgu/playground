@@ -1,0 +1,81 @@
+656
+Chapter 15 ■Other Design and Analysis Topics
+variable. If such an adjustment is not performed, the concomitant variable could inate the
+error mean square and make true differences in the response due to treatments harder to
+detect. Thus, the analysis of covariance is a method of adjusting for the effects of an uncon-
+trollable nuisance variable. As we will see, the procedure is a combination of analysis of
+variance and regression analysis.
+As an example of an experiment in which the analysis of covariance may be employed,
+consider a study performed to determine if there is a difference in the strength of a monol-
+ament ber produced by three different machines. The data from this experiment are shown
+in Table 15.10. Figure 15.3 presents a scatter diagram of strength (y) versus the diameter
+(or thickness) of the sample. Clearly, the strength of the ber is also affected by its thickness;
+consequently, a thicker ber will generally be stronger than a thinner one. The analysis of
+covariance could be used to remove the effect of thickness (x) on strength (y) when testing for
+differences in strength between machines.
+15.3.1
+Description of the Procedure
+The basic procedure for the analysis of covariance is now described and illustrated for a single-
+factor experiment with one covariate. Assuming that there is a linear relationship between the
+■TA B L E 1 5 . 1 0
+Breaking Strength Data (y strength in pounds and x diameter in 103 in.)
+Machine 1
+Machine 2
+Machine 3
+y
+x
+y
+x
+y
+x
+36
+20
+40
+22
+35
+21
+41
+25
+48
+28
+37
+23
+39
+24
+39
+22
+42
+26
+42
+25
+45
+30
+34
+21
+49
+32
+44
+28
+32
+15
+207
+126
+216
+130
+180
+106 
+50
+45
+40
+35
+30
+0
+10
+20
+Diameter, x
+Breaking strength, y
+30
+40
+■F I G U R E 1 5 . 3
+Breaking strength (y)
+versus ﬁber diameter (x)

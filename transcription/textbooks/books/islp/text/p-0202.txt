@@ -1,0 +1,51 @@
+4.8 Exercises
+193
+ax.set_ylabel('Poisson Regression Fit', fontsize=20)
+ax.axline([0,0], c='black', linewidth=3,
+linestyle='--', slope=1);
+The predictions from the Poisson regression model are correlated with
+those from the linear model; however, the former are non-negative. As a
+result the Poisson regression predictions tend to be larger than those from
+the linear model for either very low or very high levels of ridership.
+In this section, we fit Poisson regression models using the sm.GLM() func-
+tion with the argument family=sm.families.Poisson(). Earlier in this lab
+we used the sm.GLM() function with family=sm.families.Binomial() to per-
+form logistic regression. Other choices for the family argument can be used
+to fit other types of GLMs. For instance, family=sm.families.Gamma() fits
+a Gamma regression model.
+4.8
+Exercises
+Conceptual
+1. Using a little bit of algebra, prove that (4.2) is equivalent to (4.3). In
+other words, the logistic function representation and logit represen-
+tation for the logistic regression model are equivalent.
+2. It was stated in the text that classifying an observation to the class
+for which (4.17) is largest is equivalent to classifying an observation
+to the class for which (4.18) is largest. Prove that this is the case. In
+other words, under the assumption that the observations in the kth
+class are drawn from a N(µk, σ2) distribution, the Bayes classifier
+assigns an observation to the class for which the discriminant function
+is maximized.
+3. This problem relates to the QDA model, in which the observations
+within each class are drawn from a normal distribution with a class-
+specific mean vector and a class specific covariance matrix. We con-
+sider the simple case where p = 1; i.e. there is only one feature.
+Suppose that we have K classes, and that if an observation belongs
+to the kth class then X comes from a one-dimensional normal dis-
+tribution, X ∼N(µk, σ2
+k). Recall that the density function for the
+one-dimensional normal distribution is given in (4.16). Prove that in
+this case, the Bayes classifier is not linear. Argue that it is in fact
+quadratic.
+Hint: For this problem, you should follow the arguments laid out in
+Section 4.4.1, but without making the assumption that σ2
+1 = · · · = σ2
+K.
+4. When the number of features p is large, there tends to be a deteri-
+oration in the performance of KNN and other local approaches that
+perform prediction using only observations that are near the test ob-
+servation for which a prediction must be made. This phenomenon is
+known as the curse of dimensionality, and it ties into the fact that curse of di-
+mensionality
+non-parametric approaches often perform poorly when p is large. We
+will now investigate this curse.

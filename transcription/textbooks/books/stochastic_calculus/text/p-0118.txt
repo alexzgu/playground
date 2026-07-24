@@ -1,0 +1,63 @@
+112
+CHAPTER 3. STOCHASTIC INTEGRATION
+Diusion processes are Markov processes. Given all the information in Ft,
+the only important information needed to give the conditional distribution
+of Xs, s ≥t is Xt. Simulations of diusions can be done using the stochastic
+Euler rule:
+Xt+∆t = Xt + m(t, Xt) ∆t + σ(t, Xt)
+√
+∆t N,
+where N ∼N(0, 1). The study of diusions leads to partial dierential equa-
+tions.
+We dene the generator L = L0 of a (time homogeneous) Markov process
+Xt by
+Lf(x) = lim
+t0
+Ex[f(Xt)] −f(x)
+t
+
+We will use Itˆo’s formula to understand the generator of the diusion Xt.
+For ease, we will assume that m and σ are bounded continuous functions. If
+f : R →R is a C2 function with bounded rst and second derivatives, then
+Itˆo’s formula gives
+df(Xt)
+=
+f ′(Xt) dXt + 1
+2 f ′′(Xt) d⟨X⟩t
+=
+
+m(t, Xt) f ′(Xt) + σ2(t, Xt)
+2
+f ′′(Xt)
+
+dt
++f ′(Xt) σ(t, Xt) dBt
+That is,
+f(Xt) −f(X0) =
+t
+0
+
+m(s, Xs) f ′(Xs) + σ2(s, Xs)
+2
+f ′′(Xs)
+
+ds
++
+t
+0
+f ′(Xs) σ(s, Xs) dBs
+The second term on the right-hand side is a martingale (since the integrand
+is bounded) and has expectation zero, so the expectation of the right-hand
+side is
+t E[Yt],
+where
+Yt = 1
+t
+t
+0
+
+m(s, Xs) f ′(Xs) + σ2(s, Xs)
+2
+f ′′(Xs)
+
+ds

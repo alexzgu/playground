@@ -1,0 +1,60 @@
+252
+CHAPTER 8. HARMONIC FUNCTIONS
+Example 8.3.1. Suppose that Xt satises the Bessel equation
+dXt = r
+Xt
+dt + dBt,
+X0 = 1,
+where r R. This is dened for t < T = infs : Xs = 0. For t < T, let
+Lt = log Xt. Then Itˆo’s formula shows that
+dLt
+=
+1
+Xt
+dXt −
+1
+2 X2
+t
+d⟨X⟩t
+=
+
+r −1
+2
+
+e−2Lt dt + e−Lt dBt
+Consider the time change with ˙a(t) = e2Lt, and let Yt = La(t). Then Yt
+satises
+dYt =
+
+r −1
+2
+
+dt + dWt,
+where Wt is a standard Brownian motion. In other words, Yt is a Brownian
+motion with variance parameter 1 and drift m = r −1
+2. From this we can see
+that Yt →∞if r > 12, Yt →−∞if r < 12, and
+−∞= lim inf
+t∞Yt < lim sup
+t∞
+Yt = ∞,
+if r = 12. One can use this to give another proof of Proposition 4.2.1. Note
+that if r < 12, then in the new time, it take an innite amount of time for
+L = log X to reach −∞. However, in the original time, this happens at time
+T < ∞. In other words,
+a(T) =
+T
+0
+ds
+˙a(s) = ∞
+8.4
+Complex Brownian motion
+If B1
+t , B2
+t are independent standard Brownian motions then
+Bt = B1
+t + i B2
+t
+is called a () B. Note that this is the same
+as a two-dimensional Brownian motion except that the point in the plane is
+viewed as a complex number.

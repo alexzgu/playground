@@ -1,0 +1,129 @@
+X
+Alias Relationships for 2kp Fractional Factorial Designs with k 15 and n 64 (Continued)
+Designs with 9 Factors (Continued)
+(p) 294; 1/16 fraction of
+Resolution IV
+9 factors in 32 runs
+Design Generators
+F BCDE
+G ACDE
+H ABDE
+J ABCE
+Dening relation:
+I BCDEF ACDEG ABFG ABDEH ACFH BCGH DEFGH ABCEJ
+ADFJ BDGJ CEFGJ CDHJ BEFHJ AEGHJ ABCDFGHJ
+Aliases
+A BFG CFH DFJ
+AD CEG BEH FJ
+BJ ACE DG EFH
+B AFG CGH DGJ
+AE CDG BDH BCJ GHJ
+CD BEF AEG HJ
+C AFH BGH DHJ
+AF BG CH DJ
+CE BDF ADG ABJ FGJ
+D AFJ BGJ CHJ
+AG CDE BF EHJ
+CJ ABE EFG DH
+E 
+AH BDE CF EGJ
+DE  BCF ACG ABH FGH
+F  ABG ACH ADJ
+AJ BCE DF EGH
+EF  BCD  DGH  CGJ  BHJ
+G  ABF  BCH  BDJ
+BC  DEF  GH  AEJ
+EG  ACD  DFH  CFJ  AHJ
+H  ACF  BCG  CDJ
+BD  CEF  AEH  GJ
+EH  ABD  DFG  BFJ  AGJ
+J  ADF  BDG  CDH
+BE  CDF  ADH  ACJ  FHJ
+EJ  ABC  CFG  BFH  AGH
+AB  FG  DEH  CEJ
+BH  ADE  CG  EFJ
+AEF  BEG  CEH  DEJ
+AC  DEG  FH  BEJ
+2 blocks of 16: AEF  BEG  CEH  DEJ
+4 blocks of 8: AEF  BEG  CEH  DEJ
+AB  FG DEH CEJ
+CD BEF AEG HJ
+(q) 293; 1/8 fraction of 9
+Resolution IV
+factors in 64 runs
+Design Generators
+G ABCD
+H ACEF
+J CDEF
+Dening relation:
+I ABCDG ACEFH BDEFGH CDEFJ ABEFGJ ADHJ BCGHJ
+Aliases
+A DHJ
+AC BDG EFH
+BF 
+B 
+AD BCG HJ
+BG ACD CHJ
+C 
+AE CFH
+BH CGJ
+D AHJ
+AF CEH
+BJ CGH
+E 
+AG BCD
+CD ABG EFJ
+F 
+AH CEF DJ
+CE AFH DFJ
+G 
+AJ DH
+CF AEH DEJ
+H ADJ
+BC ADG GHJ
+CG ABD BHJ
+J ADH
+BD ACG
+CH AEF BGJ
+AB CDG
+BE 
+CJ DEF BGH
+DE CFJ
+GJ BCH
+AFJ BEG DFH
+DF CEJ
+ABE FGJ
+AGH DGJ
+DG ABC
+ABF EGJ
+AGJ BEF DGH
+EF ACH CDJ
+ABH BDJ
+BCE 
+EG 
+ABJ EFG BDH
+BCF 
+EH ACF
+ACJ CDH
+BDE FGH
+EJ CDF
+ADE EHJ
+BDF EGH
+FG 
+ADF FHJ
+BEH DFG
+FH ACE
+AEG BFJ
+BFH DEG
+FJ CDE
+AEJ BFG DEH
+CEG 
+GH BCJ
+AFG BEJ
+CFG 
+2 blocks of 32: CFG
+4 blocks of 16: CFG 
+AGJ BEF DGH
+ADE EHJ
+Appendix
+711

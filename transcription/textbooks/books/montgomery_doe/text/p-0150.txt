@@ -1,0 +1,182 @@
+134
+Chapter 3 ■Experiments with a Single Factor: The Analysis of Variance
+(b) Find the P-value for the F statistic in part (a).
+(c) Analyze the residuals from this experiment.
+(d) Find a 95 percent condence interval on the mean per-
+cent of radon released when the orice diameter is 1.40.
+(e) Construct a graphical display to compare the treatment
+means as described in Section 3.5.3 What conclusions
+can you draw?
+3.22.
+The response time in milliseconds was determined for
+three different types of circuits that could be used in an auto-
+matic valve shutoff mechanism. The results from a complete-
+ly randomized experiment are shown in the following table:
+Circuit Type
+Response Time
+1
+9
+12
+10
+8
+15
+2
+20
+21
+23
+17
+30
+3
+6
+5
+8
+16
+7
+(a) Test the hypothesis that the three circuit types have the
+same response time. Use 0.01.
+(b) Use Tukey’s test to compare pairs of treatment means.
+Use 0.01.
+(c) Use the graphical procedure in Section 3.5.3 to com-
+pare the treatment means. What conclusions can you
+draw? How do they compare with the conclusions
+from part (b)?
+(d) Construct a set of orthogonal contrasts, assuming that
+at the outset of the experiment you suspected the
+response time of circuit type 2 to be different from the
+other two.
+(e) If you were the design engineer and you wished to
+minimize the response time, which circuit type would
+you select?
+(f) Analyze the residuals from this experiment. Are the
+basic analysis of variance assumptions satised?
+3.23.
+The effective life of insulating uids at an accelerated
+load of 35 kV is being studied. Test data have been obtained
+for four types of uids. The results from a completely ran-
+domized experiment were as follows:
+Fluid Type
+Life (in h) at 35 kV Load
+1
+17.6
+18.9
+16.3
+17.4
+20.1
+21.6
+2
+16.9
+15.3
+18.6
+17.1
+19.5
+20.3
+3
+21.4
+23.6
+19.4
+18.5
+20.5
+22.3
+4
+19.3
+21.1
+16.9
+17.5
+18.3
+19.8
+(a) Is there any indication that the uids differ? Use 
+0.05.
+(b) Which uid would you select, given that the objective
+is long life?
+(c) Analyze the residuals from this experiment. Are the
+basic analysis of variance assumptions satised?
+3.24.
+Four different designs for a digital computer circuit
+are being studied to compare the amount of noise present. The
+following data have been obtained:
+Circuit 
+Design
+Noise Observed
+1
+19
+20
+19
+30
+8
+2
+80
+61
+73
+56
+80
+3
+47
+26
+25
+35
+50
+4
+95
+46
+83
+78
+97
+(a) Is the same amount of noise present for all four
+designs? Use 0.05.
+(b) Analyze the residuals from this experiment. Are the
+analysis of variance assumptions satisfied?
+(c) Which circuit design would you select for use? Low
+noise is best.
+3.25.
+Four chemists are asked to determine the percentage
+of methyl alcohol in a certain chemical compound. Each
+chemist makes three determinations, and the results are the
+following:
+Percentage of  
+Chemist
+Methyl Alcohol
+1
+84.99
+84.04
+84.38
+2
+85.15
+85.13
+84.88
+3
+84.72
+84.48
+85.16
+4
+84.20
+84.10
+84.55
+(a) Do chemists differ signicantly? Use 0.05.
+(b) Analyze the residuals from this experiment.
+(c) If chemist 2 is a new employee, construct a meaning-
+ful set of orthogonal contrasts that might have been
+useful at the start of the experiment.
+3.26.
+Three brands of batteries are under study. It is suspect-
+ed that the lives (in weeks) of the three brands are different.
+Five randomly selected batteries of each brand are tested with
+the following results:
+Weeks of Life
+Brand 1
+Brand 2
+Brand 3
+100
+76
+108
+96
+80
+100
+92
+75
+96
+96
+84
+98
+92
+82
+100

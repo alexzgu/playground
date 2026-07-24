@@ -1,0 +1,55 @@
+378
+9. Support Vector Machines
+−4
+−2
+0
+2
+4
+−4
+−2
+0
+2
+4
+−4
+−2
+0
+2
+4
+−4
+−2
+0
+2
+4
+X1
+X1
+X2
+X2
+FIGURE 9.8.
+Left: The observations fall into two classes, with a non-lin-
+ear boundary between them. Right: The support vector classifier seeks a linear
+boundary, and consequently performs very poorly.
+9.3.1
+Classification with Non-Linear Decision Boundaries
+The support vector classifier is a natural approach for classification in the
+two-class setting, if the boundary between the two classes is linear. How-
+ever, in practice we are sometimes faced with non-linear class boundaries.
+For instance, consider the data in the left-hand panel of Figure 9.8. It is
+clear that a support vector classifier or any linear classifier will perform
+poorly here. Indeed, the support vector classifier shown in the right-hand
+panel of Figure 9.8 is useless here.
+In Chapter 7, we are faced with an analogous situation. We see there
+that the performance of linear regression can suffer when there is a non-
+linear relationship between the predictors and the outcome. In that case,
+we consider enlarging the feature space using functions of the predictors,
+such as quadratic and cubic terms, in order to address this non-linearity.
+In the case of the support vector classifier, we could address the prob-
+lem of possibly non-linear boundaries between classes in a similar way, by
+enlarging the feature space using quadratic, cubic, and even higher-order
+polynomial functions of the predictors. For instance, rather than fitting a
+support vector classifier using p features
+X1, X2, . . . , Xp,
+we could instead fit a support vector classifier using 2p features
+X1, X2
+1, X2, X2
+2, . . . , Xp, X2
+p.

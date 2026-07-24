@@ -1,0 +1,36 @@
+Contents
+xv
+13.5
+A Re-Sampling Approach to p-Values and False Discovery
+Rates . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+577
+13.5.1
+A Re-Sampling Approach to the p-Value . . . . . .
+578
+13.5.2
+A Re-Sampling Approach to the False Discovery Rate579
+13.5.3
+When Are Re-Sampling Approaches Useful? . . . .
+581
+13.6
+Lab: Multiple Testing . . . . . . . . . . . . . . . . . . . . .
+583
+13.6.1
+Review of Hypothesis Tests
+. . . . . . . . . . . . .
+583
+13.6.2
+Family-Wise Error Rate . . . . . . . . . . . . . . .
+585
+13.6.3
+False Discovery Rate . . . . . . . . . . . . . . . . .
+588
+13.6.4
+A Re-Sampling Approach
+. . . . . . . . . . . . . .
+590
+13.7
+Exercises . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+593
+Index
+597

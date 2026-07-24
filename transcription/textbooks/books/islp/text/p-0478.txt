@@ -1,0 +1,53 @@
+472
+11. Survival Analysis and Censored Data
+11.3
+The Kaplan–Meier Survival Curve
+The survival curve, or survival function, is defined as
+survival
+curve
+survival
+function
+S(t) = Pr(T > t).
+(11.2)
+This decreasing function quantifies the probability of surviving past time
+t. For example, suppose that a company is interested in modeling customer
+churn. Let T represent the time that a customer cancels a subscription to
+the company’s service. Then S(t) represents the probability that a customer
+cancels later than time t. The larger the value of S(t), the less likely that
+the customer will cancel before time t.
+In this section, we will consider the task of estimating the survival
+curve. Our investigation is motivated by the BrainCancer dataset, which
+contains the survival times for patients with primary brain tumors un-
+dergoing treatment with stereotactic radiation methods.2 The predictors
+are gtv (gross tumor volume, in cubic centimeters); sex (male or female);
+diagnosis (meningioma, LG glioma, HG glioma, or other); loc (the tumor
+location: either infratentorial or supratentorial); ki (Karnofsky index); and
+stereo (stereotactic method: either stereotactic radiosurgery or fraction-
+ated stereotactic radiotherapy, abbreviated as SRS and SRT, respectively).
+Only 53 of the 88 patients were still alive at the end of the study.
+Now, we consider the task of estimating the survival curve (11.2) for
+these data. To estimate S(20) = Pr(T > 20), the probability that a patient
+survives for at least t = 20 months, it is tempting to simply compute the
+proportion of patients who are known to have survived past 20 months, i.e.
+the proportion of patients for whom Y > 20. This turns out to be 48/88,
+or approximately 55%. However, this does not seem quite right, since Y
+and T represent different quantities. In particular, 17 of the 40 patients
+who did not survive to 20 months were actually censored, and this analysis
+implicitly assumes that T < 20 for all of those censored patients; of course,
+we do not know whether that is true.
+Alternatively, to estimate S(20), we could consider computing the pro-
+portion of patients for whom Y > 20, out of the 71 patients who were not
+censored by time t = 20; this comes out to 48/71, or approximately 68%.
+However, this is not quite right either, since it amounts to completely ig-
+noring the patients who were censored before time t = 20, even though the
+time at which they are censored is potentially informative. For instance, a
+patient who was censored at time t = 19.9 likely would have survived past
+t = 20 had he or she not been censored.
+We have seen that estimating S(t) is complicated by the presence of
+censoring. We now present an approach to overcome these challenges. We
+let d1 < d2 < · · · < dK denote the K unique death times among the non-
+censored patients, and we let qk denote the number of patients who died
+at time dk. For k = 1, . . . , K, we let rk denote the number of patients alive
+2This dataset is described in the following paper: Selingerová et al. (2016) Survival
+of patients with primary brain tumors: Comparison of two statistical approaches. PLoS
+One, 11(2):e0148733.

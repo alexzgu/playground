@@ -1,0 +1,109 @@
+6.5 A Single Replicate of the 2k Design
+259
+Average filtration rate (gal/h)
+90
+80
+70
+60
+50
+A
+–
++
+Average filtration rate (gal/h)
+90
+100
+AC interaction
+80
+70
+60
+50
+40
+A
+C = –
+C = +
+–
++
+90
+80
+70
+60
+50
+(a) Main effect plots
+(b) Interaction plots
+C
+–
++
+90
+80
+70
+60
+50
+D
+–
++
+90
+100
+AD interaction
+80
+70
+60
+50
+40
+A
+D = –
+D = +
+–
++
+■F I G U R E 6 . 1 2
+Main effect and interaction plots for Example 6.2
+–18.12
+–8.19
+1.75
+Effect
+11.69
+21.62
+Normal % probability
+99
+95
+90
+80
+70
+50
+30
+20
+10
+AC
+AD
+A
+D
+C
+5
+1
+■F I G U R E 6 . 1 1
+Normal probability plot of
+the effects for the 24 factorial in Example 6.2
+The normal probability plot of these effects is shown in
+Figure 6.11. All of the effects that lie along the line are neg-
+ligible, whereas the large effects are far from the line. The
+important effects that emerge from this analysis are the
+main effects of A, C, and D and the AC and AD interactions.
+The main effects of A, C, and D are plotted in Figure
+6.12a. All three effects are positive, and if we considered
+only these main effects, we would run all three factors at
+the high level to maximize the ltration rate. However, it is
+always necessary to examine any interactions that are
+important. Remember that main effects do not have much
+meaning when they are involved in signicant interactions.
+The AC and AD interactions are plotted in Figure 6.12b.
+These interactions are the key to solving the problem. Note
+from the AC interaction that the temperature effect is very
+small when the concentration is at the high level and very
+large when the concentration is at the low level, with the
+best results obtained with low concentration and high tem-
+perature. The AD interaction indicates that stirring rate D
+has little effect at low temperature but a large positive
+effect at high temperature. Therefore, the best ltration
+rates would appear to be obtained when A and D are at the
+high level and C is at the low level. This would allow the
+reduction of the formaldehyde concentration to a lower
+level, another objective of the experimenter.

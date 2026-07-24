@@ -1,0 +1,301 @@
+390
+Chapter 8 ■Two-Level Fractional Factorial Designs
+Rework parts (a) through (d) using this transforma-
+tion and comment on the results. (For an interesting
+discussion and analysis of this experiment, refer to
+“Analysis of Factorial Experiments with Defects or
+Defectives as the Response,” by S. Bisgaard and 
+H. T. Fuller, Quality Engineering, Vol. 7, 1994–95,
+pp. 429–443.)
+8.51.
+A 16-run fractional factorial experiment in nine fac-
+tors was conducted by Chrysler Motors Engineering and
+described in the article “Sheet Molded Compound Process
+Improvement,” by P. I. Hsieh and D. E. Goodwin (Fourth
+Symposium on Taguchi Methods, American Supplier Institute,
+Dearborn, MI, 1986, pp. 13–21). The purpose was to reduce
+the number of defects in the nish of sheet-molded grill open-
+ing panels. The design, and the resulting number of defects,
+c, observed on each run, is shown in Table P8.14. This is a
+resolution III fraction with generators E BD, F BCD, G
+AC, H ACD, and J AB.
+(a) Find the dening relation and the alias relationships in
+this design.
+(b) Estimate the factor effects and use a normal probabil-
+ity plot to tentatively identify the important factors.
+(c) Fit an appropriate model using the factors identied in
+part (b) above.
+(d) Plot the residuals from this model versus the predicted
+number of defects. Also, prepare a normal probability
+plot of the residuals. Comment on the adequacy of
+these plots.
+(e) In part (d) you should have noticed an indication that
+the variance of the response is not constant.
+(Considering that the response is a count, you should
+have expected this.) The previous table also shows a
+transformation on c, the square root, that is a widely
+used variance stabilizing transformation for count
+data. (Refer to the discussion of variance stabilizing
+transformations in Chapter 3.) Repeat parts (a)
+through (d) using the transformed response and com-
+ment on your results. Specically, are the residual
+plots improved?
+(f) There is a modication to the square root transforma-
+tion,
+proposed 
+by 
+Freeman 
+and 
+Tukey
+(“Transformations Related to the Angular and the
+Square Root,” Annals of Mathematical Statistics,
+Vol. 21, 1950, pp. 607–611) that improves its perform-
+ance. F&T’s modication to the square root transfor-
+mation is
+Rework parts (a) through (d) using this transforma-
+tion and comment on the results. (For an interesting
+discussion and analysis of this experiment, refer to
+“Analysis of Factorial Experiments with Defects or
+[c (c 1)]/2
+■TA B L E P 8 . 1 3
+The Sand-Casting Experiment
+F&T’s
+Run
+A
+B
+C
+D
+E
+F
+G
+H
+J
+K
+Arcsin 
+Modiﬁcation
+1
+
+
+
+
+
+
+
+
+
+
+0.958
+1.364
+1.363
+2
+
+
+
+
+
+
+
+
+
+
+1.000
+1.571
+1.555
+3
+
+
+
+
+
+
+
+
+
+
+0.977
+1.419
+1.417
+4
+
+
+
+
+
+
+
+
+
+
+0.775
+1.077
+1.076
+5
+
+
+
+
+
+
+
+
+
+
+0.958
+1.364
+1.363
+6
+
+
+
+
+
+
+
+
+
+
+0.958
+1.364
+1.363
+7
+
+
+
+
+
+
+
+
+
+
+0.813
+1.124
+1.123
+8
+
+
+
+
+
+
+
+
+
+
+0.906
+1.259
+1.259
+9
+
+
+
+
+
+
+
+
+
+
+0.679
+0.969
+0.968
+10
+
+
+
+
+
+
+
+
+
+
+0.781
+1.081
+1.083
+11
+
+
+
+
+
+
+
+
+
+
+1.000
+1.571
+1.556
+12
+
+
+
+
+
+
+
+
+
+
+0.896
+1.241
+1.242
+13
+
+
+
+
+
+
+
+
+
+
+0.958
+1.364
+1.363
+14
+
+
+
+
+
+
+
+
+
+
+0.818
+1.130
+1.130
+15
+
+
+
+
+
+
+
+
+
+
+0.841
+1.161
+1.160
+16
+
+
+
+
+
+
+
+
+
+
+0.955
+1.357
+1.356 
+pˆ
+pˆ

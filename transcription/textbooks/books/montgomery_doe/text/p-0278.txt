@@ -1,0 +1,87 @@
+262
+Chapter 6 ■The 2k Factorial Design
+Figure 6.14a shows the response surface contour plot when stirring rate is at the high level
+(i.e., x4  1). The contours are generated from the above model with x4  1, or
+Notice that the contours are curved lines because the model contains an interaction term.
+Figure 6.14b is the response surface contour plot when temperature is at the high level
+(i.e., x1  1). When we put x1  1 in the regression model, we obtain
+These contours are parallel straight lines because the model contains only the main effects of
+factors C (x3) and D (x4).
+Both contour plots indicate that if we want to maximize the ltration rate, variables 
+A (x1) and D (x4) should be at the high level and that the process is relatively robust to con-
+centration C. We obtained similar conclusions from the interaction graphs.
+The Half-Normal Plot of Effects. An alternative to the normal probability plot of
+the factor effects is the half-normal plot. This is a plot of the absolute value of the effect
+estimates against their cumulative normal probabilities. Figure 6.15 presents the half-normal
+plot of the effects for Example 6.2. The straight line on the half-normal plot always passes
+through the origin and should also pass close to the ftieth percentile data value. Many ana-
+lysts feel that the half-normal plot is easier to interpret, particularly when there are only a few
+effect estimates such as when the experimenter has used an eight-run design. Some software
+packages will construct both plots.
+Other Methods for Analyzing Unreplicated Factorials. The standard analysis
+procedure for an unreplicated two-level factorial design is the normal (or half-normal) plot of
+the estimated factor effects. However, unreplicated designs are so widely used in practice that
+many formal analysis procedures have been proposed to overcome the subjectivity of the nor-
+mal probability plot. Hamada and Balakrishnan (1998) compared some of these methods.
+They found that the method proposed by Lenth (1989) has good power to detect signicant
+effects. It is also easy to implement, and as a result it appears in several software packages for
+analyzing data from unreplicated factorials. We give a brief description of Lenth’s method.
+yˆ 80.8725 
+8.25
+2 x3 
+31.25
+2 x4
+yˆ 77.3725 
+38.25
+2 x1 
+9.875
+2 x3 
+18.125
+2 x1x3
+Temperature, A (x1)
+(a) Contour plot with stirring rate (D), x4 = 1
+Concentration, C (x3)
+– 0.667 – 0.333
+0.000
+0.333
+95.00
+90.00
+85.00
+80.00
+75.00
+70.00
+65.00
+100.0
+50.00
+60.00
+70.00
+80.00
+90.00
+0.667
+1.000
+–1.000
+– 0.667
+–1.000
+– 0.333
+0.000
+0.333
+0.667
+1.000
+Concentration, C (x3)
+(b) Contour plot with temperature (A), x1 = 1
+Stirring rate, D (x4)
+– 0.667 – 0.333
+0.000
+0.333
+0.667
+1.000
+–1.000
+– 0.667
+–1.000
+– 0.333
+0.000
+0.333
+0.667
+1.000
+■F I G U R E 6 . 1 4
+Contour plots of ﬁltration rate, Example 6.2

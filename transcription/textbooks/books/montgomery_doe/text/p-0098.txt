@@ -1,0 +1,58 @@
+82
+Chapter 3 ■Experiments with a Single Factor: The Analysis of Variance
+variance (and related procedures such as multiple comparisons) is robust to the normality
+assumption. Departures from normality usually cause both the true signicance level and the
+power to differ slightly from the advertised values, with the power generally being lower. The ran-
+dom effects model that we will discuss in Section 3.9 and Chapter 13 is more severely affected by
+nonnormality.
+A very common defect that often shows up on normal probability plots is one residual
+that is very much larger than any of the others. Such a residual is often called an outlier. The
+presence of one or more outliers can seriously distort the analysis of variance, so when a
+potential outlier is located, careful investigation is called for. Frequently, the cause of the
+outlier is a mistake in calculations or a data coding or copying error. If this is not the cause,
+the experimental circumstances surrounding this run must be carefully studied. If the outly-
+ing response is a particularly desirable value (high strength, low cost, etc.), the outlier may
+be more informative than the rest of the data. We should be careful not to reject or discard
+an outlying observation unless we have reasonably nonstatistical grounds for doing so. At
+worst, you may end up with two analyses; one with the outlier and one without.
+Several formal statistical procedures may be used for detecting outliers [e.g., see Stefansky
+(1972), John and Prescott (1975), and Barnett and Lewis (1994)]. Some statistical software pack-
+ages report the results of a statistical test for normality (such as the Anderson-Darling test) on the
+normal probability plot of residuals. This should be viewed with caution as those tests usually
+assume that the data to which they are applied are independent and residuals are not independent.
+A rough check for outliers may be made by examining the standardized residuals
+(3.18)
+If the errors ij are N(0, 2), the standardized residuals should be approximately normal with mean
+zero and unit variance. Thus, about 68 percent of the standardized residuals should fall within the
+limits 1, about 95 percent of them should fall within 2, and virtually all of them should fall
+within 3. A residual bigger than 3 or 4 standard deviations from zero is a potential outlier.
+For the tensile strength data of Example 3.1, the normal probability plot gives no indi-
+cation of outliers. Furthermore, the largest standardized residual is
+which should cause no concern.
+3.4.2
+Plot of Residuals in Time Sequence
+Plotting the residuals in time order of data collection is helpful in detecting strong correlation
+between the residuals. A tendency to have runs of positive and negative residuals indicates pos-
+itive correlation. This would imply that the independence assumption on the errors has been
+violated. This is a potentially serious problem and one that is difcult to correct, so it is impor-
+tant to prevent the problem if possible when the data are collected. Proper randomization of the
+experiment is an important step in obtaining independence.
+Sometimes the skill of the experimenter (or the subjects) may change as the experiment
+progresses, or the process being studied may “drift” or become more erratic. This will often result
+in a change in the error variance over time. This condition often leads to a plot of residuals ver-
+sus time that exhibits more spread at one end than at the other. Nonconstant variance is a poten-
+tially serious problem. We will have more to say on the subject in Sections 3.4.3 and 3.4.4.
+Table 3.6 displays the residuals and the time sequence of data collection for the tensile
+strength data. A plot of these residuals versus run order or time is shown in Figure 3.5. There
+is no reason to suspect any violation of the independence or constant variance assumptions.
+d1 
+e1
+MSE
+
+25.6
+333.70
+25.6
+18.27 1.40
+dij 
+eij
+MSE

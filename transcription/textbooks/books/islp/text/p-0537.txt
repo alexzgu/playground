@@ -1,0 +1,113 @@
+12.4 Clustering Methods
+531
+1
+2
+3
+4
+5
+6
+7
+8
+9
+−1.5
+−1.0
+−0.5
+0.0
+0.5
+1.0
+−1.5
+−1.0
+−0.5
+0.0
+0.5
+1
+2
+3
+4
+5
+6
+7
+8
+9
+−1.5
+−1.0
+−0.5
+0.0
+0.5
+1.0
+−1.5
+−1.0
+−0.5
+0.0
+0.5
+1
+2
+3
+4
+5
+6
+7
+8
+9
+−1.5
+−1.0
+−0.5
+0.0
+0.5
+1.0
+−1.5
+−1.0
+−0.5
+0.0
+0.5
+1
+2
+3
+4
+5
+6
+7
+8
+9
+−1.5
+−1.0
+−0.5
+0.0
+0.5
+1.0
+−1.5
+−1.0
+−0.5
+0.0
+0.5
+X1
+X1
+X1
+X1
+X2
+X2
+X2
+X2
+FIGURE 12.13.
+An illustration of the first few steps of the hierarchical
+clustering algorithm, using the data from Figure 12.12, with complete linkage
+and Euclidean distance. Top Left: initially, there are nine distinct clusters,
+{1}, {2}, . . . , {9}. Top Right: the two clusters that are closest together, {5} and
+{7}, are fused into a single cluster. Bottom Left: the two clusters that are closest
+together, {6} and {1}, are fused into a single cluster. Bottom Right: the two clus-
+ters that are closest together using complete linkage, {8} and the cluster {5, 7},
+are fused into a single cluster.
+given item (i.e. a 0 if the shopper has never purchased this item, a 1 if the
+shopper has purchased it once, etc.) What type of dissimilarity measure
+should be used to cluster the shoppers? If Euclidean distance is used, then
+shoppers who have bought very few items overall (i.e. infrequent users of
+the online shopping site) will be clustered together. This may not be desir-
+able. On the other hand, if correlation-based distance is used, then shoppers
+with similar preferences (e.g. shoppers who have bought items A and B but
+never items C or D) will be clustered together, even if some shoppers with
+these preferences are higher-volume shoppers than others. Therefore, for
+this application, correlation-based distance may be a better choice.
+In addition to carefully selecting the dissimilarity measure used, one must
+also consider whether or not the variables should be scaled to have stan-
+dard deviation one before the dissimilarity between the observations is com-
+puted. To illustrate this point, we continue with the online shopping ex-

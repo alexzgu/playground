@@ -1,0 +1,76 @@
+(a 1)(b 1). Within each of the ab cells, there are n 1 degrees of freedom between the
+n replicates; thus there are ab(n 1) degrees of freedom for error. Note that the number of
+degrees of freedom on the right-hand side of Equation 5.5 adds to the total number of degrees
+of freedom.
+Each sum of squares divided by its degrees of freedom is a mean square. The expected
+values of the mean squares are
+and
+Notice that if the null hypotheses of no row treatment effects, no column treatment effects,
+and no interaction are true, then MSA, MSB, MSAB, and MSE all estimate 2. However, if there
+are differences between row treatment effects, say, then MSA will be larger than MSE.
+Similarly, if there are column treatment effects or interaction present, then the corresponding
+mean squares will be larger than MSE. Therefore, to test the signicance of both main effects
+and their interaction, simply divide the corresponding mean square by the error mean square.
+Large values of this ratio imply that the data do not support the null hypothesis.
+If we assume that the model (Equation 5.1) is adequate and that the error terms ijk
+are normally and independently distributed with constant variance 2, then each of the
+ratios of mean squares MSA/MSE, MSB/MSE, and MSAB/MSE is distributed as F with a 1,
+b 1, and (a 1)(b 1) numerator degrees of freedom, respectively, and ab(n 1)
+denominator degrees of freedom,1 and the critical region would be the upper tail of the F
+distribution. The test procedure is usually summarized in an analysis of variance table, as
+shown in Table 5.3.
+Computationally, we almost always employ a statistical software package to conduct an
+ANOVA. However, manual computing of the sums of squares in Equation 5.5 is straightfor-
+ward. One could write out the individual elements of the ANOVA identity
+and calculate them in the columns of a spreadsheet. Then each column could be squared
+and summed to produce the ANOVA sums of squares. Computing formulas in terms of
+row, column, and cell totals can also be used. The total sum of squares is computed as
+usual by
+(5.6)
+SST 
+a
+i1 
+b
+j1 
+n
+k1
+y2
+ijk y2
+...
+abn
+yijk y... (yi.. y...) (y.j. y...) (yij. yi.. y.j. y...) (yijk yij.)
+E(MSE) E
+SSE
+ab(n 1)2
+E(MSAB) E
+SSAB
+(a 1)(b 1)2 
+n 
+a
+i1 
+b
+j1
+ ()2
+ij
+(a 1)(b 1)
+E(MSB) E
+SSB
+b 12 
+an 
+b
+j1
+2
+j
+b 1
+E(MSA) E
+SSA
+a 12 
+bn 
+a
+i1
+2
+i
+a 1
+5.3 The Two-Factor Factorial Design
+191
+1The F test may be viewed as an approximation to a randomization test, as noted previously. 

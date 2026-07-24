@@ -1,0 +1,172 @@
+8.4.2
+Analysis of 2kp Fractional Factorials
+There are many computer programs that can be used to analyze the 2k p fractional factorial
+design. For example, Design-Expert JMP, and Minitab all have this capability.
+The design may also be analyzed by resorting to rst principles; the ith effect is esti-
+mated by
+where the Contrasti is found using the plus and minus signs in column i and N 2kp is the
+total number of observations. The 2kp design allows only 2kp 1 effects (and their aliases)
+to be estimated. Normal probability plots of the effect estimates and Lenth’s method are very
+useful analysis tools.
+Projection of the 2kp Fractional Factorial. The 2kp design collapses into either
+a full factorial or a fractional factorial in any subset of r k p of the original factors. Those
+subsets of factors providing fractional factorials are subsets appearing as words in the com-
+plete dening relation. This is particularly useful in screening experiments when we suspect
+at the outset of the experiment that most of the original factors will have small effects. The
+original 2kp fractional factorial can then be projected into a full factorial, say, in the most
+interesting factors. Conclusions drawn from designs of this type should be considered tenta-
+tive and subject to further analysis. It is usually possible to nd alternative explanations of the
+data involving higher order interactions.
+As an example, consider the 
+design from Example 8.5. This is a 16-run design
+involving seven factors. It will project into a full factorial in any four of the original seven factors
+273
+IV
+Effecti 2(Contrasti)
+N
+Contrasti
+(N/2)
+8.4 The General 2kp Fractional Factorial Design
+343
+■T A B L E 8 . 1 5
+A 
+Fractional Factorial Design
+Basic Design
+Run
+A
+B
+C
+D
+E ABC
+F BCD
+G ACD
+1
+
+
+
+
+
+
+
+2
+
+
+
+
+
+
+
+3
+
+
+
+
+
+
+
+4
+
+
+
+
+
+
+
+5
+
+
+
+
+
+
+
+6
+
+
+
+
+
+
+
+7
+
+
+
+
+
+
+
+8
+
+
+
+
+
+
+
+9
+
+
+
+
+
+
+
+10
+
+
+
+
+
+
+
+11
+
+
+
+
+
+
+
+12
+
+
+
+
+
+
+
+13
+
+
+
+
+
+
+
+14
+
+
+
+
+
+
+
+15
+
+
+
+
+
+
+
+16
+
+
+
+
+
+
+
+273
+IV

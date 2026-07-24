@@ -1,0 +1,151 @@
+292
+Chapter 6 ■The 2k Factorial Design
+6.1.
+An engineer is interested in the effects of cutting
+speed (A), tool geometry (B), and cutting angle (C) on the life
+(in hours) of a machine tool. Two levels of each factor are
+chosen, and three replicates of a 23 factorial design are run.
+The results are as follows:
+Treatment
+Replicate
+A
+B
+C
+Combination
+I
+II
+III
+
+
+
+(1)
+22
+31
+25
+
+
+
+a
+32
+43
+29
+
+
+
+b
+35
+34
+50
+
+
+
+ab
+55
+47
+46
+
+
+
+c
+44
+45
+38
+
+
+
+ac
+40
+37
+36
+
+
+
+bc
+60
+50
+54
+
+
+
+abc
+39
+41
+47
+(a) Estimate the factor effects. Which effects appear to be
+large?
+(b) Use the analysis of variance to conrm your conclu-
+sions for part (a).
+(c) Write down a regression model for predicting tool life
+(in hours) based on the results of this experiment.
+(d) Analyze the residuals. Are there any obvious problems?
+(e) On the basis of an analysis of main effect and interac-
+tion plots, what coded factor levels of A, B, and C
+would you recommend using?
+6.2.
+Reconsider part (c) of Problem 6.1. Use the regression
+model to generate response surface and contour plots of the
+tool life response. Interpret these plots. Do they provide insight
+regarding the desirable operating conditions for this process?
+6.3.
+Find the standard error of the factor effects and
+approximate 95 percent condence limits for the factor effects
+in Problem 6.1. Do the results of this analysis agree with the
+conclusions from the analysis of variance?
+6.4.
+Plot the factor effects from Problem 6.1 on a graph
+relative to an appropriately scaled t distribution. Does this
+graphical display adequately identify the important factors?
+Compare the conclusions from this plot with the results from
+the analysis of variance.
+6.5.
+A router is used to cut locating notches on a printed
+circuit board. The vibration level at the surface of the board
+as it is cut is considered to be a major source of dimensional
+variation in the notches. Two factors are thought to inuence
+that the estimate of the interaction term regression coefcient is now different from what it
+was in the previous engineering-units analysis because the design in engineering units is not
+orthogonal. The coefcient is also virtually unity.
+Generally, the engineering units are not directly comparable, but they may have physi-
+cal meaning as in the present example. This could lead to possible simplication based on the
+underlying mechanism. In almost all situations, the coded unit analysis is preferable. It is fair-
+ly unusual for a simplication based on some underlying mechanism (as in our example) to
+occur. The fact that coded variables let an experimenter see the relative importance of the
+design factors is useful in practice.
+6.10
+Problems
+■TA B L E 6 . 2 8
+Regression Analysis for the Circuit Experiment (Interaction Term Only)
+The regression equation is
+V 1.00 IR
+Predictor
+Coef
+Std. Dev.
+T
+P
+Noconstant
+IR
+1.00073
+0.00550
+181.81
+0.000
+S 0.1255
+Analysis of Variance
+Source
+DF
+SS
+MS
+F
+P
+Regression
+3
+71.267
+23.756
+1085.95
+0.000
+Residual Error
+4
+0.088
+0.022
+Total
+7
+71.354 

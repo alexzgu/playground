@@ -1,0 +1,155 @@
+Contents
+xiii
+9.3.3
+An Application to the Heart Disease Data . . . . .
+382
+9.4
+SVMs with More than Two Classes
+. . . . . . . . . . . . .
+383
+9.4.1
+One-Versus-One Classification . . . . . . . . . . . .
+384
+9.4.2
+One-Versus-All Classification
+. . . . . . . . . . . .
+384
+9.5
+Relationship to Logistic Regression
+. . . . . . . . . . . . .
+384
+9.6
+Lab: Support Vector Machines . . . . . . . . . . . . . . . .
+387
+9.6.1
+Support Vector Classifier . . . . . . . . . . . . . . .
+387
+9.6.2
+Support Vector Machine . . . . . . . . . . . . . . .
+390
+9.6.3
+ROC Curves . . . . . . . . . . . . . . . . . . . . . .
+392
+9.6.4
+SVM with Multiple Classes
+. . . . . . . . . . . . .
+393
+9.6.5
+Application to Gene Expression Data . . . . . . . .
+394
+9.7
+Exercises . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+395
+10 Deep Learning
+399
+10.1
+Single Layer Neural Networks
+. . . . . . . . . . . . . . . .
+400
+10.2
+Multilayer Neural Networks . . . . . . . . . . . . . . . . . .
+402
+10.3
+Convolutional Neural Networks . . . . . . . . . . . . . . . .
+406
+10.3.1
+Convolution Layers . . . . . . . . . . . . . . . . . .
+407
+10.3.2
+Pooling Layers
+. . . . . . . . . . . . . . . . . . . .
+410
+10.3.3
+Architecture of a Convolutional Neural Network . .
+410
+10.3.4
+Data Augmentation . . . . . . . . . . . . . . . . . .
+411
+10.3.5
+Results Using a Pretrained Classifier . . . . . . . .
+412
+10.4
+Document Classification . . . . . . . . . . . . . . . . . . . .
+413
+10.5
+Recurrent Neural Networks . . . . . . . . . . . . . . . . . .
+416
+10.5.1
+Sequential Models for Document Classification
+. .
+418
+10.5.2
+Time Series Forecasting
+. . . . . . . . . . . . . . .
+420
+10.5.3
+Summary of RNNs . . . . . . . . . . . . . . . . . .
+424
+10.6
+When to Use Deep Learning
+. . . . . . . . . . . . . . . . .
+425
+10.7
+Fitting a Neural Network . . . . . . . . . . . . . . . . . . .
+427
+10.7.1
+Backpropagation
+. . . . . . . . . . . . . . . . . . .
+428
+10.7.2
+Regularization and Stochastic Gradient Descent . .
+429
+10.7.3
+Dropout Learning . . . . . . . . . . . . . . . . . . .
+431
+10.7.4
+Network Tuning . . . . . . . . . . . . . . . . . . . .
+431
+10.8
+Interpolation and Double Descent . . . . . . . . . . . . . .
+432
+10.9
+Lab: Deep Learning . . . . . . . . . . . . . . . . . . . . . .
+435
+10.9.1
+Single Layer Network on Hitters Data
+. . . . . . .
+437
+10.9.2
+Multilayer Network on the MNIST Digit Data . . .
+444
+10.9.3
+Convolutional Neural Networks . . . . . . . . . . .
+448
+10.9.4
+Using Pretrained CNN Models
+. . . . . . . . . . .
+452
+10.9.5
+IMDB Document Classification . . . . . . . . . . .
+454
+10.9.6
+Recurrent Neural Networks
+. . . . . . . . . . . . .
+458
+10.10 Exercises . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+465
+11 Survival Analysis and Censored Data
+469
+11.1
+Survival and Censoring Times
+. . . . . . . . . . . . . . . .
+470
+11.2
+A Closer Look at Censoring . . . . . . . . . . . . . . . . . .
+470
+11.3
+The Kaplan–Meier Survival Curve . . . . . . . . . . . . . .
+472
+11.4
+The Log-Rank Test
+. . . . . . . . . . . . . . . . . . . . . .
+474
+11.5
+Regression Models With a Survival Response . . . . . . . .
+476

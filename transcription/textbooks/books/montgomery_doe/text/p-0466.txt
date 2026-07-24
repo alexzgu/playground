@@ -1,0 +1,53 @@
+450
+Chapter 10 ■Fitting Regression Models
+There is a strong interplay between design of experiments and regression analysis.
+Throughout this book we have emphasized the importance of expressing the results of an experi-
+ment quantitatively, in terms of an empirical model, to facilitate understanding, interpretation,
+and implementation. Regression models are the basis for this. On numerous occasions we
+have shown the regression model that represented the results of an experiment. In this chapter,
+we present some aspects of tting these models. More complete presentations of regression
+are available in Montgomery, Peck, and Vining (2006) and Myers (1990).
+Regression methods are frequently used to analyze data from unplanned experiments,
+such as might arise from observation of uncontrolled phenomena or historical records.
+Regression methods are also very useful in designed experiments where something has “gone
+wrong.” We will illustrate some of these situations in this chapter.
+10.2
+Linear Regression Models
+We will focus on tting linear regression models. To illustrate, suppose that we wish to develop
+an empirical model relating the viscosity of a polymer to the temperature and the catalyst feed
+rate. A model that might describe this relationship is
+(10.1)
+where y represents the viscosity, x1 represents the temperature, and x2 represents the cata-
+lyst feed rate. This is a multiple linear regression model with two independent variables.
+We often call the independent variables predictor variables or regressors. The term linear
+is used because Equation 10.1 is a linear function of the unknown parameters 0, 1, and 2.
+The model describes a plane in the two-dimensional x1, x2 space. The parameter 0 defines
+the intercept of the plane. We sometimes call 1 and 2 partial regression coefficients
+because 1 measures the expected change in y per unit change in x1 when x2 is held 
+constant and 2 measures the expected change in y per unit change in x2 when x1 is held
+constant.
+In general, the response variable y may be related to k regressor variables. The model
+(10.2)
+is called a multiple linear regression model with k regressor variables. The parameters j,
+j 0, 1, . . . , k, are called the regression coefﬁcients. This model describes a hyperplane in
+the k-dimensional space of the regressor variables {xj}. The parameter j represents the expect-
+ed change in response y per unit change in xj when all the remaining independent variables 
+xi (i j) are held constant.
+Models that are more complex in appearance than Equation 10.2 may often still be ana-
+lyzed by multiple linear regression techniques. For example, consider adding an interaction
+term to the rst-order model in two variables, say
+(10.3)
+If we let x3 x1x2 and 3 12, then Equation 10.3 can be written as
+(10.4)
+which is a standard multiple linear regression model with three regressors. Recall that we
+presented empirical models like Equations 10.2 and 10.4 in several examples in Chapters 6, 7,
+and 8 to quantitatively express the results of a two-level factorial design. As another example,
+consider the second-order response surface model in two variables:
+(10.5)
+y 0 1x1 2xx 11x2
+1 22x2
+2 12x1x2 
+y 0 1x1 2x2 3x3 
+y 0 1x1 2x2 12x1x2 
+y 0 1x1 2x2 Á kxk 
+y 0 1x1 2x2 

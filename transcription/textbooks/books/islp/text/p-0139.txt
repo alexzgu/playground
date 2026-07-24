@@ -1,0 +1,45 @@
+130
+3. Linear Regression
+ii. Which predictors appear to have a statistically significant
+relationship to the response?
+iii. What does the coefficient for the year variable suggest?
+(d) Produce some of diagnostic plots of the linear regression fit as
+described in the lab. Comment on any problems you see with the
+fit. Do the residual plots suggest any unusually large outliers?
+Does the leverage plot identify any observations with unusually
+high leverage?
+(e) Fit some models with interactions as described in the lab. Do
+any interactions appear to be statistically significant?
+(f) Try a few different transformations of the variables, such as
+log(X),
+√
+X, X2. Comment on your findings.
+10. This question should be answered using the Carseats data set.
+(a) Fit a multiple regression model to predict Sales using Price,
+Urban, and US.
+(b) Provide an interpretation of each coefficient in the model. Be
+careful—some of the variables in the model are qualitative!
+(c) Write out the model in equation form, being careful to handle
+the qualitative variables properly.
+(d) For which of the predictors can you reject the null hypothesis
+H0 : βj = 0?
+(e) On the basis of your response to the previous question, fit a
+smaller model that only uses the predictors for which there is
+evidence of association with the outcome.
+(f) How well do the models in (a) and (e) fit the data?
+(g) Using the model from (e), obtain 95 % confidence intervals for
+the coefficient(s).
+(h) Is there evidence of outliers or high leverage observations in the
+model from (e)?
+11. In this problem we will investigate the t-statistic for the null hypoth-
+esis H0 : β = 0 in simple linear regression without an intercept. To
+begin, we generate a predictor x and a response y as follows.
+rng = np.random.default_rng(1)
+x = rng.normal(size=100)
+y = 2 * x + rng.normal(size=100)
+(a) Perform a simple linear regression of y onto x, without an in-
+tercept. Report the coefficient estimate ˆβ, the standard error of
+this coefficient estimate, and the t-statistic and p-value associ-
+ated with the null hypothesis H0 : β = 0. Comment on these
+results. (You can perform regression without an intercept using
+the keywords argument intercept=False to ModelSpec().)

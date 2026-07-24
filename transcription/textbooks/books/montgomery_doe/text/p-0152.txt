@@ -1,0 +1,164 @@
+136
+Chapter 3 ■Experiments with a Single Factor: The Analysis of Variance
+(a) Is there signicant variation in temperature between
+ovens? Use = 0.05.
+(b) Estimate the components of variance for this model.
+(c) Analyze the residuals from this experiment and draw
+conclusions about model adequacy.
+3.32.
+An article in the Journal of the Electrochemical
+Society (Vol. 139, No. 2, 1992, pp. 524–532) describes an
+experiment to investigate the low-pressure vapor deposition of
+polysilicon. The experiment was carried out in a large-capaci-
+ty reactor at Sematech in Austin, Texas. The reactor has sever-
+al wafer positions, and four of these positions are selected at
+random. The response variable is lm thickness uniformity.
+Three replicates of the experiment were run, and the data are
+as follows:
+Wafer Position
+Uniformity
+1
+2.76
+5.67
+4.49
+2
+1.43
+1.70
+2.19
+3
+2.34
+1.97
+1.47
+4
+0.94
+1.36
+1.65
+(a) Is there a difference in the wafer positions? Use =
+0.05.
+(b) Estimate the variability due to wafer positions.
+(c) Estimate the rendom error component.
+(d) Analyze the residuals from this experiment and com-
+ment on model adequacy.
+3.33.
+Consider the vapor-deposition experiment described
+in Problem 3.32. 
+(a) Estimate the total variability in the uniformity response. 
+(b) How much of the total variability in the uniformity
+response is due to the difference between positions in
+the reactor?
+(c) To what level could the variability in the uniformity
+response be reduced if the position-to-position vari-
+ability in the reactor could be eliminated? Do you
+believe this is a signicant reduction?
+3.34.
+An article in the Journal of Quality Technology (Vol.
+13, No. 2, 1981, pp. 111–114) describes an experiment that
+investigates the effects of four bleaching chemicals on pulp
+brightness. These four chemicals were selected at random
+from a large population of potential bleaching agents. The
+data are as follows:
+Oven
+Temperature
+1
+77.199
+74.466
+92.746
+76.208
+82.876
+2
+80.522
+79.306
+81.914
+80.346
+73.385
+3
+79.417
+78.017
+91.596
+80.802
+80.626
+4
+78.001
+78.358
+77.544
+77.364
+77.386
+(a) Is there a difference in the chemical types? Use =
+0.05.
+(b) Estimate the variability due to chemical types.
+(c) Estimate the variability due to random error.
+(d) Analyze the residuals from this experimental and com-
+ment on model adequacy.
+3.35.
+Consider the single-factor random effects model dis-
+cussed in this chapter. Develop a procedure for nding a
+100(1 – )% condence interval on the ratio 2(2
+ 2).
+Assume that the experiment is balanced.
+3.36.
+Consider testing the equality of the means of two nor-
+mal populations, where the variances are unknown but are
+assumed to be equal. The appropriate test procedure is 
+the pooled t-test. Show that the pooled t-test is equivalent to
+the single-factor analysis of variance.
+3.37.
+Show that the variance of the linear combination
+ciyi. is 2
+.
+3.38.
+In a xed effects experiment, suppose that there are n
+observations for each of the four treatments. Let 
+be
+single-degree-of-freedom components for the orthogonal con-
+trasts. Prove that SSTreatments 
+.
+3.39.
+Use Bartlett’s test to determine if the assumption of
+equal variances is satised in Problem 3.24. Use 0.05.
+Did you reach the same conclusion regarding equality of vari-
+ances by examining residual plots?
+3.40.
+Use the modied Levene test to determine if the
+assumption of equal variances is satised in Problem 3.26.
+Use 0.05. Did you reach the same conclusion regarding
+the equality of variances by examining residual plots?
+3.41.
+Refer to Problem 3.22. If we wish to detect a maximum
+difference in mean response times of 10 milliseconds with a
+probability of at least 0.90, what sample size should be used?
+How would you obtain a preliminary estimate of 2?
+3.42.
+Refer to Problem 3.26.
+(a) If we wish to detect a maximum difference in battery life
+of 10 hours with a probability of at least 0.90, what sam-
+ple size should be used? Discuss how you would obtain
+a preliminary estimate of 2 for answering this question.
+(b) If the difference between brands is great enough so that
+the standard deviation of an observation is increased by
+25 percent, what sample size should be used if we wish
+to detect this with a probability of at least 0.90?
+3.43.
+Consider the experiment in Problem 3.26. If we wish
+to construct a 95 percent condence interval on the difference
+in two mean battery lives that has an accuracy of 2 weeks,
+how many batteries of each brand must be tested?
+3.44.
+Suppose that four normal populations have means of
+1 50, 2 60, 3 50, and 4 60. How many obser-
+vations should be taken from each population so that the
+probability of rejecting the null hypothesis of equal popula-
+tion means is at least 0.90? Assume that 0.05 and that a
+reasonable estimate of the error variance is 2 25.
+Q2
+1 Q2
+2 Q2
+3
+Q2
+1, Q2
+2, Q2
+3
+"a
+i1nic2
+i
+"a
+i1

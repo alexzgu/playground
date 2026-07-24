@@ -1,0 +1,46 @@
+6.8. THE L´EVY-KHINCHIN CHARACTERIZATION
+219
+Lemma 6.8.3.
+For all ϵ > 0, there exists Mϵ < ∞such that for all n, νnx≥
+Mϵ≤ϵ.
+For every y > 0, there exists r < ∞such that for all n, νnx≥
+y≤r.
+sup
+n n[˜µn + ˜σ2
+n] < ∞
+Proof. By symmetry it suces to estimate νnx ≥r. We rst make
+the easy observation that for every r < ∞, for all n suciently large
+µn(−∞, 1) ≥rnIndeed, if this were not true, then there exists a
+subsequence nj such that with probability at least
+
+1 −r
+nj
+nj
+∼e−r
+we would have Yj,nj ≥1 for j = 1, , nj which implies that with
+positive probability X = ∞.
+Let M, r < ∞and let qn = minrn, µn[M, ∞)and for n > 2r
+dene δ±
+n to be the inmum (supremum) of all numbers such that
+PY1,n ≥δ+
+n ≤qn,
+PY1,n ≤δ−
+n ≤qn
+Using this we can nd a random variable with the same distribution
+as Y1,n by the following.
+With probability 1 −2qn choose from distribution ρ1 and with
+probability 2qn choose from distribution ρ2.
+Distribution ρ2 satises ρ2(−∞, 1] = 1
+2, ρ2[M, ∞) = 1
+2
+By focusing on the rst time that one chooses from ρ2 we see that the
+conditional distribution on a set of probability pn := 1 −(1 −qn)n has
+a spreadof at least M −1. Another way of saying this is that if x
+is the median of the distribution of the sum of the remaining terms,
+there is probability at last pn4 of being less than x+1 and probability
+at last pn4 of being greater than x + M.
+If a > 0, let rn = nPa ≤Y1,nand assume rn ≥1. Using the rst part
+we can nd b (independent of n, a) with Pa ≤Y1,n ≤b≥rn(2n).
+If 0 < s < 12b, then
+1 −eiys≥c y2 s2,
+0 ≤y≤b

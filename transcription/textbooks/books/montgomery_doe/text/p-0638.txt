@@ -1,0 +1,70 @@
+■TA B L E 1 4 . 1 7
+Expected Mean Squares for Split-Plot Design
+Model
+Term
+Expected Mean Square
+i
+Whole plot
+j
+()ij
+k
+()ik
+Subplot
+()jk
+()ijk
+(ijk)h
+2 (not estimable)
+2 2
+
+2 2
+
+r ()2
+jk
+(a 1)(b 1)
+2 a2
+
+2 a2
+ra 2
+k
+(b 1)
+2 b2
+
+2 b2
+
+rb 2
+j
+a 1
+2 ab2
+
+622
+Chapter 14 ■Nested and Split-Plot Designs
+response will be completely confounded with the effect of the pulp preparation methods.
+Because the whole-plot treatments in a split-plot design are confounded with the whole-plots
+and the subplot treatments are not confounded, it is best to assign the factor we are most inter-
+ested in to the subplots, if possible.
+This example is fairly typical of how the split-plot design is used in an industrial set-
+ting. Notice that the two factors were essentially “applied” at different times. Consequently,
+a split-plot design can be viewed as two experiments “combined” or superimposed on each
+other. One “experiment” has the whole-plot factor applied to the large experimental units (or
+it is a factor whose levels are hard to change) and the other “experiment” has the subplot fac-
+tor applied to the smaller experimental units (or it is a factor whose levels are easy to change).
+The linear model for the split-plot design is
+(14.15)
+where i, j, and ()ij represent the whole plot and correspond, respectively, to replicates,
+main treatments (factor A), and whole-plot error (replicates A), and k, ()ik, ()jk, and
+()ijk represent the subplot and correspond, respectively, to the subplot treatment (factor B),
+the replicates B and AB interactions, and the subplot error (replicates AB). Note that
+the whole-plot error is the replicates A interaction and the subplot error is the three-factor
+interaction replicates AB. The sums of squares for these factors are computed as in the
+three-way analysis of variance without replication.
+The expected mean squares for the split-plot design, with replicates random and main
+treatments and subplot treatments fixed, are shown in Table 14.17. Note that the main fac-
+tor (A) in the whole plot is tested against the whole-plot error, whereas the subtreatment (B)
+is tested against the replicates subtreatment interaction. The AB interaction is tested
+against the subplot error. Notice that there are no tests for the replicate effect (A) or the
+replicate subtreatment (AC) interaction.
+()jk ()ijk ijk 
+i  1, 2, . . . , r
+j  1, 2, . . . , a
+k  1, 2, . . . , b
+yijk i j ()ij k ()ik

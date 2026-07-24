@@ -1,0 +1,86 @@
+92
+3. Linear Regression
+Balance
+20
+40
+60
+80
+100
+5
+10
+15
+20
+2000
+8000
+14000
+0
+500
+1500
+20
+40
+60
+80
+100
+Age
+Cards
+2
+4
+6
+8
+5
+10
+15
+20
+Education
+Income
+50
+100
+150
+2000
+8000
+14000
+Limit
+0
+500
+1500
+2
+4
+6
+8
+50
+100
+150
+200
+600
+1000
+200
+600
+1000
+Rating
+FIGURE 3.6. The Credit data set contains information about balance, age,
+cards, education, income, limit, and rating for a number of potential cus-
+tomers.
+notice that the p-value for the dummy variable is very high. This indicates
+that there is no statistical evidence of a difference in average credit card
+balance based on house ownership.
+The decision to code owners as 1 and non-owners as 0 in (3.27) is ar-
+bitrary, and has no effect on the regression fit, but does alter the inter-
+pretation of the coefficients. If we had coded non-owners as 1 and own-
+ers as 0, then the estimates for β0 and β1 would have been 529.53 and
+−19.73, respectively, leading once again to a prediction of credit card debt
+of $529.53 −$19.73 = $509.80 for non-owners and a prediction of $529.53
+for owners. Alternatively, instead of a 0/1 coding scheme, we could create
+a dummy variable
+xi =
+=
+1
+if ith person owns a house
+−1
+if ith person does not own a house
+and use this variable in the regression equation. This results in the model
+yi = β0+β1xi+ϵi =
+=
+β0 + β1 + ϵi
+if ith person owns a house
+β0 −β1 + ϵi
+if ith person does not own a house.

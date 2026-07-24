@@ -1,0 +1,76 @@
+200
+Chapter 5 ■Introduction to Factorial Designs
+(5.14c)
+(5.14d)
+For convenience, we have shown the parameter corresponding to each normal equation on the
+left in Equations 5.14.
+The effects model (Equation 5.13) is an overparameterized model. Notice that the a
+equations in Equation 5.14b sum to Equation 5.14a and that the b equations of Equation 5.14c
+sum to Equation 5.14a. Also summing Equation 5.14d over j for a particular i will give
+Equation 5.14b, and summing Equation 5.14d over i for a particular j will give Equation
+5.14c. Therefore, there are a b 1 linear dependencies in this system of equations, and
+no unique solution will exist. In order to obtain a solution, we impose the constraints
+(5.15a)
+(5.15b)
+(5.15c)
+and
+(5.15d)
+Equations 5.15a and 5.15b constitute two constraints, whereas Equations 5.15c and 5.15d
+form a b 1 independent constraints. Therefore, we have a b 1 total constraints, the
+number needed.
+Applying these constraints, the normal equations (Equations 5.14) simplify consider-
+ably, and we obtain the solution
+(5.16)
+Notice the considerable intuitive appeal of this solution to the normal equations. Row treatment
+effects are estimated by the row average minus the grand average; column treatments are esti-
+mated by the column average minus the grand average; and the ijth interaction is estimated by
+the ijth cell average minus the grand average, the ith row effect, and the jth column effect.
+Using Equation 5.16, we may nd the ﬁtted value yijk as
+yij.
+ (yij. yi.. y.j. y...)
+y... (yi.. y...) (y.j. y...)
+yˆijk ˆ ˆi ˆ
+j (ˆ)ij
+ (ˆ)ij yij. yi.. y.j. y... 
+ 
+i 1, 2, . . . , a
+j 1, 2, . . . , b
+ˆ
+j y.j. y... 
+ j 1, 2, . . . , b
+ˆi yi.. y... 
+ i 1, 2, . . . , a
+ˆ y...
+
+b
+j1
+ (ˆ)ij 0 
+ i 1, 2, . . . , a
+
+a
+i1
+ (ˆ)ij 0 
+ j 1, 2, . . . , b
+
+b
+j1
+ˆ
+j 0
+
+a
+i1
+ˆi 0
+()ijnˆ nˆi nˆ
+j n()ˆ ij yij. 
+ 
+i 1, 2, . . . , a
+j 1, 2, . . . , b
+janˆ n 
+a
+i1
+ˆi anˆ
+j n 
+a
+i1
+ (ˆ)ij y.j. 
+ j 1, 2, . . . , b

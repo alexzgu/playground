@@ -1,0 +1,64 @@
+472
+Chapter 10 ■Fitting Regression Models
+points. Generally, a large difference between the ordinary residual and the PRESS residuals
+will indicate a point where the model ts the data well, but a model built without that point
+predicts poorly. In the next section we will discuss some other measures of inuence.
+Finally, we note that PRESS can be used to compute an approximate R2 for prediction,
+say
+(10.51)
+This statistic gives some indication of the predictive capability of the regression model. For
+the viscosity regression model from Example 10.1, we can compute the PRESS residuals
+using the ordinary residuals and the values of hii found in Table 10.3. The corresponding value
+of the PRESS statistic is PRESS 5207.7. Then
+Therefore, we could expect this model to “explain” about 89 percent of the variability in pre-
+dicting new observations, as compared to the approximately 93 percent of the variability in
+the original data explained by the least squares t. The overall predictive capability of the
+model based on this criterion seems very satisfactory.
+R-Student. The studentized residual ri discussed above is often considered an outlier
+diagnostic. It is customary to use MSE as an estimate of 2 in computing ri. This is referred
+to as internal scaling of the residual because MSE is an internally generated estimate of 2
+obtained from tting the model to all n observations. Another approach would be to use an
+estimate of 2 based on a data set with the ith observation removed. We denote the estimate
+of 2 so obtained by 
+. We can show that
+(10.52)
+The estimate of 2 in Equation 10.52 is used instead of MSE to produce an externally studen-
+tized residual, usually called R-student, given by
+(10.53)
+In many situations, ti will differ little from the studentized residual ri. However, if the ith
+observation is inuential, then 
+can differ signicantly from MSE, and thus the R-student will
+be more sensitive to this point. Furthermore, under the standard assumptions, ti has a tnp1
+distribution. Thus R-student offers a more formal procedure for outlier detection via hypoth-
+esis testing. Table 10.3 displays the values of R-student for the viscosity regression model in
+Example 10.1. None of those values are unusually large.
+10.7.2
+Inﬂuence Diagnostics
+We occasionally find that a small subset of the data exerts a disproportionate influence on
+the fitted regression model. That is, parameter estimates or predictions may depend more
+on the influential subset than on the majority of the data. We would like to locate these
+influential points and assess their impact on the model. If these influential points are “bad”
+values, they should be eliminated. On the contrary, there may be nothing wrong with these
+points. But if they control key model properties, we would like to know it because it could
+S2
+(i)
+ti 
+ei
+S2
+(i)(1 hii)
+ 
+ i 1, 2, . . . , n
+S2
+(i) (n p)MSE e2
+i/(1 hii)
+n p 1
+S2
+(i)
+1 5207.7
+47,635.9 0.8907
+R2
+Prediction 1 PRESS
+SST
+R2
+Prediction 1 PRESS
+SST

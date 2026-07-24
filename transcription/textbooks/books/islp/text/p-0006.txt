@@ -1,0 +1,152 @@
+x
+Contents
+3.2.2
+Some Important Questions . . . . . . . . . . . . . .
+83
+3.3
+Other Considerations in the Regression Model . . . . . . .
+91
+3.3.1
+Qualitative Predictors
+. . . . . . . . . . . . . . . .
+91
+3.3.2
+Extensions of the Linear Model . . . . . . . . . . .
+94
+3.3.3
+Potential Problems . . . . . . . . . . . . . . . . . .
+100
+3.4
+The Marketing Plan . . . . . . . . . . . . . . . . . . . . . .
+109
+3.5
+Comparison of Linear Regression with K-Nearest
+Neighbors . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+111
+3.6
+Lab: Linear Regression
+. . . . . . . . . . . . . . . . . . . .
+116
+3.6.1
+Importing packages . . . . . . . . . . . . . . . . . .
+116
+3.6.2
+Simple Linear Regression . . . . . . . . . . . . . . .
+117
+3.6.3
+Multiple Linear Regression . . . . . . . . . . . . . .
+122
+3.6.4
+Multivariate Goodness of Fit
+. . . . . . . . . . . .
+123
+3.6.5
+Interaction Terms . . . . . . . . . . . . . . . . . . .
+124
+3.6.6
+Non-linear Transformations of the Predictors
+. . .
+125
+3.6.7
+Qualitative Predictors
+. . . . . . . . . . . . . . . .
+126
+3.7
+Exercises . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+127
+4
+Classification
+135
+4.1
+An Overview of Classification . . . . . . . . . . . . . . . . .
+135
+4.2
+Why Not Linear Regression? . . . . . . . . . . . . . . . . .
+136
+4.3
+Logistic Regression
+. . . . . . . . . . . . . . . . . . . . . .
+138
+4.3.1
+The Logistic Model . . . . . . . . . . . . . . . . . .
+139
+4.3.2
+Estimating the Regression Coefficients . . . . . . .
+140
+4.3.3
+Making Predictions . . . . . . . . . . . . . . . . . .
+141
+4.3.4
+Multiple Logistic Regression . . . . . . . . . . . . .
+142
+4.3.5
+Multinomial Logistic Regression . . . . . . . . . . .
+144
+4.4
+Generative Models for Classification . . . . . . . . . . . . .
+146
+4.4.1
+Linear Discriminant Analysis for p = 1 . . . . . . .
+147
+4.4.2
+Linear Discriminant Analysis for p >1
+. . . . . . .
+150
+4.4.3
+Quadratic Discriminant Analysis
+. . . . . . . . . .
+156
+4.4.4
+Naive Bayes . . . . . . . . . . . . . . . . . . . . . .
+158
+4.5
+A Comparison of Classification Methods
+. . . . . . . . . .
+161
+4.5.1
+An Analytical Comparison . . . . . . . . . . . . . .
+161
+4.5.2
+An Empirical Comparison . . . . . . . . . . . . . .
+164
+4.6
+Generalized Linear Models . . . . . . . . . . . . . . . . . .
+167
+4.6.1
+Linear Regression on the Bikeshare Data . . . . . .
+167
+4.6.2
+Poisson Regression on the Bikeshare Data . . . . .
+169
+4.6.3
+Generalized Linear Models in Greater Generality .
+172
+4.7
+Lab: Logistic Regression, LDA, QDA, and KNN . . . . . .
+173
+4.7.1
+The Stock Market Data
+. . . . . . . . . . . . . . .
+173
+4.7.2
+Logistic Regression . . . . . . . . . . . . . . . . . .
+174
+4.7.3
+Linear Discriminant Analysis
+. . . . . . . . . . . .
+179
+4.7.4
+Quadratic Discriminant Analysis
+. . . . . . . . . .
+181
+4.7.5
+Naive Bayes . . . . . . . . . . . . . . . . . . . . . .
+182
+4.7.6
+K-Nearest Neighbors . . . . . . . . . . . . . . . . .
+183
+4.7.7
+Linear and Poisson Regression on the Bikeshare Data188
+4.8
+Exercises . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+193

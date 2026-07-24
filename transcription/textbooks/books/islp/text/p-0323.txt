@@ -1,0 +1,67 @@
+7.8 Lab: Non-Linear Modeling
+315
+pd.get_dummies() to create the columns of the model matrix for this cate- pd.get_
+dummies()
+gorical variable. Note that this function will include all columns for a given
+categorical, rather than the usual approach which drops one of the levels.
+In [15]: cut_age = pd.qcut(age, 4)
+summarize(sm.OLS(y, pd.get_dummies(cut_age)).fit())
+Out[15]:
+coef
+std err
+t
+P>|t|
+(17.999, 33.75]
+94.1584
+1.478
+63.692
+0.0
+(33.75, 42.0]
+116.6608
+1.470
+79.385
+0.0
+(42.0, 51.0]
+119.1887
+1.416
+84.147
+0.0
+(51.0, 80.0]
+116.5717
+1.559
+74.751
+0.0
+Here pd.qcut() automatically picked the cutpoints based on the quan-
+tiles 25%, 50% and 75%, which results in four regions. We could also have
+specified our own quantiles directly instead of the argument 4. For cuts
+not based on quantiles we would use the pd.cut() function. The function pd.cut()
+pd.qcut() (and pd.cut()) returns an ordered categorical variable. The re-
+gression model then creates a set of dummy variables for use in the regres-
+sion. Since age is the only variable in the model, the value $94,158.40 is the
+average salary for those under 33.75 years of age, and the other coefficients
+are the average salary for those in the other age groups. We can produce
+predictions and plots just as we did in the case of the polynomial fit.
+7.8.2
+Splines
+In order to fit regression splines, we use transforms from the ISLP package.
+The actual spline evaluation functions are in the scipy.interpolate pack-
+age; we have simply wrapped them as transforms similar to Poly() and
+PCA().
+In Section 7.4, we saw that regression splines can be fit by constructing
+an appropriate matrix of basis functions. The BSpline() function generates BSpline()
+the entire matrix of basis functions for splines with the specified set of
+knots. By default, the B-splines produced are cubic. To change the degree,
+use the argument degree.
+In [16]: bs_ = BSpline(internal_knots=[25,40,60], intercept=True).fit(age)
+bs_age = bs_.transform(age)
+bs_age.shape
+Out[16]: (3000, 7)
+This results in a seven-column matrix, which is what is expected for a cubic-
+spline basis with 3 interior knots. We can form this same matrix using the
+bs() object, which facilitates adding this to a model-matrix builder (as in
+poly() versus its workhorse Poly()) described in Section 7.8.1.
+We now fit a cubic spline model to the Wage data.
+In [17]: bs_age = MS([bs('age', internal_knots=[25,40,60])])
+Xbs = bs_age.fit_transform(Wage)
+M = sm.OLS(y, Xbs).fit()
+summarize(M)

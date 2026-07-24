@@ -1,0 +1,44 @@
+13.4 The False Discovery Rate
+575
+up analysis is time-consuming or expensive. Alternatively, a much larger
+threshold of 30% might be suitable if she plans an inexpensive follow-up
+analysis.
+13.4.2
+The Benjamini–Hochberg Procedure
+We now focus on the task of controlling the FDR: that is, deciding which
+null hypotheses to reject while guaranteeing that the FDR, E(V/R), is less
+than or equal to some pre-specified value q. In order to do this, we need
+some way to connect the p-values, p1, . . . , pm, from the m null hypotheses
+to the desired FDR value, q. It turns out that a very simple procedure,
+outlined in Algorithm 13.2, can be used to control the FDR.
+Algorithm 13.2 Benjamini–Hochberg Procedure to Control the FDR
+1. Specify q, the level at which to control the FDR.
+2. Compute p-values, p1, . . . , pm, for the m null hypotheses
+H01, . . . , H0m.
+3. Order the m p-values so that p(1) ≤p(2) ≤· · · ≤p(m).
+4. Define
+L = max{j : p(j) < qj/m}.
+(13.10)
+5. Reject all null hypotheses H0j for which pj ≤p(L).
+Algorithm 13.2 is known as the Benjamini–Hochberg procedure. The crux Benjamini–
+Hochberg
+procedure
+of this procedure lies in (13.10). For example, consider again the first five
+managers in the Fund dataset, presented in Table 13.3. (In this example,
+m = 5, although typically we control the FDR in settings involving a much
+greater number of null hypotheses.) We see that p(1) = 0.006 < 0.05 × 1/5,
+p(2) = 0.012 < 0.05 × 2/5, p(3) = 0.601 > 0.05 × 3/5, p(4) = 0.756 >
+0.05 × 4/5, and p(5) = 0.918 > 0.05 × 5/5. Therefore, to control the FDR
+at 5%, we reject the null hypotheses that the first and third fund managers
+perform no better than chance.
+As long as the m p-values are independent or only mildly dependent,
+then the Benjamini–Hochberg procedure guarantees16 that
+FDR ≤q.
+In other words, this procedure ensures that, on average, no more than a
+fraction q of the rejected null hypotheses are false positives. Remarkably,
+this holds regardless of how many null hypotheses are true, and regardless
+of the distribution of the p-values for the null hypotheses that are false.
+Therefore, the Benjamini–Hochberg procedure gives us a very easy way to
+determine, given a set of m p-values, which null hypotheses to reject in
+order to control the FDR at any pre-specified level q.
+16However, the proof is well beyond the scope of this book.

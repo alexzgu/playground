@@ -1,0 +1,67 @@
+A temperature at the high level and B heating time at 0.50 (in coded units), we can
+achieve a mean free height between the desired limits with variance of approximately 0.0138.
+A disadvantage of the mean and variance modeling approach using the crossed array
+design is that it does not take direct advantage of the interactions between controllable variables
+and noise variables. In some instances, it can even mask these relationships. Furthermore, the
+variance response is likely to have a nonlinear relationship with the controllable variables (see
+Figure 12.5, for example), and this can complicate the modeling process. In the next section, we
+introduce an alternative design strategy and modeling approach that overcomes these issues.
+560
+Chapter 12 ■Robust Parameter Design and Process Robustness Studies
+Variance 0.0137988
+1.00
+–1.00
+–1.00
+–1.50
+0.00
+0.50
+1.00
+0.50
+–0.50
+0.00
+x2 = Heating time (B)
+x1 = Temp (A)
+Mean free height: 7.76
+Mean free height: 7.74
+■F I G U R E 1 2 . 6
+Overlay
+plot of the mean free height and
+variance of free height with x4 
+hold down time (D) at the high
+level
+1.00
+–1.00
+–1.00
+–1.50
+0.00
+0.50
+1.00
+0.50
+–0.50
+0.00
+x2 = Heating time (B)
+x1 = Temp (A)
+7.5
+7.6
+7.7
+7.75
+7.55
+7.65
+■F I G U R E 1 2 . 4
+Contour plot of the mean
+free height response with D hold down time 0
+x2 = Heating time (B)
+0.177509
+0.133382
+0.0892545
+0.0451273
+0.001
+–1.00
+–0.50
+0.00
+0.50
+1.00
+Variance
+■F I G U R E 1 2 . 5
+Plot of the variance of free
+height versus x heating time (B)

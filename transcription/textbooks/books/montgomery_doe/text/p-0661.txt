@@ -1,0 +1,63 @@
+15.1.2
+The Generalized Linear Model
+Data transformations are often a very effective way to deal with the problem of nonnormal
+responses and the associated inequality of variance. As we have seen in the previous section,
+the Box–Cox method is an easy and effective way to select the form of the transformation.
+However, the use of a data transformation poses some problems.
+One problem is that the experimenter may be uncomfortable in working with the
+response in the transformed scale. That is, he or she is interested in the number of defects, not
+the square root of the number of defects, or in resistivity instead of the logarithm of resistivity.
+On the other hand, if a transformation is really successful and improves the analysis and the
+associated model for the response, experimenters will usually quickly adopt the new metric.
+A more serious problem is that a transformation can result in a nonsensical value for
+the response variable over some portion of the design factor space that is of interest to the
+experimenter. For example, suppose that we have used the square root transformation in an
+experiment involving the number of defects observed on semiconductor wafers, and for some
+portion of the region of interest the predicted square root of the count of defects is negative.
+This is likely to occur for situations where the actual number of defects observed is small.
+Consequently, the model for the experiment has produced an obviously unreliable prediction
+in the very region where we would like this model to have good predictive performance.
+Finally, as noted in Section 15.1.1, we often use transformations to stabilize variance,
+induce normality, and simplify the model. There is no assurance that a transformation will
+effectively accomplish all of these objectives simultaneously.
+An alternative to the typical approach of data transformation followed by standard least
+squares analysis of the transformed response is to use the generalized linear model (GLM).
+This is an approach developed by Nelder and Wedderburn (1972) that essentially unies lin-
+ear and nonlinear models with both normal and nonnormal responses. McCullagh and Nelder
+(1989) and Myers, Montgomery,Vining and Robinson (2010) give comprehensive presentations
+of generalized linear models, and Myers and Montgomery (1997) provide a tutorial. More
+details are also given in the supplemental text material for this chapter. We will provide an
+overview of the concepts and illustrate them with three short examples.
+A generalized linear model is basically a regression model (an experimental design
+model is also a regression model). Like all regression models, it is made up of a random
+15.1 Nonnormal Responses and Transformations
+645
+3.58
+7.76
+11.95
+16.14
+20.32
+–3
+–2
+–1
+0
+Lambda
+Ln (Residual SS)
+Box–Cox plot power transforms
+1
+2
+3
+Design-Expert plot
+Peak discharge
+Lambda
+current =1
+Best = 0.541377
+Low C.I. = 0.291092
+High C.l. = 0.791662
+Recommend
+  transformation
+Square Root
+  (Lambda = 0.5)
+■F I G U R E 1 5 . 2
+Output from Design-Expert for the
+Box–Cox procedure

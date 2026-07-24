@@ -1,0 +1,57 @@
+6.1 Subset Selection
+231
+6.1
+Subset Selection
+In this section we consider some methods for selecting subsets of predictors.
+These include best subset and stepwise model selection procedures.
+6.1.1
+Best Subset Selection
+To perform best subset selection, we fit a separate least squares regression best subset
+selection
+for each possible combination of the p predictors. That is, we fit all p models
+that contain exactly one predictor, all
+'p
+2
+(
+= p(p−1)/2 models that contain
+exactly two predictors, and so forth. We then look at all of the resulting
+models, with the goal of identifying the one that is best.
+The problem of selecting the best model from among the 2p possibilities
+considered by best subset selection is not trivial. This is usually broken up
+into two stages, as described in Algorithm 6.1.
+Algorithm 6.1 Best subset selection
+1. Let M0 denote the null model, which contains no predictors. This
+model simply predicts the sample mean for each observation.
+2. For k = 1, 2, . . . p:
+(a) Fit all
+'p
+k
+(
+models that contain exactly k predictors.
+(b) Pick the best among these
+'p
+k
+(
+models, and call it Mk. Here best
+is defined as having the smallest RSS, or equivalently largest R2.
+3. Select a single best model from among M0, . . . , Mp using using the
+prediction error on a validation set, Cp (AIC), BIC, or adjusted R2.
+Or use the cross-validation method.
+In Algorithm 6.1, Step 2 identifies the best model (on the training data)
+for each subset size, in order to reduce the problem from one of 2p possible
+models to one of p + 1 possible models. In Figure 6.1, these models form
+the lower frontier depicted in red.
+Now in order to select a single best model, we must simply choose among
+these p + 1 options. This task must be performed with care, because the
+RSS of these p + 1 models decreases monotonically, and the R2 increases
+monotonically, as the number of features included in the models increases.
+Therefore, if we use these statistics to select the best model, then we will
+always end up with a model involving all of the variables. The problem is
+that a low RSS or a high R2 indicates a model with a low training error,
+whereas we wish to choose a model that has a low test error. (As shown in
+Chapter 2 in Figures 2.9–2.11, training error tends to be quite a bit smaller
+than test error, and a low training error by no means guarantees a low test
+error.) Therefore, in Step 3, we use the error on a validation set, Cp, BIC, or
+adjusted R2 in order to select among M0, M1, . . . , Mp. If cross-validation
+is used to select the best model, then Step 2 is repeated on each training
+fold, and the validation errors are averaged to select the best value of k.

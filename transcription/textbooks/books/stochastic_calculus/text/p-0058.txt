@@ -1,0 +1,40 @@
+52
+CHAPTER 2. BROWNIAN MOTION
+Since Bt has a N(0, t) distribution, the second of these statements is obviously
+true. However, the rst statement is false. To see this, note that PB1 > 1
+is greater than 0, and if B0 = 0, B1 > 1, then continuity implies that there
+exists t (0, 1) such that Bt = 1. Here again we have the challenge of
+dealing with uncountably many events of probability 0. Even though for
+each t, PBt = 1= 0,
+P
+
+
+t∈[0,1]
+Bt = 1
+
+> 0
+While nondierentiable paths may seem surprising, a little thought about
+our assumptions will show why we could not expect to have dierentiable
+paths. Suppose that Bt were dierentiable at t. Then, we could determine
+the derivative by observing Bs, 0 ≤s ≤t. This would then tell us something
+about the increment Bt+∆t −Bt for ∆t > 0. However, our assumptions tell
+us that Bt+∆t −Bt is independent of Bs, 0 ≤s ≤t.
+We will make a more precise statement about the relationship ∆Bt=
+Bt+∆t −Bt≈
+√
+∆t. If α > 0, then a function f : [0, 1] →R is H¨
+α if there exists C < ∞such that for all 0 ≤s, t ≤1,
+f(s) −f(t)≤C s −tα
+The smaller α is the easier it is to be H¨older continuous of order α. Note that
+dierentiable functions are H¨older continuous of order 1 since
+f(s) −f(t)≈f ′(t)s −t
+Theorem 2.6.2. W, α < 12, Bt H¨-
+α H¨12.
+We will be using Brownian motion and functions of Brownian motions to
+model prices of assets. In all of the Brownian models, the functions will have
+H¨older exponent 12.
+We will prove Theorem 2.6.1 for 0 ≤t ≤1. We start by making an
+observation about dierentiable functions. Suppose Bt were dieren-
+tiable at some 0 ≤t ≤1 with derivative r. Then there would exist δ
+such that for t −s≤δ,
+Bt −Bs≤2r(t −s)

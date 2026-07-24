@@ -1,0 +1,41 @@
+130
+CHAPTER 4. MORE STOCHASTIC CALCULUS
+Note that the right-hand side is independent of T and n. As K →∞,
+J∞,K →0, and since Zm is integrable,
+lim
+K∞E [ZmJ∞,K] = 0
+Using the lemma, we now conclude
+E [1A Zs∧T ] = E [1A Zt∧T ] 
+A sucient condition for uniform integrability of Xnis the existence
+of C < ∞such that E[X2
+n] ≤C for all n. Indeed,
+E [Xn1Xn≥K] ≤K−1 E
+
+Xn2 1Xn≥K
+
+≤CK
+In particular, if E[Z2
+t∧T ] ≤C for all t and PT < ∞= 1, then
+Zn∧T →ZT with probability one and uniform integrability implies
+that
+E[ZT ] = lim
+n∞E[Zn∧T ] = lim
+n∞E[Z0] = E[Z0]
+Two other theorems that extend almost immediately to the continuous
+martingale setting are the following. The proofs are essentially the
+same as for their discrete counterparts.
+Theorem 4.1.3. (Martingale Convergence Theorem) Suppose Zt is
+a continuous martingale and there exists C < ∞such that E [Zt] ≤
+C for all t. Then there exists a random variable Z∞such that with
+probability one
+lim
+t∞Zt = Z∞
+Theorem 4.1.4. (Maximal inequality). Suppose Zt is a continuous
+square integrable martingale, and let
+Nt = max
+0≤s≤t Zt
+Then for every a > 0,
+PNt ≥a≤E[Z2
+t ]
+a2
+

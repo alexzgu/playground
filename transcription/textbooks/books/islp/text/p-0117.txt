@@ -1,0 +1,84 @@
+108
+3. Linear Regression
+Coefficient
+Std. error
+t-statistic
+p-value
+Intercept
+−173.411
+43.828
+−3.957
+< 0.0001
+Model 1
+age
+−2.292
+0.672
+−3.407
+0.0007
+limit
+0.173
+0.005
+34.496
+< 0.0001
+Intercept
+−377.537
+45.254
+−8.343
+< 0.0001
+Model 2
+rating
+2.202
+0.952
+2.312
+0.0213
+limit
+0.025
+0.064
+0.384
+0.7012
+TABLE 3.11. The results for two multiple regression models involving the Credit
+data set are shown. Model 1 is a regression of balance on age and limit, and
+Model 2 a regression of balance on rating and limit. The standard error of
+ˆβlimit increases 12-fold in the second regression, due to collinearity.
+error. Consequently, collinearity results in a decline in the t-statistic. As a
+result, in the presence of collinearity, we may fail to reject H0 : βj = 0. This
+means that the power of the hypothesis test—the probability of correctly power
+detecting a non-zero coefficient—is reduced by collinearity.
+Table 3.11 compares the coefficient estimates obtained from two separate
+multiple regression models. The first is a regression of balance on age and
+limit, and the second is a regression of balance on rating and limit. In the
+first regression, both age and limit are highly significant with very small p-
+values. In the second, the collinearity between limit and rating has caused
+the standard error for the limit coefficient estimate to increase by a factor
+of 12 and the p-value to increase to 0.701. In other words, the importance
+of the limit variable has been masked due to the presence of collinearity.
+To avoid such a situation, it is desirable to identify and address potential
+collinearity problems while fitting the model.
+A simple way to detect collinearity is to look at the correlation matrix
+of the predictors. An element of this matrix that is large in absolute value
+indicates a pair of highly correlated variables, and therefore a collinearity
+problem in the data. Unfortunately, not all collinearity problems can be
+detected by inspection of the correlation matrix: it is possible for collinear-
+ity to exist between three or more variables even if no pair of variables
+has a particularly high correlation. We call this situation multicollinearity. multi-
+collinearity
+Instead of inspecting the correlation matrix, a better way to assess multi-
+collinearity is to compute the variance inflation factor (VIF). The VIF is variance
+inflation
+factor
+the ratio of the variance of ˆβj when fitting the full model divided by the
+variance of ˆβj if fit on its own. The smallest possible value for VIF is 1,
+which indicates the complete absence of collinearity. Typically in practice
+there is a small amount of collinearity among the predictors. As a rule of
+thumb, a VIF value that exceeds 5 or 10 indicates a problematic amount of
+collinearity. The VIF for each variable can be computed using the formula
+VIF(ˆβj) =
+1
+1 −R2
+Xj|X−j
+,
+where R2
+Xj|X−j is the R2 from a regression of Xj onto all of the other
+predictors. If R2
+Xj|X−j is close to one, then collinearity is present, and so
+the VIF will be large.

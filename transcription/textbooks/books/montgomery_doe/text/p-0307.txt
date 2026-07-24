@@ -1,0 +1,121 @@
+6.9 Why We Work with Coded Design Variables
+291
+is 0.9170, and the standard error is 0.1046. We can construct a t statistic for testing the
+hypothesis that the interaction coefcient is unity:
+The P-value for this test statistic is P  0.76. Therefore, we cannot reject the null hypoth-
+esis that the coefcient is unity, which is consistent with Ohm’s law. Note that the regression
+coefcients are not dimensionless and that they are estimated with differing precision. This is
+because the experimental design, with the factors in the engineering units, is not orthogonal.
+Because the intercept and the main effects are not signicant, we could consider tting
+a model containing only the interaction term IR. The results are shown in Table 6.28. Notice
+t0 ˆ
+IR 1
+se(ˆ
+IR)
+0.9170 1
+0.1046
+0.7935
+■TA B L E 6 . 2 7
+Regression Analysis for the Circuit Experiment Using Engineering Units
+The regression equation is
+V  0.806 0.144 I 0.471 R 0.917 IR
+Predictor
+Coef
+StDev
+T
+P
+Constant
+0.8055
+0.8432
+0.96
+0.394
+I
+0.1435
+0.1654
+0.87
+0.434
+R
+0.4710
+0.5333
+0.88
+0.427
+IR
+0.9170
+0.1046
+8.77
+0.001
+S 0.1479
+R-Sq  99.9%
+R-Sq(adj) 99.8%
+Analysis of Variance
+Source
+DF
+SS
+MS
+F
+P
+Regression
+3
+71.267
+23.756
+1085.95
+0.000
+Residual Error
+4
+0.088
+0.022
+Total
+7
+71.354
+■TA B L E 6 . 2 6
+Regression Analysis for the Circuit Experiment Using Coded Variables
+The regression equation is
+V 7.50  1.52  1 2.53  2 0.458  1  2
+Predictor
+Coef
+StDev
+T
+P
+Constant
+7.49600
+0.05229
+143.35
+0.000
+x1
+1.51900
+0.05229
+29.05
+0.000
+x2
+2.52800
+0.05229
+48.34
+0.000
+x1x2
+0.45850
+0.05229
+8.77
+0.001
+S 0.1479
+R-Sq  99.9%
+R-Sq(adj)  99.8%
+Analysis of Variance
+Source
+DF
+SS
+MS
+F
+P
+Regression
+3
+71.267
+23.756
+1085.95
+0.000
+Residual Error
+4
+0.088
+0.022
+Total
+7
+71.354

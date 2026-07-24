@@ -1,0 +1,116 @@
+534
+Chapter 11 ■Response Surface Methods and Designs
+■TA B L E 1 1 . 1 9
+The {3, 2} Simplex Lattice Design for the yarn Elongation Problem
+Component Proportions
+Design 
+Observed 
+Average 
+Point
+x1
+x2
+x3
+Elongation Values
+Elongation Value 
+1
+1
+0
+0
+11.0, 12.4
+11.7
+2
+0
+15.0, 14.8, 16.1
+15.3
+3
+0
+1
+0
+8.8, 10.0
+9.4
+4
+0
+10.0, 9.7, 11.8
+10.5
+5
+0
+0
+1
+16.8, 16.0
+16.4
+6
+0
+17.7, 16.4, 16.6
+16.9
+1
+2
+1
+2
+1
+2
+1
+2
+1
+2
+1
+2
+(y)
+blends; that is, at most only two of the three components are
+used in any formulation of the product. Replicate observa-
+tions are also run, with two replicates at each of the pure
+blends and three replicates at each of the binary blends. The
+error standard deviation can be estimated from these repli-
+cate observations as 0.85. Cornell ts the second-order
+mixture polynomial to the data, resulting in
+This model can be shown to be an adequate representation
+of the response. Note that because 
+, we
+would conclude that component 3 (polypropylene) produces
+yarn with the highest elongation. Furthermore, because 
+and 
+are positive, blending components 1 and 2 or
+components 1 and 3 produces higher elongation values than
+would be expected just by averaging the elongations of the
+pure blends. This is an example of “synergistic” blending
+effects. Components 2 and 3 have antagonistic blending
+effects because 
+is negative.
+Figure 11.43 plots the contours of elongation, and this
+may be helpful in interpreting the results. From examin-
+ing the figure, we note that if maximum elongation is
+ˆ 23
+ˆ 13
+ˆ 12
+ˆ 3 # ˆ 1 # ˆ 2
+11.4x1x3 9.6x2x3
+yˆ 11.7x1 9.4x2 16.4x3 19.0x1x2
+desired, a blend of components 1 and 3 should be chosen
+consisting of about 80 percent component 3 and 20
+percent component 1.
+x1
+x3
+x2
+ 13 
+ 12 
+ 14 
+ 15 
+ 16 
+ 15 
+ 14 
+ 13 
+ 17 
+■F I G U R E 1 1 . 4 3
+Contours of constant 
+estimated yarn elongation from the second-order
+mixture model for Example 11.5
+We noted previously that the simplex lattice and simplex centroid designs are bound-
+ary point designs. If the experimenter wants to make predictions about the properties of com-
+plete mixtures, it would be highly desirable to have more runs in the interior of the simplex.
+We recommend augmenting the usual simplex designs with axial runs and the overall cen-
+troid (if the centroid is not already a design point).
+The axis of component i is the line or ray extending from the base point xi 0, xj 1/
+(p 1) for all j i to the opposite vertex where xi 1, xj 0 for all j i. The base point
+will always lie at the centroid of the (p 2)-dimensional boundary of the simplex that is oppo-
+site the vertex xi 1, xj 0 for all j i. [the boundary is sometimes called a (p 2)-at.] The
+length of the component axis is one unit. Axial points are positioned along the component axes
+at a distance from the centroid. The maximum value for is (p 1)/p. We recommend that

@@ -1,0 +1,45 @@
+5.4 Exercises
+225
+repeatedly create bootstrap samples, and each time we record
+whether or not the fifth observation is contained in the bootstrap
+sample.
+rng = np.random.default_rng(10)
+store = np.empty(10000)
+for i in range(10000):
+store[i] = np.sum(rng.choice(100, replace=True) == 4)
+> 0
+np.mean(store)
+Comment on the results obtained.
+3. We now review k-fold cross-validation.
+(a) Explain how k-fold cross-validation is implemented.
+(b) What are the advantages and disadvantages of k-fold cross-
+validation relative to:
+i. The validation set approach?
+ii. LOOCV?
+4. Suppose that we use some statistical learning method to make a pre-
+diction for the response Y for a particular value of the predictor X.
+Carefully describe how we might estimate the standard deviation of
+our prediction.
+Applied
+5. In Chapter 4, we used logistic regression to predict the probability of
+default using income and balance on the Default data set. We will
+now estimate the test error of this logistic regression model using the
+validation set approach. Do not forget to set a random seed before
+beginning your analysis.
+(a) Fit a logistic regression model that uses income and balance to
+predict default.
+(b) Using the validation set approach, estimate the test error of this
+model. In order to do this, you must perform the following steps:
+i. Split the sample set into a training set and a validation set.
+ii. Fit a multiple logistic regression model using only the train-
+ing observations.
+iii. Obtain a prediction of default status for each individual in
+the validation set by computing the posterior probability of
+default for that individual, and classifying the individual to
+the default category if the posterior probability is greater
+than 0.5.
+iv. Compute the validation set error, which is the fraction of
+the observations in the validation set that are misclassified.
+(c) Repeat the process in (b) three times, using three different splits
+of the observations into a training set and a validation set. Com-
+ment on the results obtained.

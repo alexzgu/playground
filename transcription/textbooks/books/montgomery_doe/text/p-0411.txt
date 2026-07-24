@@ -1,0 +1,96 @@
+9.1 The 3k Factorial Design
+395
+9.1
+The 3k Factorial Design
+9.1.1
+Notation and Motivation for the 3k Design
+We now discuss the 3k factorial design—that is, a factorial arrangement with k factors, each at three
+levels. Factors and interactions will be denoted by capital letters. We will refer to the three levels
+of the factors as low, intermediate, and high. Several different notations may be used to represent
+these factor levels; one possibility is to represent the factor levels by the digits 0 (low), 1 (interme-
+diate), and 2 (high). Each treatment combination in the 3k design will be denoted by k digits, where
+the rst digit indicates the level of factor A, the second digit indicates the level of factor B, . . . ,
+and the kth digit indicates the level of factor K. For example, in a 32 design, 00 denotes the treat-
+ment combination corresponding to A and B both at the low level, and 01 denotes the treatment
+combination corresponding to A at the low level and B at the intermediate level. Figures 9.1 and 9.2
+show the geometry of the 32 and the 33 design, respectively, using this notation.
+This system of notation could have been used for the 2k designs presented previously,
+with 0 and 1 used in place of the 1s, respectively. In the 2k design, we prefer the 1 notation
+because it facilitates the geometric view of the design and because it is directly applicable to
+regression modeling, blocking, and the construction of fractional factorials.
+In the 3k system of designs, when the factors are quantitative, we often denote the low,
+intermediate, and high levels by 1, 0, and 1, respectively. This facilitates tting a regres-
+sion model relating the response to the factor levels. For example, consider the 32 design in
+Figure 9.1, and let x1 represent factor A and x2 represent factor B. A regression model relat-
+ing the response y to x1 and x2 that is supported by this design is
+(9.1)
+Notice that the addition of a third factor level allows the relationship between the response
+and design factors to be modeled as a quadratic.
+The 3k design is certainly a possible choice by an experimenter who is concerned about
+curvature in the response function. However, two points need to be considered:
+1. The 3k design is not the most efcient way to model a quadratic relationship; the
+response surface designs discussed in Chapter 11 are superior alternatives.
+2. The 2k design augmented with center points, as discussed in Chapter 6, is an excel-
+lent way to obtain an indication of curvature. It allows one to keep the size and
+y 0 1x1 2x2 12x1x2 11x2
+1 22x2
+2 
+0
+00
+10
+20
+01
+11
+21
+02
+12
+22
+1
+2
+Factor B
+Factor A
+1
+0
+2
+Factor A
+Factor B
+Factor C
+0
+1
+2
+0
+0
+1
+2
+1
+2
+022
+122
+212
+112
+202
+102
+002
+221
+220
+011
+111
+211
+210
+110
+010
+012
+021
+101
+201
+001
+200
+100
+000
+222
+■F I G U R E 9 . 1
+Treatment
+combinations in a 32 design
+■F I G U R E 9 . 2
+Treatment combinations in a 33
+design

@@ -1,0 +1,85 @@
+3.3. IT ˆO’S FORMULA
+103
+with mesh ∥Π∥= maxtj −tj−1. Then we write
+f(B1) = f(B0) +
+n
+
+j=1
+
+f(Btj) −f(Btj−1)
+
+
+Taylor’s theorem implies that
+m(j, n)
+2
+
+Btj −Btj−1
+2
+≤
+f(Btj) −f(Btj−1) −f ′(Btj−1)
+
+Btj −Btj−1
+
+≤
+M(j, n)
+2
+
+Btj −Btj−1
+2 ,
+where m(j, n), M(j, n) denote the minimum and maximum of f ′′(x)
+for x on the interval with endpoints Btj−1 and Btj. Hence if we let
+Q1(Π) =
+n
+
+j=1
+f ′(Btj−1)
+
+Btj −Btj−1
+
+,
+Q2
++(Π) =
+n
+
+j=1
+M(j, n)
+2
+
+Btj −Btj−1
+2 ,
+Q2
+−(Π) =
+n
+
+j=1
+m(j, n)
+2
+
+Btj −Btj−1
+2 ,
+we have
+Q2
+−(Π) ≤f(B1) −f(B0) −Q1(Π) ≤Q2
++(Π)
+We now suppose that we have a sequence of partitions Πn of the form
+0 = t0,n < t1,n < · · · < tkn,n = 1,
+with ∥Πn∥< ∞. Then we have seen that with probability one, for
+all 0 < s < t < 1,
+lim
+n∞
+
+s≤tj,n<t
+
+Btj,n −Btj−1,n
+2 = t −s
+Using the continuity of Bt and f ′′, we can see that on the event that
+this is true, we also have
+lim
+n∞Q2
+−(Πn) = lim
+n∞Q2
++(Πn) = 1
+2
+1
+0
+f ′′(Bs) ds

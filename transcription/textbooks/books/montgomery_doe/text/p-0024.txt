@@ -1,0 +1,44 @@
+Fractional factorial designs are used extensively in industrial research and development,
+and for process improvement. These designs will be discussed in Chapters 8 and 9.
+1.2
+Some Typical Applications of Experimental Design
+Experimental design methods have found broad application in many disciplines. As noted
+previously, we may view experimentation as part of the scientic process and as one of the
+ways by which we learn about how systems or processes work. Generally, we learn through
+a series of activities in which we make conjectures about a process, perform experiments to
+generate data from the process, and then use the information from the experiment to establish
+new conjectures, which lead to new experiments, and so on.
+Experimental design is a critically important tool in the scientic and engineering
+world for improving the product realization process. Critical components of these activities
+are in new manufacturing process design and development, and process management. The
+application of experimental design techniques early in process development can result in
+1. Improved process yields
+2. Reduced variability and closer conformance to nominal or target requirements
+3. Reduced development time
+4. Reduced overall costs.
+Experimental design methods are also of fundamental importance in engineering
+design activities, where new products are developed and existing ones improved. Some appli-
+cations of experimental design in engineering design include
+1. Evaluation and comparison of basic design congurations
+2. Evaluation of material alternatives
+3. Selection of design parameters so that the product will work well under a wide vari-
+ety of eld conditions, that is, so that the product is robust
+4. Determination of key product design parameters that impact product performance
+5. Formulation of new products.
+The use of experimental design in product realization can result in products that are easier
+to manufacture and that have enhanced field performance and reliability, lower product
+cost, and shorter product design and development time. Designed experiments also have
+extensive applications in marketing, market research, transactional and service operations,
+and general business operations. We now present several examples that illustrate some of
+these ideas.
+8
+Chapter 1 ■Introduction
+Walk
+Ride
+Mode of travel
+Driver
+Ball
+Beverage
+■F I G U R E 1 . 8
+A four-factor fractional factorial experiment involving
+type of driver, type of ball, type of beverage, and mode of travel

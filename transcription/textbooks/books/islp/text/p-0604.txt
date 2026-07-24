@@ -1,0 +1,96 @@
+598
+Index
+trade-off, 31–34, 38, 111–112,
+157, 159, 163, 164, 242,
+254, 263, 266, 301, 336,
+376, 385
+bidirectional, 425
+Bikeshare data set, 12, 167–172
+binary, 27, 138
+biplot, 507, 508
+Bonferroni method, 575–577, 585
+Boolean, 53, 176
+boosting, 11, 24, 331, 343, 347–
+350, 354, 361–362
+bootstrap, 11, 201, 212–214, 343
+Boston data set, 12, 67, 117, 122,
+133, 199, 227, 287, 327,
+364, 556
+bottom-up clustering, 525
+boxplot, 62
+BrainCancer data set, 12, 472–
+474, 476, 482
+branch, 333
+burn-in, 352
+C-index, 487
+Caravan data set, 12, 184, 366
+Carseats data set, 12, 126, 130,
+364
+categorical, 2, 27
+censored data, 469–502
+censoring
+independent, 471
+interval, 471
+left, 471
+mechanism, 471
+non-informative, 471
+right, 471
+time, 470
+chain rule, 429
+channel, 407
+CIFAR100 data set, 406, 409–411,
+448, 449
+classification, 2, 11, 27, 34–39, 135–
+199, 367–382
+error rate, 338
+tree, 337–341, 355–358
+classifier, 135
+cluster analysis, 25–26
+clustering, 4, 25–26, 520–535
+agglomerative, 525
+bottom-up, 525
+hierarchical, 521, 525–535
+K-means, 11, 521–524
+Cochran–Mantel–Haenszel test, 475
+coefficient, 71
+College data set, 12, 65, 286, 328
+collinearity, 106–110
+concatenation, 41
+conditional probability, 35
+confidence interval, 75–76, 90, 110,
+292
+confounding, 144
+confusion matrix, 153, 176
+continuous, 2
+contour, 246
+contour plot, 50
+contrast, 94
+convenience function, 53
+convolution filter, 407
+convolution layer, 407
+convolutional neural network, 406–
+413
+correlation, 79, 82–83, 530
+count data, 167, 170
+Cox’s proportional hazards model,
+480, 483–486
+Cp, 87, 231, 232, 236–238
+Credit data set, 12, 91, 92, 94,
+97, 98, 106–109
+cross-entropy, 405
+cross-validation, 11, 31, 34, 201–
+211, 231, 252, 270
+k-fold, 206–209
+leave-one-out, 204–206
+curse of dimensionality, 115, 193,
+266
+data augmentation, 411
+data frame, 55
+Data sets
+Advertising, 15, 16, 19, 69,
+71–73, 77, 78, 80, 82, 83,
+85, 87–90, 95, 96, 109–
+111
+Auto, 12, 66, 98–101, 129, 197,
+202–207, 327, 398
+Bikeshare, 12, 167–172

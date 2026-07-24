@@ -1,0 +1,165 @@
+the main effects plus interaction model and can afford a total of 12 runs. Where should these
+replicate runs made? An optimal design approach can be used to determine the best place to
+allocate replicate runs to an existing design.
+Tables 9.34 and 9.35 present the D-optimal and I-optimal designs obtained from JMP,
+respectively. From inspection of the tables we see that both designs are full 32 full factorials
+with three replicated runs.
+The D-optimal design replicates the treatment combinations (L1, L2), (L2, L2), and
+(L3, L2). Thus, L2 appears six times in column X2 while L1 and L3 appear only three
+times. By contrast, the I-optimal design replicates combinations (L1, L1), (L2, L2), and
+(L3, L2). In column X2 of this design, L1 appears three times, L2 appears five times, and
+L3 appears four times. The only difference between the two designs is that one of the repli-
+cated runs is different in each design. The average scaled prediction variance is 0.833 for
+both designs.
+434
+Chapter 9 ■Additional Design and Analysis Topics for Factorial and Fractional Factorial Designs
+■T A B L E 9 . 3 3
+The 9-Run I-Optimal Design for Two 3-Level Categorical
+Factors 
+Run
+X1
+X2
+1
+L1
+L1
+2
+L2
+L1
+3
+L3
+L1
+4
+L1
+L2
+5
+L2
+L2
+6
+L3
+L2
+7
+L1
+L3
+8
+L2
+L3
+9
+L3
+L3
+■T A B L E 9 . 3 2
+The 9-Run D-Optimal Design for Two 3-Level
+Categorical Factors 
+Run
+X1
+X2
+1
+L1
+L1
+2
+L2
+L1
+3
+L3
+L1
+4
+L1
+L2
+5
+L2
+L2
+6
+L3
+L2
+7
+L1
+L3
+8
+L2
+L3
+9
+L3
+L3
+■T A B L E 9 . 3 4
+The 12-Run D-Optimal Design for Two 3-Level
+Categorical Factors 
+Run
+X1
+X2
+1
+L1
+L1
+2
+L2
+L1
+3
+L3
+L1
+4
+L1
+L2
+5
+L1
+L2
+6
+L2
+L2
+7
+L2
+L2
+8
+L3
+L2
+9
+L3
+L2
+10
+L1
+L3
+11
+L2
+L3
+12
+L3
+L3
+■T A B L E 9 . 3 5
+The 12-Run I-Optimal Design for Two 3-Level
+Categorical Factors 
+Run
+X1
+X2
+1
+L3
+L3
+2
+L2
+L2
+3
+L2
+L1
+4
+L1
+L1
+5
+L3
+L1
+6
+L3
+L2
+7
+L2
+L3
+8
+L3
+L2
+9
+L1
+L3
+10
+L2
+L2
+11
+L1
+L1
+12
+L1
+L2

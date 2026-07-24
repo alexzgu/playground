@@ -1,0 +1,77 @@
+Sequences of Fractional Factorials.
+Using fractional factorial designs often leads
+to great economy and efciency in experimentation, particularly if the runs can be made
+sequentially. For example, suppose that we are investigating k 4 factors (24 16 runs). It
+is almost always preferable to run a 
+fractional design (eight runs), analyze the results,
+and then decide on the best set of runs to perform next. If it is necessary to resolve ambiguities,
+241
+IV
+8.2 The One-Half Fraction of the 2k Design
+331
+7.0
+15.5
+32.0
+44.5
+61.5
+51.0
+21.5
+9.5
+A
+–
++
+B
+–
+–
++
++
+C
+■F I G U R E 8 . 1 0
+Projection of the 
+design in Example 8.2 into two replicates of a 23
+design in the factors A, B, and C
+25!1
+V
+(b)
+Add more runs
+to clarify results—
+resolve aliasing
+(f)
+Add runs
+to allow modeling additional
+terms, such as quadratic
+effects needed because of
+curvature
+(a)
+Perform one or
+more confirmation runs
+to verify conclusions
+from the initial experiment
+(g)
+Move to a new
+experimental region that
+is more likely to contain
+desirable response values
+(c)
+Change the
+ scale on one
+or more factors
+(d)
+Replicate some runs
+to improve
+precision of estimation
+ or to verify that runs
+were made correctly
+(e)
+Drop/add
+factors 
+–
++
+D
+B
+C
+A
+■F I G U R E 8 . 1 1
+Possibilities
+for follow-up experimentation after an
+initial fractional factorial experiment

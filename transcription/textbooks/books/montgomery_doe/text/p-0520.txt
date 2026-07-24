@@ -1,0 +1,91 @@
+lying on a sphere of radius 
+. Also, the Box–Behnken design does not contain any points at the
+vertices of the cubic region created by the upper and lower limits for each variable. This could be
+advantageous when the points on the corners of the cube represent factor-level combinations that
+are prohibitively expensive or impossible to test because of physical process constraints.
+Cuboidal Region of Interest. In many situations, the region of interest is cuboidal rather
+than spherical. In these cases, a useful variation of the central composite design is the face-
+centered central composite design or the face-centered cube, in which 1. This design
+locates the star or axial points on the centers of the faces of the cube, as shown in Figure 11.23 for
+k 3. This variation of the central composite design is also sometimes used because it requires
+only three levels of each factor, and in practice it is frequently difcult to change factor levels.
+However, note that face-centered central composite designs are not rotatable.
+The face-centered cube does not require as many center points as the spherical CCD. In
+practice, nC 2 or 3 is sufcient to provide good variance of prediction throughout the exper-
+imental region. It should be noted that sometimes more center runs will be employed to give
+a reasonable estimate of experimental error. Figure 11.24 shows the square root of prediction
+variance 
+for the face-centered cube for  k 3 with nC 3 center points. Notice
+V[yˆ(x)]
+2
+504
+Chapter 11 ■Response Surface Methods and Designs
+x3
+x2
+x1
+–1
++1
+–1
++1
+–1
++1
+x3
+x2
+x1
+–1
++1
+–1
++1
+–1
++1
+■F I G U R E 1 1 . 2 2
+A Box–Behnken
+design for three factors
+■F I G U R E 1 1 . 2 3
+A face-centered
+central composite design for k 3
+  V [y(x)]
+0.848
+0.742
+0.637
+0.531
+0.425
+1.00
+1.00
+0.50
+0.00
+–0.50
+–1.00
+–1.00
+–0.50
+(b) Contour plot
+(a) Response surface
+0.00
+x1
+x1
+x2
+x2
+0.50
+1.00
+1.00
+0.50
+0.50
+0.00
+0.00
+–0.50
+–0.50
+–1.00
+–1.00
+0.707
+0.496
+0.566
+0.707
+0.707
+0.637
+0.707
+›
+■F I G U R E 1 1 . 2 4
+Standard deviation of predicted response 
+for the face-centered cube
+with k 3, nC 3, and x3 0
+V[yˆ(x)]

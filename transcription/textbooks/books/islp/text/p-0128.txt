@@ -1,0 +1,67 @@
+3.6 Lab: Linear Regression
+119
+We first describe this process for our simple regression model using a
+single predictor lstat in the Boston data frame, but will use it repeatedly
+in more complex tasks in this and other labs in this book. In our case the
+transform is created by the expression design = MS(['lstat']).
+The fit() method takes the original array and may do some initial com-
+putations on it, as specified in the transform object. For example, it may
+compute means and standard deviations for centering and scaling. The
+transform() method applies the fitted transformation to the array of data,
+and produces the model matrix.
+In [12]: design = MS(['lstat'])
+design = design.fit(Boston)
+X = design.transform(Boston)
+X[:4]
+Out[12]:
+intercept
+lstat
+0
+1.0
+4.98
+1
+1.0
+9.14
+2
+1.0
+4.03
+3
+1.0
+2.94
+In this simple case, the fit() method does very little; it simply checks that
+the variable 'lstat' specified in design exists in Boston. Then transform()
+constructs the model matrix with two columns: an intercept and the vari-
+able lstat.
+These two operations can be combined with the fit_transform() method. .fit_
+transform()
+In [13]: design = MS(['lstat'])
+X = design.fit_transform(Boston)
+X[:4]
+Out[13]:
+intercept
+lstat
+0
+1.0
+4.98
+1
+1.0
+9.14
+2
+1.0
+4.03
+3
+1.0
+2.94
+Note that, as in the previous code chunk when the two steps were done
+separately, the design object is changed as a result of the fit() operation.
+The power of this pipeline will become clearer when we fit more complex
+models that involve interactions and transformations.
+Let’s return to our fitted regression model. The object results has several
+methods that can be used for inference. We already presented a function
+summarize() for showing the essentials of the fit. For a full and somewhat
+exhaustive summary of the fit, we can use the summary() method (output
+not shown).
+In [14]: results.summary()
+The fitted coefficients can also be retrieved as the params attribute of
+results.
+In [15]: results.params

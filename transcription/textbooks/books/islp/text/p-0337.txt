@@ -1,0 +1,16 @@
+7.9 Exercises
+329
+(g) Compare your answer in (e) to the results of simply perform-
+ing multiple linear regression to predict Y using X1 and X2.
+Use axline() method to overlay those multiple linear regression
+coefficient estimates on the plot obtained in (e).
+(h) On this data set, how many backfitting iterations were required
+in order to obtain a “good” approximation to the multiple re-
+gression coefficient estimates?
+12. This problem is a continuation of the previous exercise. In a toy
+example with p = 100, show that one can approximate the multiple
+linear regression coefficient estimates by repeatedly performing simple
+linear regression in a backfitting procedure. How many backfitting
+iterations are required in order to obtain a “good” approximation to
+the multiple regression coefficient estimates? Create a plot to justify
+your answer.

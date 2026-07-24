@@ -1,0 +1,166 @@
+10.9 Problems
+475
+for lack of t, we would compute the test statistic F0 and conclude that the regression function
+is not linear if F0  F,mp,nm.
+This test procedure may be easily incorporated into the analysis of variance. If we con-
+clude that the regression function is not linear, then the tentative model must be abandoned
+and attempts made to nd a more appropriate equation. Alternatively, if F0 does not exceed
+F,mp,nm, there is no strong evidence of lack of t and MSPE and MSLOF are often combined to
+estimate 2. Example 6.7 is a very complete illustration of this procedure, where the replicate
+runs are center points in a 24 factorial design.
+10.9
+Problems
+10.1.
+The tensile strength of a paper product is related to
+the amount of hardwood in the pulp. Ten samples are pro-
+duced in the pilot plant, and the data obtained are shown in the
+following table.
+Percent 
+Percent 
+Strength
+Hardwood
+Strength
+Hardwood
+160
+10
+181
+20
+171
+15
+188
+25
+175
+15
+193
+25
+182
+20
+195
+28
+184
+20
+200
+30
+(a) Fit a linear regression model relating strength to
+percent hardwood.
+(b) Test the model in part (a) for signicance of regres-
+sion.
+(c) Find a 95 percent condence interval on the parameter
+1.
+10.2.
+A plant distills liquid air to produce oxygen, nitrogen,
+and argon. The percentage of impurity in the oxygen is
+thought to be linearly related to the amount of impurities in
+the air as measured by the “pollution count” in parts per mil-
+lion (ppm). A sample of plant operating data is shown below:
+10.3.
+Plot the residuals from Problem 10.1 and comment on
+model adequacy.
+10.4.
+Plot the residuals from Problem 10.2 and comment on
+model adequacy.
+10.5.
+Using the results of Problem 10.1, test the regression
+model for lack of t.
+10.6.
+A study was performed on wear of a bearing y and its
+relationship to x1 oil viscosity and x2 load. The following
+data were obtained:
+y
+x1
+x2
+193
+1.6
+851
+230
+15.5
+816
+172
+22.0
+1058
+91
+43.0
+1201
+113
+33.0
+1357
+125
+40.0
+1115
+(a) Fit a multiple linear regression model to the data.
+(b) Test for signicance of regression.
+(c) Compute t statistics for each model parameter. What
+conclusions can you draw?
+10.7.
+The brake horsepower developed by an automobile
+engine on a dynamometer is thought to be a function of the
+engine speed in revolutions per minute (rpm), the road octane
+number of the fuel, and the engine compression. An experi-
+ment is run in the laboratory and the data that follow are
+collected:
+Road
+Brake 
+Octane 
+Horsepower
+rpm
+Number
+Compression
+225
+2000
+90
+100
+212
+1800
+94
+95
+229
+2400
+88
+110
+222
+1900
+91
+96
+219
+1600
+86
+100
+278
+2500
+96
+110
+Purity
+(%)
+93.3
+92.0
+92.4 91.7
+94.0 94.6
+93.6
+Pollution
+count
+(ppm)
+1.10
+1.45
+1.36 1.59
+1.08 0.75
+1.20
+Purity
+(%)
+93.1
+93.2
+92.9
+92.2 91.3
+90.1 91.6
+91.9
+Pollution
+count
+(ppm)
+0.99
+0.83
+1.22
+1.47 1.81
+2.03 1.75
+1.68
+(a) Fit a linear regression model to the data.
+(b) Test for signicance of regression.
+(c) Find a 95 percent condence interval on 1.

@@ -1,0 +1,43 @@
+1.4. MARTINGALE CONVERGENCE THEOREM
+23
+While Polya’s urn seems like a toy model, it arises in a number of places.
+We will give an example from Bayesian statistics. Suppose that we perform
+independent trials of an experiment where the probability of success for each
+experiment is θ (such trials are called B). Suppose that we do
+not know the value of θ, but want to try to deduce it by observing trials. Let
+X1, X2, be independent random variables with
+PXj = 1= 1 −PXj = 0= θ
+The (strong) law of large numbers implies that with probability one,
+lim
+n∞
+X1 + · · · + Xn
+n
+= θ
+(1.10)
+Hence, if were able to observe innitely many trials, we could deduce θ ex-
+actly.
+Clearly, we cannot deduce θ with 100% assurance if we see only a nite
+number of trials. Indeed, if 0 < θ < 1, there is always a chance that the rst
+n trials will all be failures and there is a chance they will all be successes.
+The Bayesian approach to statistics is to assume that θ is a random variable
+with a certain . As we observe the data we update to a
+. We will assume we know nothing initially about the
+value and choose the prior distribution to the uniform distribution on [0, 1]
+with density
+f0(θ) = 1,
+0 < θ < 1
+Suppose that after observing n trials, we have had Sn = X1 + · · · + Xn
+successes. If we know θ, then the distribution of Sn is binomial,
+PSn = k θ=
+n
+k
+
+θk (1 −θ)n−k
+We use a form of the Bayes rule to update the density
+fn,k(θ) := fn(θ Sn = k) =
+PSn = k θ
+1
+0 PSn = k xdx
+= Cn,k θk (1 −θ)n−k,
+where Cn,k is the appropriate constant so that fn,k is a probability density.
+This is the with parameters k+1 and n−k+1. The probability of

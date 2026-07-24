@@ -1,0 +1,119 @@
+It is convenient to think of the observations as an 8 1 vector, say
+and the variances and covariances can be expressed as an 8 8 covariance matrix
+where 11, 22, 12, and 21 
+are 4 4 matrices dened as follows:
+and 21 is just the transpose of 12. Now each observation is normally distributed with vari-
+ance 
+, and if we assume that all N abn observations have a joint normal distribution,
+then the likelihood function for the random model becomes
+where jN is an N 1 vector of 1s. The maximum likelihood estimates of ,
+, and
+2 are those values of these parameters that maximize the likelihood function. In some situa-
+tions, it would also be desirable to restrict the variance component estimates to nonnegative
+values.
+Estimating variance components by maximum likelihood requires specialized computer
+software. JMP computes maximum likelihood estimates of the variance components in random
+or mixed models using the residual maximum likelihood (REML) method.
+Table 13.3 is the output from JMP for the two-factor random effects experiment in
+Example 13.1. The output contains some model summary statistics, and the estimates of the
+individual variance components, which agree with those obtained via the ANOVA method in
+Example 13.1 (REML and the ANOVA method will agree for point estimation in balanced
+designs). Other information includes the ratio of each variance component to the estimated
+residual error variance, the standard error of each variance component, upper and lower
+bounds of a large-sample 95 percent condence interval on each variance component, the
+percent of total variability accounted for by each variance component and the covariance
+2
+, 2
+, 2
+
+L(, 2
+, 2
+, 2
+, 2) 
+1
+(2)n/21/2 exp 1
+2 (y jN)1(y jN)
+2
+y
+12 
+
+2
+
+2
+0
+0
+
+2
+
+2
+0
+0
+0
+0
+
+2
+
+2
+0
+0
+
+2
+
+2
+11 22 
+2
+
+2 
+2 
+2
+
+2
+
+2
+
+2 
+2 
+2
+
+2
+
+2
+
+2
+
+2
+
+2
+y
+2
+
+2 
+2 
+2
+
+2
+
+2
+
+2 
+2 
+2
+2
+y
+12
+
+11
+21
+12
+22
+y 
+y111
+y112
+y211
+y212
+y121
+y122
+y221
+y222
+13.2 The Two-Factor Factorial with Random Factors
+579

@@ -1,0 +1,56 @@
+3.3 Other Considerations in the Regression Model
+91
+3.3
+Other Considerations in the Regression Model
+3.3.1
+Qualitative Predictors
+In our discussion so far, we have assumed that all variables in our linear
+regression model are quantitative. But in practice, this is not necessarily
+the case; often some predictors are qualitative.
+For example, the Credit data set displayed in Figure 3.6 records variables
+for a number of credit card holders. The response is balance (average credit
+card debt for each individual) and there are several quantitative predictors:
+age, cards (number of credit cards), education (years of education), income
+(in thousands of dollars), limit (credit limit), and rating (credit rating).
+Each panel of Figure 3.6 is a scatterplot for a pair of variables whose iden-
+tities are given by the corresponding row and column labels. For example,
+the scatterplot directly to the right of the word “Balance” depicts balance
+versus age, while the plot directly to the right of “Age” corresponds to
+age versus cards. In addition to these quantitative variables, we also have
+four qualitative variables: own (house ownership), student (student status),
+status (marital status), and region (East, West or South).
+Predictors with Only Two Levels
+Suppose that we wish to investigate differences in credit card balance be-
+tween those who own a house and those who don’t, ignoring the other vari-
+ables for the moment. If a qualitative predictor (also known as a factor) factor
+only has two levels, or possible values, then incorporating it into a regres- level
+sion model is very simple. We simply create an indicator or dummy variable dummy
+variable
+that takes on two possible numerical values.10 For example, based on the
+own variable, we can create a new variable that takes the form
+xi =
+=
+1
+if ith person owns a house
+0
+if ith person does not own a house,
+(3.26)
+and use this variable as a predictor in the regression equation. This results
+in the model
+yi = β0 + β1xi + ϵi =
+=
+β0 + β1 + ϵi
+if ith person owns a house
+β0 + ϵi
+if ith person does not.
+(3.27)
+Now β0 can be interpreted as the average credit card balance among those
+who do not own, β0 + β1 as the average credit card balance among those
+who do own their house, and β1 as the average difference in credit card
+balance between owners and non-owners.
+Table 3.7 displays the coefficient estimates and other information asso-
+ciated with the model (3.27). The average credit card debt for non-owners
+is estimated to be $509.80, whereas owners are estimated to carry $19.73
+in additional debt for a total of $509.80 + $19.73 = $529.53. However, we
+10In the machine learning community, the creation of dummy variables to handle
+qualitative predictors is known as “one-hot encoding”.

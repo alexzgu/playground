@@ -1,0 +1,105 @@
+The estimate of 
+is found from the mean square for blocks adjusted for treatments. In gen-
+eral, for a balanced incomplete block design, this mean square is
+(4.51)
+and its expected value [which is derived in Graybill (1961)] is
+Thus, if MSBlocks(adjusted) MSE, the estimate of 
+is
+(4.52)
+and if MSBlocks(adjusted) MSE, we set 
+0. This results in the combined estimator
+(4.53a)
+(4.53b)
+We now compute the combined estimates for the data in Example 4.5. From Table 4.25 we
+obtain
+MSE 0.65 and MSBlocks(adjusted) 22.03. (Note that in computing MSBlocks(adjusted)
+we make use of the fact that this is a symmetric design. In general, we must use Equation
+4.51. Because MSBlocks(adjusted) MSE, we use Equation 4.52 to estimate 
+as
+Therefore, we may substitute 
+0.65 and 
+8.02 into Equation 4.53a to obtain the com-
+bined estimates listed below. For convenience, the intrablock and interblock estimates are also
+given. In this example, the combined estimates are close to the intrablock estimates because
+the variance of the interblock estimates is relatively large.
+Parameter
+Intrablock Estimate
+Interblock Estimate
+Combined Estimate
+1
+1.12
+10.50
+1.09
+2
+0.88
+3.50
+0.88
+3
+0.50
+0.50
+0.50
+4
+2.50
+6.50
+2.47
+ˆ 2
+
+ˆ 2
+ˆ 2
+(22.03 0.65)(3)
+4(3 1)
+8.02
+2
+
+ˆ 2
+*i 
+kQi(ˆ 2 kˆ 2
+) 
+b
+j1
+nijy.j kry..ˆ 2
+(r )ˆ 2 a(ˆ 2 kˆ 2
+)
+,
+yi. (1/a)y..
+r
+,
+ ˆ 2
+# 0
+ˆ 2
+ 0
+ˆ 2
+
+ˆ 2
+
+[MSBlocks(adjusted) MSE](b 1)
+a(r 1)
+ˆ 2
+
+E[MSBlocks(adjusted)] 2 a(r 1)
+b 1
+2
+
+MSBlocks(adjusted) 
+k
+a
+i1
+Q2
+i
+a
+
+b
+j1
+y2
+.j
+k 
+a
+i1
+y2
+i.
+r
+(b 1)
+2
+
+176
+Chapter 4 ■Randomized Blocks, Latin Squares, and Related Designs

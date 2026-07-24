@@ -1,0 +1,50 @@
+2.3 Lab: Introduction to Python
+53
+We can see what has gone wrong here. When supplied with two indexing
+lists, the numpy interpretation is that these provide pairs of i, j indices for
+a series of entries. That is why the pair of lists must have the same length.
+However, that was not our intent, since we are looking for a submatrix.
+One easy way to do this is as follows. We first create a submatrix by
+subsetting the rows of A, and then on the fly we make a further submatrix
+by subsetting its columns.
+In [63]: A[[1,3]][:,[0,2]]
+Out[63]: array([[ 4,
+6],
+[12, 14]])
+There are more efficient ways of achieving the same result.
+The convenience function np.ix_() allows us to extract a submatrix using convenience
+function
+np.ix_()
+lists, by creating an intermediate mesh object.
+mesh
+In [64]: idx = np.ix_([1,3],[0,2,3])
+A[idx]
+Out[64]: array([[ 4,
+6,
+7],
+[12, 14, 15]])
+Alternatively, we can subset matrices efficiently using slices. The slice
+1:4:2 captures the second and fourth items of a sequence, while the slice
+0:3:2 captures the first and third items (the third element in a slice se-
+quence is the step size).
+In [65]: A[1:4:2,0:3:2]
+Out[65]: array([[ 4,
+6],
+[12, 14]])
+Why are we able to retrieve a submatrix directly using slices but not using
+lists? Its because they are different Python types, and are treated differently
+by numpy. Slices can be used to extract objects from arbitrary sequences,
+such as strings, lists, and tuples, while the use of lists for indexing is more
+limited.
+Boolean Indexing
+In numpy, a Boolean is a type that equals either True or False (also rep- Boolean
+resented as 1 and 0, respectively). The next line creates a vector of 0’s,
+represented as Booleans, of length equal to the first dimension of A.
+In [66]: keep_rows = np.zeros(A.shape[0], bool)
+keep_rows
+Out[66]: array([False,
+False, False,
+False])
+We now set two of the elements to True.
+In [67]: keep_rows[[1,3]] = True
+keep_rows

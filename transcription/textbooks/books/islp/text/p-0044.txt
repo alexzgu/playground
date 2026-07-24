@@ -1,0 +1,50 @@
+34
+2. Statistical Learning
+of these three quantities. In all three cases, the variance increases and the
+bias decreases as the method’s flexibility increases. However, the flexibility
+level corresponding to the optimal test MSE differs considerably among the
+three data sets, because the squared bias and variance change at different
+rates in each of the data sets. In the left-hand panel of Figure 2.12, the
+bias initially decreases rapidly, resulting in an initial sharp decrease in the
+expected test MSE. On the other hand, in the center panel of Figure 2.12
+the true f is close to linear, so there is only a small decrease in bias as flex-
+ibility increases, and the test MSE only declines slightly before increasing
+rapidly as the variance increases. Finally, in the right-hand panel of Fig-
+ure 2.12, as flexibility increases, there is a dramatic decline in bias because
+the true f is very non-linear. There is also very little increase in variance
+as flexibility increases. Consequently, the test MSE declines substantially
+before experiencing a small increase as model flexibility increases.
+The relationship between bias, variance, and test set MSE given in Equa-
+tion 2.7 and displayed in Figure 2.12 is referred to as the bias-variance
+trade-off. Good test set performance of a statistical learning method re- bias-variance
+trade-off
+quires low variance as well as low squared bias. This is referred to as a
+trade-off because it is easy to obtain a method with extremely low bias but
+high variance (for instance, by drawing a curve that passes through every
+single training observation) or a method with very low variance but high
+bias (by fitting a horizontal line to the data). The challenge lies in finding
+a method for which both the variance and the squared bias are low. This
+trade-off is one of the most important recurring themes in this book.
+In a real-life situation in which f is unobserved, it is generally not pos-
+sible to explicitly compute the test MSE, bias, or variance for a statistical
+learning method. Nevertheless, one should always keep the bias-variance
+trade-off in mind. In this book we explore methods that are extremely
+flexible and hence can essentially eliminate bias. However, this does not
+guarantee that they will outperform a much simpler method such as linear
+regression. To take an extreme example, suppose that the true f is linear.
+In this situation linear regression will have no bias, making it very hard
+for a more flexible method to compete. In contrast, if the true f is highly
+non-linear and we have an ample number of training observations, then
+we may do better using a highly flexible approach, as in Figure 2.11. In
+Chapter 5 we discuss cross-validation, which is a way to estimate the test
+MSE using the training data.
+2.2.3
+The Classification Setting
+Thus far, our discussion of model accuracy has been focused on the regres-
+sion setting. But many of the concepts that we have encountered, such
+as the bias-variance trade-off, transfer over to the classification setting
+with only some modifications due to the fact that yi is no longer quan-
+titative. Suppose that we seek to estimate f on the basis of training obser-
+vations {(x1, y1), . . . , (xn, yn)}, where now y1, . . . , yn are qualitative. The
+most common approach for quantifying the accuracy of our estimate ˆf is
+the training error rate, the proportion of mistakes that are made if we apply error rate

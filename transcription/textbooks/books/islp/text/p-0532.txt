@@ -1,0 +1,46 @@
+526
+12. Unsupervised Learning
+−6
+−4
+−2
+0
+2
+−2
+0
+2
+4
+X1
+X2
+FIGURE 12.10.
+Forty-five observations generated in two-dimensional space.
+In reality there are three distinct classes, shown in separate colors. However, we
+will treat these class labels as unknown and will seek to cluster the observations
+in order to discover the classes from the data.
+and then discuss how hierarchical clustering is actually performed—that is,
+how the dendrogram is built.
+Interpreting a Dendrogram
+We begin with the simulated data set shown in Figure 12.10, consisting of
+45 observations in two-dimensional space. The data were generated from a
+three-class model; the true class labels for each observation are shown in
+distinct colors. However, suppose that the data were observed without the
+class labels, and that we wanted to perform hierarchical clustering of the
+data. Hierarchical clustering (with complete linkage, to be discussed later)
+yields the result shown in the left-hand panel of Figure 12.11. How can we
+interpret this dendrogram?
+In the left-hand panel of Figure 12.11, each leaf of the dendrogram rep-
+resents one of the 45 observations in Figure 12.10. However, as we move
+up the tree, some leaves begin to fuse into branches. These correspond to
+observations that are similar to each other. As we move higher up the tree,
+branches themselves fuse, either with leaves or other branches. The earlier
+(lower in the tree) fusions occur, the more similar the groups of observa-
+tions are to each other. On the other hand, observations that fuse later
+(near the top of the tree) can be quite different. In fact, this statement
+can be made precise: for any two observations, we can look for the point in
+the tree where branches containing those two observations are first fused.
+The height of this fusion, as measured on the vertical axis, indicates how
+different the two observations are. Thus, observations that fuse at the very
+bottom of the tree are quite similar to each other, whereas observations
+that fuse close to the top of the tree will tend to be quite different.
+This highlights a very important point in interpreting dendrograms that
+is often misunderstood. Consider the left-hand panel of Figure 12.12, which
+shows a simple dendrogram obtained from hierarchically clustering nine

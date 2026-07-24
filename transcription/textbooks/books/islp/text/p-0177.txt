@@ -1,0 +1,101 @@
+168
+4. Classification
+FIGURE 4.13. A least squares linear regression model was fit to predict bikers
+in the Bikeshare data set. Left: The coefficients associated with the month of the
+year. Bike usage is highest in the spring and fall, and lowest in the winter. Right:
+The coefficients associated with the hour of the day. Bike usage is highest during
+peak commute times, and lowest overnight.
+and the coefficients associated with hr. We see that bike usage is highest in
+the spring and fall, and lowest during the winter months. Furthermore, bike
+usage is greatest around rush hour (9 AM and 6 PM), and lowest overnight.
+Thus, at first glance, fitting a linear regression model to the Bikeshare data
+set seems to provide reasonable and intuitive results.
+But upon more careful inspection, some issues become apparent. For
+example, 9.6% of the fitted values in the Bikeshare data set are negative:
+that is, the linear regression model predicts a negative number of users
+during 9.6% of the hours in the data set. This calls into question our ability
+to perform meaningful predictions on the data, and it also raises concerns
+about the accuracy of the coefficient estimates, confidence intervals, and
+other outputs of the regression model.
+Furthermore, it is reasonable to suspect that when the expected value
+of bikers is small, the variance of bikers should be small as well. For
+instance, at 2 AM during a heavy December snow storm, we expect that
+extremely few people will use a bike, and moreover that there should be
+little variance associated with the number of users during those conditions.
+This is borne out in the data: between 1 AM and 4 AM, in December,
+January, and February, when it is raining, there are 5.05 users, on average,
+with a standard deviation of 3.73. By contrast, between 7 AM and 10 AM,
+in April, May, and June, when skies are clear, there are 243.59 users, on
+average, with a standard deviation of 131.7. The mean-variance relationship
+is displayed in the left-hand panel of Figure 4.14. This is a major violation
+of the assumptions of a linear model, which state that Y = )p
+j=1 Xjβj +ϵ,
+where ϵ is a mean-zero error term with variance σ2 that is constant, and
+not a function of the covariates. Therefore, the heteroscedasticity of the
+data calls into question the suitability of a linear regression model.
+Finally, the response bikers is integer-valued. But under a linear model,
+Y = β0 + )p
+j=1 Xjβj + ϵ, where ϵ is a continuous-valued error term. This
+means that in a linear model, the response Y is necessarily continuous-
+valued (quantitative). Thus, the integer nature of the response bikers sug-
+gests that a linear regression model is not entirely satisfactory for this data
+set.
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+−40
+−20
+0
+20
+Month
+Coefficient
+J
+F
+M
+A
+M
+J
+J
+A
+S
+O
+N
+D
+●
+●●●●
+●
+●
+●
+●
+●
+●
+●
+●●●●
+●
+●
+●
+●
+●
+●
+●
+●
+5
+10
+15
+20
+−100
+0
+50
+100
+200
+Hour
+Coefficient

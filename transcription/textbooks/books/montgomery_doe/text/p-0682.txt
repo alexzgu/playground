@@ -1,0 +1,106 @@
+666
+Chapter 15 ■Other Design and Analysis Topics
+and from L/ L/ i L/ 0, we obtain the normal equations
+(15.37a)
+(15.37b)
+(15.37c)
+Adding the a equations in Equation 15.37b, we obtain Equation 15.37a because
+0, so there is one linear dependency in the normal equations. Therefore,
+it is necessary to augment Equations 15.37 with a linearly independent equation to obtain a
+solution. A logical side condition is 
+0.
+Using this condition, we obtain from Equation 15.37a
+(15.38a)
+and from Equation 15.37b
+(15.38b)
+Equation 15.37c may be rewritten as
+after substituting for . But we see that
+and
+Therefore, the solution to Equation 15.37c is
+which was the result given previously in Section 15.3.1, Equation 15.26.
+We may express the reduction in the total sum of squares due to tting the full model
+(Equation 15.15) as
+y2
+../an Tyy (Exy)2/Exx
+y2
+../an Tyy (Exy/Exx)(Txy Sxy)
+y2
+../an 
+a
+i1
+ (yi. y..)yi. (Exy/Exx) 
+a
+i1
+ (xi. x..)yi. (Exy/Exx)Sxy
+ (y..)y.. 
+a
+i1
+ [yi. y.. (Exy/Exx)(xi. x..)]yi. (Exy/Exx)Sxy
+R(, , ) ˆ y.. 
+a
+i1
+ˆiyi. ˆSxy
+ˆ 
+Sxy Txy
+Sxx Txx
+
+Exy
+Exx
+
+a
+i1
+ (xi. x..) 
+n
+j1
+ (xij x..) Txx
+
+a
+i1
+ (yi. y..) 
+n
+j1
+ (xij x..) Txy
+ˆi
+
+a
+i1
+ (yi. y..) 
+n
+j1
+ (xij x..) ˆ 
+a
+i1
+ (xi. x..) 
+n
+j1
+ (xij x..) ˆSxx Sxy
+ˆi yi. y.. ˆ(xi. x..)
+ˆ y..
+"a
+i1 ˆi
+(xij x..)
+"a
+i1 "n
+j1
+
+a
+i1
+ˆi 
+n
+j1
+ (xij x..) ˆSxx Sxy
+inˆ nˆi ˆ 
+n
+j1
+ (xij x..) yi. 
+ i 1, 2, . . . , a
+anˆ n 
+a
+i1
+ˆi y..
+
+
+
+
+
+

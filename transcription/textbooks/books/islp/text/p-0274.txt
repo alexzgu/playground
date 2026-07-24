@@ -1,0 +1,50 @@
+266
+6. Linear Model Selection and Regularization
+(6.7) was small; however, when p was larger then the lowest validation
+set error was achieved using a larger value of λ. In each boxplot, rather
+than reporting the values of λ used, the degrees of freedom of the resulting
+lasso solution is displayed; this is simply the number of non-zero coefficient
+estimates in the lasso solution, and is a measure of the flexibility of the
+lasso fit. Figure 6.24 highlights three important points: (1) regularization
+or shrinkage plays a key role in high-dimensional problems, (2) appropriate
+tuning parameter selection is crucial for good predictive performance, and
+(3) the test error tends to increase as the dimensionality of the problem
+(i.e. the number of features or predictors) increases, unless the additional
+features are truly associated with the response.
+The third point above is in fact a key principle in the analysis of high-
+dimensional data, which is known as the curse of dimensionality. One might curse of di-
+mensionality
+think that as the number of features used to fit a model increases, the
+quality of the fitted model will increase as well. However, comparing the
+left-hand and right-hand panels in Figure 6.24, we see that this is not
+necessarily the case: in this example, the test set MSE almost doubles as
+p increases from 20 to 2,000. In general, adding additional signal features
+that are truly associated with the response will improve the fitted model,
+in the sense of leading to a reduction in test set error. However, adding
+noise features that are not truly associated with the response will lead
+to a deterioration in the fitted model, and consequently an increased test
+set error. This is because noise features increase the dimensionality of the
+problem, exacerbating the risk of overfitting (since noise features may be
+assigned nonzero coefficients due to chance associations with the response
+on the training set) without any potential upside in terms of improved test
+set error. Thus, we see that new technologies that allow for the collection
+of measurements for thousands or millions of features are a double-edged
+sword: they can lead to improved predictive models if these features are in
+fact relevant to the problem at hand, but will lead to worse results if the
+features are not relevant. Even if they are relevant, the variance incurred
+in fitting their coefficients may outweigh the reduction in bias that they
+bring.
+6.4.4
+Interpreting Results in High Dimensions
+When we perform the lasso, ridge regression, or other regression proce-
+dures in the high-dimensional setting, we must be quite cautious in the way
+that we report the results obtained. In Chapter 3, we learned about multi-
+collinearity, the concept that the variables in a regression might be corre-
+lated with each other. In the high-dimensional setting, the multicollinearity
+problem is extreme: any variable in the model can be written as a linear
+combination of all of the other variables in the model. Essentially, this
+means that we can never know exactly which variables (if any) truly are
+predictive of the outcome, and we can never identify the best coefficients
+for use in the regression. At most, we can hope to assign large regression
+coefficients to variables that are correlated with the variables that truly are
+predictive of the outcome.

@@ -1,0 +1,89 @@
+356
+Chapter 8 ■Two-Level Fractional Factorial Designs
+By combining this second fraction with the original one, we
+obtain the following estimates of the effects:
+i
+From
+([i] [i])
+From ([i] [i])
+A
+A 
+1.48
+BD CE FG 19.15
+B
+B 
+38.05
+AD CF EG 
+0.33
+C
+C  1.80
+AE BF DG 
+1.53
+1
+2
+1
+2
+ [G]
+ 2.68lG CD BE AF
+ [F]
+ 1.63lF BC AG DE
+ [E]
+ 0.53lE AC BG DF
+ [D]
+ 29.88lD AB CG EF
+ [C]
+3.33lC AE BF DG
+ [B]
+ 37.73lB AD CF EG
+ [A]17.68lA BD CE FG
+D
+D 29.38
+AB CG EF 0.50
+E
+E 
+0.13
+AC BG DF 0.40
+F
+F 
+0.50
+BC AG DE 1.13
+G
+G 
+0.13
+CD BE  AF 2.55
+The two largest effects are B and D. Furthermore, the
+third largest effect is BD CE FG, so it seems reason-
+able to attribute this to the BD interaction. The experi-
+menter used the two factors distance (B) and illumination
+level (D) in subsequent experiments with the other factors
+A, C, E, and F at standard settings and veried the results
+obtained here. He decided to use subjects as blocks in these
+new experiments rather than ignore a potential subject
+effect because several different subjects had to be used to
+complete the experiment.
+The Dening Relation for a Fold-Over Design. Combining fractional factorial
+designs via fold over as demonstrated in Example 8.7 is a very useful technique. It is often of
+interest to know the dening relation for the combined design. It can be easily determined.
+Each separate fraction will have L U words used as generators: L words of like sign and U
+words of unlike sign. The combined design will have L U 1 words used as generators.
+These will be the L words of like sign and the U 1 words consisting of independent even
+products of the words of unlike sign. (Even products are words taken two at a time, four at
+a time, and so forth.)
+To illustrate this procedure, consider the design in Example 8.7. For the rst fraction,
+the generators are
+and for the second fraction, they are
+Notice that in the second fraction we have switched the signs on the generators with an odd
+number of letters. Also, notice that L U 1 3 4. The combined design will have I 
+ABCG (the like sign word) as a generator and two words that are independent even products
+of the words of unlike sign. For example, take I ABD and I ACE; then I (ABD)(ACE) 
+BCDE is a generator of the combined design. Also, take I ABD and I BCF; then I 
+(ABD)(BCF) ACDF is a generator of the combined design. The complete dening relation
+for the combined design is
+Blocking in a Fold-Over Design. Usually a fold-over design is conducted in two
+distinct time periods. Following the initial fraction, some time usually elapses while the data
+are analyzed and the fold-over runs are planned. Then the second set of runs is made, often
+on a different day, or different shift, or using different operating personnel, or perhaps mate-
+rial from a different source. This leads to a situation where blocking to eliminate potential
+I ABCG BCDE ACDF ADEG BDFG ABEF CEFG
+I ABD, I ACE, I BCF, and I ABCG
+I ABD, I ACE, I BCF, and I ABCG

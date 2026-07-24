@@ -1,0 +1,65 @@
+X
+Alias Relationships for 2kp Fractional Factorial Designs with k 15 and n 64 (Continued)
+Designs with 12 Factors
+(w) 2128; 1/256 fraction
+Resolution III
+of 12 factors in 16 runs
+Design Generators
+E ABC
+F ABD
+G ACD
+H BCD
+J ABCD
+K AB
+L AC
+M AD
+Aliases
+A HJ BK CL DM
+B GJ AK EL FM
+C FJ EK AL GM
+D EJ FK GL AM
+E DJ CK BL HM
+F CJ DK HL BM
+G BJ HK DL CM
+H AJ GK FL EM
+J DE CF BG AH
+K AB CE DF GH
+L AC BE DG FH
+M AD BF CG EH
+AE BC FG DH KL JM
+AF BD EG CH JL KM
+AG EF CD BH JK LM
+2 blocks of 8: AE BC FG DH KL JM
+Designs with 13 Factors
+(x) 2139; 1/512 fraction of
+Resolution III
+13 factors in 16 runs
+Design Generators
+E ABC
+F ABD
+G ACD
+H BCD
+J ABCD
+K AB
+L AC
+M AD
+N BC
+Aliases
+A HJ BK CL DM EN
+B GJ AK EL FM CN
+C FJ EK AL GM BN
+D EJ FK GL AM HN
+E DJ CK BL HM AN
+F CJ DK HL BM GN
+G BJ HK DL CM FN
+H AJ GK FL EM DN
+J DE CF BG AH MN
+K AB CE DF GH LN
+L AC BE DG FH KN
+M AD BF CG EH JN
+N  BC  AE  FG  DH  KL  JM
+AF  BD  EG  CH  JL  KM
+AG  EF  CD  BH  JK  LM
+2 blocks of 8: AF  BD  EG  CH  JL  KM
+716
+Appendix

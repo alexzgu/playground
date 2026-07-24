@@ -1,0 +1,45 @@
+5.4. BLACK-SCHOLES FORMULA
+165
+Using this, one can compute f(t, x) exactly; in the next section we do
+this and derive the B-S
+f(T −t, x) = x Φ
+
+log(xK) + (r + σ2
+2 )t
+σ
+√
+t
+
+−K e−rt Φ
+
+log(xK) + (r −σ2
+2 )t
+σ
+√
+t
+
+,
+(5.20)
+where Φ is the standard normal distribution function. If one knows r
+and σ (which from a practical perspective is a assumption), one can
+just plug into this formula.
+We can easily generalize this to the case where the stock price satises
+dSt = St [m(t, St) dt + σ(t, St) dBt] ,
+dRt = r(t, St) Rt dt
+Under the assumption of a self-nancing portfolio, we again get (5.17) and
+(5.18), and by equating coecients we get the Black-Scholes equation
+∂tf(t, x) = r(t, x) f(t, x) −r(t, x) x f ′(t, x) −σ(t, x)2 x2
+2
+f ′′(t, x)
+(5.21)
+As before, the drift term m(t, x) does not appear in the equation. The func-
+tion f can be given by
+f(t, x) = E [(RtRT) F(ST) St = x] ,
+where St, Rt satisfy
+dSt = St [r(t, St) dt + σ(t, St) dBt] ,
+dRt = r(t, St) Rt dt
+Mathematical justication of this arguments requires sucient assumptions
+on m and σ such that the equation (5.21) has a solution. Finding explicit
+solutions to such equations is often impossible, but one can either solve the
+PDE numerically or do Monte Carlo simulations of the associated diusion
+process St.

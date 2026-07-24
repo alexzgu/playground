@@ -1,0 +1,63 @@
+4.4 Generative Models for Classification
+157
+−4
+−2
+0
+2
+4
+−4
+−3
+−2
+−1
+0
+1
+2
+−4
+−2
+0
+2
+4
+−4
+−3
+−2
+−1
+0
+1
+2
+X1
+X1
+X2
+X2
+FIGURE 4.9. Left: The Bayes (purple dashed), LDA (black dotted), and QDA
+(green solid) decision boundaries for a two-class problem with Σ1 = Σ2. The
+shading indicates the QDA decision rule. Since the Bayes decision boundary is
+linear, it is more accurately approximated by LDA than by QDA. Right: Details
+are as given in the left-hand panel, except that Σ1̸ = Σ2. Since the Bayes decision
+boundary is non-linear, it is more accurately approximated by QDA than by LDA.
+QDA, or vice-versa? The answer lies in the bias-variance trade-off. When
+there are p predictors, then estimating a covariance matrix requires esti-
+mating p(p+1)/2 parameters. QDA estimates a separate covariance matrix
+for each class, for a total of Kp(p+1)/2 parameters. With 50 predictors this
+is some multiple of 1,275, which is a lot of parameters. By instead assum-
+ing that the K classes share a common covariance matrix, the LDA model
+becomes linear in x, which means there are Kp linear coefficients to esti-
+mate. Consequently, LDA is a much less flexible classifier than QDA, and
+so has substantially lower variance. This can potentially lead to improved
+prediction performance. But there is a trade-off: if LDA’s assumption that
+the K classes share a common covariance matrix is badly off, then LDA
+can suffer from high bias. Roughly speaking, LDA tends to be a better bet
+than QDA if there are relatively few training observations and so reducing
+variance is crucial. In contrast, QDA is recommended if the training set is
+very large, so that the variance of the classifier is not a major concern, or if
+the assumption of a common covariance matrix for the K classes is clearly
+untenable.
+Figure 4.9 illustrates the performances of LDA and QDA in two scenarios.
+In the left-hand panel, the two Gaussian classes have a common correla-
+tion of 0.7 between X1 and X2. As a result, the Bayes decision boundary
+is linear and is accurately approximated by the LDA decision boundary.
+The QDA decision boundary is inferior, because it suffers from higher vari-
+ance without a corresponding decrease in bias. In contrast, the right-hand
+panel displays a situation in which the orange class has a correlation of 0.7
+between the variables and the blue class has a correlation of −0.7. Now
+the Bayes decision boundary is quadratic, and so QDA more accurately
+approximates this boundary than does LDA.

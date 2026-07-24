@@ -1,0 +1,150 @@
+484
+11. Survival Analysis and Censored Data
+Coefficient
+Std. error
+z-statistic
+p-value
+posres[Yes]
+0.55
+0.18
+3.02
+0.00
+multi[Yes]
+0.15
+0.31
+0.47
+0.64
+clinend[Yes]
+0.51
+0.27
+1.89
+0.06
+mech[K01]
+1.05
+1.06
+1.00
+0.32
+mech[K23]
+-0.48
+1.05
+-0.45
+0.65
+mech[P01]
+-0.31
+0.78
+-0.40
+0.69
+mech[P50]
+0.60
+1.06
+0.57
+0.57
+mech[R01]
+0.10
+0.32
+0.30
+0.76
+mech[R18]
+1.05
+1.05
+0.99
+0.32
+mech[R21]
+-0.05
+1.06
+-0.04
+0.97
+mech[R24,K24]
+0.81
+1.05
+0.77
+0.44
+mech[R42]
+-14.78
+3414.38
+-0.00
+1.00
+mech[R44]
+-0.57
+0.77
+-0.73
+0.46
+mech[RC2]
+-14.92
+2243.60
+-0.01
+0.99
+mech[U01]
+-0.22
+0.32
+-0.70
+0.48
+mech[U54]
+0.47
+1.07
+0.44
+0.66
+sampsize
+0.00
+0.00
+0.19
+0.85
+budget
+0.00
+0.00
+1.67
+0.09
+impact
+0.06
+0.01
+8.23
+0.00
+TABLE
+11.3. Results
+for
+Cox’s
+proportional
+hazards
+model
+fit
+to
+the
+Publication data, using all of the available features. The features posres, multi,
+and clinend are binary. The feature mech is qualitative with 14 levels; it is coded
+so that the baseline level is Contract.
+mechanism did not appear to be significantly associated with time until
+publication.
+11.6
+Shrinkage for the Cox Model
+In this section, we illustrate that the shrinkage methods of Section 6.2
+can be applied to the survival data setting. In particular, motivated by
+the “loss+penalty” formulation of Section 6.2, we consider minimizing a
+penalized version of the negative log partial likelihood in (11.16),
+−log
+
+E
+i:δi=1
+exp
+1)p
+j=1 xijβj
+2
+)
+i′:yi′≥yi exp
+1)p
+j=1 xi′jβj
+2
+
++ λP(β),
+(11.17)
+with respect to β = (β1, . . . , βp)T . We might take P(β) = )p
+j=1 β2
+j , which
+corresponds to a ridge penalty, or P(β) = )p
+j=1 |βj|, which corresponds to
+a lasso penalty.
+In (11.17), λ is a non-negative tuning parameter; typically we will mini-
+mize it over a range of values of λ. When λ = 0, then minimizing (11.17) is
+equivalent to simply maximizing the usual Cox partial likelihood (11.16).
+However, when λ > 0, then minimizing (11.17) yields a shrunken version of
+the coefficient estimates. When λ is large, then using a ridge penalty will
+give small coefficients that are not exactly equal to zero. By contrast, for a

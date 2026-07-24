@@ -1,0 +1,45 @@
+8
+1. Introduction
+with computer labs written in the R language. Since then, there has
+been increasing demand for Python implementations of the impor-
+tant techniques in statistical learning. Consequently, this version has
+labs in Python. There are a rapidly growing number of Python pack-
+ages available, and by examination of the imports at the beginning of
+each lab, readers will see that we have carefully selected and used the
+most appropriate. We have also supplied some additional code and
+functionality in our package ISLP. However, the labs in ISL are self-
+contained, and can be skipped if the reader wishes to use a different
+software package or does not wish to apply the methods discussed to
+real-world problems.
+Who Should Read This Book?
+This book is intended for anyone who is interested in using modern statis-
+tical methods for modeling and prediction from data. This group includes
+scientists, engineers, data analysts, data scientists, and quants, but also less
+technical individuals with degrees in non-quantitative fields such as the so-
+cial sciences or business. We expect that the reader will have had at least
+one elementary course in statistics. Background in linear regression is also
+useful, though not required, since we review the key concepts behind linear
+regression in Chapter 3. The mathematical level of this book is modest,
+and a detailed knowledge of matrix operations is not required. This book
+provides an introduction to Python. Previous exposure to a programming
+language, such as MATLAB or R, is useful but not required.
+The first edition of this textbook has been used to teach master’s and
+PhD students in business, economics, computer science, biology, earth sci-
+ences, psychology, and many other areas of the physical and social sciences.
+It has also been used to teach advanced undergraduates who have already
+taken a course on linear regression. In the context of a more mathemat-
+ically rigorous course in which ESL serves as the primary textbook, ISL
+could be used as a supplementary text for teaching computational aspects
+of the various approaches.
+Notation and Simple Matrix Algebra
+Choosing notation for a textbook is always a difficult task. For the most
+part we adopt the same notational conventions as ESL.
+We will use n to represent the number of distinct data points, or observa-
+tions, in our sample. We will let p denote the number of variables that are
+available for use in making predictions. For example, the Wage data set con-
+sists of 11 variables for 3,000 people, so we have n = 3,000 observations and
+p = 11 variables (such as year, age, race, and more). Note that throughout
+this book, we indicate variable names using colored font: Variable Name.
+In some examples, p might be quite large, such as on the order of thou-
+sands or even millions; this situation arises quite often, for example, in the
+analysis of modern biological data or web-based advertising data.

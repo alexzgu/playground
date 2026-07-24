@@ -1,0 +1,52 @@
+6.5 Lab: Linear Models and Regularization Methods
+275
+ax.set_ylabel('Standardized coefficients', fontsize=20)
+ax.legend(loc='upper left');
+(We have used latex formatting in the horizontal label, in order to format
+the Greek λ appropriately.) We expect the coefficient estimates to be much
+smaller, in terms of ℓ2 norm, when a large value of λ is used, as compared
+to when a small value of λ is used. (Recall that the ℓ2 norm is the square
+root of the sum of squared coefficient values.) We display the coefficients
+at the 40th step, where λ is 25.535.
+In [25]: beta_hat = soln_path.loc[soln_path.index[39]]
+lambdas[39], beta_hat
+Out[25]: (25.535,
+AtBat
+5.433750
+Hits
+6.223582
+HmRun
+4.585498
+Runs
+5.880855
+RBI
+6.195921
+Walks
+6.277975
+Years
+5.299767
+...
+...
+Let’s compute the ℓ2 norm of the standardized coefficients.
+In [26]: np.linalg.norm(beta_hat)
+Out[26]: 24.17
+In contrast, here is the ℓ2 norm when λ is 2.44e-01. Note the much larger
+ℓ2 norm of the coefficients associated with this smaller value of λ.
+In [27]: beta_hat = soln_path.loc[soln_path.index[59]]
+lambdas[59], np.linalg.norm(beta_hat)
+Out[27]: (0.2437, 160.4237)
+Above we normalized X upfront, and fit the ridge model using Xs. The
+Pipeline() object in sklearn provides a clear way to separate feature nor-
+malization from the fitting of the ridge model itself.
+In [28]: ridge = skl.ElasticNet(alpha=lambdas[59], l1_ratio=0)
+scaler = StandardScaler(with_mean=True,
+with_std=True)
+pipe = Pipeline(steps=[('scaler', scaler), ('ridge', ridge)])
+pipe.fit(X, Y)
+We show that it gives the same ℓ2 norm as in our previous fit on the
+standardized data.
+In [29]: np.linalg.norm(ridge.coef_)
+Out[29]: 160.4237
+Notice that the operation pipe.fit(X, Y) above has changed the ridge
+object, and in particular has added attributes such as coef_ that were not
+there before.

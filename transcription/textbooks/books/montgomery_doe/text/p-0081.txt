@@ -1,0 +1,66 @@
+65
+C H A P T E R 3
+E x p e r i m e n t s w i t h a S i n g l e
+F a c t o r : T h e A n a l y s i s 
+o f Va r i a n c e
+CHAPTER OUTLINE
+3.1 AN EXAMPLE
+3.2 THE ANALYSIS OF VARIANCE
+3.3 ANALYSIS OF THE FIXED EFFECTS MODEL
+3.3.1 Decomposition of the Total Sum of
+Squares
+3.3.2 Statistical Analysis
+3.3.3 Estimation of the Model Parameters
+3.3.4 Unbalanced Data
+3.4 MODEL ADEQUACY CHECKING
+3.4.1 The Normality Assumption
+3.4.2 Plot of Residuals in Time Sequence
+3.4.3 Plot of Residuals Versus Fitted Values
+3.4.4 Plots of Residuals Versus Other Variables
+3.5 PRACTICAL INTERPRETATION OF RESULTS
+3.5.1 A Regression Model
+3.5.2 Comparisons Among Treatment Means
+3.5.3 Graphical Comparisons of Means
+3.5.4 Contrasts
+3.5.5 Orthogonal Contrasts
+3.5.6 Scheffe’s Method for Comparing All
+Contrasts
+3.5.7 Comparing Pairs of Treatment Means
+3.5.8 Comparing Treatment Means with a
+Control
+3.6 SAMPLE COMPUTER OUTPUT
+3.7 DETERMINING SAMPLE SIZE
+3.7.1 Operating Characteristic Curves
+3.7.2 Specifying a Standard Deviation Increase
+3.7.3 Condence Interval Estimation Method
+3.8 OTHER EXAMPLES OF SINGLE-FACTOR 
+EXPERIMENTS
+3.8.1 Chocolate and Cardiovascular Health
+3.8.2 A Real Economy Application of a
+Designed Experiment
+3.8.3 Analyzing Dispersion Effects
+3.9 THE RANDOM EFFECTS MODEL
+3.9.1 A Single Random Factor
+3.9.2 Analysis of Variance for the Random Model
+3.9.3 Estimating the Model Parameters
+3.10 THE REGRESSION APPROACH TO THE
+ANALYSIS OF VARIANCE
+3.10.1 Least Squares Estimation of the 
+Model Parameters
+3.10.2 The General Regression Signicance Test
+3.11 NONPARAMETRIC METHODS IN THE 
+ANALYSIS OF VARIANCE
+3.11.1 The Kruskal–Wallis Test
+3.11.2 General Comments on the Rank
+Transformation
+SUPPLEMENTAL MATERIAL FOR CHAPTER 3
+S3.1 The Denition of Factor Effects
+S3.2 Expected Mean Squares
+S3.3 Condence Interval for 2
+S3.4 Simultaneous Condence Intervals on Treatment
+Means
+S3.5 Regression Models for a Quantitative Factor
+S3.6 More about Estimable Functions
+S3.7 Relationship Between Regression and Analysis 
+of Variance
+The supplemental material is on the textbook website www.wiley.com/college/montgomery.

@@ -1,0 +1,14 @@
+3.8. EXERCISES
+123
+Exercise 3.11. Suppose Zt, t D are dened and there exists c < ∞,
+α < ∞, β > 0 such that for all s, t D
+E [Zt −Zsα] ≤c t −s1+β
+Let ϵ = β(2α).
+Show that
+P∃s Dn : Zs+2−n −Zs≥2−nϵ≤c 2−nβ2
+Show that with probability one, for all n suciently large and
+all s Dn,
+Zs+2−n −Zs≤2−nϵ
+Show that with probability one, there exists C such that for all
+s, t D,
+Zs −Zt≤C s −tϵ

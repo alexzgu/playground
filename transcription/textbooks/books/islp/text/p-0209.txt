@@ -1,0 +1,32 @@
+5
+Resampling Methods
+Resampling methods are an indispensable tool in modern statistics. They
+involve repeatedly drawing samples from a training set and refitting a model
+of interest on each sample in order to obtain additional information about
+the fitted model. For example, in order to estimate the variability of a linear
+regression fit, we can repeatedly draw different samples from the training
+data, fit a linear regression to each new sample, and then examine the
+extent to which the resulting fits differ. Such an approach may allow us to
+obtain information that would not be available from fitting the model only
+once using the original training sample.
+Resampling approaches can be computationally expensive, because they
+involve fitting the same statistical method multiple times using different
+subsets of the training data. However, due to recent advances in computing
+power, the computational requirements of resampling methods generally
+are not prohibitive. In this chapter, we discuss two of the most commonly
+used resampling methods, cross-validation and the bootstrap. Both methods
+are important tools in the practical application of many statistical learning
+procedures. For example, cross-validation can be used to estimate the test
+error associated with a given statistical learning method in order to evaluate
+its performance, or to select the appropriate level of flexibility. The process
+of evaluating a model’s performance is known as model assessment, whereas model
+assessment
+the process of selecting the proper level of flexibility for a model is known as
+model selection. The bootstrap is used in several contexts, most commonly model
+selection
+to provide a measure of accuracy of a parameter estimate or of a given
+statistical learning method.
+© Springer Nature Switzerland AG 2023 
+G. James et al., An Introduction to Statistical Learning, Springer Texts in Statistics, 
+https://doi.org/10.1007/978-3-031-38747-0_5 
+201

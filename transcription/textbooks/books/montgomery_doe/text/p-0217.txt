@@ -1,0 +1,72 @@
+That is, the kth observation in the ijth cell is estimated by the average of the n observations in
+that cell. This result was used in Equation 5.12 to obtain the residuals for the two-factor fac-
+torial model.
+Because constraints (Equations 5.15) have been used to solve the normal equations, the
+model parameters are not uniquely estimated. However, certain important functions of the
+model parameters are estimable, that is, uniquely estimated regardless of the constraint cho-
+sen. An example is i u 
+, which might be thought of as the “true” differ-
+ence between the ith and the uth levels of factor A. Notice that the true difference between the
+levels of any main effect includes an “average” interaction effect. It is this result that disturbs
+the tests on main effects in the presence of interaction, as noted earlier. In general, any func-
+tion of the model parameters that is a linear combination of the left-hand side of the normal
+equations is estimable. This property was also noted in Chapter 3 when we were discussing
+the single-factor model. For more information, see the supplemental text material for this
+chapter.
+5.3.5
+Choice of Sample Size
+The operating characteristic curves in Appendix Chart V can be used to assist the experi-
+menter in determining an appropriate sample size (number of replicates, n) for a two-factor
+factorial design. The appropriate value of the parameter 2 and the numerator and denomina-
+tor degrees of freedom are shown in Table 5.7.
+A very effective way to use these curves is to nd the smallest value of 2 correspon-
+ding to a specied difference between any two treatment means. For example, if the differ-
+ence in any two row means is D, then the minimum value of 2 is
+(5.17)
+whereas if the difference in any two column means is D, then the minimum value of 2 is
+(5.18)
+2 naD2
+2b2
+2 nbD2
+2a2
+()i. ()u.
+5.3 The Two-Factor Factorial Design
+201
+■TA B L E 5 . 7
+Operating Characteristic Curve Parameters for Chart V of the 
+Appendix for the Two-Factor Factorial, Fixed Effects Model
+Numerator 
+Denominator 
+Factor
+2
+Degrees of Freedom
+Degrees of Freedom
+A
+a 1
+ab(n 1)
+B
+b 1
+ab(n 1)
+AB
+(a 1)(b 1)
+ab(n 1)
+n 
+a
+i1 
+b
+j1
+ ()2
+ij
+2[(a 1)(b 1) 1 ]
+an 
+b
+j1
+2
+j
+b2
+bn 
+a
+i1
+2
+i
+a2

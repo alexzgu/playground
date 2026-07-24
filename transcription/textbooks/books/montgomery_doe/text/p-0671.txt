@@ -1,0 +1,71 @@
+Now MSE estimates 2, the variance of yijk, an individual observation. However, we have done
+an analysis of variance on the cell averages, and because the variance of the average in the
+ijth cell is 2/nij, the error mean square actually used in the analysis of variance should be an
+estimate of the average variance of the 
+, say
+(15.13)
+Using MSE from Equation 15.12 to estimate 2 in Equation 15.13, we obtain
+(15.14)
+as the error mean square (with n.. ab degrees of freedom) to use in the analysis of variance.
+The method of unweighted means is an approximate procedure because the sums of
+squares for rows, columns, and interaction are not distributed as chi-square random variables.
+The primary advantage of the method seems to be its computational simplicity. When the nij
+are not dramatically different, the method of unweighted means often works reasonably well.
+A related technique is the weighted squares of means method, also proposed by Yates
+(1934). This technique is also based on the sums of squares of the cell means, but the terms
+in the sums of squares are weighted in inverse proportion to their variances. For further details
+of the procedure, see Searle (1971a) and Speed, Hocking, and Hackney (1978).
+15.2.3
+The Exact Method
+In situations where approximate methods are inappropriate, such as when empty cells occur
+(some nij 0) or when the nij are dramatically different, the experimenter must use an exact
+analysis. The approach used to develop sums of squares for testing main effects and interac-
+tions is to represent the analysis of variance model as a regression model, t that model to
+the data, and use the general regression signicance test approach. However, this may be done
+in several ways, and these methods may result in different values for the sums of squares.
+Furthermore, the hypotheses that are being tested are not always direct analogs of those for
+the balanced case, nor are they always easily interpretable. For further reading on the subject,
+see the supplemental text material for this chapter. Other good references are Searle (1971a);
+Hocking and Speed (1975); Hocking, Hackney, and Speed (1978); Speed, Hocking, and
+Hackney (1978); Searle, Speed, and Henderson (1981); Milliken and Johnson (1984); and
+Searle (1987). The SAS system of statistical software provides an excellent approach to the
+analysis of unbalanced data through PROC GLM.
+15.3
+The Analysis of Covariance
+In Chapters 2 and 4, we introduced the use of the blocking principle to improve the preci-
+sion with which comparisons between treatments are made. The paired t-test was the proce-
+dure illustrated in Chapter 2, and the randomized block design was presented in Chapter 4.
+In general, the blocking principle can be used to eliminate the effect of controllable nui-
+sance factors. The analysis of covariance (ANCOVA) is another technique that is occasion-
+ally useful for improving the precision of an experiment. Suppose that in an experiment with
+a response variable y there is another variable, say x, and that y is linearly related to x.
+Furthermore, suppose that x cannot be controlled by the experimenter but can be observed
+along with y. The variable x is called a covariate or concomitant variable. The analysis of
+covariance involves adjusting the observed response variable for the effect of the concomitant
+MSE MSE
+ab 
+a
+i1 
+b
+j1
+1
+nij
+V(yij.) 
+
+a
+i1 
+b
+j1
+2/nij
+ab
+2
+ab 
+a
+i1 
+b
+j1
+1
+nij
+yij.
+15.3 The Analysis of Covariance
+655

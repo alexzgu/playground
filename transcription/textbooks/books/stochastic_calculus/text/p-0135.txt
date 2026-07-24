@@ -1,0 +1,37 @@
+4.1. MARTINGALES AND LOCAL MARTINGALES
+129
+it is also Fsn measurable, and since Zr∧Tn, r Dn is a discrete-time
+martingale,
+E [1A Zsn∧Tn] = E [1A Ztn∧Tn] 
+Since Z has continuous paths, we know that as n →∞,
+Zsn∧Tn →Zs∧T ,
+Ztn∧Tn →Zt∧T 
+In general, if Xn is a sequence of random variables converging to X,
+we cannot conclude that E[Xn] →E[X]. However, this will hold if the
+sequence Xnis uniformly integrable, that is, if for every ϵ > 0, there
+exists K < ∞such that for all n,
+E [Xn1Xn≥K] < ϵ
+(We leave this as an exercise or the reader can check a book on
+measure-theoretic probability.)
+Lemma 4.1.2. For every positive integer m, the collection of random
+variables ZTnwhere n ranges over all positive integers, T ranges
+over all stopping times with T ≤m, and Tn is dened as above, is
+uniformly integrable.
+Proof. Let T be a stopping time with T ≤m and n a positive integer.
+Note that Nt = Zt, t Dn is a submartingale. Let K > 0 and let
+τn = τn,K be the rst t Dn such that NtK. If t Dn, let At = At,n
+be the event τn = t. Since Nt is a discrete-time submartingale, if
+t ≤m,
+E [Nm 1At] ≥E [NTn 1At] 
+By summing over t Dn, t ≤m, we see that
+E [NTn Jn,K] ≤E [Nm Jn,K] 
+where Jn,K = 1τn ≤m. As n →∞. the random variables Jn,K
+converge monotonically to
+J∞,K = 1
+
+max
+0≤s≤t Ns > K
+
+
+Therefore, for each K < ∞,
+E [NTn 1NTn > K] ≤E [Nm∧Tn J∞,K] ≤E [ZmJ∞,K] 

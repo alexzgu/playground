@@ -1,0 +1,50 @@
+3.3 Other Considerations in the Regression Model
+95
+assumptions. Here, we briefly examine some common classical approaches
+for extending the linear model.
+Removing the Additive Assumption
+In our previous analysis of the Advertising data, we concluded that both TV
+and radio seem to be associated with sales. The linear models that formed
+the basis for this conclusion assumed that the effect on sales of increasing
+one advertising medium is independent of the amount spent on the other
+media. For example, the linear model (3.20) states that the average increase
+in sales associated with a one-unit increase in TV is always β1, regardless
+of the amount spent on radio.
+However, this simple model may be incorrect. Suppose that spending
+money on radio advertising actually increases the effectiveness of TV ad-
+vertising, so that the slope term for TV should increase as radio increases.
+In this situation, given a fixed budget of $100,000, spending half on radio
+and half on TV may increase sales more than allocating the entire amount
+to either TV or to radio. In marketing, this is known as a synergy effect,
+and in statistics it is referred to as an interaction effect. Figure 3.5 sug-
+gests that such an effect may be present in the advertising data. Notice
+that when levels of either TV or radio are low, then the true sales are lower
+than predicted by the linear model. But when advertising is split between
+the two media, then the model tends to underestimate sales.
+Consider the standard linear regression model with two variables,
+Y = β0 + β1X1 + β2X2 + ϵ.
+According to this model, a one-unit increase in X1 is associated with an
+average increase in Y of β1 units. Notice that the presence of X2 does
+not alter this statement—that is, regardless of the value of X2, a one-
+unit increase in X1 is associated with a β1-unit increase in Y . One way of
+extending this model is to include a third predictor, called an interaction
+term, which is constructed by computing the product of X1 and X2. This
+results in the model
+Y = β0 + β1X1 + β2X2 + β3X1X2 + ϵ.
+(3.31)
+How does inclusion of this interaction term relax the additive assumption?
+Notice that (3.31) can be rewritten as
+Y
+=
+β0 + (β1 + β3X2)X1 + β2X2 + ϵ
+(3.32)
+=
+β0 + ˜β1X1 + β2X2 + ϵ
+where ˜β1 = β1 + β3X2. Since ˜β1 is now a function of X2, the association
+between X1 and Y is no longer constant: a change in the value of X2 will
+change the association between X1 and Y . A similar argument shows that
+a change in the value of X1 changes the association between X2 and Y .
+For example, suppose that we are interested in studying the productiv-
+ity of a factory. We wish to predict the number of units produced on the
+basis of the number of production lines and the total number of workers.
+It seems likely that the effect of increasing the number of production lines

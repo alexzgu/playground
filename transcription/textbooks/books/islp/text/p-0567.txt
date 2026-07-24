@@ -1,0 +1,52 @@
+13.1 A Quick Review of Hypothesis Testing
+561
+To make this concrete, suppose that T = 2.33 for the test statistic in
+(13.1). Then, we can ask: what is the probability of having observed such
+a large value of T, if indeed H0 holds? It turns out that under H0, the
+distribution of T in (13.1) follows approximately a N(0, 1) distribution7 —
+that is, a normal distribution with mean 0 and variance 1. This distribution
+is displayed in Figure 13.1. We see that the vast majority — 98% — of the
+N(0, 1) distribution falls between −2.33 and 2.33. This means that under
+H0, we would expect to see such a large value of |T| only 2% of the time.
+Therefore, the p-value corresponding to T = 2.33 is 0.02.
+The distribution of the test statistic under H0 (also known as the test
+statistic’s null distribution) will depend on the details of what type of null
+distribution
+null hypothesis is being tested, and what type of test statistic is used. In
+general, most commonly-used test statistics follow a well-known statistical
+distribution under the null hypothesis — such as a normal distribution,
+a t-distribution, a χ2-distribution, or an F-distribution — provided that
+the sample size is sufficiently large and that some other assumptions hold.
+Typically, the R function that is used to compute a test statistic will make
+use of this null distribution in order to output a p-value. In Section 13.5,
+we will see an approach to estimate the null distribution of a test statistic
+using re-sampling; in many contemporary settings, this is a very attractive
+option, as it exploits the availability of fast computers in order to avoid
+having to make potentially problematic assumptions about the data.
+The p-value is perhaps one of the most used and abused notions in all of
+statistics. In particular, it is sometimes said that the p-value is the probabil-
+ity that H0 holds, i.e., that the null hypothesis is true. This is not correct!
+The one and only correct interpretation of the p-value is as the fraction
+of the time that we would expect to see such an extreme value of the test
+statistic8 if we repeated the experiment many many times, provided H0
+holds.
+In Step 2 we computed a test statistic, and noted that a large (absolute)
+value of the test statistic provides evidence against H0. In Step 3 the test
+statistic was converted to a p-value, with small p-values providing evidence
+against H0. What, then, did we accomplish by converting the test statistic
+from Step 2 into a p-value in Step 3? To answer this question, suppose
+a data analyst conducts a statistical test, and reports a test statistic of
+T = 17.3. Does this provide strong evidence against H0? It’s impossible
+to know, without more information: in particular, we would need to know
+7More precisely, assuming that the observations are drawn from a normal distribution,
+then T follows a t-distribution with nt + nc −2 degrees of freedom. Provided that nt +
+nc −2 is larger than around 40, this is very well-approximated by a N(0, 1) distribution.
+In Section 13.5, we will see an alternative and often more attractive way to approximate
+the null distribution of T, which avoids making stringent assumptions about the data.
+8A one-sided p-value is the probability of seeing such an extreme value of the test
+statistic; e.g. the probability of seeing a test statistic greater than or equal to T = 2.33.
+A two-sided p-value is the probability of seeing such an extreme value of the absolute
+test statistic; e.g. the probability of seeing a test statistic greater than or equal to 2.33
+or less than or equal to −2.33. The default recommendation is to report a two-sided
+p-value rather than a one-sided p-value, unless there is a clear and compelling reason
+that only one direction of the test statistic is of scientific interest.

@@ -1,0 +1,50 @@
+208
+CHAPTER 6. JUMP PROCESSES
+Since Xϵ
+t ≤Vt, the dominated convergence theorem is used to justify inter-
+changes of limits.
+Let Tn be the set of times such that the process X1n
+t
+is discontinuous,
+and let
+T =
+∞
+
+n=1
+Tn
+Since each Tn is nite, the set T is countable, but if µ(R) = ∞, T will be
+innite and, in fact, dense in every interval. Even though there are jumps in
+every interval, the paths are cadlag, that is, they are right continuous and
+the limits
+Xt−= lim
+st Xs
+exist for every s.
+Calculating as in the previous section we can see the following.
+Proposition 6.6.1. SXt PL´
+µ. T
+Ψ(s) =
+∞
+−∞
+[eixs −1] dµ(x),
+E[Xt] = tm,
+m =
+∞
+−∞
+x dµ(x),
+Lf(x) =
+∞
+−∞
+[f(x + y) −f(x)] dµ(y),
+Var[Xt] = E[(Xt −mt)2] = t
+∞
+−∞
+x2 dµ(x)
+One may worry about the existence of the integrals above. Taylor’s
+theorem implies that
+eixs −1 = ixs −x2s2
+2
++ O(xs3)
+Using this and (6.15) we can see that
+
+|x|≤1
+eixs −1dµ(x) < ∞

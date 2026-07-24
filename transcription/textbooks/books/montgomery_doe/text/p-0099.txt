@@ -1,0 +1,69 @@
+3.4.3
+Plot of Residuals Versus Fitted Values
+If the model is correct and the assumptions are satised, the residuals should be structureless;
+in particular, they should be unrelated to any other variable including the predicted response.
+A simple check is to plot the residuals versus the tted values . (For the single-factor exper-
+iment model, remember that 
+, the ith treatment average.) This plot should not reveal
+any obvious pattern. Figure 3.6 plots the residuals versus the tted values for the tensile
+strength data of Example 3.1. No unusual structure is apparent.
+A defect that occasionally shows up on this plot is nonconstant variance. Sometimes the
+variance of the observations increases as the magnitude of the observation increases. This would
+be the case if the error or background noise in the experiment was a constant percentage of the
+size of the observation. (This commonly happens with many measuring instruments—error is a
+percentage of the scale reading.) If this were the case, the residuals would get larger as yij gets
+larger, and the plot of residuals versus 
+would look like an outward-opening funnel or mega-
+phone. Nonconstant variance also arises in cases where the data follow a nonnormal, skewed dis-
+tribution because in skewed distributions the variance tends to be a function of the mean.
+If the assumption of homogeneity of variances is violated, the F test is only slightly affect-
+ed in the balanced (equal sample sizes in all treatments) xed effects model. However, in unbal-
+anced designs or in cases where one variance is very much larger than the others, the problem
+is more serious. Specically, if the factor levels having the larger variances also have the small-
+er sample sizes, the actual type I error rate is larger than anticipated (or condence intervals have
+lower actual condence levels than were specied). Conversely, if the factor levels with larger
+variances also have the larger sample sizes, the signicance levels are smaller than anticipated
+(condence levels are higher). This is a good reason for choosing equal sample sizes whenev-
+er possible. For random effects models, unequal error variances can signicantly disturb infer-
+ences on variance components even if balanced designs are used.
+Inequality of variance also shows up occasionally on the plot of residuals versus run
+order. An outward-opening funnel pattern indicates that variability is increasing over time.
+This could result from operator/subject fatigue, accumulated stress on equipment, changes in
+material properties such as catalyst degradation, or tool wear, or any of a number of causes.
+yˆij
+yˆij yi.
+yˆij
+3.4 Model Adequacy Checking
+83
+–12.65
+–25.4
+1
+4
+7
+10
+13
+16
+19
+12.85
+25.6
+0.1
+Residuals
+Run order or time
+■F I G U R E 3 . 5
+Plot of residuals versus
+run order or time
+668.05
+629.10
+Predicted
+500.15
+551.20
+–12.65
+–25.4
+12.85
+25.6
+0.1
+707.00
+Residuals
+■F I G U R E 3 . 6
+Plot of residuals versus 
+ﬁtted values

@@ -1,0 +1,54 @@
+12.4 Combined Array Designs and the Response Model Approach
+561
+12.4
+Combined Array Designs and the Response Model Approach
+As noted in the previous section, interactions between controllable and noise factors are the
+key to a robust design problem. Therefore, it is logical to use a model for the response that
+includes both controllable and noise factors and their interactions. To illustrate, suppose that
+we have two controllable factors x1 and x2 and a single noise factor z1. We assume that both
+control and noise factors are expressed as the usual coded variables (that is, they are centered
+at zero and have lower and upper limits at a). If we wish to consider a rst-order model
+involving the controllable and noise variables, a logical model is
+(12.1)
+Notice that this model has the main effects of both controllable factors and their interaction,
+the main effect of the noise variable, and interactions between the both controllable and noise
+variables. This type of model, incorporating both controllable and noise variables, is often
+called a response model. Unless at least one of the regression coefcients 11 and 21 is
+nonzero, there will be no robust design problem.
+An important advantage of the response model approach is that both the controllable
+factors and the noise factors can be placed in a single experimental design; that is, the inner
+and outer array structure of the Taguchi approach can be avoided. We usually call the design
+containing both controllable and noise factors a combined array design.
+As mentioned previously, we assume that noise variables are random variables,
+although they are controllable for purposes of an experiment. Specically, we assume that the
+noise variables are expressed in coded units, they have expected value zero, and variance 
+and if there are several noise variables, they have zero covariances. Under these assumptions,
+it is easy to nd a model for the mean response just by taking the expected value of y in
+Equation 12.1. This yields
+(12.2)
+where the z subscript on the expectation operator is a reminder to take expected value with
+respect to both random variables in Equation 12.1, z1 and . To nd a model for the variance
+of the response y, we use the transmission of error approach. First, expand the response
+model Equation 12.1 in a rst-order Taylor series around z1 0. This gives
+where R is the remainder term in the Taylor series. As is the usual practice, we will ignore the
+remainder term. Now the variance of y can be obtained by applying the variance operator
+across this last expression (without R). The resulting variance model is
+(12.3)
+Once again, we have used the z subscript on the variance operator as a reminder that both z1
+and are random variables.
+Equations 12.2 and 12.3 are simple models for the mean and variance of the response
+variable of interest. Note the following:
+1. The mean and variance models involve only the controllable variables. This
+means that we can potentially set the controllable variables to achieve a target value
+of the mean and minimize the variability transmitted by the noise variable.
+Vz(y) 2
+z(1 11x1 21x2)2 2
+(1 11x1 21x2)z1 R 
+0 1x1 2x2 12x1x2
+y yz0 dy
+dz1
+(z1 0) R 
+Ez(y) 0 1x1 2x2 12x1x2
+2
+z,
+y 0 1x1 2x2 12x1x2 1z1 11x1z1 21x2z1 

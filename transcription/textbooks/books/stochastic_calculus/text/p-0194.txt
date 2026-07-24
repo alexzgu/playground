@@ -1,0 +1,64 @@
+188
+CHAPTER 6. JUMP PROCESSES
+exist where the limits are taken over the dyadic rationals. We then
+dene Xt to be Xt+.
+6.2
+Poisson process
+The Poisson process is the basic jump L´evy process. It is obtained by taking
+jumps of size one at a particular rate λ. Suppose we have such a process,
+and let p(s) denote the probability that there is at least one jump in the
+interval [t, t + s]. If the increments are to be stationary, this quantity must
+not depend on t. Rate λ means that the probability that there is a jump
+some time during the time interval [t, t + ∆t] is about λ∆t; more precisely,
+p(∆t) = λ ∆t + o(∆t),
+∆t ↓0
+We can use this observation to construct the Poisson process.
+We consider the between jumps. Let Xt denote the number
+of jumps that have occurred by time t and let
+T = inft : Xt = 1
+denote the amount of time until the rst jump. Using i.i.d. increments, we
+see that
+PT > t
+=
+n
+
+j=1
+P
+
+no jump during
+(j −1)t
+n
+, jt
+n
+
+=
+
+1 −p
+t
+n
+n
+
+Therefore,
+PT > t
+=
+lim
+n∞
+
+1 −p
+t
+n
+n
+=
+lim
+n∞
+
+1 −λt
+n + o
+λt
+n
+n
+= e−λt
+Recall that a random variable T has an with rate λ
+if it has density
+f(t) = λ e−λt,
+0 < t < ∞,

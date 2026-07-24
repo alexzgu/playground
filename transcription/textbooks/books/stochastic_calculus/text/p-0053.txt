@@ -1,0 +1,44 @@
+2.5. CONSTRUCTION OF BROWNIAN MOTION
+47
+(Ω, F, P) which is large enough so that it contains a countable collec-
+tion of independent standard normal random variables. Let
+Dn =
+k
+2n : k = 0, 1, , 2n
+
+,
+denote the dyadic rationals in [0, 1] with denominator 2n and let D =
+nDSince D is a countable set, we can assume that our collection of
+N(0, 1) random variables
+Zq : q D
+is indexed by D.
+We will use the independent random variables Zqto dene the Brow-
+nian motion Bq, q D. We start by dening B0, B1, and then B12,
+and then B14 and B34, and so forth, by always subdividing our in-
+tervals. We start with B0 = 0 and we let B1 = Z1 which is clearly
+N(0, 1). We then dene
+B12 = B1
+2 + Z12
+2
+,
+and hence
+B1 −B12 = B1
+2 −Z12
+2
+
+We think of the denition of B12 as being E[B12 B1] plus some
+independent randomness. Using Proposition 2.2.1, we can see that
+B12 and B1−B12 are independent random variables, each N(0, 12).
+We continue this splitting. If q = (2k+1)2n+1 Dn+1\Dn, we dene
+Bq = Bk2−n + B(k+1)2−n −Bk2−n
+2
++
+Zq
+2(n+2)2 
+This formula looks a little complicated, but we can again view this as
+Bq = E[Bq Bk2−n, B(k+1)2−n] + (independent randomness),
+where the variance of the new randomness is chosen appropriately.
+By repeated use of Proposition 2.2.1, we can see that for each n, the
+random variables
+
+Bk2−n −B(k−1)2−n : k = 1, , 2n

@@ -1,0 +1,58 @@
+6.6. GENERALIZED POISSON PROCESSES I
+207
+and this implies that there are only a nite number of jumps in a bounded
+time interval. In this section we allow an innite number of jumps (µ(R) =
+∞), but require the expected sum of the absolute values of the jumps in an
+interval to be nite. This translates to the condition
+∞
+−∞
+xdµ(x) < ∞
+(6.15)
+This implies that
+µx : x> ϵ< ∞
+for every
+ϵ > 0,
+(6.16)
+but it is possible for µx : x> 0to be innite.
+To be more specic, let µϵ denote the measure µ restricted to jumps of
+absolute value strictly greater than ϵ. For each ϵ, we have a compound process
+with L´evy measure µϵ which can be written as
+Xϵ
+t =
+
+0≤s≤t
+(Xϵ
+s −Xϵ
+s−)
+Let us write
+V ϵ
+t =
+
+0≤s≤t
+Xϵ
+s −Xϵ
+s−
+,
+which is a CPP with measure ¯µϵ dened by
+¯µϵ(a, b) = µϵ(a, b) + µϵ(−b, −a),
+ϵ ≤a < b < ∞
+In other words V ϵ
+t has the same jumps as Xϵ
+t except that they all go in the
+positive direction. As ϵ ↓0, V ϵ
+t increases (since we are adding jumps and they
+are all in the same direction) and using (6.15), we see that
+lim
+ϵ0 E [V ϵ
+t ] = t
+∞
+−∞
+xdµ(x) < ∞
+Hence we can dene
+Vt = lim
+ϵ0 V ϵ
+t
+and E[Vt] < ∞. Similarly, we can dene
+Xt = lim
+ϵ0 Xϵ
+t 

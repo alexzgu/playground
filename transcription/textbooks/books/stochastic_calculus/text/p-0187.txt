@@ -1,0 +1,38 @@
+5.8. EXERCISES
+181
+Exercise 5.3. Suppose Bt is a standard Brownian motion on (Ω, P). For
+each of the following choices of Xt, 0 ≤t ≤1, state whether there is an
+equivalent probability measure Q such that the Xt is a standard Brownian
+motion in the new measure. If the answer is yes, give dQdP at t = 1. In all
+cases assume that B0 = 0, X0 = 0.
+dXt = 2 dt + dBt,
+dXt = 2 dt + 6 dBt,
+dXt = 2Bt dt + dBt
+Exercise 5.4. Let Bt be a standard Brownian motion with B0 = 0. Let
+m > 0 and let Xt = e−mB2
+t .
+1. Find a function g such that
+Mt := Xt exp
+t
+0
+g(Xs) ds
+
+is a local martingale.
+2. What SDE does Mt satisfy?
+3. Let Q be the probability measure obtained by tilting by Mt. Find the
+SDE for Bt in terms of a Q-Brownian motion.
+4. Explain why Mt is actually a martingale.
+Exercise 5.5. Let Bt be a standard Brownian motion with B0 = 1. Let
+T = mint : Bt = 0Let r > 0 and let Xt = Br
+t .
+1. Find a function g such that
+Mt := Xt exp
+t
+0
+g(Xs) ds
+
+is a local martingale for t < T. (Do not worry about what happens
+after time T.)
+2. What SDE does Mt satisfy?
+3. Let Q be the probability measure obtained by tilting by Mt. Find the
+SDE for Bt in terms of a Q-Brownian motion.

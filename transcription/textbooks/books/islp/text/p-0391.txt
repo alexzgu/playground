@@ -1,0 +1,80 @@
+384
+9. Support Vector Machines
+9.4.1
+One-Versus-One Classification
+Suppose that we would like to perform classification using SVMs, and there
+are K > 2 classes. A one-versus-one or all-pairs approach constructs
+'K
+2
+(
+one-versus-
+one
+SVMs, each of which compares a pair of classes. For example, one such
+SVM might compare the kth class, coded as +1, to the k′th class, coded
+as −1. We classify a test observation using each of the
+'K
+2
+(
+classifiers, and
+we tally the number of times that the test observation is assigned to each
+of the K classes. The final classification is performed by assigning the test
+observation to the class to which it was most frequently assigned in these
+'K
+2
+(
+pairwise classifications.
+9.4.2
+One-Versus-All Classification
+The one-versus-all approach (also referred to as one-versus-rest) is an al- one-versus-
+all
+one-versus-
+rest
+ternative procedure for applying SVMs in the case of K > 2 classes. We
+fit K SVMs, each time comparing one of the K classes to the remaining
+K −1 classes. Let β0k, β1k, . . . , βpk denote the parameters that result from
+fitting an SVM comparing the kth class (coded as +1) to the others (coded
+as −1). Let x∗denote a test observation. We assign the observation to the
+class for which β0k +β1kx∗
+1 +β2kx∗
+2 +· · ·+βpkx∗
+p is largest, as this amounts
+to a high level of confidence that the test observation belongs to the kth
+class rather than to any of the other classes.
+9.5
+Relationship to Logistic Regression
+When SVMs were first introduced in the mid-1990s, they made quite a
+splash in the statistical and machine learning communities. This was due
+in part to their good performance, good marketing, and also to the fact
+that the underlying approach seemed both novel and mysterious. The idea
+of finding a hyperplane that separates the data as well as possible, while al-
+lowing some violations to this separation, seemed distinctly different from
+classical approaches for classification, such as logistic regression and lin-
+ear discriminant analysis. Moreover, the idea of using a kernel to expand
+the feature space in order to accommodate non-linear class boundaries ap-
+peared to be a unique and valuable characteristic.
+However, since that time, deep connections between SVMs and other
+more classical statistical methods have emerged. It turns out that one can
+rewrite the criterion (9.12)–(9.15) for fitting the support vector classifier
+f(X) = β0 + β1X1 + · · · + βpXp as
+minimize
+β0,β1,...,βp
+
+
+
+n
+0
+i=1
+max [0, 1 −yif(xi)] + λ
+p
+0
+j=1
+β2
+j
+
+
+,
+(9.25)
+where λ is a nonnegative tuning parameter. When λ is large then β1, . . . , βp
+are small, more violations to the margin are tolerated, and a low-variance
+but high-bias classifier will result. When λ is small then few violations
+to the margin will occur; this amounts to a high-variance but low-bias

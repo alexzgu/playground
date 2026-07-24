@@ -1,0 +1,57 @@
+that
+ij are NID(0,
+), i 1, 2. It is customary to refer to ij as the random error compo-
+nent of the model. Because the means 1 and 2 are constants, we see directly from the model
+that yij are NID(i,
+), i 1, 2, just as we previously assumed. For more information about
+models for the data, refer to the supplemental text material.
+Statistical Hypotheses. A statistical hypothesis is a statement either about the
+parameters of a probability distribution or the parameters of a model. The hypothesis
+reflects some conjecture about the problem situation. For example, in the Portland cement
+experiment, we may think that the mean tension bond strengths of the two mortar formula-
+tions are equal. This may be stated formally as
+where 1 is the mean tension bond strength of the modified mortar and 2 is the mean ten-
+sion bond strength of the unmodified mortar. The statement H0:1 2 is called the null
+hypothesis and H1:1 2 is called the alternative hypothesis. The alternative hypothe-
+sis specified here is called a two-sided alternative hypothesis because it would be true if
+1 2 or if 1 2.
+To test a hypothesis, we devise a procedure for taking a random sample, computing an
+appropriate test statistic, and then rejecting or failing to reject the null hypothesis H0 based
+on the computed value of the test statistic. Part of this procedure is specifying the set of val-
+ues for the test statistic that leads to rejection of H0. This set of values is called the critical
+region or rejection region for the test.
+Two kinds of errors may be committed when testing hypotheses. If the null hypothesis
+is rejected when it is true, a type I error has occurred. If the null hypothesis is not rejected
+when it is false, a type II error has been made. The probabilities of these two errors are given
+special symbols
+Sometimes it is more convenient to work with the power of the test, where
+The general procedure in hypothesis testing is to specify a value of the probability of type I
+error , often called the signiﬁcance level of the test, and then design the test procedure so
+that the probability of type II error has a suitably small value.
+Power 1 P(reject H0H0 is false)
+P(type II error) P(fail to reject H0H0 is false)
+P(type I error) P(reject H0H0 is true)
+H11 Z 2
+H01 2
+2
+i
+
+2
+i
+
+2.4 Inferences About the Differences in Means, Randomized Designs
+37
+Factor level 1
+Sample 1: y11, y12,..., y1n1
+N(μ1, σ 1
+2)
+Factor level 2
+Sample 2: y21, y22,..., y2n2
+μ1
+μ2
+σ 1
+N(μ2, σ 2
+2)
+σ 2
+■F I G U R E 2 . 9
+The sampling situation for the two-sample t-test

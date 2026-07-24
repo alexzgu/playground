@@ -1,0 +1,91 @@
+2.6 Inferences About the Variances of Normal Distributions
+57
+The condence interval based on the paired analysis is much narrower than the condence
+interval from the independent analysis. This again illustrates the noise reduction property of
+blocking.
+Blocking is not always the best design strategy. If the within-block variability is the
+same as the between-block variability, the variance of 
+will be the same regardless of
+which design is used. Actually, blocking in this situation would be a poor choice of design
+because blocking results in the loss of n 1 degrees of freedom and will actually lead to a
+wider condence interval on 1 2. A further discussion of blocking is given in Chapter 4.
+2.6
+Inferences About the Variances of Normal Distributions
+In many experiments, we are interested in possible differences in the mean response for two
+treatments. However, in some experiments it is the comparison of variability in the data that
+is important. In the food and beverage industry, for example, it is important that the variabil-
+ity of lling equipment be small so that all packages have close to the nominal net weight or
+volume of content. In chemical laboratories, we may wish to compare the variability of two
+analytical methods. We now briey examine tests of hypotheses and condence intervals for
+variances of normal distributions. Unlike the tests on means, the procedures for tests on vari-
+ances are rather sensitive to the normality assumption. A good discussion of the normality
+assumption is in Appendix 2A of Davies (1956).
+Suppose we wish to test the hypothesis that the variance of a normal population equals
+a constant, for example,
+. Stated formally, we wish to test
+(2.44)
+The test statistic for Equation 2.44 is
+(2.45)
+where SS 
+(yi )2 is the corrected sum of squares of the sample observations. The
+appropriate reference distribution for 
+is the chi-square distribution with n 1 degrees of
+freedom. The null hypothesis is rejected if 
+or if 
+, where 
+and 
+are the upper /2 and lower 1 (/2) percentage points of the chi-square
+distribution with n 1 degrees of freedom, respectively. Table 2.8 gives the critical regions
+for the one-sided alternative hypotheses. The 100(1 ) percent condence interval on 2 is
+(2.46)
+Now consider testing the equality of the variances of two normal populations. If inde-
+pendent random samples of size n1 and n2 are taken from populations 1 and 2, respectively,
+the test statistic for
+(2.47)
+is the ratio of the sample variances
+(2.48)
+F0 S 2
+1
+S 2
+2
+H12
+1 Z 2
+2
+H02
+1 2
+2
+(n 1)S 2
+2
+/2,n1
+2 (n 1)S 2
+2
+1(/2),n1
+2
+1(/2),n1
+2
+/2,n1
+2
+0 ! 2
+1(/2),n1
+2
+0 # 2
+/2,n1
+2
+0
+y
+"n
+i1
+2
+0 SS
+2
+0
+(n 1)S2
+2
+0
+H12 Z 2
+0
+H02 2
+0
+2
+0
+y1 y2

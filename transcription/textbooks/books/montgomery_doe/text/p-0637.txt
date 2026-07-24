@@ -1,0 +1,94 @@
+14.4
+The Split-Plot Design
+In some multifactor factorial experiments, we may be unable to completely randomize the
+order of the runs. This often results in a generalization of the factorial design called a
+split-plot design.
+As an example, consider a paper manufacturer who is interested in three different
+pulp preparation methods (the methods differ in the amount of hardwood in the pulp mix-
+ture) and four different cooking temperatures for the pulp and who wishes to study the
+effect of these two factors on the tensile strength of the paper. Each replicate of a factorial
+experiment requires 12 observations, and the experimenter has decided to run three replicates.
+This will require a total of 36 runs. The experimenter decides to conduct the experiment as
+follows. A batch of pulp is produced by one of the three methods under study. Then this
+batch is divided into four samples, and each sample is cooked at one of the four temperatures.
+Then a second batch of pulp is made up using another of the three methods. This second
+batch is also divided into four samples that are tested at the four temperatures. The process
+is then repeated, until all three replicates (36 runs) of the experiment are obtained. The data
+are shown in Table 14.16.
+Initially, we might consider this to be a factorial experiment with three levels of
+preparation method (factor A) and four levels of temperature (factor B). If this is the case,
+then the order of experimentation within each replicate should be completely randomized.
+That is, we should randomly select a treatment combination (a preparation method and a
+temperature) and obtain an observation, then we should randomly select another treatment
+combination and obtain a second observation, and so on, until all 36 observations have
+been taken. However, the experimenter did not collect the data this way. He made up a
+batch of pulp and obtained observations for all four temperatures from that batch. Because
+of the economics of preparing the batches and the size of the batches, this is the only fea-
+sible way to run this experiment. A completely randomized factorial experiment would
+require 36 batches of pulp, which is completely unrealistic. The split-plot design requires
+only 9 batches total. Obviously, the split-plot design has resulted in considerable experi-
+mental efficiency.
+The design used in our example is a split-plot design. In this split-plot design we have
+9 whole plots, and the preparation methods are called the whole plot or main treatments.
+Each whole plot is divided into four parts called subplots (or split-plots), and one tempera-
+ture is assigned to each. Temperature is called the subplot treatment. Note that if other
+uncontrolled or undesigned factors are present and if these uncontrolled factors vary as the
+pulp preparation methods are changed, then any effect of the undesigned factors on the
+14.4 The Split-Plot Design
+621
+■TA B L E 1 4 . 1 6
+The Experiment on the Tensile Strength of Paper
+Replicate 1
+Replicate 2
+Replicate 3
+Pulp Preparation Method
+1
+2
+3
+1
+2
+3
+1
+2
+3
+Temperature (°F)
+200
+30
+34
+29
+28
+31
+31
+31
+35
+32
+225
+35
+41
+26
+32
+36
+30
+37
+40
+34
+250
+37
+38
+33
+40
+42
+32
+41
+39
+39
+275
+36
+42
+36
+41
+40
+40
+40
+44
+45

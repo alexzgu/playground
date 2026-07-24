@@ -1,0 +1,92 @@
+192
+Chapter 5 ■Introduction to Factorial Designs
+The sums of squares for the main effects are
+(5.7)
+and
+(5.8)
+It is convenient to obtain the SSAB in two stages. First we compute the sum of squares between
+the ab cell totals, which is called the sum of squares due to “subtotals”:
+This sum of squares also contains SSA and SSB. Therefore, the second step is to compute SSAB
+as
+(5.9)
+We may compute SSE by subtraction as
+(5.10)
+or
+SSE SST SSSubtotals
+SSE SST SSAB SSA SSB
+SSAB SSSubtotals SSA SSB
+SSSubtotals 1
+n 
+a
+i1 
+b
+j1
+y2
+ij. y2
+...
+abn
+SSB 1
+an 
+b
+j1
+y2
+.j. y2
+...
+abn
+SSA 1
+bn 
+a
+i1
+y2
+i.. y2
+...
+abn
+■TA B L E 5 . 3
+The Analysis of Variance Table for the Two-Factor Factorial, Fixed Effects Model
+Source of 
+Sum of 
+Degrees of
+Variation
+Squares
+Freedom
+Mean Square
+F0
+A treatments
+SSA
+a 1
+B treatments
+SSB
+b 1
+Interaction
+SSAB
+(a 1)(b 1)
+Error
+SSE
+ab(n 1)
+Total
+SST
+abn 1
+MSE 
+SSE
+ab(n 1)
+F0 MSAB
+MSE
+MSAB 
+SSAB
+(a 1)(b 1)
+F0 MSB
+MSE
+MSB 
+SSB
+b 1
+F0 MSA
+MSE
+MSA 
+SSA
+a 1
+E X A M P L E 5 . 1
+The Battery Design Experiment
+Table 5.4 presents the effective life (in hours) observed in
+the battery design example described in Section 5.3.1. The
+row and column totals are shown in the margins of the
+table, and the circled numbers are the cell totals.

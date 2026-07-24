@@ -1,0 +1,195 @@
+358
+Chapter 8 ■Two-Level Fractional Factorial Designs
+table presents blocks of plus and minus signs for constructing the design for N 28. The
+designs for N 12, 20, 24, and 36 are obtained by writing the appropriate row in Table 8.23
+as a column (or row). A second column (or row) is then generated from this rst one by mov-
+ing the elements of the column (or row) down (or to the right) one position and placing the
+last element in the rst position. A third column (or row) is produced from the second simi-
+larly, and the process is continued until column (or row) k is generated. A row of minus signs
+is then added, completing the design. For N 28, the three blocks X, Y, and Z are written
+down in the order
+and a row of minus signs is added to these 27 rows. The design for N 12 runs and k 11
+factors is shown in Table 8.24.
+The nongeometric Plackett–Burman designs for N 12, 20, 24, 28, and 36 have
+complex alias structures. For example, in the 12-run design every main effect is partially
+aliased with every two-factor interaction not involving itself. For example, the AB inter-
+action is aliased with the nine main effects C, D, . . . , K and the AC interaction is aliased
+with the nine main effects B, D, . . . , K. Furthermore, each main effect is partially aliased
+with 45 two-factor interactions. As an example, consider the aliases of the main effect of
+factor A:
+Each one of the 45 two-factor interactions in the alias chain in weighed by the constant 
+This weighting of the two-factor interactions occurs throughout the Plackett–Burman series 
+of nongeometric designs. In other Plackett–Burman designs, the constant will be different
+than 
+1
+3.
+
+1
+3.
+[A] A 1
+3BC 1
+3BD 1
+3BE 1
+3BF Á 1
+3KL
+Y Z X
+Z X Y
+X Y Z
+■TA B L E 8 . 2 4
+Plackett–Burman Design for N 12, k 11
+Run
+A
+B
+C
+D
+E
+F
+G
+H
+I
+J
+K
+1
+
+
+
+
+
+
+
+
+
+
+
+2
+
+
+
+
+
+
+
+
+
+
+
+3
+
+
+
+
+
+
+
+
+
+
+
+4
+
+
+
+
+
+
+
+
+
+
+
+5
+
+
+
+
+
+
+
+
+
+
+
+6
+
+
+
+
+
+
+
+
+
+
+
+7
+
+
+
+
+
+
+
+
+
+
+
+8
+
+
+
+
+
+
+
+
+
+
+
+9
+
+
+
+
+
+
+
+
+
+
+
+10
+
+
+
+
+
+
+
+
+
+
+
+11
+
+
+
+
+
+
+
+
+
+
+
+12
+
+
+
+
+
+
+
+
+
+
+

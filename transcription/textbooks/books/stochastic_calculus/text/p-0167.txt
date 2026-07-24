@@ -1,0 +1,60 @@
+5.3. GIRSANOV THEOREM
+161
+and hence if P∗T > t= 1, then E[Mt] = 1 and Ms, 0 ≤s ≤t is a
+martingale.
+We will now show that the Novikov condition (5.10) implies that M
+is a martingale. For ease let t = 1. Let
+τr = inft : ⟨Y ⟩t = r
+The process
+Xr =
+τr
+0
+As dWs
+is a standard Brownian motion with respect to the measure P∗. Also,
+Yr = Xr + 1
+2
+τr
+0
+As ds = Xr + r
+2
+In particular,
+max
+0≤s≤τr Ms = max
+0≤t≤r exp
+
+Xt + t
+2
+
+
+In other words, T = lim Tn can be dened as
+T = supt : ⟨Y ⟩t < ∞
+Let V denote the event that τr ≤1 for all r < ∞. We need to show
+that P∗(V ) = 0.
+Let
+ρn = min m ≥n : Xm ≤0
+Since Xm is a P∗-local martingale, for each n, P∗[V ρn < ∞] =
+P∗(V ). Also,
+Mρn = exp Yρn≤eρn2
+Let us x n, let ρ = ρn, and note that
+P∗(V ) ≤
+∞
+
+m=n
+E [Mm 1 ρ = m]
+≤
+∞
+
+m=n
+em2 Pρ = m
+≤
+E
+
+e⟨Y ⟩12 1ρ = m
+
+
+We therefore, get
+P∗(V ) ≤E
+
+e⟨Y ⟩12 1τr < 1
+
+

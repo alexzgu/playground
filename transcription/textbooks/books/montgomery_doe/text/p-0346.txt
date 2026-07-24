@@ -1,0 +1,119 @@
+330
+Chapter 8 ■Two-Level Fractional Factorial Designs
+Residuals
+–3
+–2
+–1
+0
+1
+2
+1
+5
+10
+20
+30
+50
+70
+90
+95
+99
+80
+Normal probability, (1 – Pj) × 100
+Pj × 100
+1
+5
+10
+20
+30
+50
+70
+80
+90
+95
+99
+Predicted yield
+10
+20
+30
+40
+50
+60
+Residuals
+–1
+–2
+–3
+0
+1
+2
+Low
+High
+Yield
+6
+63
+B+
+B+
+B–
+B–
+A
+■F I G U R E 8 . 7
+Normal probability plot of the
+residuals for Example 8.2
+■F I G U R E 8 . 8
+Plot of residuals
+versus predicted yield for Example 8.2
+■F I G U R E 8 . 9
+Aperture–exposure
+time interaction for Example 8.2
+The three factors A, B, and C have large positive effects.
+The AB or aperture–exposure time interaction is plotted in
+Figure 8.9. This plot conrms that the yields are higher
+when both A and B are at the high level.
+The 251 design will collapse into two replicates of a
+23 design in any three of the original five factors.
+(Looking at Figure 8.5 will help you visualize this.)
+Figure 8.10 is a cube plot in the factors A, B, and C with
+the average yields superimposed on the eight corners. It is
+clear from inspection of the cube plot that highest yields
+are achieved with A, B, and C all at the high level. Factors
+D and E have little effect on average process yield and
+may be set to values that optimize other objectives (such
+as cost).
+■TA B L E 8 . 7
+Analysis of Variance for Example 8.2
+Source of Variation
+Sum of Squares
+Degrees of Freedom
+Mean Square
+F0
+P-Value
+A (Aperture)
+495.0625
+1
+495.0625
+193.20
+0.0001
+B (Exposure time)
+4590.0625
+1
+4590.0625
+1791.24
+0.0001
+C (Develop time)
+473.0625
+1
+473.0625
+184.61
+0.0001
+AB
+189.0625
+1
+189.0625
+73.78
+0.0001
+Error
+28.1875
+11
+2.5625
+Total
+5775.4375
+15

@@ -1,0 +1,54 @@
+4.4 Generative Models for Classification
+153
+the default category. It is often of interest to determine which of these two
+types of errors are being made. A confusion matrix, shown for the Default confusion
+matrix
+data in Table 4.4, is a convenient way to display this information. The
+table reveals that LDA predicted that a total of 104 people would default.
+Of these people, 81 actually defaulted and 23 did not. Hence only 23 out
+of 9,667 of the individuals who did not default were incorrectly labeled.
+This looks like a pretty low error rate! However, of the 333 individuals who
+defaulted, 252 (or 75.7 %) were missed by LDA. So while the overall error
+rate is low, the error rate among individuals who defaulted is very high.
+From the perspective of a credit card company that is trying to identify
+high-risk individuals, an error rate of 252/333 = 75.7 % among individuals
+who default may well be unacceptable.
+Class-specific performance is also important in medicine and biology,
+where the terms sensitivity and specificity characterize the performance of sensitivity
+specificity
+a classifier or screening test. In this case the sensitivity is the percent-
+age of true defaulters that are identified; it equals 24.3 %. The specificity
+is the percentage of non-defaulters that are correctly identified; it equals
+(1 −23/9667) = 99.8 %.
+Why does LDA do such a poor job of classifying the customers who de-
+fault? In other words, why does it have such low sensitivity? As we have
+seen, LDA is trying to approximate the Bayes classifier, which has the low-
+est total error rate out of all classifiers. That is, the Bayes classifier will
+yield the smallest possible total number of misclassified observations, re-
+gardless of the class from which the errors stem. Some misclassifications will
+result from incorrectly assigning a customer who does not default to the
+default class, and others will result from incorrectly assigning a customer
+who defaults to the non-default class. In contrast, a credit card company
+might particularly wish to avoid incorrectly classifying an individual who
+will default, whereas incorrectly classifying an individual who will not de-
+fault, though still to be avoided, is less problematic. We will now see that it
+is possible to modify LDA in order to develop a classifier that better meets
+the credit card company’s needs.
+The Bayes classifier works by assigning an observation to the class for
+which the posterior probability pk(X) is greatest. In the two-class case, this
+amounts to assigning an observation to the default class if
+Pr(default = Yes|X = x) > 0.5.
+(4.26)
+Thus, the Bayes classifier, and by extension LDA, uses a threshold of 50 %
+for the posterior probability of default in order to assign an observation
+to the default class. However, if we are concerned about incorrectly pre-
+dicting the default status for individuals who default, then we can consider
+lowering this threshold. For instance, we might label any customer with a
+posterior probability of default above 20 % to the default class. In other
+words, instead of assigning an observation to the default class if (4.26)
+holds, we could instead assign an observation to this class if
+Pr(default = Yes|X = x) > 0.2.
+(4.27)
+The error rates that result from taking this approach are shown in Table 4.5.
+Now LDA predicts that 430 individuals will default. Of the 333 individuals
+who default, LDA correctly predicts all but 138, or 41.4 %. This is a vast

@@ -1,0 +1,182 @@
+Now consider case 2 and assume that new batches of raw material but the same opera-
+tors are used in each replicate. Thus, there are now ve new rows (in general, p new rows)
+within each replicate. The ANOVA is summarized in Table 4.15. Note that the source of vari-
+ation for the rows really measures the variation between rows within the n replicates.
+Finally, consider case 3, where new batches of raw material and new operators are used in
+each replicate. Now the variation that results from both the rows and columns measures the vari-
+ation resulting from these factors within the replicates. TheANOVA is summarized in Table 4.16.
+There are other approaches to analyzing replicated Latin squares that allow some inter-
+actions between treatments and squares (refer to Problem 4.30).
+Crossover Designs and Designs Balanced for Residual Effects. Occasionally,
+one encounters a problem in which time periods are a factor in the experiment. In general, there
+are p treatments to be tested in p time periods using np experimental units. For example,
+a human performance analyst is studying the effect of two replacement uids on dehydration
+164
+Chapter 4 ■Randomized Blocks, Latin Squares, and Related Designs
+■T A B L E 4 . 1 5
+Analysis of Variance for a Replicated Latin Square, Case 2
+Source of
+Degrees of
+Mean
+Variation
+Sum of Squares
+Freedom
+Square
+F0
+Treatments
+p 1
+Rows
+n(p 1)
+Columns
+p 1
+Replicates
+n 1
+Error
+Subtraction
+(p 1)(np 1)
+Total
+np2 1
+
+i 
+j 
+k 
+l
+y2
+ijkl y2
+....
+N
+SSE
+( p 1)(np 1)
+SSReplicates
+n 1
+1
+p2 
+n
+l1
+y2
+...l y2
+....
+N
+SSColumns
+p 1
+1
+np 
+p
+k1
+y2
+..k. y2
+....
+N
+SSRows
+n( p 1)
+1
+p 
+n
+l1 
+p
+i1
+y2
+i..l 
+n
+l1
+y2
+...l
+p2
+MSTreatments
+MSE
+SSTreatments
+p 1
+1
+np 
+p
+j1
+y2
+.j.. y2
+....
+N
+■T A B L E 4 . 1 6
+Analysis of Variance for a Replicated Latin Square, Case 3
+Source of
+Degrees of
+Mean
+Variation
+Sum of Squares
+Freedom
+Square
+F0
+Treatments
+p 1
+Rows
+n(p 1)
+Columns
+n(p 1)
+Replicates
+n 1
+Error
+Subtraction
+(p 1)[n(p 1) 1]
+Total
+np2 1
+
+i 
+j 
+k 
+l
+y2
+ijkl y2
+....
+N
+SSE
+( p 1)[n( p 1) 1]
+SSReplicates
+n 1
+1
+p2 
+n
+l1
+y2
+...l y2
+....
+N
+SSColumns
+n( p 1)
+1
+p 
+n
+l1 
+p
+k1
+y2
+..kl 
+n
+l1
+y2
+...l
+p2
+SSRows
+n( p 1)
+1
+p 
+n
+l1 
+p
+i1
+y2
+i..l 
+n
+l1
+y2
+...l
+p2
+MSTreatments
+MSE
+SSTreatments
+p 1
+1
+np 
+p
+j1
+y2
+.j.. y2
+....
+N

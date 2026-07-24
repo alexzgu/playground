@@ -1,0 +1,99 @@
+606
+Index
+qualitative, 2, 27, 91, 135, 167,
+202
+variable, 91–94
+quantitative, 2, 27, 91, 135, 167,
+202
+radial kernel, 381, 383, 390
+random forest, 11, 331, 343, 346–
+347, 354, 360–361
+random seed, 46
+re-sampling, 577–582
+recall, 155
+receiver operating characteristic (ROC),
+154, 382–383
+recommender systems, 516
+rectified linear unit, 401
+recurrent neural network, 416–427
+recursive binary splitting, 334, 337,
+338
+reducible error, 17, 90
+regression, 2, 11, 27
+local, 289, 290, 304–305
+piecewise polynomial, 294–295
+polynomial, 289–292, 299
+spline, 289, 294
+tree, 331–337, 358–360
+regularization, 230, 240, 406, 484–
+486
+ReLU, 401
+resampling, 201–214
+residual, 71, 81
+plot, 100
+standard error, 75, 77–78, 88–
+89, 109
+studentized, 104
+sum of squares, 71, 79, 81
+residuals, 263, 348
+response, 15
+ridge regression, 11, 240–244, 385,
+484
+risk set, 473
+robust, 374, 376, 535
+ROC curve, 154, 382–383, 486–
+487
+R2, 77–80, 88, 109, 238
+rug plot, 314
+scale equivariant, 242
+Scheffé’s method, 572
+scree plot, 512, 514–515
+elbow, 514
+semi-supervised learning, 27
+sensitivity, 153, 155, 156
+separating hyperplane, 367–372
+Seq2Seq, 425
+sequence, 41
+shrinkage, 230, 240, 484–486
+penalty, 240
+sigmoid, 401
+signal, 252
+signature, 45
+singular value decomposition, 539
+slack variable, 375
+slice, 51
+slope, 71, 72
+Smarket data set, 2, 3, 12, 173,
+184, 196
+smoother, 308
+smoothing spline, 290, 300–303
+soft margin classifier, 372–374
+soft-thresholding, 250
+softmax, 145, 405
+sparse, 244, 252
+sparse matrix format, 414
+sparsity, 244
+specificity, 153, 155, 156
+spline, 289, 294–303
+cubic, 296
+linear, 296
+natural, 297, 301
+regression, 289, 294–299
+smoothing, 30, 290, 300–303
+thin-plate, 22
+standard error, 75, 101
+standardize, 185
+statistical model, 1
+step function, 111, 289, 292–293
+stepwise model selection, 11, 231,
+233
+stochastic gradient descent, 429
+string, 41
+string interpolation, 490
+stump, 349
+subset selection, 230–240
+subtree, 336
+supervised learning, 25–27, 261
+support vector, 371, 376, 385
+classifier, 367, 372–377
+machine, 5, 11, 24, 377–386

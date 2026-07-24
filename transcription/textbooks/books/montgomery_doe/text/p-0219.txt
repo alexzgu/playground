@@ -1,0 +1,87 @@
+the no-interaction model (Equation 5.20) applies. As noted previously, both main effects are
+signicant. However, as soon as a residual analysis is performed for these data, it becomes
+clear that the no-interaction model is inadequate. For the two-factor model without interac-
+tion, the tted values are 
+. A plot of 
+(the cell averages minus the
+tted value for that cell) versus the tted value 
+is shown in Figure 5.15. Now the quanti-
+ties 
+may be viewed as the differences between the observed cell means and the esti-
+mated cell means assuming no interaction. Any pattern in these quantities is suggestive of the
+presence of interaction. Figure 5.15 shows a distinct pattern as the quantities 
+move
+from positive to negative to positive to negative again. This structure is the result of interac-
+tion between material types and temperature.
+5.3.7
+One Observation per Cell
+Occasionally, one encounters a two-factor experiment with only a single replicate, that is,
+only one observation per cell. If there are two factors and only one observation per cell, the
+effects model is
+(5.21)
+The analysis of variance for this situation is shown in Table 5.9, assuming that both factors
+are xed.
+From examining the expected mean squares, we see that the error variance 2 is not
+estimable; that is, the two-factor interaction effect ()ij and the experimental error cannot be
+separated in any obvious manner. Consequently, there are no tests on main effects unless the
+yij i j ()ij ij 
+ 
+i 1, 2, . . . , a
+j 1, 2, . . . , b
+yij. yˆijk
+yij. yˆijk
+yˆijk
+yij. yˆijk
+yˆijk yi.. y.j. y...
+5.3 The Two-Factor Factorial Design
+203
+■TA B L E 5 . 8
+Analysis of Variance for Battery Life Data Assuming No Interaction
+Source of 
+Sum of 
+Degrees of 
+Mean 
+Variation
+Squares
+Freedom
+Square
+F0
+Material types
+10,683.72
+2
+5,341.86
+5.95
+Temperature
+39,118.72
+2
+19,559.36
+21.78
+Error
+27,844.52
+31
+898.21
+Total
+77,646.96
+35
+50
+100
+150
+200
+30
+30
+10
+0
+–20
+–10
+–30
+yijk
+yij.– yijk
+›
+›
+■F I G U R E 5 . 1 5
+Plot of 
+versus 
+,
+battery life data
+yˆijk
+yij. yˆijk

@@ -1,0 +1,111 @@
+352
+Chapter 8 ■Two-Level Fractional Factorial Designs
+To nd the aliases of any effect, simply multiply the effect by each word in the dening rela-
+tion. For example, the aliases of B are
+This design is a one-sixteenth fraction, and because the signs chosen for the generators
+are positive, this is the principal fraction. It is also a resolution III design because the small-
+est number of letters in any word of the dening contrast is three. Any one of the 16 different
+designs in this family could be constructed by using the generators with one of the 16
+possible arrangements of signs in I ABD, I ACE, I BCF, I ABCG.
+The seven degrees of freedom in this design may be used to estimate the seven main
+effects. Each of these effects has 15 aliases; however, if we assume that three-factor and high-
+er interactions are negligible, then considerable simplication in the alias structure results.
+Making this assumption, each of the linear combinations associated with the seven main
+effects in this design actually estimates the main effect and three two-factor interactions:
+(8.2)
+These aliases are found in Appendix Table X(h), ignoring three-factor and higher interactions.
+The saturated 
+design in Table 8.19 can be used to obtain resolution III designs for
+studying fewer than seven factors in eight runs. For example, to generate a design for six fac-
+tors in eight runs, simply drop any one column in Table 8.19, for example, column G. This
+produces the design shown in Table 8.20.
+274
+III
+[G] l G CD BE AF
+[F] l F BC AG DE
+[E] l E AC BG DF
+[D] l D AB CG EF
+[C] l C AE BF DG
+[B] l B AD CF EG
+[A] l A BD CE FG
+274
+III
+ABFG BDEF ABDEG BCEFG DFG ACDEFG
+B AD ABCE CF ACG CDE ABCDF BCDG AEF EG
+■TA B L E 8 . 2 0
+A 
+Design with the Generators I ABD, I ACE, and I BCF
+Basic Design
+Run
+A
+B
+C
+D AB
+E AC
+F BC
+1
+
+
+
+
+
+
+def
+2
+
+
+
+
+
+
+af
+3
+
+
+
+
+
+
+be
+4
+
+
+
+
+
+
+abd
+5
+
+
+
+
+
+
+cd
+6
+
+
+
+
+
+
+ace
+7
+
+
+
+
+
+
+bcf
+8
+
+
+
+
+
+
+abcdef
+263
+III

@@ -1,0 +1,100 @@
+3.7 Exercises
+127
+CompPrice
+0.0929
+0.004
+22.567
+0.000
+Income
+0.0109
+0.003
+4.183
+0.000
+Advertising
+0.0702
+0.023
+3.107
+0.002
+Population
+0.0002
+0.000
+0.433
+0.665
+Price
+-0.1008
+0.007
+-13.549
+0.000
+ShelveLoc[Good]
+4.8487
+0.153
+31.724
+0.000
+ShelveLoc[Medium]
+1.9533
+0.126
+15.531
+0.000
+Age
+-0.0579
+0.016
+-3.633
+0.000
+Education
+-0.0209
+0.020
+-1.063
+0.288
+Urban[Yes]
+0.1402
+0.112
+1.247
+0.213
+US[Yes]
+-0.1576
+0.149
+-1.058
+0.291
+Income:Advertising
+0.0008
+0.000
+2.698
+0.007
+Price:Age
+0.0001
+0.000
+0.801
+0.424
+In the first line above, we made allvars a list, so that we could add the
+interaction terms two lines down. Our model-matrix builder has created a
+ShelveLoc[Good] dummy variable that takes on a value of 1 if the shelving
+location is good, and 0 otherwise. It has also created a ShelveLoc[Medium]
+dummy variable that equals 1 if the shelving location is medium, and 0 oth-
+erwise. A bad shelving location corresponds to a zero for each of the two
+dummy variables. The fact that the coefficient for ShelveLoc[Good] in the
+regression output is positive indicates that a good shelving location is asso-
+ciated with high sales (relative to a bad location). And ShelveLoc[Medium]
+has a smaller positive coefficient, indicating that a medium shelving loca-
+tion leads to higher sales than a bad shelving location, but lower sales than
+a good shelving location.
+3.7
+Exercises
+Conceptual
+1. Describe the null hypotheses to which the p-values given in Table 3.4
+correspond. Explain what conclusions you can draw based on these
+p-values. Your explanation should be phrased in terms of sales, TV,
+radio, and newspaper, rather than in terms of the coefficients of the
+linear model.
+2. Carefully explain the differences between the KNN classifier and KNN
+regression methods.
+3. Suppose we have a data set with five predictors, X1 = GPA, X2 =
+IQ, X3 = Level (1 for College and 0 for High School), X4 = Interac-
+tion between GPA and IQ, and X5 = Interaction between GPA and
+Level. The response is starting salary after graduation (in thousands
+of dollars). Suppose we use least squares to fit the model, and get
+ˆβ0 = 50, ˆβ1 = 20, ˆβ2 = 0.07, ˆβ3 = 35, ˆβ4 = 0.01, ˆβ5 = −10.
+(a) Which answer is correct, and why?
+i. For a fixed value of IQ and GPA, high school graduates earn
+more, on average, than college graduates.
+ii. For a fixed value of IQ and GPA, college graduates earn
+more, on average, than high school graduates.

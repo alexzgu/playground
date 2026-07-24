@@ -1,0 +1,57 @@
+6.3. COMPOUND POISSON PROCESS
+199
+Suppose that Xt = SNt where Nt is a Poisson process of rate λ. Let
+En be the event that Nt+(1n) −Nt ≥2 for some t ≤1We know that
+nEn has probability zero, and hence since E[f(X1)] < ∞,
+lim
+n∞E [f(X1)1En] = 0
+Therefore,
+E[f(X1)] = lim
+n∞E[f(X1)1Ecn]
+However,
+E
+
+[f(Xt+s) −f(Xt)] 1Ecn
+
+= s E[Lf(Xt)][1 + O(s)]
+We therefore get
+E [f(X1) −f(X0)] = lim
+n∞
+1
+n
+n−1
+
+j=0
+E[Lf(Xjn)]
+Right-continuity implies that
+lim
+n∞
+1
+n
+n−1
+
+j=0
+Lf(Xjn) =
+1
+0
+Lf(Xs) ds,
+and the bound E[f(X1)] < ∞can be used to justify the interchange
+of limit and expectation.
+For a CPP the paths t →Xt are piecewise constant and are discontinuous
+at the jumps. As for the usual Poisson process, we have dened the path so
+that is it right-continuous and has left-limits. We call a function (also
+written ), short for , , if the paths are
+right-continuous everywhere and have left-limits. That is, for every t, the
+limits
+Xt+ = lim
+st Xs,
+Xt−= lim
+st Xs,
+exist and Xt = Xt+The paths of a CPP are cadlag. We can write
+Xt = X0 +
+
+0≤s≤t
+[Xs −Xs−] 
+Although as written this sum is over an uncountable number of times s, the
+term Xs −Xs−is only nonzero at those s at which the path is discontinuous
+and this is a nite set.

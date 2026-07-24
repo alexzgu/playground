@@ -1,0 +1,120 @@
+9.1 The 3k Factorial Design
+399
+Example 9.1 illustrates a situation where the three-level design often nds some appli-
+cation; one or more of the factors are qualitative, naturally taking on three levels, and the
+remaining factors are quantitative. In this example, suppose only three nozzle designs are
+of interest. This is clearly, then, a qualitative factor that requires three levels. The lling
+speed and the operating pressure are quantitative factors. Therefore, we could t a quadratic
+model such as Equation 9.1 in the two factors speed and pressure at each level of the nozzle
+factor.
+Table 9.3 shows these quadratic regression models. The ’s in these models were esti-
+mated using a standard linear regression computer program. (We will discuss least squares
+regression in more detail in Chapter 10.) In these models, the variables x1 and x2 are coded to
+the levels 1, 0, 1 as discussed previously, and we assumed the following natural levels for
+pressure and speed:
+■TA B L E 9 . 2
+Analysis of Variance for Syrup Loss Data
+Source of
+Sum of
+Degrees of
+Mean
+Variation
+Squares
+Freedom
+Square
+F0
+P-Value
+A, nozzle
+993.77
+2
+496.89
+1.17
+0.3256
+B, speed
+61,190.33
+2
+30,595.17
+71.74
+0.0001
+C, pressure
+69,105.33
+2
+34,552.67
+81.01
+0.0001
+AB
+6,300.90
+4
+1,575.22
+3.69
+0.0160
+AC
+7,513.90
+4
+1,878.47
+4.40
+0.0072
+BC
+12,854.34
+4
+3,213.58
+7.53
+0.0003
+ABC
+4,628.76
+8
+578.60
+1.36
+0.2580
+Error
+11,515.50
+27
+426.50
+Total
+174,102.83
+53
+Nozzle type (A)
+(a)
+A × B cell totals
+1
+2
+3
+– 400
+–200
+0
+200
+400
+B = 120
+B = 100
+B = 140
+Nozzle type (A)
+(b)
+A × C cell totals
+1
+2
+3
+– 400
+–200
+0
+200
+400
+C = 20
+C = 10
+C = 15
+Speed in rpm (B)
+(c)
+B × C cell totals
+100
+120
+140
+– 400
+–200
+0
+200
+400
+600
+C = 10
+C = 20
+C = 15
+■F I G U R E 9 . 4
+Two-factor interactions for Example 9.1

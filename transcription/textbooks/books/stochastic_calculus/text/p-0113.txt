@@ -1,0 +1,52 @@
+3.4. MORE VERSIONS OF IT ˆO’S FORMULA
+107
+then Xt is a geometric Brownian motion with parameters (m, σ). Even though
+we have an exact expression (3.15) for geometric Brownian motion, it is
+generally more useful to think of it in terms of its SDE (3.14).
+Geometric Brownian motion is more natural than usual Brownian mo-
+tion for modeling prices of assets such as stock. It measures changes in terms
+of fractions or percentages of the current price rather than the listed price
+per share. In particular, the latter quantity includes a rather arbitrary unit
+sharewhich does not appear if one models with geometric Brownian mo-
+tion.
+The geometric Brownian motion (3.15) is what is sometimes called a
+strongsolution to the SDE (3.14). (All of the solutions to SDEs that we
+discuss in this book are strong solutions.) We will not give the exact deni-
+tion, but roughly speaking, if one uses the same Brownian motion Bt in both
+places, one gets the same function. Let us explain this in terms of simulation.
+Suppose a small ∆t is chosen. Then we can dene Bk∆t by B0 = 0 and
+Bk∆t = B(k−1)∆t +
+√
+∆t Nk,
+(3.16)
+where N1, N2, is a sequence of independent N(0, 1) random variables.
+Using the sequence, we could dene an approximate solution to (3.14)
+by choosing X0 = e0 = 1 and
+Xk∆t = X(k−1)∆t + X(k−1)∆t
+
+m ∆t + σ
+√
+∆t Nj
+
+
+(3.17)
+If ∆t is small, this should be very close to
+Yk∆t = exp
+
+m −σ2
+2
+
+(k∆t) + σ Bk∆t
+
+
+(3.18)
+In Exercise 3.9 you are asked to do a simulation to compare (3.17) and (3.18).
+To do formal1 calculations in usual calculus, one writes down dierentials
+and throws away all terms that are of smaller order than dt. In stochastic
+calculus, one can go far computing similarly using the rules
+(dBt)2 = dt,
+(dBt) (dt) = 0,
+(dt)2 = 0
+1Mathematicians use the word formal to refer to calculations that look correct in
+form, but for which not all the steps have been justied. When they construct proofs,
+they often start with formal calculations and then go back and justify the steps.

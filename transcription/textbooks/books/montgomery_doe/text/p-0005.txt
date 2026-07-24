@@ -1,0 +1,45 @@
+About the Book
+The eighth edition is a major revision of the book. I have tried to maintain the balance
+between design and analysis topics of previous editions; however, there are many new topics
+and examples, and I have reorganized much of the material. There is much more emphasis on
+the computer in this edition.
+Design-Expert, JMP, and Minitab Software
+During the last few years a number of excellent software products to assist experimenters in
+both the design and analysis phases of this subject have appeared. I have included output from
+three of these products, Design-Expert, JMP, and Minitab at many points in the text. Minitab
+and JMP are widely available general-purpose statistical software packages that have good
+data analysis capabilities and that handles the analysis of experiments with both xed and ran-
+dom factors (including the mixed model). Design-Expert is a package focused exclusively on
+experimental design. All three of these packages have many capabilities for construction and
+evaluation of designs and extensive analysis features. Student versions of Design-Expert and
+JMP are available as a packaging option with this book, and their use is highly recommend-
+ed. I urge all instructors who use this book to incorporate computer software into your
+course. (In my course, I bring a laptop computer and use a computer projector in every
+lecture, and every design or analysis topic discussed in class is illustrated with the computer.)
+To request this book with the student version of JMP or Design-Expert included, contact
+your local Wiley representative. You can nd your local Wiley representative by going to
+www.wiley.com/college and clicking on the tab for “Who’s My Rep?”
+Empirical Model
+I have continued to focus on the connection between the experiment and the model that
+the experimenter can develop from the results of the experiment. Engineers (and physical,
+chemical and life scientists to a large extent) learn about physical mechanisms and their
+underlying mechanistic models early in their academic training, and throughout much of
+their professional careers they are involved with manipulation of these models.
+Statistically designed experiments offer the engineer a valid basis for developing an
+empirical model of the system being investigated. This empirical model can then be
+manipulated (perhaps through a response surface or contour plot, or perhaps mathemati-
+cally) just as any other engineering model. I have discovered through many years of teaching
+that this viewpoint is very effective in creating enthusiasm in the engineering community
+for statistically designed experiments. Therefore, the notion of an underlying empirical
+model for the experiment and response surfaces appears early in the book and receives
+much more emphasis.
+Factorial Designs
+I have expanded the material on factorial and fractional factorial designs (Chapters 5–9) in
+an effort to make the material flow more effectively from both the reader’s and the instruc-
+tor’s viewpoint and to place more emphasis on the empirical model. There is new material
+on a number of important topics, including follow-up experimentation following a fractional
+factorial, nonregular and nonorthogonal designs, and small, efficient resolution IV and V
+designs. Nonregular fractions as alternatives to traditional minimum aberration fractions in
+16 runs and analysis methods for these design are discussed and illustrated.
+vi
+Preface

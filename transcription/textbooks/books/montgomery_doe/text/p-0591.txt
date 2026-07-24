@@ -1,0 +1,69 @@
+because under H0 both numerator and denominator of F0 have expectation 2, and only if H0
+is false is E(MSAB) greater than E(MSE). The ratio F0 is distributed as F(a1)(b1),ab(n1).
+Similarly, for testing H0:
+0 we would use
+(13.5)
+which is distributed as Fa1,(a1)(b1), and for testing H0:
+ 0 the statistic is
+(13.6)
+which is distributed as Fb1,(a1)(b1). These are all upper-tail, one-tail tests. Notice that these
+test statistics are not the same as those used if both factors A and B are xed. The expected
+mean squares are always used as a guide to test statistic construction.
+In many experiments involving random factors, interest centers at least as much on esti-
+mating the variance components as on hypothesis testing. Recall from Chapter 3 that there are
+two approaches to variance component estimation. The variance components may be estimated
+by the analysis of variance method, that is, by equating the observed mean squares in the
+lines of the analysis of variance table to their expected values and solving for the variance
+components. This yields
+(13.7)
+as the point estimates of the variance components in the two-factor random effects model.
+These are moment estimators. Some computer programs use this method. This will be illus-
+trated in the following example.
+ˆ 2
+MSA MSAB
+bn
+ˆ 2
+MSB MSAB
+an
+ˆ 2
+MSAB MSE
+n
+ˆ 2 MSE
+F0 MSB
+MSAB
+2
+
+F0 MSA
+MSAB
+2
+
+13.2 The Two-Factor Factorial with Random Factors
+575
+E X A M P L E 1 3 . 1
+A Measurement Systems Capability Study
+Statistically designed experiments are frequently used to
+investigate the sources of variability that affect a system. A
+common industrial application is to use a designed experi-
+ment to study the components of variability in a measure-
+ment system. These studies are often called gauge capabil-
+ity studies or gauge repeatability and reproducibility
+(R&R) studies because these are the components of vari-
+ability that are of interest (for more discussion of gauge
+R&R studies, see the supplemental material for this 
+chapter).
+A typical gauge R&R experiment from Montgomery
+(2009) is shown in Table 13.1. An instrument or gauge is
+used to measure a critical dimension on a part. Twenty parts
+have been selected from the production process, and three
+randomly selected operators measure each part twice with
+this gauge. The order in which the measurements are made
+is completely randomized, so this is a two-factor factorial
+experiment with design factors parts and operators, with
+two replications. Both parts and operators are random fac-
+tors. The variance component identity in Equation 13.1
+applies; namely,
+2
+y 2
+2
+2
+2

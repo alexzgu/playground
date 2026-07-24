@@ -1,0 +1,63 @@
+gauge capability study. The machine operates by pressing the tip into a metal test coupon, and
+from the depth of the resulting depression, the hardness of the coupon can be determined. The
+experimenter has decided to obtain four observations on Rockwell C-scale hardness for each tip.
+There is only one factor—tip type—and a completely randomized single-factor design would
+consist of randomly assigning each one of the 4 4  16 runs to an experimental unit, that
+is, a metal coupon, and observing the hardness reading that results. Thus, 16 different metal test
+coupons would be required in this experiment, one for each run in the design.
+There is a potentially serious problem with a completely randomized experiment in this
+design situation. If the metal coupons differ slightly in their hardness, as might happen if they
+are taken from ingots that are produced in different heats, the experimental units (the
+coupons) will contribute to the variability observed in the hardness data. As a result, the
+experimental error will reect both random error and variability between coupons.
+We would like to make the experimental error as small as possible; that is, we would
+like to remove the variability between coupons from the experimental error. A design that
+would accomplish this requires the experimenter to test each tip once on each of four
+coupons. This design, shown in Table 4.1, is called a randomized complete block design
+(RCBD). The word “complete” indicates that each block (coupon) contains all the treatments
+(tips). By using this design, the blocks, or coupons, form a more homogeneous experimental
+unit on which to compare the tips. Effectively, this design strategy improves the accuracy of
+the comparisons among tips by eliminating the variability among the coupons. Within a
+block, the order in which the four tips are tested is randomly determined. Notice the similar-
+ity of this design problem to the paired t-test of Section 2.5.1. The randomized complete block
+design is a generalization of that concept.
+The RCBD is one of the most widely used experimental designs. Situations for which
+the RCBD is appropriate are numerous. Units of test equipment or machinery are often dif-
+ferent in their operating characteristics and would be a typical blocking factor. Batches of raw
+material, people, and time are also common nuisance sources of variability in an experiment
+that can be systematically controlled through blocking.1
+Blocking may also be useful in situations that do not necessarily involve nuisance fac-
+tors. For example, suppose that a chemical engineer is interested in the effect of catalyst feed
+rate on the viscosity of a polymer. She knows that there are several factors, such as raw mate-
+rial source, temperature, operator, and raw material purity that are very difcult to control in
+the full-scale process. Therefore she decides to test the catalyst feed rate factor in blocks,
+where each block consists of some combination of these uncontrollable factors. In effect, she
+is using the blocks to test the robustness of her process variable (feed rate) to conditions she
+cannot easily control. For more discussion of this, see Coleman and Montgomery (1993).
+140
+Chapter 4 ■Randomized Blocks, Latin Squares, and Related Designs
+■T A B L E 4 . 1
+Randomized Complete Block Design for the Hardness Testing Experiment
+Test Coupon (Block)
+1
+2
+3
+4
+Tip 3
+Tip 3
+Tip 2
+Tip 1
+Tip 1
+Tip 4
+Tip 1
+Tip 4
+Tip 4
+Tip 2
+Tip 3
+Tip 2
+Tip 2
+Tip 1
+Tip 4
+Tip 3
+1A special case of blocking occurs where the blocks are experimental units such as people, and each block receives the treatments own time
+or the treatment effects are measured at different times. These are called repeated measures designs. They are discussed in chapter 15.

@@ -1,0 +1,48 @@
+18
+2. Statistical Learning
+Years of Education
+Seniority
+Income
+FIGURE 2.3. The plot displays income as a function of years of education
+and seniority in the Income data set. The blue surface represents the true
+underlying relationship between income and years of education and seniority,
+which is known since the data are simulated. The red dots indicate the observed
+values of these quantities for 30 individuals.
+measure them, f cannot use them for its prediction. The quantity ϵ may
+also contain unmeasurable variation. For example, the risk of an adverse
+reaction might vary for a given patient on a given day, depending on
+manufacturing variation in the drug itself or the patient’s general feeling
+of well-being on that day.
+Consider a given estimate ˆf and a set of predictors X, which yields the
+prediction ˆY = ˆf(X). Assume for a moment that both ˆf and X are fixed,
+so that the only variability comes from ϵ. Then, it is easy to show that
+E(Y −ˆY )2
+=
+E[f(X) + ϵ −ˆf(X)]2
+=
+[f(X) −ˆf(X)]2
+,
+-.
+/
+Reducible
++
+Var(ϵ)
+, -. /
+Irreducible
+,
+(2.3)
+where E(Y −ˆY )2 represents the average, or expected value, of the squared expected
+value
+difference between the predicted and actual value of Y , and Var(ϵ) repre-
+sents the variance associated with the error term ϵ.
+variance
+The focus of this book is on techniques for estimating f with the aim of
+minimizing the reducible error. It is important to keep in mind that the
+irreducible error will always provide an upper bound on the accuracy of
+our prediction for Y . This bound is almost always unknown in practice.
+Inference
+We are often interested in understanding the association between Y and
+X1, . . . , Xp. In this situation we wish to estimate f, but our goal is not
+necessarily to make predictions for Y . Now ˆf cannot be treated as a black
+box, because we need to know its exact form. In this setting, one may be
+interested in answering the following questions:

@@ -1,0 +1,41 @@
+530
+Chapter 11 ■Response Surface Methods and Designs
+■TA B L E 1 1 . 1 8
+(Continued)
+519.91871208163 * Exp((65.4025404276544 * ((“X-Axis”) 0.0717377150616494)^2 
+3603.24827558717 * ((“R-axis”)  0.377241897055609)^2)) 
+3082.85411601115 * Exp((65.4025404276544 * ((“X-Axis”) 0.0644873310121405)^2 
+3603.24827558717 * (“R-axis”) 0.0148210408248663)^2)) 
+958.926988711818 * Exp((65.4025404276544 * ((“X-Axis”) 0.0499)^2 3603.24827558717
+* (“R-axis”) ^2)) 
+80.468182554262 * Exp((65.4025404276544 * ((“X-Axis”) 0.0499)^2 3603.24827558717
+* (“R-axis”) 0.0347687447931648)^2)) 
+1180.44117607546 * Exp((65.4025404276544 * ((“X-Axis”) 0.0790747191607881)^2 
+3603.24827558717 * (“R-axis”) ^2)))
+Experiments with computer models represent a relatively new and challenging area
+for both researchers and practitioners in RSM and in the broader engineering community.
+The use of well-designed experiments with engineering computer models for product
+design is potentially a very effective way to enhance the productivity of the engineering
+design and development community. Some useful references on the general subject of sta-
+tistical design for computer experiments include Barton (1992, 1994), Bettonvil and
+Kleijnen (1996), Donohue (1994), McKay, Beckman, and Conover (1979), Montgomery
+and Weatherby (1979), Sacks, Schiller, and Welch (1989), Sacks and Welch (1989),
+Simpson and Peplinski (1997), Slaagame and Barton (1997), Welch et al. (1992), and
+Jones and Johnson (2009).
+11.6
+Mixture Experiments
+In previous sections, we have presented response surface designs for those situations in which
+the levels of each factor are independent of the levels of other factors. In mixture experi-
+ments, the factors are the components or ingredients of a mixture, and consequently their lev-
+els are not independent. For example, if x1, x2, . . . , xp denote the proportions of p components
+of a mixture, then
+and
+These restrictions are illustrated graphically in Figure 11.39 for p 2 and p 3 compo-
+nents. For two components, the factor space for the design includes all values of the two
+components that lie on the line segment x1 x2 1, with each component being bound-
+ed by 0 and 1. With three components, the mixture space is a triangle with vertices corre-
+sponding to formulations that are pure blends (mixtures that are 100 percent of a single
+component).
+x1 x2 Á xp 1  (i.e., 100 percent)
+0 xi  1 
+ i 1, 2, . . . , p

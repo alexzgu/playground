@@ -1,0 +1,21 @@
+40
+CHAPTER 2. BROWNIAN MOTION
+(If the ≥is replaced with > 0 for all b = (b1, , bn)̸ = (0, , 0),
+then the matrix is called .) The inequality (2.1) can be
+derived by noting that the left-hand side is the same as
+E
+
+(b1X1 + · · · + bnXn)2
+,
+which is clearly nonnegative.
+If Γ is a positive semidenite, symmetric matrix, then it is the co-
+variance matrix for a joint normal distribution. The proof of this fact,
+which we omit, uses linear algebra to deduce that there exists an n × n
+matrix A with AAT = Γ. (The A is not unique.)
+The distribution of a mean-zero joint normal is determined by the co-
+variance matrix Γ.
+In order to show that the covariance matrix Γ determines the dis-
+tribution of a mean-zero joint normal, we compute the characteristic
+function. Suppose that Γ = AAT where A is n×n. Using the indepen-
+dence of Z1, , Zn and the characteristic function of the standard
+normal, E[eitZk] = e−t22, we see that the characteristic function of

@@ -1,0 +1,63 @@
+256
+6. Linear Model Selection and Regularization
+20
+30
+40
+50
+5
+10
+15
+20
+25
+30
+Population
+Ad Spending
+−20
+−10
+0
+10
+20
+−10
+−5
+0
+5
+10
+1st Principal Component
+2nd Principal Component
+FIGURE 6.15. A subset of the advertising data. The mean pop and ad budgets
+are indicated with a blue circle. Left: The first principal component direction is
+shown in green. It is the dimension along which the data vary the most, and it also
+defines the line that is closest to all n of the observations. The distances from each
+observation to the principal component are represented using the black dashed line
+segments. The blue dot represents (pop, ad). Right: The left-hand panel has been
+rotated so that the first principal component direction coincides with the x-axis.
+panel of Figure 6.15, in which the crosses represent the projection of each
+point onto the first principal component line. The first principal component
+has been chosen so that the projected observations are as close as possible
+to the original observations.
+In the right-hand panel of Figure 6.15, the left-hand panel has been
+rotated so that the first principal component direction coincides with the
+x-axis. It is possible to show that the first principal component score for
+the ith observation, given in (6.20), is the distance in the x-direction of the
+ith cross from zero. So for example, the point in the bottom-left corner of
+the left-hand panel of Figure 6.15 has a large negative principal component
+score, zi1 = −26.1, while the point in the top-right corner has a large
+positive score, zi1 = 18.7. These scores can be computed directly using
+(6.20).
+We can think of the values of the principal component Z1 as single-
+number summaries of the joint pop and ad budgets for each location. In
+this example, if zi1 = 0.839 × (popi −pop) + 0.544 × (adi −ad) < 0,
+then this indicates a city with below-average population size and below-
+average ad spending. A positive score suggests the opposite. How well can a
+single number represent both pop and ad? In this case, Figure 6.14 indicates
+that pop and ad have approximately a linear relationship, and so we might
+expect that a single-number summary will work well. Figure 6.16 displays
+zi1 versus both pop and ad.7 The plots show a strong relationship between
+the first principal component and the two features. In other words, the first
+principal component appears to capture most of the information contained
+in the pop and ad predictors.
+So far we have concentrated on the first principal component. In gen-
+eral, one can construct up to p distinct principal components. The second
+7The principal components were calculated after first standardizing both pop and ad,
+a common approach. Hence, the x-axes on Figures 6.15 and 6.16 are not on the same
+scale.

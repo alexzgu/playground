@@ -1,0 +1,68 @@
+100
+3. Linear Regression
+3.3.3
+Potential Problems
+When we fit a linear regression model to a particular data set, many prob-
+lems may occur. Most common among these are the following:
+1. Non-linearity of the response-predictor relationships.
+2. Correlation of error terms.
+3. Non-constant variance of error terms.
+4. Outliers.
+5. High-leverage points.
+6. Collinearity.
+In practice, identifying and overcoming these problems is as much an
+art as a science. Many pages in countless books have been written on this
+topic. Since the linear regression model is not our primary focus here, we
+will provide only a brief summary of some key points.
+1. Non-linearity of the Data
+5
+10
+15
+20
+25
+30
+−15
+−10
+−5
+0
+5
+10
+15
+20
+Fitted values
+Residuals
+Residual Plot for Linear Fit
+323
+330
+334
+15
+20
+25
+30
+35
+−15
+−10
+−5
+0
+5
+10
+15
+Fitted values
+Residuals
+Residual Plot for Quadratic Fit
+334
+323
+155
+FIGURE 3.9. Plots of residuals versus predicted (or fitted) values for the Auto
+data set. In each plot, the red line is a smooth fit to the residuals, intended to make
+it easier to identify a trend. Left: A linear regression of mpg on horsepower. A
+strong pattern in the residuals indicates non-linearity in the data. Right: A linear
+regression of mpg on horsepower and horsepower2. There is little pattern in the
+residuals.
+The linear regression model assumes that there is a straight-line rela-
+tionship between the predictors and the response. If the true relationship
+is far from linear, then virtually all of the conclusions that we draw from
+the fit are suspect. In addition, the prediction accuracy of the model can
+be significantly reduced.
+Residual plots are a useful graphical tool for identifying non-linearity. residual plot
+Given a simple linear regression model, we can plot the residuals, ei =

@@ -1,0 +1,52 @@
+111
+in the regression model in order to accommodate non-additive rela-
+tionships. A small p-value associated with the interaction term indi-
+cates the presence of such relationships. Figure 3.5 suggested that the
+Advertising data may not be additive. Including an interaction term
+in the model results in a substantial increase in R2, from around 90 %
+to almost 97 %.
+3.5
+Comparison of Linear Regression
+with K-Nearest Neighbors
+As discussed in Chapter 2, linear regression is an example of a parametric
+approach because it assumes a linear functional form for f(X). Parametric
+methods have several advantages. They are often easy to fit, because one
+need estimate only a small number of coefficients. In the case of linear re-
+gression, the coefficients have simple interpretations, and tests of statistical
+significance can be easily performed. But parametric methods do have a
+disadvantage: by construction, they make strong assumptions about the
+form of f(X). If the specified functional form is far from the truth, and
+prediction accuracy is our goal, then the parametric method will perform
+poorly. For instance, if we assume a linear relationship between X and Y
+but the true relationship is far from linear, then the resulting model will
+provide a poor fit to the data, and any conclusions drawn from it will be
+suspect.
+In contrast, non-parametric methods do not explicitly assume a para-
+metric form for f(X), and thereby provide an alternative and more flexi-
+ble approach for performing regression. We discuss various non-parametric
+methods in this book. Here we consider one of the simplest and best-known
+non-parametric methods, K-nearest neighbors regression (KNN regression). K-nearest
+neighbors
+regression
+The KNN regression method is closely related to the KNN classifier dis-
+cussed in Chapter 2. Given a value for K and a prediction point x0, KNN
+regression first identifies the K training observations that are closest to
+x0, represented by N0. It then estimates f(x0) using the average of all the
+training responses in N0. In other words,
+ˆf(x0) = 1
+K
+0
+xi∈N0
+yi.
+Figure 3.16 illustrates two KNN fits on a data set with p = 2 predictors. The
+fit with K = 1 is shown in the left-hand panel, while the right-hand panel
+corresponds to K = 9. We see that when K = 1, the KNN fit perfectly
+interpolates the training observations, and consequently takes the form
+of a step function. When K = 9, the KNN fit still is a step function, but
+averaging over nine observations results in much smaller regions of constant
+prediction, and consequently a smoother fit. In general, the optimal value
+for K will depend on the bias-variance tradeoff, which we introduced in
+Chapter 2. A small value for K provides the most flexible fit, which will
+have low bias but high variance. This variance is due to the fact that the
+prediction in a given region is entirely dependent on just one observation.
+3.5 Comparison of Linear Regression with K-Nearest Neighbors

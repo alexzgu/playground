@@ -1,0 +1,149 @@
+224
+Chapter 5 ■Introduction to Factorial Designs
+■TA B L E 5 . 2 4
+Radar Detection Experiment Run in a 6 6 Latin Square
+Operator
+Day
+1
+2
+3
+4
+5
+6
+1
+A(f1g1 90)
+B(f1g2 106)
+C(f1g3 108)
+D(f2g1 81)
+F(f2g3 90)
+E(f2g2 88)
+2
+C(f1g3 114)
+A(f1g1 96)
+B(f1g2 105)
+F(f2g3 83)
+E(f2g2 86)
+D(f2g1 84)
+3
+B(f1g2 102)
+E(f2g2 90)
+G(f2g3 95)
+A(f1g1 92)
+D(f2g1 85)
+C(f1g3 104)
+4
+E(f2g2 87)
+D(f2g1 84)
+A(f1g1 100)
+B(f1g2 96)
+C(f1g3 110)
+F(f2g3 91)
+5
+F(f2g3 93)
+C(f1g3 112)
+D(f2g1 92)
+E(f2g2 80)
+A(f1g1 90)
+B(f1g2 98)
+6
+D(f2g1 86)
+F(f2g3 91)
+E(f2g2 97)
+C(f1g3 98)
+B(f1g2 100)
+A(f1g1 92)
+■TA B L E 5 . 2 5
+Analysis of Variance for the Radar Detection Experiment Run as a 3 2
+Factorial in a Latin Square
+General Formula 
+Source of 
+Sum of 
+Degrees of 
+for Degrees of 
+Variation
+Squares
+Freedom
+Freedom
+Mean Square
+F0
+P-Value
+Ground clutter, G
+571.50
+2
+a 1
+285.75
+28.86
+0.0001
+Filter type, F
+1469.44
+1
+b 1
+1469.44
+148.43
+0.0001
+GF
+126.73
+2
+(a 1)(b 1)
+63.37
+6.40
+0.0071
+Days (rows)
+4.33
+5
+ab 1
+0.87
+Operators (columns)
+428.00
+5
+ab 1
+85.60
+Error
+198.00
+20
+(ab 1)(ab 2)
+9.90
+Total
+2798.00
+35
+(ab)2 1
+where j and k are effects of ground clutter and lter type, respectively, and i and l repre-
+sent the randomization restrictions of days and operators, respectively. To compute the sums
+of squares, the following two-way table of treatment totals is helpful:
+Ground Clutter
+Filter Type 1
+Filter Type 2
+y.j..
+Low
+560
+512
+1072
+Medium
+607
+528
+1135
+High
+  646
+  543
+1189
+y..k.
+1813
+1583
+3396 y....
+Furthermore, the row and column totals are
+Rows (y.jkl):
+563
+568
+568
+568
+565
+564
+Columns (yijk.):
+572
+579
+597
+530
+561
+557
+The ANOVA is summarized in Table 5.25. We have added a column to this table indi-
+cating how the number of degrees of freedom for each sum of squares is determined.

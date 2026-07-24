@@ -1,0 +1,103 @@
+0.80
+1.00
+0.70
+0.60
+0.50
+Probability of accepting the hypothesis
+0.30
+0.40
+0.20
+0.10
+0.01
+0.02
+0.03
+0.04
+0.05
+0.06
+0.07
+0.08
+2
+2.5
+3
+3.5
+2
+3
+4
+5
+Φ (for α = 0.05)
+1.5
+Φ (for α = 0.01)
+20
+v1 = 1
+α = 0.01
+α = 0.05
+•
+60
+30
+12
+10
+9
+8
+7
+v2 = 6
+15
+6 = v2
+8
+9
+10
+15
+20
+30
+60
+•
+12
+7
+0.80
+1.00
+0.70
+0.60
+0.50
+Probability of accepting the hypothesis
+0.30
+0.40
+0.20
+0.10
+0.01
+0.02
+0.03
+0.04
+0.05
+0.06
+0.07
+0.08
+2
+2
+1
+3
+4
+5
+1
+Φ (for α = 0.01)
+v1 = Numerator degrees of freedom,
+v1 = 2
+v2 = Denominator degrees of freedom
+α = 0.05
+α = 0.01
+•
+60
+30
+20
+15
+12
+109
+8
+7
+v2 = 6
+Φ (for α = 0.05)
+3
+aAdapted with permission from Biometrika Tables for Statisticians, Vol. 2, by E. S. Pearson and H. O. Hartley, Cambridge
+University Press, Cambridge, 1972.
+V
+Operating Characteristic Curves for the Fixed Effects Model Analysis of Variancea
+Appendix
+693

@@ -1,0 +1,113 @@
+220
+Chapter 5 ■Introduction to Factorial Designs
+Consider a factorial experiment with two factors (A and B) and n replicates. The linear
+statistical model for this design is
+(5.36)
+where i, j, and ()ij represent the effects of factors A, B, and the AB interaction, respective-
+ly. Now suppose that to run this experiment a particular raw material is required. This raw
+material is available in batches that are not large enough to allow all abn treatment combina-
+tions to be run from the same batch. However, if a batch contains enough material for ab
+observations, then an alternative design is to run each of the n replicates using a separate batch
+of raw material. Consequently, the batches of raw material represent a randomization restric-
+tion or a block, and a single replicate of a complete factorial experiment is run within each
+block. The effects model for this new design is
+(5.37)
+where k is the effect of the kth block. Of course, within a block the order in which the treat-
+ment combinations are run is completely randomized.
+The model (Equation 5.37) assumes that interaction between blocks and treatments is
+negligible. This was assumed previously in the analysis of randomized block designs. If
+these interactions do exist, they cannot be separated from the error component. In fact, the
+error term in this model really consists of the ()ik, ()jk, and ()ijk interactions. The
+analysis of variance is outlined in Table 5.20. The layout closely resembles that of a factori-
+al design, with the error sum of squares reduced by the sum of squares for blocks.
+Computationally, we nd the sum of squares for blocks as the sum of squares between the n
+yijk i j ()ij k ijk 
+ 
+i 1, 2, . . . , a
+j 1, 2, . . . , b
+k 1, 2, . . . , n
+yijk i j ()ij ijk 
+ 
+i 1, 2, . . . , a
+j 1, 2, . . . , b
+k 1, 2, . . . , n
+■TA B L E 5 . 2 0
+Analysis of Variance for a Two-Factor Factorial in a Randomized Complete Block
+Source of 
+Degrees of 
+Expected 
+Variation
+Sum of Squares
+Freedom
+Mean Square
+F0
+Blocks
+n 1
+A
+a 1
+B
+b 1
+AB
+(a 1)(b 1)
+Error
+Subtraction
+(ab 1)(n 1)
+2
+Total
+abn 1
+
+i 
+j 
+k
+y2
+ijk y2
+...
+abn
+MSAB
+MSE
+2 
+n  ()2
+ij
+(a 1)(b 1)
+1
+n 
+i 
+j
+y2
+ij. y2
+...
+abn SSA SSB
+MSB
+MSE
+2 
+an 2
+j
+b 1
+1
+an 
+j
+y2
+.j. y2
+...
+abn
+MSA
+MSE
+2 bn 2
+i
+a 1
+1
+bn 
+i
+y2
+i.. y2
+...
+abn
+2 ab2
+
+1
+ab 
+k
+y2
+..k y2
+...
+abn

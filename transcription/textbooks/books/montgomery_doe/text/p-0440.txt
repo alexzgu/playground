@@ -1,0 +1,191 @@
+424
+Chapter 9 ■Additional Design and Analysis Topics for Factorial and Fractional Factorial Designs
+E X A M P L E 9 . 3
+The Spin Coating Experiment
+Recall from Chapter 8 (Section 8.7.2) the 262 spin coating
+experiment that involved application of a photoresist materi-
+al to silicon wafers. The response variable is thickness and
+the design factors are A Speed RPM, B acceleration,
+C Volume, D Time, E Resist Viscosity, and F 
+Exhaust Rate. The design is the regular minimum aberration
+fraction. From the original analysis in Chapter 8, we con-
+cluded that the main effects of factors A, B, C, and E are
+important and that the two-factor interaction alias chain 
+AB CE is important. Because AB and CE are completely
+confounded, either additional information or assumptions are
+necessary to analytical ambiguity. A complete fold-over was
+performed to resolve this ambiguity and this additional
+experimentation indicated that the CE interaction was active.
+Jones and Montgomery (2010) considered an alternative
+experimental design for this problem, the no-confounding
+six-variable design from Table 9.20. Table 9.24 presents
+this design with a set of simulated response data. In con-
+structing the simulation, they assumed that the main effects
+Lock
+Entered
+Parameter
+Estimate
+nDF
+SS
+“F Ratio”
+“Prob>F”
+
+
+Intercept
+4462.8125
+1
+0
+0.000
+1
+
+A
+85.3125
+1
+77634.37
+53.976
+2.46e-5
+
+B
+77.6825
+1
+64368.76
+44.753
+5.43e-5
+
+C
+34.1875
+2
+42735.84
+14.856
+0.00101
+D
+0
+1
+31.19857
+0.020
+0.89184
+
+E
+21.5625
+2
+31474.34
+10.941
+0.00304
+F
+0
+1
+2024.045
+1.474
+0.25562
+A*B
+0
+1
+395.8518
+0.255
+0.6259
+A*C
+0
+1
+476.1781
+0.308
+0.59234
+A*D
+0
+2
+3601.749
+1.336
+0.31571
+A*E
+0
+1
+119.4661
+0.075
+0.78986
+A*F
+0
+2
+4961.283
+2.106
+0.18413
+B*C
+0
+1
+60.91511
+0.038
+0.84923
+B*D
+0
+2
+938.8809
+0.279
+0.76337
+B*E
+0
+1
+3677.931
+3.092
+0.11254
+B*F
+0
+2
+2044.119
+0.663
+0.54164
+C*D
+0
+2
+1655.264
+0.520
+0.61321
+
+C*E
+54.8125
+1
+24035.28
+16.711
+0.00219
+C*F
+0
+2
+2072.497
+0.673
+0.53667
+D*E
+0
+2
+79.65054
+0.022
+0.97803
+D*F
+0
+0
+0
+.
+.
+E*F
+0
+2
+5511.275
+2.485
+0.14476
+■F I G U R E 9 . 1 4
+JMP stepwise regression output for the no-confounding design in Table 9.24 
+that were important were A, B, C, and E, and that the CE
+interaction was the true source of the AB CE effect
+observed in the actual study. They added normal random
+noise in the simulated data to match the RMSE of the tted
+model in the original data. They also matched the model
+parameter estimates to those from the original experiment.
+The intent is to create a fair realization of the data that
+might have been observed if the no-confounding design had
+been used.
+Jones and Montgomery analyzed this experiment using
+forward stepwise regression with all main effect and two-
+factor interactions as candidate effects. The reason that all
+two-factor interactions can be considered as candidate
+effects is that none of these interactions are completely
+confounded. The JMP stepwise regression output is in
+Figure 9.14. Stepwise regression selects the main effects
+of A, B, C, E, along with the CE interaction.
+The no-confounding design correctly identies the model
+unambiguously and without requiring additional runs.

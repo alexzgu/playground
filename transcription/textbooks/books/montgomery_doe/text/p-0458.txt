@@ -1,0 +1,141 @@
+442
+Chapter 9 ■Additional Design and Analysis Topics for Factorial and Fractional Factorial Designs
+■TA B L E 9 . 4 4
+Relative Variances for the Individual Model Effects
+for the 14-Run D-optimal Design in Table 9.43
+Effect
+Relative Variance
+Intercept
+0.340
+A1
+0.093
+A2
+0.179
+B1
+0.093
+B2
+0.179
+C
+0.167
+A*B1
+0.111
+A*B2
+0.185
+A*B3
+0.185
+A*B4
+0.136
+A*C1
+0.167
+A*C2
+0.278
+B*C1
+0.167
+B*C2
+0.278
+■TA B L E 9 . 4 5
+A 15-Run D-optimal Mixed-level Design for Five Factors
+Run
+Factor A
+Factor B
+Factor C
+Factor D
+Factor E
+1
+L4
+L2
+L1
+1
+1
+2
+L1
+L1
+L3
+1
+1
+3
+L5
+L4
+L2
+1
+1
+4
+L3
+L3
+L2
+1
+1
+5
+L4
+L1
+L2
+1
+1
+6
+L2
+L4
+L3
+1
+1
+7
+L1
+L4
+L1
+1
+1
+8
+L5
+L2
+L3
+1
+1
+9
+L3
+L2
+L3
+1
+1
+10
+L3
+L1
+L1
+1
+1
+11
+L2
+L2
+L2
+1
+1
+12
+L4
+L3
+L3
+1
+1
+13
+L5
+L3
+L1
+1
+1
+14
+L1
+L2
+L2
+1
+1
+15
+L2
+L1
+L1
+1
+1
+of these factors. The full factorial has N 5 4 3 2 2 240 runs and is an orthogonal
+design. However, it is not necessary to use 240 runs to estimate the main effects, as only 11
+degrees of freedom are required. A design with 120 runs would be a one-half fraction. This
+design is almost orthogonal, but probably too large for practical use. Both the one-quarter and
+one-eighth fractions with 60 and 30 runs, respectively, are nearly orthogonal but still too
+large. Let’s see what can be done with a 15-run design.
+Table 9.45 shows the 15-run D-optimal design constructed using the optimal design tool
+in JMP. This design is not perfectly balanced; this isn’t possible with 15 runs and a four-level

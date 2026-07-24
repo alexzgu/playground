@@ -1,0 +1,59 @@
+94
+CHAPTER 3. STOCHASTIC INTEGRATION
+Variance rule. TZt 
+Var[Zt] = E
+
+Z2
+t
+
+=
+t
+0
+E[A2
+s] ds
+I. H, Var[Zt] < ∞
+t, Zt .
+Continuity W, t →Zt .
+We can relax the condition of continuous paths. We say that the paths are
+piecewise continuous if with probability one on each nite interval the paths
+are continuous except a nite number of points, say 0 < t1 < t2 < · · · < tn =
+t. For a piecewise continuous function with discontinuities at times t1, t2, ,
+we dene
+t
+0
+As dBs =
+t1
+0
+As dBs + · · · +
+tn
+tn−1
+As dBs
+(3.6)
+The value of this integral does not depend on how we dene At at the dis-
+continuity. In this book, the process At will have continuous or piecewise
+continuous paths although the integral can be extended to more general pro-
+cesses. Note that the simple processes have piecewise continuous paths. One
+important case that arises comes from a stopping time. Suppose T is a stop-
+ping time with respect to Ft. Then if At is a continuous, adapted process
+and
+Zt =
+t
+0
+As dBs,
+then
+Zt∧T =
+t∧T
+0
+As dBs =
+t
+0
+As,T dBs,
+where As,T denotes the piecewise continuous process,
+As,T =
+As
+s < T
+0
+s ≥T
+
+In other words, stopping a stochastic integral is the same as changing the
+bet to zero.

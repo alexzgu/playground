@@ -1,0 +1,38 @@
+2.6. UNDERSTANDING BROWNIAN MOTION
+57
+then ˆBs is a Brownian motion that is independent of Ft. There is a stronger
+notion of this called the Mthat we will discuss in Section
+2.7.
+2.6.3
+Brownian motion as a Gaussian process
+A process Xtis called a Gif each nite subcollection
+(Xt1, , Xtn)
+has a joint normal distribution. Recall that to describe a joint normal distri-
+bution one needs only give the means and the covariances. Hence the -
+of a Gaussian process are determined by the num-
+bers
+mt = E[Xt],
+Γst = Cov(Xs, Xt)
+If Bt is a standard Brownian motion and t1 < t2 < · · · < tn, then we
+can write Bt1, , Btn as linear combinations of the independent standard
+normal random variables
+Zj = Btj −Btj−1
+√tj −tj−1
+,
+j = 1, , n
+Hence Bt is a Gaussian process with mean zero. If s < t,
+E[BsBt]
+=
+E [Bs (Bs + Bt −Bs)]
+=
+E[B2
+s] + E[Bs(Bt −Bs)]
+=
+s + E[Bs] E[Bt −Bs] = s,
+which gives the general rule
+Cov(Bs, Bt) = mins, t
+The description of Brownian motion as a Gaussian process describes only
+the nite-dimensional distributions but our denition includes some aspects
+that depend on more than nite-dimensional distributions. In particular, one
+cannot tell from the nite-dimensional distributions alone whether or not the
+paths are continuous.

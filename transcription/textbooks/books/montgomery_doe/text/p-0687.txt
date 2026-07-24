@@ -1,0 +1,102 @@
+15.3 The Analysis of Covariance
+671
+■TA B L E 1 5 . 1 8
+JMP Analysis of Covariance, Reduced Model for the Experiment in Table 15.16
+Response Y
+Whole Model
+Summary of Fit
+RSquare
+0.96529
+RSquare Adj
+0.952668
+Root Mean Square Error
+8.330324
+Mean of Response
+25.02875
+Observations (or Sum Wgts)
+16
+Analysis of Variance
+Source
+DF
+Sum of Squares
+Mean Square
+F Ratio
+Model
+4
+21228.644
+5307.16
+76.4783
+Error
+11
+763.337
+69.39
+Prob > F
+C. Total
+15
+21991.981
+<.0001*
+Parameter Estimates
+Term
+Estimate
+Std Error
+t Ratio
+Prob>|t|
+Intercept
+1.878361
+3.224761
+0.58
+0.5720
+X
+5.0876125
+0.465535
+10.93
+<.0001*
+X1
+9.3990071
+2.089082
+4.50
+0.0009*
+X2
+16.064472
+2.090531
+7.68
+<.0001*
+X1*X2
+15.48994
+2.105895
+7.36
+<.0001*
+■TA B L E 1 5 . 1 9
+JMP Output for the Experiment in Table 15.16
+Response Y
+Summary of Fit
+RSquare
+0.999872
+RSquare Adj
+0.999044
+Root Mean Square Error
+1.18415
+Mean of Response
+25.02875
+Observations (or Sum Wgts)
+16
+Analysis of Variance
+Source
+DF
+Sum of Squares
+Mean Square
+F Ratio
+Model
+13
+21989.177
+1691.48
+1206.292
+Error
+2
+2.804
+1.40
+Prob > F
+C. Total
+15
+21991.981
+0.0008*

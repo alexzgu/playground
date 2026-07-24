@@ -1,0 +1,51 @@
+12.1 Introduction
+555
+This chapter is about the RSM approach to the RPD problem. More information about
+the original Taguchi approach, including discussion that identies the pitfalls and inefciencies
+of his methods, is presented in the supplemental text material for this chapter. Other useful
+references include Hunter (1985, 1989), Box (1988), Box, Bisgaard, and Fung (1988),
+Pignatiello and Ramberg (1992), Montgomery (1999), Myers, Montgomery and Anderson-Cook
+(2009), and the panel discussion edited by Nair (1992).
+In a robust design problem, the focus is usually on one or more of the following:
+1. Designing systems that are insensitive to environmental factors that can affect per-
+formance once the system is deployed in the eld. An example is the development
+of an exterior paint that should exhibit long life when exposed to a variety of weath-
+er conditions. Because the weather conditions are not entirely predictable, and cer-
+tainly not constant, the product formulator wants the paint to be robust against or
+withstand a wide range of temperature, humidity, and precipitation factors that
+affect the wear and nish of the paint.
+2. Designing products so that they are insensitive to variability transmitted by the
+components of the system. An example is designing an electronic amplier so that
+the output voltage is as close as possible to the desired target regardless of the vari-
+ability in the electrical parameters of the transistors, resistors, and power supplies
+that are the components of the system.
+3. Designing processes so that the manufactured product will be as close as possible
+to the desired target specications, even though some process variables (such as
+temperature) or raw material properties are impossible to control precisely.
+4. Determining the operating conditions for a process so that the critical process
+characteristics are as close as possible to the desired target values and the variability
+around this target is minimized. Examples of this type of problem occur frequently.
+For example, in semiconductor manufacturing we want the oxide thickness on
+a wafer to be as close as possible to the target mean thickness, and we want the
+variability in thickness across the wafer (a measure of uniformity) to be as small
+as possible.
+RPD problems are not new. Product and process designers/developers have been con-
+cerned about robustness issues for decades, and efforts to solve the problem long predate
+Taguchi’s contributions. One of the classical approaches used to achieve robustness is to
+redesign the product using stronger components, or components with tighter tolerances, or to
+use different materials. However, this may lead to problems with overdesign, resulting in a
+product that is more expensive, more difcult to manufacture, or suffers a weight and subse-
+quent performance penalty. Sometimes different design methods or incorporation of new
+technology into the design can be exploited. For example, for many years automobile
+speedometers were driven by a metal cable, and over time the lubricant in the cable deterio-
+rated, which could lead to operating noise in cold weather or erratic measurement of vehicle
+speed. Sometimes the cable would break, resulting in an expensive repair. This is an example
+of robustness problems caused by product aging. Modern automobiles use electronic
+speedometers that are not subject to these problems. In a process environment, older equip-
+ment may be replaced with new tools, which may improve process robustness but usually at
+a signicant cost. Another possibility may be to exercise tighter control over the variables that
+impact robustness. For example, if variations in environmental conditions cause problems
+with robustness, then those conditions may have to be controlled more tightly. The use of
+clean rooms in semiconductor manufacturing is a result of efforts to control environmental
+conditions. In some cases, effort will be directed to controlling raw material properties or
+process variables more tightly if these factors impact robustness. These classical approaches

@@ -1,0 +1,54 @@
+584
+13. Multiple Testing
+To begin, we use ttest_1samp() from the scipy.stats module to test H0 : ttest_1samp()
+µ1 = 0, the null hypothesis that the first variable has mean zero.
+In [4]: result = ttest_1samp(X[:,0], 0)
+result.pvalue
+Out[4]: 0.931
+The p-value comes out to 0.931, which is not low enough to reject the null
+hypothesis at level α = 0.05. In this case, µ1 = 0.5, so the null hypothesis
+is false. Therefore, we have made a Type II error by failing to reject the
+null hypothesis when the null hypothesis is false.
+We now test H0,j : µj = 0 for j = 1, . . . , 100. We compute the 100 p-
+values, and then construct a vector recording whether the jth p-value is
+less than or equal to 0.05, in which case we reject H0j, or greater than 0.05,
+in which case we do not reject H0j, for j = 1, . . . , 100.
+In [5]: p_values = np.empty(100)
+for i in range(100):
+p_values[i] = ttest_1samp(X[:,i], 0).pvalue
+decision = pd.cut(p_values,
+[0, 0.05, 1],
+labels=['Reject H0',
+'Do not reject H0'])
+truth = pd.Categorical(true_mean == 0,
+categories=[True, False],
+ordered=True)
+Since this is a simulated data set, we can create a 2 × 2 table similar to
+Table 13.2.
+In [6]: pd.crosstab(decision,
+truth,
+rownames=['Decision'],
+colnames=['H0'])
+Out[6]:
+H0
+True
+False
+Decision
+Reject H0
+5
+15
+Do not reject H0
+45
+35
+Therefore, at level α = 0.05, we reject 15 of the 50 false null hypotheses,
+and we incorrectly reject 5 of the true null hypotheses. Using the notation
+from Section 13.3, we have V = 5, S = 15, U = 45 and W = 35. We have
+set α = 0.05, which means that we expect to reject around 5% of the true
+null hypotheses. This is in line with the 2 × 2 table above, which indicates
+that we rejected V = 5 of the 50 true null hypotheses.
+In the simulation above, for the false null hypotheses, the ratio of the
+mean to the standard deviation was only 0.5/1 = 0.5. This amounts to
+quite a weak signal, and it resulted in a high number of Type II errors.
+Let’s instead simulate data with a stronger signal, so that the ratio of the
+mean to the standard deviation for the false null hypotheses equals 1. We
+make only 10 Type II errors.

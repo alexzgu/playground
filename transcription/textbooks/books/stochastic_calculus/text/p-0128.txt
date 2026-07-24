@@ -1,0 +1,38 @@
+122
+CHAPTER 3. STOCHASTIC INTEGRATION
+1. Graph at least one of your simulations.
+2. Use the simulation to estimate the probability that X2 ≥3. Do at least
+1000 simulations.
+3. Compute the exact probability (up to at least three decimal places)
+that X2 ≥3 and compare this to your simulations.
+Exercise 3.8. Suppose f(t) is a (nonrandom) continuously dierentiable
+function of t and Bt is a standard Brownian motion. Justify the integration
+by parts formula
+s
+r
+f(t) dBt = f(s) Bs −f(r) Br −
+s
+r
+Bt f ′(t) dt
+(Hint: write the left-hand side as a limit of simple process approximations and
+do summation by partson the approximations.) Explain why
+s
+r f(t) dBt
+has a normal distribution.
+Exercise 3.9. Let m = 1, σ = 2, ∆t = 11000 and simulate geometric
+Brownian motion
+dXt = Xt dt + 2 Xt dBt,
+X0 = 1,
+using both (3.17) and (3.18). Be sure that the same sequence of normal
+random variables N1, N2, is used for (3.17) and (3.16). Run the simulation
+at least 20 times and compare the values of X14, X12, X34, X1 obtained from
+the two formulas.
+Exercise 3.10. Suppose that Xt satises the SDE
+dXt = Xt [(12) dt + dBt],
+X0 = 2
+Let
+M = max
+0≤t≤1 Xt
+1. Find the density of M.
+2. Find the probability that M ≥4.
+Hint: Write Xt = f(Bt) for an appropriate function.

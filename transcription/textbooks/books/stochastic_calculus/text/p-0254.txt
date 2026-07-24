@@ -1,0 +1,42 @@
+248
+CHAPTER 8. HARMONIC FUNCTIONS
+F(0) = 0, F(y) = 1 if y= 1. Then, the only candidate for the solution of
+the Dirichlet problem is
+f(x) = Ex [F(Bτ)] = 1,
+x D
+If f(0) = 0, this function is not continuous at the origin.
+If D = Ur = x : x< ris the ball of radius r about the origin, then the
+harmonic measure hmUr(·; x) is known explicitly. It is absolutely continuous
+with respect to (d −1)-dimensional surface measure s on ∂Ur. Its density is
+called the P,
+Hr(x, y) =
+r2 −x2
+r ωd−1 x −yd,
+where
+ωd−1 =
+
+|y|=1
+ds(y)
+denotes the surface area of the unit ball. If F : ∂Ur →R is continuous, then
+the unique solution to the Dirichlet problem is
+f(x) = Ex 
+F(BτUr)
+
+=
+
+|y|=r
+F(y) Hr(x, y) ds(y)
+(8.6)
+To verify this, one checks by direct computation the following facts:
+If y ∂Ur, the function h(x) = H(x, y) is harmonic on Ur;
+If x Ur,
+
+|y|=r
+Hr(x, y) ds(y) = 1;
+For every ϵ > 0, there exists δ > 0 such that if x Ur, y ∂Ur and
+x −y< δ, then
+
+|z|=r,|z−y|≥ϵ
+Hr(x, z) ds(z) ≤ϵ
+¿From these one concludes that f as dened by the right-hand side of (8.6)
+is harmonic in Ur and continuous on U r.

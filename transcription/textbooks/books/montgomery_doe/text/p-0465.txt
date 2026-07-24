@@ -1,0 +1,50 @@
+449
+C H A P T E R
+1 0
+F i t t i n g
+R e g r e s s i o n
+M o d e l s
+CHAPTER OUTLINE
+10.1 INTRODUCTION
+10.2 LINEAR REGRESSION MODELS
+10.3 ESTIMATION OF THE PARAMETERS 
+IN LINEAR REGRESSION MODELS
+10.4 HYPOTHESIS TESTING IN MULTIPLE 
+REGRESSION
+10.4.1 Test for Signicance of Regression
+10.4.2 Tests on Individual Regression Coefcients 
+and Groups of Coefcients
+10.5 CONFIDENCE INTERVALS IN MULTIPLE
+REGRESSION
+10.5.1 Condence Intervals on the Individual
+Regression Coefcients
+10.5.2 Condence Interval on the Mean Response
+10.6 PREDICTION OF NEW RESPONSE OBSERVATIONS
+10.7 REGRESSION MODEL DIAGNOSTICS
+10.7.1 Scaled Residuals and PRESS
+10.7.2 Inuence Diagnostics
+10.8 TESTING FOR LACK OF FIT 
+SUPPLEMENTAL MATERIAL FOR CHAPTER 10
+S10.1 The Covariance Matrix of the Regression Coefcients
+S10.2 Regression Models and Designed Experiments
+S10.3 Adjusted R2
+S10.4 Stepwise and Other Variable Selection Methods in
+Regression
+S10.5 The Variance of the Predicted Response
+S10.6 The Variance of Prediction Error
+S10.7 Leverage in a Regression Model
+10.1
+Introduction
+In many problems two or more variables are related, and it is of interest to model and explore
+this relationship. For example, in a chemical process the yield of product is related to the
+operating temperature. The chemical engineer may want to build a model relating yield to
+temperature and then use the model for prediction, process optimization, or process control.
+In general, suppose that there is a single dependent variable or response y that depends
+on k independent or regressor variables, for example, x1, x2, . . . , xk. The relationship
+between these variables is characterized by a mathematical model called a regression model.
+The regression model is t to a set of sample data. In some instances, the experimenter knows
+the exact form of the true functional relationship between y and x1, x2, . . . , xk, say 
+y (x1, x2, . . . , xk). However, in most cases, the true functional relationship is unknown, and
+the experimenter chooses an appropriate function to approximate . Low-order polynomial
+models are widely used as approximating functions.
+The supplemental material is on the textbook website www.wiley.com/college/montgomery.

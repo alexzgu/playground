@@ -1,0 +1,154 @@
+10.3 Estimation of the Parameters in Linear Regression Models
+459
+E X A M P L E 1 0 . 3
+A 23 Factorial Design with a Missing Observation
+Consider the 23 factorial design with four center points from
+Example 10.2. Suppose that when this experiment was per-
+formed, the run with all variables at the high level (run 8 in
+Figure 10.5) was missing. This can happen for a variety of
+reasons; the measurement system can produce a faulty read-
+ing, the combination of factor levels may prove infeasible,
+the experimental unit may be damaged, and so forth.
+We will t the main effects model
+using the 11 remaining observations. The X matrix and y
+vector are
+1
+0
+0
+0
+56
+To estimate the model parameters, we form
+XX 
+11
+1
+1
+1
+1
+7
+1
+1
+1
+1
+7
+1
+1
+1
+1
+7
+ and Xy 
+544
+23
+17
+59
+and y 
+32
+46
+57
+65
+36
+48
+57
+50
+44
+53
+X 
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+0
+0
+0
+1
+1
+1
+1
+1
+1
+1
+0
+0
+0
+1
+1
+1
+1
+1
+1
+1
+0
+0
+0
+y 0 1x1 2x2 3x3 
+Because there is a missing observation, the design is no
+longer orthogonal. Now
+Therefore, the tted model is
+Compare this model to the one obtained in Example 10.2,
+where all 12 observations were used. The regression coef-
+cients are very similar. Because the regression coefcients are
+closely related to the factor effects, our conclusions would not
+be seriously affected by the missing observation. However,
+notice that the effect estimates are no longer orthogonal
+because XX and its inverse are no longer diagonal. Further
+more the variances of the regression coefcients are larger
+than they were in the original orthogonal design with no
+missing data.
+yˆ 51.25 5.75x1 10.75x2 1.25x3
+
+51.25
+5.75
+10.75
+1.25
+1.92307  102
+2.88462  102
+0.15385
+2.88462  102
+1.92307  102
+2.88462  102
+2.88462  102
+0.15385
+
+544
+23
+17
+59
+
+9.61538  102
+1.92307  102
+1.92307  102
+1.92307  102
+1.92307  102
+0.15385
+2.88462  102
+2.88462  102
+&ˆ (XX)1Xy
+In Example 10.2, the inverse matrix is easy to obtain because XX is diagonal.
+Intuitively, this seems to be advantageous, not only because of the computational simplicity
+but also because the estimators of all the regression coefcients are uncorrelated; that is,
+Cov(
+) 0. If we can choose the levels of the x variables before the data are collected,
+we might wish to design the experiment so that a diagonal XX will result.
+In practice, it can be relatively easy to do this. We know that the off-diagonal elements
+in XX are the sums of cross products of the columns in X. Therefore, we must make the inner
+product of the columns of X equal to zero; that is, these columns must be orthogonal. As we
+have noted before, experimental designs that have this property for tting a regression model
+are called orthogonal designs. In general, the 2k factorial design is an orthogonal design for
+tting the multiple linear regression model.
+Regression methods are extremely useful when something “goes wrong” in a designed
+experiment. This is illustrated in the next two examples.
+ˆ
+i, ˆ
+j

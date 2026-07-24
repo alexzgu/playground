@@ -1,0 +1,78 @@
+square for error has more than doubled, increasing from 7.33 in the RCBD to 15.11. All of
+the variability due to blocks is now in the error term. This makes it easy to see why we some-
+times call the RCBD a noise-reducing design technique; it effectively increases the signal-to-
+noise ratio in the data, or it improves the precision with which treatment means are compared.
+This example also illustrates an important point. If an experimenter fails to block when he or
+she should have, the effect may be to inate the experimental error, and it would be possible
+to inate the error so much that important differences among the treatment means could not
+be identied.
+Sample Computer Output. Condensed computer output for the vascular graft exper-
+iment in Example 4.1, obtained from Design-Expert and JMP is shown in Figure 4.2. The
+Design-Expert output is in Figure 4.2a and the JMP output is in Figure 4.2b. Both outputs are
+very similar, and match the manual computation given earlier. Note that JMP computes an 
+F-statistic for blocks (the batches). The sample means for each treatment are shown in the out-
+put. At 8500 psi, the mean yield is 
+, at 8700 psi the mean yield is 
+, at
+8900 psi the mean yield is 
+, and at 9100 psi the mean yield is 
+.
+Remember that these sample mean yields estimate the treatment means 1, 2, 3, and 4.
+The model residuals are shown at the bottom of the Design-Expert output. The residuals are
+calculated from
+and, as we will later show, the tted values are 
+, so
+(4.13)
+In the next section, we will show how the residuals are used in model adequacy checking.
+Multiple Comparisons. If the treatments in an RCBD are xed, and the analysis
+indicates a signicant difference in treatment means, the experimenter is usually interested in
+multiple comparisons to discover which treatment means differ. Any of the multiple compar-
+ison procedures discussed in Section 3.5 may be used for this purpose. In the formulas of
+Section 3.5, simply replace the number of replicates in the single-factor completely random-
+ized design (n) by the number of blocks (b). Also, remember to use the number of error
+degrees of freedom for the randomized block [(a 1)(b 1)] instead of those for the com-
+pletely randomized design [a(n 1)].
+The Design-Expert output in Figure 4.2 illustrates the Fisher LSD procedure. Notice
+that we would conclude that 1 2, because the P-value is very large. Furthermore,
+1 differs from all other means. Now the P-value for H0:2 3 is 0.097, so there is some
+evidence to conclude that 2
+3, and 2
+4 because the P-value is 0.0018. Overall,
+we would conclude that lower extrusion pressures (8500 psi and 8700 psi) lead to fewer
+defects.
+Z
+Z
+eij yij yi. y.j y..
+yˆij yi. y.j y..
+eij yij yˆij
+y4. 85.77
+y3. 88.92
+y2. 91.68
+y1. 92.82
+146
+Chapter 4 ■Randomized Blocks, Latin Squares, and Related Designs
+■T A B L E 4 . 5
+Incorrect Analysis of the Vascular Graft Experiment as a Completely Randomized Design
+Source of
+Sum of
+Degrees of
+Mean
+Variation
+Squares
+Freedom
+Square
+F0
+P-Value
+Extrusion pressure
+178.17
+3
+59.39
+3.95
+0.0235
+Error
+302.14
+20
+15.11
+Total
+480.31
+23

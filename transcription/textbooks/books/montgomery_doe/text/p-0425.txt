@@ -1,0 +1,84 @@
+9.3 Fractional Replication of the 3k Factorial Design
+409
+AB AC BC2 effect very difcult to interpret. It is very difcult to see how this design
+could be useful unless we assume that all interactions are negligible.
+Before leaving the 
+design, note that for the design with u 0 (see Figure 9.9) if
+we let A denote the row and B denote the column, then the design can be written as
+000
+012
+021
+101
+110
+122
+202
+211
+220
+which is a 3 3 Latin square. The assumption of negligible interactions required for unique
+interpretations of the 
+design is paralleled in the Latin square design. However, the two
+designs arise from different motives, one as a consequence of fractional replication and the
+other from randomization restrictions. From Table 4.13, we observe that there are only twelve
+3 3 Latin squares and that each one corresponds to one of the twelve different 331 frac-
+tional factorial designs.
+The treatment combinations in a 3k1 design with the defining relation I 
+can be constructed using a method similar to that employed in the 2kp series.
+First, write down the 3k1 runs for a full three-level factorial design in k1 factors, with the
+usual 0, 1, 2 notation. This is the basic design in the terminology of Chapter 8. Then intro-
+duce the kth factor by equating its levels xk to the appropriate component of the highest order
+interaction, say 
+, through the relationship
+(9.5)
+where i (3 k)i (mod 3) for 1 i k 1. This yields a design of the highest possi-
+ble resolution.
+xk 1x1 2x2 Á k1xk1
+AB2C3 Á (K 1)k1
+AB2C3 Á Kk
+331
+III
+331
+III
+(b) Geometric view
+u = 0
+u = 1
+u = 2
+000
+012
+101
+202
+021
+110
+122
+211
+220
+Design 1
+u = 0
+Design 1
+u = 1
+Design 1
+u = 2
+100
+112
+201
+002
+121
+210
+222
+011
+020
+200
+212
+001
+102
+221
+010
+022
+111
+120
+(a) Treatment combinations
+A
+C
+B
+■F I G U R E 9 . 9
+The three one-third fractions of the 33 design with deﬁning
+relation I AB2C2

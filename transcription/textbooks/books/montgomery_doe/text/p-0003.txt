@@ -1,0 +1,59 @@
+VICE PRESIDENT AND PUBLISHER
+Donald Fowley
+ACQUISITIONS EDITOR
+Linda Ratts
+CONTENT MANAGER
+Lucille Buonocore
+PRODUCTION EDITOR
+Anna Melhorn
+MARKETING MANAGER
+Christopher Ruel
+DESIGN DIRECTOR
+Harry Nolan
+SENIOR DESIGNER
+Maureen Eide
+EDITORIAL ASSISTANT
+Christopher Teja
+PRODUCTION SERVICES 
+Namit Grover/Thomson Digital
+COVER PHOTO
+Nik Wheeler/Corbis Images
+COVER DESIGN
+Wendy Lai
+This book was set in Times by Thomson Digital and printed and bound by Courier Westford. 
+The cover was printed by Courier Westford.
+This book is printed on acid-free paper.  
+Founded in 1807, John Wiley & Sons, Inc. has been a valued source of knowledge and understanding for more
+than 200 years, helping people around the world meet their needs and fulll their aspirations. Our company is built
+on a foundation of principles that include responsibility to the communities we serve and where we live and work.
+In 2008, we launched a Corporate Citizenship Initiative, a global effort to address the environmental, social,
+economic, and ethical challenges we face in our business. Among the issues we are addressing are carbon impact,
+paper specications and procurement, ethical conduct within our business and among our vendors, and community
+and charitable support. For more information, please visit our website: www.wiley.com/go/citizenship.
+Copyright © 2013, 2009, 2005, 2001, 1997 John Wiley & Sons, Inc.  All rights reserved.  No part of this publication
+may be reproduced, stored in a retrieval system or transmitted in any form or by any means, electronic, mechanical,
+photocopying, recording, scanning or otherwise, except as permitted under Sections 107 or 108 of the 1976 
+United States Copyright Act, without either the prior written permission of the Publisher, or authorization through
+payment of the appropriate per-copy fee to the Copyright Clearance Center, Inc., 222 Rosewood Drive, Danvers,
+MA 01923, website www.copyright.com. Requests to the Publisher for permission should be addressed to the
+Permissions Department, John Wiley & Sons, Inc., 111 River Street, Hoboken, NJ 07030-5774, (201) 748-6011,
+fax (201) 748-6008, website www.wiley.com/go/permissions.
+Evaluation copies are provided to qualied academics and professionals for review purposes only, for use in their
+courses during the next academic year.  These copies are licensed and may not be sold or transferred to a third
+party.  Upon completion of the review period, please return the evaluation copy to Wiley.  Return instructions and a
+free of charge return shipping label are available at www.wiley.com/go/returnlabel. Outside of the United States,
+please contact your local representative.
+To order books or for customer service, please call 1-800-CALL WILEY (225-5945).
+Library of Congress Cataloging-in-Publication Data:
+Montgomery, Douglas C.
+Design and analysis of experiments / Douglas C. Montgomery. — Eighth edition.
+pages cm
+Includes bibliographical references and index.
+ISBN 978-1-118-14692-7
+1. Experimental design. I. Title. 
+QA279.M66 2013
+519.5'7—dc23
+2012000877
+ISBN 978-1118-14692-7
+10 9 8 7 6 5 4 3 2 1
+

@@ -1,0 +1,62 @@
+252
+6. Linear Model Selection and Regularization
+5e−03
+5e−02
+5e−01
+5e+00
+25.0
+25.2
+25.4
+25.6
+Cross−Validation Error
+5e−03
+5e−02
+5e−01
+5e+00
+−300
+−100
+0
+100
+300
+Standardized Coefficients
+λ
+λ
+FIGURE 6.12.
+Left: Cross-validation errors that result from applying ridge
+regression to the Credit data set with various values of λ. Right: The coefficient
+estimates as a function of λ. The vertical dashed lines indicate the value of λ
+selected by cross-validation.
+6.2.3
+Selecting the Tuning Parameter
+Just as the subset selection approaches considered in Section 6.1 require
+a method to determine which of the models under consideration is best,
+implementing ridge regression and the lasso requires a method for selecting
+a value for the tuning parameter λ in (6.5) and (6.7), or equivalently, the
+value of the constraint s in (6.9) and (6.8). Cross-validation provides a sim-
+ple way to tackle this problem. We choose a grid of λ values, and compute
+the cross-validation error for each value of λ, as described in Chapter 5. We
+then select the tuning parameter value for which the cross-validation error
+is smallest. Finally, the model is re-fit using all of the available observations
+and the selected value of the tuning parameter.
+Figure 6.12 displays the choice of λ that results from performing leave-
+one-out cross-validation on the ridge regression fits from the Credit data
+set. The dashed vertical lines indicate the selected value of λ. In this case
+the value is relatively small, indicating that the optimal fit only involves a
+small amount of shrinkage relative to the least squares solution. In addition,
+the dip is not very pronounced, so there is rather a wide range of values
+that would give a very similar error. In a case like this we might simply use
+the least squares solution.
+Figure 6.13 provides an illustration of ten-fold cross-validation applied to
+the lasso fits on the sparse simulated data from Figure 6.9. The left-hand
+panel of Figure 6.13 displays the cross-validation error, while the right-hand
+panel displays the coefficient estimates. The vertical dashed lines indicate
+the point at which the cross-validation error is smallest. The two colored
+lines in the right-hand panel of Figure 6.13 represent the two predictors
+that are related to the response, while the grey lines represent the unre-
+lated predictors; these are often referred to as signal and noise variables, signal
+respectively. Not only has the lasso correctly given much larger coeffi-
+cient estimates to the two signal predictors, but also the minimum cross-
+validation error corresponds to a set of coefficient estimates for which only
+the signal variables are non-zero. Hence cross-validation together with the
+lasso has correctly identified the two signal variables in the model, even
+though this is a challenging setting, with p = 45 variables and only n = 50

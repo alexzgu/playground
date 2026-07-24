@@ -1,0 +1,57 @@
+12.2 Principal Components Analysis
+505
+the observations or visualization of the variables). It can also be used as a
+tool for data imputation — that is, for filling in missing values in a data
+matrix.
+We now discuss PCA in greater detail, focusing on the use of PCA as
+a tool for unsupervised data exploration, in keeping with the topic of this
+chapter.
+12.2.1
+What Are Principal Components?
+Suppose that we wish to visualize n observations with measurements on a
+set of p features, X1, X2, . . . , Xp, as part of an exploratory data analysis.
+We could do this by examining two-dimensional scatterplots of the data,
+each of which contains the n observations’ measurements on two of the
+features. However, there are
+'p
+2
+(
+= p(p−1)/2 such scatterplots; for example,
+with p = 10 there are 45 plots! If p is large, then it will certainly not be
+possible to look at all of them; moreover, most likely none of them will
+be informative since they each contain just a small fraction of the total
+information present in the data set. Clearly, a better method is required to
+visualize the n observations when p is large. In particular, we would like to
+find a low-dimensional representation of the data that captures as much of
+the information as possible. For instance, if we can obtain a two-dimensional
+representation of the data that captures most of the information, then we
+can plot the observations in this low-dimensional space.
+PCA provides a tool to do just this. It finds a low-dimensional represen-
+tation of a data set that contains as much as possible of the variation. The
+idea is that each of the n observations lives in p-dimensional space, but not
+all of these dimensions are equally interesting. PCA seeks a small number
+of dimensions that are as interesting as possible, where the concept of in-
+teresting is measured by the amount that the observations vary along each
+dimension. Each of the dimensions found by PCA is a linear combination
+of the p features. We now explain the manner in which these dimensions,
+or principal components, are found.
+The first principal component of a set of features X1, X2, . . . , Xp is the
+normalized linear combination of the features
+Z1 = φ11X1 + φ21X2 + · · · + φp1Xp
+(12.1)
+that has the largest variance. By normalized, we mean that )p
+j=1 φ2
+j1 = 1.
+We refer to the elements φ11, . . . , φp1 as the loadings of the first principal loading
+component; together, the loadings make up the principal component load-
+ing vector, φ1 = (φ11 φ21 . . . φp1)T . We constrain the loadings so that
+their sum of squares is equal to one, since otherwise setting these elements
+to be arbitrarily large in absolute value could result in an arbitrarily large
+variance.
+Given an n × p data set X, how do we compute the first principal com-
+ponent? Since we are only interested in variance, we assume that each of
+the variables in X has been centered to have mean zero (that is, the col-
+umn means of X are zero). We then look for the linear combination of the
+sample feature values of the form
+zi1 = φ11xi1 + φ21xi2 + · · · + φp1xip
+(12.2)

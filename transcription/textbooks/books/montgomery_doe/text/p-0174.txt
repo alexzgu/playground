@@ -1,0 +1,72 @@
+which is also a single-factor analysis. Again, by analogy with Equation 3.5, the reduction in
+the sum of squares for tting this model is
+with a degrees of freedom. The sum of squares for blocks {j} after tting and {i} is
+with b 1 degrees of freedom, which we have given previously as Equation 4.11.
+We have developed the sums of squares for treatments, blocks, and error in the random-
+ized complete block design using the general regression signicance test. Although we would
+not ordinarily use the general regression signicance test to actually analyze data in a ran-
+domized complete block, the procedure occasionally proves useful in more general random-
+ized block designs, such as those discussed in Section 4.4.
+Exact Analysis of the Missing Value Problem. In Section 4.1.3 an approximate
+procedure for dealing with missing observations in the RCBD was presented. This approx-
+imate analysis consists of estimating the missing value so that the error mean square is
+minimized. It can be shown that the approximate analysis produces a biased mean square
+for treatments in the sense that E(MSTreatments) is larger than E(MSE) if the null hypothesis
+is true. Consequently, too many significant results are reported.
+The missing value problem may be analyzed exactly by using the general regression
+signicance test. The missing value causes the design to be unbalanced, and because all the
+treatments do not occur in all blocks, we say that the treatments and blocks are not orthog-
+onal. This method of analysis is also used in more general types of randomized block
+designs; it is discussed further in Section 4.4. Many computer packages will perform this
+analysis.
+4.2
+The Latin Square Design
+In Section 4.1 we introduced the randomized complete block design as a design to reduce the
+residual error in an experiment by removing variability due to a known and controllable nui-
+sance variable. There are several other types of designs that utilize the blocking principle. For
+example, suppose that an experimenter is studying the effects of ve different formulations of
+a rocket propellant used in aircrew escape systems on the observed burning rate. Each formu-
+lation is mixed from a batch of raw material that is only large enough for ve formulations to
+be tested. Furthermore, the formulations are prepared by several operators, and there may be
+substantial differences in the skills and experience of the operators. Thus, it would seem that
+there are two nuisance factors to be “averaged out” in the design: batches of raw material and
+operators. The appropriate design for this problem consists of testing each formulation exact-
+ly once in each batch of raw material and for each formulation to be prepared exactly once by
+each of ve operators. The resulting design, shown in Table 4.9, is called a Latin square
+design. Notice that the design is a square arrangement and that the ve formulations 
+(or treatments) are denoted by the Latin letters A, B, C, D, and E; hence the name Latin square.
+
+b
+j1
+y2
+.j
+a y2
+..
+ab
+
+a
+i1
+y2
+i.
+b 
+b
+j1
+y2
+.j
+a y2
+..
+ab 
+a
+i1
+y2
+i.
+b
+R(, ) R(, , ) R(, )
+R(, ) 
+a
+i1
+y2
+i.
+b
+158
+Chapter 4 ■Randomized Blocks, Latin Squares, and Related Designs

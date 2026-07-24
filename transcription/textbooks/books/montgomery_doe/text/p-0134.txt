@@ -1,0 +1,83 @@
+118
+Chapter 3 ■Experiments with a Single Factor: The Analysis of Variance
+When squaring and taking expectation of the quantities in brackets, we see that terms involv-
+ing 
+are replaced by 
+as E (i) 0. Also, terms involving 
+, and 
+are
+replaced by n2, an2, and an2, respectively. Furthermore, all cross-product terms involving
+i and ij have zero expectation. This leads to
+or
+(3.51)
+Similarly, we may show that
+(3.52)
+From the expected mean squares, we see that under H0 both the numerator and denom-
+inator of the test statistic (Equation 3.50) are unbiased estimators of 2, whereas under H1 the
+expected value of the numerator is greater than the expected value of the denominator.
+Therefore, we should reject H0 for values of F0 that are too large. This implies an upper-tail,
+one-tail critical region, so we reject H0 if F0 > F,a1, Na.
+The computational procedure and ANOVA for the random effects model are identical
+to those for the xed effects case. The conclusions, however, are quite different because they
+apply to the entire population of treatments.
+3.9.3
+Estimating the Model Parameters
+We are usually interested in estimating the variance components (2 and 
+) in the model.
+One very simple procedure that we can use to estimate 2 and 
+is called the analysis of
+variance method because it makes use of the lines in the analysis of variance table. The pro-
+cedure consists of equating the expected mean squares to their observed values in the ANOVA
+table and solving for the variance components. In equating observed and expected mean
+squares in the single-factor random effects model, we obtain
+and
+Therefore, the estimators of the variance components are
+(3.53)
+and
+(3.54)
+For unequal sample sizes, replace n in Equation 13.8 by
+(3.55)
+n0 
+1
+a 1
+a
+i1
+ni 
+a
+i1
+n2
+i
+
+a
+i1
+ni
+ˆ 2
+MSTreatments MSE
+n
+ˆ 2 MSE
+MSE 2
+MSTreatments 2 n2
+
+2
+
+2
+
+E(MSE) 2
+E(MSTreatments) 2 n2
+
+E(MSTreatments) 
+1
+a 1 [N2 N2
+a2 N2 n2
+2]
+a
+i1n
+j12
+i
+2
+i., 2
+..
+2
+
+2
+i

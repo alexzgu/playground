@@ -1,0 +1,85 @@
+The concept of orthogonal pairs of Latin squares forming a Graeco-Latin square can be
+extended somewhat. A p p hypersquare is a design in which three or more orthogonal p p
+Latin squares are superimposed. In general, up to p 1 factors could be studied if a complete set
+of p 1 orthogonal Latin squares is available. Such a design would utilize all (p 1)(p 1) 
+p2 1 degrees of freedom, so an independent estimate of the error variance is necessary. Of
+course, there must be no interactions between the factors when using hypersquares.
+4.4
+Balanced Incomplete Block Designs
+In certain experiments using randomized block designs, we may not be able to run all the treat-
+ment combinations in each block. Situations like this usually occur because of shortages of exper-
+imental apparatus or facilities or the physical size of the block. For example, in the vascular graft
+experiment (Example 4.1), suppose that each batch of material is only large enough to accommo-
+date testing three extrusion pressures. Therefore, each pressure cannot be tested in each batch. For
+this type of problem it is possible to use randomized block designs in which every treatment is
+not present in every block. These designs are known as randomized incomplete block designs.
+When all treatment comparisons are equally important, the treatment combinations
+used in each block should be selected in a balanced manner, so that any pair of treatments
+occur together the same number of times as any other pair. Thus, a balanced incomplete
+block design (BIBD) is an incomplete block design in which any two treatments appear
+together an equal number of times. Suppose that there are a treatments and that each block
+can hold exactly k (k a) treatments. A balanced incomplete block design may be construct-
+ed by taking 
+blocks and assigning a different combination of treatments to each block.
+Frequently, however, balance can be obtained with fewer than 
+blocks. Tables of BIBDs are
+given in Fisher and Yates (1953), Davies (1956), and Cochran and Cox (1957).
+As an example, suppose that a chemical engineer thinks that the time of reaction for a chem-
+ical process is a function of the type of catalyst employed. Four catalysts are currently being inves-
+tigated. The experimental procedure consists of selecting a batch of raw material, loading the pilot
+plant, applying each catalyst in a separate run of the pilot plant, and observing the reaction time.
+Because variations in the batches of raw material may affect the performance of the catalysts, the
+engineer decides to use batches of raw material as blocks. However, each batch is only large enough
+to permit three catalysts to be run. Therefore, a randomized incomplete block design must be used.
+The balanced incomplete block design for this experiment, along with the observations recorded,
+is shown in Table 4.22. The order in which the catalysts are run in each block is randomized.
+4.4.1
+Statistical Analysis of the BIBD
+As usual, we assume that there are a treatments and b blocks. In addition, we assume that each
+block contains k treatments, that each treatment occurs r times in the design (or is replicated
+(a
+k)
+(a
+k)
+168
+Chapter 4 ■Randomized Blocks, Latin Squares, and Related Designs
+■T A B L E 4 . 2 2
+Balanced Incomplete Block Design for Catalyst Experiment
+Treatment
+Block (Batch of Raw Material)
+(Catalyst)
+1
+2
+3
+4
+yi.
+1
+73
+74
+—
+71
+218
+2
+—
+75
+67
+72
+214
+3
+73
+75
+68
+—
+216
+4
+75
+—
+72
+75
+222
+y.j
+221
+224
+207
+218
+870 y.

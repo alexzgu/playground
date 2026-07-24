@@ -1,0 +1,47 @@
+48
+CHAPTER 2. BROWNIAN MOTION
+are independent, each with N(0, 2−n) distribution. From this we can
+see that Bq : q Dsatises the rst three properties in the deni-
+tion of a Brownian motion.
+We will dene Bt for other t by continuity. To do this we prove a
+theorem that states that the Brownian motion restricted to D has
+uniformly continuous paths. In other words, we show that with prob-
+ability one, for every ϵ > 0, there exists δ > 0 such that if s −t≤δ
+and s, t D, then Bs −Bt< ϵ. Equivalently, if we dene the random
+variable
+Kn = sup
+
+Bs −Bt: s, t D, s −t≤2−n
+,
+then with probability one, Kn →0 as n →∞. Note that Kn is the
+supremum of a countable number of random variables and hence is a
+well-dened random variable (perhaps taking the value ∞).
+Proposition 2.5.1. With probability one, for all α < 12,
+lim
+n∞2αn Kn = 0
+(2.2)
+In particular, Kn →0.
+In order to prove this proposition, it is easier to consider another
+sequence of random variables
+Jn =
+max
+j=1,,2n Y (j, n)
+where Y (j, n) equals
+sup
+
+Bq −B(j−1)2−n: q D, (j −1)2−n ≤q ≤j2−n
+
+A simple argument using the triangle inequality shows that Kn ≤3Jn.
+It turns out Jn is easier to analyze. For any ϵ > 0,
+PJn ≥ϵ≤
+2n
+
+j=1
+PY (j, n) ≥ϵ= 2n PY (1, n) ≥ϵ
+Also the distribution of
+Y (1, n) = sup
+
+Bq: q D, q ≤2−n
+
+is the same as that of 2−n2Y where
+Y = Y (1, 0) = sup Bq: q D

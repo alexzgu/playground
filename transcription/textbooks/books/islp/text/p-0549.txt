@@ -1,0 +1,48 @@
+12.5 Lab: Unsupervised Learning
+543
+In [35]: fig, ax = plt.subplots(1, 1, figsize=(8,8))
+ax.scatter(X[:,0], X[:,1], c=kmeans.labels_)
+ax.set_title("K-Means Clustering Results with K=2");
+Here the observations can be easily plotted because they are two-dimensio-
+nal. If there were more than two variables then we could instead perform
+PCA and plot the first two principal component score vectors to represent
+the clusters.
+In this example, we knew that there really were two clusters because
+we generated the data. However, for real data, we do not know the true
+number of clusters, nor whether they exist in any precise way. We could
+instead have performed K-means clustering on this example with K = 3.
+In [36]: kmeans = KMeans(n_clusters=3,
+random_state=3,
+n_init=20).fit(X)
+fig, ax = plt.subplots(figsize=(8,8))
+ax.scatter(X[:,0], X[:,1], c=kmeans.labels_)
+ax.set_title("K-Means Clustering Results with K=3");
+When K = 3, K-means clustering splits up the two clusters. We have used
+the n_init argument to run the K-means with 20 initial cluster assignments
+(the default is 10). If a value of n_init greater than one is used, then K-
+means clustering will be performed using multiple random assignments in
+Step 1 of Algorithm 12.2, and the KMeans() function will report only the
+best results. Here we compare using n_init=1 to n_init=20.
+In [37]: kmeans1 = KMeans(n_clusters=3,
+random_state=3,
+n_init=1).fit(X)
+kmeans20 = KMeans(n_clusters=3,
+random_state=3,
+n_init=20).fit(X);
+kmeans1.inertia_, kmeans20.inertia_
+Out[37]: (78.06, 75.04)
+Note that kmeans.inertia_ is the total within-cluster sum of squares, which
+we seek to minimize by performing K-means clustering (12.17).
+We strongly recommend always running K-means clustering with a large
+value of n_init, such as 20 or 50, since otherwise an undesirable local
+optimum may be obtained.
+When performing K-means clustering, in addition to using multiple ini-
+tial cluster assignments, it is also important to set a random seed using the
+random_state argument to KMeans(). This way, the initial cluster assign-
+ments in Step 1 can be replicated, and the K-means output will be fully
+reproducible.
+Hierarchical Clustering
+The AgglomerativeClustering() class from the sklearn.clustering pack- Agglomerative
+Clustering()
+age implements hierarchical clustering. As its name is long, we use the
+short hand HClust for hierarchical clustering. Note that this will not change

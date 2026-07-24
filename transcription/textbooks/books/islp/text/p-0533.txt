@@ -1,0 +1,54 @@
+12.4 Clustering Methods
+527
+0
+2
+4
+6
+8
+10
+0
+2
+4
+6
+8
+10
+0
+2
+4
+6
+8
+10
+FIGURE 12.11. Left: dendrogram obtained from hierarchically clustering the
+data from Figure 12.10 with complete linkage and Euclidean distance. Center: the
+dendrogram from the left-hand panel, cut at a height of nine (indicated by the
+dashed line). This cut results in two distinct clusters, shown in different colors.
+Right: the dendrogram from the left-hand panel, now cut at a height of five. This
+cut results in three distinct clusters, shown in different colors. Note that the colors
+were not used in clustering, but are simply used for display purposes in this figure.
+observations. One can see that observations 5 and 7 are quite similar to
+each other, since they fuse at the lowest point on the dendrogram. Obser-
+vations 1 and 6 are also quite similar to each other. However, it is tempting
+but incorrect to conclude from the figure that observations 9 and 2 are
+quite similar to each other on the basis that they are located near each
+other on the dendrogram. In fact, based on the information contained in
+the dendrogram, observation 9 is no more similar to observation 2 than it
+is to observations 8, 5, and 7. (This can be seen from the right-hand panel
+of Figure 12.12, in which the raw data are displayed.) To put it mathe-
+matically, there are 2n−1 possible reorderings of the dendrogram, where n
+is the number of leaves. This is because at each of the n −1 points where
+fusions occur, the positions of the two fused branches could be swapped
+without affecting the meaning of the dendrogram. Therefore, we cannot
+draw conclusions about the similarity of two observations based on their
+proximity along the horizontal axis. Rather, we draw conclusions about
+the similarity of two observations based on the location on the vertical axis
+where branches containing those two observations first are fused.
+Now that we understand how to interpret the left-hand panel of Fig-
+ure 12.11, we can move on to the issue of identifying clusters on the basis
+of a dendrogram. In order to do this, we make a horizontal cut across the
+dendrogram, as shown in the center and right-hand panels of Figure 12.11.
+The distinct sets of observations beneath the cut can be interpreted as clus-
+ters. In the center panel of Figure 12.11, cutting the dendrogram at a height
+of nine results in two clusters, shown in distinct colors. In the right-hand
+panel, cutting the dendrogram at a height of five results in three clusters.
+Further cuts can be made as one descends the dendrogram in order to ob-
+tain any number of clusters, between 1 (corresponding to no cut) and n

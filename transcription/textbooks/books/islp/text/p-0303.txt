@@ -1,0 +1,80 @@
+7.4 Regression Splines
+295
+20
+30
+40
+50
+60
+70
+50
+100
+150
+200
+250
+Age
+Wage
+Piecewise Cubic
+20
+30
+40
+50
+60
+70
+50
+100
+150
+200
+250
+Age
+Wage
+Continuous Piecewise Cubic
+20
+30
+40
+50
+60
+70
+50
+100
+150
+200
+250
+Age
+Wage
+Cubic Spline
+20
+30
+40
+50
+60
+70
+50
+100
+150
+200
+250
+Age
+Wage
+Linear Spline
+FIGURE 7.3. Various piecewise polynomials are fit to a subset of the Wage
+data, with a knot at age=50. Top Left: The cubic polynomials are unconstrained.
+Top Right: The cubic polynomials are constrained to be continuous at age=50.
+Bottom Left: The cubic polynomials are constrained to be continuous, and to have
+continuous first and second derivatives. Bottom Right: A linear spline is shown,
+which is constrained to be continuous.
+β01, β11, β21, and β31, and the second has coefficients β02, β12, β22, and β32.
+Each of these polynomial functions can be fit using least squares applied
+to simple functions of the original predictor.
+Using more knots leads to a more flexible piecewise polynomial. In gen-
+eral, if we place K different knots throughout the range of X, then we
+will end up fitting K + 1 different cubic polynomials. Note that we do not
+need to use a cubic polynomial. For example, we can instead fit piecewise
+linear functions. In fact, our piecewise constant functions of Section 7.2 are
+piecewise polynomials of degree 0!
+The top left panel of Figure 7.3 shows a piecewise cubic polynomial fit to
+a subset of the Wage data, with a single knot at age=50. We immediately see
+a problem: the function is discontinuous and looks ridiculous! Since each
+polynomial has four parameters, we are using a total of eight degrees of
+freedom in fitting this piecewise polynomial model.
+degrees of
+freedom

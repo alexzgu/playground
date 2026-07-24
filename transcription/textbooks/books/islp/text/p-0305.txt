@@ -1,0 +1,55 @@
+7.4 Regression Splines
+297
+20
+30
+40
+50
+60
+70
+50
+100
+150
+200
+250
+Age
+Wage
+Natural Cubic Spline
+Cubic Spline
+FIGURE 7.4. A cubic spline and a natural cubic spline, with three knots, fit to
+a subset of the Wage data. The dashed lines denote the knot locations.
+A truncated power basis function is defined as
+h(x, ξ) = (x −ξ)3
++ =
+K
+(x −ξ)3
+if x > ξ
+0
+otherwise,
+(7.10)
+where ξ is the knot. One can show that adding a term of the form β4h(x, ξ)
+to the model (7.8) for a cubic polynomial will lead to a discontinuity in
+only the third derivative at ξ; the function will remain continuous, with
+continuous first and second derivatives, at each of the knots.
+In other words, in order to fit a cubic spline to a data set with K knots, we
+perform least squares regression with an intercept and 3 + K predictors, of
+the form X, X2, X3, h(X, ξ1), h(X, ξ2), . . . , h(X, ξK), where ξ1, . . . , ξK are
+the knots. This amounts to estimating a total of K + 4 regression coeffi-
+cients; for this reason, fitting a cubic spline with K knots uses K+4 degrees
+of freedom.
+Unfortunately, splines can have high variance at the outer range of the
+predictors—that is, when X takes on either a very small or very large
+value. Figure 7.4 shows a fit to the Wage data with three knots. We see that
+the confidence bands in the boundary region appear fairly wild. A natu-
+ral spline is a regression spline with additional boundary constraints: the natural
+spline
+function is required to be linear at the boundary (in the region where X is
+smaller than the smallest knot, or larger than the largest knot). This addi-
+tional constraint means that natural splines generally produce more stable
+estimates at the boundaries. In Figure 7.4, a natural cubic spline is also
+displayed as a red line. Note that the corresponding confidence intervals
+are narrower.
+7.4.4
+Choosing the Number and Locations of the Knots
+When we fit a spline, where should we place the knots? The regression
+spline is most flexible in regions that contain a lot of knots, because in
+those regions the polynomial coefficients can change rapidly. Hence, one

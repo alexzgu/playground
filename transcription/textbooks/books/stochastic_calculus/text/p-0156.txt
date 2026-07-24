@@ -1,0 +1,36 @@
+150CHAPTER 5. CHANGE OF MEASURE AND GIRSANOV THEOREM
+5.2
+Giving drift to a Brownian motion
+As we have already noted, there are two ways to take a fair game and make
+it unfair or vice versa:
+Play the game and then add a deterministic amount in one direction.
+Change the probabilities of the outcome.
+We will consider these methods in the case of a standard Brownian motion
+Bt. For the rst method, we can dene a Brownian motion with drift m, by
+setting
+Wt = mt + Bt
+We will now consider the second way by changing the probabilities. We have
+already motivated this with a binomial approximation in (4.9), but in this
+section we will transform the game directly using the Brownian motion.
+Suppose that Bt is dened on the probability space (Ω, F, P) with a l-
+tration Ft. To change the probability is to consider a dierent measure Q
+instead of P. Let
+Mt = emBt−m2t
+2 
+(5.3)
+We have seen that Mt is a martingale. In fact (see (3.20)), Itˆo’s formula shows
+that Mt satises
+dMt = m Mt dBt,
+M0 = 1
+For each event V that is Ft measurable, we dene
+Qt(V ) = E [1V Mt] 
+In other words, on the probability space (Ω, Ft, P),
+dQt
+dP = Mt
+If s < t and V is Fs-measurable, then it is also Ft-measurable. In this case,
+Qs(V ) = Qt(V ) as can be seen in the calculation
+Qt(V ) = E [1V Mt] = E [E(1V Mt Fs)]
+= E [1V E(Mt Fs)] = E [1V Ms] = Qs(V )
+(5.4)
+Hence we can write just Q for the measure.
+We claim that

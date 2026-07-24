@@ -1,0 +1,53 @@
+5.5. MARTINGALE APPROACH TO BLACK-SCHOLES EQUATION167
+-Rt r(t, St),
+dRt = r(t, St) Rt dt
+SB(Ω, F, P)
+Q 
+P Q, 
+˜St = StRt . ST 
+F(ST) EQ[R−1
+T F(ST)] < ∞. T-
+t 
+Vt = Rt EQ
+
+R−1
+T F(ST) Ft
+
+
+(5.23)
+A nice thing about this formulation is that VT = F(ST) follows directly
+from the formula. However, unlike the previous approach, we do not imme-
+diately get the expression for the portfolio needed to hedge the option.
+Example 5.5.1. We will derive the Black-Scholes formula leaving some of
+the calculus calculations to Exercise 5.11. Suppose that r, σ are constants
+and F(ST) = (ST −K)+. The discounted values are ˜St = e−rtSt, ˜Vt = e−rt Vt
+and
+˜VT = e−rT F(ST) = e−rT (ST −K)+ = ( ˜ST −˜K)+,
+where ˜K = e−rTK. Under the measure Q, ˜St satises
+d ˜St = σ ˜St dBt,
+which implies that
+˜ST
+=
+˜St exp
+T
+t
+σ dBs −1
+2
+T
+t
+σ2 ds
+
+=
+˜St exp
+
+σ(BT −Bt) −σ2(T −t)
+2
+
+
+In other words, the conditional distribution of ˜ST given ˜St is that of
+Z = exp aN + y,
+where a = σ
+√
+T −t, N is a standard normal random variable, and
+y = log ˜St −a2
+2 

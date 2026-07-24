@@ -1,0 +1,74 @@
+352
+8. Tree-Based Methods
+Algorithm 8.3 Bayesian Additive Regression Trees
+1. Let ˆf 1
+1 (x) = ˆf 1
+2 (x) = · · · = ˆf 1
+K(x) =
+1
+nK
+)n
+i=1 yi.
+2. Compute ˆf 1(x) = )K
+k=1 ˆf 1
+k(x) = 1
+n
+)n
+i=1 yi.
+3. For b = 2, . . . , B:
+(a) For k = 1, 2, . . . , K:
+i. For i = 1, . . . , n, compute the current partial residual
+ri = yi −
+0
+k′<k
+ˆf b
+k′(xi) −
+0
+k′>k
+ˆf b−1
+k′
+(xi).
+ii. Fit a new tree, ˆf b
+k(x), to ri, by randomly perturbing the
+kth tree from the previous iteration, ˆf b−1
+k
+(x). Perturbations
+that improve the fit are favored.
+(b) Compute ˆf b(x) = )K
+k=1 ˆf b
+k(x).
+4. Compute the mean after L burn-in samples,
+ˆf(x) =
+1
+B −L
+B
+0
+b=L+1
+ˆf b(x).
+We typically throw away the first few of these prediction models, since
+models obtained in the earlier iterations — known as the burn-in period burn-in
+— tend not to provide very good results. We can let L denote the num-
+ber of burn-in iterations; for instance, we might take L = 200. Then, to
+obtain a single prediction, we simply take the average after the burn-in
+iterations, ˆf(x) =
+1
+B−L
+)B
+b=L+1 ˆf b(x). However, it is also possible to com-
+pute quantities other than the average: for instance, the percentiles of
+ˆf L+1(x), . . . , ˆf B(x) provide a measure of uncertainty in the final predic-
+tion. The overall BART procedure is summarized in Algorithm 8.3.
+A key element of the BART approach is that in Step 3(a)ii., we do not fit
+a fresh tree to the current partial residual: instead, we try to improve the fit
+to the current partial residual by slightly modifying the tree obtained in the
+previous iteration (see Figure 8.12). Roughly speaking, this guards against
+overfitting since it limits how “hard” we fit the data in each iteration.
+Furthermore, the individual trees are typically quite small. We limit the
+tree size in order to avoid overfitting the data, which would be more likely
+to occur if we grew very large trees.
+Figure 8.13 shows the result of applying BART to the Heart data, using
+K = 200 trees, as the number of iterations is increased to 10, 000. During
+the initial iterations, the test and training errors jump around a bit. After
+this initial burn-in period, the error rates settle down. We note that there
+is only a small difference between the training error and the test error,
+indicating that the tree perturbation process largely avoids overfitting.

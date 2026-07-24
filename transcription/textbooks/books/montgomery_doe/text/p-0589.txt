@@ -1,0 +1,50 @@
+573
+C H A P T E R
+1 3
+E x p e r i m e n t s w i t h
+R a n d o m F a c t o r s
+13.1
+Random Effects Models
+Throughout most of this book we have assumed that the factors in an experiment were ﬁxed
+factors, that is, the levels of the factors used by the experimenter were the specic levels of
+interest. The implication of this, of course, is that the statistical inferences made about these
+factors are conned to the specic levels studied. That is, if three material types are investigat-
+ed as in the battery life experiment of Example 5.1, our conclusions are valid only about those
+specic material types. A variation of this occurs when the factor or factors are quantitative.
+In these situations, we often use a regression model relating the response to the factors to pre-
+dict the response over the region spanned by the factor levels used in the experimental design.
+Several examples of this were presented in Chapters 5 through 9. In general, with a xed
+effect, we say that the inference space of the experiment is the specic set of factor levels
+investigated.
+CHAPTER OUTLINE
+13.1 RANDOM EFFECTS MODELS
+13.2 THE TWO-FACTOR FACTORIAL WITH RANDOM
+FACTORS
+13.3 THE TWO-FACTOR MIXED MODEL
+13.4 SAMPLE SIZE DETERMINATION WITH 
+RANDOM EFFECTS
+13.5 RULES FOR EXPECTED MEAN SQUARES
+13.6 APPROXIMATE F TESTS
+13.7 SOME ADDITIONAL TOPICS ON ESTIMATION
+OF VARIANCE COMPONENTS
+13.7.1 Approximate Condence Intervals on Variance
+Components
+13.7.2 The Modied Large-Sample Model
+The supplemental material is on the textbook website www.wiley.com/college/montgomery.
+SUPPLEMENTAL MATERIAL FOR CHAPTER 13
+S13.1
+Expected Mean Squares for the Random Model
+S13.2
+Expected Mean Squares for the Mixed Model
+S13.3
+Restricted versus Unrestricted Mixed Models
+S13.4
+Random and Mixed Models 
+with Unequal Sample Size
+S13.5
+Background Concerning the Modied 
+Large-Sample Method
+S13.6
+Condence Interval on a Ratio of Variance
+Components using the Modied Large-Sample
+Method

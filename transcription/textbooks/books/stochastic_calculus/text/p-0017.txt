@@ -1,0 +1,57 @@
+1.2. MARTINGALES
+11
+Example 1.2.2. Suppose Xn, Sn, Fn are as in Example 1.2.1 and also assume
+Var[Xj] = E[X2
+j ] = σ2
+j < ∞. Let
+An = σ2
+1 + · · · + σ2
+n,
+Mn = S2
+n −An,
+where M0 = 0. Then Mn is a martingale with respect to Fn. To see this, we
+compute as in Example 1.1.2,
+E[S2
+n+1 Fn]
+=
+E[(Sn + Xn+1)2 Fn]
+=
+E[S2
+n Fn] + 2E[SnXn+1 Fn] + E[X2
+n+1 Fn]
+=
+S2
+n + 2Sn E[Xn+1 Fn] + E[X2
+n+1]
+=
+S2
+n + 2Sn E[Xn+1] + E[X2
+n+1]
+=
+S2
+n + σ2
+n+1
+Therefore,
+E[Mn+1 Fn]
+=
+E[S2
+n+1 −An+1 Fn]
+=
+S2
+n + σ2
+n+1 −(An + σ2
+n+1) = Mn
+There are various ways to view a martingale. One can consider Mn as
+the price of an asset (although we allow negative values of Mn) or as the
+winnings in a game. We can also consider
+∆Mn = Mn −Mn−1
+as either the change in the asset price or as the amount won in the game at
+time n. Negative values indicate drops in price or money lost in the game. The
+basic idea of stochastic integration is to allow one to change one’s portfolio (in
+the asset viewpoint) or change one’s bet (in the game viewpoint). However,
+we are not allowed to see the outcome before betting. We make this precise
+in the next example.
+Example 1.2.3. Discrete stochastic integral. Suppose that M0, M1, 
+is a martingale with respect to the ltration Fn. For n ≥1, let ∆Mn =
+Mn −Mn−1. Let Bj denote the beton the jth game. We allow negative
+values of Bj which indicate betting that the price will go down or the game

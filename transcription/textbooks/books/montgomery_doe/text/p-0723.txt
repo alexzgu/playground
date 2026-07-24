@@ -1,0 +1,71 @@
+X
+Alias Relationships for 2kp Fractional Factorial Designs with k 15 and n 64 (Continued)
+Designs with 6 Factors
+(e) 263; 1/8 fraction of
+Resolution III
+6 factors in 8 runs
+Design Generators
+D AB
+E AC
+F BC
+Dening relation:
+I ABD ACE BCDE BCF ACDF ABEF DEF
+Aliases
+A BD CE CDF BEF
+E AC DF BCD ABF
+B AD CF CDE AEF
+F BC DE ACD ABE
+C AE BF BDE ADF
+CD BE AF ABC ADE BDF CEF
+D AB EF BCE ACF
+(f) 262; 1/4 fraction of
+Resolution IV
+6 factors in 16 runs
+Design Generators
+E ABC
+F BCD
+Dening relation:
+I ABCE BCDF ADEF
+Aliases
+A BCE DEF
+AB CE
+B ACE CDF
+AC BE
+C ABE BDF
+AD EF
+D BCF AEF
+AE BC DF
+E ABC ADF
+AF DE
+F BCD ADE
+BD CF
+ABD CDE ACF BEF
+BF CD
+ACD BDE ABF CEF
+2 blocks of 8: ABD CDE ACF BEF
+(g) 261; 1/2 fraction of
+Resolution VI
+6 factors in 32 runs
+Design Generators
+F ABCDE
+Dening relation:
+I ABCDEF
+Aliases
+Each main effect is aliased with a single 5-factor interaction.
+Each 2-factor interaction is aliased with a single 4-factor interaction.
+ABC DEF
+ACE BDF
+ABD CEF
+ACF BDE
+ABE CDF
+ADE BCF
+ABF CDE
+ADF BCE
+ACD BEF
+AEF BCD
+2 blocks of 16: ABC DEF
+4 blocks of 8: AB CDEF
+ACD BEF
+AEF BCD
+Appendix
+707

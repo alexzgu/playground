@@ -1,0 +1,70 @@
+206
+5. Resampling Methods
+2
+4
+6
+8
+10
+16
+18
+20
+22
+24
+26
+28
+LOOCV
+Degree of Polynomial
+Mean Squared Error
+2
+4
+6
+8
+10
+16
+18
+20
+22
+24
+26
+28
+10−fold CV
+Degree of Polynomial
+Mean Squared Error
+FIGURE 5.4.
+Cross-validation was used on the Auto data set in order to
+estimate the test error that results from predicting mpg using polynomial functions
+of horsepower. Left: The LOOCV error curve. Right: 10-fold CV was run nine
+separate times, each with a different random split of the data into ten parts. The
+figure shows the nine slightly different CV error curves.
+where ˆyi is the ith fitted value from the original least squares fit, and hi is
+the leverage defined in (3.37) on page 105.1 This is like the ordinary MSE,
+except the ith residual is divided by 1 −hi. The leverage lies between 1/n
+and 1, and reflects the amount that an observation influences its own fit.
+Hence the residuals for high-leverage points are inflated in this formula by
+exactly the right amount for this equality to hold.
+LOOCV is a very general method, and can be used with any kind of
+predictive modeling. For example we could use it with logistic regression
+or linear discriminant analysis, or any of the methods discussed in later
+chapters. The magic formula (5.2) does not hold in general, in which case
+the model has to be refit n times.
+5.1.3
+k-Fold Cross-Validation
+An alternative to LOOCV is k-fold CV. This approach involves randomly k-fold CV
+dividing the set of observations into k groups, or folds, of approximately
+equal size. The first fold is treated as a validation set, and the method
+is fit on the remaining k −1 folds. The mean squared error, MSE1, is
+then computed on the observations in the held-out fold. This procedure is
+repeated k times; each time, a different group of observations is treated
+as a validation set. This process results in k estimates of the test error,
+MSE1, MSE2, . . . , MSEk. The k-fold CV estimate is computed by averaging
+these values,
+CV(k) = 1
+k
+k
+0
+i=1
+MSEi.
+(5.3)
+Figure 5.5 illustrates the k-fold CV approach.
+1In the case of multiple linear regression, the leverage takes a slightly more compli-
+cated form than (3.37), but (5.2) still holds.

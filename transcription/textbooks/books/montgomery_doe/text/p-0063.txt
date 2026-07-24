@@ -1,0 +1,68 @@
+2.4 Inferences About the Differences in Means, Randomized Designs
+47
+Power and Sample Size
+2-Sample t-Test
+Testing mean 1 mean 2 (versus not )
+Calculating power for mean 1 mean 2 difference
+Alpha 0.05  Sigma 0.25
+Sample
+Target
+Actual
+Difference
+Size
+Power
+Power
+0.5
+8
+0.9500
+0.9602
+Power and Sample Size
+2-Sample t-Test
+Testing mean 1 mean 2 (versus not )
+Calculating power for mean 1 mean 2 difference
+Alpha 0.05 Sigma 0.25
+Sample
+Difference
+Size
+Power
+0.25
+10
+0.5620
+Power and Sample Size
+2-Sample t-Test
+Testing mean 1 mean 2 (versus not )
+Calculating power for mean 1 mean 2 difference
+Alpha 0.05  Sigma 0.25
+Sample
+Target
+Actual
+Difference
+Size
+Power
+Power
+0.25
+23
+0.9000
+0.9125
+■F I G U R E 2 . 1 3
+Power Curves (from JMP) for the Two-Sample t-Test Assuming Equal
+Varianes and  0.05. The Sample Size on the Horizontal Axis is the Total sample Size, so the
+sample Size in Each population is n sample size from graph/2.
+1.00
+0.75
+δ = 2
+δ = 1.5
+δ =
+= 1
+0.50
+Power
+0.25
+0.00
+10
+20
+30
+Sample Size
+40
+50
+|μ1–μ2|
+σ

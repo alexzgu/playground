@@ -1,0 +1,23 @@
+Chapter 6
+Jump processes
+6.1
+L´evy processes
+The assumptions that led to Brownian motion were:
+Independent increments
+Stationary increments
+Continuous paths.
+If we want to consider more general processes, we need to give up at least
+one of these assumptions. In this chapter we will not assume continuity of
+paths.
+Denition A stochastic process Xt is called a L´if it has inde-
+pendent, stationary increments. That is to say, for every s, t > 0, the random
+variable Xs+t −Xs is independent of Xr : r ≤sand has the same distri-
+bution as Xt −X0.
+Brownian motion is the only L´evy process with continuous paths. We
+have already discussed one example of a L´evy process with discontinuous
+paths, the Poisson process, and we will describe it in more detail in Section
+6.2. Let us give two examples that can be derived from Brownian motion.
+Example 6.1.1. Suppose Bt is a standard Brownian motion and Ts = inft :
+Bt = sUsing the strong Markov property, we can see that Ts, s ≥0 has
+i.i.d. increments. Therefore it is a L´evy process. Note that it is increasing,
+185

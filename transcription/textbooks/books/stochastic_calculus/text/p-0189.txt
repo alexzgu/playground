@@ -1,0 +1,24 @@
+5.8. EXERCISES
+183
+1. Show that if N has a standard normal distribution and a̸ = 0, y are
+constants, then the density of Z = expaN + yis
+g(z) = 1
+azϕ
+−y + log z
+a
+
+,
+where ϕ denotes the density of N.
+2. Show that for all x,
+∞
+x
+(z −x) g(z) dz = ey+(a22) Φ
+y −log x + a2
+a
+
+−x Φ
+y −log x
+a
+
+
+3. Use these calculations to check the details of Example 5.5.1.

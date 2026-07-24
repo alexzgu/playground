@@ -1,0 +1,120 @@
+6.3 The 23 Design
+245
+preceding columns row by row. For example, the signs in the AB column are the product of
+the A and B column signs in each row. The contrast for any effect can be obtained easily from
+this table.
+Table 6.3 has several interesting properties: (1) Except for column I, every column has
+an equal number of plus and minus signs. (2) The sum of the products of the signs in any two
+columns is zero. (3) Column I multiplied times any column leaves that column unchanged.
+That is, I is an identity element. (4) The product of any two columns yields a column in the
+table. For example, A B  AB, and
+We see that the exponents in the products are formed by using modulus 2 arithmetic. (That
+is, the exponent can only be 0 or 1; if it is greater than 1, it is reduced by multiples of 2 until
+it is either 0 or 1.) All of these properties are implied by the orthogonality of the 23 design
+and the contrasts used to estimate the effects.
+Sums of squares for the effects are easily computed because each effect has a corre-
+sponding single-degree-of-freedom contrast. In the 23 design with n replicates, the sum of
+squares for any effect is
+(6.18)
+SS (Contrast)2
+8n
+AB B AB2 A
+E X A M P L E 6 . 1
+A 23 factorial design was used to develop a nitride etch
+process on a single-wafer plasma etching tool. The design
+factors are the gap between the electrodes, the gas ow
+(C2F6 is used as the reactant gas), and the RF power
+applied to the cathode (see Figure 3.1 for a schematic of
+the plasma etch tool). Each factor is run at two levels, and
+the design is replicated twice. The response variable is the
+etch rate for silicon nitride (A/m). The etch rate data are
+shown in Table 6.4, and the design is shown geometrically
+in Figure 6.6.
+Using the totals under the treatment combinations
+shown in Table 6.4, we may estimate the factor effects as
+follows:
+1
+8 [813] 101.625
+1617 2089 1589 2138]
+1
+8[1319 1154 1277 1234
+A 1
+4n [a (1) ab b ac c abc bc]
+■TA B L E 6 . 4
+The Plasma Etch Experiment, Example 6.1
+Coded Factors
+Etch Rate
+Factor Levels
+Run
+A
+B
+C
+Replicate 1
+Replicate 2
+Total
+Low (1)
+High (1)
+1
+1
+1
+1
+550
+604
+(1)  1154
+A (Gap, cm)
+0.80
+1.20
+2
+1
+1
+1
+669
+650
+a  1319
+B (C2F6 ow, SCCM) 125
+200
+3
+1
+1
+1
+633
+601
+b  1234
+C (Power, W)
+275
+325
+4
+1
+1
+1
+642
+635
+ab  1277
+5
+1
+1
+1
+1037
+1052
+c  2089
+6
+1
+1
+1
+749
+868
+ac  1617
+7
+1
+1
+1
+1075
+1063
+bc  2138
+8
+1
+1
+1
+729
+860
+abc  1589

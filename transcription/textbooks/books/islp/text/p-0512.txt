@@ -1,0 +1,89 @@
+506
+12. Unsupervised Learning
+that has largest sample variance, subject to the constraint that )p
+j=1 φ2
+j1=1.
+In other words, the first principal component loading vector solves the op-
+timization problem
+maximize
+φ11,...,φp1
+
+
+
+
+
+1
+n
+n
+0
+i=1
+
+
+p
+0
+j=1
+φj1xij
+
+
+2
+
+
+
+
+subject to
+p
+0
+j=1
+φ2
+j1 = 1.
+(12.3)
+From (12.2) we can write the objective in (12.3) as
+1
+n
+)n
+i=1 z2
+i1. Since
+1
+n
+)n
+i=1 xij = 0, the average of the z11, . . . , zn1 will be zero as well. Hence
+the objective that we are maximizing in (12.3) is just the sample variance of
+the n values of zi1. We refer to z11, . . . , zn1 as the scores of the first princi- score
+pal component. Problem (12.3) can be solved via an eigen decomposition, eigen decom-
+position
+a standard technique in linear algebra, but the details are outside of the
+scope of this book.1
+There is a nice geometric interpretation of the first principal component.
+The loading vector φ1 with elements φ11, φ21, . . . , φp1 defines a direction in
+feature space along which the data vary the most. If we project the n data
+points x1, . . . , xn onto this direction, the projected values are the princi-
+pal component scores z11, . . . , zn1 themselves. For instance, Figure 6.14 on
+page 254 displays the first principal component loading vector (green solid
+line) on an advertising data set. In these data, there are only two features,
+and so the observations as well as the first principal component loading
+vector can be easily displayed. As can be seen from (6.19), in that data set
+φ11 = 0.839 and φ21 = 0.544.
+After the first principal component Z1 of the features has been deter-
+mined, we can find the second principal component Z2. The second princi-
+pal component is the linear combination of X1, . . . , Xp that has maximal
+variance out of all linear combinations that are uncorrelated with Z1. The
+second principal component scores z12, z22, . . . , zn2 take the form
+zi2 = φ12xi1 + φ22xi2 + · · · + φp2xip,
+(12.4)
+where φ2 is the second principal component loading vector, with elements
+φ12, φ22, . . . , φp2. It turns out that constraining Z2 to be uncorrelated with
+Z1 is equivalent to constraining the direction φ2 to be orthogonal (perpen-
+dicular) to the direction φ1. In the example in Figure 6.14, the observations
+lie in two-dimensional space (since p = 2), and so once we have found φ1,
+there is only one possibility for φ2, which is shown as a blue dashed line.
+(From Section 6.3.1, we know that φ12 = 0.544 and φ22 = −0.839.) But in
+a larger data set with p > 2 variables, there are multiple distinct principal
+components, and they are defined in a similar manner. To find φ2, we solve
+a problem similar to (12.3) with φ2 replacing φ1, and with the additional
+constraint that φ2 is orthogonal to φ1.2
+1As an alternative to the eigen decomposition, a related technique called the singular
+value decomposition can be used. This will be explored in the lab at the end of this
+chapter.
+2On a technical note, the principal component directions φ1, φ2, φ3, . . . are given
+by the ordered sequence of eigenvectors of the matrix XT X, and the variances of the
+components are the eigenvalues. There are at most min(n −1, p) principal components.

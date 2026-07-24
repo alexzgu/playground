@@ -1,0 +1,239 @@
+L AC
+12
+16
+E ABC
+F ABD
+GACD
+HBCD
+J ABCD
+K AB
+L AC
+MAD
+13
+16
+E ABC
+F ABD
+GACD
+HBCD
+J ABCD
+K AB
+L AC
+MAD
+N BC
+14
+16
+E ABC
+F ABD
+GACD
+HBCD
+J ABCD
+K AB
+L AC
+MAD
+N BC
+OBD
+15
+16
+E ABC
+F ABD
+GACD
+HBCD
+J ABCD
+K AB
+L AC
+MAD
+N BC
+OBD
+P CD
+21511
+III
+21410
+III
+2139
+III
+2128
+III
+Number of 
+Number
+Design 
+Factors, k
+Fraction
+of Runs
+Generators
+3
+4
+C AB
+4
+8
+D ABC
+5
+16
+E ABCD
+8
+D AB
+E AC
+6
+32
+F ABCDE
+16
+E ABC
+F BCD
+8
+D AB
+E AC
+F BC
+7
+64
+G ABCDEF
+32
+F ABCD
+G ABDE
+16
+E ABC
+F BCD
+G ACD
+8
+D AB
+E AC
+F BC
+G ABC
+8
+64
+G ABCD
+H ABEF
+32
+F ABC
+G ABD
+H BCDE
+16
+E BCD
+F ACD
+G ABC
+H ABD
+9
+128
+H ACDFG
+J BCEFG
+64
+G ABCD
+H ACEF
+J CDEF
+32
+F BCDE
+G ACDE
+H ABDE
+J ABCE
+294
+IV
+293
+IV
+292
+VI
+284
+IV
+283
+IV
+282
+V
+274
+III
+273
+IV
+272
+IV
+271
+VII
+263
+III
+262
+IV
+261
+VI
+252
+III
+251
+V
+241
+IV
+231
+III
+16
+E ABC
+F BCD
+GACD
+HABD
+J ABCD
+10
+128
+HABCG
+J BCDE
+KACDF
+64
+GBCDF
+HACDF
+J ABDE
+KABCE
+32
+F ABCD
+GABCE
+HABDE
+J ACDE
+KBCDE
+16
+E ABC
+F BCD
+GACD
+HABD
+J ABCD
+KAB
+11
+64
+GCDE
+HABCD
+J ABF
+KBDEF
+L ADEF
+32
+F ABC
+GBCD
+HCDE
+J ACD
+KADE
+L BDE
+16
+E ABC
+F BCD
+GACD
+HABD
+J ABCD
+KAB
+2117
+III
+2116
+IV
+2115
+IV
+2106
+III
+2105
+IV
+2104
+IV
+2103
+V
+295
+III
+Number of 
+Number
+Design 
+Factors, k
+Fraction
+of Runs
+Generators
+Number of 
+Number
+Design 
+Factors, k
+Fraction
+of Runs
+Generators

@@ -1,0 +1,124 @@
+The general regression significance test can be used to develop the analysis of variance
+for the randomized complete block design. Using the solution to the normal equations given
+by Equation 4.26, the reduction in the sum of squares for fitting the full model is
+with a b 1 degrees of freedom, and the error sum of squares is
+with (a 1)(b 1) degrees of freedom. Compare this last equation with SSE in Equation 4.7.
+To test the hypothesis H0: i 0, the reduced model is
+which is just a single-factor analysis of variance. By analogy with Equation 3.5, the reduction
+in the sum of squares for tting the reduced model is
+which has b degrees of freedom. Therefore, the sum of squares due to {i} after tting and
+{j} is
+which we recognize as the treatment sum of squares with a 1 degrees of freedom (Equa-
+tion 4.10).
+The block sum of squares is obtained by tting the reduced model
+yij i ij
+
+a
+i1
+y2
+i.
+b y2
+..
+ab
+
+a
+i1
+y2
+i.
+b 
+b
+j1
+y2
+.j
+a y2
+..
+ab 
+b
+j1
+y2
+.j
+a
+R(full model) R(reduced model)
+R(, ) R(, , ) R(, )
+R(, ) 
+b
+j1
+y2
+.j
+a
+yij j ij
+
+a
+i1 
+b
+j1
+(yij yi. y.j y..)2
+
+a
+i1 
+b
+j1
+y2
+ij 
+a
+i1
+y2
+i.
+b 
+b
+j1
+y2
+.j
+a y2
+..
+ab
+SSE 
+a
+i1 
+b
+j1
+y2
+ij R(, , )
+
+a
+i1
+y2
+i.
+b 
+b
+j1
+y2
+.j
+a y2
+..
+ab
+y2
+..
+ab 
+a
+i1
+yi. yi. y2
+..
+ab 
+b
+j1
+y.jy.j y2
+..
+ab
+y.. y.. 
+a
+i1
+(yi. y..)yi. 
+b
+j1
+(y.j y..)y.j
+R(, , ) ˆ y.. 
+a
+i1
+ˆi yi. 
+b
+j1
+ˆ
+jy.j
+4.1 The Randomized Complete Block Design
+157

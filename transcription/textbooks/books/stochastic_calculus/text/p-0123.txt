@@ -1,0 +1,49 @@
+3.7. SEVERAL BROWNIAN MOTIONS
+117
+Since df = f ′dt, dg = g′dt and dfdg = O((dt)2), we get the usual product
+formula.
+If Xt, Yt are process as above, then when we take the stochastic dierential
+d(XtYt) we get in the same way
+d(XtYt) = Xt dYt + Yt dXt + (dXt) (dYt)
+However, the (dXt) (dYt) term does not vanish, but rather equals d⟨X, Y ⟩t
+This gives the stochastic product rule.
+Theorem 3.6.1 (Stochastic product rule). IXt, Yt (3.24), 
+d(XtYt) = Xt dYt + Yt dXt + d⟨X, Y ⟩t
+I,
+XtYt
+=
+X0 Y0 +
+t
+0
+Xs dYs +
+t
+0
+Ys dXs +
+t
+0
+d⟨XY ⟩s
+=
+X0 Y0 +
+t
+0
+[Xs Ks + Ys Hs + As Cs] ds
++
+t
+0
+[Xs Cs + Ys As] dBs
+Example 3.6.1. Suppose Bt is a standard Brownian motion and Xt is the
+geometric Brownian motion satisfying
+dXt = m Xt dt + σ Xt dBt
+Then in the notation of (3.24), Ht = m Xt and At = σ Xt. If we set Yt = Bt,
+then Kt = 0, Ct = 1. Therefore,
+d(BtXt)
+=
+Bt dXt + Xt dBt + d⟨B, X⟩t
+=
+Bt [m Xt dt + σ Xt dBt] + Xt dBt + σ Xt dt
+=
+Xt [(m Bt + σ) dt + (σ Bt + 1) dBt] 
+3.7
+Several Brownian motions
+Up to this point, we have integrated with respect to a single Brownian motion.
+Extending the denitions to several Brownian motions is straightforward.

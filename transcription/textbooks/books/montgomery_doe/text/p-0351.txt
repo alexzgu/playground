@@ -1,0 +1,155 @@
+There are, of course, three alternate fractions of this particular 
+design. They are
+the fractions with generating relationships I ABCE and I  BCDF; I   ABCE and I 
+BCDF; and I  ABCE and I  BCDF. These fractions may be easily constructed by the
+method shown in Table 8.9. For example, if we wish to nd the fraction for which 
+I ABCE and I  BCDF, then in the last column of Table 8.9 we set F  BCD, and the
+column of levels for factor F becomes
+The complete dening relation for this alternate fraction is I ABCE BCDF 
+ADEF. Certain signs in the alias structure in Table 8.9 are now changed; for instance, the
+aliases of A are A BCE  DEF  ABCDF. Thus, the linear combination of the obser-
+vations [A] actually estimates A BCE DEF ABCDF.
+Finally, note that the 
+fractional factorial will project into a single replicate of a 24
+design in any subset of four factors that is not a word in the dening relation. It also collaps-
+es to a replicated one-half fraction of a 24 in any subset of four factors that is a word in the
+dening relation. Thus, the design in Table 8.9 becomes two replicates of a 241 in the fac-
+tors ABCE, BCDF, and ADEF, because these are the words in the dening relation. There
+are 12 other combinations of the six factors, such as ABCD, ABCF, for which the design
+projects to a single replicate of the 24. This design also collapses to two replicates of a 23 in
+any subset of three of the six factors or four replicates of a 22 in any subset of two factors.
+In general, any 2k2 fractional factorial design can be collapsed into either a full facto-
+rial or a fractional factorial in some subset of r k 2 of the original factors. Those subsets
+of variables that form full factorials are not words in the complete dening relation.
+262
+IV
+
+262
+IV
+8.3 The One-Quarter Fraction of the 2k Design
+335
+■TA B L E 8 . 9
+Construction of the 
+Design with the Generators I ABCE and I BCDF
+Basic Design
+Run
+A
+B
+C
+D
+E ABC
+F BCD
+1
+
+
+
+
+
+
+2
+
+
+
+
+
+
+3
+
+
+
+
+
+
+4
+
+
+
+
+
+
+5
+
+
+
+
+
+
+6
+
+
+
+
+
+
+7
+
+
+
+
+
+
+8
+
+
+
+
+
+
+9
+
+
+
+
+
+
+10
+
+
+
+
+
+
+11
+
+
+
+
+
+
+12
+
+
+
+
+
+
+13
+
+
+
+
+
+
+14
+
+
+
+
+
+
+15
+
+
+
+
+
+
+16
+
+
+
+
+
+
+262
+IV

@@ -1,0 +1,149 @@
+To compute the two-factor interaction sums of squares, the totals for the A B, A C, and
+B C cells are needed. It is frequently helpful to collapse the original data table into three
+two-way tables to compute these quantities. The sums of squares are found from
+(5.31)
+(5.32)
+and
+(5.33)
+Note that the sums of squares for the two-factor subtotals are found from the totals in each
+two-way table. The three-factor interaction sum of squares is computed from the three-way
+cell totals {yijk.} as
+(5.34a)
+(5.34b)
+SSSubtotals(ABC) SSA SSB SSC SSAB SSAC SSBC
+SSABC 1
+n 
+a
+i1 
+b
+j1 
+c
+k1
+y2
+ijk. y2
+....
+abcn SSA SSB SSC SSAB SSAC SSBC
+SSSubtotals(BC) SSB SSC
+SSBC 
+1
+an 
+b
+j1 
+c
+k1
+y2
+.jk. y2
+....
+abcn SSB SSC
+SSSubtotals(AC) SSA SSC
+SSAC 
+1
+bn 
+a
+i1 
+c
+k1
+y2
+i.k. y2
+....
+abcn SSA SSC
+SSSubtotals(AB) SSA SSB
+SSAB 
+1
+cn 
+a
+i1 
+b
+j1
+y2
+ij.. y2
+....
+abcn SSA SSB
+5.4 The General Factorial Design
+207
+■TA B L E 5 . 1 2
+The Analysis of Variance Table for the Three-Factor Fixed Effects Model
+Source of 
+Sum of 
+Mean 
+Variation
+Squares
+Degrees of Freedom
+Square
+Expected Mean Square
+F0
+A
+SSA
+a 1
+MSA
+B
+SSB
+b 1
+MSB
+C
+SSC
+c 1
+MSC
+AB
+SSAB
+(a 1)(b 1)
+MSAB
+AC
+SSAC
+(a 1)(c 1)
+MSAC
+BC
+SSBC
+(b 1)(c 1)
+MSBC
+ABC
+SSABC
+(a 1)(b 1)(c 1)
+MSABC
+Error
+SSE
+abc(n 1)
+MSE
+2
+Total
+SST
+abcn 1
+F0 MSABC
+MSE
+2 
+n ()2
+ijk
+(a 1)(b 1)(c 1)
+F0 MSBC
+MSE
+2 
+an  ()2
+jk
+(b 1)(c 1)
+F0 MSAC
+MSE
+2 bn  ()2
+ik
+(a 1)(c 1)
+F0 MSAB
+MSE
+2 
+cn  ()2
+ij
+(a 1)(b 1)
+F0 MSC
+MSE
+2 abn2
+k
+c 1
+F0 MSB
+MSE
+2 
+acn2
+j
+b 1
+F0 MSA
+MSE
+2 bcn2
+i
+a 1

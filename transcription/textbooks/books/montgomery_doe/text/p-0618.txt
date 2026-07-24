@@ -1,0 +1,214 @@
+602
+Chapter 13 ■Experiments with Random Factors
+10 parts, three operators, and three replicates. The data are
+shown in Table P13.2.
+■TA B L E P 1 3 . 2
+Power Module Thermal Test Equipment Data for
+Problem 13.2
+Inspector 1
+Inspector 2
+Inspector 3
+Test 
+Test 
+Test 
+Part No.
+1
+2
+3
+1
+2
+3
+1
+2
+3
+1
+37
+38
+37
+41
+41
+40
+41
+42
+41
+2
+42
+41
+43
+42
+42
+42
+43
+42
+43
+3
+30
+31
+31
+31
+31
+31
+29
+30
+28
+4
+42
+43
+42
+43
+43
+43
+42
+42
+42
+5
+28
+30
+29
+29
+30
+29
+31
+29
+29
+6
+42
+42
+43
+45
+45
+45
+44
+46
+45
+7
+25
+26
+27
+28
+28
+30
+29
+27
+27
+8
+40
+40
+40
+43
+42
+42
+43
+43
+41
+9
+25
+25
+25
+27
+29
+28
+26
+26
+26
+10
+35
+34
+34
+35
+35
+34
+35
+34
+35
+(a) Analyze the data from this experiment, assuming that
+both parts and operators are random effects.
+(b) Estimate the variance components using the analysis
+of variance method.
+(c) Estimate the variance components using the REML
+method. Use the condence intervals on the variance
+components to assist in drawing conclusions.
+13.3.
+Reconsider the data in Problem 5.8. Suppose that both
+factors, machines and operators, are chosen at random.
+(a) Analyze the data from this experiment.
+(b) Find point estimates of the variance components using
+the analysis of variance method.
+13.4.
+Reconsider the data in Problem 5.15. Suppose that
+both factors are random.
+(a) Analyze the data from this experiment.
+(b) Estimate the variance components using the ANOVA
+method.
+13.5.
+Suppose that in Problem 5.13 the furnace positions
+were randomly selected, resulting in a mixed model experi-
+ment. Reanalyze the data from this experiment under this new
+assumption. Estimate the appropriate model components
+using the ANOVA method.
+13.6.
+Reanalyze the measurement systems experiment in
+Problem 13.1, assuming that operators are a xed factor.
+Estimate the appropriate model components using the
+ANOVA method.
+13.7.
+Reanalyze the measurement system experiment in
+Problem 13.2, assuming that operators are a xed factor.
+Estimate the appropriate model components using the
+ANOVA method.
+13.8.
+In Problem 5.8, suppose that there are only four
+machines of interest, but the operators were selected at 
+random.
+(a) What type of model is appropriate?
+(b) Perform the analysis and estimate the model compo-
+nents using the ANOVA method.
+13.9
+Rework Problem 13.5 using the REML method.
+13.10
+Rework Problem 13.6 using the REML method.
+13.11
+Rework Problem 13.7 using the REML method.
+13.12
+Rework Problem 13.8 using the REML method.
+13.13. By application of the expectation operator, develop
+the expected mean squares for the two-factor factorial, mixed
+model. Use the restricted model assumptions. Check your
+results with the expected mean squares given in Equation 13.9
+to see that they agree.
+13.14. Consider the three-factor factorial design in Example
+13.5. Propose appropriate test statistics for all main effects
+and interactions. Repeat for the case where A and B are xed
+and C is random.
+13.15. Consider the experiment in Example 13.6. Analyze
+the data for the case where A, B, and C are random.
+13.16. Derive the expected mean squares shown in Table
+13.11.
+13.17. Consider a four-factor factorial experiment where fac-
+tor A is at a levels, factor B is at b levels, factor C is at c lev-
+els, factor D is at d levels, and there are n replicates. Write
+down the sums of squares, the degrees of freedom, and the
+expected mean squares for the following cases. Assume the
+restricted model for all mixed models. You may use a
+computer package such as Minitab.
+(a) A, B, C, and D are xed factors.
+(b) A, B, C, and D are random factors.
+(c) A is xed and B, C, and D are random.
+(d) A and B are xed and C and D are random.
+(e) A, B, and C are xed and D is random.
+Do exact tests exist for all effects? If not, propose test statistics
+for those effects that cannot be directly tested.
+13.18. Reconsider cases (c), (d), and (e) of Problem 13.17.
+Obtain the expected mean squares assuming the unrestrict-
+ed model. You may use a computer package such as
+Minitab. Compare your results with those for the restricted
+model.
+13.19. In Problem 5.19, assume that the three operators were
+selected at random. Analyze the data under these conditions
+and draw conclusions. Estimate the variance components.
+13.20. Consider the three-factor factorial model
+()jk ijk  
+i 1, 2, . . . , a
+j 1, 2, . . . , b
+k 1, 2, . . . , c
+yijk i j k ()ij

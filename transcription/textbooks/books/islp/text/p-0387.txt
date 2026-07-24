@@ -1,0 +1,65 @@
+380
+9. Support Vector Machines
+where there are n parameters αi, i = 1, . . . , n, one per training
+observation.
+• To estimate the parameters α1, . . . , αn and β0, all we need are the
+'n
+2
+(
+inner products ⟨xi, xi′⟩between all pairs of training observations.
+(The notation
+'n
+2
+(
+means n(n −1)/2, and gives the number of pairs
+among a set of n items.)
+Notice that in (9.18), in order to evaluate the function f(x), we need to
+compute the inner product between the new point x and each of the training
+points xi. However, it turns out that αi is nonzero only for the support
+vectors in the solution—that is, if a training observation is not a support
+vector, then its αi equals zero. So if S is the collection of indices of these
+support points, we can rewrite any solution function of the form (9.18) as
+f(x) = β0 +
+0
+i∈S
+αi⟨x, xi⟩,
+(9.19)
+which typically involves far fewer terms than in (9.18).2
+To summarize, in representing the linear classifier f(x), and in computing
+its coefficients, all we need are inner products.
+Now suppose that every time the inner product (9.17) appears in the
+representation (9.18), or in a calculation of the solution for the support
+vector classifier, we replace it with a generalization of the inner product of
+the form
+K(xi, xi′),
+(9.20)
+where K is some function that we will refer to as a kernel. A kernel is a kernel
+function that quantifies the similarity of two observations. For instance, we
+could simply take
+K(xi, xi′) =
+p
+0
+j=1
+xijxi′j,
+(9.21)
+which would just give us back the support vector classifier. Equation 9.21
+is known as a linear kernel because the support vector classifier is linear
+in the features; the linear kernel essentially quantifies the similarity of a
+pair of observations using Pearson (standard) correlation. But one could
+instead choose another form for (9.20). For instance, one could replace
+every instance of )p
+j=1 xijxi′j with the quantity
+K(xi, xi′) = (1 +
+p
+0
+j=1
+xijxi′j)d.
+(9.22)
+This is known as a polynomial kernel of degree d, where d is a positive polynomial
+kernel
+integer. Using such a kernel with d > 1, instead of the standard linear
+kernel (9.21), in the support vector classifier algorithm leads to a much more
+flexible decision boundary. It essentially amounts to fitting a support vector
+2By expanding each of the inner products in (9.19), it is easy to see that f(x) is
+a linear function of the coordinates of x. Doing so also establishes the correspondence
+between the αi and the original parameters βj.

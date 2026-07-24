@@ -1,0 +1,58 @@
+90
+Chapter 3 ■Experiments with a Single Factor: The Analysis of Variance
+This quadratic t is shown in Figure 3.10b. The quadratic model appears to be superior to the
+linear model because it provides a better t at the higher power settings.
+In general, we would like to t the lowest order polynomial that adequately describes
+the system or process. In this example, the quadratic polynomial seems to t better than the
+linear model, so the extra complexity of the quadratic model is justied. Selecting the order
+of the approximating polynomial is not always easy, however, and it is relatively easy to over-
+t, that is, to add high-order polynomial terms that do not really improve the t but increase
+the complexity of the model and often damage its usefulness as a predictor or interpolation
+equation.
+In this example, the empirical model could be used to predict etch rate at power settings
+within the region of experimentation. In other cases, the empirical model could be used for
+process optimization, that is, nding the levels of the design variables that result in the best
+values of the response. We will discuss and illustrate these problems extensively later in the
+book.
+3.5.2
+Comparisons Among Treatment Means
+Suppose that in conducting an analysis of variance for the xed effects model the null hypoth-
+esis is rejected. Thus, there are differences between the treatment means but exactly which
+means differ is not specied. Sometimes in this situation, further comparisons and analysis
+among groups of treatment means may be useful. The ith treatment mean is dened as i 
+i, and i is estimated by . Comparisons between treatment means are made in terms
+of either the treatment totals {yi.} or the treatment averages 
+. The procedures for making
+these comparisons are usually called multiple comparison methods. In the next several sec-
+tions, we discuss methods for making comparisons among individual treatment means or
+groups of these means.
+yi.
+yi.
+205.00
+190.00
+A: Power
+(a) Linear model
+175.00
+160.00
+578.725
+529.966
+676.242
+725
+627.483
+220.00
+Etch rate
+205.00
+190.00
+A: Power
+(b) Quadratic model
+175.00
+160.00
+578.75
+530
+676.25
+725
+627.5
+220.00
+Etch rate
+■F I G U R E 3 . 1 0
+Scatter diagrams and regression models for the etch rate data of Example 3.1

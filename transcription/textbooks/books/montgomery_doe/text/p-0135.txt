@@ -1,0 +1,102 @@
+The analysis of variance method of variance component estimation is a method of
+moments procedure. It does not require the normality assumption. It does yield estimators of 2
+and 
+that are best quadratic unbiased (i.e., of all unbiased quadratic functions of the observa-
+tions, these estimators have minimum variance). There is a different method based on maximum
+likelihood that can be used to estimate the variance components that will be introduced later.
+Occasionally, the analysis of variance method produces a negative estimate of a variance
+component. Clearly, variance components are by denition nonnegative, so a negative estimate
+of a variance component is viewed with some concern. One course of action is to accept the esti-
+mate and use it as evidence that the true value of the variance component is zero, assuming that
+sampling variation led to the negative estimate. This has intuitive appeal, but it suffers from some
+theoretical difculties. For instance, using zero in place of the negative estimate can disturb 
+the statistical properties of other estimates. Another alternative is to reestimate the negative vari-
+ance component using a method that always yields nonnegative estimates. Still another alterna-
+tive is to consider the negative estimate as evidence that the assumed linear model is incorrect and
+reexamine the problem. Comprehensive treatment of variance component estimation is given by
+Searle (1971a, 1971b), Searle, Casella, and McCullogh (1992), and Burdick and Graybill (1992).
+2
+
+3.9 The Random Effects Model
+119
+E X A M P L E 3 . 1 1
+A textile company weaves a fabric on a large number of
+looms. It would like the looms to be homogeneous so that it
+obtains a fabric of uniform strength. The process engineer
+suspects that, in addition to the usual variation in strength
+within samples of fabric from the same loom, there may also
+be signicant variations in strength between looms. To
+investigate this, she selects four looms at random and makes
+four strength determinations on the fabric manufactured on
+each loom. This experiment is run in random order, and the
+data obtained are shown in Table 3.17. The ANOVA is con-
+■TA B L E 3 . 1 7
+Strength Data for Example 3.11
+Observations
+Looms
+1
+2
+3
+4
+yi.
+1
+98
+97
+99
+96
+390
+2
+91
+90
+93
+92
+366
+3
+96
+95
+97
+95
+383
+4
+95
+96
+99
+98
+388
+1527 y..
+ducted and is shown in Table 3.18. From the ANOVA, we
+conclude that the looms in the plant differ signicantly.
+The variance components are estimated by 
+1.90 and
+ˆ 2
+29.73 1.90
+4
+6.96
+ˆ 2
+Therefore, the variance of any observation on strength is
+estimated by
+Most of this variability is attributable to differences
+between looms.
+ˆ y ˆ 2 ˆ 2
+1.90 6.96 8.86.
+■TA B L E 3 . 1 8
+Analysis of Variance for the Strength Data
+Source of Variation
+Sum of Squares
+Degrees of Freedom
+Mean Square
+F0
+P-Value
+Looms
+89.19
+3
+29.73
+15.68
+<0.001
+Error
+22.75
+12
+1.90
+Total
+111.94
+15 

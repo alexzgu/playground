@@ -1,0 +1,51 @@
+12.3 Missing Values and Matrix Completion
+515
+proach, and is reflective of the fact that PCA is generally used as a tool for
+exploratory data analysis.
+On the other hand, if we compute principal components for use in a
+supervised analysis, such as the principal components regression presented
+in Section 6.3.1, then there is a simple and objective way to determine how
+many principal components to use: we can treat the number of principal
+component score vectors to be used in the regression as a tuning parameter
+to be selected via cross-validation or a related approach. The comparative
+simplicity of selecting the number of principal components for a supervised
+analysis is one manifestation of the fact that supervised analyses tend to
+be more clearly defined and more objectively evaluated than unsupervised
+analyses.
+12.2.5
+Other Uses for Principal Components
+We saw in Section 6.3.1 that we can perform regression using the principal
+component score vectors as features. In fact, many statistical techniques,
+such as regression, classification, and clustering, can be easily adapted to
+use the n × M matrix whose columns are the first M ≪p principal com-
+ponent score vectors, rather than using the full n × p data matrix. This
+can lead to less noisy results, since it is often the case that the signal (as
+opposed to the noise) in a data set is concentrated in its first few principal
+components.
+12.3
+Missing Values and Matrix Completion
+Often datasets have missing values, which can be a nuisance. For example,
+suppose that we wish to analyze the USArrests data, and discover that 20
+of the 200 values have been randomly corrupted and marked as missing.
+Unfortunately, the statistical learning methods that we have seen in this
+book cannot handle missing values. How should we proceed?
+We could remove the rows that contain missing observations and per-
+form our data analysis on the complete rows. But this seems wasteful, and
+depending on the fraction missing, unrealistic. Alternatively, if xij is miss-
+ing, then we could replace it by the mean of the jth column (using the
+non-missing entries to compute the mean). Although this is a common and
+convenient strategy, often we can do better by exploiting the correlation
+between the variables.
+In this section we show how principal components can be used to impute impute
+imputation
+the missing values, through a process known as matrix completion. The
+matrix
+completion
+completed matrix can then be used in a statistical learning method, such
+as linear regression or LDA.
+This approach for imputing missing data is appropriate if the missingness
+is random. For example, it is suitable if a patient’s weight is missing because missing at
+random
+the battery of the electronic scale was flat at the time of his exam. By
+contrast, if the weight is missing because the patient was too heavy to
+climb on the scale, then this is not missing at random; the missingness is

@@ -1,0 +1,100 @@
+604
+Index
+load_data(), 117
+loc[], 58, 59, 177
+log_loss(), 355
+LogisticGAM(), 323
+logrank_test(), 490
+lowess(), 324
+matplotlib, 48
+max(), 66
+mean(), 48
+median(), 197
+min(), 66
+MNIST(), 444
+ModelSpec(), 116–118, 122,
+124, 267
+MS(), see ModelSpec()
+mult_test(), see multipletests()
+multipletests(), 586
+multipletests(), 583, 589
+multivariate_logrank_test(),
+496
+NaturalSpline(), 317, 319
+ndim, 42
+nn.RNN(), 461
+normal(), 132, 286, 555
+np, see numpy
+np.all(), 54, 180
+np.allclose(), 190
+np.any(), 54
+np.arange(), 51
+np.argmax(), 122
+np.array(), 42
+np.concatenate(), 133
+np.corrcoef(), 46, 554
+np.empty(), 224
+np.isnan(), 268
+np.ix_(), 53
+np.linalg.svd(), 539
+np.linspace(), 50
+np.logspace(), 318
+np.mean(), 47, 176
+np.nan, 60
+np.nanmean(), 541
+np.percentile(), 228
+np.power(), 219
+np.random.choice(), 553
+np.random.default_rng(), 46,
+47
+np.random.normal(), 45
+np.sqrt(), 45
+np.squeeze(), 457
+np.std(), 47
+np.sum(), 43
+np.var(), 47
+np.where(), 180
+ns(), 317
+numpy, 42, 555
+os.chdir(), 55
+outer(), 219
+pairwise_distances(), 554
+pairwise_tukeyhsd(), 587
+pandas, 55
+params, 175
+partial(), 222, 269
+PCA(), 280, 537, 540, 554
+pd, see pandas
+pd.crosstab(), 555
+pd.cut(), 315
+pd.get_dummies(), 314
+pd.plotting.scatter_matrix(),
+62
+pd.qcut(), 314, 315
+pd.read_csv(), 55, 556
+pd.Series(), 62
+Pipeline(), 275
+plot(), 48, 61, 356, 490
+plot.scatter(), 120
+plot_gam(), 321
+plot_svm(), 398
+PLSRegression(), 282
+poly(), 125, 313, 327
+predict(), 175, 178, 181, 216,
+218, 323, 358
+predict_survival_function(),
+493
+print(), 40
+pvalues, 175
+pygam, 307, 317
+pytorch_lightning, 435
+QDA(), see QuadraticDiscriminant-
+Analysis()
+QuadraticDiscriminantAnalysis(),
+174, 181
+random(), 555
+RandomForestRegressor(), 354,
+360
+read_image(), 436
+reindex(), 461
+reshape(), 43

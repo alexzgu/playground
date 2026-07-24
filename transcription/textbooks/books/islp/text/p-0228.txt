@@ -1,0 +1,45 @@
+220
+5. Resampling Methods
+Out[13]: array([23.6166])
+One can estimate the variability in the test error by running the following:
+In [14]: validation = ShuffleSplit(n_splits=10,
+test_size=196,
+random_state=0)
+results = cross_validate(hp_model,
+Auto.drop(['mpg'], axis=1),
+Auto['mpg'],
+cv=validation)
+results['test_score'].mean(), results['test_score'].std()
+Out[14]: (23.8022, 1.4218)
+Note that this standard deviation is not a valid estimate of the sam-
+pling variability of the mean test score or the individual scores, since the
+randomly-selected training samples overlap and hence introduce correla-
+tions. But it does give an idea of the Monte Carlo variation incurred by
+picking different random folds.
+5.3.3
+The Bootstrap
+We illustrate the use of the bootstrap in the simple example of Section 5.2,
+as well as on an example involving estimating the accuracy of the linear
+regression model on the Auto data set.
+Estimating the Accuracy of a Statistic of Interest
+One of the great advantages of the bootstrap approach is that it can be
+applied in almost all situations. No complicated mathematical calculations
+are required. While there are several implementations of the bootstrap in
+Python, its use for estimating standard error is simple enough that we write
+our own function below for the case when our data is stored in a dataframe.
+To illustrate the bootstrap, we start with a simple example. The Portfolio
+data set in the ISLP package is described in Section 5.2. The goal is to es-
+timate the sampling variance of the parameter α given in formula (5.7).
+We will create a function alpha_func(), which takes as input a dataframe D
+assumed to have columns X and Y, as well as a vector idx indicating which
+observations should be used to estimate α. The function then outputs the
+estimate for α based on the selected observations.
+In [15]: Portfolio = load_data('Portfolio')
+def alpha_func(D, idx):
+cov_ = np.cov(D[['X','Y']].loc[idx], rowvar=False)
+return ((cov_[1,1] - cov_[0,1]) /
+(cov_[0,0]+cov_[1,1]-2*cov_[0,1]))
+This function returns an estimate for α based on applying the minimum
+variance formula (5.7) to the observations indexed by the argument idx. For
+instance, the following command estimates α using all 100 observations.
+In [16]: alpha_func(Portfolio, range(100))

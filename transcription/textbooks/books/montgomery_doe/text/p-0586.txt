@@ -1,0 +1,189 @@
+570
+Chapter 12 ■Robust Parameter Design and Process Robustness Studies
+12.6
+Problems
+12.1.
+Reconsider the leaf spring experiment in Table 12.1.
+Suppose that the objective is to nd a set of conditions where
+the mean free height is as close as possible to 7.6 inches, with
+the variance of free height as small as possible. What condi-
+tions would you recommend to achieve these objectives?
+12.2.
+Consider the bottle-lling experiment in Problem
+6.20. Suppose that the percentage of carbonation (A) is a noise
+variable (
+in coded units).
+(a) Fit the response model to these data. Is there a robust
+design problem?
+(b) Find the mean model and either the variance model or
+the POE.
+(c) Find a set of conditions that result in mean ll devia-
+tion as close to zero as possible with minimum trans-
+mitted variance.
+12.3.
+Consider the experiment in Problem 11.12. Suppose
+that temperature is a noise variable (
+in coded units). Fit
+response models for both responses. Is there a robust design
+problem with respect to both responses? Find a set of condi-
+tions that maximize conversion with activity between 55 and 60
+and that minimize the variability transmitted from temperature.
+12.4.
+Reconsider the leaf spring experiment from Table
+12.1. Suppose that factors A, B, and C are controllable vari-
+ables and that factors D and E are noise factors. Set up a
+crossed array design to investigate this problem, assuming
+that all of the two-factor interactions involving the control-
+lable variables are thought to be important. What type of
+design have you obtained?
+12.5.
+Continuation of Problem 12.5. Reconsider the leaf
+spring experiment from Table 12.1. Suppose that factors A, B
+and C are controllable variables and that factors D and E are
+noise factors. Show how a combined array design can be
+employed to investigate this problem that allows all two-
+factor interaction to be estimated and only requires 16 runs.
+Compare this with the crossed array design from Problem
+12.5. Can you see how in general combined array designs
+have fewer runs than crossed array designs?
+12.6.
+Consider the connector pull-off force experiment
+shown in Table 12.2. What main effects and interaction
+involving the controllable variables can be estimated with this
+design? Remember that all of the controllable variables are
+quantitative factors.
+12.7.
+Consider the connector pull-off force experiment
+shown in Table 12.2. Show how an experiment can be designed
+for this problem that will allow a full quadratic model to be t
+in the controllable variables along all main effects of the noise
+variables and their interactions with the controllable variables.
+How many runs will be required in this design? How does this
+compare with the design in Table 12.2?
+2
+z 1
+2
+z 1
+12.8.
+Consider the experiment in Problem 11.11. Suppose
+that pressure is a noise variable (
+in coded units). Fit
+the response model for the viscosity response. Find a set of
+conditions that result in viscosity as close as possible to 600
+and that minimize the variability transmitted from the noise
+variable pressure.
+12.9.
+A variation of Example 12.1. In Example 12.1
+(which utilized data from Example 6.2), we found that one of
+the process variables (B pressure) was not important.
+Dropping this variable produces two replicates of a 23 design.
+The data are as follows:
+C
+D
+A ( )
+A ( )
+s2
+
+
+45, 48
+71, 65
+57.75
+121.19
+
+
+68, 80
+60, 65
+68.25
+72.25
+
+
+43, 45
+100, 104
+73.00
+1124.67
+
+
+75, 70
+86, 96
+81.75
+134.92
+Assume that C and D are controllable factors and that A is a
+noise variable.
+(a) Fit a model to the mean response.
+(b) Fit a model to the ln(s2) response.
+(c) Find operating conditions that result in the mean ltra-
+tion rate response exceeding 75 with minimum variance.
+(d) Compare your results with those from Example 12.1,
+which used the transmission of error approach. How
+similar are the two answers?
+12.10. In an article (“Let’s All Beware the Latin Square,”
+Quality Engineering, Vol. 1, 1989, pp. 453–465), J. S. Hunter
+illustrates some of the problems associated with 3kp fraction-
+al factorial designs. Factor A is the amount of ethanol added
+to a standard fuel, and factor B represents the air/fuel ratio.
+The response variable is carbon monoxide (CO) emission in
+g/m3. The design is as follows,
+Design
+Observations
+A
+B
+x1
+x2
+y
+0
+0
+1
+1
+66
+62
+1
+0
+0
+1
+78
+81
+2
+0
+1
+1
+90
+94
+0
+1
+1
+0
+72
+67
+1
+1
+0
+0
+80
+81
+2
+1
+1
+0
+75
+78
+0
+2
+1
+1
+68
+66
+1
+2
+0
+1
+66
+69
+2
+2
+1
+1
+60
+58
+y
+2
+z 1

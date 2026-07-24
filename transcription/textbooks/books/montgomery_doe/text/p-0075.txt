@@ -1,0 +1,151 @@
+2.7 Problems
+59
+The 100(1 ) condence interval for the ratio of the population variances 
+is
+(2.50)
+To illustrate the use of Equation 2.50, the 95 percent condence interval for the ratio of vari-
+ances 
+in Example 2.2 is, using F0.025,9,11 3.59 and F0.975,9,11 1/F0.025,11,9 1/3.92 
+0.255,
+2.7
+Problems
+ 0.34 2
+1
+2
+2
+ 4.82
+14.5
+10.8 (0.255) 2
+1
+2
+2
+14.5
+10.8 (3.59)
+2
+1/2
+2
+S 2
+1
+S 2
+2
+F1/2,n21,n11 2
+1
+2
+2
+S 2
+1
+S 2
+2
+F/2,n21,n11
+2
+1/2
+2
+2.1.
+Computer output for a random sample of data is
+shown below. Some of the quantities are missing. Compute
+the values of the missing quantities.
+Variable
+N
+Mean SE Mean
+Std. Dev. Variance
+Minimum
+Maximum
+Y
+9 19.96
+?
+3.12
+?
+15.94
+27.16
+2.2.
+Computer output for a random sample of data is
+shown below. Some of the quantities are missing. Compute
+the values of the missing quantities.
+Variable
+N
+Mean
+SE Mean
+Std. Dev.
+Sum
+Y
+16
+?
+0.159
+?
+399.851
+2.3.
+Suppose that we are testing H0 : 0 versus 
+H1 : 0. Calculate the P-value for the following observed
+values of the test statistic:
+(a) Z0 2.25
+(b) Z0 1.55
+(c) Z0 2.10
+(d) Z0 1.95
+(e) Z0 0.10
+2.4.
+Suppose that we are testing H0 : 0 versus 
+H1 :   0. Calculate the P-value for the following observed
+values of the test statistic:
+(a) Z0 2.45
+(b) Z0 1.53
+(c) Z0 2.15
+(d) Z0 1.95
+(e) Z0 0.25
+2.5.
+Consider the computer output shown below.
+One-Sample Z
+Test of mu 30 vs not 30
+The assumed standard deviation 1.2
+N
+Mean
+SE Mean
+95% CI
+Z
+P
+16
+31.2000
+0.3000
+(30.6120, 31.7880)
+?
+?
+(a) Fill in the missing values in the output. What conclu-
+sion would you draw?
+(b) Is this a one-sided or two-sided test?
+(c) Use the output and the normal table to nd a 99 percent
+CI on the mean.
+(d)What is the P-value if the alternative hypothesis is 
+H1 : 30?
+2.6.
+Suppose that we are testing H0 : 1  2 versus  H0 :
+1 2 where the two sample sizes are n1 n2 12. Both
+sample variances are unknown but assumed equal. Find
+bounds on the P-value for the following observed values of
+the test statistic.
+(a) t0 2.30 (b) t0 3.41 (c) t0 1.95 (d) t0  2.45
+2.7.
+Suppose that we are testing H0 : 1  2 versus H0 :
+1 2 where the two sample sizes are n1 n2 10. Both
+sample variances are unknown but assumed equal. Find
+bounds on the P-value for the following observed values of
+the test statistic.
+(a) t0 2.31 (b) t0 3.60 (c) t0 1.95 (d) t0 2.19
+2.8.
+Consider the following sample data:
+9.37, 13.04,
+11.69, 8.21, 11.18, 10.41, 13.15, 11.51, 13.21, and 7.75. Is it
+reasonable to assume that this data is a sample from a normal
+distribution? Is there evidence to support a claim that the
+mean of the population is 10?
+2.9.
+A computer program has produced the following out-
+put for a hypothesis-testing problem:
+Difference in sample means:  2.35
+Degrees of freedom: 18
+Standard error of the difference in sample means: ?
+Test statistic:  t0 = 2.01
+P-value: 0.0298
+(a) What is the missing value for the standard error?
+(b) Is this a two-sided or a one-sided test?
+(c) If 0.05, what are your conclusions?
+(d) Find a 90% two-sided CI on the difference in
+means.

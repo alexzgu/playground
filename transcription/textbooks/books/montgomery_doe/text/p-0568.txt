@@ -1,0 +1,184 @@
+(c) Now use the data from block 2 (standard order runs
+17–24 and the remaining center points, standard order
+runs 27–30) to augment block 1 and t second-order
+models to both responses. Check the adequacy of the
+t for both models. Does blocking seem to have been
+important in this experiment?
+(d) What design would you recommend to maximize the
+ight time while simultaneously minimizing the stan-
+dard deviation of ight time?
+11.36.
+An article in the Journal of Chromatography A
+(“Optimization of the Capillary Electrophoresis Separation of
+Ranitidine and Related Compounds,” Vol. 766, pp. 245–254)
+describes an experiment to optimize the production of raniti-
+dine, a compound that is the primary active ingredient of
+Zantac, a pharmaceutical product used to treat ulcers, gastroe-
+sophageal reux disease (a condition in which backward ow
+of acid from the stomach causes heartburn and injury of the
+esophagus), and other conditions where the stomach produces
+too much acid, such as Zollinger–Ellison syndrome. The
+authors used three factors (x1 pH of the buffer solution, x2 
+the electrophoresis voltage, and the concentration of one com-
+ponent of the buffer solution) in a central composite design.
+The response is chromatographic exponential function (CEF),
+which should be minimized. Table P11.12 shows the design.
+(a) Fit a second-order model to the CEF response.
+Analyze the residuals from this model. Does it seem
+that all model terms are necessary?
+(b) Reduce the model from part (a) as necessary. Did
+model reduction improve the t?
+(c) Does transformation of the CEF response seem like a
+useful idea? What aspect of either the data or the resid-
+ual analysis suggests that transformation would be
+helpful?
+(d) Fit a second-order model to the transformed CEF
+response. Analyze the residuals from this model. Does
+it seem that all model terms are necessary? What
+would you choose as the nal model?
+(e) Suppose that you had some information that suggests
+that the separation process malfunctioned during run
+7. Delete this run and analyze the data from this exper-
+iment again.
+(f) What conditions would you recommend to minimize
+CEF?
+552
+Chapter 11 ■Response Surface Methods and Designs
+■TA B L E P 1 1 . 1 2 
+The Ranitidine Separation Experiment
+Standard
+Order
+X1
+X2
+X3
+CEF
+1
+1
+1
+1
+17.3
+2
+1
+1
+1
+45.5
+3
+1
+1
+1
+10.3
+4
+1
+1
+1
+11757.1
+5
+1
+1
+1
+16.942
+6
+1
+1
+1
+25.4
+7
+1
+1
+1
+31697.2
+8
+1
+1
+1
+12039.2
+9
+1.68
+0
+0
+7.5
+10
+1.68
+0
+0
+6.3
+11
+0
+1.68
+0
+11.1
+12
+0
+1.68
+0
+6.664
+13
+0
+0
+1.68
+16548.7
+14
+0
+0
+1.68
+26351.8
+15
+0
+0
+0
+9.9
+16
+0
+0
+0
+9.6
+17
+0
+0
+0
+8.9
+18
+0
+0
+0
+8.8
+19
+0
+0
+0
+8.013
+20
+0
+0
+0
+8.059
+11.37.
+An 
+article 
+in 
+the 
+Electronic 
+Journal 
+of
+Biotechnology (“Optimization of Medium Composition for
+Transglutaminase 
+Production 
+by 
+a 
+Brazilian 
+Soil
+Streptomyces sp,” available at http://www.ejbiotechnology
+.info/content/vol10/issue4/full/10.index.html) describes the
+use of designed experiments to improve the medium for cells
+used in a new microbial source of transglutaminase
+(MTGase), an enzyme that catalyzes an acyl transfer reaction
+using peptide-bond glutamine residues as acyl donors and
+some primary amines as acceptors. Reactions catalyzed by
+MTGase can be used in food processing. The article describes
+two phases of experimentation—screening with a fractional
+factorial and optimization. We will use only the optimization
+experiment. The design was a central composite design in four
+factors—x1 KH2PO4, x2 MgSO4-7H2O, x3 soybean
+ower, and x4 peptone. MTGase activity is the response,
+which should be maximized. Table P11.13 contains the design
+and the response data.

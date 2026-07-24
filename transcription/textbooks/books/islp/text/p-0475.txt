@@ -1,0 +1,38 @@
+11
+Survival Analysis and Censored Data
+In this chapter, we will consider the topics of survival analysis and censored survival
+analysis
+data. These arise in the analysis of a unique kind of outcome variable: the
+censored
+data
+time until an event occurs.
+For example, suppose that we have conducted a five-year medical study,
+in which patients have been treated for cancer. We would like to fit a model
+to predict patient survival time, using features such as baseline health mea-
+surements or type of treatment. At first pass, this may sound like a regres-
+sion problem of the kind discussed in Chapter 3. But there is an important
+complication: hopefully some or many of the patients have survived until
+the end of the study. Such a patient’s survival time is said to be censored: we
+know that it is at least five years, but we do not know its true value. We do
+not want to discard this subset of surviving patients, as the fact that they
+survived at least five years amounts to valuable information. However, it is
+not clear how to make use of this information using the techniques covered
+thus far in this textbook.
+Though the phrase “survival analysis” evokes a medical study, the ap-
+plications of survival analysis extend far beyond medicine. For example,
+consider a company that wishes to model churn, the process by which cus-
+tomers cancel subscription to a service. The company might collect data on
+customers over some time period, in order to model each customer’s time
+to cancellation as a function of demographics or other predictors. However,
+presumably not all customers will have canceled their subscription by the
+end of this time period; for such customers, the time to cancellation is
+censored.
+In fact, survival analysis is relevant even in application areas that are
+unrelated to time. For instance, suppose we wish to model a person’s weight
+as a function of some covariates, using a dataset with measurements for a
+large number of people. Unfortunately, the scale used to weigh those people
+is unable to report weights above a certain number. Then, any weights that
+© Springer Nature Switzerland AG 2023 
+G. James et al., An Introduction to Statistical Learning, Springer Texts in Statistics, 
+https://doi.org/10.1007/978-3-031-38747-0_11 
+469

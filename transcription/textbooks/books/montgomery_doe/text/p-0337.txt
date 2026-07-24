@@ -1,0 +1,117 @@
+A major use of fractional factorials is in screening experiments—experiments in
+which many factors are considered and the objective is to identify those factors (if any) that
+have large effects. Screening experiments are usually performed in the early stages of a proj-
+ect when many of the factors initially considered likely have little or no effect on the response.
+The factors identied as important are then investigated more thoroughly in subsequent
+experiments.
+The successful use of fractional factorial designs is based on three key ideas:
+1. The sparsity of effects principle. When there are several variables, the system or
+process is likely to be driven primarily by some of the main effects and low-order
+interactions.
+2. The projection property. Fractional factorial designs can be projected into stronger
+(larger) designs in the subset of signicant factors.
+3. Sequential experimentation. It is possible to combine the runs of two (or more)
+fractional factorials to construct sequentially a larger design to estimate the factor
+effects and interactions of interest.
+We will focus on these principles in this chapter and illustrate them with several examples.
+8.2
+The One-Half Fraction of the 2k Design
+8.2.1
+Deﬁnitions and Basic Principles
+Consider a situation in which three factors, each at two levels, are of interest, but the experi-
+menters cannot afford to run all 23 8 treatment combinations. They can, however, afford
+four runs. This suggests a one-half fraction of a 23 design. Because the design contains 
+231 4 treatment combinations, a one-half fraction of the 23 design is often called a 231
+design.
+The table of plus and minus signs for the 23 design is shown in Table 8.1. Suppose we
+select the four treatment combinations a, b, c, and abc as our one-half fraction. These runs
+are shown in the top half of Table 8.1 and in Figure 8.1a.
+Notice that the 231 design is formed by selecting only those treatment combinations
+that have a plus in the ABC column. Thus, ABC is called the generator of this particular 
+8.2 The One-Half Fraction of the 2k Design
+321
+■TA B L E 8 . 1
+Plus and Minus Signs for the 23 Factorial Design
+Treatment
+Factorial Effect
+Combination
+I
+A
+B
+C
+AB
+AC
+BC
+ABC
+a
+
+
+
+
+
+
+
+
+b
+
+
+
+
+
+
+
+
+c
+
+
+
+
+
+
+
+
+abc
+
+
+
+
+
+
+
+
+ab
+
+
+
+
+
+
+
+
+ac
+
+
+
+
+
+
+
+
+bc
+
+
+
+
+
+
+
+
+(1)
+
+
+
+
+
+
+
+

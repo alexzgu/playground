@@ -1,0 +1,45 @@
+558
+13. Multiple Testing
+challenges are presented in Section 13.3, and more contemporary solutions
+in Sections 13.4 and 13.5.
+In particular, Section 13.4 focuses on the false discovery rate. The no-
+tion of the false discovery rate dates back to the 1990s. It quickly rose in
+popularity in the early 2000s, when large-scale data sets began to come out
+of genomics. These datasets were unique not only because of their large
+size,1 but also because they were typically collected for exploratory pur-
+poses: researchers collected these datasets in order to test a huge number
+of null hypotheses, rather than just a very small number of pre-specified
+null hypotheses. Today, of course, huge datasets are collected without a
+pre-specified null hypothesis across virtually all fields. As we will see, the
+false discovery rate is perfectly-suited for this modern-day reality.
+This chapter naturally centers upon the classical statistical technique of
+p-values, used to quantify the results of hypothesis tests. At the time of
+writing of this book (2020), p-values have recently been the topic of exten-
+sive commentary in the social science research community, to the extent
+that some social science journals have gone so far as to ban the use of
+p-values altogether! We will simply comment that when properly under-
+stood and applied, p-values provide a powerful tool for drawing inferential
+conclusions from our data.
+13.1
+A Quick Review of Hypothesis Testing
+Hypothesis tests provide a rigorous statistical framework for answering
+simple “yes-or-no” questions about data, such as the following:
+1. Is the true coefficient βj in a linear regression of Y onto X1, . . . , Xp
+equal to zero?2
+2. Is there a difference in the expected blood pressure of laboratory mice
+in the control group and laboratory mice in the treatment group?3
+In Section 13.1.1, we briefly review the steps involved in hypothesis test-
+ing. Section 13.1.2 discusses the different types of mistakes, or errors, that
+can occur in hypothesis testing.
+13.1.1
+Testing a Hypothesis
+Conducting a hypothesis test typically proceeds in four steps. First, we de-
+fine the null and alternative hypotheses. Next, we construct a test statistic
+that summarizes the strength of evidence against the null hypothesis. We
+then compute a p-value that quantifies the probability of having obtained
+1Microarray data was viewed as “big data” at the time, although by today’s standards,
+this label seems quaint: a microarray dataset can be (and typically was) stored in a
+Microsoft Excel spreadsheet!
+2This hypothesis test was discussed on page 76 of Chapter 3.
+3The “treatment group” refers to the set of mice that receive an experimental treat-
+ment, and the “control group” refers to those that do not.

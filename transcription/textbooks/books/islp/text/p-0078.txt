@@ -1,0 +1,33 @@
+3
+Linear Regression
+This chapter is about linear regression, a very simple approach for super-
+vised learning. In particular, linear regression is a useful tool for predicting
+a quantitative response. It has been around for a long time and is the topic
+of innumerable textbooks. Though it may seem somewhat dull compared to
+some of the more modern statistical learning approaches described in later
+chapters of this book, linear regression is still a useful and widely used sta-
+tistical learning method. Moreover, it serves as a good jumping-off point for
+newer approaches: as we will see in later chapters, many fancy statistical
+learning approaches can be seen as generalizations or extensions of linear
+regression. Consequently, the importance of having a good understanding
+of linear regression before studying more complex learning methods cannot
+be overstated. In this chapter, we review some of the key ideas underlying
+the linear regression model, as well as the least squares approach that is
+most commonly used to fit this model.
+Recall the Advertising data from Chapter 2. Figure 2.1 displays sales
+(in thousands of units) for a particular product as a function of advertis-
+ing budgets (in thousands of dollars) for TV, radio, and newspaper media.
+Suppose that in our role as statistical consultants we are asked to suggest,
+on the basis of this data, a marketing plan for next year that will result in
+high product sales. What information would be useful in order to provide
+such a recommendation? Here are a few important questions that we might
+seek to address:
+1. Is there a relationship between advertising budget and sales?
+Our first goal should be to determine whether the data provide evi-
+dence of an association between advertising expenditure and sales. If
+the evidence is weak, then one might argue that no money should be
+spent on advertising!
+© Springer Nature Switzerland AG 2023 
+G. James et al., An Introduction to Statistical Learning, Springer Texts in Statistics, 
+https://doi.org/10.1007/978-3-031-38747-0_3 
+69

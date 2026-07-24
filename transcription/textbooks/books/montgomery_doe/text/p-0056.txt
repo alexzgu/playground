@@ -1,0 +1,51 @@
+strength is of practical importance (or has engineering signicance in addition to statistical
+signicance) then more development work and further experimentation will likely be
+required.
+The Use of P-Values in Hypothesis Testing. One way to report the results of
+a hypothesis test is to state that the null hypothesis was or was not rejected at a specified
+-value or level of signiﬁcance. This is often called ﬁxed signiﬁcance level testing. For
+example, in the Portland cement mortar formulation above, we can say that H0 : 1 2 was
+rejected at the 0.05 level of signicance. This statement of conclusions is often inadequate
+because it gives the decision maker no idea about whether the computed value of the test sta-
+tistic was just barely in the rejection region or whether it was very far into this region.
+Furthermore, stating the results this way imposes the predened level of signicance on other
+users of the information. This approach may be unsatisfactory because some decision makers
+might be uncomfortable with the risks implied by 0.05.
+To avoid these difculties, the P-value approach has been adopted widely in practice.
+The P-value is the probability that the test statistic will take on a value that is at least as
+extreme as the observed value of the statistic when the null hypothesis H0 is true. Thus, a P-
+value conveys much information about the weight of evidence against H0, and so a decision
+maker can draw a conclusion at any specied level of signicance. More formally, we dene
+the P-value as the smallest level of signicance that would lead to rejection of the null
+hypothesis H0.
+It is customary to call the test statistic (and the data) signicant when the null hypoth-
+esis H0 is rejected; therefore, we may think of the P-value as the smallest level at which the
+data are signicant. Once the P-value is known, the decision maker can determine how
+signicant the data are without the data analyst formally imposing a preselected level of
+signicance.
+It is not always easy to compute the exact P-value for a test. However, most modern
+computer programs for statistical analysis report P-values, and they can be obtained on
+some handheld calculators. We will show how to approximate the P-value for the Portland
+cement mortar experiment. Because t02.20 t0.025,18 2.101, we know that the P-
+value is less than 0.05. From Appendix Table II, for a t distribution with 18 degrees of free-
+dom, and tail area probability 0.01 we find t0.01,18 2.552. Now t02.20 2.552, so
+because the alternative hypothesis is two sided, we know that the P-value must be between
+0.05 and 2(0.01) 0.02. Some handheld calculators have the capability to calculate P-values.
+One such calculator is the HP-48. From this calculator, we obtain the P-value for the value
+t0 2.20 in the Portland cement mortar formulation experiment as P 0.0411. Thus
+the null hypothesis H0 : 1 2 would be rejected at any level of significance 
+0.0411.
+Computer Solution. Many statistical software packages have capability for statisti-
+cal hypothesis testing. The output from both the Minitab and the JMP two-sample t-test pro-
+cedure applied to the Portland cement mortar formulation experiment is shown in Table 2.2.
+Notice that the output includes some summary statistics about the two samples (the abbrevi-
+ation “SE mean” in the Minitab section of the table refers to the standard error of the mean,
+) as well as some information about condence intervals on the difference in the two
+means (which we will discuss in the next section). The programs also test the hypothesis of
+interest, allowing the analyst to specify the nature of the alternative hypothesis (“not ” in
+the Minitab output implies H1 : 1 2).
+The output includes the computed value of t0, the value of the test statistic t0 (JMP
+reports a positive value of t0 because of how the sample means are subtracted in the numerator
+s/n
+40
+Chapter 2 ■Simple Comparative Experiments

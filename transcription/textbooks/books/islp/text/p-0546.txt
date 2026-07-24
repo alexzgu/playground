@@ -1,0 +1,64 @@
+540
+12. Unsupervised Learning
+In [23]: pcaUS.components_
+Out[23]: array([[ 0.53589947,
+0.58318363,
+0.27819087,
+0.54343209],
+[ 0.41818087,
+0.1879856 , -0.87280619, -0.16731864],
+[-0.34123273, -0.26814843, -0.37801579,
+0.81777791],
+[ 0.6492278 , -0.74340748,
+0.13387773,
+0.08902432]])
+The matrix U corresponds to a standardized version of the PCA score matrix
+(each column standardized to have sum-of-squares one). If we multiply each
+column of U by the corresponding element of D, we recover the PCA scores
+exactly (up to a meaningless sign flip).
+In [24]: (U * D[None,:])[:3]
+Out[24]: array([[-0.9856,
+1.1334, -0.4443,
+0.1563],
+[-1.9501,
+1.0732,
+2.04
+, -0.4386],
+[-1.7632, -0.746 ,
+0.0548, -0.8347]])
+In [25]: scores[:3]
+Out[25]: array([[ 0.9856, -1.1334, -0.4443,
+0.1563],
+[ 1.9501, -1.0732,
+2.04
+, -0.4386],
+[ 1.7632,
+0.746 ,
+0.0548, -0.8347]])
+While it would be possible to carry out this lab using the PCA() estimator,
+here we use the np.linalg.svd() function in order to illustrate its use.
+We now omit 20 entries in the 50 × 4 data matrix at random. We do
+so by first selecting 20 rows (states) at random, and then selecting one of
+the four entries in each row at random. This ensures that every row has at
+least three observed values.
+In [26]: n_omit = 20
+np.random.seed(15)
+r_idx = np.random.choice(np.arange(X.shape[0]),
+n_omit,
+replace=False)
+c_idx = np.random.choice(np.arange(X.shape[1]),
+n_omit,
+replace=True)
+Xna = X.copy()
+Xna[r_idx, c_idx] = np.nan
+Here the array r_idx contains 20 integers from 0 to 49; this represents
+the states (rows of X) that are selected to contain missing values. And c_idx
+contains 20 integers from 0 to 3, representing the features (columns in X)
+that contain the missing values for each of the selected states.
+We now write some code to implement Algorithm 12.1. We first write a
+function that takes in a matrix, and returns an approximation to the matrix
+using the svd() function. This will be needed in Step 2 of Algorithm 12.1.
+In [27]: def low_rank(X, M=1):
+U, D, V = np.linalg.svd(X)
+L = U[:,:M] * D[None,:M]
+return L.dot(V[:M])

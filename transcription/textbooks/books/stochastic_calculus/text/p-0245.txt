@@ -1,0 +1,60 @@
+7.2. STOCHASTIC INTEGRAL REPRESENTATION
+239
+To determine correlations for large t, suppose t is large. Then
+E[(Xs+1 −Xs)(Xs+t+1 −Xs+t]
+=
+E[X1 (Xt+1 −Xt)]
+=
+E[X1Xt+1] −E[X1Xt]
+=
+1
+2
+
+(t + 1)2H + (t −1)2H −2t2H
+∼
+H (2H −1) t2H−2
+The coecient is positive for H > 12 and negative for H < 12. As t goes
+to innity the size of the correlation goes to zero like a power law.
+7.2
+Stochastic integral representation
+We will give an expression for the fractional Brownian motion in terms of a
+stochastic integral. It will be useful to consider time going from −∞to ∞.
+Suppose B1
+t , B2
+t are independent standard Brownian motions starting at the
+origin. If
+Bt =
+
+B1
+t ,
+t ≥0
+B2
+−t,
+t ≤0 ,
+then Bt is standard Brownian motion from time −∞to ∞. The centering
+B0 = 0 is rather arbitrary; we really think of this process as a collection of
+increments Bt−Bsfor s < t. Viewed this way, this is sometimes called 
+. We let Ft denote the information contained in the random variables
+Bs −Br : r < s ≤t.
+Suppose f(r, t) is a continuous (nonrandom) function, and let
+Yt =
+t
+−∞
+f(r, t) dBr = lim
+n∞
+
+f
+k
+n, t
+
+∆B(k, n),
+where
+∆B(k, n) = B(k+1)n −Bkn,
+and the sum is over all integers (positive and negative) with (k + 1)n ≤t.
+Then Yt is a limit of centered normal random variables and hence is mean
+zero with variance
+E[Y 2
+t ] =
+t
+−∞
+f(r, t)2 dr

@@ -1,0 +1,48 @@
+2.4. BROWNIAN MOTION
+43
+and at each time we have a jump of ±∆x. At time 1 = N∆t, the value of
+the process is
+W (N)
+1
+= ∆x (X1 + · · · + XN) 
+We would like to choose ∆x so that Var[W (N)
+1
+] = 1, and since
+Var [∆x (X1 + · · · + XN)]
+=
+(∆x)2 [Var(X1) + · · · + Var(XN)]
+=
+(∆x)2 N,
+we see that we need to choose
+∆x =
+
+1N =
+√
+∆t
+We also know from the central limit theorem, that if N is large, then the
+distribution of
+X1 + · · · + XN
+√
+N
+,
+is approximately N(0, 1).
+Brownian motion could be dened formally as the limit of random walks,
+but there are subtleties in describing the kind of limit. In the next section,
+we dene it directly using the idea of continuous random motion. However,
+the random walk intuition is useful to retain.
+2.4
+Brownian motion
+Bor the Wis a model of random continuous
+motion. We will start by making the assumptions that underlie the phrase
+random continuous motion. Let Bt = B(t) be the value at time t. For each
+t, Bt is a random variable.1 A collection of random variables indexed by time
+is called a . We can view the process in two dierent ways:
+For each t, there is a random variable Bt, and there are correlations
+between the values at dierent times.
+1In this book and usually in the nancial world, the terms Brownian motion and Wiener
+process are synonymous. However, in the scientic world, the word Brownian motion is
+often used for a physical process for which what we will describe is one possible mathemat-
+ical model. The term Wiener process always refers to the model we dene. The letter Wt
+is another standard notation for Brownian motion/Wiener process and is more commonly
+used in nancial literature. We will use both Bt and Wt later in the book when we need
+two notations.

@@ -1,0 +1,282 @@
+11.8 Problems
+547
+11.11.
+An experimenter has run a Box–Behnken design and
+obtained the results as shown in Table P11.5, where the
+response variable is the viscosity of a polymer:
+■TA B L E P 1 1 . 5
+The Box–Behnken Design for Problem 11.11
+Agitation
+Level
+Temp.
+Rate
+Pressure
+x1
+x2
+x3
+High
+200
+10.0
+25
+1
+1
+1
+Middle
+175
+7.5
+20
+0
+0
+0
+Low
+150
+5.0
+15
+1
+1
+1
+Run
+x1
+x2
+x3
+y1
+1
+1
+1
+0
+535
+2
+1
+1
+0
+580
+3
+1
+1
+0
+596
+4
+1
+1
+0
+563
+5
+1
+0
+1
+645
+6
+1
+0
+1
+458
+7
+1
+0
+1
+350
+8
+1
+0
+1
+600
+9
+0
+1
+1
+595
+10
+0
+1
+1
+648
+11
+0
+1
+1
+532
+12
+0
+1
+1
+656
+13
+0
+0
+0
+653
+14
+0
+0
+0
+599
+15
+0
+0
+0
+620
+(a) Fit the second-order model.
+(b) Perform the canonical analysis. What type of surface
+has been found?
+(c) What operating conditions on x1, x2, and x3 lead to the
+stationary point?
+(d) What operating conditions would you recommend if it
+is important to obtain a viscosity that is as close to 600
+as possible?
+11.12.
+Consider the three-variable central composite design
+shown in Table P11.6. Analyze the data and draw conclusions,
+assuming that we wish to maximize conversion (y1) with
+activity (y2) between 55 and 60.
+■TA B L E P 1 1 . 6
+A Three Variable CCD
+Time
+Temperature Catalyst Conversion Activity
+Run (min)
+(°C)
+(%)
+(%) y1
+y2
+1
+1.000
+1.000
+1.000
+74.00
+53.20
+2
+1.000
+1.000
+1.000
+51.00
+62.90
+3
+1.000
+1.000
+1.000
+88.00
+53.40
+4
+1.000
+1.000
+1.000
+70.00
+62.60
+5
+1.000
+1.000
+1.000
+71.00
+57.30
+6
+1.000
+1.000
+1.000
+90.00
+67.90
+7
+1.000
+1.000
+1.000
+66.00
+59.80
+8
+1.000
+1.000
+1.000
+97.00
+67.80
+9
+0.000
+0.000
+0.000
+81.00
+59.20
+10
+0.000
+0.000
+0.000
+75.00
+60.40
+11
+0.000
+0.000
+0.000
+76.00
+59.10
+12
+0.000
+0.000
+0.000
+83.00
+60.60
+13
+1.682
+0.000
+0.000
+76.00
+59.10
+14
+1.682
+0.000
+0.000
+79.00
+65.90
+15
+0.000
+1.682
+0.000
+85.00
+60.00
+16
+0.000
+1.682
+0.000
+97.00
+60.70
+17
+0.000
+0.000
+1.682
+55.00
+57.40
+18
+0.000
+0.000
+1.682
+81.00
+63.20
+19
+0.000
+0.000
+0.000
+80.00
+60.80
+20
+0.000
+0.000
+0.000
+91.00
+58.90
+11.13.
+A manufacturer of cutting tools has developed two
+empirical equations for tool life in hours (y1) and for tool cost
+in dollars (y2). Both models are linear functions of steel hard-
+ness (x1) and manufacturing time (x2). The two equations are
+and both equations are valid over the range 1.5 xi 1.5.
+Unit tool cost must be below $27.50 and life must exceed 
+12 hours for the product to be competitive. Is there a feasible
+set of operating conditions for this process? Where would you
+recommend that the process be run?
+11.14.
+A central composite design is run in a chemical vapor
+deposition process, resulting in the experimental data shown in
+Table P11.7. Four experimental units were processed simultane-
+ously on each run of the design, and the responses are the mean
+and the variance of thickness, computed across the four units.
+(a) Fit a model to the mean response. Analyze the residuals.
+(b) Fit a model to the variance response. Analyze the
+residuals.
+(c) Fit a model to ln(s2). Is this model superior to the one
+you found in part (b)?
+yˆ2 23 3x1 4x2
+yˆ 10 5x1 2x2

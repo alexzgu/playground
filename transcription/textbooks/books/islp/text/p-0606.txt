@@ -1,0 +1,96 @@
+600
+Index
+factor, 92
+factorial, 170
+failure time, 470
+false
+discovery proportion, 155, 573
+discovery rate, 558, 573–577,
+579–582
+negative, 155, 562
+positive, 155, 562, 563
+positive rate, 155, 156, 382
+family-wise error rate, 565–573, 577
+feature, 15
+feature map, 406
+feature selection, 230
+featurize, 414
+feed-forward neural network, 400
+figure, 48
+fit, 21
+fitted value, 101
+flattening, 424
+flexible, 21
+floating point, 43
+forward stepwise selection, 86, 87,
+233–234, 268
+function, 40
+Fund data set, 12, 567–570, 572,
+575, 576, 585, 588, 589
+Gamma, 173
+Gaussian (normal) distribution, 146,
+147, 150, 172, 561
+generalized additive model, 5, 24,
+162, 289, 290, 305–309,
+319
+generalized linear model, 5, 135,
+167–174, 217
+generative model, 146–161
+Gini index, 337–339, 345, 346, 363
+global minimum, 427
+gradient, 428
+gradient descent, 427
+Harrell’s concordance index, 487
+hazard function, 476–478
+baseline, 478
+hazard rate, 476
+Heart data set, 339, 340, 344–347,
+352, 353, 382, 383
+heatmap, 50
+helper, 311
+heteroscedasticity, 103, 168
+hidden layer, 400
+hidden units, 400
+hierarchical clustering, 525–530
+dendrogram, 525–528
+inversion, 529
+linkage, 529–530
+hierarchical principle, 96
+high-dimensional, 86, 234, 263
+hinge loss, 385
+Hitters data set, 12, 332, 333,
+336, 338, 339, 366, 425,
+426, 437, 446
+hold-out set, 202
+Holm’s method, 568, 576, 585
+hypergeometric distribution, 501
+hyperparameter, 187
+hyperplane, 367–372
+hypothesis test, 76–77, 84, 103,
+558–583
+IMDb data set, 413, 415, 416, 418,
+420, 437, 458, 467
+imputation, 515
+Income data set, 16–18, 21–23
+increment, 60
+independent variable, 15
+indexable, 186
+indicator function, 292
+inference, 17, 18
+inner product, 379, 380
+input layer, 400
+input variable, 15
+integral, 301
+interaction, 70, 89, 95–98, 110–
+111, 308
+intercept, 71, 72
+interpolate, 432
+interpretability, 229
+inversion, 529
+irreducible error, 17, 36, 90, 110
+iterator, 312
+joint distribution, 158
+K-means clustering, 11, 521–524
+K-nearest neighbors, 135, 164–167
+classifier, 11, 36–37
+regression, 111–115

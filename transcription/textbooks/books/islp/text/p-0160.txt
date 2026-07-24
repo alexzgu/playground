@@ -1,0 +1,67 @@
+4.4 Generative Models for Classification
+151
+−4
+−2
+0
+2
+4
+−4
+−2
+0
+2
+4
+−4
+−2
+0
+2
+4
+−4
+−2
+0
+2
+4
+X1
+X1
+X2
+X2
+FIGURE 4.6. An example with three classes. The observations from each class
+are drawn from a multivariate Gaussian distribution with p = 2, with a class-spe-
+cific mean vector and a common covariance matrix. Left: Ellipses that contain
+95 % of the probability for each of the three classes are shown. The dashed lines
+are the Bayes decision boundaries. Right: 20 observations were generated from
+each class, and the corresponding LDA decision boundaries are indicated using
+solid black lines. The Bayes decision boundaries are once again shown as dashed
+lines.
+to the class for which
+δk(x) = xT Σ−1µk −1
+2µT
+k Σ−1µk + log πk
+(4.24)
+is largest. This is the vector/matrix version of (4.18).
+An example is shown in the left-hand panel of Figure 4.6. Three equally-
+sized Gaussian classes are shown with class-specific mean vectors and a
+common covariance matrix. The three ellipses represent regions that con-
+tain 95 % of the probability for each of the three classes. The dashed lines
+are the Bayes decision boundaries. In other words, they represent the set
+of values x for which δk(x) = δℓ(x); i.e.
+xT Σ−1µk −1
+2µT
+k Σ−1µk = xT Σ−1µl −1
+2µT
+l Σ−1µl
+(4.25)
+for k̸ = l. (The log πk term from (4.24) has disappeared because each of
+the three classes has the same number of training observations; i.e. πk is
+the same for each class.) Note that there are three lines representing the
+Bayes decision boundaries because there are three pairs of classes among
+the three classes. That is, one Bayes decision boundary separates class 1
+from class 2, one separates class 1 from class 3, and one separates class 2
+from class 3. These three Bayes decision boundaries divide the predictor
+space into three regions. The Bayes classifier will classify an observation
+according to the region in which it is located.
+Once again, we need to estimate the unknown parameters µ1, . . . , µK,
+π1, . . . , πK, and Σ; the formulas are similar to those used in the one-
+dimensional case, given in (4.20). To assign a new observation X = x,
+LDA plugs these estimates into (4.24) to obtain quantities ˆδk(x), and clas-
+sifies to the class for which ˆδk(x) is largest. Note that in (4.24) δk(x) is
+a linear function of x; that is, the LDA decision rule depends on x only

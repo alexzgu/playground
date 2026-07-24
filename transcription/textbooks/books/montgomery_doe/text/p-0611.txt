@@ -1,0 +1,86 @@
+Table 13.11 presents the Minitab Balanced ANOVA output for the experiment in Example
+13.6. We have specied the restricted model. Q[1] represents the xed effect of gas pressure.
+Notice that the entries in the analysis of variance table are in general agreement with those in
+Table 13.10, except for the F test on gas temperature (factor A). Minitab notes that the test is not
+an exact test (which we see from the expected mean squares). The Synthesized Test construct-
+ed by Minitab is actually Satterthwaite’s procedure, but it uses a different test statistic than we
+did. Note that, from the Minitab output, the error mean square for testing factor A is
+for which the expected value is
+which is an appropriate error mean square for testing the mean effect of A. This nicely illus-
+trates that there can be more than one way to construct the synthetic mean squares used in
+Satterthwaite’s procedure. However, we would generally prefer the linear combination of
+mean squares we selected instead of the one chosen by Minitab because it does not have any
+mean squares involved negatively in the linear combinations.
+The analysis of Example 13.6, assuming the unrestricted model, is presented in Table
+13.12. The principal difference from the restricted model is that now the expected values of the
+mean squares for all three mean effects are such that no exact test exists. In the restricted
+model, the two random mean effects could be tested against their interaction, but now the
+expected mean square for B involves 
+and 
+, and the expected mean square for C
+involves 
+and 
+. Once again, Minitab constructs synthetic mean squares and tests these
+effects with Satterthwaite’s procedure. The overall conclusions are not radically different from
+the restricted model analysis, other than the large change in the estimate of the operator variance
+component. The unrestricted model produces a negative estimate of 
+. Because the gauge fac-
+tor is not signicant in either analysis, it is possible that some model reduction is in order.
+2
+
+2
+
+2
+
+2
+
+2
+
+2 n2
+cn2
+bn2
+
+bn2
+(2 n2
+)
+E[(4) (5) (7)] 2 n2
+cn2
+2 n2
+
+(4) (5) (7) MSAB MSAC MSABC
+13.6 Approximate F Tests
+595
+A
+A × C cell totals
+60
+75
+90
+–50
+–25
+0
+25
+50
+75
+100
+C = 3
+C = 1
+C = 2
+A
+A × B cell totals
+60
+75
+90
+–50
+–25
+0
+25
+50
+75
+100
+125
+B = 1
+B = 2
+B = 4
+B = 3
+■F I G U R E 1 3 . 2
+Interactions in pressure drop experiment

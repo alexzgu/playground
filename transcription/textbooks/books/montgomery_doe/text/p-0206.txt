@@ -1,0 +1,123 @@
+190
+Chapter 5 ■Introduction to Factorial Designs
+ijth cell, and y... denote the grand total of all the observations. Dene 
+,
+,
+, and 
+as the
+corresponding row, column, cell, and grand averages. Expressed mathematically,
+(5.3)
+The total corrected sum of squares may be written as
+(5.4)
+because the six cross products on the right-hand side are zero. Notice that the total sum of
+squares has been partitioned into a sum of squares due to “rows,” or factor A, (SSA); a sum of
+squares due to “columns,” or factor B, (SSB); a sum of squares due to the interaction between
+A and B, (SSAB); and a sum of squares due to error, (SSE). This is the fundamental ANOVA
+equation for the two-factor factorial. From the last component on the right-hand side of
+Equation 5.4, we see that there must be at least two replicates (n 2) to obtain an error sum
+of squares.
+We may write Equation 5.4 symbolically as
+(5.5)
+The number of degrees of freedom associated with each sum of squares is
+Effect
+Degrees of Freedom
+A
+a 1
+B
+b 1
+AB interaction
+(a 1)(b 1)
+Error
+ab(n 1)
+Total
+abn 1
+We may justify this allocation of the abn 1 total degrees of freedom to the sums of squares
+as follows: The main effects A and B have a and b levels, respectively; therefore they have 
+a 1 and b 1 degrees of freedom as shown. The interaction degrees of freedom are sim-
+ply the number of degrees of freedom for cells (which is ab 1) minus the number of degrees
+of freedom for the two main effects A and B; that is, ab 1 (a 1) (b 1) 
+SST SSA SSB SSAB SSE
+
+a
+i1 
+b
+j1 
+n
+k1
+ (yijk yij.)2
+n 
+a
+i1 
+b
+j1
+ (yij. yi.. y.j. y...)2
+bn 
+a
+i1
+ (yi.. y...)2 an 
+b
+j1
+ (y.j. y...)2
+(yij. yi.. y.j. y...) (yijk yij.)]2
+
+a
+i1 
+b
+j1 
+n
+k1
+ (yijk y...)2 
+a
+i1 
+b
+j1 
+n
+k1
+ [(yi.. y...) (y.j. y...)
+y... 
+a
+i1 
+b
+j1 
+n
+k1
+yijk 
+ y... y...
+abn
+yij. 
+n
+k1
+yijk 
+ 
+yij. 
+yij.
+n 
+ 
+i 1, 2, . . . , a
+j 1, 2, . . . , b
+y.j. 
+a
+i1 
+n
+k1
+yijk 
+ 
+y.j. 
+y.j.
+an 
+ j 1, 2, . . . , b
+yi.. 
+b
+j1 
+n
+k1
+yijk 
+ 
+yi.. yi..
+bn 
+ 
+i 1, 2, . . . , a
+y...
+yij.
+y.j.
+yi..

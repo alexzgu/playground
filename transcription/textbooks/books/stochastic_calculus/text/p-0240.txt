@@ -1,0 +1,35 @@
+234
+CHAPTER 6. JUMP PROCESSES
+3. Does there exist a process At, adapted to the information in Ft, with
+At > 0 such that At is dierentiable with respect to t (except at the t
+at which Xt jumps) and
+Mt = Zt At
+is a martingale?
+Exercise 6.5. Suppose Yt is a Cauchy process, that is, a L´evy process such
+that Y1 has a Cauchy distribution. Show why the following statement holds:
+for every r > 0 and t > 0,
+P
+
+max
+0≤s≤t Ys > r
+
+(∗) 2 PYt > r
+Here (∗) is one of the following: >, =, <. Your task is to gure out which of >
+, =, < should go into the statement and explain why the relation holds. (Hint:
+go back to the derivation of the reection principle for Brownian motion. The
+only things about the Cauchy process that you should need to use are that
+it is symmetric about the origin and has jumps. Indeed, the same answer
+should be true for any symmetric L´evy process with jumps.)
+Exercise 6.6. Suppose Xt is a Poisson process with rate 1 and let r > 0
+with ltration Ft, and
+˜St = eXt−rt
+1. Find a strictly positive martingale Mt with M0 = 1 such that ˜St is a
+martingale with respect to the tilted measure Q given by
+Q(V ) = E [1V Mt] ,
+V Ft
+2. Is your choice of Mt and Q unique?
+Exercise 6.7. Suppose f : R →R is a function that is right continuous at
+every point. Let
+Kf = supf(x): 0 ≤x ≤1
+1. Give an example to show that it is possible that Kf = ∞.
+2. Show that if f is a cadlag function, then Kf < ∞.

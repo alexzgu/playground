@@ -1,0 +1,42 @@
+90
+3. Linear Regression
+is only an estimate for the true population regression plane
+f(X) = β0 + β1X1 + · · · + βpXp.
+The inaccuracy in the coefficient estimates is related to the reducible
+error from Chapter 2. We can compute a confidence interval in order
+to determine how close ˆY will be to f(X).
+2. Of course, in practice assuming a linear model for f(X) is almost
+always an approximation of reality, so there is an additional source of
+potentially reducible error which we call model bias. So when we use a
+linear model, we are in fact estimating the best linear approximation
+to the true surface. However, here we will ignore this discrepancy,
+and operate as if the linear model were correct.
+3. Even if we knew f(X)—that is, even if we knew the true values
+for β0, β1, . . . , βp—the response value cannot be predicted perfectly
+because of the random error ϵ in the model (3.20). In Chapter 2, we
+referred to this as the irreducible error. How much will Y vary from
+ˆY ? We use prediction intervals to answer this question. Prediction
+intervals are always wider than confidence intervals, because they
+incorporate both the error in the estimate for f(X) (the reducible
+error) and the uncertainty as to how much an individual point will
+differ from the population regression plane (the irreducible error).
+We use a confidence interval to quantify the uncertainty surrounding confidence
+interval
+the average sales over a large number of cities. For example, given that
+$100,000 is spent on TV advertising and $20,000 is spent on radio advertising
+in each city, the 95 % confidence interval is [10,985, 11,528]. We interpret
+this to mean that 95 % of intervals of this form will contain the true value of
+f(X).9 On the other hand, a prediction interval can be used to quantify the prediction
+interval
+uncertainty surrounding sales for a particular city. Given that $100,000 is
+spent on TV advertising and $20,000 is spent on radio advertising in that city
+the 95 % prediction interval is [7,930, 14,580]. We interpret this to mean
+that 95 % of intervals of this form will contain the true value of Y for this
+city. Note that both intervals are centered at 11,256, but that the prediction
+interval is substantially wider than the confidence interval, reflecting the
+increased uncertainty about sales for a given city in comparison to the
+average sales over many locations.
+9In other words, if we collect a large number of data sets like the Advertising data
+set, and we construct a confidence interval for the average sales on the basis of each
+data set (given $100,000 in TV and $20,000 in radio advertising), then 95 % of these
+confidence intervals will contain the true value of average sales.

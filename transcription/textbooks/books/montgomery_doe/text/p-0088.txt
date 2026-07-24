@@ -1,0 +1,91 @@
+72
+Chapter 3 ■Experiments with a Single Factor: The Analysis of Variance
+In this form, it is easy to see that the term within square brackets, if divided by n 1, is the
+sample variance in the ith treatment, or
+Now a sample variances may be combined to give a single estimate of the common popula-
+tion variance as follows:
+Thus, SSE/(N ! a) is a pooled estimate of the common variance within each of the a treatments.
+Similarly, if there were no differences between the a treatment means, we could use the
+variation of the treatment averages from the grand average to estimate 2. Specically,
+is an estimate of 2 if the treatment means are equal. The reason for this may be intuitively seen
+as follows: The quantity 
+estimates 2/n, the variance of the treatment
+averages, so 
+must estimate 2 if there are no differences in treatment
+means.
+We see that the ANOVA identity (Equation 3.6) provides us with two estimates of
+2—one based on the inherent variability within treatments and the other based on the
+variability between treatments. If there are no differences in the treatment means, these
+two estimates should be very similar, and if they are not, we suspect that the observed
+difference must be caused by differences in the treatment means. Although we have used
+an intuitive argument to develop this result, a somewhat more formal approach can be
+taken.
+The quantities
+and
+are called mean squares. We now examine the expected values of these mean squares.
+Consider
+
+1
+N a E
+a
+i1 
+n
+j1
+ (y2
+ij 2yijyi. y 2
+i.)
+E(MSE) E
+SSE
+N a
+1
+N a E
+a
+i1 
+n
+j1
+ (yij yi.)2
+MSE 
+SSE
+N a
+MSTreatments SSTreatments
+a 1
+n"a
+i1(yi. y..)2/(a 1)
+"a
+i1(yi. y..)2/(a 1)
+SSTreatments
+a 1
+
+n 
+a
+i1
+ (yi. y..)2
+a 1
+
+SSE
+(N a)
+(n 1)S 2
+1 (n 1)S 2
+2 Á (n 1)S 2
+a
+(n 1) (n 1) Á (n 1)
+
+
+a
+i1
+n
+j1
+ (yij yi.)2
+
+a
+i1
+ (n 1)
+S 2
+i 
+
+n
+j1
+ (yij yi.)2
+n 1
+ 
+ i 1, 2, . . . , a

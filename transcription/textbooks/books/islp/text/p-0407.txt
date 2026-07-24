@@ -1,0 +1,59 @@
+400
+10. Deep Learning
+X1
+X2
+X3
+X4
+A1
+A2
+A3
+A4
+A5
+f(X)
+Y
+Hidden
+Layer
+Input
+Layer
+Output
+Layer
+FIGURE 10.1. Neural network with a single hidden layer. The hidden layer
+computes activations Ak = hk(X) that are nonlinear transformations of linear
+combinations of the inputs X1, X2, . . . , Xp. Hence these Ak are not directly ob-
+served. The functions hk(·) are not fixed in advance, but are learned during the
+training of the network. The output layer is a linear model that uses these acti-
+vations Ak as inputs, resulting in a function f(X).
+will also demonstrate these models using the Python torch package, along
+with a number of helper packages.
+The material in this chapter is slightly more challenging than elsewhere
+in this book.
+10.1
+Single Layer Neural Networks
+A neural network takes an input vector of p variables X = (X1, X2, . . . , Xp)
+and builds a nonlinear function f(X) to predict the response Y . We have
+built nonlinear prediction models in earlier chapters, using trees, boosting
+and generalized additive models. What distinguishes neural networks from
+these methods is the particular structure of the model. Figure 10.1 shows
+a simple feed-forward neural network for modeling a quantitative response feed-forward
+neural
+network
+using p = 4 predictors. In the terminology of neural networks, the four fea-
+tures X1, . . . , X4 make up the units in the input layer. The arrows indicate
+input layer
+that each of the inputs from the input layer feeds into each of the K hidden
+units (we get to pick K; here we chose 5). The neural network model has hidden units
+the form
+f(X)
+=
+β0 + )K
+k=1 βkhk(X)
+=
+β0 + )K
+k=1 βkg(wk0 + )p
+j=1 wkjXj).
+(10.1)
+It is built up here in two steps. First the K activations Ak, k = 1, . . . , K, in activations
+the hidden layer are computed as functions of the input features X1, . . . , Xp,
+Ak = hk(X) = g(wk0 + )p
+j=1 wkjXj),
+(10.2)

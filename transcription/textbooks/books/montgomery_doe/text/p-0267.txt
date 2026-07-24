@@ -1,0 +1,64 @@
+6.3 The 23 Design
+251
+is a statistic that is adjusted for the “size” of the model, that is, the number of factors. The
+adjusted R2 can actually decrease if nonsignicant terms are added to a model. The PRESS
+statistic is a measure of how well the model will predict new data. (PRESS is actually an
+acronym for prediction error sum of squares, and it is computed as the sum of the squared
+prediction errors obtained by predicting the ith data point with a model that includes all obser-
+vations except the ith one.) A model with a small value of PRESS indicates that the model is
+likely to be a good predictor. The “Prediction R2” statistic is computed as
+This indicates that the full model would be expected to explain about 86 percent of the vari-
+ability in new data.
+The next portion of the output presents the regression coefcient for each model term
+and the standard error of each coefcient, dened as
+The standard errors of all model coefcients are equal because the design is orthogonal. The
+95 percent condence intervals on each regression coefcient are computed from
+where the degrees of freedom on t are the number of degrees of freedom for error; that is,
+N is the total number of runs in the experiment (16), and p is the number of model para-
+meters (8). The full model in terms of both the coded variables and the natural variables is
+also presented.
+The last part of the display in Table 6.7 illustrates the output following the removal of
+the nonsignicant interaction terms. This reduced model now contains only the main effects
+A, C, and the AC interaction. The error or residual sum of squares is now composed of a
+pure error component arising from the replication of the eight corners of the cube and a lack-
+of-ﬁt component consisting of the sums of squares for the factors that were dropped from the
+model (B, AB, BC, and ABC). Once again, the regression model representation of the experi-
+mental results is given in terms of both coded and natural variables. The proportion of total vari-
+ability in etch rate that is explained by this model is
+which is smaller than the R2 for the full model. Notice, however, that the adjusted R2 for the
+reduced model is actually slightly larger than the adjusted R2 for the full model, and PRESS
+for the reduced model is considerably smaller, leading to a larger value of 
+for the reduced
+model. Clearly, removing the nonsignicant terms from the full model has produced a nal
+model that is likely to function more effectively as a predictor of new data. Notice that the
+condence intervals on the regression coefcients for the reduced model are shorter than the
+corresponding condence intervals for the full model.
+The last part of the output presents the residuals from the reduced model. Design-
+Expert will also construct all of the residual plots that we have previously discussed.
+Other Methods for Judging the Signicance of Effects. The analysis of variance
+is a formal way to determine which factor effects are nonzero. Several other methods are use-
+ful. Below, we show how to calculate the standard error of the effects, and we use these stan-
+dard errors to construct conﬁdence intervals on the effects. Another method, which we will
+illustrate in Section 6.5, uses normal probability plots to assess the importance of the effects.
+R2
+Pred
+R2 SSModel
+SSTotal
+5.106  105
+5.314  105 0.9608
+ˆ t0.025,Npse(ˆ ) ˆ t0.025,Npse(ˆ )
+se(ˆ) V(ˆ) 
+MSE
+n2k 
+MSE
+N
+
+2252.56
+2(8)
+11.87
+R2
+Pred 1 PRESS
+SSTotal
+1 
+72,082.00
+5.314  105 0.8644

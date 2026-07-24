@@ -1,0 +1,113 @@
+quadratic quadratic effects. Finally, the three-factor interaction ABC can be partitioned into
+eight single-degree-of-freedom components corresponding to linear linear linear, linear 
+linear quadratic, and so on. Such a breakdown for the three-factor interaction is generally
+not very useful.
+It is also possible to partition the two-factor interactions into their I and J components.
+These would be designated AB, AB2, AC, AC2, BC, and BC2, and each component would have
+two degrees of freedom. As in the 32 design, these components have no physical signicance.
+The three-factor interaction ABC may be partitioned into four orthogonal two-
+degrees-of-freedom components, which are usually called the W, X, Y, and Z components of
+the interaction. They are also referred to as the AB2C2, AB2C, ABC2, and ABC components of
+the ABC interaction, respectively. The two notations are used interchangeably; that is,
+Note that no rst letter can have an exponent other than 1. Like the I and J components, the
+W, X, Y, and Z components have no practical interpretation. They are, however, useful in con-
+structing more complex designs.
+Z(ABC) ABC
+Y(ABC) ABC 2
+X(ABC) AB2C
+W(ABC) AB2C 2
+398
+Chapter 9 ■Additional Design and Analysis Topics for Factorial and Fractional Factorial Designs
+E X A M P L E 9 . 1
+A machine is used to ll 5-gallon metal containers with soft
+drink syrup. The variable of interest is the amount of syrup
+loss due to frothing. Three factors are thought to inuence
+frothing: the nozzle design (A), the lling speed (B), and the
+operating pressure (C). Three nozzles, three lling speeds, and
+three pressures are chosen, and two replicates of a 33 factorial
+experiment are run. The coded data are shown in Table 9.1.
+The analysis of variance for the syrup loss data is
+shown in Table 9.2. The sums of squares have been
+computed by the usual methods. We see that the filling
+speed and operating pressure are statistically significant.
+All three two-factor interactions are also significant. 
+The two-factor interactions are analyzed graphically in
+Figure 9.4. The middle level of speed gives the best per-
+formance, nozzle types 2 and 3, and either the low (10 psi)
+or high (20 psi) pressure seems most effective in reducing
+syrup loss.
+■TA B L E 9 . 1
+Syrup Loss Data for Example 9.1 (units are cubic centimeters 70)
+Nozzle Type (A)
+1
+2
+3
+Pressure (in psi)
+Speed (in RPM) (B)
+(C)
+100
+120
+140
+100
+120
+140
+100
+120
+140
+10
+35
+45
+40
+17
+65
+20
+39
+55
+15
+25
+60
+15
+24
+58
+4
+35
+67
+30
+15
+110
+10
+80
+55
+55
+110
+90
+28
+110
+75
+30
+54
+120
+44
+44
+113
+26
+135
+20
+4
+40
+31
+23
+64
+20
+30
+61
+54
+5
+30
+36
+5
+62
+31
+55
+52
+4

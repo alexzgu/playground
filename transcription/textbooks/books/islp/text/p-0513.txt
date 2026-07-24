@@ -1,0 +1,98 @@
+12.2 Principal Components Analysis
+507
+−3
+−2
+−1
+0
+1
+2
+3
+−3
+−2
+−1
+0
+1
+2
+3
+First Principal Component
+Second Principal Component
+Alabama
+Alaska
+Arizona
+Arkansas
+California
+Colorado
+Connecticut
+Delaware
+Florida
+Georgia
+Hawaii
+Idaho
+Illinois
+Indiana
+Iowa
+Kansas
+Kentucky
+Louisiana
+Maine
+Maryland
+Massachusetts
+Michigan
+Minnesota
+Mississippi
+Missouri
+Montana
+Nebraska
+Nevada
+New Hampshire
+New Jersey
+New Mexico
+New York
+North Carolina
+rth Dakota
+Ohio
+Oklahoma
+Oregon
+Pennsylvania
+Rhode Island
+South Carolina
+South Dakota
+Tennessee
+Texas
+Utah
+Vermont
+Virginia
+Washington
+West Virginia
+Wisconsin
+Wyoming
+−0.5
+0.0
+0.5
+−0.5
+0.0
+0.5
+Murder
+Assault
+UrbanPop
+Rape
+FIGURE 12.1. The first two principal components for the USArrests data. The
+blue state names represent the scores for the first two principal components. The
+orange arrows indicate the first two principal component loading vectors (with axes
+on the top and right). For example, the loading for Rape on the first component
+is 0.54, and its loading on the second principal component 0.17 (the word Rape
+is centered at the point (0.54, 0.17)). This figure is known as a biplot, because it
+displays both the principal component scores and the principal component loadings.
+Once we have computed the principal components, we can plot them
+against each other in order to produce low-dimensional views of the data.
+For instance, we can plot the score vector Z1 against Z2, Z1 against Z3,
+Z2 against Z3, and so forth. Geometrically, this amounts to projecting the
+original data down onto the subspace spanned by φ1, φ2, and φ3, and
+plotting the projected points.
+We illustrate the use of PCA on the USArrests data set. For each of the
+50 states in the United States, the data set contains the number of arrests
+per 100, 000 residents for each of three crimes: Assault, Murder, and Rape.
+We also record UrbanPop (the percent of the population in each state living
+in urban areas). The principal component score vectors have length n = 50,
+and the principal component loading vectors have length p = 4. PCA was
+performed after standardizing each variable to have mean zero and standard

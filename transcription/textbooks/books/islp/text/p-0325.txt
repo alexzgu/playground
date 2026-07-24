@@ -1,0 +1,98 @@
+7.8 Lab: Non-Linear Modeling
+317
+Out[20]:
+coef
+std err
+t
+P>|t|
+intercept
+94.158
+1.478
+63.687
+0.0
+bs(age, df=3, degree=0)[0]
+22.349
+2.152
+10.388
+0.0
+bs(age, df=3, degree=0)[1]
+24.808
+2.044
+12.137
+0.0
+bs(age, df=3, degree=0)[2]
+22.781
+2.087
+10.917
+0.0
+This fit should be compared with cell [15] where we use qcut() to create
+four bins by cutting at the 25%, 50% and 75% quantiles of age. Since we
+specified df=3 for degree-zero splines here, there will also be knots at the
+same three quantiles. Although the coefficients appear different, we see that
+this is a result of the different coding. For example, the first coefficient is
+identical in both cases, and is the mean response in the first bin. For the
+second coefficient, we have 94.158 + 22.349 = 116.507 ≈116.611, the latter
+being the mean in the second bin in cell [15]. Here the intercept is coded by
+a column of ones, so the second, third and fourth coefficients are increments
+for those bins. Why is the sum not exactly the same? It turns out that the
+qcut() uses ≤, while bs() uses < when deciding bin membership.
+In order to fit a natural spline, we use the NaturalSpline() transform Natural
+Spline()
+with the corresponding helper ns(). Here we fit a natural spline with five
+degrees of freedom (excluding the intercept) and plot the results.
+In [21]: ns_age = MS([ns('age', df=5)]).fit(Wage)
+M_ns = sm.OLS(y, ns_age.transform(Wage)).fit()
+summarize(M_ns)
+Out[21]:
+coef
+std err
+t
+P>|t|
+intercept
+60.475
+4.708
+12.844
+0.000
+ns(age, df=5)[0]
+61.527
+4.709
+13.065
+0.000
+ns(age, df=5)[1]
+55.691
+5.717
+9.741
+0.000
+ns(age, df=5)[2]
+46.818
+4.948
+9.463
+0.000
+ns(age, df=5)[3]
+83.204
+11.918
+6.982
+0.000
+ns(age, df=5)[4]
+6.877
+9.484
+0.725
+0.468
+We now plot the natural spline using our plotting function.
+In [22]: plot_wage_fit(age_df,
+ns_age,
+'Natural spline, df=5');
+7.8.3
+Smoothing Splines and GAMs
+A smoothing spline is a special case of a GAM with squared-error loss
+and a single feature. To fit GAMs in Python we will use the pygam package pygam
+which can be installed via pip install pygam. The estimator LinearGAM() LinearGAM()
+uses squared-error loss. The GAM is specified by associating each column
+of a model matrix with a particular smoothing operation: s for smoothing
+spline; l for linear, and f for factor or categorical variables. The argument 0
+passed to s below indicates that this smoother will apply to the first column
+of a feature matrix. Below, we pass it a matrix with a single column: X_age.
+The argument lam is the penalty parameter λ as discussed in Section 7.5.2.
+In [23]: X_age = np.asarray(age).reshape((-1,1))
+gam = LinearGAM(s_gam(0, lam=0.6))
+gam.fit(X_age, y)

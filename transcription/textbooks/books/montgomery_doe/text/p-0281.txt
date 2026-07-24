@@ -1,0 +1,135 @@
+6.5 A Single Replicate of the 2k Design
+265
+■TA B L E 6 . 1 4
+JMP Screening Platform Output for Example 6.2
+Response Y
+Summary of Fit
+RSquare
+1
+RSquare Adj
+-
+Root Mean Square Error
+-
+Mean of Response
+70.0625
+Observations (or Sum Wgts)
+16
+Sorted Parameter Estimates
+Relative 
+Pseudo 
+Pseudo 
+Term
+Estimate
+Std Error
+t-Ratio
+Pseudo t-Ratio
+p-Value
+Temp
+10.8125
+0.25
+8.24
+0.0004*
+Temp*Conc
+9.0625
+0.25
+6.90
+0.0010*
+Temp*StirR
+8.3125
+0.25
+6.33
+0.0014*
+StirR
+7.3125
+0.25
+5.57
+0.0026*
+Conc
+4.9375
+0.25
+3.76
+0.0131*
+Temp*Pressure*StirR
+2.0625
+0.25
+1.57
+0.1769
+Pressure
+1.5625
+0.25
+1.19
+0.2873
+Pressure*Conc*StirR
+1.3125
+0.25
+1.00
+0.3632
+Pressure*Conc
+1.1875
+0.25
+0.90
+0.4071
+Temp*Pressure*Conc
+0.9375
+0.25
+0.71
+0.5070
+Temp*Conc*StirR
+0.8125
+0.25
+0.62
+0.5630
+Temp*Pressure*Conc*StirR
+0.6875
+0.25
+0.52
+0.6228
+Conc*StirR
+0.5625
+0.25
+0.43
+0.6861
+Pressure*StirR
+0.1875
+0.25
+0.14
+0.8920
+Temp*Pressure
+0.0625
+0.25
+0.05
+0.9639
+No error degrees of freedom, so ordinary tests uncomputable. Relative Std Error corresponds to residual standard error of 1.
+Pseudo t-Ratio and p-Value calculated using Lenth PSE 1.3125 and DFE 5
+Effect Screening
+The parameter estimates have equal variances.
+The parameter estimates are not correlated.
+Lenth PSE
+1.3125
+Orthog t Test used Pseudo Standard Error
+Normal Plot
+Blue line is Lenth’s PSE, from the estimates population
+++++++++ + +
+12
+10
+8
+6
+4
+Estimate
+2
+0
+0.0
+0.5
+1.0
+Normal Quantile
+Temp*
++Conc
+Pressure* StirR
+1.5
+2.0
+2.5
+3.0
++StirR
++Temp* StirR
++Temp*Conc
++Temp

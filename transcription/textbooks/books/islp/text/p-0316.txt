@@ -1,0 +1,53 @@
+308
+7. Moving Beyond Linearity
+We do not have to use splines as the building blocks for GAMs: we can
+just as well use local regression, polynomial regression, or any combination
+of the approaches seen earlier in this chapter in order to create a GAM.
+GAMs are investigated in further detail in the lab at the end of this chapter.
+Pros and Cons of GAMs
+Before we move on, let us summarize the advantages and limitations of a
+GAM.
+L GAMs allow us to fit a non-linear fj to each Xj, so that we can
+automatically model non-linear relationships that standard linear re-
+gression will miss. This means that we do not need to manually try
+out many different transformations on each variable individually.
+L The non-linear fits can potentially make more accurate predictions
+for the response Y .
+L Because the model is additive, we can examine the effect of each Xj
+on Y individually while holding all of the other variables fixed.
+L The smoothness of the function fj for the variable Xj can be sum-
+marized via degrees of freedom.
+N The main limitation of GAMs is that the model is restricted to be
+additive. With many variables, important interactions can be missed.
+However, as with linear regression, we can manually add interaction
+terms to the GAM model by including additional predictors of the
+form Xj × Xk. In addition we can add low-dimensional interaction
+functions of the form fjk(Xj, Xk) into the model; such terms can
+be fit using two-dimensional smoothers such as local regression, or
+two-dimensional splines (not covered here).
+For fully general models, we have to look for even more flexible approaches
+such as random forests and boosting, described in Chapter 8. GAMs provide
+a useful compromise between linear and fully nonparametric models.
+7.7.2
+GAMs for Classification Problems
+GAMs can also be used in situations where Y is qualitative. For simplicity,
+here we assume Y takes on values 0 or 1, and let p(X) = Pr(Y = 1|X) be
+the conditional probability (given the predictors) that the response equals
+one. Recall the logistic regression model (4.6):
+log
+*
+p(X)
+1 −p(X)
++
+= β0 + β1X1 + β2X2 + · · · + βpXp.
+(7.17)
+The left-hand side is the log of the odds of P(Y = 1|X) versus P(Y = 0|X),
+which (7.17) represents as a linear function of the predictors. A natural way
+to extend (7.17) to allow for non-linear relationships is to use the model
+log
+*
+p(X)
+1 −p(X)
++
+= β0 + f1(X1) + f2(X2) + · · · + fp(Xp).
+(7.18)

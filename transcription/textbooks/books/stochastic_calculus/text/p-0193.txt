@@ -1,0 +1,49 @@
+6.1. L´EVY PROCESSES
+187
+Not every distribution can arise as the distribution of the increments of a
+L´evy process. Indeed, suppose that Xt is a L´evy process. Then we can write
+X1 =
+n
+
+j=1
+Yj,n,
+where Yj,n = X
+j
+n
+
+−X
+j −1
+n
+
+
+Denition A random variable X has an if
+for each n we can nd independent, identically distributed random variables
+Y1,n, , Yn,n such that X has the same distribution as
+Y1,n + · · · + Yn,n
+We just noted that if Xt is a L´evy process, then X1 (and, in fact, Xt for
+each t) has an innitely divisible distribution. The converse is true and it not
+too dicult to show. If F is the distribution function of an innitely divisible
+distribution, then there is a L´evy process Xt such that X1 has distribution
+F. Normal and Poisson random variables are innitely divisible:
+If X ∼N(m, σ2), then X has the same distribution as the sum of n
+independent N(mn, σ2n) random variables.
+If X has a Poisson distribution with mean λ, then X has the same
+distribution as the sum of n independent Poisson random variables
+with mean λn.
+The goal of the next few sections is to show that every innitely divisible
+random variable is the sum of a normal random variable and a generalized
+Poissonor jumprandom variable. The category generalized Poissonis
+rather large and will include the distributions in Examples 6.1.1 and 6.1.2.
+A precise denition of a L´evy process needs another condition. For
+Brownian motion, we put continuity of the paths into the assumptions.
+To construct Brownian motion, we rst dened Brownian motion on
+dyadic rationals times, showed that the corresponding process was
+uniformly continuous, and then extended to other times by continuity.
+In the case of L´evy processes, we similarly can rst dene the process
+at dyadic times to satisfy independent, stationary increments. As we
+discuss later, we then prove that with probability one, for all times t,
+the limits
+Xt−= lim
+qt Xq,
+Xt+ = lim
+qt Xq,

@@ -1,0 +1,202 @@
+298
+Chapter 6 ■The 2k Factorial Design
+(a) Construct a normal probability plot of the effect esti-
+mates. Which effects appear to be large?
+(b) Conduct an analysis of variance to conrm your nd-
+ings for part (a).
+(c) Write down the regression model relating yield to the
+signicant process variables.
+(d) Plot the residuals on normal probability paper. Is the
+plot satisfactory?
+(e) Plot the residuals versus the predicted yields and ver-
+sus each of the ve factors. Comment on the plots.
+(f) Interpret any signicant interactions.
+(g) What are your recommendations regarding process
+operating conditions?
+(h) Project the 25 design in this problem into a 2k design
+in the important factors. Sketch the design and show
+the average and range of yields at each run. Does
+this sketch aid in interpreting the results of this
+experiment?
+6.27.
+Continuation of Problem 6.26. Suppose that the
+experimenter had run four center points in addition to the 32
+trials in the original experiment. The yields obtained at the
+center point runs were 68, 74, 76, and 70.
+(a) Reanalyze the experiment, including a test for pure
+quadratic curvature.
+(b) Discuss what your next step would be.
+6.28.
+In a process development study on yield, four fac-
+tors were studied, each at two levels: time (A), concentra-
+tion (B), pressure (C), and temperature (D). A single repli-
+cate of a 24 design was run, and the resulting data are shown
+in Table P6.7.
+■TA B L E P 6 . 7
+Process Development Experiment from Problem 6.28
+Actual
+Run
+Run
+Yield
+Factor Levels
+Number
+Order
+A
+B
+C
+D
+(lbs)
+Low ()
+High ()
+1
+5
+
+
+
+
+12
+A (h)
+2.5
+3
+2
+9
+
+
+
+
+18
+B (%)
+14
+18
+3
+8
+
+
+
+
+13
+C (psi)
+60
+80
+4
+13
+
+
+
+
+16
+D (C)
+225
+250
+5
+3
+
+
+
+
+17
+6
+7
+
+
+
+
+15
+7
+14
+
+
+
+
+20
+8
+1
+
+
+
+
+15
+9
+6
+
+
+
+
+10
+10
+11
+
+
+
+
+25
+11
+2
+
+
+
+
+13
+12
+15
+
+
+
+
+24
+13
+4
+
+
+
+
+19
+14
+16
+
+
+
+
+21
+15
+10
+
+
+
+
+17
+16
+12
+
+
+
+
+23
+(a) Construct a normal probability plot of the effect esti-
+mates. Which factors appear to have large effects?
+(b) Conduct an analysis of variance using the normal
+probability plot in part (a) for guidance in forming an
+error term. What are your conclusions?
+(c) Write down a regression model relating yield to the
+important process variables.
+(d) Analyze the residuals from this experiment. Does your
+analysis indicate any potential problems?
+(e) Can this design be collapsed into a 23 design with two
+replicates? If so, sketch the design with the average
+and range of yield shown at each point in the cube.
+Interpret the results.
+6.29.
+Continuation of Problem 6.28. Use the regression
+model in part (c) of Problem 6.28 to generate a response sur-
+face contour plot of yield. Discuss the practical value of this
+response surface plot.
+6.30.
+The scrumptious brownie experiment. The author is
+an engineer by training and a rm believer in learning by
+doing. I have taught experimental design for many years to a
+wide variety of audiences and have always assigned the plan-
+ning, conduct, and analysis of an actual experiment to the class
+participants. The participants seem to enjoy this practical expe-
+rience and always learn a great deal from it. This problem uses
+the results of an experiment performed by Gretchen Krueger
+at Arizona State University.

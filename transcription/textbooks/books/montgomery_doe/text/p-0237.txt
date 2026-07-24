@@ -1,0 +1,117 @@
+5.6 Blocking in a Factorial Design
+221
+E X A M P L E 5 . 6
+An engineer is studying methods for improving the ability
+to detect targets on a radar scope. Two factors she consid-
+ers to be important are the amount of background noise, or
+“ground clutter,” on the scope and the type of lter placed
+over the screen. An experiment is designed using three lev-
+els of ground clutter and two lter types. We will consider
+these as xed-type factors. The experiment is performed by
+randomly selecting a treatment combination (ground clutter
+level and lter type) and then introducing a signal repre-
+senting the target into the scope. The intensity of this target
+is increased until the operator observes it. The intensity
+level at detection is then measured as the response variable.
+Because of operator availability, it is convenient to select an
+operator and keep him or her at the scope until all the nec-
+essary runs have been made. Furthermore, operators differ
+in their skill and ability to use the scope. Consequently, it
+seems logical to use the operators as blocks. Four operators
+are randomly selected. Once an operator is chosen, the
+order in which the six treatment combinations are run is
+randomly determined. Thus, we have a 3 2 factorial
+experiment run in a randomized complete block. The data
+are shown in Table 5.21.
+The linear model for this experiment is
+where i represents the ground clutter effect, j represents
+the lter type effect, ()ij is the interaction, k is the block
+effect, and ijk is the NID(0, 2) error component. The
+sums of squares for ground clutter, lter type, and their
+interaction are computed in the usual manner. The sum of
+squares due to blocks is found from the operator totals
+{y..k} as follows:
+ 402.17
+(2278)2
+(3)(2)(4)
+
+1
+(3)(2) [(572)2 (579)2 (597)2 (530)2]
+SSBlocks 1
+ab 
+n
+k1
+y2
+..k y2
+...
+abn
+yijk i j ()ij k ijk 
+ 
+i 1, 2, 3
+j 1, 2
+k  1, 2, 3, 4
+■TA B L E 5 . 2 1
+Intensity Level at Target Detection
+Operators (blocks)
+1
+2
+3
+4
+Filter Type
+1
+2
+1
+2
+1
+2
+1
+2
+Ground clutter
+Low
+90
+86
+96
+84
+100
+92
+92
+81
+Medium
+102
+87
+106
+90
+105
+97
+96
+80
+High
+114
+93
+112
+91
+108
+95
+98
+83
+block totals {y..k}. The ANOVA in Table 5.20 assumes that both factors are xed and that
+blocks are random. The ANOVA estimator of the variance component for blocks 
+, is
+In the previous example, the randomization was restricted to within a batch of raw
+material. In practice, a variety of phenomena may cause randomization restrictions, such as
+time and operators. For example, if we could not run the entire factorial experiment on one
+day, then the experimenter could run a complete replicate on day 1, a second replicate on day
+2, and so on. Consequently, each day would be a block.
+2
+MSBlocks MSE
+ab
+2
+
+The complete ANOVA for this experiment is summarized
+in Table 5.22. The presentation in Table 5.22 indicates that all
+effects are tested by dividing their mean squares by the mean
+square error. Both ground clutter level and lter type are 
+signicant at the 1 percent level, whereas their interaction is
+signicant only at the 10 percent level. Thus, we conclude
+that both ground clutter level and the type of scope lter used
+affect the operator’s ability to detect the target, and there is

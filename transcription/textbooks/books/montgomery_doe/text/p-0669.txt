@@ -1,0 +1,84 @@
+This produces an ANOVA based on a sequential model tting analysis, with factor A t before
+factor B (an alternative would be to use an “adjusted” model tting strategy similar to the one
+used with incomplete block designs in Chapter 4—both procedures can be implemented using
+the Minitab Balanced ANOVA routine).
+As an example of proportional data, consider the battery design experiment in Example
+5.1. A modied version of the original data is shown in Table 15.6. Clearly, the data are pro-
+portional; for example, in cell 1,1 we have
+observations. The results of applying the usual analysis of variance to these data are shown in
+Table 15.7. Both material type and temperature are signicant, and the interaction is only sig-
+nicant at about 0.17. Therefore, the conclusions mostly agree with the analysis of the
+full data set in Example 5.1, except that the interaction effect is not signicant.
+n11 n1.n.1
+n..
+10(8)
+20
+4
+
+a
+i1 
+b
+j1 
+nij
+k1
+y2
+ijk 
+a
+i1 
+b
+j1
+y2
+ij.
+nij
+SSE SST SSA SSB SSAB
+SSAB 
+a
+i1 
+b
+j1
+y2
+ij.
+nij y2
+...
+n.. SSA SSB
+SSB 
+b
+j1
+y2
+.j.
+n.j y2
+...
+n..
+15.2 Unbalanced Data in a Factorial Design
+653
+■TA B L E 1 5 . 7
+Analysis of Variance for Battery Design Data in Table 15.6
+Source of Variance
+Sum of Squares
+Degrees of Freedom
+Mean Square
+F0
+Material types
+7,811.6
+2
+3,905.8
+4.78
+Temperature
+16,090.9
+2
+8,045.5
+9.85
+Interaction
+6,266.5
+4
+1,566.6
+1.92
+Error
+8,981.0
+11
+816.5
+Total
+39,150.0
+19 
+■TA B L E 1 5 . 6
+Battery Design Experiment with Proportional Data

@@ -1,0 +1,205 @@
+336
+Chapter 8 ■Two-Level Fractional Factorial Designs
+E X A M P L E 8 . 4
+Parts manufactured in an injection molding process are
+showing excessive shrinkage. This is causing problems in
+assembly operations downstream from the injection mold-
+ing area. A quality improvement team has decided to use
+a designed experiment to study the injection molding
+process so that shrinkage can be reduced. The team
+decides to investigate six factors—mold temperature (A),
+screw speed (B), holding time (C), cycle time (D), gate
+size (E), and holding pressure (F)—each at two levels,
+with the objective of learning how each factor affects
+shrinkage and also, something about how the factors 
+interact.
+The team decides to use the 16-run two-level fractional
+factorial design in Table 8.9. The design is shown again in
+Table 8.10, along with the observed shrinkage (10)
+for the test part produced at each of the 16 runs in the
+design. Table 8.11 shows the effect estimates, sums 
+of squares, and the regression coefficients for this
+experiment.
+A normal probability plot of the effect estimates from
+this experiment is shown in Figure 8.12. The only large
+effects are A (mold temperature), B (screw speed), and the
+AB interaction. In light of the alias relationships in Table 8.8,
+it seems reasonable to adopt these conclusions tentatively.
+The plot of the AB interaction in Figure 8.13 shows that the
+process is very insensitive to temperature if the screw speed
+is at the low level but very sensitive to temperature if the
+screw speed is at the high level. With the screw speed at the
+low level, the process should produce an average shrinkage
+of around 10 percent regardless of the temperature level
+chosen.
+Based on this initial analysis, the team decides to set
+both the mold temperature and the screw speed at the low
+level. This set of conditions will reduce the mean shrinkage
+of parts to around 10 percent. However, the variability in
+shrinkage from part to part is still a potential problem. In
+effect, the mean shrinkage can be adequately reduced by
+the above modications; however, the part-to-part variabil-
+ity in shrinkage over a production run could still cause
+problems in assembly. One way to address this issue is to
+see if any of the process factors affect the variability in
+parts shrinkage.
+■TA B L E 8 . 1 0
+A 
+Design for the Injection Molding Experiment in Example 8.4
+Basic Design
+Observed
+Shrinkage
+Run
+A
+B
+C
+D
+E ABC
+F BCD
+(10)
+1
+
+
+
+
+
+
+6
+(1)
+2
+
+
+
+
+
+
+10
+ae
+3
+
+
+
+
+
+
+32
+bef
+4
+
+
+
+
+
+
+60
+abf
+5
+
+
+
+
+
+
+4
+cef
+6
+
+
+
+
+
+
+15
+acf
+7
+
+
+
+
+
+
+26
+bc
+8
+
+
+
+
+
+
+60
+abce
+9
+
+
+
+
+
+
+8
+df
+10
+
+
+
+
+
+
+12
+adef
+11
+
+
+
+
+
+
+34
+bde
+12
+
+
+
+
+
+
+60
+abd
+13
+
+
+
+
+
+
+16
+cde
+14
+
+
+
+
+
+
+5
+acd
+15
+
+
+
+
+
+
+37
+bcdf
+16
+
+
+
+
+
+
+52
+abcdef
+262
+IV

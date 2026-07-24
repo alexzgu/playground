@@ -1,0 +1,66 @@
+10.4 Hypothesis Testing in Multiple Regression
+465
+The hypotheses for testing the signicance of any individual regression coefcient, say
+j, are
+If H0 : j 0 is not rejected, then this indicates that xj can be deleted from the model. The test
+statistic for this hypothesis is
+(10.28)
+where Cjj is the diagonal element of (XX)1 corresponding to 
+. The null hypothesis H0 :
+j 0 is rejected if t0t/2,n k 1. Note that this is really a partial or marginal test because
+the regression coefcient 
+depends on all the other regressor variables xi (i j) that are in
+the model.
+The denominator of Equation 10.28,
+, is often called the standard error of the
+regression coefcient 
+. That is,
+(10.29)
+Therefore, an equivalent way to write the test statistic in Equation (10.28) is
+(10.30)
+Most regression computer programs provide the t-test for each model parameter. For
+example, consider Table 10.4, which contains the Minitab output for Example 10.1. The
+upper portion of this table gives the least squares estimate of each parameter, the standard
+error, the t statistic, and the corresponding P-value. We would conclude that both variables,
+temperature and feed rate, contribute signicantly to the model.
+We may also directly examine the contribution to the regression sum of squares for a
+particular variable, say xj, given that other variables xi (i j) are included in the model. The
+procedure for doing this is the general regression signicance test or, as it is often called, the
+extra sum of squares method. This procedure can also be used to investigate the contribu-
+tion of a subset of the regressor variables to the model. Consider the regression model with k
+regressor variables:
+where y is (n 1), X is (n p), & is (p 1), is (n 1), and p k 1. We would like to
+determine if the subset of regressor variables x1, x2, . . . , xr (r k) contribute signicantly
+to the regression model. Let the vector of regression coefcients be partitioned as follows:
+where &1 is (r 1) and &2 is [(p r) 1]. We wish to test the hypotheses
+(10.31)
+The model may be written as
+(10.32)
+where X1 represents the columns of X associated with &1 and X2 represents the columns of X
+associated with &2.
+y X& X1&1 X2&2 
+H1&1 Z 0
+H0&1 0
+& 
+&1
+&2
+y X& 
+t0 
+ˆ
+j
+se(ˆ
+j)
+se(ˆ
+j) ˆ 2Cjj
+ˆ
+j
+ˆ 2Cjj
+ˆ j
+ˆ
+j
+t0 
+ˆ
+j
+ˆ 2Cjj
+H1j Z 0
+H0j 0

@@ -1,0 +1,98 @@
+3.3. IT ˆO’S FORMULA
+101
+Using the Taylor approximation, we write
+f
+
+Bjn
+
+−f
+
+B(j−1)n
+
+= f ′ 
+B(j−1)n
+
+∆j,n + 1
+2 f ′′ 
+B(j−1)n
+
+∆2
+j,n + o(∆2
+j,n),
+where
+∆j,n = Bjn −B(j−1)n
+Hence f(B1) −f(B0) is equal to the sum of the following three limits:
+lim
+n∞
+n
+
+j=1
+f ′ 
+B(j−1)n
+
+Bjn −B(j−1)n
+
+,
+(3.9)
+lim
+n∞
+1
+2
+n
+
+j=1
+f ′′ 
+B(j−1)n
+
+Bjn −B(j−1)n
+2 ,
+(3.10)
+lim
+n∞
+n
+
+j=1
+o(
+
+Bjn −B(j−1)n
+2)
+(3.11)
+The increment of the Brownian motion satises
+
+Bjn −B(j−1)n
+2 ≈1n.
+Since the sum in (3.11) looks like n terms of smaller order than 1n the
+limit equals zero. The limit in (3.9) is a simple process approximation to a
+stochastic integral and hence we see that the limit is
+1
+0
+f ′(Bt) dBt
+If f ′′ were constant, say b, then the limit in (3.10) would be
+lim
+n∞
+b
+2
+n
+
+j=1
+
+Bjn −B(j−1)n
+2 = b
+2 ⟨B⟩1 = b
+2
+This tells us what the limit should be in general. Let h(t) = f ′′(Bt) which is
+a continuous function. For every ϵ > 0, there exists a step function hϵ(t) such
+that h(t) −hϵ(t)< ϵ for every t. For xed ϵ, we can consider each interval
+on which hϵ is constant to see that
+lim
+n∞
+n
+
+j=1
+hϵ(t)
+
+Bjn −B(j−1)n
+2 =
+1
+0
+hϵ(t) dt

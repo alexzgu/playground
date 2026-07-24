@@ -1,0 +1,52 @@
+9.6.1
+Design Optimality Criterion
+In Chapter 6 (Section 6.7) we introduced three design optimality criteria—D-optimality,
+G-optimality, and I-optimality. The D-optimal design employs a criterion on the selection of
+design points that results in the minimization of the volume of the joint condence region of the
+regression coefcients. This is achieved by maximizing the determinant (hence, the “D” in 
+D-optimal) of the XX matrix. That is, the quantity |XX| is maximized over all possible designs
+with N runs. The covariance or dispersion matrix, (XX)1, contains the variances and covari-
+ance of the regression coefcients and the square of the volume of the condence region is
+inversely proportional to |X’X|. Controlling the volume of the condence region is related to the
+precision of the regression coefcients; a smaller condence region, for the same level of con-
+dence, means more precise estimates. The G-optimal design minimizes the maximum value
+of prediction variance in the design region R. The I-optimal design minimizes the integrated or
+average prediction variance of the regression model over the design region R.
+The D-optimal and I-optimal are the two most widely used. Experimental designs that are
+created with respect to both D-optimal and I-optimal criteria are available in many commercial-
+ly available software packages. Creating these designs requires an optimization algorithm.
+Techniques such as the coordinate exchange method of Meyer and Nachtsheim (1995) have
+been developed that minimize the computational burden and reduce the time required to nd the
+optimal design. These techniques do not always guarantee a global optimal, but the efciency,
+a metric that quanties the quality of an optimal design, in terms of the best possible design is
+reported by the software programs. 
+9.6.2
+Examples of Optimal Designs
+Many of the standard designs this book are optimal designs. To illustrate, recall the 2k facto-
+rial design. The 2k factorial and its many variants are probably the most widely used family
+of designs in industrial research and development. In Section 6.7 of Chapter 6 we showed that
+these designs are optimal designs with respect to the D, G, and I criteria.
+The fact that many widely used standard designs are optimal designs suggests that the
+optimal design approach is applicable in any design situation. If the problem turns out to be
+a standard one, an optimal design algorithm will generate the required standard design. But
+if not, then the optimal design approach will be necessary to construct the appropriate design
+for this specic research problem.
+As an example, consider a situation in which there are two categorical factors with three
+levels each. A scenario where this situation might occur is in missile testing. For example, assume
+that the White Sands missile range testing center wants to compare distance from target for three
+different types of missiles (x1L1, L2, L3), each containing a slightly different metal alloy encas-
+ing, and three different launching mechanisms (x2  L1, L2, L3). Using this example, both D-
+optimal and I-optimal designs can be created for the main effect only model and main effects plus
+two-factor interaction model. Let us assume that the experimenter is interested in a 9-run design.
+The D-optimal and I–optimal designs for the main effects only model were found using JMP and
+are presented in Tables 9.32 and 9.33, respectively. Notice that both designs are identical; in fact,
+they are both 32 factorial designs. If we augment the model to include the two-factor interaction
+term and construct 9-run D-optimal and I-optimal designs we get the same results. 
+Both of the designs in Tables 9.32 and 9.33 are unreplicated factorials. Usually the
+experimenter would like to replicate the design in order to obtain an estimate of experimen-
+tal error that would support statistical testing. If the design is replicated twice, this would
+require a total of 18 runs. We would still have a standard design. However, since each run
+requires ring a missile, and these runs are likely very expensive, the experimenter would
+probably be interested in a design with fewer runs. Suppose that the experimenter wants to t
+9.6 Constructing Factorial and Fractional Factorial Designs Using an Optimal Design Tool
+433

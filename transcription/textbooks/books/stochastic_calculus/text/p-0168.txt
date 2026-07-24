@@ -1,0 +1,48 @@
+162CHAPTER 5. CHANGE OF MEASURE AND GIRSANOV THEOREM
+The events τr ≤1shrink to a P-null set as r →∞. The condition
+(5.10) implies that e⟨Y ⟩12 is integrable, and hence,
+lim
+r∞E
+
+e⟨Y ⟩12 1τr ≤1
+
+= 0
+5.4
+Black-Scholes formula
+An is a system that guarantees that a player (investor) will not lose
+money while also giving a positive probability of making money. If P and Q
+are equivalent probability measures, then an arbitrage under probability P is
+the same as an arbitrage under probability Q. This holds since for equivalent
+probability measures
+P(V ) = 0
+if and only if
+Q(V ) = 0,
+P(V ) > 0
+if and only if
+Q(V ) > 0
+This observation is the main tool for the pricing of options as we now show.
+We will consider a simple (European) call option for a stock whose price
+moves according to a geometric Brownian motion.
+Suppose that the stock price St follows the geometric Brownian motion,
+dSt = St [m dt + σ dBt] ,
+(5.12)
+and there also exists a risk-free bound Rt satisfying
+dRt = r Rt dt,
+(5.13)
+that is, Rt = ert R0. Let T be a time in the future and suppose we have the
+option to buy a share of stock at time T for strike price K. The value of this
+option at time T is
+F(ST) = (ST −K)+ =
+
+(ST −K)
+if ST > K,
+0
+if ST ≤K
+The goal is to nd the price f(t, x) of the option at time t < T given St = x.
+One possibility, which is the Black-Scholes solution, is to price the
+option by the expected value (in time t dollars),
+ˆf(t, x) = E
+
+e−r(T −t) F(ST) St = x
+
+

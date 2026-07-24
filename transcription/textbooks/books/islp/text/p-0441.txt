@@ -1,0 +1,49 @@
+434
+10. Deep Learning
+infinite number of ways to interpolate n = 20 observations using d = 42 or
+d = 80 basis functions, and the smoothest of them — that is, the minimum
+norm solution — is much less wild than ˆf20(X)!
+In Figure 10.20, we display the training error and test error associated
+with ˆfd(X), for a range of values of the degrees of freedom d. We see that
+the training error drops to zero once d = 20 and beyond; i.e. once the
+interpolation threshold is reached. By contrast, the test error shows a U-
+shape for d ≤20, grows extremely large around d = 20, and then shows a
+second region of descent for d > 20. For this example the signal-to-noise
+ratio — Var(f(X))/σ2 — is 5.9, which is quite high (the data points are
+close to the true curve). So an estimate that interpolates the data and does
+not wander too far inbetween the observed data points will likely do well.
+In Figures 10.20 and 10.21, we have illustrated the double descent phe-
+nomenon in a simple one-dimensional setting using natural splines. How-
+ever, it turns out that the same phenomenon can arise for deep learning.
+Basically, when we fit neural networks with a huge number of parameters,
+we are sometimes able to get good results with zero training error. This is
+particularly true in problems with high signal-to-noise ratio, such as natural
+image recognition and language translation, for example. This is because
+the techniques used to fit neural networks, including stochastic gradient
+descent, naturally lend themselves to selecting a “smooth” interpolating
+model that has good test-set performance on these kinds of problems.
+Some points are worth emphasizing:
+• The double-descent phenomenon does not contradict the bias-variance
+trade-off, as presented in Section 2.2.2. Rather, the double-descent
+curve seen in the right-hand side of Figure 10.20 is a consequence of
+the fact that the x-axis displays the number of spline basis functions
+used, which does not properly capture the true “flexibility” of models
+that interpolate the training data. Stated another way, in this exam-
+ple, the minimum-norm natural spline with d = 42 has lower variance
+than the natural spline with d = 20.
+• Most of the statistical learning methods seen in this book do not exhibit
+double descent. For instance, regularization approaches typically do
+not interpolate the training data, and thus double descent does not
+occur. This is not a drawback of regularized methods: they can give
+great results without interpolating the data!
+In particular, in the examples here, if we had fit the natural splines
+using ridge regression with an appropriately-chosen penalty rather
+than least squares, then we would not have seen double descent, and
+in fact would have obtained better test error results.
+• In Chapter 9, we saw that maximal margin classifiers and SVMs that
+have zero training error nonetheless often achieve very good test error.
+This is in part because those methods seek smooth minimum norm
+solutions. This is similar to the fact that the minimum-norm natural
+spline can give good results with zero training error.
+• The double-descent phenomenon has been used by the machine learn-
+ing community to explain the successful practice of using an over-

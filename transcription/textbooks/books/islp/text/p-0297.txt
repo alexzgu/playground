@@ -1,0 +1,33 @@
+7
+Moving Beyond Linearity
+So far in this book, we have mostly focused on linear models. Linear models
+are relatively simple to describe and implement, and have advantages over
+other approaches in terms of interpretation and inference. However, stan-
+dard linear regression can have significant limitations in terms of predic-
+tive power. This is because the linearity assumption is almost always an
+approximation, and sometimes a poor one. In Chapter 6 we see that we can
+improve upon least squares using ridge regression, the lasso, principal com-
+ponents regression, and other techniques. In that setting, the improvement
+is obtained by reducing the complexity of the linear model, and hence the
+variance of the estimates. But we are still using a linear model, which can
+only be improved so far! In this chapter we relax the linearity assumption
+while still attempting to maintain as much interpretability as possible. We
+do this by examining very simple extensions of linear models like polyno-
+mial regression and step functions, as well as more sophisticated approaches
+such as splines, local regression, and generalized additive models.
+• Polynomial regression extends the linear model by adding extra pre-
+dictors, obtained by raising each of the original predictors to a power.
+For example, a cubic regression uses three variables, X, X2, and X3,
+as predictors. This approach provides a simple way to provide a non-
+linear fit to data.
+• Step functions cut the range of a variable into K distinct regions in
+order to produce a qualitative variable. This has the effect of fitting
+a piecewise constant function.
+• Regression splines are more flexible than polynomials and step func-
+tions, and in fact are an extension of the two. They involve dividing
+the range of X into K distinct regions. Within each region, a poly-
+nomial function is fit to the data. However, these polynomials are
+© Springer Nature Switzerland AG 2023 
+G. James et al., An Introduction to Statistical Learning, Springer Texts in Statistics, 
+https://doi.org/10.1007/978-3-031-38747-0_7
+289

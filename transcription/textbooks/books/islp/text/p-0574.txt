@@ -1,0 +1,50 @@
+568
+13. Multiple Testing
+so this procedure controls the FWER at level α. For instance, in order to
+control the FWER at level 0.1 while testing m = 100 null hypotheses, the
+Bonferroni procedure requires us to control the Type I error for each null
+hypothesis at level 0.1/100 = 0.001, i.e. to reject all null hypotheses for
+which the p-value is below 0.001.
+We now consider the Fund dataset in Table 13.3. If we control the Type
+I error at level α = 0.05 for each fund manager separately, then we will
+conclude that the first and third managers have significantly non-zero ex-
+cess returns; in other words, we will reject H01 : µ1 = 0 and H03 : µ3 = 0.
+However, as discussed in previous sections, this procedure does not account
+for the fact that we have tested multiple hypotheses, and therefore it will
+lead to a FWER greater than 0.05. If we instead wish to control the FWER
+at level 0.05, then, using a Bonferroni correction, we must control the Type
+I error for each individual manager at level α/m = 0.05/5 = 0.01. Conse-
+quently, we will reject the null hypothesis only for the first manager, since
+the p-values for all other managers exceed 0.01. The Bonferroni correction
+gives us peace of mind that we have not falsely rejected too many null
+hypotheses, but for a price: we reject few null hypotheses, and thus will
+typically make quite a few Type II errors.
+The Bonferroni correction is by far the best-known and most commonly-
+used multiplicity correction in all of statistics. Its ubiquity is due in large
+part to the fact that it is very easy to understand and simple to implement,
+and also from the fact that it successfully controls Type I error regardless
+of whether the m hypothesis tests are independent. However, as we will see,
+it is typically neither the most powerful nor the best approach for multiple
+testing correction. In particular, the Bonferroni correction can be quite
+conservative, in the sense that the true FWER is often quite a bit lower
+than the nominal (or target) FWER; this results from the inequality in
+(13.6). By contrast, a less conservative procedure might allow us to control
+the FWER while rejecting more null hypotheses, and therefore making
+fewer Type II errors.
+Holm’s Step-Down Procedure
+Holm’s method, also known as Holm’s step-down procedure or the Holm– Holm’s
+method
+Bonferroni method, is an alternative to the Bonferroni procedure. Holm’s
+method controls the FWER, but it is less conservative than Bonferroni, in
+the sense that it will reject more null hypotheses, typically resulting in fewer
+Type II errors and hence greater power. The procedure is summarized in
+Algorithm 13.1. The proof that this method controls the FWER is similar
+to, but slightly more complicated than, the argument in (13.6) that the
+Bonferroni method controls the FWER. It is worth noting that in Holm’s
+procedure, the threshold that we use to reject each null hypothesis — p(L)
+in Step 5 — actually depends on the values of all m of the p-values. (See the
+definition of L in (13.7).) This is in contrast to the Bonferroni procedure,
+in which to control the FWER at level α, we reject any null hypotheses for
+which the p-value is below α/m, regardless of the other p-values. Holm’s
+method makes no independence assumptions about the m hypothesis tests,
+and is uniformly more powerful than the Bonferroni method — it will

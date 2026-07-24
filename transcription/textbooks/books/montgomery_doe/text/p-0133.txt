@@ -1,0 +1,133 @@
+and the 6  6 covariance matrix of these observations is
+The main diagonals of this matrix are the variances of each individual observation and every
+off-diagonal element is the covariance of a pair of observations.
+3.9.2
+Analysis of Variance for the Random Model
+The basic ANOVA sum of squares identity
+(3.48)
+is still valid. That is, we partition the total variability in the observations into a component
+that measures the variation between treatments (SSTreatments) and a component that measures
+the variation within treatments (SSE). Testing hypotheses about individual treatment effects is
+not very meaningful because they were selected randomly, we are more interested in the pop-
+ulation of treatments, so we test hypotheses about the variance component 
+.
+(3.49)
+If 
+, all treatments are identical; but if 
+, variability exists between treatments.
+As before, SSE/2 is distributed as chi-square with N a degrees of freedom and, under the
+null hypothesis, SSTreatments/2 is distributed as chi-square with a 1 degrees of freedom. Both
+random variables are independent. Thus, under the null hypothesis 
+, the ratio
+(3.50)
+is distributed as F with a 1 and N a degrees of freedom. However, we need to examine
+the expected mean squares to fully describe the test procedure.
+Consider
+
+1
+a 1 E
+1
+n 
+a
+i1
+n
+j1
+i ij
+2
+1
+N
+a
+i1 
+n
+j1
+i ij
+2
+E(MSTreatments) 
+1
+a 1 E(SSTreatments) 
+1
+a 1 E
+a
+i1
+y2
+i.
+n y2
+..
+N
+F0 
+SSTreatments
+a 1
+SSE
+N a
+MSTreatments
+MSE
+2
+ 0
+2
+ 0
+2
+ 0
+H12
+# 0
+H02
+ 0
+2
+
+SST SSTreatments SSE
+Cov(y) 
+2
+2
+2
+
+0
+0
+0
+0
+2
+
+2
+2
+0
+0
+0
+0
+0
+0
+2
+2
+2
+
+0
+0
+0
+0
+2
+
+2
+2
+0
+0
+0
+0
+0
+0
+2
+2
+2
+
+0
+0
+0
+0
+2
+2
+2
+y 
+y11
+y12
+y21
+y22
+y31
+y32
+3.9 The Random Effects Model
+117

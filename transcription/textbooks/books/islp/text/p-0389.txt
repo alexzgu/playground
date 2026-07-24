@@ -1,0 +1,74 @@
+382
+9. Support Vector Machines
+False positive rate
+True positive rate
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+Support Vector Classifier
+LDA
+False positive rate
+True positive rate
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+Support Vector Classifier
+SVM: γ=10−3
+SVM: γ=10−2
+SVM: γ=10−1
+FIGURE 9.10. ROC curves for the Heart data training set. Left: The support
+vector classifier and LDA are compared. Right: The support vector classifier is
+compared to an SVM using a radial basis kernel with γ = 10−3, 10−2, and 10−1.
+behavior, in the sense that only nearby training observations have an effect
+on the class label of a test observation.
+What is the advantage of using a kernel rather than simply enlarging
+the feature space using functions of the original features, as in (9.16)? One
+advantage is computational, and it amounts to the fact that using kernels,
+one need only compute K(xi, x′
+i) for all
+'n
+2
+(
+distinct pairs i, i′. This can be
+done without explicitly working in the enlarged feature space. This is im-
+portant because in many applications of SVMs, the enlarged feature space
+is so large that computations are intractable. For some kernels, such as the
+radial kernel (9.24), the feature space is implicit and infinite-dimensional,
+so we could never do the computations there anyway!
+9.3.3
+An Application to the Heart Disease Data
+In Chapter 8 we apply decision trees and related methods to the Heart data.
+The aim is to use 13 predictors such as Age, Sex, and Chol in order to predict
+whether an individual has heart disease. We now investigate how an SVM
+compares to LDA on this data. After removing 6 missing observations, the
+data consist of 297 subjects, which we randomly split into 207 training and
+90 test observations.
+We first fit LDA and the support vector classifier to the training data.
+Note that the support vector classifier is equivalent to an SVM using a poly-
+nomial kernel of degree d = 1. The left-hand panel of Figure 9.10 displays
+ROC curves (described in Section 4.4.2) for the training set predictions for
+both LDA and the support vector classifier. Both classifiers compute scores
+of the form ˆf(X) = ˆβ0 + ˆβ1X1 + ˆβ2X2 + · · · + ˆβpXp for each observation.
+For any given cutoff t, we classify observations into the heart disease or
+no heart disease categories depending on whether ˆf(X) < t or ˆf(X) ≥t.
+The ROC curve is obtained by forming these predictions and computing
+the false positive and true positive rates for a range of values of t. An opti-
+mal classifier will hug the top left corner of the ROC plot. In this instance

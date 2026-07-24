@@ -1,0 +1,57 @@
+552
+12. Unsupervised Learning
+In [58]: hc_pca = HClust(n_clusters=None,
+distance_threshold=0,
+linkage='complete'
+).fit(nci_scores[:,:5])
+linkage_pca = compute_linkage(hc_pca)
+fig, ax = plt.subplots(figsize=(8,8))
+dendrogram(linkage_pca ,
+labels=np.asarray(nci_labs),
+leaf_font_size=10,
+ax=ax,
+**cargs)
+ax.set_title("Hier. Clust. on First Five Score Vectors")
+pca_labels = pd.Series(cut_tree(linkage_pca ,
+n_clusters=4).reshape(-1),
+name='Complete-PCA')
+pd.crosstab(nci_labs['label'], pca_labels)
+12.6
+Exercises
+Conceptual
+1. This problem involves the K-means clustering algorithm.
+(a) Prove (12.18).
+(b) On the basis of this identity, argue that the K-means clustering
+algorithm (Algorithm 12.2) decreases the objective (12.17) at
+each iteration.
+2. Suppose that we have four observations, for which we compute a
+dissimilarity matrix, given by
+
+
+0.3
+0.4
+0.7
+0.3
+0.5
+0.8
+0.4
+0.5
+0.45
+0.7
+0.8
+0.45
+
+.
+For instance, the dissimilarity between the first and second obser-
+vations is 0.3, and the dissimilarity between the second and fourth
+observations is 0.8.
+(a) On the basis of this dissimilarity matrix, sketch the dendrogram
+that results from hierarchically clustering these four observa-
+tions using complete linkage. Be sure to indicate on the plot the
+height at which each fusion occurs, as well as the observations
+corresponding to each leaf in the dendrogram.
+(b) Repeat (a), this time using single linkage clustering.
+(c) Suppose that we cut the dendrogram obtained in (a) such that
+two clusters result. Which observations are in each cluster?
+(d) Suppose that we cut the dendrogram obtained in (b) such that
+two clusters result. Which observations are in each cluster?

@@ -1,0 +1,75 @@
+15.2 Unbalanced Data in a Factorial Design
+652
+15.2.1
+Proportional Data: An Easy Case
+652
+15.2.2
+Approximate Methods
+654
+15.2.3
+The Exact Method
+655
+15.3 The Analysis of Covariance
+655
+15.3.1
+Description of the Procedure
+656
+15.3.2
+Computer Solution
+664
+15.3.3
+Development by the General Regression Signicance Test
+665
+15.3.4
+Factorial Experiments with Covariates
+667
+15.4 Repeated Measures
+677
+15.5 Problems
+679
+Appendix
+683
+Table I.
+Cumulative Standard Normal Distribution
+684
+Table II.
+Percentage Points of the t Distribution
+686
+Table III.
+Percentage Points of the 2 Distribution
+687
+Table IV.
+Percentage Points of the F Distribution
+688
+Table V.
+Operating Characteristic Curves for the Fixed Effects Model 
+Analysis of Variance
+693
+Table VI.
+Operating Characteristic Curves for the Random Effects Model 
+Analysis of Variance
+697
+Table VII.
+Percentage Points of the Studentized Range Statistic
+701
+Table VIII.
+Critical Values for Dunnett’s Test for Comparing Treatments 
+with a Control
+703
+Table IX.
+Coefcients of Orthogonal Polynomials
+705
+Table X.
+Alias Relationships for 2kp Fractional Factorial Designs with k
+15
+and n
+64
+706
+Bibliography
+719
+Index
+725
+
+
+Contents
+xvii

@@ -1,0 +1,38 @@
+192
+CHAPTER 6. JUMP PROCESSES
+Moreover, if
+f(t, x) = E [F(Bt) B0 = x] ,
+then f satises the heat equation
+∂tf(t, x) = Lxf(t, x)
+(6.3)
+We now compute the generator for the Poisson process. Although we think
+of the Poisson process as taking integer values, there is no problem extending
+the denition so that X0 = x. In this case the values taken by the process are
+x, x + 1, x + 2, Up to terms that are o(t), PXt = X0 + 1= 1 −PXt =
+X0= λ t. Therefore as t ↓0,
+E[f(Xt) X0 = x] = λ t f(x + 1) + [1 −λ t] f(x) + o(t),
+and
+Lf(x) = λ [f(x + 1) −f(x)]
+The same argument shows that if f(t, x) is dened by
+f(t, x) = E [F(Xt) X0 = x] ,
+then f satises the heat equation (6.3) with the generator L. We can view
+the generator as the operator on functions f that makes (6.3) hold.
+The generators satisfy the following linearity property: if X1
+t , X2
+t are in-
+dependent L´evy processes with generators L1, L2, respectively, then Xt =
+X1
+t + X2
+t has generator L1 + L2. For example, if X is the L´evy process with
+Ψ as in (6.2),
+Lf(x) = m f ′(x) + σ2
+2 f ′′(x) + λ [f(x + 1) −f(x)]
+6.3
+Compound Poisson process
+In the Poisson process, the process jumps from x to x + 1 at rate λ. The
+compound Poisson process generalizes this by allowing the jump size to be
+random. For the moment we think of the process as having two parameters,
+a jump rate λ and a distribution function F. We construct the process as
+follows.
+Let T1, T2, T3, be independent random variables each exponential
+with rate λ.

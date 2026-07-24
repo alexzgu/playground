@@ -1,0 +1,63 @@
+equivalent to choosing
+or
+so that
+(3.46)
+Thus, for a specified value of P, we may compute from Equation 3.46 and then use the
+operating characteristic curves in Appendix Chart V to determine the required sample size.
+For example, in the plasma etching experiment from Example 3.1, suppose that we wish
+to detect a standard deviation increase of 20 percent with a probability of at least 0.90 and 
+0.05. Then
+Reference to the operating characteristic curves shows that n 10 replicates would be
+required to give the desired sensitivity.
+3.7.3
+Conﬁdence Interval Estimation Method
+This approach assumes that the experimenter wishes to express the nal results in terms of
+condence intervals and is willing to specify in advance how wide he or she wants these con-
+dence intervals to be. For example, suppose that in the plasma etching experiment from
+Example 3.1, we wanted a 95 percent condence interval on the difference in mean etch rate
+for any two power settings to be 30 A/min and a prior estimate of is 25. Then, using
+Equation 3.13, we nd that the accuracy of the condence interval is
+Suppose that we try n 5 replicates. Then, using 2 (25)2 625 as an estimate of MSE,
+the accuracy of the condence interval becomes
+which does not meet the requirement. Trying n 6 gives
+Trying n 7 gives
+Clearly, n 7 is the smallest sample size that will lead to the desired accuracy.
+2.064
+2(625)
+7
+27.58
+2.086
+2(625)
+6
+30.11
+2.120
+2(625)
+5
+33.52
+t/2,Na
+2MSE
+n
+(1.2)2 1(n) 0.66n
+
+a
+i1
+2
+i/a
+/n
+(1 0.01P)2 1(n)
+
+a
+i1
+2
+i/a
+
+(1 0.01P)2 1
+2 
+a
+i1
+2
+i/a
+
+1 0.01P (P percent)
+3.7 Determining Sample Size
+109

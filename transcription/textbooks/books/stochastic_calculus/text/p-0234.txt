@@ -1,0 +1,62 @@
+228
+CHAPTER 6. JUMP PROCESSES
+where Γ denotes the Gamma function. The proof of the proposition is a
+simple computation. We write
+Ψ(s) = C
+
+|x|≤1
+[eisx −1 −isx]
+dx
+x1+α + C
+
+|x|>1
+[eisx −1]
+dx
+x1+α
+Using eisx = cos(sx) + i sin(sx) and the fact that µ is symmetric about the
+origin, we see that
+Ψ(s)
+=
+2C
+∞
+0
+cos(sx) −1
+x1+α
+dx
+=
+2Csα
+∞
+0
+cos(y) −1
+y1+α
+dy = −Cbαsα
+Suppose Xt has a symmetric α-stable process with L´evy measure as in
+(6.28) with C = 1bα. It can be shown that X1 has a symmetric density gα,
+Pa ≤X ≤b=
+b
+a
+gα(x) dx
+This density is bounded. Unfortunately, except for the case α = 1, there is
+no explicit form expression for the density. Despite this fact, it is known that
+gα(x) ∼
+1
+x1+α,
+x→∞,
+and hence
+PX1≥K∼
+
+|x|≥K
+gα(x) dx =
+2
+αKα
+This comes from the fact that the easiest way for X1to be unusually large
+is for there to be a single very large jump, and the probability of a jump of
+size at least K by time one is asymptotic to µx≥K.
+If α = 1, then bα = π and the corresponding L´evy measure is
+dµ(x) =
+1
+π x2 
+The density of X1 is the C
+g1(x) =
+1
+π (x2 + 1)

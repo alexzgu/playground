@@ -1,0 +1,86 @@
+518
+12. Unsupervised Learning
+FIGURE 12.5. Missing value imputation on the USArrests data. Twenty values
+(10% of the total number of matrix elements) were artificially set to be missing,
+and then imputed via Algorithm 12.1 with M = 1. The figure displays the true
+value xij and the imputed value ˆxij for all twenty missing values. For each of the
+twenty missing values, the color indicates the variable, and the label indicates the
+state. The correlation between the true and imputed values is around 0.63.
+We close with a few observations:
+• The USArrests data has only four variables, which is on the low end
+for methods like Algorithm 12.1 to work well. For this reason, for this
+demonstration we randomly set at most one variable per state to be
+missing, and only used M = 1 principal component.
+• In general, in order to apply Algorithm 12.1, we must select M, the
+number of principal components to use for the imputation. One ap-
+proach is to randomly leave out a few additional elements from the
+matrix, and select M based on how well those known values are re-
+covered. This is closely related to the validation-set approach seen in
+Chapter 5.
+Recommender Systems
+Digital streaming services like Netflix and Amazon use data about the con-
+tent that a customer has viewed in the past, as well as data from other
+customers, to suggest other content for the customer. As a concrete ex-
+ample, some years back, Netflix had customers rate each movie that they
+had seen with a score from 1–5. This resulted in a very big n × p matrix
+for which the (i, j) element is the rating given by the ith customer to the
+−1.5
+−1.0
+−0.5
+0.0
+0.5
+1.0
+1.5
+−1.5
+−1.0
+−0.5
+0.0
+0.5
+1.0
+1.5
+Original Value
+Imputed Value
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+OR
+WA
+TN
+PA
+MO
+ID
+MD
+VA
+AL
+TX
+WY
+MN
+AK
+UT
+GA
+MT
+MA
+NY
+●
+●
+●
+●
+Murder
+Assault
+UrbanPop
+Rape

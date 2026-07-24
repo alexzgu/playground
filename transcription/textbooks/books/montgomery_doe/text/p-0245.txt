@@ -1,0 +1,159 @@
+Device
+Brand of 
+DVD
+Battery
+Radio
+Camera
+Player
+A
+8.6
+7.9
+5.4
+8.2
+8.4
+5.7
+B
+9.4
+8.5
+5.8
+8.8
+8.9
+5.9
+(a) Analyze the data and draw conclusions, using 
+0.05.
+(b) Investigate model adequacy by plotting the residuals.
+(c) Which brand of batteries would you recommend?
+5.27.
+I have recently purchased new golf clubs, which I
+believe will signicantly improve my game. Below are the
+scores of three rounds of golf played at three different golf
+courses with the old and the new clubs.
+Course
+Clubs
+Ahwatukee
+Karsten
+Foothills
+Old
+90
+91
+88
+87
+93
+86
+86
+90
+90
+New
+88
+90
+86
+87
+91
+85
+85
+88
+88
+(a) Conduct an analysis of variance. Using 0.05,
+what conclusions can you draw?
+(b) Investigate model adequacy by plotting the residuals.
+5.28.
+A manufacturer of laundry products is investigating
+the performance of a newly formulated stain remover. The
+new formulation is compared to the original formulation with
+respect to its ability to remove a standard tomato-like stain in
+a test article of cotton cloth using a factorial experiment. The
+other factors in the experiment are the number of times the
+test article is washed (1 or 2) and whether or not a detergent
+booster is used. The response variable is the stain shade after
+washing (12 is the darkest, 0 is the lightest). The data are
+shown in the following table.
+Number of
+Number of 
+Washings
+Washings
+1
+2
+Formulation
+Booster
+Booster
+Yes
+No
+Yes
+No
+New
+6, 5
+6, 5
+3, 2
+4, 1
+Original
+10, 9
+11, 11
+10, 9
+9, 10
+5.7 Problems
+229
+(a) Conduct an analysis of variance. Using 0.05,
+what conclusions can you draw?
+(b) Investigate model adequacy by plotting the residuals.
+5.29.
+Bone anchors are used by orthopedic surgeons in
+repairing torn rotator cuffs (a common shoulder tendon injury
+among baseball players). The bone anchor is a threaded insert
+that is screwed into a hole that has been drilled into the shoul-
+der bone near the site of the torn tendon. The torn tendon is
+then sutured to the anchor. In a successful operation, the ten-
+don is stabilized and reattaches itself to the bone. However,
+bone anchors can pull out if they are subjected to high loads.
+An experiment was performed to study the force required to
+pull out the anchor for three anchor types and two different
+foam densities (the foam simulates the natural variability
+found in real bone). Two replicates of the experiment were
+performed. The experimental design and the pullout force
+response data are as follows.
+Foam Density
+Anchor Type
+Low
+High
+A
+190, 200
+241, 255
+B
+185, 190
+230, 237
+C
+210, 205
+256, 260
+(a) Analyze the data from this experiment.
+(b) Investigate model adequacy by constructing appropri-
+ate residual plots.
+(c) What conclusions can you draw?
+5.30.
+An experiment was performed to investigate the key-
+board feel on a computer (crisp or mushy) and the size of the
+keys (small, medium, or large). The response variable is typ-
+ing speed. Three replicates of the experiment were performed.
+The experimental design and the data are as follow.
+Keyboard Feel
+Key Size
+Mushy
+Crisp
+Small
+31, 33, 35
+36, 40, 41
+Medium
+36, 35, 33
+40, 41, 42
+Large
+37, 34, 33
+38, 36, 39
+(a) Analyze the data from this experiment.
+(b) Investigate model adequacy by constructing appropri-
+ate residual plots.
+(c) What conclusions can you draw?
+5.31.
+An article in Quality Progress (May 2011, pp. 42–48)
+describes the use of factorial experiments to improve a silver
+powder production process. This product is used in conduc-
+tive pastes to manufacture a wide variety of products ranging
+from silicon wafers to elastic membrane switches. Powder
+density (g/cm2) and surface area (cm2/g) are the two critical

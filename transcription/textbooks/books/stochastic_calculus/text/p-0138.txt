@@ -1,0 +1,52 @@
+132
+CHAPTER 4. MORE STOCHASTIC CALCULUS
+that the process started at Xt. The upshot of this reasoning is that ϕ(Xt∧τ)
+must be a martingale. Itˆo’s formula (see Theorem 3.4.3) gives for t < T,
+dϕ(Xt)
+=
+ϕ′(Xt) dXt + 1
+2 ϕ′′(Xt) d⟨X⟩t
+=
+a ϕ′(Xt)
+Xt
++ ϕ′′(Xt)
+2
+
+dt + ϕ′(Xt) dBt
+If this is to be a martingale, the dt term must vanish at all times. The way
+to guarantee this is to choose ϕ to satisfy the ordinary dierential equation
+(ODE)
+x ϕ′′(x) + 2a ϕ′(x) = 0
+Solving such equations is standard (and this one is particularly easy for one
+can solve the rst-order equation for g(x) = ϕ′(x)), and the solutions are of
+the form
+ϕ(x) = c1 + c2 x1−2a,
+a̸ = 1
+2,
+ϕ(x) = c1 + c2 log x,
+a = 1
+2,
+where c1, c2 are arbitrary constants. The boundary conditions ϕ(r) =
+0, ϕ(R) = 1 determine the constants giving
+ϕ(x) = x1−2a −r1−2a
+R1−2a −r1−2a,
+a̸ = 1
+2,
+(4.1)
+ϕ(x) = log x −log r
+log R −log r,
+a = 1
+2
+(4.2)
+We now answer the question that we posed.
+Proposition 4.2.1. Ia ≥12, PT = ∞= 1, , 
+B. Ia < 12, PT < ∞= 1.
+P. Assume X0 = x < R and let τ(r, R) be dened as above. If T < ∞,
+then there must be R < ∞such that Xτ(r,R) = r for all r > 0. Using the
+form of the probability in (4.1) and (4.2), we can see that
+lim
+r0 PXτ(r,R) = r=
+0
+if a ≥12
+1 −(xR)1−2a
+if a < 12

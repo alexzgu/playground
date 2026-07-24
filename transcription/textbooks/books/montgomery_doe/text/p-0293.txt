@@ -1,0 +1,166 @@
+6.6 Additional Examples of Unreplicated 2k Designs
+277
+across that unit. In our example, because we have one
+observation on each of the four experimental units that have
+undergone processing together, we have some information
+about the within-run variability in the process. This infor-
+mation is contained in the variance of the oxide thickness
+measurements from the four wafers in each run. It would be
+of interest to determine whether any of the process vari-
+ables inuence the within-run variability.
+Figure 6.33 is a normal probability plot of the effect
+estimates obtained using ln(s2) as the response. Recall
+from Chapter 3 that we indicated that the log transforma-
+tion is generally appropriate for modeling variability.
+There are not any strong individual effects, but factor 
+A and BD interaction are the largest. If we also include the
+main effects of B and D to obtain a hierarchical model,
+then the model for ln (s2) is
+The model accounts for just slightly less than half of the
+variability in the ln (s2) response, which is certainly not
+ln (s 2)
+√≈
+1.08 0.41x1 0.40x2 0.20x4 0.56x2x4
+■TA B L E 6 . 2 1
+Analysis of Variance (from Design-Expert) of the Individual Wafer Oxide Thickness Response
+Source
+Sum of Squares
+DF
+Mean Square
+F Value
+Prob F
+Model
+43801.75
+15
+2920.12
+476.75
+0.0001
+A
+29756.25
+1
+29756.25
+4858.16
+0.0001
+B
+5256.25
+1
+5256.25
+858.16
+0.0001
+C
+1722.25
+1
+1722.25
+281.18
+0.0001
+D
+42.25
+1
+42.25
+6.90
+0.0115
+AB
+4556.25
+1
+4556.25
+743.88
+0.0001
+AC
+1806.25
+1
+1806.25
+294.90
+0.0001
+AD
+20.25
+1
+20.25
+3.31
+0.0753
+BC
+240.25
+1
+240.25
+39.22
+0.0001
+BD
+240.25
+1
+240.25
+39.22
+0.0001
+CD
+20.25
+1
+20.25
+3.31
+0.0753
+ABD
+132.25
+1
+132.25
+21.59
+0.0001
+ABC
+2.25
+1
+2.25
+0.37
+0.5473
+ACD
+0.25
+1
+0.25
+0.041
+0.8407
+BCD
+6.25
+1
+6.25
+1.02
+0.3175
+ABCD
+0.25
+1
+0.25
+0.041
+0.8407
+Residual
+294.00
+48
+6.12
+Lack of Fit
+0.000
+0
+Pure Error
+294.00
+48
+6.13
+Cor Total
+44095.75
+63 
+–1.12
+–0.64
+D
+A
+B
+BD
+–0.15
+Effect
+0.34
+0.82
+Normal % probability
+99
+95
+90
+80
+70
+50
+30
+20
+10
+5
+1
+■F I G U R E 6 . 3 3
+Normal probability plot of
+the effects using ln (s2) as the response, Example 6.5

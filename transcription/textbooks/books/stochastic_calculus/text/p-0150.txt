@@ -1,0 +1,48 @@
+144
+CHAPTER 4. MORE STOCHASTIC CALCULUS
+where g is an explicit function.)
+2. For which values of a is
+F(0+) = lim
+ϵ0 F(ϵ) < ∞?
+3. Assume that 0 < ϵ < x0 < π2 and let
+q(x0, ϵ) = PTϵ < τ
+Write q(x0, ϵ) explicitly in terms of F.
+4. For whch values of a is it the case that
+lim
+ϵ0 q(x0, ϵ) = 0 ?
+Exercise 4.3. Suppose Bt is a standard Brownian motion and let Xt =
+eBt + 2. Let
+ϕ(t, x) = E
+
+e−2(T −t) (X3
+T −1) e−XT Xt = x
+
+,
+0 < t < T
+Use the Feynman-Kac theorem to nd a second-order PDE that ϕ satises.
+Exercise 4.4. Suppose B1
+1, , Bd
+t are independent standard Brownian mo-
+tions and let
+Xt =
+
+(B1
+t )2 + · · · + (Bd
+t )2
+1. Use Itˆo’s formula to show that
+dXt = a
+Xt
+dt + dMt,
+where a = (d −1)2 and Mt is a continuous martingale satisfying
+dMt =
+d
+
+j=1
+Aj
+t dBj
+t ,
+for suitable processes Aj
+t.
+2. Show that ⟨M⟩t = t.
+3. Explain why Mt is a standard Brownian motion. (Hint: use Proposition
+4.5.1.)

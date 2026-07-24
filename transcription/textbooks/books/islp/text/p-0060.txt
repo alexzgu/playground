@@ -1,0 +1,43 @@
+50
+2. Statistical Learning
+In [46]: axes[0,1].plot(x, y, 'o')
+axes[1,2].scatter(x, y, marker='+')
+fig
+Type subplots? to learn more about subplots().
+To save the output of fig, we call its savefig() method. The argument .savefig()
+dpi is the dots per inch, used to determine how large the figure will be in
+pixels.
+In [47]: fig.savefig("Figure.png", dpi=400)
+fig.savefig("Figure.pdf", dpi=200);
+We can continue to modify fig using step-by-step updates; for example,
+we can modify the range of the x-axis, re-save the figure, and even re-display
+it.
+In [48]: axes[0,1].set_xlim([-1,1])
+fig.savefig("Figure_updated.jpg")
+fig
+We now create some more sophisticated plots. The ax.contour() method .contour()
+produces a contour plot in order to represent three-dimensional data, similar contour plot
+to a topographical map. It takes three arguments:
+• A vector of x values (the first dimension),
+• A vector of y values (the second dimension), and
+• A matrix whose elements correspond to the z value (the third dimen-
+sion) for each pair of (x,y) coordinates.
+To create x and y, we’ll use the command
+np.linspace(a, b, n), which np.linspace()
+returns a vector of n numbers starting at a and ending at b.
+In [49]: fig, ax = subplots(figsize=(8, 8))
+x = np.linspace(-np.pi, np.pi, 50)
+y = x
+f = np.multiply.outer(np.cos(y), 1 / (1 + x**2))
+ax.contour(x, y, f);
+We can increase the resolution by adding more levels to the image.
+In [50]: fig, ax = subplots(figsize=(8, 8))
+ax.contour(x, y, f, levels=45);
+To fine-tune the output of the ax.contour() function, take a look at the
+help file by typing ?plt.contour.
+The ax.imshow() method is similar to ax.contour(), except that it pro- .imshow()
+duces a color-coded plot whose colors depend on the z value. This is known
+as a heatmap, and is sometimes used to plot temperature in weather fore- heatmap
+casts.
+In [51]: fig, ax = subplots(figsize=(8, 8))
+ax.imshow(f);

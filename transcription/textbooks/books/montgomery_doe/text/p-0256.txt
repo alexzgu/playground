@@ -1,0 +1,97 @@
+240
+Chapter 6 ■The 2k Factorial Design
+For the low level of the reactant concentration and the high level of the catalyst,
+and
+Finally, for the high level of both factors,
+and
+Figure 6.2 presents a normal probability plot of these residuals and a plot of the residuals
+versus the predicted yield. These plots appear satisfactory, so we have no reason to suspect
+that there are any problems with the validity of our conclusions.
+The Response Surface. The regression model
+can be used to generate response surface plots. If it is desirable to construct these plots in
+terms of the natural factor levels, then we simply substitute the relationships between the
+natural and coded variables that we gave earlier into the regression model, yielding
+18.33 0.8333 Conc 5.00 Catalyst
+yˆ 27.5 
+8.33
+2 
+Conc 20
+5
+
+5.00
+2 
+Catalyst 1.5
+0.5
+
+yˆ 27.5 
+8.33
+2 x1 
+5.00
+2 x2
+e12 29 29.165 0.165
+e11 30 29.165 0.835
+e10 31 29.165 1.835
+yˆ 27.5 
+8.33
+2 (1) 
+5.00
+2 (1) 29.165
+e9 23 20.835 2.165
+e8 19 20.835 1.835
+e7 18 20.835 2.835
+yˆ 27.5 
+8.33
+2 (1) 
+5.00
+2 (1) 20.835
+Residual
+(a) Normal probability plot
+Normal probability
+–2.833 –2.000
+2.167
+–0.333
+0.500
+1.333
+2.167
+1
+5
+10
+20
+30
+50
+70
+80
+90
+95
+99
+Predicted yield
+(b) Residuals versus predicted yield
+Residuals
+20.83
+23.06
+25.28
+27.50
+29.72
+31.94
+34.17
+–2.833
+–2.000
+–1.167
+–0.333
+0.500
+1.333
+2.167
+×
+×
+×
+×
+×
+×
+×
+×
+×
+×
+×
+×
+■F I G U R E 6 . 2
+Residual plots for the chemical process experiment

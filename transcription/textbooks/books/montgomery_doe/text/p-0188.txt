@@ -1,0 +1,106 @@
+Computer Output. There are several computer packages that will perform the analy-
+sis for a balanced incomplete block design. The SAS General Linear Models procedure is one
+of these and Minitab and JMP are others. The upper portion of Table 4.26 is the Minitab
+General Linear Model output for Example 4.5. Comparing Tables 4.26 and 4.25, we see that
+Minitab has computed the adjusted treatment sum of squares and the adjusted block sum of
+squares (they are called “Adj SS” in the Minitab output).
+The lower portion of Table 4.26 is a multiple comparison analysis, using the Tukey
+method. Condence intervals on the differences in all pairs of means and the Tukey test are
+displayed. Notice that the Tukey method would lead us to conclude that catalyst 4 is different
+from the other three.
+4.4.2
+Least Squares Estimation of the Parameters
+Consider estimating the treatment effects for the BIBD model. The least squares normal equa-
+tions are
+(4.40)
+Imposing 
+, we nd that 
+. Furthermore, using the equations for {j} to
+eliminate the block effects from the equations for {i}, we obtain
+(4.41)
+Note that the right-hand side of Equation 4.36 is kQi, where Qi is the ith adjusted treatment
+total (see Equation 4.29). Now, because 
+nijnpj if p
+i and
+npj (because npj 0
+or 1), we may rewrite Equation 4.41 as
+(4.42)
+r(k 1)ˆi 
+a
+p1
+pZ1
+ˆp kQi i 1, 2, . . . , a
+n2
+pj
+Z
+"b
+j1
+rkˆi rˆi 
+b
+j1 
+a
+p1
+pZ1
+nijnpj ˆp kyi. 
+b
+j1
+nijy.j
+ˆ y..
+"ˆi "ˆ
+j 0
+jkˆ 
+a
+i1
+nijˆi kˆ
+j y.j j 1, 2, . . . , b
+irˆ rˆi 
+b
+j1
+nijˆ
+j yi. i 1, 2, . . . , a
+Nˆ r
+a
+i1
+ˆi k
+b
+j1
+ˆ
+j y..
+172
+Chapter 4 ■Randomized Blocks, Latin Squares, and Related Designs
+■T A B L E 4 . 2 5
+Analysis of Variance for Example 4.5, Including Both Treatments and Blocks
+Sum of
+Degrees of
+Mean
+Source of Variation
+Squares
+Freedom
+Square
+F0
+P-Value
+Treatments (adjusted)
+22.75
+3
+7.58
+11.66
+0.0107
+Treatments (unadjusted)
+11.67
+3
+Blocks (unadjusted)
+55.00
+3
+Blocks (adjusted)
+66.08
+3
+22.03
+33.90
+0.0010
+Error
+3.25
+5
+0.65
+Total
+81.00
+11 

@@ -1,0 +1,81 @@
+536
+12. Unsupervised Learning
+data from many standard R packages.
+The rows of the data set contain the 50 states, in alphabetical order.
+In [3]: USArrests = get_rdataset('USArrests').data
+USArrests
+Out[3]:
+Murder
+Assault
+UrbanPop
+Rape
+Alabama
+13.2
+236
+58
+21.2
+Alaska
+10.0
+263
+48
+44.5
+Arizona
+8.1
+294
+80
+31.0
+...
+...
+...
+...
+...
+Wisconsin
+2.6
+53
+66
+10.8
+Wyoming
+6.8
+161
+60
+15.6
+The columns of the data set contain the four variables.
+In [4]: USArrests.columns
+Out[4]: Index(['Murder', 'Assault', 'UrbanPop', 'Rape'],
+dtype='object')
+We first briefly examine the data. We notice that the variables have
+vastly different means.
+In [5]: USArrests.mean()
+Out[5]: Murder
+7.788
+Assault
+170.760
+UrbanPop
+65.540
+Rape
+21.232
+dtype: float64
+Dataframes have several useful methods for computing column-wise sum-
+maries. We can also examine the variance of the four variables using the
+var() method.
+In [6]: USArrests.var()
+Out[6]: Murder
+18.970465
+Assault
+6945.165714
+UrbanPop
+209.518776
+Rape
+87.729159
+dtype: float64
+Not surprisingly, the variables also have vastly different variances. The
+UrbanPop variable measures the percentage of the population in each state
+living in an urban area, which is not a comparable number to the number of
+rapes in each state per 100,000 individuals. PCA looks for derived variables
+that account for most of the variance in the data set. If we do not scale the
+variables before performing PCA, then the principal components would
+mostly be driven by the Assault variable, since it has by far the largest
+variance. So if the variables are measured in different units or vary widely
+in scale, it is recommended to standardize the variables to have standard
+deviation one before performing PCA. Typically we set the means to zero
+as well.

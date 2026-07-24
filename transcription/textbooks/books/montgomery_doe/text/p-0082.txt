@@ -1,0 +1,45 @@
+66
+Chapter 3 ■Experiments with a Single Factor: The Analysis of Variance
+I
+n Chapter 2, we discussed methods for comparing two conditions or treatments. For
+example, the Portland cement tension bond experiment involved two different mortar for-
+mulations. Another way to describe this experiment is as a single-factor experiment with
+two levels of the factor, where the factor is mortar formulation and the two levels are the
+two different formulation methods. Many experiments of this type involve more than two
+levels of the factor. This chapter focuses on methods for the design and analysis of single-
+factor experiments with an arbitrary number a levels of the factor (or a treatments). We will
+assume that the experiment has been completely randomized.
+3.1
+An Example
+In many integrated circuit manufacturing steps, wafers are completely coated with a layer of
+material such as silicon dioxide or a metal. The unwanted material is then selectively removed
+by etching through a mask, thereby creating circuit patterns, electrical interconnects, and
+areas in which diffusions or metal depositions are to be made. A plasma etching process is
+widely used for this operation, particularly in small geometry applications. Figure 3.1  shows
+the important features of a typical single-wafer etching tool. Energy is supplied by a radio-
+frequency (RF) generator causing plasma to be generated in the gap between the electrodes.
+The chemical species in the plasma are determined by the particular gases used.
+Fluorocarbons, such as CF4 (tetrauoromethane) or C2F6 (hexauoroethane), are often used
+in plasma etching, but other gases and mixtures of gases are relatively common, depending
+on the application.
+An engineer is interested in investigating the relationship between the RF power setting
+and the etch rate for this tool. The objective of an experiment like this is to model the rela-
+tionship between etch rate and RF power, and to specify the power setting that will give a
+desired target etch rate. She is interested in a particular gas (C2F6) and gap (0.80 cm) and
+wants to test four levels of RF power: 160, 180, 200, and 220 W. She decided to test ve
+wafers at each level of RF power.
+This is an example of a single-factor experiment with a 4 levels of the factor and 
+n 5 replicates. The 20 runs should be made in random order. A very efcient way to gen-
+erate the run order is to enter the 20 runs in a spreadsheet (Excel), generate a column of 
+random numbers using the RAND ( ) function, and then sort by that column.
+Gas supply
+Gas control panel
+RF
+generator
+Anode
+Wafer
+Cathode
+Valve
+Vacuum pump
+■F I G U R E 3 . 1
+A single-wafer plasma etching tool

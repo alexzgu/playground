@@ -1,0 +1,162 @@
+520
+12. Unsupervised Learning
+Jerry Maguire
+Oceans
+Road to Perdition
+A Fortunate Man
+Catch Me If You Can
+Driving Miss Daisy
+The Two Popes
+The Laundromat
+Code 8
+The Social Network
+· · ·
+Customer 1
+•
+•
+•
+•
+4
+•
+•
+•
+•
+•
+· · ·
+Customer 2
+•
+•
+3
+•
+•
+•
+3
+•
+•
+3
+· · ·
+Customer 3
+•
+2
+•
+4
+•
+•
+•
+•
+2
+•
+· · ·
+Customer 4
+3
+•
+•
+•
+•
+•
+•
+•
+•
+•
+· · ·
+Customer 5
+5
+1
+•
+•
+4
+•
+•
+•
+•
+•
+· · ·
+Customer 6
+•
+•
+•
+•
+•
+2
+4
+•
+•
+•
+· · ·
+Customer 7
+•
+•
+5
+•
+•
+•
+•
+3
+•
+•
+· · ·
+Customer 8
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+· · ·
+Customer 9
+3
+•
+•
+•
+5
+•
+•
+1
+•
+•
+· · ·
+...
+...
+...
+...
+...
+...
+...
+...
+...
+...
+...
+...
+TABLE 12.2. Excerpt of the Netflix movie rating data. The movies are rated
+from 1 (worst) to 5 (best). The symbol • represents a missing value: a movie that
+was not rated by the corresponding customer.
+typically massive, algorithms have been developed that can exploit the high
+level of missingness in order to perform efficient computations.
+12.4
+Clustering Methods
+Clustering refers to a very broad set of techniques for finding subgroups, or clustering
+clusters, in a data set. When we cluster the observations of a data set, we
+seek to partition them into distinct groups so that the observations within
+each group are quite similar to each other, while observations in different
+groups are quite different from each other. Of course, to make this concrete,
+we must define what it means for two or more observations to be similar
+or different. Indeed, this is often a domain-specific consideration that must
+be made based on knowledge of the data being studied.
+For instance, suppose that we have a set of n observations, each with p
+features. The n observations could correspond to tissue samples for patients
+with breast cancer, and the p features could correspond to measurements
+collected for each tissue sample; these could be clinical measurements, such
+as tumor stage or grade, or they could be gene expression measurements.
+We may have a reason to believe that there is some heterogeneity among
+the n tissue samples; for instance, perhaps there are a few different un-
+known subtypes of breast cancer. Clustering could be used to find these
+subgroups. This is an unsupervised problem because we are trying to dis-
+cover structure—in this case, distinct clusters—on the basis of a data set.
+The goal in supervised problems, on the other hand, is to try to predict
+some outcome vector such as survival time or response to drug treatment.
+Both clustering and PCA seek to simplify the data via a small number
+of summaries, but their mechanisms are different:

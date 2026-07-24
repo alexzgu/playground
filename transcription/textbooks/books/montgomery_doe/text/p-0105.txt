@@ -1,0 +1,48 @@
+3.5
+Practical Interpretation of Results
+After conducting the experiment, performing the statistical analysis, and investigating the
+underlying assumptions, the experimenter is ready to draw practical conclusions about the
+problem he or she is studying. Often this is relatively easy, and certainly in the simple exper-
+iments we have considered so far, this might be done somewhat informally, perhaps by
+inspection of graphical displays such as the box plots and scatter diagram in Figures 3.1 and
+3.2. However, in some cases, more formal techniques need to be applied. We will present
+some of these techniques in this section.
+3.5.1
+A Regression Model
+The factors involved in an experiment can be either quantitative or qualitative. A quantitative
+factor is one whose levels can be associated with points on a numerical scale, such as tempera-
+ture, pressure, or time. Qualitative factors, on the other hand, are factors for which the levels
+cannot be arranged in order of magnitude. Operators, batches of raw material, and shifts are typ-
+ical qualitative factors because there is no reason to rank them in any particular numerical order.
+Insofar as the initial design and analysis of the experiment are concerned, both types of
+factors are treated identically. The experimenter is interested in determining the differences,
+if any, between the levels of the factors. In fact, the analysis of variance treat the design fac-
+tor as if it were qualitative or categorical. If the factor is really qualitative, such as operators,
+it is meaningless to consider the response for a subsequent run at an intermediate level of the
+factor. However, with a quantitative factor such as time, the experimenter is usually interest-
+ed in the entire range of values used, particularly the response from a subsequent run at an
+intermediate factor level. That is, if the levels 1.0, 2.0, and 3.0 hours are used in the experi-
+ment, we may wish to predict the response at 2.5 hours. Thus, the experimenter is frequently
+interested in developing an interpolation equation for the response variable in the experiment.
+This equation is an empirical model of the process that has been studied.
+The general approach to tting empirical models is called regression analysis, which
+is discussed extensively in Chapter 10. See also the supplemental text material for this
+chapter. This section briey illustrates the technique using the etch rate data of Example 3.1.
+Figure 3.10 presents scatter diagrams of etch rate y versus the power x for the experi-
+ment in Example 3.1. From examining the scatter diagram, it is clear that there is a strong
+relationship between etch rate and power. As a rst approximation, we could try tting a lin-
+ear model to the data, say
+where 0 and 1 are unknown parameters to be estimated and is a random error term. The
+method often used to estimate the parameters in a model such as this is the method of least
+squares. This consists of choosing estimates of the ’s such that the sum of the squares of the
+errors (the ’s) is minimized. The least squares t in our example is
+(If you are unfamiliar with regression methods, see Chapter 10 and the supplemental text
+material for this chapter.)
+This linear model is shown in Figure 3.10a. It does not appear to be very satisfactory at
+the higher power settings. Perhaps an improvement can be obtained by adding a quadratic
+term in x. The resulting quadratic model t is
+yˆ 1147.77 8.2555 x 0.028375 x2
+yˆ 137.62 2.527x
+y 0 1x 
+3.5 Practical Interpretation of Results
+89

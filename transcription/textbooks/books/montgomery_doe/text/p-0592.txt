@@ -1,0 +1,207 @@
+576
+Chapter 13 ■Experiments with Random Factors
+where 
+is the total variability (including variability due to
+the different parts, variability due to the different operators,
+and variability due to the gauge),
+is the variance compo-
+nent for parts,
+is the variance component for operators,
+is the variance component that represents interaction
+between parts and operators, and 2 is the random experi-
+mental error. Typically, the variance component 2 is called
+the gauge repeatability because 2 can be thought of as
+reecting the variation observed when the same part is
+measured by the same operator, and
+is usually called the reproducibility of the gauge because it
+reects the additional variability in the measurement sys-
+tem resulting from use of the instrument by the operator.
+These experiments are usually performed with the objective
+of estimating the variance components.
+Table 13.2 shows the ANOVA for this experiment. The
+computations were performed using the Balanced ANOVA
+routine in Minitab. Based on the P-values, we conclude that
+
+2 
+2
+2
+
+2
+
+2
+
+2
+y
+the effect of parts is large, operators may have a small
+effect, and no signicant part–operator interaction takes
+place. We may use Equation 13.7 to estimate the variance
+components as follows:
+and
+The bottom portion of the Minitab output in Table 13.2
+contains the expected mean squares for the random model,
+with numbers in parentheses representing the variance
+components [(4) represents 2, (3) represents 
+, etc.]. The
+estimates of the variance components are also given, along
+with the error term that was used in testing that variance
+2
+
+ˆ 2 0.99
+ˆ 2
+0.71 0.99
+2
+0.14
+ˆ 2
+1.31 0.71
+(20)(2)
+0.015
+ˆ 2
+62.39 0.71
+(3)(2)
+10.28
+■TA B L E 1 3 . 1
+The Measurement Systems Capability Experiment in Example 13.2
+Part Number
+Operator 1
+Operator 2
+Operator 3
+1
+21
+20
+20
+20
+19
+21
+2
+24
+23
+24
+24
+23
+24
+3
+20
+21
+19
+21
+20
+22
+4
+27
+27
+28
+26
+27
+28
+5
+19
+18
+19
+18
+18
+21
+6
+23
+21
+24
+21
+23
+22
+7
+22
+21
+22
+24
+22
+20
+8
+19
+17
+18
+20
+19
+18
+9
+24
+23
+25
+23
+24
+24
+10
+25
+23
+26
+25
+24
+25
+11
+21
+20
+20
+20
+21
+20
+12
+18
+19
+17
+19
+18
+19
+13
+23
+25
+25
+25
+25
+25
+14
+24
+24
+23
+25
+24
+25
+15
+29
+30
+30
+28
+31
+30
+16
+26
+26
+25
+26
+25
+27
+17
+20
+20
+19
+20
+20
+20
+18
+19
+21
+19
+19
+21
+23
+19
+25
+26
+25
+24
+25
+25
+20
+19
+19
+18
+17
+19
+17 

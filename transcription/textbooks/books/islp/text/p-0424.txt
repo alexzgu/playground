@@ -1,0 +1,95 @@
+10.5 Recurrent Neural Networks
+417
+A1
+A2
+A3
+AL-1
+AL
+=
+Aℓ
+Oℓ
+Y
+Xℓ
+O1
+X1
+O2
+X2
+O3
+X3
+OL-1
+XL-1
+OL
+Y
+XL
+. . .
+W
+U
+B
+W
+B
+W
+B
+W
+B
+W
+B
+W
+B
+U
+U
+U
+U
+FIGURE 10.12. Schematic of a simple recurrent neural network. The input is a
+sequence of vectors {Xℓ}L
+1 , and here the target is a single response. The network
+processes the input sequence X sequentially; each Xℓfeeds into the hidden layer,
+which also has as input the activation vector Aℓ−1 from the previous element in
+the sequence, and produces the current activation vector Aℓ. The same collections
+of weights W, U and B are used as each element of the sequence is processed. The
+output layer produces a sequence of predictions Oℓfrom the current activation
+Aℓ, but typically only the last of these, OL, is of relevance. To the left of the equal
+sign is a concise representation of the network, which is unrolled into a more
+explicit version on the right.
+Figure 10.12 illustrates the structure of a very basic RNN with a sequence
+X = {X1, X2, . . . , XL} as input, a simple output Y , and a hidden-layer
+sequence {Aℓ}L
+1 = {A1, A2, . . . , AL}. Each Xℓis a vector; in the document
+example Xℓcould represent a one-hot encoding for the ℓth word based on
+the language dictionary for the corpus (see the top panel in Figure 10.13
+for a simple example). As the sequence is processed one vector Xℓat a
+time, the network updates the activations Aℓin the hidden layer, taking
+as input the vector Xℓand the activation vector Aℓ−1 from the previous
+step in the sequence. Each Aℓfeeds into the output layer and produces a
+prediction Oℓfor Y . OL, the last of these, is the most relevant.
+In detail, suppose each vector Xℓof the input sequence has p components
+XT
+ℓ= (Xℓ1, Xℓ2, . . . , Xℓp), and the hidden layer consists of K units AT
+ℓ=
+(Aℓ1, Aℓ2, . . . , AℓK). As in Figure 10.4, we represent the collection of K ×
+(p+1) shared weights wkj for the input layer by a matrix W, and similarly
+U is a K × K matrix of the weights uks for the hidden-to-hidden layers,
+and B is a K + 1 vector of weights βk for the output layer. Then
+Aℓk = g
+1
+wk0 +
+p
+0
+j=1
+wkjXℓj +
+K
+0
+s=1
+uksAℓ−1,s
+2
+,
+(10.16)
+and the output Oℓis computed as
+Oℓ= β0 +
+K
+0
+k=1
+βkAℓk
+(10.17)
+for a quantitative response, or with an additional sigmoid activation func-
+tion for a binary response, for example. Here g(·) is an activation function
+such as ReLU. Notice that the same weights W, U and B are used as we

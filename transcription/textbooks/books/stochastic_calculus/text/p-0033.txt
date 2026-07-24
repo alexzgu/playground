@@ -1,0 +1,104 @@
+1.7. A MAXIMAL INEQUALITY
+27
+Martingale property. The integral Zn is a martingale with respect
+to Fn. We showed this in Section 1.2.
+Linearity. If Jn, Kn are predictable sequences and a, b constants, then
+aJn + bKn is a predictable sequence and
+n
+
+j=1
+(aJj + bKj) ∆Sj = a
+n
+
+j=1
+Jj ∆Sj + b
+n
+
+j=1
+Kj ∆Sj
+This is immediate.
+Variance rule
+Var
+n
+
+j=1
+Jj ∆Sj
+
+= E
+
+(
+n
+
+j=1
+Jj ∆Sj)2
+
+= σ2
+n
+
+j=1
+E
+
+J2
+j
+
+
+To see this we rst use the orthogonality of martingale increments to
+write
+E
+
+(
+n
+
+j=1
+Jj ∆Sj)2
+
+=
+n
+
+j=1
+E
+
+J2
+j X2
+j
+
+
+Since Jj is Fj−1-measurable and Xj is independent of Fj−1, we can see
+that
+E
+
+J2
+j X2
+j
+
+=
+E
+
+E[J2
+j X2
+j Fj−1]
+
+=
+E
+
+J2
+j E[X2
+j Fj−1]
+
+=
+E
+
+J2
+j E[X2
+j ]
+
+= σ2 E[J2
+j ]
+1.7
+A maximal inequality
+There is another result about martingales that we will use.
+Theorem 1.7.1. Suppose Yn is a nonnegative submartingale with re-
+spect to Fn, and
+Y n = maxY0, Y1, , Yn
+Then for every a > 0,
+PY n ≥a≤a−1 E[Yn]

@@ -1,0 +1,74 @@
+If the factor under study is xed, tests on individual treatment means may be of interest. If
+orthogonal contrasts are employed, the contrasts must be made on the adjusted treatment
+totals, the {Qi} rather than the {yi.}. The contrast sum of squares is
+where {ci} are the contrast coefcients. Other multiple comparison methods may be used to
+compare all the pairs of adjusted treatment effects, which we will nd in Section 4.4.2, are
+estimated by 
+kQi/(a). The standard error of an adjusted treatment effect is
+(4.37)
+In the analysis that we have described, the total sum of squares has been partitioned into
+an adjusted sum of squares for treatments, an unadjusted sum of squares for blocks, and an
+error sum of squares. Sometimes we would like to assess the block effects. To do this, we
+require an alternate partitioning of SST, that is,
+Here SSTreatments is unadjusted. If the design is symmetric, that is, if a b, a simple formula
+may be obtained for SSBlocks(adjusted). The adjusted block totals are
+(4.38)
+and
+(4.39)
+The BIBD in Example 4.5 is symmetric because a b 4. Therefore,
+and
+Also,
+A summary of the analysis of variance for the symmetric BIBD is given in Table 4.25.
+Notice that the sums of squares associated with the mean squares in Table 4.25 do not add to
+the total sum of squares, that is,
+This is a consequence of the nonorthogonality of treatments and blocks.
+SST Z SSTreatments(adjusted) SSBlocks(adjusted) SSE
+SSTreatments (218)2 (214)2 (216)2 (222)2
+3
+(870)2
+12
+11.67
+SSBlocks(adjusted) 3[(7/3)2 (24/3)2 (31/3)2 (0)2]
+(2)(4)
+66.08
+Q4 (218) 
+1
+3(218 214 222) 0
+Q3 (207) 
+1
+3(214 216 222) 31/3
+Q2 (224) 
+1
+3(218 214 216) 24/3
+Q1 (221) 
+1
+3(218 216 222) 7/3
+SSBlocks(adjusted) 
+r
+b
+j1
+ (Qj)2
+b
+Qj y.j 1
+4 
+a
+i1
+nijyi. j 1, 2, . . . , b
+SST SSTreatments SSBlocks(adjusted) SSE
+S 
+kMSE
+a
+ˆi
+SSC 
+k
+a
+i1
+ciQi
+2
+a
+a
+i1
+c2
+i
+4.4 Balanced Incomplete Block Designs
+171

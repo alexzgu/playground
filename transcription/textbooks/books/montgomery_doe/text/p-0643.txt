@@ -1,0 +1,100 @@
+In general, if one analyzes a factorial design and all the main effects and interactions are
+signicant, then one should examine carefully how the experiment was actually conducted.
+There may be randomization restrictions in the model not accounted for in the analysis, and
+consequently, the data should not be analyzed as a factorial.
+14.5
+Other Variations of the Split-Plot Design
+14.5.1
+Split-Plot Designs with More Than Two Factors
+Sometimes we nd that either the whole plot or the subplot will contain two or more factors,
+arranged in a factorial structure. As an example, consider an experiment conducted on a fur-
+nace to grow an oxide on a silicon wafer. The response variables of interest are oxide layer
+thickness and layer uniformity. There are four design factors: temperature (A), gas ow (B),
+time (C), and wafer position in the furnace (D). The experimenter plans to run a 24 factorial
+design with two replicates (32 trials). Now factors A and B (temperature and gas ow) are dif-
+cult to change, whereas C and D (time and wafer position) are easy to change. This leads to
+the split-plot design shown in Figure 14.7. Notice that both replicates of the experiment are
+split into four whole plots, each containing one combination of the settings of temperature
+and gas ow. Once these levels are chosen, each whole plot is split into four subplots and a
+22 factorial in the factors time and wafer position is conducted, where the treatment combina-
+tions in the subplot are tested in random order. Only four changes in temperature and gas ow
+are made in each replicate, whereas the levels of time and wafer position are completely
+randomized.
+A model for this experiment, consistent with Equation 14.16, is
+(14.19)
+()jlm ()klm ()jklm ijklm 
+i 1, 2
+j 1, 2
+k 1, 2
+l 1, 2
+m 1, 2
+ ()jl ()jm ()kl ()lm ()jkl ()jkm
+yijklm i j k ()jk ijk l m ()lm
++
++
+Subplot
+Whole
+plot
+Block 1
+Block 2
+–
++
+–
++
+–
++
+–
++
+–
++
+–
++
+–
+–
++
+–
++
+–
++
+–
++
+–
++
+–
++
+–
++
+–
++
++
+– –
+–
+–
+D
+C
+A
+B
+D
+D
+D
+D
+D
+D
+D
+–
++
+–
+–
++
++
+–
++
++
++
++
+–
+■F I G U R E 1 4 . 7
+A split-plot design with four design factors, two in the whole plot and
+two in the subplot
+14.5 Other Variations of the Split-Plot Design
+627

@@ -1,0 +1,110 @@
+376
+Chapter 8 ■Two-Level Fractional Factorial Designs
+more detail. Sequential assembly of these designs via fold over is a very effective way to
+gain additional information about interactions that an initial experiment may identify as
+possibly important.
+In practice, 2kp fractional factorial designs with N 4, 8, 16, and 32 runs are highly
+useful. Table 8.28 summarizes these designs, identifying how many factors can be used with
+each design to obtain various types of screening experiments. For example, the 16-run design
+is a full factorial for 4 factors, a one-half fraction for 5 factors, a resolution IV fraction for 6
+to 8 factors, and a resolution III fraction for 9 to 15 factors. All of these designs may be con-
+structed using the methods discussed in this chapter, and many of their alias structures are
+shown in Appendix Table X.
+8.10
+Problems
+8.1.
+Suppose that in the chemical process development
+experiment described in Problem 6.7, it was only possible to run
+a one-half fraction of the 24 design. Construct the design and
+perform the statistical analysis, using the data from replicate I.
+8.2.
+Suppose that in Problem 6.15, only a one-half fraction
+of the 24 design could be run. Construct the design and per-
+form the analysis, using the data from replicate I.
+8.3.
+Consider the plasma etch experiment described in
+Example 6.1. Suppose that only a one-half fraction of the
+design could be run. Set up the design and analyze the data.
+8.4.
+Problem 6.24 describes a process improvement study
+in the manufacturing process of an integrated circuit. Suppose
+that only eight runs could be made in this process. Set up an
+appropriate 252 design and nd the alias structure. Use the
+appropriate observations from Problem 6.24 as the observa-
+tions in this design and estimate the factor effects. What con-
+clusions can you draw?
+8.5.
+Continuation of Problem 8.4. Suppose you have
+made the eight runs in the 252 design in Problem 8.4. What
+additional runs would be required to identify the factor effects
+that are of interest? What are the alias relationships in the
+combined design?
+8.6.
+In Example 6.6, a 24 factorial design was used to
+improve the response rate to a credit card mail marketing
+offer. Suppose that the researchers had used the 241 fractional
+factorial design with I ABCD instead. Set up the design and
+select the responses for the runs from the full factorial data in
+Example 6.6. Analyze the data and draw conclusions.
+Compare your ndings with those from the full factorial in
+Example 6.6.
+8.7.
+Continuation of Problem 8.6. In Exercise 6.6, we
+found that all four main effects and the two-factor AB interac-
+tion were signicant. Show that if the alternate fraction 
+(I ABCD) is added to the 241 design in Problem 8.6 that
+the analysis of the results from the combined design produce
+results identical to those found in Exercise 6.6.
+8.8.
+Continuation of Problem 8.6. Reconsider the 241
+fractional factorial design with I ABCD from Problem
+8.6. Set a partial fold-over of this fraction to isolate the AB
+interaction. Select the appropriate set of responses from the
+full factorial data in Example 6.6 and analyze the resulting
+data.
+8.9.
+R. D. Snee (“Experimenting with a Large Number of
+Variables,” in Experiments in Industry: Design, Analysis and
+Interpretation of Results, by R. D. Snee, L. B. Hare, and J. B.
+Trout, Editors, ASQC, 1985) describes an experiment in
+which a 251 design with I ABCDE was used to investigate
+the effects of ve factors on the color of a chemical product.
+The factors are A solvent/reactant, B catalyst/reactant, C
+temperature, D reactant purity, and E reactant pH.
+The responses obtained were as follows:
+e  0.63
+d 6.79
+a   2.51
+ade 5.47
+b  2.68
+bde 3.45
+abe 
+1.66
+abd 5.68
+c 
+2.06
+cde 5.22
+ace 
+1.22
+acd 4.38
+bce  2.09
+bcd 4.30
+abc 1.93
+abcde 4.05
+(a) Prepare a normal probability plot of the effects. Which
+effects seem active?
+(b) Calculate the residuals. Construct a normal probabili-
+ty plot of the residuals and plot the residuals versus the
+tted values. Comment on the plots.
+(c) If any factors are negligible, collapse the 251 design
+into a full factorial in the active factors. Comment on
+the resulting design, and interpret the results.
+8.10.
+An article by J. J. Pignatiello Jr. and J. S. Ramberg 
+in the Journal of Quality Technology (Vol. 17, 1985, pp.
+198–206) describes the use of a replicated fractional factorial
+to investigate the effect of ve factors on the free height of
+leaf springs used in an automotive application. The factors are
+A furnace temperature, B heating time, C transfer
+time, D hold down time, and E quench oil temperature.
+The data are shown in Table P8.1

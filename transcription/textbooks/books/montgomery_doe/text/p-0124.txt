@@ -1,0 +1,61 @@
+108
+Chapter 3 ■Experiments with a Single Factor: The Analysis of Variance
+Now we can use the OC curves exactly as in Example 3.10. Suppose we try n 4 repli-
+cates. This results in 2 1.125(4) 4.5, 2.12, and 4(3) 12 degrees of freedom for
+error. From the OC curve, we nd that the power is approximately 0.65. For n 5 replicates,
+we have 2 5.625, 2.37, and 4(4) 16 degrees of freedom for error. From the OC
+curve, the power is approximately 0.8. For n 6 replicates, we have 2 6.75, 2.60,
+and 4(5) 20 degrees of freedom for error. From the OC curve, the power exceeds 0.90, so
+n 6 replicates are required.
+Minitab uses this approach to perform power calculations and nd sample sizes for
+single-factor ANOVAs. Consider the following display:
+In the upper portion of the display, we asked Minitab to calculate the power for n 5 repli-
+cates when the maximum difference in treatment means is 75. Notice that the results closely
+match those obtained from the OC curves. The bottom portion of the display the output when
+the experimenter requests the sample size to obtain a target power of at least 0.90. Once again,
+the results agree with those obtained from the OC curve.
+3.7.2
+Specifying a Standard Deviation Increase
+This approach is occasionally helpful in choosing the sample size. If the treatment means do
+not differ, the standard deviation of an observation chosen at random is . If the treatment
+means are different, however, the standard deviation of a randomly chosen observation is
+If we choose a percentage P for the increase in the standard deviation of an observation
+beyond which we wish to reject the hypothesis that all treatment means are equal, this is
+2 
+a
+i1
+2
+i/a
+Power and Sample Size
+One-way ANOVA
+Alpha 0.01 Assumed standard deviation 25 
+Number of Levels 4
+Sample
+Maximum
+SS Means
+Size
+Power
+Difference
+ 2812.5
+5
+0.804838
+75
+The sample size is for each level.
+Power and Sample Size
+One-way ANOVA
+Alpha 0.01 Assumed standard deviation 25 
+Number of Levels 5 4
+Sample
+Target
+Maximum
+SS Means
+Size
+Power
+Actual Power
+Difference
+ 2812.5
+6
+0.9
+0.915384
+75
+The sample size is for each level.

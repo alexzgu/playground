@@ -1,0 +1,46 @@
+556
+12. Unsupervised Learning
+11. Write a Python function to perform matrix completion as in Algo-
+rithm 12.1, and as outlined in Section 12.5.2. In each iteration, the
+function should keep track of the relative error, as well as the itera-
+tion count. Iterations should continue until the relative error is small
+enough or until some maximum number of iterations is reached (set a
+default value for this maximum number). Furthermore, there should
+be an option to print out the progress in each iteration.
+Test your function on the Boston data. First, standardize the features
+to
+have
+mean
+zero
+and
+standard
+deviation
+one
+using
+the
+StandardScaler() function. Run an experiment where you randomly
+leave out an increasing (and nested) number of observations from 5%
+to 30%, in steps of 5%. Apply Algorithm 12.1 with M = 1, 2, . . . , 8.
+Display the approximation error as a function of the fraction of ob-
+servations that are missing, and the value of M, averaged over 10
+repetitions of the experiment.
+12. In Section 12.5.2, Algorithm 12.1 was implemented using the
+svd() function from the np.linalg module. However, given the con-
+nection between the svd() function and the PCA() estimator high-
+lighted in the lab, we could have instead implemented the algorithm
+using PCA().
+Write a function to implement Algorithm 12.1 that makes use of PCA()
+rather than svd().
+13. On the book website, www.statlearning.com, there is a gene expres-
+sion data set (Ch12Ex13.csv) that consists of 40 tissue samples with
+measurements on 1,000 genes. The first 20 samples are from healthy
+patients, while the second 20 are from a diseased group.
+(a) Load in the data using pd.read_csv(). You will need to select
+header = None.
+(b) Apply hierarchical clustering to the samples using correlation-
+based distance, and plot the dendrogram. Do the genes separate
+the samples into the two groups? Do your results depend on the
+type of linkage used?
+(c) Your collaborator wants to know which genes differ the most
+across the two groups. Suggest a way to answer this question,
+and apply it here.

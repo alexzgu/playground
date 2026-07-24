@@ -1,0 +1,62 @@
+will be included in the experiment (such as wheel speed, gas flow, and vacuum),
+while others represent potential areas that will need further study to turn them into
+design factors (such as operators following improper procedures), and still others
+will probably lead to either factors that will be held constant during the experiment
+or blocked (such as temperature and relative humidity). Figure 1.11 is a cause-and-
+effect diagram for an experiment to study the effect of several factors on the tur-
+bine blades produced on a computer-numerical-controlled (CNC) machine. This
+experiment has three response variables: blade profile, blade surface finish, and
+surface finish defects in the finished blade. The causes are organized into groups
+of controllable factors from which the design factors for the experiment may be
+selected, uncontrollable factors whose effects will probably be balanced out by
+randomization, nuisance factors that may be blocked, and factors that may be held
+constant when the experiment is conducted. It is not unusual for experimenters to
+construct several different cause-and-effect diagrams to assist and guide them dur-
+ing preexperimental planning. For more information on the CNC machine experi-
+ment and further discussion of graphical methods that are useful in preexperimental
+planning, see the supplemental text material for this chapter.
+We reiterate how crucial it is to bring out all points of view and process infor-
+mation in steps 1 through 3. We refer to this as pre-experimental planning. Coleman
+and Montgomery (1993) provide worksheets that can be useful in pre-experimental
+planning. Also see the supplemental text material for more details and an example
+of using these worksheets. It is unlikely that one person has all the knowledge required
+to do this adequately in many situations. Therefore, we strongly argue for a team effort
+in planning the experiment. Most of your success will hinge on how well the pre-
+experimental planning is done.
+4. Choice of experimental design.
+If the above pre-experimental planning activities are
+done correctly, this step is relatively easy. Choice of design involves consideration of
+sample size (number of replicates), selection of a suitable run order for the experi-
+mental trials, and determination of whether or not blocking or other randomization
+restrictions are involved. This book discusses some of the more important types of
+18
+Chapter 1 ■Introduction
+Feed rate
+Viscosity of
+cutting fluid
+Operators
+Tool vendor
+Temp of cutting
+fluid
+Held-constant
+factors
+Nuisance (blocking)
+factors
+Uncontrollable
+factors
+Controllable design
+factors
+Blade profile,
+surface finish,
+defects
+x-axis shift
+y-axis shift
+Spindle differences
+Ambient temp
+Titanium properties
+z-axis shift
+Spindle speed
+Fixture height
+■F I G U R E 1 . 1 1
+A cause-and-effect diagram for the CNC 
+machine experiment

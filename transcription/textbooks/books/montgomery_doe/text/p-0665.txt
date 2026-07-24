@@ -1,0 +1,203 @@
+15.1 Nonnormal Responses and Transformations
+649
+Logistic regression is widely used and may be the most common application of the
+GLM. It nds wide application in the biomedical eld with dose-response studies (where the
+design factor is the dose of a particular therapeutic treatment and the response is whether or
+not the patient responds successfully to the treatment). Many reliability engineering experi-
+ments involve binary (success–failure) data, such as when units of products or components
+are subjected to a stress or load and the response is whether or not the unit fails.
+E X A M P L E 1 5 . 3
+The Grill Defects Experiment
+Problem 8.29 introduced an experiment to study the effects
+of nine factors on defects in sheet-molded grill opening 
+panels. Bisgaard and Fuller (1994–95) performed an inter-
+esting and useful analysis of these data to illustrate the value
+of data transformation in a designed experiment. As 
+we observed in Problem 8.29 part (f), they used a modifica-
+tion of the square root transformation that led to the model
+(y˙ y˙ 1)2 2.513 0.996x4 1.21x6 0.772x2x7
+where, as usual, the x’s represent the coded design factors.
+This transformation does an excellent job of stabilizing the
+variance of the number of defectives. The rst two panels
+of Table 15.3 present some information about this model.
+Under the “transformed” heading, the rst column contains
+the predicted response. Notice that there are two negative
+predicted values. The “untransformed” heading presents
+the untransformed predicted values, along with 95 percent
+condence intervals on the mean response at each of the 16
+design points. Because there were some negative predicted
+■TA B L E 1 5 . 3
+Least Squares and Generalized Linear Model Analysis for the Grill Opening Panels Experiment
+Using Least Squares Methods with Freeman and 
+Generalized Linear 
+Tukey Modiﬁed Square Root Data Transformation
+Model (Poisson 
+Length of the 
+Transformed
+Untransformed
+Response, Log Link)
+95% Conﬁdence
+95%
+95%
+95%
+Interval
+Predicted
+Conﬁdence
+Predicted
+Conﬁdence
+Predicted
+Conﬁdence
+Least
+Observation
+Value
+Interval
+Value
+Interval
+Value
+Interval
+Squares
+GLM
+1
+5.50
+(4.14, 6.85)
+29.70
+(16.65, 46.41)
+51.26
+(42.45, 61.90)
+29.76
+19.45
+2
+3.95
+(2.60, 5.31)
+15.12
+(6.25, 27.65)
+11.74
+(8.14, 16.94)
+21.39
+8.80
+3
+1.52
+(0.17, 2.88)
+1.84
+(1.69, 7.78)
+1.12
+(0.60, 2.08)
+6.09
+1.47
+4
+3.07
+(1.71, 4.42)
+8.91
+(2.45, 19.04)
+4.88
+(2.87, 8.32)
+16.59
+5.45
+5
+1.52
+(0.17, 2.88)
+1.84
+(1.69, 7.78)
+1.12
+(0.60, 2.08)
+6.09
+1.47
+6
+3.07
+(1.71, 4.42)
+8.91
+(2.45, 19.04)
+4.88
+(2.87, 8.32)
+16.59
+5.45
+7
+5.50
+(4.14, 6.85)
+29.70
+(16.65, 46.41)
+51.26
+(42.45, 61.90)
+29.76
+19.45
+8
+3.95
+(2.60, 5.31)
+15.12
+(6.25, 27.65)
+11.74
+(8.14, 16.94)
+21.39
+8.80
+9
+1.08
+(0.28, 2.43)
+0.71
+(*, 5.41)
+0.81
+(0.42, 1.56)
+*
+1.13
+10
+0.47
+(1.82, 0.89)
+*
+(*, 0.36)
+0.19
+(0.09, 0.38)
+*
+0.29
+11
+1.96
+(0.61, 3.31)
+3.36
+(0.04, 10.49)
+1.96
+(1.16, 3.30)
+10.45
+2.14
+12
+3.50
+(2.15, 4.86)
+11.78
+(4.13, 23.10)
+8.54
+(5.62, 12.98)
+18.96
+7.35
+13
+1.96
+(0.61, 3.31)
+3.36
+(0.04, 10.49)
+1.96
+(1.16, 3.30)
+10.45
+2.14
+14
+3.50
+(2.15, 4.86)
+11.78
+(4.13, 23.10)
+8.54
+(5.62, 12.98)
+18.97
+7.35
+15
+1.08
+(0.28, 2.43)
+0.71
+(*, 5.41)
+0.81
+(0.42, 1.56)
+*
+1.13
+16
+0.47
+(1.82, 0.89)
+*
+(*, 0.36)
+0.19
+(0.09, 0.38)
+*
+0.29 

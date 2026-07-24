@@ -1,0 +1,31 @@
+6
+CHAPTER 1. MARTINGALES IN DISCRETE TIME
+At this point, we have not derived this relation mathematically; in fact, we
+have not even dened the conditional expectation. Instead, we will use this
+reasoning to motivate the following denition.
+Denition The E[Y Fn] is the unique random
+variable satisfying the following.
+E[Y Fn] is Fn-measurable.
+For every Fn-measurable event A,
+E [E[Y Fn] 1A] = E [Y 1A] 
+We have used dierent fonts for the E of conditional expectation and the E
+of usual expectation in order to emphasize that the conditional expectation is
+a random variable. However, most authors use the same font for both leaving
+it up to the reader to determine which is being referred to.
+Suppose (Ω, F, P) is a probability space and Y is an integrable random
+variable. Suppose G is a sub σ-algebra of F. Then E[Y G] is dened to
+be the unique (up to an event of measure zero) G-measurable random
+variable such that if A G,
+E [Y 1A] = E [E[Y G] 1A] 
+Uniqueness follows from the fact that if Z1, Z2 are G-measurable ran-
+dom variables with
+E [Z1 1A] = E [Z2 1A]
+for all A G, then PZ1̸ = Z2= 0. Existence of the conditional
+expectation can be deduced from the Radon-Nikodym theorem. Let
+µ(A) = E [Y 1A]. Then µ is a (signed) measure on (Ω, G, P) with µ ≪P,
+and hence there exists an L1 random variable Z with µ(A) = E [Z1A]
+for all A G.
+Although the denition does not give an immediate way to calculate the
+conditional expectation, in many cases one can compute it. We will give a
+number of properties of the conditional expectation most of which follow
+quickly from the denition.

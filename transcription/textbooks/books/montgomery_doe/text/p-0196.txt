@@ -1,0 +1,174 @@
+4.22.
+The effect of ve different ingredients (A, B, C, D, E)
+on the reaction time of a chemical process is being studied.
+Each batch of new material is only large enough to permit ve
+runs to be made. Furthermore, each run requires approximately
+hours, so only ve runs can be made in one day. The exper-
+imenter decides to run the experiment as a Latin square so that
+day and batch effects may be systematically controlled. She
+obtains the data that follow. Analyze the data from this exper-
+iment (use 0.05) and draw conclusions.
+Day
+Batch
+1
+2
+3
+4
+5
+1
+A 8
+B 7
+D 1
+C 7
+E 3
+2
+C 11
+E 2
+A 7
+D 3
+B 8
+3
+B 4
+A 9
+C 10
+E 1
+D 5
+4
+D 6
+C 8
+E 6
+B 6
+A 10
+5
+E 4
+D 2
+B 3
+A 8
+C 8
+4.23.
+An industrial engineer is investigating the effect of
+four assembly methods (A, B, C, D) on the assembly time for
+a color television component. Four operators are selected for
+the study. Furthermore, the engineer knows that each assem-
+bly method produces such fatigue that the time required for
+the last assembly may be greater than the time required for the
+rst, regardless of the method. That is, a trend develops in the
+required assembly time. To account for this source of variabil-
+ity, the engineer uses the Latin square design shown below.
+Analyze the data from this experiment (0.05) and draw
+appropriate conclusions.
+Order of
+Operator
+Assembly
+1
+2
+3
+4
+1
+C  10
+D  14
+A  7
+B  8
+2
+B  7
+C  18
+D  11
+A 8
+3
+A  5
+B  10
+C 11
+D 9
+4
+D  10
+A  10
+B 12
+C 14
+4.24.
+Consider the randomized complete block design in
+Problem 4.4. Assume that the days are random. Estimate the
+block variance component.
+4.25.
+Consider the randomized complete block design in
+Problem 4.7. Assume that the coupons are random. Estimate
+the block variance component.
+4.26.
+Consider the randomized complete block design in
+Problem 4.9. Assume that the trucks are random. Estimate the
+block variance component.
+1
+1
+2
+180
+Chapter 4 ■Randomized Blocks, Latin Squares, and Related Designs
+4.27.
+Consider the randomized complete block design in
+Problem 4.11. Assume that the software projects that 
+were used as blocks are random. Estimate the block variance
+component.
+4.28.
+Consider the gene expression experiment in Problem
+4.12. Assume that the subjects used in this experiment are ran-
+dom. Estimate the block variance component.
+4.29.
+Suppose that in Problem 4.20 the observation from
+batch 3 on day 4 is missing. Estimate the missing value and
+perform the analysis using the value.
+4.30.
+Consider a p p Latin square with rows (i),
+columns (k), and treatments (j) xed. Obtain least squares
+estimates of the model parameters i, k, and j.
+4.31.
+Derive the missing value formula (Equation 4.27) for
+the Latin square design.
+4.32.
+Designs involving several Latin squares. [See
+Cochran and Cox (1957), John (1971).] The p p Latin square
+contains only p observations for each treatment. To obtain more
+replications the experimenter may use several squares, say n. It
+is immaterial whether the squares used are the same or differ-
+ent. The appropriate model is
+where yijkh is the observation on treatment j in row i and col-
+umn k of the hth square. Note that i(h) and k(h) are the row
+and column effects in the hth square, h is the effect of the hth
+square, and ()jh is the interaction between treatments and
+squares.
+(a) Set up the normal equations for this model, and solve
+for estimates of the model parameters. Assume that
+appropriate side conditions on the parameters are
+, and 
+kk(h) 0 for each h,
+
+0,
+for each h, and 
+0 for 
+each j.
+(b) Write down the analysis of variance table for this
+design.
+4.33.
+Discuss how the operating characteristics curves in
+the Appendix may be used with the Latin square design.
+4.34.
+Suppose that in Problem 4.22 the data taken on day 5
+were incorrectly analyzed and had to be discarded. Develop
+an appropriate analysis for the remaining data.
+4.35.
+The yield of a chemical process was measured using
+ve batches of raw material, ve acid concentrations, ve
+standing times (A, B, C, D, E), and ve catalyst concentrations
+(, , , , ). The Graeco-Latin square that follows was used.
+Analyze the data from this experiment (use 0.05) and
+draw conclusions.
+h(ˆ)jh 
+j(ˆ)jh 0
+jˆj
+
+hˆh 0, iˆ i(h) 0
+yijkh 
+h i(h)
+j k(h)
+ ()jh ijkh
+i  1,2, . . . , p
+j  1,2, . . . , p
+k  1,2, . . . , p
+h  1,2, . . . , n

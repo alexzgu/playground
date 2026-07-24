@@ -1,0 +1,76 @@
+626
+Chapter 14 ■Nested and Split-Plot Designs
+as in the tensile strength problem described above. Alternatively, we sometimes nd that com-
+plete randomization is not feasible because it is more difcult to change the levels of some
+factors than others. The hard-to-vary factors form the whole plots whereas the easy-to-vary
+factors are run in the subplots. The review paper by Jones and Nachtsheim (2009) is an excel-
+lent source of information and key references on split-plot designs.
+In principle, we must carefully consider how the experiment must be conducted and
+incorporate all restrictions on randomization into the analysis. We illustrate this point using a
+modication of the eye focus time experiment in Chapter 6. Suppose there are only two fac-
+tors: visual acuity (A) and illumination level (B). A factorial experiment with a levels of
+acuity, b levels of illumination, and n replicates would require that all abn observations be
+taken in random order. However, in the test apparatus, it is fairly difcult to adjust these two
+factors to different levels, so the experimenter decides to obtain the n replicates by adjusting
+the device to one of the a acuities and one of the b illumination levels and running all n obser-
+vations at once. In the factorial design, the error actually represents the scatter or noise in the
+system plus the ability of the subject to reproduce the same focus time. The model for the fac-
+torial design could be written as
+(14.17)
+where ijk represents the scatter or noise in the system that results from “experimental
+error” (that is, our failure to duplicate exactly the same levels of acuity and illumination on
+different runs, variability in environmental conditions, and the like), and ijk represents the
+“reproducibility error” of the subject. Usually, we combine these components into one
+overall error term, say ijk ijk ijk. Assume that V(ijk) 2 
+. Now, in the
+factorial design, the error mean square has expectation 2 
+, with ab(n 1)
+degrees of freedom.
+If we restrict the randomization as in the second design above, then the “error” mean
+square in the analysis of variance provides an estimate of the “reproducibility error”
+with
+ab(n 1) degrees of freedom, but it yields no information on the “experimental error”
+.
+Thus, the mean square for error in this second design is too small; consequently, we will
+wrongly reject the null hypothesis very frequently. As pointed out by John (1971), this design
+is similar to a split-plot design with ab whole plots, each divided into n subplots, and no sub-
+treatment. The situation is also similar to subsampling, as described by Ostle (1963).
+Assuming that A and B are xed, we nd that the expected mean squares in this case are
+(14.18)
+Thus, there are no tests on the main effects unless interaction is negligible. The situation is
+exactly that of a two-way analysis of variance with one observation per cell. If both factors
+are random, then the main effects may be tested against the AB interaction. If only one factor
+is random, then the xed factor can be tested against the AB interaction.
+E(MSE) 2
+
+E(MSAB) 2
+n2
+
+n  ()2
+ij
+(a 1)(b 1)
+E(MSB) 2
+n2
+
+an 2
+j
+b 1
+E(MSA) 2
+n2
+bn 2
+i
+a 1
+2
+
+2
+
+2
+2
+
+2
+2
+
+yijk i j ()ij ijk ijk 
+i 1, 2, . . . , a
+j 1, 2, . . . , b
+k 1, 2, . . . , n

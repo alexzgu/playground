@@ -1,0 +1,33 @@
+4.2. AN EXAMPLE: THE BESSEL PROCESS
+131
+4.2
+An example: the Bessel process
+The Bessel process with parameter a is the solution to the SDE
+dXt = a
+Xt
+dt + dBt,
+X0 = x0 > 0
+If we choose a = (d−1)2, this is called the Bessel-d process and is related to
+d-dimensional Brownian motion (see Exercise 4.4). Let Tϵ = inft : Xt ≤ϵ
+There is no problem nding a solution to this equation for t < Tϵ, and hence
+it is well dened for t < T where
+T = T0 = inft : Xt = 0
+At time T the equation is ill-dened so we will not consider the process for
+t > T. If a > 0, then when Xt gets close to 0, there is a strong drift away
+from the origin. It is not obvious whether or not this is strong enough to keep
+the diusion from reaching the origin.
+Suppose that 0 < r < R < ∞and let
+τ = τ(r, R) = inft : Xt = r or Xt = R
+For r ≤x ≤R, let
+ϕ(x) = PXτ = R X0 = x
+We will use Itˆo’s formula to compute ϕ. Note that ϕ(r) = 0, ϕ(R) = 1. Let J
+denote the indicator function of the event Xτ = Rand let
+Mt = E[J Ft]
+The tower property for conditional expectation implies that Mt is a martin-
+gale; indeed, if s < t,
+E[Mt Fs] = E[ E(J Ft) Fs] = E[J Fs] = Ms
+The Markovian nature of the diusion X implies that
+E[J Ft] = ϕ(Xt∧τ)
+In other words, if τ ≤t, then we already know whether or not Xτ = R.
+However, if τ > t, the only useful information in Ft for predicting if Xτ = R
+is Xt, and the conditional probability is the probability that this occurs given

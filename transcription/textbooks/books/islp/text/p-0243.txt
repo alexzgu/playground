@@ -1,0 +1,42 @@
+6.1 Subset Selection
+235
+efficient alternative to best subset selection. However, unlike forward step-
+wise selection, it begins with the full least squares model containing all p
+predictors, and then iteratively removes the least useful predictor, one-at-
+a-time. Details are given in Algorithm 6.3.
+Algorithm 6.3 Backward stepwise selection
+1. Let Mp denote the full model, which contains all p predictors.
+2. For k = p, p −1, . . . , 1:
+(a) Consider all k models that contain all but one of the predictors
+in Mk, for a total of k −1 predictors.
+(b) Choose the best among these k models, and call it Mk−1. Here
+best is defined as having smallest RSS or highest R2.
+3. Select a single best model from among M0, . . . , Mp using the pre-
+diction error on a validation set, Cp (AIC), BIC, or adjusted R2. Or
+use the cross-validation method.
+Like forward stepwise selection, the backward selection approach searches
+through only 1+p(p+1)/2 models, and so can be applied in settings where
+p is too large to apply best subset selection.3 Also like forward stepwise
+selection, backward stepwise selection is not guaranteed to yield the best
+model containing a subset of the p predictors.
+Backward selection requires that the number of samples n is larger than
+the number of variables p (so that the full model can be fit). In contrast,
+forward stepwise can be used even when n < p, and so is the only viable
+subset method when p is very large.
+Hybrid Approaches
+The best subset, forward stepwise, and backward stepwise selection ap-
+proaches generally give similar but not identical models. As another al-
+ternative, hybrid versions of forward and backward stepwise selection are
+available, in which variables are added to the model sequentially, in analogy
+to forward selection. However, after adding each new variable, the method
+may also remove any variables that no longer provide an improvement in
+the model fit. Such an approach attempts to more closely mimic best sub-
+set selection while retaining the computational advantages of forward and
+backward stepwise selection.
+6.1.3
+Choosing the Optimal Model
+Best subset selection, forward selection, and backward selection result in
+the creation of a set of models, each of which contains a subset of the p
+3Like forward stepwise selection, backward stepwise selection performs a guided search
+over model space, and so effectively considers substantially more than 1 + p(p + 1)/2
+models.

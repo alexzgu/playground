@@ -1,0 +1,101 @@
+124
+Chapter 3 ■Experiments with a Single Factor: The Analysis of Variance
+characteristic of REML is that it takes the location parameters in the model into account when
+estimating the random effects. As a simple example, suppose that we want to estimate the mean
+and variance of a normal distribution using the method of maximum likelihood. It is easy to
+show that the MLEs are
+Notice that the MLE 
+is not the familiar sample standard deviation. It does not take the esti-
+mation of the location parameter 
+into account. The REML estimator would be 
+The REML estimator is unbiased.
+To illustrate the REML method, Table 3.19 presents the JMP output for the loom exper-
+iment in Example 3.11. The REML estimates of the model parameters 
+and 
+are
+shown in the output. Note that the REML estimates of the variance components are identical
+to those found earlier by the ANOVA method. These two methods will agree for balanced
+designs. However, the REML output also contains the covariance matrix of the variance
+components. The square roots of the main diagonal elements of this matrix are the standard
+2
+, 2
+,
+S2 
+n
+i1
+(yi y)2
+n 1
+
+ˆ 2
+ˆ 2 
+n
+i1
+(yi y)2
+n
+ˆ 
+n
+i1
+yi
+n
+y
+■T A B L E 3 . 1 9
+JMP Output for the Loom Experiment in Example 3.11
+Response Y
+Summary of Fit
+RSquare
+0.793521
+RSquare Adj
+0.793521
+Root Mean Square Error
+1.376893
+Mean of Response
+95.4375
+Observations (or Sum Wgts)
+16
+Parameter Estimates
+Term
+Estimate
+Std Error
+DFDen
+t Ratio
+Prob>|t|
+Intercept
+95.4375
+1.363111
+3
+70.01
+<.0001*
+REML Variance Component Estimates
+Random Effect
+Var Ratio
+Var Component
+Std Error
+95% Lower
+95% Upper
+Pct of Total
+X1
+3.6703297
+6.9583333
+6.0715247
+4.941636
+18.858303
+78.588
+Residual
+1.8958333
+0.7739707
+0.9748608
+5.1660065
+21.412
+Total
+8.8541667
+100.000
+Covariance Matrix of Variance Component Estimates
+Random Effect
+X1
+Residual
+X1
+36.863412
+0.149758
+Residual
+0.149758
+0.5990307

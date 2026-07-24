@@ -1,0 +1,70 @@
+Consequently the precision with which the difference in the two means is estimated
+depends on two quantities—Sp, over which we have no control, and 
+, which
+we can control by choosing the sample size n. Figure 2.12 is a plot of 
+versus
+n for = 0.05. Notice that the curve descends rapidly as n increases up to about n = 10 and
+less rapidly beyond that. Since Sp is relatively constant and 
+isn’t going to
+change much for sample sizes beyond n  10 or 12, we can conclude that choosing a sample
+size of n  10 or 12 from each population in a two-sample 95% CI will result in a CI that
+results in about the best precision of estimation for the difference in the two means that is
+possible given the amount of inherent variability that is present in the two populations.
+We can also use a hypothesis testing framework to determine sample size. The choice
+of sample size and the probability of type II error are closely connected. Suppose that we
+are testing the hypotheses
+and that the means are not equal so that 1 2. Because H0 : 1 2 is not true, we are
+concerned about wrongly failing to reject H0. The probability of type II error depends on the
+true difference in means . A graph of versus for a particular sample size is called the oper-
+ating characteristic curve, or O.C. curve for the test. The error is also a function of sample
+size. Generally, for a given value of , the error decreases as the sample size increases. That is, a
+specied difference in means is easier to detect for larger sample sizes than for smaller ones.
+An alternative to the OC curve is a power curve, which typically plots power or 1 ‚
+versus sample size for a specied difference in the means. Some software packages perform
+power analysis and will plot power curves. A set of power curves constructed using JMP for
+the hypotheses 
+is shown in Figure 2.13 for the case where the two population variances 
+and 
+are
+unknown but equal (
+) and for a level of signicance of 0.05. These power
+2
+1 2
+2 2
+2
+2
+2
+1
+H11 Z 2
+H01 2
+H11 Z 2
+H01 2
+t/2, 2n 22n
+t/2, 2n 22n
+t/2, 2n 22n
+t/2, 2n 2 Sp
+2
+n
+2.4 Inferences About the Differences in Means, Randomized Designs
+45
+■F I G U R E 2 . 1 2
+Plot of 
+versus sample size in each population n for 0.05
+2n
+t/2, 2n  2
+t*sqrt (2/n)
+4.5
+4.0
+3.5
+3.0
+2.5
+2.0
+1.5
+1.0
+0.5
+0
+5
+10
+n
+15
+20

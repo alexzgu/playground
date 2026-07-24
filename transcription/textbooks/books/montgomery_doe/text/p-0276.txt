@@ -1,0 +1,106 @@
+260
+Chapter 6 ■The 2k Factorial Design
+Design Projection. Another interpretation of the effects in Figure 6.11 is possible.
+Because B (pressure) is not signicant and all interactions involving B are negligible, we may
+discard B from the experiment so that the design becomes a 23 factorial in A, C, and D with
+two replicates. This is easily seen from examining only columns A, C, and D in the design
+matrix shown in Table 6.10 and noting that those columns form two replicates of a 23 design.
+The analysis of variance for the data using this simplifying assumption is summarized in
+Table 6.13. The conclusions that we would draw from this analysis are essentially unchanged
+from those of Example 6.2. Note that by projecting the single replicate of the 24 into a repli-
+cated 23, we now have both an estimate of the ACD interaction and an estimate of error based
+on what is sometimes called hidden replication.
+The concept of projecting an unreplicated factorial into a replicated factorial in fewer
+factors is very useful. In general, if we have a single replicate of a 2k design, and if h (h k)
+factors are negligible and can be dropped, then the original data correspond to a full two-level
+factorial in the remaining k h factors with 2h replicates.
+Diagnostic Checking. The usual diagnostic checks should be applied to the residu-
+als of a 2k design. Our analysis indicates that the only signicant effects are A  21.625,
+C  9.875, D  14.625, AC  18.125, and AD  16.625. If this is true, the estimated l-
+tration rates are given by
+where 70.06 is the average response, and the coded variables x1, x3, x4 take on values between
+1 and 1. The predicted ltration rate at run (1) is
+46.22
+
+18.125
+2 (1)(1) 
+16.625
+2 (1)(1)
+yˆ 70.06 
+21.625
+2 (1) 
+9.875
+2 (1) 
+14.625
+2 (1)
+
+16.625
+2 x1x4
+yˆ 70.06 
+21.625
+2 x1 
+9.875
+2 x3 
+14.625
+2 x4 
+18.125
+2 x1x3
+■TA B L E 6 . 1 3
+Analysis of Variance for the Pilot Plant Filtration Rate Experiment in A, C, and D
+Source of 
+Sum of
+Degrees of
+Mean
+Variation
+Squares
+Freedom
+Square
+F0
+P-Value
+A
+1870.56
+1
+1870.56
+83.36
+0.0001
+C
+390.06
+1
+390.06
+17.38
+0.0001
+D
+855.56
+1
+855.56
+38.13
+0.0001
+AC
+1314.06
+1
+1314.06
+58.56
+0.0001
+AD
+1105.56
+1
+1105.56
+49.27
+0.0001
+CD
+5.06
+1
+5.06
+1
+ACD
+10.56
+1
+10.56
+1
+Error
+179.52
+8
+22.44
+Total
+5730.94
+15

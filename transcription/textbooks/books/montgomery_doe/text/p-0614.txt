@@ -1,0 +1,98 @@
+598
+Chapter 13 ■Experiments with Random Factors
+has a chi-square distribution with fE degrees of freedom. The exact 100(1 ) percent con-
+dence interval is
+(13.22)
+Unfortunately, in more complex experiments involving several design factors, it is gen-
+erally not possible to nd exact condence intervals on the variance components of interest
+because these variances are not the expected value of a single mean square from the analysis
+of variance. The advantage of the REML method is that it produces standard errors of the
+variance component estimates, so nding approximate condence intervals is easy. The con-
+cepts underlying Satterthwaite’s approximate “pseudo” F tests, introduced in Section 13.6,
+can also be employed to construct approximate condence intervals on variance components
+for which no exact CI is available and as an alternative to REML if it is not available.
+Recall that Satterthwaite’s method uses two linear combinations of mean squares
+and
+with the test statistic
+having an approximate F distribution. Using appropriate degrees of freedom for MSand MS,
+dened in Equations 13.20 and 13.21, we can use this F statistic in an approximate test of the
+signicance of the parameter or variance component of interest.
+For testing the signicance of a variance component, say 
+, the two linear combina-
+tions, MSand MS, are chosen such that the difference in their expected values is equal to a
+multiple of the component, say
+or
+.
+(13.23)
+Equation 13.23 provides a basis for a point estimate of 
+:
+(13.24)
+The mean squares (MSi) in Equation 13.24 are independent with fiMSi/
+SSi/
+having
+chi-square distributions with fi degrees of freedom. The estimate of the variance component,
+, is a linear combination of multiples of the mean squares, and 
+has an approximate
+chi-square distribution with r degrees of freedom, where
+(13.25)
+(MSr Á MSs MSu Á MSv)2
+MS 2
+r
+fr
+Á MS 2
+s
+fs
+MS 2
+u
+fu
+Á MS 2
+v
+fv
+r 
+(ˆ 2
+0)2
+
+m
+i1
+1
+k2
+MS 2
+i
+fi
+rˆ 2
+0/2
+0
+ˆ 2
+0
+2
+i
+2
+i
+1
+k MSr Á 1
+k MSs 1
+k MSu Á 1
+k MSv
+ˆ 2
+0 MSMS
+k
+2
+0
+2
+0 E(MS) E(MS)
+k
+E(MS) E(MS) k2
+0
+2
+0
+F MS
+MS
+MSMSu Á MSv
+MSMSr Á MSs
+fEMSE
+2
+/2,fE
+2 
+feMSE
+2
+1/2,fE

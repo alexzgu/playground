@@ -1,0 +1,44 @@
+412
+10. Deep Learning
+FIGURE 10.9. Data augmentation. The original image (leftmost) is distorted
+in natural ways to produce different images with the same class label. These
+distortions do not fool humans, and act as a form of regularization when fitting
+the CNN.
+zoom, horizontal and vertical shift, shear, small rotations, and in this case
+horizontal flips. At face value this is a way of increasing the training set
+considerably with somewhat different examples, and thus protects against
+overfitting. In fact we can see this as a form of regularization: we build a
+cloud of images around each original image, all with the same label. This
+kind of fattening of the data is similar in spirit to ridge regularization.
+We will see in Section 10.7.2 that the stochastic gradient descent al-
+gorithms for fitting deep learning models repeatedly process randomly-
+selected batches of, say, 128 training images at a time. This works hand-in-
+glove with augmentation, because we can distort each image in the batch
+on the fly, and hence do not have to store all the new images.
+10.3.5
+Results Using a Pretrained Classifier
+Here we use an industry-level pretrained classifier to predict the class of
+some new images. The resnet50 classifier is a convolutional neural network
+that was trained using the imagenet data set, which consists of millions of
+images that belong to an ever-growing number of categories.10 Figure 10.10
+demonstrates the performance of resnet50 on six photographs (private col-
+lection of one of the authors).11 The CNN does a reasonable job classifying
+the hawk in the second image. If we zoom out as in the third image, it
+gets confused and chooses the fountain rather than the hawk. In the final
+image a “jacamar” is a tropical bird from South and Central America with
+similar coloring to the South African Cape Weaver. We give more details
+on this example in Section 10.9.4.
+Much of the work in fitting a CNN is in learning the convolution filters
+at the hidden layers; these are the coefficients of a CNN. For models fit to
+massive corpora such as imagenet with many classes, the output of these
+filters can serve as features for general natural-image classification prob-
+lems. One can use these pretrained hidden layers for new problems with
+much smaller training sets (a process referred to as weight freezing), and weight
+freezing
+just train the last few layers of the network, which requires much less data.
+10For more information about resnet50, see He, Zhang, Ren, and Sun (2015) “Deep
+residual learning for image recognition”, https://arxiv.org/abs/1512.03385. For de-
+tails about imagenet, see Russakovsky, Deng, et al. (2015) “ImageNet Large Scale
+Visual Recognition Challenge”, in International Journal of Computer Vision.
+11These resnet results can change with time, since the publicly-trained model gets
+updated periodically.

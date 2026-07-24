@@ -1,0 +1,94 @@
+model. There are two parameters in the design that must be specied: the distance of the
+axial runs from the design center and the number of center points nC. We now discuss the
+choice of these two parameters.
+Rotatability. It is important for the second-order model to provide good predictions
+throughout the region of interest. One way to dene “good” is to require that the model should
+have a reasonably consistent and stable variance of the predicted response at points of interest
+x. Recall from Equation 10.40 that the variance of the predicted response at some point x is
+(11.15)
+Box and Hunter (1957) suggested that a second-order response surface design should be
+rotatable. This means that the 
+is the same at all points x that are at the same distance
+from the design center. That is, the variance of predicted response is constant on spheres.
+Figure 11.21 shows contours of constant 
+for the second-order model t using
+the CCD in Example 11.2. Notice that the contours of constant standard deviation of predicted
+V[yˆ(x)]
+V[yˆ(x)]
+V[yˆ(x)] 2x(XX)1x
+502
+Chapter 11 ■Response Surface Methods and Designs
+x1
+x2
+x3
+(0,0)
+(0,   )
+(0, –   )
+(+1, –1)
+(+1, +1)
+(–1, +1)
+(–1, –1)
+(   , 0)
+(–   , 0)
+α
+α
+α
+α
+x1
+x2
+■F I G U R E 1 1 . 2 0
+Central composite designs for k 2 and k 3
+Time
+(a) Contours of   V[y(x)]
+Temperature
+77.93
+80.29
+82.64
+85.00
+87.36
+89.71
+92.07
+167.9
+170.3
+172.6
+175.0
+177.4
+179.7
+182.1
+0.3949
+0.3020
+0.2091
+0.1161
+182.1
+179.2
+176.4
+173.6
+170.8
+167.9
+77.93
+80.76
+83.59
+86.41
+89.24
+92.07
+Temperature
+Time
+(b) The response surface plot
+0.1625
+0.2090
+0.2090
+0.2555
+0.2555
+0.2555
+0.2555
+0.3019
+0.3484
+0.3019
+0.3484
+0.3019
+ V[y(x)]
+›
+›
+■F I G U R E 1 1 . 2 1
+Contours of constant standard deviation of predicted response for the rotatable
+CCD, Example 11.2

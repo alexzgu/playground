@@ -1,0 +1,42 @@
+4.3. FEYNMAN-KAC FORMULA
+135
+In particular,
+dϕ(t, Xt) = Ht dt + At dBt,
+with
+Ht = ∂tϕ(t, Xt) + m(t, Xt) ∂xϕ(t, Xt) + 1
+2 σ(t, Xt)2 ∂xxϕ(t, Xt),
+At = σ(t, Xt) ∂xϕ(t, Xt)
+Since ⟨R⟩t = 0, the stochastic product rule implies that
+d[R−1
+t ϕ(t, Xt)] = R−1
+t
+dϕ(t, Xt) + ϕ(t, Xt) d[R−1
+t ],
+and hence the dt term of d[R−1
+t ϕ(t, Xt)] is R−1
+t
+times
+−r(t, Xt) ϕ(t, Xt) + ∂tϕ(t, Xt) + m(t, Xt) ∂xϕ(t, Xt)
++1
+2 σ(t, Xt)2 ∂xxϕ(t, Xt)
+Since Mt is a martingale, the dt term must be identically zero. This happens
+only if for all t, x,
+−r(t, x) ϕ(t, x) + ∂tϕ(t, x) + m(t, x) ∂xϕ(t, x)
++1
+2 σ(t, x)2 ∂xxϕ(t, x) = 0
+We have derived the following.1
+Theorem 4.3.1 (Feynman-Kac formula). SXt 
+dXt = m(t, Xt) dt + σ(t, Xt) dBt,
+X0 = x0,
+r(t, x) ≥0 . SF T 
+E[F(XT)] < ∞. Iϕ(t, x), 0 ≤t ≤T (4.5), ϕ(t, x)
+C1 t C2 x, ϕ(t, x) PDE
+∂tϕ(t, x) = −m(t, x) ∂xϕ(t, x)
+−1
+2 σ(t, x)2 ∂xxϕ(t, x) + r(t, x) ϕ(t, x),
+0 ≤t < T, ϕ(T, x) = F(x).
+1One of our assumptions in Theorem 4.3.1 is that ϕ is suciently dierentiable. One can
+give conditions on the coecients and payofunction F under which this holds, and they
+include the examples that we give, but the general theory is beyond what we will discuss
+in this book. See I. Karatzas and S. Shreve, Brownian Motion and Stochastic Calculus,
+2nd. ed, Springer (1991), Section 5.7.B for a discussion of this.

@@ -1,0 +1,81 @@
+226
+CHAPTER 6. JUMP PROCESSES
+We now suppose that As is an adapted process with left continuous paths.
+If ˜As is an adapted process with cadlag paths, we could take As = ˜As−. We
+approximate As by a simple process A(n)
+s
+by choosing
+A(n)
+s
+= 2n
+j2−n
+(j−1)2−n Ar dr
+if
+j
+2n < r ≤j + 1
+2n 
+The integral is dened by
+t
+0
+As dYs = lim
+n∞
+t
+0
+A(n)
+s
+dYs
+Let us give be more precise about this denition. Suppose that At
+is a process with left continuous paths with right limits, that is, the
+left continuous version of a processes with cadlag paths. Assume that
+exists K < ∞such that with probability one. At≤K for all t. Since
+with probability one, the paths are left continuous, we know that
+lim
+n∞A(n)
+t
+= At
+SInce A(n)
+t
+≤K, we can used dominated convergence (for Lebesgue
+measure) to show that with probability one,
+lim
+n∞
+t
+0
+A(n)
+s
+−As2 ds = 0,
+and dominated convegence for P to see that
+lim
+n∞E
+t
+0
+A(n)
+s
+−As2 ds
+
+= lim
+n∞
+t
+0
+E
+
+A(n)
+s
+−As2
+ds = 0
+As in the case for Brownian motion, we use the proposition to see that
+for xed t, the sequence of random variables
+Z(n)
+t
+:=
+t
+0
+A(n)
+s
+dAs,
+is a Cauchy sequence in L2 and has a limit Zt in L2.
+We use this method to dene the integral at dyadic times t, an we
+dene it at other times by
+Zt = lim
+tnt Ztn
+where tn are dyadic rationals.

@@ -1,0 +1,58 @@
+3.5 Comparison of Linear Regression with K-Nearest Neighbors
+113
+−1.0
+−0.5
+0.0
+0.5
+1.0
+1
+2
+3
+4
+−1.0
+−0.5
+0.0
+0.5
+1.0
+1
+2
+3
+4
+y
+y
+x
+x
+FIGURE 3.17. Plots of ˆf(X) using KNN regression on a one-dimensional data
+set with 50 observations. The true relationship is given by the black solid line.
+Left: The blue curve corresponds to K = 1 and interpolates (i.e. passes directly
+through) the training data. Right: The blue curve corresponds to K = 9, and
+represents a smoother fit.
+−1.0
+−0.5
+0.0
+0.5
+1.0
+1
+2
+3
+4
+0.2
+0.5
+1.0
+0.00
+0.05
+0.10
+0.15
+Mean Squared Error
+y
+x
+1/K
+FIGURE 3.18. The same data set shown in Figure 3.17 is investigated further.
+Left: The blue dashed line is the least squares fit to the data. Since f(X) is in
+fact linear (displayed as the black line), the least squares regression line provides
+a very good estimate of f(X). Right: The dashed horizontal line represents the
+least squares test set MSE, while the green solid line corresponds to the MSE
+for KNN as a function of 1/K (on the log scale). Linear regression achieves a
+lower test MSE than does KNN regression, since f(X) is in fact linear. For KNN
+regression, the best results occur with a very large value of K, corresponding to a
+small value of 1/K.

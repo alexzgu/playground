@@ -1,0 +1,36 @@
+2.6. UNDERSTANDING BROWNIAN MOTION
+55
+Indeed, if we dene Ms as above and r < s, then the tower property for
+conditional expectation implies that
+E(Ms Fr) = E(E(Y Fs) Fr) = E(Y Fr) = Mr
+A martingale Mt is called a if with probability
+one the function t →Mt is a continuous function. The word continuous in
+continuous martingale refers not just to the fact that time is continuous but
+also to the fact that the paths are continuous functions of t. One can have
+martingales in continuous time that are not continuous martingales. One
+example is to let Nt be a Poisson process with rate λ as in Section 2.1 and
+Mt = Nt −λ t
+Then using the fact that the increments are independent we see that for
+s < t,
+E[Mt Fs]
+=
+E[Ms Fs] + E[Nt −Ns Fs] −λ(t −s)
+=
+Ms + E [Nt −Ns] −λ(t −s) = Ms
+Brownian motion with zero drift (m = 0) is a continuous martingale
+with one parameter σ. As we will see, the continuous martingales are
+essentially Brownian motion where one allows the σ to vary with time. The
+factor σ will be the analogue of the betfrom the discrete stochastic integral.
+A continuous time ltration on a probability space (Ω, F, P) is a col-
+lection of sub-σ-algebras Ftof F such that if s < t, then Fs ⊂Ft.
+It has been found that it is useful to make some additional technical
+assumptions. First, we assume that F is complete under P, that is,
+it contains all the nulls sets. A set A′ ⊂Ωis a null set (for P) if
+A′ ⊂A for some A F with P(A) = 0. This is convenient for then
+one can prove that an event has probability zero by showing that it
+is contained in an event of probability zero. If F is not complete, one
+can complete it by considering the collection of subsets A A′ where
+A F and A′ is a null set. In the case of Lebesgue measure on the
+Borel subsets of R, the completion is the set of Lebesgue measurable
+sets.
+When using ltrations Ftone often makes further assumptions:

@@ -1,0 +1,31 @@
+588
+13. Multiple Testing
+FIGURE 13.10. 95% confidence intervals for each manager on the Fund data,
+using Tukey’s method to adjust for multiple testing. All of the confidence intervals
+overlap, so none of the differences among managers are statistically significant
+when controlling FWER at level 0.05.
+p-value. All of these quantities have been adjusted for multiple testing.
+Notice that the p-value for the difference between Managers One and Two
+has increased from 0.038 to 0.186, so there is no longer clear evidence of
+a difference between the managers’ performances. We can plot the confi-
+dence intervals for the pairwise comparisons using the plot_simultaneous()
+method of tukey. Any pair of intervals that don’t overlap indicates a sig-
+nificant difference at the nominal level of 0.05. In this case, no differences
+are considered significant as reported in the table above.
+In [16]: fig, ax = plt.subplots(figsize=(8,8))
+tukey.plot_simultaneous(ax=ax);
+The result can be seen19 in Figure 13.10.
+13.6.3
+False Discovery Rate
+Now we perform hypothesis tests for all 2,000 fund managers in the Fund
+dataset. We perform a one-sample t-test of H0,j : µj = 0, which states that
+the jth fund manager’s mean return is zero.
+In [17]: fund_pvalues = np.empty(2000)
+for i, manager in enumerate(Fund.columns):
+fund_pvalues[i] = ttest_1samp(Fund[manager], 0).pvalue
+There are far too many managers to consider trying to control the
+FWER. Instead, we focus on controlling the FDR: that is, the expected
+fraction of rejected null hypotheses that are actually false positives. The
+19Traditionally this plot shows intervals for each paired difference. With many groups
+it is more convenient and equivalent to display one interval per group, as is done here.
+By “differencing” all pairs of intervals displayed here you recover the traditional plot.

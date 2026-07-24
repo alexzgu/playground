@@ -1,0 +1,43 @@
+580
+13. Multiple Testing
+Null Distribution of Test Statistic for 11th Gene
+−4
+−2
+0
+2
+4
+T=−2.0936
+FIGURE 13.7. The 11th gene in the Khan dataset has a test statistic of
+T = −2.09. Its theoretical and re-sampling null distributions are almost identical.
+The theoretical p-value equals 0.041 and the re-sampling p-value equals 0.042.
+FIGURE 13.8. The 877th gene in the Khan dataset has a test statistic of
+T = −0.57. Its theoretical and re-sampling null distributions are quite different.
+The theoretical p-value equals 0.571, and the re-sampling p-value equals 0.673.
+distribution. As in Section 13.5.1, we make use of a two-sample t-statistic for
+each hypothesis, leading to the test statistics T1, . . . , Tm. We could simply
+compute a p-value for each of the m null hypotheses, as in Section 13.5.1,
+and then apply the Benjamini–Hochberg procedure of Section 13.4.2 to
+these p-values. However, it turns out that we can do this in a more direct
+way, without even needing to compute p-values.
+Recall from Section 13.4 that the FDR is defined as E(V/R), using the
+notation in Table 13.2. In order to estimate the FDR via re-sampling, we
+first make the following approximation:
+FDR = E
+*V
+R
++
+≈E(V )
+R
+.
+(13.13)
+Now suppose we reject any null hypothesis for which the test statistic
+exceeds c in absolute value. Then computing R in the denominator on the
+right-hand side of (13.13) is straightforward: R = )m
+j=1 1(|Tj|≥c).
+Null Distribution of Test Statistic for 877th Gene
+−4
+−2
+0
+2
+4
+T=−0.5696

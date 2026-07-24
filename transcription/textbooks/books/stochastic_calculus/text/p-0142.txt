@@ -1,0 +1,66 @@
+136
+CHAPTER 4. MORE STOCHASTIC CALCULUS
+Example 4.3.1. Suppose Xt satises (4.3). Then m(t, x) = mx, σ(t, x) = σx
+and ϕ is as given in (4.4). The Feynman-Kac formula gives
+∂tϕ = r ϕ −mx ∂xϕ −σ2 x2
+2
+∂xxϕ
+(4.7)
+This is a version of the B-SPDE. We will return to this later.
+Let us give a somewhat dierent derivation of the Feynman-Kac formula
+using the generator. Again, suppose that Xt satises
+dXt = m(t, Xt) dt + σ(t, Xt) dBt,
+and that F is a function that does not grow too quickly. Let
+f(t, x) = E [F(XT) Xt = x] 
+Let r(t) ≥0 be a discount rate which for ease we will assume is a deterministic
+function of time, and
+Rt = R0 exp
+t
+0
+r(s) ds
+
+
+Let
+ϕ(t, x) = E [(RtRT) F(XT) Xt = x] = exp
+
+−
+T
+t
+r(s) ds
+
+f(t, x)
+Recall that
+∂tf(t, x) = −Lt
+xf(t, x),
+where Lt is the generator
+Lth(x) = m(t, x) h′(x) + σ(t, x)
+2
+h′′(x)
+Therefore,
+∂tϕ(t, x)
+=
+r(t) exp
+
+−
+T
+t
+r(s) ds
+
+f(t, x)
+−exp
+
+−
+T
+t
+r(s) ds
+
+Lt
+xf(t, x)
+=
+r(t) ϕ(t, x) −Lt
+xϕ(t, x)
+=
+r(t) ϕ(t, x) −m(t, x) ∂xϕ(t, x) −σ2(t, x)
+2
+∂xxϕ(tx),
+which is the Feynman-Kac PDE.

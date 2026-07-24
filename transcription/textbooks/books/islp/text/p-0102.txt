@@ -1,0 +1,75 @@
+3.3 Other Considerations in the Regression Model
+93
+Coefficient
+Std. error
+t-statistic
+p-value
+Intercept
+509.80
+33.13
+15.389
+< 0.0001
+own[Yes]
+19.73
+46.05
+0.429
+0.6690
+TABLE 3.7. Least squares coefficient estimates associated with the regression
+of balance onto own in the Credit data set. The linear model is given in (3.27).
+That is, ownership is encoded as a dummy variable, as in (3.26).
+Now β0 can be interpreted as the overall average credit card balance (ig-
+noring the house ownership effect), and β1 is the amount by which house
+owners and non-owners have credit card balances that are above and below
+the average, respectively.11 In this example, the estimate for β0 is $519.665,
+halfway between the non-owner and owner averages of $509.80 and $529.53.
+The estimate for β1 is $9.865, which is half of $19.73, the average difference
+between owners and non-owners. It is important to note that the final pre-
+dictions for the credit balances of owners and non-owners will be identical
+regardless of the coding scheme used. The only difference is in the way that
+the coefficients are interpreted.
+Qualitative Predictors with More than Two Levels
+When a qualitative predictor has more than two levels, a single dummy
+variable cannot represent all possible values. In this situation, we can create
+additional dummy variables. For example, for the region variable we create
+two dummy variables. The first could be
+xi1 =
+=
+1
+if ith person is from the South
+0
+if ith person is not from the South,
+(3.28)
+and the second could be
+xi2 =
+=
+1
+if ith person is from the West
+0
+if ith person is not from the West.
+(3.29)
+Then both of these variables can be used in the regression equation, in
+order to obtain the model
+yi = β0+β1xi1+β2xi2+ϵi =
+
+
+
+
+
+β0+β1+ϵi
+if ith person is from the South
+β0+β2+ϵi
+if ith person is from the West
+β0+ϵi
+if ith person is from the East.
+(3.30)
+Now β0 can be interpreted as the average credit card balance for individuals
+from the East, β1 can be interpreted as the difference in the average balance
+between people from the South versus the East, and β2 can be interpreted
+as the difference in the average balance between those from the West versus
+the East. There will always be one fewer dummy variable than the number
+of levels. The level with no dummy variable—East in this example—is
+known as the baseline.
+baseline
+11Technically β0 is half the sum of the average debt for house owners and the average
+debt for non-house owners. Hence, β0 is exactly equal to the overall average only if the
+two groups have an equal number of members.

@@ -1,0 +1,26 @@
+Chapter 3
+Stochastic integration
+3.1
+What is stochastic calculus?
+Before venturing into stochastic calculus, it will be useful to review the basic
+ideas behind the usual dierential and integral calculus. The main deep idea
+of calculus is that one can nd values of a function knowing the rate of
+change of the function. For example, suppose f(t) denotes the position of a
+(one-dimensional) particle at time t, and we are given the rate of change
+df(t) = C(t, f(t)) dt,
+or as it is usually written,
+df
+dt = f ′(t) = C(t, f(t))
+In other words, at time t the graph of f moves for an innitesimal amount
+of time along a straight line with slope C(t, f(t)). This is an example of a
+dierential equation, where the rate depends both on time and position. If
+we are given an initial condition f(0) = x0, then (under some hypotheses on
+the rate function C, see the end of Section 3.5), the function is dened and
+can be given by
+f(t) = x0 +
+t
+0
+C(s, f(s)) ds
+If one is lucky, then one can do the integration and nd the function exactly. If
+one cannot do this, one can still use a computer to approximate the solution.
+83

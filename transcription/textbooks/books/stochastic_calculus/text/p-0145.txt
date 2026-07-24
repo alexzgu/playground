@@ -1,0 +1,73 @@
+4.4. BINOMIAL APPROXIMATIONS
+139
+For each ω, the probability of its occurring is
+q(ω) =
+1
+2
+N 
+1 + m
+√
+∆t
+J 
+1 −m
+√
+∆t
+N−J
+
+If m were 0, then the probability would be be just (12)N. Therefore, the
+of the probabilities for m̸ = 0 to m = 0 is
+
+1 + m
+√
+N
+J 
+1 −m
+√
+N
+N−J
+=
+
+1 −m2
+N
+N2 
+1 + m
+√
+N
+r
+√
+N 
+1 −m
+√
+N
+−r
+√
+N
+
+Using the relation
+
+1 + a
+N
+N ∼ea, we see that the limit of the right-hand
+side as N →∞is
+e−m22 e2rm = emX(1) e−m22
+Given this, we see that in order to sample from a Brownian motion with
+drift, we could rst sample from a Brownian motion without drift and then
+weight the samples by the factor emX(1) e−m22. We will show how to do this
+directly in Section 5.2.
+As one more application of binomial approximations, we will give a heuris-
+tic argument for the following theorem.
+Theorem 4.4.1. S
+dXt = m(Xt) dt + σ dBt,
+m , p(t, x) 
+Xt t. T
+∂tp(t, x) = L∗
+xp(t, x),
+
+L∗f(x)
+=
+−[m(x) f(x)]′ + σ2
+2 f ′′(x)
+=
+−m′(x) f(x) −m(x) f ′(x) + σ2
+2 f ′′(x)
+—

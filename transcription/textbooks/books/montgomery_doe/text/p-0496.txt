@@ -1,0 +1,59 @@
+RSM is a sequential procedure. Often, when we are at a point on the response surface
+that is remote from the optimum, such as the current operating conditions in Figure 11.3,
+there is little curvature in the system and the first-order model will be appropriate. Our
+objective here is to lead the experimenter rapidly and efciently along a path of improvement
+toward the general vicinity of the optimum. Once the region of the optimum has been found,
+a more elaborate model, such as the second-order model, may be employed, and an analysis
+may be performed to locate the optimum. From Figure 11.3, we see that the analysis of a
+response surface can be thought of as “climbing a hill,” where the top of the hill represents
+the point of maximum response. If the true optimum is a point of minimum response, then we
+may think of “descending into a valley.”
+The eventual objective of RSM is to determine the optimum operating conditions for
+the system or to determine a region of the factor space in which operating requirements are
+satised. More extensive presentations of RSM are in Khuri and Cornell (1996), Myers,
+Montgomery and Anderson-Cook (2009), and Box and Draper (2007). The review paper by
+Myers et al. (2004) is also a useful reference.
+11.2
+The Method of Steepest Ascent
+Frequently, the initial estimate of the optimum operating conditions for the system will be far
+from the actual optimum. In such circumstances, the objective of the experimenter is to move
+rapidly to the general vicinity of the optimum. We wish to use a simple and economically ef-
+cient experimental procedure. When we are remote from the optimum, we usually assume that
+a rst-order model is an adequate approximation to the true surface in a small region of the x’s.
+The method of steepest ascent is a procedure for moving sequentially in the direction
+of the maximum increase in the response. Of course, if minimization is desired, then we call
+this technique the method of steepest descent. The tted rst-order model is
+(11.3)
+yˆ ˆ
+0 
+k
+i1
+ˆ
+i xi
+480
+Chapter 11 ■Response Surface Methods and Designs
+Region
+of the
+optimum
+Path of
+improvement
+Region of
+operability
+for the
+process
+Contours
+of constant
+response
+Current
+operating
+conditions
+85
+90
+85
+80
+75
+70
+65
+60
+■F I G U R E 1 1 . 3
+The sequential nature of RSM

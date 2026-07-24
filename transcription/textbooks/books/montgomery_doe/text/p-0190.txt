@@ -1,0 +1,99 @@
+Finally, note that the constraint 
+implies that 
+and recall that r(k1) 
+(a 1) to obtain
+(4.43)
+Therefore, the least squares estimators of the treatment effects in the balanced incomplete
+block model are
+(4.44)
+As an illustration, consider the BIBD in Example 4.5. Because Q1 9/3, Q2 7/3,
+Q3 4/3, and Q4 20/3, we obtain
+as we found in Section 4.4.1.
+4.4.3
+Recovery of Interblock Information in the BIBD
+The analysis of the BIBD given in Section 4.4.1 is usually called the intrablock analysis
+because block differences are eliminated and all contrasts in the treatment effects can be
+expressed as comparisons between observations in the same block. This analysis is appro-
+priate regardless of whether the blocks are xed or random. Yates (1940) noted that, if the
+block effects are uncorrelated random variables with zero means and variance 
+, one may
+obtain additional information about the treatment effects i. Yates called the method of
+obtaining this additional information the interblock analysis.
+Consider the block totals y.j as a collection of b observations. The model for these obser-
+vations [following John (1971)] is
+(4.45)
+where the term in parentheses may be regarded as error. The interblock estimators of and
+i are found by minimizing the least squares function
+This yields the following least squares normal equations:
+(4.46)
+where 
+and 
+denote the interblock estimators. Imposing the constraint 
+, we
+obtain the solutions to Equations 4.46 as
+(4.47)
+(4.48)
+i˜ 
+
+b
+j1
+nij y.j kry..
+r 
+ i 1, 2, . . . , a
+˜ y..
+(a
+i1ˆi 0
+˜i
+˜
+ikr˜ r˜i 
+a
+p1
+pZ1
+˜p 
+b
+j1
+nijy.j i 1, 2, . . . , a
+N˜ r
+a
+i1
+˜i y..
+L 
+b
+j1y.j k
+a
+i1
+niji
+2
+y.j k
+a
+i1
+niji kj 
+a
+i1
+ij
+2
+
+ˆ3 3(4/3)
+(2)(4)
+4/8 
+ ˆ4 3(20/3)
+(2)(4) 20/8
+ˆ1 3(9/3)
+(2)(4)
+9/8 
+ ˆ2 3(7/3)
+(2)(4)
+7/8
+ˆi kQi
+a 
+ i 1, 2, . . . , a
+aˆi kQi 
+i 1, 2, . . . , a
+ˆp ˆi
+"a
+p1
+pZi
+"a
+i1ˆi 0
+174
+Chapter 4 ■Randomized Blocks, Latin Squares, and Related Designs

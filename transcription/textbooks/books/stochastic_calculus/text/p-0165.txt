@@ -1,0 +1,43 @@
+5.3. GIRSANOV THEOREM
+159
+where Bt is a standard Browian motion. In Section 4.2 it was shown that
+with probability one, the process Xt will never reach the origin and, in fact,
+Xt →∞. Let
+Mt = 1
+Xt
+
+Using Itˆo’s formula, we see that
+dMt = −1
+X2
+t
+dXt + 1
+X3
+t
+d⟨X⟩t = −1
+Xt
+Mt dBt
+Therefore, Mt is a local martingale with M0 = 1 and we can apply the second
+form of the Girsanov theorem. We will ask if Mt is a martingale. Indeed, one
+can see that it is not by noting that Mt →0 and (with some more work that
+we omit) E[Mt] →0. If Mt were a martingale, we would have E[Mt] = 1
+for all t. Another way to see that Mt is not a martingale is to consider the
+measure P∗given by tilting by the martingale. In this measure,
+dBt = −1
+Xt
+dt + dWt,
+where Wt is a P∗-Brownian motion. Therefore, dXt = dWt which says that the
+distribution of Xt P∗is that of a standard Brownian motion.
+Since the Brownian motion reaches zero, we can see that with respect to P∗,
+the martingale Mt reaches innity in nite time.
+Suppose Mt is a continuous, nonnegative local martingale. To show
+that Mt is a supermartingale, suppose that τn is an increasing sequence
+of stopping times such that Mt∧τn is a martingale. Let s < t. Suppose
+V is an Fs-measurable event and let Vk = V τk > s. Since Mt∧τn
+is a martingale, if n ≥k,
+E [1Vk Mt∧τn] = E [1Vk Ms∧τn] = E [1Vk Ms] 
+Hence Fatou’s lemma implies that
+E [1Vk Mt] ≤lim inf
+n∞E [1Vk Mt∧τn] = E [1Vk Ms] 
+Since E [1V E(Mt Fs)] = E [1V Mt], by letting k →∞and using the
+monotone convergence theorem, we get
+E [1V E(Mt Fs)] = E [1V Mt] ≤E [1V Ms] 

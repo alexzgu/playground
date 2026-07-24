@@ -1,0 +1,51 @@
+11.3 Analysis of a Second-Order Response Surface
+489
+As we mentioned previously, the most straightforward way to do this is to examine a con-
+tour plot of the tted model. If there are only two or three process variables (the x’s), the con-
+struction and interpretation of this contour plot is relatively easy. However, even when there are
+relatively few variables, a more formal analysis, called the canonical analysis, can be useful.
+It is helpful rst to transform the model into a new coordinate system with the origin at
+the stationary point xs and then to rotate the axes of this system until they are parallel to the
+principal axes of the tted response surface. This transformation is illustrated in Figure 11.9.
+We can show that this results in the tted model
+(11.9)
+where the {wi} are the transformed independent variables and the {i} are constants. Equation
+11.9 is called the canonical form of the model. Furthermore, the {i} are just the eigenval-
+ues or characteristic roots of the matrix B.
+The nature of the response surface can be determined from the stationary point and the
+signs and magnitudes of the {i}. First, suppose that the stationary point is within the region
+of exploration for tting the second-order model. If the {i} are all positive, xs is a point of
+minimum response; if the {i} are all negative, xs is a point of maximum response; and if the
+{i} have different signs, xs is a saddle point. Furthermore, the surface is steepest in the wi
+direction for which |i| is the greatest. For example, Figure 11.9 depicts a system for which 
+xs is a maximum (1 and 2 are negative) with |1| |2|.
+yˆ yˆs 1w2
+1 2w2
+2 Á kw2
+k
+x1,0
+x2,0
+x2
+x1
+w2
+w1
+70
+75
+80
+■F I G U R E 1 1 . 9
+Canonical form of
+the second-order model
+E X A M P L E 1 1 . 2
+We will continue the analysis of the chemical process in
+Example 11.1. A second-order model in the variables x1 and
+x2 cannot be t using the design in Table 11.4. The experi-
+menter decides to augment this design with enough points to
+t a second-order model.1 She obtains four observations at (x1
+0, x2 1.414) and (x1 1.414, x2 0). The complete
+experiment is shown in Table 11.6, and the design is dis-
+played in Figure 11.10. This design is called a central com-
+posite design (or a CCD) and will be discussed in more detail
+in Section 11.4.2. In this second phase of the study, two
+1 The engineer ran the additional four observations at about the same time he or she ran the original nine observations. If substantial
+time had elapsed between the two sets of runs, blocking would have been necessary. Blocking in response surface designs is discussed
+in Section 11.4.3.

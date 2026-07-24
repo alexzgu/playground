@@ -1,0 +1,66 @@
+6.7. GENERALIZED POISSON PROCESSES II
+215
+Therefore Zn converges to a random variable Y in both L2 and
+with probability one (see Exercise 1.14). If 2−n ≤ϵ < 2−n+1, then
+E
+
+(Y ϵ −
+n
+
+k=0
+Zk)2
+
+≤
+2−n+1
+2−n
+x2 dµ(x),
+which goes to zero as n →∞. Hence
+lim
+ϵ0 E
+
+Y ϵ −Y 2
+= 0
+Convergence with probability one can be deduced from Lemma 6.3.3.
+We now dene Yq as in (6.21) for q D as the limit with probability
+one. For other t we dene
+Yt+ = lim
+qt Yq,
+Yt−= lim
+qt Yq
+(6.22)
+Here we use the shorthand that when q is the index, the limit is taken
+over D only. Dene the jump time Tϵ to be the set of times s such that
+Xϵ is discontinuous and T = ∞
+j=1T1j. With probability one each Tϵ
+is nite and hence T is countable.
+Proposition 6.7.2. With probability one, the limits in (6.22) exists
+for all t. Moreover, they are equal unless t T .
+Proof. Let
+S2
+ϵ = E
+
+(Y −Yϵ)2
+=
+
+|x|≤ϵ
+x2 dµ(x)
+Let
+M ϵ = sup
+
+Yq −Y ϵ
+q : q D, q ≤1
+
+
+Using Lemma 6.3.3 (rst for Y δ
+t −Y ϵ
+t and then letting δ ↓0), we can
+see that
+PM ≥a≤S2
+ϵ
+a2 
+We can nd ϵn ↓0 such that
+∞
+
+n=1
+n2 S2
+ϵn < ∞

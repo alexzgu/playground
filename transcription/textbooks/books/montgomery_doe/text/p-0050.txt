@@ -1,0 +1,60 @@
+follows the chi-square distribution with k degrees of freedom. The density function of chi-
+square is
+(2.14)
+Several chi-square distributions are shown in Figure 2.6. The distribution is asymmetric,
+or skewed, with mean and variance
+respectively. Percentage points of the chi-square distribution are given in Table III of the
+Appendix.
+As an example of a random variable that follows the chi-square distribution, suppose
+that y1, y2, . . . , yn is a random sample from an N(, 2) distribution. Then
+(2.15)
+That is, SS/2 is distributed as chi-square with n 1 degrees of freedom.
+Many of the techniques used in this book involve the computation and manipulation of
+sums of squares. The result given in Equation 2.15 is extremely important and occurs repeat-
+edly; a sum of squares in normal random variables when divided by 2 follows the chi-square
+distribution.
+Examining Equation 2.8, we see that the sample variance can be written as
+(2.16)
+If the observations in the sample are NID(, 2), then the distribution of S2 is [2/(n 1)]
+.
+Thus, the sampling distribution of the sample variance is a constant times the chi-square dis-
+tribution if the population is normally distributed.
+If z and 
+are independent standard normal and chi-square random variables, respec-
+tively, the random variable
+(2.17)
+tk 
+z
+2
+k/k
+2
+k
+2
+n1
+S 2 
+SS
+n 1
+SS
+2 
+n
+i1
+ (yi y)2
+2
+2
+n1
+2  2k
+k
+f(x) 
+1
+2k/2
+k
+2
+x(k/2)1ex/2 
+ x # 0
+34
+Chapter 2 ■Simple Comparative Experiments
+k = 1
+k = 5
+k = 15
+■F I G U R E 2 . 6
+Several Chi-square distributions

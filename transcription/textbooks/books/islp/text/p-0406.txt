@@ -1,0 +1,38 @@
+10
+Deep Learning
+This chapter covers the important topic of deep learning. At the time of deep
+learning
+writing (2020), deep learning is a very active area of research in the machine
+learning and artificial intelligence communities. The cornerstone of deep
+learning is the neural network.
+neural
+network
+Neural networks rose to fame in the late 1980s. There was a lot of excite-
+ment and a certain amount of hype associated with this approach, and they
+were the impetus for the popular Neural Information Processing Systems
+meetings (NeurIPS, formerly NIPS) held every year, typically in exotic
+places like ski resorts. This was followed by a synthesis stage, where the
+properties of neural networks were analyzed by machine learners, math-
+ematicians and statisticians; algorithms were improved, and the method-
+ology stabilized. Then along came SVMs, boosting, and random forests,
+and neural networks fell somewhat from favor. Part of the reason was that
+neural networks required a lot of tinkering, while the new methods were
+more automatic. Also, on many problems the new methods outperformed
+poorly-trained neural networks. This was the status quo for the first decade
+in the new millennium.
+All the while, though, a core group of neural-network enthusiasts were
+pushing their technology harder on ever-larger computing architectures and
+data sets. Neural networks resurfaced after 2010 with the new name deep
+learning, with new architectures, additional bells and whistles, and a string
+of success stories on some niche problems such as image and video classifi-
+cation, speech and text modeling. Many in the field believe that the major
+reason for these successes is the availability of ever-larger training datasets,
+made possible by the wide-scale use of digitization in science and industry.
+In this chapter we discuss the basics of neural networks and deep learn-
+ing, and then go into some of the specializations for specific problems, such
+as convolutional neural networks (CNNs) for image classification, and re-
+current neural networks (RNNs) for time series and other sequences. We
+© Springer Nature Switzerland AG 2023 
+G. James et al., An Introduction to Statistical Learning, Springer Texts in Statistics, 
+https://doi.org/10.1007/978-3-031-38747-0_10 
+399

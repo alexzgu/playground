@@ -1,0 +1,138 @@
+596
+Chapter 13 ■Experiments with Random Factors
+13.7
+Some Additional Topics on Estimation of Variance Components
+As we have previously observed, estimating the variance components in a random or
+mixed model is frequently a subject of considerable importance to the experimenter. In
+this section, we present some further results and techniques useful in estimating variance
+components. We concentrate on procedures for finding confidence intervals on variance
+components.
+■TA B L E 1 3 . 1 1
+Minitab Balanced ANOVA for Example 13.6, Restricted Model
+Analysis of Variance (Balanced Designs)
+Factor
+Type
+Levels
+Values
+GasT
+fixed
+3
+60
+75
+90
+Operator
+random
+4
+1
+2
+3
+4
+Gauge
+random
+3
+1
+2
+3
+Analysis of Variance for Drop
+Source
+DF
+SS
+MS
+F
+P
+GasT
+2
+1023.36
+511.68
+2.30
+0.171 
+Operator
+3
+423.82
+141.27
+4.05
+0.069
+Gauge
+2
+7.19
+3.60
+0.10
+0.904
+GasT*Operator
+6
+1211.97
+202.00
+14.59
+0.000
+GasT*Gauge
+4
+137.89
+34.47
+2.49
+0.099
+Operator*Gauge
+6
+209.47
+34.91
+1.63
+0.167
+GasT*Operator*Gauge
+12
+166.11
+13.84
+0.65
+0.788
+Error
+36
+770.50
+21.40
+Total
+71
+3950.32
+Not an exact F test
+Source
+Variance
+Error Expected Mean Square for Each Term
+component
+term
+(using restricted model)
+1 GasT
+*
+(8) 2(7) 8(5) 6(4) 24Q[1]
+2 Operator
+5.909
+6
+(8) 6(6) 18(2)
+3 Gauge
+1.305
+6
+(8) 6(6) 24(3)
+4 GasT*Operator
+31.359
+7
+(8) 2(7) 6(4)
+5 GasT*Gauge
+2.579
+7
+(8) 2(7) 8(5)
+6 Operator*Gauge
+2.252
+8
+(8) 6(6)
+7 GasT*Operator*Gauge
+3.780
+8
+(8) 2(7)
+8 Error
+21.403
+(8)
+* Synthesized Test
+Error Terms for Synthesized Tests
+Source
+Error DF
+Error MS
+Synthesis of Error MS
+1 GasT
+6.97
+222.63
+(4) (5) (7) 

@@ -1,0 +1,229 @@
+650
+Chapter 15 ■Other Design and Analysis Topics
+values and negative lower condence limits, we were
+unable to compute values for all of the entries in this panel
+of the table.
+The response is essentially a square root of the count of
+defects. A negative predicted value is clearly illogical.
+Notice that this is occurring where the observed counts
+were small. If it is important to use the model to predict
+performance in this region, the model may be unreliable.
+This should not be taken as a criticism of either the original
+experimenters or Bisgaard and Fuller’s analysis. This was
+an extremely successful screening experiment that clearly
+dened the important processing variables. Prediction was
+not the original goal, nor was it the goal of the analysis
+done by Bisgaard and Fuller.
+If obtaining a prediction model had been important,
+however, a generalized linear model would probably have
+been a good alternative to the transformation approach.
+Myers and Montgomery use a log link (Equation 15.7)
+and Poisson response to fit exactly the same linear
+predictor as given by Bisgaard and Fuller. This produces
+the model
+The third panel of Table 15.3 contains the predicted val-
+ues from this model and the 95 percent condence intervals
+on the mean response at each point in the design. These
+results were obtained from SAS PROC GENMOD. JMP
+will also t the Poisson regression model. There are no neg-
+ative predicted values (assured by the choice of link func-
+tion) and no negative lower condence limits. The last
+panel of the table compares the lengths of the 95 percent
+condence intervals for the untransformed response and the
+GLM. Notice that the condence intervals for the general-
+ized linear model are uniformly shorter than their least
+squares counterparts. This is a strong indication that the
+generalized linear model approach has explained more vari-
+ability and produced a superior model compared to the
+transformation approach.
+yˆ e(1.1280.896x41.176x60.737x2x7)
+E X A M P L E 1 5 . 4
+The Worsted Yarn Experiment
+Table 15.4 presents a 33 factorial design conducted to inves-
+tigate the performance of worsted yarn under cycles of
+repeated loading. The experiment is described thoroughly
+by Box and Draper (2007). The response is the number of
+cycles to failure. Reliability data such as this is typically
+nonnegative and continuous and often follows a distribution
+with a long right tail.
+The data were initially analyzed using the standard (least
+squares) approach, and data transformation was necessary to
+stabilize the variance. The natural log of the cycles to failure
+data is found to yield an adequate model in terms of overall
+model t and satisfactory residual plots. The model is
+or in terms of the original response, cycles to failure,
+yˆ e6.330.82x10.63x20.38x3
+ln yˆ 6.33  0.82x1 0.63x2 0.38x3
+■TA B L E 1 5 . 4
+The Worsted Yarn Experiment
+Natural Log of
+Cycles to
+Cycles to
+Run
+x1
+x2
+x3
+Failure
+Failure
+1
+1
+1
+1
+674
+6.51
+2
+1
+1
+0
+370
+5.91
+3
+1
+1
+1
+292
+5.68
+4
+1
+0
+1
+338
+5.82
+5
+1
+0
+0
+266
+5.58
+6
+1
+0
+1
+210
+5.35
+7
+1
+1
+1
+170
+5.14
+8
+1
+1
+0
+118
+4.77
+9
+1
+1
+1
+90
+4.50
+10
+0
+1
+1
+1414
+7.25
+11
+0
+1
+0
+1198
+7.09
+12
+0
+1
+1
+634
+6.45
+13
+0
+0
+1
+1022
+6.93
+14
+0
+0
+0
+620
+6.43
+15
+0
+0
+1
+438
+6.08
+16
+0
+1
+1
+442
+6.09
+17
+0
+1
+0
+332
+5.81
+18
+0
+1
+1
+220
+5.39
+19
+1
+1
+1
+3636
+8.20
+20
+1
+1
+0
+3184
+8.07
+21
+1
+1
+1
+2000
+7.60
+22
+1
+0
+1
+1568
+7.36
+23
+1
+0
+0
+1070
+6.98
+24
+1
+0
+1
+566
+6.34
+25
+1
+1
+1
+1140
+7.04
+26
+1
+1
+0
+884
+6.78
+27
+1
+1
+1
+360
+5.89

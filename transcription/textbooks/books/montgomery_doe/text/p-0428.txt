@@ -1,0 +1,58 @@
+there are no simple augmentation schemes (such as fold over) that can be used to combine
+two or more fractions to isolate significant interactions. The 3k design is often suggested
+as appropriate when curvature is present. However, more efficient alternatives (see
+Chapter 11) are possible. 
+9.4
+Factorials with Mixed Levels
+We have emphasized factorial and fractional factorial designs in which all the factors have the
+same number of levels. The two-level system discussed in Chapters 6, 7, and 8 is particularly
+useful. The three-level system presented earlier in this chapter is much less useful because the
+designs are relatively large even for a modest number of factors, and most of the small
+fractions have complex alias relationships that would require very restrictive assumptions
+regarding interactions to be useful.
+It is our belief that the two-level factorial and fractional factorial designs should be the
+cornerstone of industrial experimentation for product and process development, troubleshoot-
+ing, and improvement. In some situations, however, it is necessary to include a factor (or a few
+factors) that has more than two levels. This usually occurs when there are both quantitative and
+qualitative factors in the experiment, and the qualitative factor has (say) three levels. If all fac-
+tors are quantitative, then two-level designs with center points should be employed. In this sec-
+tion, we show how some three- and four-level factors can be accommodated in a 2k design.
+9.4.1
+Factors at Two and Three Levels
+Occasionally, there is interest in a design that has some factors at two levels and some factors
+at three levels. If these are full factorials, then construction and analysis of these designs pres-
+ents no new challenges. However, interest in these designs can occur when a fractional facto-
+rial design is being contemplated. If all of the factors are quantitative, mixed-level fractions
+are usually poor alternatives to a 2kp fractional factorial with center points. Usually when
+these designs are considered, the experimenter has a mix of qualitative and quantitative
+factors, with the qualitative factors taking on three levels. The complex aliasing we observed
+in the 3kp design with qualitative factors carries over to a great extent in the mixed-level frac-
+tional system. Thus, mixed-level fractional designs with all qualitative factors or a mix of
+qualitative and quantitative factors should be used very carefully. This section gives a brief
+discussion of some of these designs.
+Designs in which some factors have two levels and other factors have three levels can
+be derived from the table of plus and minus signs for the usual 2k design. The general proce-
+dure is best illustrated with an example. Suppose we have two variables, with A at two levels
+and X at three levels. Consider a table of plus and minus signs for the usual eight-run 23
+design. The signs in columns B and C have the pattern shown on the left side of Table 9.9. Let
+412
+Chapter 9 ■Additional Design and Analysis Topics for Factorial and Fractional Factorial Designs
+■TA B L E 9 . 9
+Use of Two-Level Factors to Form a Three-Level Factor
+Two-Level Factors
+Three-Level Factor
+B
+C
+X
+
+
+x1
+
+
+x2
+
+
+x2
+
+
+x3

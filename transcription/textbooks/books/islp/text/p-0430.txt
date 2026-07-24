@@ -1,0 +1,83 @@
+10.5 Recurrent Neural Networks
+423
+1980
+1982
+1984
+1986
+−1.0
+0.0
+0.5
+1.0
+log(Trading Volume)
+FIGURE 10.16. RNN forecast of log_volume on the NYSE test data. The black
+lines are the true volumes, and the superimposed orange the forecasts. The fore-
+casted series accounts for 42% of the variance of log_volume.
+five trading days to predict the next day’s trading volume. Hence, we use
+L = 5. Since T = 6,051, we can create 6,046 such (X, Y ) pairs. Clearly L
+is a parameter that should be chosen with care, perhaps using validation
+data.
+We fit this model with K = 12 hidden units using the 4,281 training
+sequences derived from the data before January 2, 1980 (see Figure 10.14),
+and then used it to forecast the 1,770 values of log_volume after this date.
+We achieve an R2 = 0.42 on the test data. Details are given in Sec-
+tion 10.9.6. As a straw man,19 using yesterday’s value for log_volume as
+the prediction for today has R2 = 0.18. Figure 10.16 shows the forecast
+results. We have plotted the observed values of the daily log_volume for the
+test period 1980–1986 in black, and superimposed the predicted series in
+orange. The correspondence seems rather good.
+In forecasting the value of log_volume in the test period, we have to use
+the test data itself in forming the input sequences X. This may feel like
+cheating, but in fact it is not; we are always using past data to predict the
+future.
+Autoregression
+The RNN we just fit has much in common with a traditional autoregression auto-
+regression
+(AR) linear model, which we present now for comparison. We first consider
+the response sequence vt alone, and construct a response vector y and a
+matrix M of predictors for least squares regression as follows:
+y =
+
+
+vL+1
+vL+2
+vL+3
+...
+vT
+
+
+M =
+
+
+1
+vL
+vL−1
+· · ·
+v1
+1
+vL+1
+vL
+· · ·
+v2
+1
+vL+2
+vL+1
+· · ·
+v3
+...
+...
+...
+...
+...
+1
+vT −1
+vT −2
+· · ·
+vT −L
+
+
+.
+(10.21)
+M and y each have T −L rows, one per observation. We see that the
+predictors for any given response vt on day t are the previous L values
+19A straw man here refers to a simple and sensible prediction that can be used as a
+baseline for comparison.

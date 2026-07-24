@@ -1,0 +1,91 @@
+■TA B L E 1 4 . 2 5
+Expected Mean Squares for the Split-Split-Plot Design
+Model
+Term
+Expected Mean Square
+i
+Whole plot
+j
+()ij
+k
+Subplot
+()ik
+()jk
+()ijk
+h
+()ih
+()jh
+()ijh
+Sub-subplot
+()kh
+()ikh
+()jkh
+()ijkh
+l(ijkh)
+2 (not estimable)
+2 2
+
+2 2
+
+r ()2
+ijk
+(a 1)(b 1)(c 1)
+2 a2
+
+2 a2
+ra  ()2
+kh
+(b 1)(c 1)
+2 b2
+
+2 b2
+
+rb  ()2
+jh
+(a 1)(c 1)
+2 ab2
+
+2 ab2
+rab2
+k
+(c 1)
+2 c2
+
+2 c2
+
+rc  ()2
+jh
+(a 1)(b 1)
+2 ac2
+
+2 ac2
+rac2
+k
+(b 1)
+2 bc2
+
+2 bc2
+
+rbc2
+j
+(a 1)
+2 abc2
+
+14.5 Other Variations of the Split-Plot Design
+635
+where i, j, and ()ij represent the whole plot and correspond to replicates or blocks, main
+treatments (factor A), and whole-plot error (replicates (or blocks) A), respectively; k, ()ik,
+()jk, and ()ijk represent the subplot and correspond to the subplot treatment (factor B), the
+replicates (or blocks) B and AB interactions, and the subplot error, respectively; and h and
+the remaining parameters correspond to the sub-subplot and represent, respectively, the 
+sub-subplot treatment (factor C) and the remaining interactions. The four-factor interaction
+()ijkh is called the sub-subplot error.
+The expected mean squares are as shown in Table 14.25, assuming that the replicates
+(blocks) are random and that the other design factors are xed. Tests on the main treatments, sub-
+treatments, sub-subtreatments and their interactions are obvious from inspection of this table.
+Note that no tests on replicates or blocks or interactions involving replicates or blocks exist.
+The statistical analysis of a split-split-plot design is like that of a single replicate of a
+four-factor factorial. The number of degrees of freedom for each test is determined in the
+usual manner. To illustrate, in Example 14.4, where we had four replicates, three technicians,
+three dosage strengths, and four wall thicknesses, we would have only (r 1)(a 1) 
+(4 1)(3 1) 6 whole-plot error degrees of freedom for testing technicians. This is a

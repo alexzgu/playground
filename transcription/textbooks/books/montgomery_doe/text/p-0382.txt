@@ -1,0 +1,128 @@
+366
+Chapter 8 ■Two-Level Fractional Factorial Designs
+The nal model for this experiment contains the main
+effects of factors x1, x2, x4, and x5, plus the two-factor inter-
+actions x1x2 and x1x4. Now, it turns out that the data for this
+experiment were simulated from a model. The model used
+was
+where the random error term was normal with mean zero
+and standard deviation 5. The Plackett–Burman design was
+able to correctly identify all of the signicant main effects
+and the two signicant two-factor interactions. From Table
+8.28 we observe that the model parameter estimates are
+actually very close to the values chosen for the model.
+The partial aliasing structure of the Plackett–Burman
+design has been very helpful in identifying the signicant
+interactions. Another approach to the analysis would be to
+realize that this design could be used to t the main effects
+in any four factors and all of their two factor interactions,
+than use a normal probability plot to identify the four
+y 200 8x1 10x2 12x4 12x1x2 9x1x4 
+largest main effects, and nally t the four factorial model
+in those four factors.
+Notice that there is the main effect x5 is identied as sig-
+nicant that was not in the simulation model used to gener-
+ate the data. A type I error has been committed with respect
+to this factor. In screening experiments type I errors are not
+as serious as type II errors. A type I error results in a non-
+signicant factor being identied as important and retained
+for subsequent experimentation and analysis. Eventually,
+we will likely discover that this factor really isn’t impor-
+tant. However, a type II error means that an important fac-
+tor has not been discovered. This variable will be dropped
+from subsequent studies and if it really turns out to be a
+critical factor, product or process performance can be neg-
+atively impacted. It is highly likely that the effect of this
+factor will never be discovered because it was discarded
+early in the research. In our example, all important factors
+were discovered, including the interactions, and that is the
+key point.
+X11*X12
+0
+3
+38.30184
+0.372
+0.7753
+Step History
+Step
+Parameter
+Action
+“Sig Prob”
+Seq SS
+RSquare
+Cp
+1
+X2
+Entered
+0.0218
+2784.8
+0.2595
+.
+2
+X4
+Entered
+0.0368
+1843.2
+0.4312
+.
+3
+X1*X2
+Entered
+0.0003
+4044.8
+0.8081
+.
+4
+X1*X4
+Entered
+0.0000
+1555.2
+0.9530
+.
+5
+X5
+Entered
+0.0622
+122.21
+0.9644
+. 
+8.7
+Resolution IV and V Designs
+8.7.1
+Resolution IV Designs
+A 2kp fractional factorial design is of resolution IV if the main effects are clear of two-
+factor interactions and some two-factor interactions are aliased with each other. Thus, if three-
+factor and higher interactions are suppressed, the main effects may be estimated directly in a
+design. An example is the 
+design in Table 8.10. Furthermore, the two combined frac-
+tions of the 
+design in Example 8.7 yields a 
+design. Resolution IV designs are used
+extensively as screening experiments. The 241 with eight runs and the 16 run fractions with
+6, 7, and 8 factors are very popular.
+Any 
+design must contain at least 2k runs. Resolution IV designs that contain exact-
+ly 2k runs are called minimal designs. Resolution IV designs may be obtained from resolu-
+tion III designs by the process of fold over. Recall that to fold over a 
+design, simply add
+to the original fraction a second fraction with all the signs reversed. Then the plus signs in the
+identity column I in the rst fraction could be switched in the second fraction, and a (k 1)st
+2kp
+III
+2kp
+IV
+273
+IV
+274
+III
+262
+IV
+2kp
+IV
+■TA B L E 8 . 2 8 (Continued)
+Parameter
+Estimate
+nDF
+SS
+“F Ratio”
+“Prob>F”

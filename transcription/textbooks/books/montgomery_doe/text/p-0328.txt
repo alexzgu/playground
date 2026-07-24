@@ -1,0 +1,95 @@
+7.5
+Another Illustration of Why Blocking Is Important
+Blocking is a very useful and important design technique. In Chapter 4 we pointed out that
+blocking has such dramatic potential to reduce the noise in an experiment that an experimenter
+should always consider the potential impact of nuisance factors, and when in doubt, block.
+To illustrate what can happen if an experimenter doesn’t block when he or she should
+have, consider a variation of Example 7.2 from the previous section. In this example we
+utilized a 24 unreplicated factorial experiment originally presented as Example 6.2. We
+constructed the design in two blocks of eight runs each, and we inserted a “block effect” or
+nuisance factor effect of magnitude 20 that affects all of the observations in block 1 (refer to
+Figure 7.4). Now suppose that we had not run this design in blocks and that the 20 nuisance
+factor effect impacted the rst eight observations that were taken (in random or run order).
+The modied data are shown in Table 7.8.
+Figure 7.5 is a normal probability plot of the factor effects from this modied version
+of the experiment. Notice that although the appearance of this plot is not too dissimilar from
+312
+Chapter 7 ■Blocking and Confounding in the 2k Factorial Design
+■TA B L E 7 . 7
+Analysis of Variance for Example 7.2
+Source of
+Sum of
+Degrees of
+Mean
+Variation
+Squares
+Freedom
+Square
+F0
+P-Value
+Blocks (ABCD)
+1387.5625
+1
+A
+1870.5625
+1
+1870.5625
+89.76
+0.0001
+C
+390.0625
+1
+390.0625
+18.72
+0.0019
+D
+855.5625
+1
+855.5625
+41.05
+0.0001
+AC
+1314.0625
+1
+1314.0625
+63.05
+0.0001
+AD
+1105.5625
+1
+1105.5625
+53.05
+0.0001
+Error
+187.5625
+9
+20.8403
+Total
+7110.9375
+15
+–15.62
+–5.69
+4.25
+Effect
+14.19
+24.12
+A
+AC
+C
+D
+Normal % probability
+99
+95
+90
+80
+70
+50
+30
+20
+10
+5
+1
+■F I G U R E 7 . 5
+Normal
+probability plot for the data in
+Table 7.8

@@ -1,0 +1,46 @@
+136
+4. Classification
+1. A person arrives at the emergency room with a set of symptoms
+that could possibly be attributed to one of three medical conditions.
+Which of the three conditions does the individual have?
+2. An online banking service must be able to determine whether or not
+a transaction being performed on the site is fraudulent, on the basis
+of the user’s IP address, past transaction history, and so forth.
+3. On the basis of DNA sequence data for a number of patients with
+and without a given disease, a biologist would like to figure out which
+DNA mutations are deleterious (disease-causing) and which are not.
+Just as in the regression setting, in the classification setting we have a
+set of training observations (x1, y1), . . . , (xn, yn) that we can use to build
+a classifier. We want our classifier to perform well not only on the training
+data, but also on test observations that were not used to train the classifier.
+In this chapter, we will illustrate the concept of classification using the
+simulated Default data set. We are interested in predicting whether an
+individual will default on his or her credit card payment, on the basis of
+annual income and monthly credit card balance. The data set is displayed
+in Figure 4.1. In the left-hand panel of Figure 4.1, we have plotted annual
+income and monthly credit card balance for a subset of 10, 000 individuals.
+The individuals who defaulted in a given month are shown in orange, and
+those who did not in blue. (The overall default rate is about 3 %, so we
+have plotted only a fraction of the individuals who did not default.) It
+appears that individuals who defaulted tended to have higher credit card
+balances than those who did not. In the center and right-hand panels of
+Figure 4.1, two pairs of boxplots are shown. The first shows the distribution
+of balance split by the binary default variable; the second is a similar plot
+for income. In this chapter, we learn how to build a model to predict default
+(Y ) for any given value of balance (X1) and income (X2). Since Y is not
+quantitative, the simple linear regression model of Chapter 3 is not a good
+choice: we will elaborate on this further in Section 4.2.
+It is worth noting that Figure 4.1 displays a very pronounced relation-
+ship between the predictor balance and the response default. In most real
+applications, the relationship between the predictor and the response will
+not be nearly so strong. However, for the sake of illustrating the classifica-
+tion procedures discussed in this chapter, we use an example in which the
+relationship between the predictor and the response is somewhat exagger-
+ated.
+4.2
+Why Not Linear Regression?
+We have stated that linear regression is not appropriate in the case of a
+qualitative response. Why not?
+Suppose that we are trying to predict the medical condition of a patient
+in the emergency room on the basis of her symptoms. In this simplified
+example, there are three possible diagnoses: stroke, drug overdose, and

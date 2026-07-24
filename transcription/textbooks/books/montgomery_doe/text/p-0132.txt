@@ -1,0 +1,70 @@
+116
+Chapter 3 ■Experiments with a Single Factor: The Analysis of Variance
+greater pot noise or greater cell voltage standard deviation than the other algorithms. There
+does not seem to be much difference between algorithms 1, 2, and 4.
+3.9
+The Random Effects Model
+3.9.1
+A Single Random Factor
+An experimenter is frequently interested in a factor that has a large number of possible levels.
+If the experimenter randomly selects a of these levels from the population of factor levels, then
+we say that the factor is random. Because the levels of the factor actually used in the experi-
+ment were chosen randomly, inferences are made about the entire population of factor levels.
+We assume that the population of factor levels is either of innite size or is large enough to be
+considered innite. Situations in which the population of factor levels is small enough to employ
+a nite population approach are not encountered frequently. Refer to Bennett and Franklin
+(1954) and Searle and Fawcett (1970) for a discussion of the nite population case.
+The linear statistical model is
+(3.47)
+where both the treatment effects i and ij are random variables. We will assume that the treat-
+ment effects i are NID (0,
+) random variables1 and that the errors are NID (0, 2), random
+variables, and that the i and 
+are independent. Because i is independent of ij, the variance
+of any observation is
+The variances 
+and 2 are called variance components, and the model (Equation 3.47) is
+called the components of variance or random effects model.The observations in the random
+effects model are normally distributed because they are linear combinations of the two normally
+and independently distributed random variables 
+and 
+. However, unlike the xed effects
+case in which all of the observations yij are independent, in the random model the observations
+yij are only independent if they come from different factor levels. Specically, we can show that
+the covariance of any two observations is
+Note that the observations within a specic factor level all have the same covariance, because
+before the experiment is conducted, we expect the observations at that factor level to be sim-
+ilar because they all have the same random component. Once the experiment has been con-
+ducted, we can assume that all observations can be assumed to be independent, because the
+parameter 
+has been determined and the observations in that treatment differ only because
+of random error.
+We can express the covariance structure of the observations in the single-factor random
+effects model through the covariance matrix of the observations. To illustrate, suppose that
+we have 
+treatments and 
+replicates. There are 
+observations, which we can
+write as a vector 
+N 6
+n 2
+a 3
+i
+Covyij, yij0  i Z i
+Covyij, yij2
+  j Z j
+ij
+i
+2
+
+V(yij) 2
+2
+ij
+2
+
+yij i ij  
+i 1, 2, . . . , a
+j 1, 2, . . . , n
+1 The as assumption that the [i] are independent random variables implies that the usual assumption of a
+i1 i  0 from the xed
+effects model does not apply to the random effects model.

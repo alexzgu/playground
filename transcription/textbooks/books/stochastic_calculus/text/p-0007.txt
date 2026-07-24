@@ -1,0 +1,26 @@
+Introductory comments
+This is an introduction to stochastic calculus. I will assume that the reader
+has had a post-calculus course in probability or statistics. For much of these
+notes this is all that is needed, but to have a deep understanding of the
+subject, one needs to know measure theory and probability from that per-
+spective. My goal is to include discussion for readers with that background
+as well. I also assume that the reader can write simple computer programs
+either using a language like C++ or by using software such as Matlab or
+Mathematica.
+More advanced mathematical comments that can be skipped by the
+reader will be indented with a dierent font. Comments here will as-
+sume that the reader knows that language of measure-theoretic prob-
+ability theory.
+We will discuss some of the applications to nance but our main fo-
+cus will be on the mathematics. Financial mathematics is a kind of applied
+mathematics, and I will start by making some comments about the use of
+mathematics in the real world. The general paradigm is as follows.
+A mathematical model is made of some real world phenomenon. Usually
+this model requires simplication and does not precisely describe the
+real situation. One hopes that models are in the sense that if the
+model is not very far from reality then its predictions will also be close
+to accurate.
+The model consists of mathematical about the real world.
+Given these assumptions, one does mathematical analysis to see what
+they imply. The analysis can be of various types:
+1

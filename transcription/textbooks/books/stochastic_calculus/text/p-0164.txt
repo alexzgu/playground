@@ -1,0 +1,46 @@
+158CHAPTER 5. CHANGE OF MEASURE AND GIRSANOV THEOREM
+where Wt is a Brownian motion in the new measure. This equation is the
+Bessel equation. In particular, if r ≥12, then P∗τ = ∞= 1, and using
+this we see that with P∗-probability one
+Mt +
+t
+0
+A2
+s ds
+is nite. Therefore, for r ≥12, Mt is a martingale.
+Example 5.3.3. Suppose that Xt satises
+dXt = Xt [m(t, Xt) dt + σ(t, Xt) dBt] ,
+where Bt is a standard Brownian motion with respect to the probability
+measure P. Let us assume that σ(t, x) > 0 for all t, x. Suppose we want to
+nd a probability measure P∗that is mutually absolutely continuous with
+respect to P and such that Xt is a martingale under P∗. Then we would want
+dBt = −m(t, Xt)
+σ(t, Xt) dt + dWt,
+where Wt is a standard Brownian motion with respect to P∗. This would give
+dXt = Xt σ(t, Xt) dWt
+The local martingale that we need to consider is Mt satisfying
+dMt = −m(t, Xt)
+σ(t, Xt) Mt dBt,
+M0 = 1
+In other words,
+Mt = exp
+t
+0
+As dBs −1
+2
+t
+0
+A2
+s ds
+
+,
+At = −m(t, Xt)
+σ(t, Xt) 
+(5.11)
+While Mt is a local martingale, we cannot say it is a martingale without
+verifying one of the conditions in Theorem 5.3.2.
+Example 5.3.4. Suppose Xt is a Bessel process satisfying
+dXt = 1
+Xt
+dt + dBt,
+X0 = 1,

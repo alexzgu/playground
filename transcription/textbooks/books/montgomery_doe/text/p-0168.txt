@@ -1,0 +1,75 @@
+The appropriate statistic for testing the null hypothesis of no treatment effects (all
+) is 
+which is exactly the same test statistic we used in the case where the blocks were xed. Based
+on the expected mean squares, we can obtain an ANOVA-type estimator of the variance com-
+ponent for blocks as 
+(4.16)
+For example, for the vascular graft experiment in Example 4.1 the estimate of 
+is
+This is a method-of-moments estimate and there is no simple way to nd a condence inter-
+val on the block variance component 
+. The REML method would be preferred here. Table 4.6
+is the JMP output for Example 4.1 assuming that blocks are random. The REML estimate of
+is exactly the same as the ANOVA estimate, but REML automatically produces the stan-
+dard error of the estimate (6.116215) and the approximate 95 percent condence interval.
+JMP gives the test for the xed effect (pressure), and the results are in agreement with those
+originally reported in Example 4.1. REML also produces the point estimate and CI for the
+error variance 
+. The ease with which condence intervals can be constructed is a major rea-
+son why REML has been so widely adopted.
+Now consider a situation where there is an interaction between treatments and
+blocks. This could be accounted for by adding an interaction term to the original statisti-
+cal model Equation 4.1. Let 
+be the interaction effect of treatment I in block j. Then
+the model is 
+(4.17)
+The interaction effect is assumed to be random because it involves the random block effects.
+If 
+is the variance component for the block treatment interaction, then we can show that
+the expected mean squares are 
+(4.18)
+From the expected mean squares, we see that the usual F-statistic F MSTreatments/MSE would
+be used to test for no treatment effects. So another advantage of the random block model is
+that the assumption of no interaction in the RCBD is not important. However, if blocks are
+xed and there is interaction, then the interaction effect is not in the expected mean square for
+treatments but it is in the error expected mean square, so there would not be a statistical test
+for the treatment effects.  
+E(MSE) 2 2
+
+E(MSBlocks) 2 a2
+
+E(MSTreatments) 2 2
+
+b 
+a
+i1
+2
+i
+a 1
+2
+
+yij i j ()ij ij
+i 1, 2,..., a
+j 1, 2,..., b
+()ij
+2
+2
+
+2
+
+ˆ 2
+MSBlocks MSE
+a
+38.45 7.33
+4
+7.78
+2
+
+ˆ 2
+MSBlocks MSE
+a
+F0 MSTreatment
+MSE
+i 0
+152
+Chapter 4 ■Randomized Blocks, Latin Squares, and Related Designs

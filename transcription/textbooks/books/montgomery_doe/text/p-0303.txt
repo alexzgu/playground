@@ -1,0 +1,163 @@
+6.8 The Addition of Center Points to the 2k Design
+287
+■TA B L E 6 . 2 4
+Analysis of Variance for Example 6.6
+ANOVA for the Full Model
+Source of 
+Sum of 
+Mean
+Variation
+Squares
+DF
+Square
+F
+Prob  F
+Model
+5730.94
+15
+382.06
+23.51
+0.0121
+A
+1870.56
+1
+1870.56
+115.11
+0.0017
+B
+39.06
+1
+39.06
+2.40
+0.2188
+C
+390.06
+1
+390.06
+24.00
+0.0163
+D
+855.56
+1
+855.56
+52.65
+0.0054
+AB
+0.063
+1
+0.063
+3.846E-003
+0.9544
+AC
+1314.06
+1
+1314.06
+80.87
+0.0029
+AD
+1105.56
+1
+1105.56
+68.03
+0.0037
+BC
+22.56
+1
+22.56
+1.39
+0.3236
+BD
+0.56
+1
+0.56
+0.035
+0.8643
+CD
+5.06
+1
+5.06
+0.31
+0.6157
+ABC
+14.06
+1
+14.06
+0.87
+0.4209
+ABD
+68.06
+1
+68.06
+4.19
+0.1332
+ACD
+10.56
+1
+10.56
+0.65
+0.4791
+BCD
+27.56
+1
+27.56
+1.70
+0.2838
+ABCD
+7.56
+1
+7.56
+0.47
+0.5441
+Pure quadratic 
+Curvature
+1.51
+1
+1.51
+0.093
+0.7802
+Pure error
+48.75
+3
+16.25
+Cor total
+5781.20
+19
+full model. The mean square for pure error is calculated
+from the center points as follows:
+(6.29)
+Thus, in Table 6.22,
+The difference 
+ 70.06 70.75  0.69 is
+used to compute the pure quadratic (curvature) sum of
+squares in the ANOVA table from Equation 6.30 as
+follows:
+yF yC
+MSE 
+4
+i1
+ (yi 70.75)2
+4 1
+48.75
+3
+16.25
+MSE 
+SSE
+nC 1 
+
+Center points
+ (yi yc)2
+nC 1
+The ANOVA indicates that there is no evidence of
+second-order curvature in the response over the region of
+exploration. That is, the null hypothesis H0 : 11 22 
+33 44  0 cannot be rejected. The signicant effects are
+A, C, D, AC, and AD. The ANOVA for the reduced model
+is shown in the lower portion of Table 6.24. The results of
+this analysis agree with those from Example 6.2, where the
+important effects were isolated using the normal probability
+plotting method.
+(16)(4)( 0.69)2
+16 4
+1.51
+SSPure quadratic nFnC(yF yC)2
+nF nC

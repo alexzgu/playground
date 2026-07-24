@@ -1,0 +1,66 @@
+11.5 Regression Models With a Survival Response
+477
+where T is the (unobserved) survival time. It is the death rate in the instant
+after time t, given survival past that time.7 In (11.9), we take the limit as
+∆t approaches zero, so we can think of ∆t as being an extremely tiny
+number. Thus, more informally, (11.9) implies that
+h(t) ≈Pr(t < T ≤t + ∆t|T > t)
+∆t
+for some arbitrarily small ∆t.
+Why should we care about the hazard function? First of all, it is closely
+related to the survival curve (11.2), as we will see next. Second, it turns out
+that a key approach for modeling survival data as a function of covariates
+relies heavily on the hazard function; we will introduce this approach —
+Cox’s proportional hazards model — in Section 11.5.2.
+We now consider the hazard function h(t) in a bit more detail. Recall
+that for two events A and B, the probability of A given B can be expressed
+as Pr(A | B) = Pr(A ∩B)/ Pr(B), i.e. the probability that A and B both
+occur divided by the probability that B occurs. Furthermore, recall from
+(11.2) that S(t) = Pr(T > t). Thus,
+h(t)
+=
+lim
+∆t→0
+Pr ((t < T ≤t + ∆t) ∩(T > t)) /∆t
+Pr(T > t)
+=
+lim
+∆t→0
+Pr(t < T ≤t + ∆t)/∆t
+Pr(T > t)
+=
+f(t)
+S(t),
+(11.10)
+where
+f(t) = lim
+∆t→0
+Pr(t < T ≤t + ∆t)
+∆t
+(11.11)
+is the probability density function associated with T, i.e. it is the instanta- probability
+density
+function
+neous rate of death at time t. The second equality in (11.10) made use of
+the fact that if t < T ≤t + ∆t, then it must be the case that T > t.
+Equation 11.10 implies a relationship between the hazard function h(t),
+the survival function S(t), and the probability density function f(t). In
+fact, these are three equivalent ways8 of describing the distribution of T.
+The likelihood associated with the ith observation is
+Li =
+=
+f(yi)
+if the ith observation is not censored
+S(yi)
+if the ith observation is censored
+= f(yi)δiS(yi)1−δi.
+(11.12)
+The intuition behind (11.12) is as follows: if Y = yi and the ith observation
+is not censored, then the likelihood is the probability of dying in a tiny in-
+terval around time yi. If the ith observation is censored, then the likelihood
+7Due to the ∆t in the denominator of (11.9), the hazard function is a rate of death,
+rather than a probability of death. However, higher values of h(t) directly correspond
+to a higher probability of death, just as higher values of a probability density function
+correspond to more likely outcomes for a random variable. In fact, h(t) is the probability
+density function for T conditional on T > t.
+8See Exercise 8.

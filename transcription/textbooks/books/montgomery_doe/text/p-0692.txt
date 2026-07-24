@@ -1,0 +1,55 @@
+676
+Chapter 15 ■Other Design and Analysis Topics
+two-factor interaction in the design factors and a sample size of 20. The 20 raw material sam-
+ples that are selected by the D-optimal algorithm are indicated in Table 15.21 with asterisks
+in the sample column. Figure 15.9 is the scatter plot of viscosity versus molecular weight
+with the selected samples shown in larger dots. Notice that the selected samples “spread out”
+over the boundary of the convex hull of points. This is consistent with the tendency of D-opti-
+mal designs to spread observations to the boundaries of the experimental region. The design
+points selected in the two factors x3 and x4 correspond to a 22 factorial experiment with 
+n 5 replicates.
+Table 15.23 presents the relative variance of the coefficients for the model for the 
+D-optimal design. Notice that the design factors are all estimated with the best possible
+precision (relative variance 1/N 1/20 0.05) while the covariates are estimated with
+different precisions that depends on their spread in the original set of 40 samples. The alias
+matrix is shown in Table 15.24. The numbers in the table are the correlations between
+model terms. All correlations are small, a consequence of the D-optimality criterion
+spreading the design points out as much as possible.
+■F I G U R E 1 5 . 9
+Scatter Plot of the Viscosity 
+versus Molecular Weight Data from Table 15.21, with
+the Selected Design Points Shown as Larger Dots
+65
+60
+55
+50
+45
+40
+35
+30
+1240
+1260
+1280
+1300
+1320
+Molecular Weight
+Viscosity
+1340
+1360
+1380
+■TA B L E 1 5 . 2 3
+Relative Variances of the Coefﬁcients for the D-Optimal Design in Table 15.22
+Effect
+Relative Variance
+Intercept
+0.058
+Viscosity
+0.314
+Molecular Weight
+0.516
+X3
+0.050
+X4
+0.050
+X3X4
+0.050

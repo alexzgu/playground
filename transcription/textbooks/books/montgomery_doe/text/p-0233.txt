@@ -1,0 +1,119 @@
+5.5 Fitting Response Curves and Surfaces
+217
+JMP output for the second-order model with the addi-
+tional higher-order terms is shown in Table 5.19. While
+these higher-order terms are components of the two-factor
+interaction, the nal model is a reduced quartic. Although
+there are some large P-values, all model terms have been
+retained to ensure hierarchy. The prediction proler indi-
+cates that maximum tool life is achieved around an angle of
+25 degrees and speed of 150 in/min.
+■TA B L E 5 . 1 8
+(Continued)
+(Angle-20)*(Speed-150)
+0.008
+0.00665
+1.20
+0.2522
+(Angle-20)*(Angle-20)
+0.08
+0.047022
+1.70
+0.1146
+(Speed-150)*(Speed-150)
+0.0016
+0.001881
+0.85
+0.4116
+14
+0 0.25
+Desirability
+0.696343
+20.2381
+Angle
+166.0714
+Speed
+Desirability
+Tool life
+3.781746
++2.384705
+0.75
+1
+6
+4
+2
+0
+–2
+–4
+16
+18
+20
+22
+24
+26
+120
+130
+140
+150
+160
+170
+180
+0
+1
+0.75
+0.5
+0.25
+_
+25.00
+15.00
+17.50
+20.00
+Tool angle
+22.50
+Speed
+125.00
+137.50
+150.00
+162.50
+175.00 2
+3
+1.75
+4.25
+3
+–0.75
+1.75 2
+2
+0.5
+2
+2
+4.25
+0.5
+2
+2
+2
+2
+■F I G U R E 5 . 1 9
+Two-dimensional contour plot of the tool life response
+surface for Example 5.5
+5.5
+3.625
+1.75
+–0.125
+–2
+175.00
+150.00
+162.50
+137.50
+125.00
+15.00
+17.50
+20.00
+25.00
+22.50
+Tool angle
+Life
+Speed
+■F I G U R E 5 . 2 0
+Three-dimensional tool life response surface for
+Example 5.5
+Prediction Proﬁler

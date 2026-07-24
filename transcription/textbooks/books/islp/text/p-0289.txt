@@ -1,0 +1,48 @@
+6.5 Lab: Linear Models and Regularization Methods
+281
+In [49]: pca = PCA(n_components=2)
+linreg = skl.LinearRegression()
+pipe = Pipeline([('pca', pca),
+('linreg', linreg)])
+pipe.fit(X, Y)
+pipe.named_steps['linreg'].coef_
+Out[49]: array([0.09846131, 0.4758765 ])
+When performing PCA, the results vary depending on whether the data
+has been standardized or not. As in the earlier examples, this can be ac-
+complished by including an additional step in the pipeline.
+In [50]: pipe = Pipeline([('scaler', scaler),
+('pca', pca),
+('linreg', linreg)])
+pipe.fit(X, Y)
+pipe.named_steps['linreg'].coef_
+Out[50]: array([106.36859204, -21.60350456])
+We can of course use CV to choose the number of components, by
+using skm.GridSearchCV, in this case fixing the parameters to vary the
+n_components.
+In [51]: param_grid = {'pca__n_components': range(1, 20)}
+grid = skm.GridSearchCV(pipe,
+param_grid ,
+cv=kfold,
+scoring='neg_mean_squared_error')
+grid.fit(X, Y)
+Let’s plot the results as we have for other methods.
+In [52]: pcr_fig, ax = subplots(figsize=(8,8))
+n_comp = param_grid['pca__n_components']
+ax.errorbar(n_comp,
+-grid.cv_results_['mean_test_score'],
+grid.cv_results_['std_test_score'] / np.sqrt(K))
+ax.set_ylabel('Cross-validated MSE', fontsize=20)
+ax.set_xlabel('# principal components', fontsize=20)
+ax.set_xticks(n_comp[::2])
+ax.set_ylim([50000,250000]);
+We see that the smallest cross-validation error occurs when 17 compo-
+nents are used. However, from the plot we also see that the cross-validation
+error is roughly the same when only one component is included in the
+model. This suggests that a model that uses just a small number of com-
+ponents might suffice.
+The CV score is provided for each possible number of components from
+1 to 19 inclusive. The PCA() method complains if we try to fit an intercept
+only with n_components=0 so we also compute the MSE for just the null
+model with these splits.
+In [53]: Xn = np.zeros((X.shape[0], 1))
+cv_null = skm.cross_validate(linreg,

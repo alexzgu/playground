@@ -1,0 +1,67 @@
+3.3 Other Considerations in the Regression Model
+97
+should also include the main effects, even if the p-values associated with
+their coefficients are not significant. In other words, if the interaction be-
+tween X1 and X2 seems important, then we should include both X1 and
+X2 in the model even if their coefficient estimates have large p-values. The
+rationale for this principle is that if X1 × X2 is related to the response,
+then whether or not the coefficients of X1 or X2 are exactly zero is of lit-
+tle interest. Also X1 × X2 is typically correlated with X1 and X2, and so
+leaving them out tends to alter the meaning of the interaction.
+In the previous example, we considered an interaction between TV and
+radio, both of which are quantitative variables. However, the concept of
+interactions applies just as well to qualitative variables, or to a combination
+of quantitative and qualitative variables. In fact, an interaction between
+a qualitative variable and a quantitative variable has a particularly nice
+interpretation. Consider the Credit data set from Section 3.3.1, and suppose
+that we wish to predict balance using the income (quantitative) and student
+(qualitative) variables. In the absence of an interaction term, the model
+takes the form
+balancei
+≈
+β0 + β1 × incomei +
+=
+β2
+if ith person is a student
+0
+if ith person is not a student
+=
+β1 × incomei +
+=
+β0 + β2
+if ith person is a student
+β0
+if ith person is not a student.
+(3.34)
+Notice that this amounts to fitting two parallel lines to the data, one for
+students and one for non-students. The lines for students and non-students
+have different intercepts, β0 + β2 versus β0, but the same slope, β1. This
+is illustrated in the left-hand panel of Figure 3.7. The fact that the lines
+are parallel means that the average effect on balance of a one-unit increase
+in income does not depend on whether or not the individual is a student.
+This represents a potentially serious limitation of the model, since in fact a
+change in income may have a very different effect on the credit card balance
+of a student versus a non-student.
+This limitation can be addressed by adding an interaction variable, cre-
+ated by multiplying income with the dummy variable for student. Our
+model now becomes
+balancei
+≈
+β0 + β1 × incomei +
+=
+β2 + β3 × incomei
+if student
+0
+if not student
+=
+=
+(β0 + β2) + (β1 + β3) × incomei
+if student
+β0 + β1 × incomei
+if not student.
+(3.35)
+Once again, we have two different regression lines for the students and
+the non-students. But now those regression lines have different intercepts,
+β0+β2 versus β0, as well as different slopes, β1+β3 versus β1. This allows for
+the possibility that changes in income may affect the credit card balances
+of students and non-students differently. The right-hand panel of Figure 3.7

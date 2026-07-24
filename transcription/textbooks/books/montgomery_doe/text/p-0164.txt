@@ -1,0 +1,127 @@
+We can also use the graphical procedure of Section 3.5.1 to compare mean yield at the
+four extrusion pressures. Figure 4.3 plots the four means from Example 4.1 relative to a
+scaled t distribution with a scale factor
+
+1.10. This plot indicates that
+the two lowest pressures result in the same mean yield, but that the mean yields for 8700 psi and
+7.33/6
+MSE/b
+148
+Chapter 4 ■Randomized Blocks, Latin Squares, and Related Designs
+■F I G U R E 4 . 2
+(Continued)
+80
+85
+90
+2
+3
+4
+1
+95
+Yield
+■F I G U R E 4 . 3
+Mean
+yields for the four extrusion
+pressures relative to a
+scaled t distribution with a
+scale factor 
+MSE/b 7.33/6 1.10
+Oneway Analysis of Yield By Pressure
+Block
+Batch
+Oneway Anova
+Summary of Fit
+0.771218
+Rsquare
+0.649201
+Adj Rsquare
+2.706612
+Root Mean Square Error
+89.79583
+Mean of Response
+24
+Observations (or Sum Wgts)
+Analysis of Variance
+Mean Square
+Sum of Squares
+DF
+Source
+F
+Prob > F
+Ratio
+0.0019
+8.1071
+59.3904
+178.17125
+3
+Pressure
+0.0055
+5.2487
+38.4504
+192.25208
+5
+Batch
+7.3257
+109.88625
+15
+Error
+480.30958
+23
+C.Total
+Means for Oneway Anova
+Upper 95%
+Lower 95%
+Error
+Std.
+Mean
+Number
+Level
+95.172
+90.461
+1.1050
+92.8167
+6
+8500
+94.039
+89.328
+1.1050
+91.6833
+6
+8700
+91.272
+86.561
+1.1050
+88.9167
+6
+8900
+88.122
+83.411
+1.1050
+85.7667
+6
+9100
+Error uses a pooled estimate of error variance
+Std.
+Block Means
+Number
+Mean
+Batch
+4
+87.7000
+1
+4
+89.7500
+2
+4
+91.0000
+3
+4
+90.5500
+4
+4
+85.3250
+5
+4
+94.4500
+6
+(b)

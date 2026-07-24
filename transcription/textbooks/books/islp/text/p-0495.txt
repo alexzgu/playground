@@ -1,0 +1,44 @@
+11.8 Lab: Survival Analysis
+489
+the difference between the survival curves in the resulting daughter nodes.
+Survival trees can then be used to create random survival forests.
+11.8
+Lab: Survival Analysis
+In this lab, we perform survival analyses on three separate data sets. In
+Section 11.8.1 we analyze the BrainCancer data that was first described
+in Section 11.3. In Section 11.8.2, we examine the Publication data from
+Section 11.5.4. Finally, Section 11.8.3 explores a simulated call-center data
+set.
+We begin by importing some of our libraries at this top level. This makes
+the code more readable, as scanning the first few lines of the notebook tell
+us what libraries are used in this notebook.
+In [1]: from matplotlib.pyplot import subplots
+import numpy as np
+import pandas as pd
+from ISLP.models import ModelSpec as MS
+from ISLP import load_data
+We also collect the new imports needed for this lab.
+In [2]: from lifelines import \
+(KaplanMeierFitter ,
+CoxPHFitter)
+from lifelines.statistics import \
+(logrank_test ,
+multivariate_logrank_test)
+from ISLP.survival import sim_time
+11.8.1
+Brain Cancer Data
+We begin with the BrainCancer data set, contained in the ISLP package.
+In [3]: BrainCancer = load_data('BrainCancer')
+BrainCancer.columns
+Out[3]: Index(['sex', 'diagnosis', 'loc', 'ki', 'gtv', 'stereo',
+'status', 'time'],
+dtype='object')
+The rows index the 88 patients, while the 8 columns contain the predictors
+and outcome variables. We first briefly examine the data.
+In [4]: BrainCancer['sex'].value_counts()
+Out[4]: Female
+45
+Male
+43
+Name: sex, dtype: int64
+In [5]: BrainCancer['diagnosis'].value_counts()

@@ -1,0 +1,98 @@
+Index
+601
+Kaplan–Meier survival curve, 472–
+474, 483
+kernel, 379–382, 384, 394
+linear, 380
+non-linear, 377–382
+polynomial, 380, 382
+radial, 381–383, 390
+kernel density estimator, 159
+keyword, 46
+Khan data set, 12, 579–581, 583,
+590, 593
+knot, 290, 294, 296–299
+ℓ1 norm, 244
+ℓ2 norm, 242
+lag, 422
+Laplace distribution, 251
+lasso, 11, 24, 244–251, 265–266,
+336, 385, 484
+leaf, 333, 526
+learning rate, 429
+least squares, 5, 21, 71–72, 140,
+141, 229
+line, 73
+weighted, 103
+level, 92
+leverage, 104–106
+likelihood function, 141
+linear, 2, 69–115
+linear combination, 128, 230, 253,
+505
+linear discriminant analysis, 5, 11,
+135, 138, 147–155, 164–
+167, 377, 382
+linear kernel, 380
+linear model, 20, 69–115
+linear regression, 5, 11, 69–115,
+172–173
+multiple, 80–90
+simple, 70–80
+link function, 172, 173
+linkage, 529–530, 548
+average, 529–530
+centroid, 529–530
+complete, 526, 529–530
+single, 529–530
+list, 41
+list comprehension, 123
+local minimum, 427
+local regression, 290
+log odds, 145
+log-rank test, 474–476, 483
+logistic function, 139
+logistic regression, 5, 11, 25, 135,
+138–144, 164–167, 172–
+173, 308–309, 377, 384–
+385
+multinomial, 145, 163
+multiple, 142–144
+logit, 140
+loss function, 300, 385
+low-dimensional, 262
+LSTM RNN, 420
+main effects, 96
+majority vote, 344
+Mallow’s Cp, 87, 231, 232, 236–
+238
+Mantel–Haenszel test, 475
+margin, 370, 385
+marginal distribution, 158
+Markov chain Monte Carlo, 353
+matrix completion, 515
+matrix multiplication, 10
+maximal margin
+classifier, 367–372
+hyperplane, 370
+maximum likelihood, 139–141, 143,
+170
+mean squared error, 28
+mesh, 53
+method, 43
+minibatch, 429
+misclassification error, 35
+missing at random, 515
+missing data, 56, 515–520
+mixed selection, 87
+MNIST data set, 402–404, 406, 430,
+431, 441, 444, 445, 448
+model assessment, 201
+model selection, 201
+module, 42
+multicollinearity, 108, 266
+multinomial logistic regression, 145,
+163
+multiple testing, 557–583
+multi-task learning, 403
+multivariate Gaussian, 150

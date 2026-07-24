@@ -1,0 +1,64 @@
+3.2. STOCHASTIC INTEGRAL
+87
+Proposition 3.2.1. SBt B
+Ft, At, Ct .
+Linearity. Ia, b , aAt +bCt 
+
+t
+0
+(aAs + bCs) dBs = a
+t
+0
+As dBs + b
+t
+0
+Cs dBs
+M, 0 < r < t,
+t
+0
+As dBs =
+r
+0
+As dBs +
+t
+r
+As dBs
+Martingale property. T
+Zt =
+t
+0
+As dBs
+Ft.
+Variance rule. Zt 
+Var[Zt] = E
+
+Z2
+t
+
+=
+t
+0
+E[A2
+s] ds
+Continuity. W, t →Zt 
+.
+Let us discuss the proof of the proposition. Linearity follows immediately
+from the denition, and continuity follows from the continuity of Brownian
+motion. To show that Zt is a martingale, we need to show that
+E(Zt Fs) = Zs
+if
+s < t
+(3.2)
+We will do this in the case t = tj, s = tk for some j > k and leave the other
+cases for the reader. In this case
+Zs =
+k−1
+
+i=0
+Yi [Bti+1 −Bti],
+and
+Zt = Zs +
+j−1
+
+i=k
+Yi [Bti+1 −Bti]

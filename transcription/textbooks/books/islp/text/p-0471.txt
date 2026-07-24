@@ -1,0 +1,49 @@
+464
+10. Deep Learning
+In [107]: nyse_trainer = Trainer(deterministic=True,
+max_epochs=200,
+callbacks=[ErrorTracker()])
+nyse_trainer.fit(nyse_module ,
+datamodule=nyse_dm)
+nyse_trainer.test(nyse_module ,
+datamodule=nyse_dm)
+Out[107]: [{'test_loss': 0.6141, 'test_r2': 0.4172}]
+We could also fit a model without the nn.RNN() layer by just using a
+nn.Flatten() layer instead. This would be a nonlinear AR model. If in
+addition we excluded the hidden layer, this would be equivalent to our
+earlier linear AR model.
+Instead we will fit a nonlinear AR model using the feature set X_day that
+includes the day_of_week indicators. To do so, we must first create our test
+and training datasets and a corresponding data module. This may seem a
+little burdensome, but is part of the general pipeline for torch.
+In [108]: datasets = []
+for mask in [train, ∼train]:
+X_day_t = torch.tensor(
+np.asarray(X_day[mask]).astype(np.float32))
+Y_t = torch.tensor(np.asarray(Y[mask]).astype(np.float32))
+datasets.append(TensorDataset(X_day_t, Y_t))
+day_train, day_test = datasets
+Creating a data module follows a familiar pattern.
+In [109]: day_dm = SimpleDataModule(day_train,
+day_test,
+num_workers=min(4, max_num_workers),
+validation=day_test,
+batch_size=64)
+We build a NonLinearARModel() that takes as input the 20 features and
+a hidden layer with 32 units. The remaining steps are familiar.
+In [110]: class NonLinearARModel(nn.Module):
+def __init__(self):
+super(NonLinearARModel , self).__init__()
+self._forward = nn.Sequential(nn.Flatten(),
+nn.Linear(20, 32),
+nn.ReLU(),
+nn.Dropout(0.5),
+nn.Linear(32, 1))
+def forward(self, x):
+return torch.flatten(self._forward(x))
+In [111]: nl_model = NonLinearARModel()
+nl_optimizer = RMSprop(nl_model.parameters(),
+lr=0.001)
+nl_module = SimpleModule.regression(nl_model,
+optimizer=nl_optimizer ,
+metrics={'r2':R2Score()})

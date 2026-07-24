@@ -1,0 +1,91 @@
+10.9 Problems
+477
+10.15. Suppose that we are tting a straight line and we
+desire to make the variance of
+as small as possible.
+Restricting ourselves to an even number of experimental
+points, where should we place these points so as to minimize
+V(
+)? [Note: Use the design called for in this exercise with
+great caution because, even though it minimizes V(
+), it
+has some undesirable properties; for example, see Myers,
+Montgomery and Anderson-Cook (2009). Only if you are very
+sure the true functional relationship is linear should you con-
+sider using this design.]
+10.16. Weighted least squares. Suppose that we are tting
+the straight line y 0 1x , but the variance of the y’s
+now depends on the level of x; that is,
+where the wi are known constants, often called weights. Show
+that if we choose estimates of the regression coefcients to 
+minimize the weighted sum of squared errors given by 
+wi(yi 0 1xi)2, the resulting least squares normal equa-
+tions are
+ˆ
+0 
+n
+i1
+wi xi ˆ
+1 
+n
+i1
+wi x2
+i 
+n
+i1
+wi xiyi
+ˆ
+0 
+n
+i1
+wi 1ˆ 
+n
+i1
+wi xi 
+n
+i1
+wiyi
+
+n
+i1
+V(yxi) 2
+i 2
+wi 
+ i 1, 2, . . . , n
+ˆ
+1
+ˆ
+1
+ˆ1
+10.17. Consider the 
+design discussed in Example 10.5.
+(a) Suppose you elect to augment the design with the sin-
+gle run selected in that example. Find the variances and
+covariances of the regression coefcients in the model
+(ignoring blocks):
+(b) Are there any other runs in the alternate fraction that
+would de-alias AB from CD?
+(c) Suppose you augment the design with the four runs
+suggested in Example 10.5. Find the variances and
+covariances of the regression coefcients (ignoring
+blocks) for the model in part (a).
+(d) Considering parts (a) and (c), which augmentation
+strategy would you prefer, and why?
+10.18. Consider a 
+design. Suppose after running the
+experiment, the largest observed effects are A BD, B AD,
+and D AB. You wish to augment the original design with a
+group of four runs to de-alias these effects.
+(a) Which four runs would you make?
+(b) Find the variances and covariances of the regression
+coefcients in the model
+(c) Is it possible to de-alias these effects with fewer than
+four additional runs?
+14x1x4 24x2x4 .
+y 0 1x1 2x2 4x4 12x1x2
+274
+III
+12x1x2 34x3x4 
+y 0 1x1 2x2 3x3 4x4
+241
+IV

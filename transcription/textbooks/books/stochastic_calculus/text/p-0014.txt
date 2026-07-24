@@ -1,0 +1,45 @@
+8
+CHAPTER 1. MARTINGALES IN DISCRETE TIME
+Uniqueness of the conditional expectation then implies (1.1).
+We rst show the constants rule(1.3) for Z = 1A, A Fn, as follows.
+If B Fn, then A B Fn and
+E [1B E(Y Z Fn)] = E [1B E(1A Y Fn)]
+= E [1B 1A Y ] = E [1A∩BY ] = E [1A∩BE(Y Fn)]
+= E [1B 1A E(Y Fn)] = E [1B Z E(Y Fn)] 
+Hence E(Y Z Fn) = Z E(Y Fn) by denition. Using linearity, the
+rule holds for simple random variables of the form
+Z =
+n
+
+j=1
+aj 1Aj,
+Aj Fn
+We can then prove it for nonnegative Y by approximating from below
+by nonnegative simple random variables and using the monotone con-
+vergence theorem, and then for general Y by writing Y = Y + −Y −.
+These are standard techniques in Lebesgue integration theory.
+Example 1.1.1. Suppose that X1, X2, are independent random variables
+with E[Xj] = µ for each j. Let Sn = X1 + · · · + Xn, and let Fn denote the
+information contained in X1, , Xn. Then if m < n,
+E[Sn Fm]
+=
+E[Sm Fm] + E[Sn −Sm Fm]
+=
+Sm + E[Sn −Sm]
+=
+Sm + µ (n −m)
+Example 1.1.2. In the same setup as Example 1.1.1 suppose that µ = 0
+and E[X2
+j ] = σ2 for each j. Then if m < n,
+E[S2
+n Fm]
+=
+E([Sm + (Sn −Sm)]2 Fm)
+=
+E[S2
+m Fm] + 2 E[Sm(Sn −Sm) Fm]
++E[(Sn −Sm)2 Fm]
+Since Sm is Fm-measurable and Sn −Sm is independent of Fm,
+E[S2
+m Fm] = S2
+m,

@@ -1,0 +1,65 @@
+15.5 Problems
+681
+Using this formula, calculate a 95 percent condence interval
+on the adjusted mean of machine 1 in Example 15.5.
+15.19. Show that in a single-factor analysis of covariance
+with a single covariate, the standard error of the difference
+between any two adjusted treatment means is
+15.20. Discuss how the operating characteristic curves for the
+analysis of variance can be used in the analysis of covariance.
+15.21. Three different Pinot Noir wines were evaluated by a
+panel of eight judges. The judges are considered a random
+panel of all possible judges. The wines are evaluated on a 100-
+point scale. The wines were presented in random order to each
+judge, and the following results obtained.
+SAdjyi.Adjyj. MSE
+2
+n 
+(xi. xj.)2
+Exx 
+1/2
+MSE
+1
+n (xi. xi..)2
+Exx 
+1/2
+Wine
+Judge
+1
+2
+3
+1
+85
+88
+93
+2
+90
+89
+94
+3
+88
+90
+98
+4
+91
+93
+96
+5
+92
+92
+95
+6
+89
+90
+95
+7
+90
+91
+97
+8
+91
+89
+98
+Analyze the data from this experiment. Is there a difference in
+wine quality? Analyze the residuals and comment on model
+adequacy.

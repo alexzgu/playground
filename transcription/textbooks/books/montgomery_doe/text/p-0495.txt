@@ -1,0 +1,90 @@
+11.1 Introduction to Response Surface Methodology
+479
+We usually represent the response surface graphically, such as in Figure 11.1, where 
+is plotted versus the levels of x1 and x2. We have seen such response surface plots before, par-
+ticularly in the chapters on factorial designs. To help visualize the shape of a response surface,
+we often plot the contours of the response surface as shown in Figure 11.2. In the contour plot,
+lines of constant response are drawn in the x1, x2 plane. Each contour corresponds to a partic-
+ular height of the response surface. We have also previously seen the utility of contour plots.
+In most RSM problems, the form of the relationship between the response and the inde-
+pendent variables is unknown. Thus, the rst step in RSM is to nd a suitable approximation
+for the true functional relationship between y and the set of independent variables. Usually, a
+low-order polynomial in some region of the independent variables is employed. If the
+response is well modeled by a linear function of the independent variables, then the approxi-
+mating function is the ﬁrst-order model
+(11.1)
+If there is curvature in the system, then a polynomial of higher degree must be used, such as
+the second-order model
+(11.2)
+Almost all RSM problems use one or both of these models. Of course, it is unlikely that a
+polynomial model will be a reasonable approximation of the true functional relationship over
+the entire space of the independent variables, but for a relatively small region they usually
+work quite well.
+The method of least squares, discussed in Chapter 10, is used to estimate the parame-
+ters in the approximating polynomials. The response surface analysis is then performed using
+the tted surface. If the tted surface is an adequate approximation of the true response func-
+tion, then analysis of the tted surface will be approximately equivalent to analysis of the
+actual system. The model parameters can be estimated most effectively if proper experimen-
+tal designs are used to collect the data. Designs for tting response surfaces are called
+response surface designs. These designs are discussed in Section 11.4.
+y 0 
+k
+i1
+i xi 
+k
+i1
+ii x2
+i 
+i!j
+ij xixj 
+y 0 1x1 2x2 Á k xk 
+100
+120
+140
+160 10
+20
+30
+40
+x2 =
+Pressure (psi)
+x1 =
+Temperature (°C)
+Expected yield
+E(y) = 
+70
+60
+50
+40
+100
+120
+Current
+operating
+conditions
+Contour
+plot
+140
+160 10
+20
+30
+40
+x2 =
+Pressure (psi)
+x1 =
+Temperature (°C)
+Expected yield E(y) = 
+70
+60
+50
+40
+y0 = Maximum
+40
+50
+60
+70
+■F I G U R E 1 1 . 1
+A three-dimensional
+response surface showing the expected yield () as a
+function of temperature (x1) and pressure (x2)
+■F I G U R E 1 1 . 2
+A contour plot of a response
+surface

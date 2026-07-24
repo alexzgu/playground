@@ -1,0 +1,57 @@
+6.5 A Single Replicate of the 2k Design
+263
+Suppose that we have m contrasts of interest, say c1, c2, . . . , cm. If the design is an
+unreplicated 2k factorial design, these contrasts correspond to the m  2k 1 factor effect
+estimates. The basis of Lenth’s method is to estimate the variance of a contrast from the
+smallest (in absolute value) contrast estimates. Let
+and
+PSE is called the “pseudostandard error,” and Lenth shows that it is a reasonable estimator of the
+contrast variance when there are only a few active (signicant) effects. The PSE is used to judge
+the signicance of contrasts. An individual contrast can be compared to the margin of error
+where the degrees of freedom are dened as d  m/3. For inference on a group of contrasts,
+Lenth suggests using the simultaneous margin of error
+where the percentage point of the t distribution used is  1 (1 0.951/m)/2.
+To illustrate Lenth’s method, consider the 24 experiment in Example 6.2. The calcula-
+tions result in s0  1.5 2.625 3.9375 and 2.5 3.9375  9.84375, so
+Now consider the effect estimates in Table 6.12. The SME criterion would indicate that the four
+largest effects (in magnitude) are signicant because their effect estimates exceed SME. The
+main effect of C is signicant according to the ME criterion, but not with respect to SME.
+However, because the AC interaction is clearly important, we would probably include C in the
+list of signicant effects. Notice that in this example, Lenth’s method has produced the same
+answer that we obtained previously from examination of the normal probability plot of effects.
+Several authors [see Loughin and Nobel (1997), Hamada and Balakrishnan (1998),
+Larntz and Whitcomb (1998), Loughin (1998), and Edwards and Mee (2008)] have observed
+SME 5.219 2.625 13.70
+ME 2.571 2.625 6.75
+PSE 1.5 1.752.625
+SME t,d PSE
+ME t0.025,d PSE
+PSE 1.5 median(cjcj! 2.5s0)
+s0 1.5 median(cj)
+0.00
+5.41
+10.81
+Effect
+16.22
+21.63
+Half-normal % probability
+99
+97
+95
+90
+85
+80
+C
+D
+AD
+AC
+A
+70
+60
+40
+20
+0
+■F I G U R E 6 . 1 5
+Half-normal plot of
+the factor effects
+from Example 6.2

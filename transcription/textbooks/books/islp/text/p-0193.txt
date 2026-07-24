@@ -1,0 +1,55 @@
+184
+4. Classification
+function works similarly to the other model-fitting functions that we have
+encountered thus far.
+As is the case for LDA and QDA, we fit the classifier using the fit
+method. New predictions are formed using the predict method of the object
+returned by fit().
+In [47]: knn1 = KNeighborsClassifier(n_neighbors=1)
+knn1.fit(X_train, L_train)
+knn1_pred = knn1.predict(X_test)
+confusion_table(knn1_pred, L_test)
+Out[47]:
+Truth
+Down
+Up
+Predicted
+Down
+43
+58
+Up
+68
+83
+The results using K = 1 are not very good, since only 50% of the observa-
+tions are correctly predicted. Of course, it may be that K = 1 results in an
+overly-flexible fit to the data.
+In [48]: (83+43)/252, np.mean(knn1_pred == L_test)
+Out[48]: (0.5, 0.5)
+We repeat the analysis below using K = 3.
+In [49]: knn3 = KNeighborsClassifier(n_neighbors=3)
+knn3_pred = knn3.fit(X_train, L_train).predict(X_test)
+np.mean(knn3_pred == L_test)
+Out[49]: 0.532
+The results have improved slightly. But increasing K further provides no
+further improvements. It appears that for these data, and this train/test
+split, QDA gives the best results of the methods that we have examined so
+far.
+KNN does not perform well on the Smarket data, but it often does provide
+impressive results. As an example we will apply the KNN approach to the
+Caravan data set, which is part of the ISLP library. This data set includes 85
+predictors that measure demographic characteristics for 5,822 individuals.
+The response variable is Purchase, which indicates whether or not a given
+individual purchases a caravan insurance policy. In this data set, only 6%
+of people purchased caravan insurance.
+In [50]: Caravan = load_data('Caravan')
+Purchase = Caravan.Purchase
+Purchase.value_counts()
+Out[50]: No
+5474
+Yes
+348
+Name: Purchase, dtype: int64
+The method value_counts() takes a pd.Series or pd.DataFrame and re-
+turns a pd.Series with the corresponding counts for each unique element.
+In this case Purchase has only Yes and No values and returns how many
+values of each there are.

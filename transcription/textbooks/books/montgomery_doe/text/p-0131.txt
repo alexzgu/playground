@@ -1,0 +1,104 @@
+cell voltage (shown in parentheses) over the run as the response variables. The average voltage
+is important because it affects cell temperature, and the standard deviation of voltage (called
+“pot noise” by the process engineers) is important because it affects the overall cell efciency.
+An analysis of variance was performed to determine whether the different ratio control
+algorithms affect average cell voltage. This revealed that the ratio control algorithm had no
+location effect; that is, changing the ratio control algorithms does not change the average cell
+voltage. (Refer to Problem 3.38.)
+To investigate dispersion effects, it is usually best to use
+as a response variable since the log transformation is effective in stabilizing variability in the
+distribution of the sample standard deviation. Because all sample standard deviations of pot
+voltage are less than unity, we will use
+as the response variable. Table 3.16 presents the analysis of variance for this response, the nat-
+ural logarithm of “pot noise.” Notice that the choice of a ratio control algorithm affects pot
+noise; that is, the ratio control algorithm has a dispersion effect. Standard tests of model ade-
+quacy, including normal probability plots of the residuals, indicate that there are no problems
+with experimental validity. (Refer to Problem 3.39.)
+Figure 3.18 plots the average log pot noise for each ratio control algorithm and also
+presents a scaled t distribution for use as a reference distribution in discriminating between
+ratio control algorithms. This plot clearly reveals that ratio control algorithm 3 produces
+y ln(s)
+log(s)  or  log(s 2)
+3.8 Other Examples of Single-Factor Experiments
+115
+3
+1
+4
+2
+Average log pot noise [–ln (s)]
+4.00
+3.00
+2.00
+■F I G U R E 3 . 1 8
+Average
+log pot noise [ln (s)] for 
+four ratio control algorithms 
+relative to a scaled t distribution
+with scale factor 
+0.094/6 0.125
+MSE/n 
+■TA B L E 3 . 1 5
+Data for the Smelting Experiment
+Ratio
+Control 
+Observations
+Algorithm
+1
+2
+3
+4
+5
+6
+1
+4.93(0.05)
+4.86(0.04)
+4.75(0.05)
+4.95(0.06)
+4.79(0.03)
+4.88(0.05)
+2
+4.85(0.04)
+4.91(0.02)
+4.79(0.03)
+4.85(0.05)
+4.75(0.03)
+4.85(0.02)
+3
+4.83(0.09)
+4.88(0.13)
+4.90(0.11)
+4.75(0.15)
+4.82(0.08)
+4.90(0.12)
+4
+4.89(0.03)
+4.77(0.04)
+4.94(0.05)
+4.86(0.05)
+4.79(0.03)
+4.76(0.02)
+■TA B L E 3 . 1 6
+Analysis of Variance for the Natural Logarithm of Pot Noise
+Source of 
+Sum of 
+Degrees of 
+Mean 
+Variation
+Squares
+Freedom
+Square
+F0
+P-Value
+Ratio control algorithm
+6.166
+3
+2.055
+21.96
+0.001
+Error
+1.872
+20
+0.094
+Total
+8.038
+23

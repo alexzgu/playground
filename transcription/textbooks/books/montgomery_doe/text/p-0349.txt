@@ -1,0 +1,66 @@
+Conrmation Experiments. Adding the alternate fraction to the principal fraction
+may be thought of as a type of conﬁrmation experiment in that it provides information that
+will allow us to strengthen our initial conclusions about the two-factor interaction effects. We
+will investigate some other aspects of combining fractional factorials to isolate interactions in
+Sections 8.5 and 8.6.
+A conrmation experiment need not be this elaborate. A very simple conrmation exper-
+iment is to use the model equation to predict the response at a point of interest in the design
+space (this should not be one of the runs in the current design) and then actually run that treat-
+ment combination (perhaps several times), comparing the predicted and observed responses.
+Reasonably close agreement indicates that the interpretation of the fractional factorial was
+correct, whereas serious discrepancies mean that the interpretation was problematic. This
+would be an indication that additional experimentation is required to resolve ambiguities.
+To illustrate, consider the 241 fractional factorial in Example 8.1. The experimenters
+are interested in nding a set of conditions where the response variable ltration rate is high,
+but low concentrations of formaldehyde (factor C) are desirable. This would suggest that fac-
+tors A and D should be at the high level and factor C should be at the low level. Examining
+Figure 8.3, we note that when B is at the low level, this treatment combination was run in the
+fractional factorial, producing an observed response of 100. The treatment combination with
+B at the high level was not in the original fraction, so this would be a reasonable conrmation
+run. With A, B, and D at the high level and C at the low level, we use the model equation from
+Example 8.1 to calculate the predicted response as follows:
+The observed response at this treatment combination is 104 (refer to Figure 6.10 where the
+response data for the complete 24 factorial design are presented). Since the observed and pre-
+dicted values of ltration rate are very similar, we have a successful conrmation run. This is
+additional evidence that our interpretation of the fractional factorial was correct.
+There will be situations where the predicted and observed values in a conrmation
+experiment will not be this close together, and it will be necessary to answer the question of
+whether the two values are sufciently close to reasonably conclude that the interpretation of
+the fractional design was correct. One way to answer this question is to construct a predic-
+tion interval on the future observation for the conrmation run and then see if the actual
+observation falls inside the prediction interval. We show how to do this using this example in
+Section 10.6, where prediction intervals for a regression model are introduced.
+8.3
+The One-Quarter Fraction of the 2k Design
+For a moderately large number of factors, smaller fractions of the 2k design are frequently
+useful. Consider a one-quarter fraction of the 2k design. This design contains 2k2 runs and is
+usually called a 2k2 fractional factorial.
+The 2k2 design may be constructed by rst writing down a basic design consisting of the
+runs associated with a full factorial in k 2 factors and then associating the two additional
+columns with appropriately chosen interactions involving the rst k 2 factors. Thus, a 
+100.25
+
+19.00
+2 (1)(1)
+70.75 
+19.00
+2 (1) 
+14.00
+2 (1) 
+16.50
+2 (1) 
+18.50
+2 (1)(1)
+yˆ 70.75 
+19.00
+2 x1 
+14.00
+2 x3 
+16.50
+2 x4 
+18.50
+2 x1x3 
+19.00
+2 x1x4
+8.3 The One-Quarter Fraction of the 2k Design
+333

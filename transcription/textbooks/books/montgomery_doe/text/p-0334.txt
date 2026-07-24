@@ -1,0 +1,119 @@
+318
+Chapter 7 ■Blocking and Confounding in the 2k Factorial Design
+E X A M P L E 7 . 3
+A 23 Design with Partial Confounding
+Consider Example 6.1, in which an experiment was con-
+ducted to develop a plasma etching process. There were
+three factors, A gap, B gas ow, and C RF power,
+and the response variable is the etch rate. Suppose that only
+four treatment combinations can be tested during a shift,
+and because there could be shift-to-shift differences in etch-
+ing tool performance, the experimenters decide to use shifts
+as a blocking factor. Thus, each replicate of the 23 design
+must be run in two blocks. Two replicates are run, with
+ABC confounded in replicate I and AB confounded in repli-
+cate II. The data are as follows:
+The sums of squares for A, B, C, AC, and BC may be
+calculated in the usual manner, using all 16 observations.
+However, we must nd SSABC using only the data in repli-
+cate II and SSAB using only the data in replicate I as follows:
+[550 729 749 1037 669 633 642 1075]2
+(1)(8)
+3528.0
+SSAB [(1) abc ac c a b ab bc]2
+n2k
+[650 601 1052 860 635 868 1063 604]2
+(1)(8)
+6.1250
+SSABC [a b c abc ab ac bc (1)]2
+n2k
+The sum of squares for the replicates is, in general,
+(6084)2 (6333)2
+8
+(12,417)2
+16
+3875.0625
+SSRep 
+n
+h1
+R2
+h
+2k y2
+...
+N
+where Rh is the total of the observations in the hth replicate.
+The block sum of squares is the sum of SSABC from replicate
+I and SSAB from replicate II, or SSBlocks 458.1250.
+The analysis of variance is summarized in Table 7.11.
+The main effects of A and C and the AC interaction are
+important.
+■TA B L E 7 . 1 1
+Analysis of Variance for Example 7.3
+Sum of
+Degrees of
+Mean
+Source of Variation
+Squares
+Freedom
+Square
+F0
+P-Value
+Replicates
+3875.0625
+1
+3875.0625
+—
+Blocks within replicates
+458.1250
+2
+229.0625
+—
+A
+41,310.5625
+1
+41,310.5625
+16.20
+0.01
+B
+217.5625
+1
+217.5625
+0.08
+0.78
+C
+374,850.5625
+1
+374,850.5625
+146.97
+0.001
+AB (rep. I only)
+3528.0000
+1
+3528.0000
+1.38
+0.29
+AC
+94,404.5625
+1
+94,404.5625
+37.01
+0.001
+BC
+18.0625
+1
+18.0625
+0.007
+0.94
+ABC (rep. II only)
+6.1250
+1
+6.1250
+0.002
+0.96
+Error
+12,752.3125
+5
+2550.4625
+Total
+531,420.9375
+15

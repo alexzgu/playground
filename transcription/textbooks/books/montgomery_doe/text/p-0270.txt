@@ -1,0 +1,89 @@
+254
+Chapter 6 ■The 2k Factorial Design
+The sequence of steps in Table 6.8 should, by now, be familiar. The rst step is to esti-
+mate factor effects and examine their signs and magnitudes. This gives the experimenter pre-
+liminary information regarding which factors and interactions may be important and in which
+directions these factors should be adjusted to improve the response. In forming the initial
+model for the experiment, we usually choose the full model, that is, all main effects and inter-
+actions, provided that at least one of the design points has been replicated (in the next section,
+we discuss a modication to this step). Then in step 3, we use the analysis of variance to for-
+mally test for the signicance of main effects and interaction. Table 6.9 shows the general
+form of an analysis of variance for a 2k factorial design with n replicates. Step 4, rene the
+■TA B L E 6 . 9
+Analysis of Variance for a 2k Design
+Source of
+Sum of 
+Degrees of
+Variation
+Squares
+Freedom
+k main effects
+A
+SSA
+1
+B
+SSB
+1
+K
+SSK
+1
+two-factor interactions
+AB
+SSAB
+1
+AC
+SSAC
+1
+JK
+SSJK
+1
+three-factor interactions
+ABC
+SSABC
+1
+ABD
+SSABD
+1
+IJK
+SSIJK
+1
+k-factor interaction
+SS
+1
+Error
+SSE
+2k(n 1)
+Total
+SST
+n2k 1
+ABC Á K
+ABC Á K
+(k
+k)
+o
+o
+o
+o
+o
+o
+(k
+3)
+o
+o
+o
+(k
+2)
+o
+o
+o
+■TA B L E 6 . 8
+Analysis Procedure for a 2k Design
+1. Estimate factor effects
+2. Form initial model
+a. If the design is replicated, t the full model
+b. If there is no replication, form the model
+using a normal probability plot of the effects
+3. Perform statistical testing
+4. Rene model
+5. Analyze residuals
+6. Interpret results 

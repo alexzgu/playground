@@ -1,0 +1,41 @@
+12
+Unsupervised Learning
+Most
+of
+this
+book
+concerns
+supervised
+learning
+methods
+such
+as
+regression and classification. In the supervised learning setting, we typically
+have access to a set of p features X1, X2, . . . , Xp, measured on n obser-
+vations, and a response Y also measured on those same n observations.
+The goal is then to predict Y using X1, X2, . . . , Xp.
+This chapter will instead focus on unsupervised learning, a set of sta-
+tistical tools intended for the setting in which we have only a set of fea-
+tures X1, X2, . . . , Xp measured on n observations. We are not interested
+in prediction, because we do not have an associated response variable Y .
+Rather, the goal is to discover interesting things about the measurements
+on X1, X2, . . . , Xp. Is there an informative way to visualize the data? Can
+we discover subgroups among the variables or among the observations?
+Unsupervised learning refers to a diverse set of techniques for answering
+questions such as these. In this chapter, we will focus on two particu-
+lar types of unsupervised learning: principal components analysis, a tool
+used for data visualization or data pre-processing before supervised tech-
+niques are applied, and clustering, a broad class of methods for discovering
+unknown subgroups in data.
+12.1
+The Challenge of Unsupervised Learning
+Supervised learning is a well-understood area. In fact, if you have read
+the preceding chapters in this book, then you should by now have a good
+grasp of supervised learning. For instance, if you are asked to predict a
+binary outcome from a data set, you have a very well developed set of tools
+at your disposal (such as logistic regression, linear discriminant analysis,
+classification trees, support vector machines, and more) as well as a clear
+© Springer Nature Switzerland AG 2023 
+G. James et al., An Introduction to Statistical Learning, Springer Texts in Statistics, 
+https://doi.org/10.1007/978-3-031-38747-0_12 
+503

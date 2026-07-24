@@ -1,0 +1,57 @@
+of analysis depends directly on the design employed. Both topics will be addressed in this
+book.
+The three basic principles of experimental design are randomization, replication, and
+blocking. Sometimes we add the factorial principle to these three. Randomization is the cor-
+nerstone underlying the use of statistical methods in experimental design. By randomization
+we mean that both the allocation of the experimental material and the order in which the indi-
+vidual runs of the experiment are to be performed are randomly determined. Statistical meth-
+ods require that the observations (or errors) be independently distributed random variables.
+Randomization usually makes this assumption valid. By properly randomizing the experi-
+ment, we also assist in “averaging out” the effects of extraneous factors that may be present.
+For example, suppose that the specimens in the hardness experiment are of slightly different
+thicknesses and that the effectiveness of the quenching medium may be affected by specimen
+thickness. If all the specimens subjected to the oil quench are thicker than those subjected to
+the saltwater quench, we may be introducing systematic bias into the experimental results.
+This bias handicaps one of the quenching media and consequently invalidates our results.
+Randomly assigning the specimens to the quenching media alleviates this problem.
+Computer software programs are widely used to assist experimenters in selecting and
+constructing experimental designs. These programs often present the runs in the experimental
+design in random order. This random order is created by using a random number generator.
+Even with such a computer program, it is still often necessary to assign units of experimental
+material (such as the specimens in the hardness example mentioned above), operators, gauges
+or measurement devices, and so forth for use in the experiment.
+Sometimes experimenters encounter situations where randomization of some aspect of
+the experiment is difcult. For example, in a chemical process, temperature may be a very
+hard-to-change variable as we may want to change it less often than we change the levels of
+other factors. In an experiment of this type, complete randomization would be difcult
+because it would add time and cost. There are statistical design methods for dealing with
+restrictions on randomization. Some of these approaches will be discussed in subsequent
+chapters (see in particular Chapter 14).
+By replication we mean an independent repeat run of each factor combination. In the
+metallurgical experiment discussed in Section 1.1, replication would consist of treating a
+specimen by oil quenching and treating a specimen by saltwater quenching. Thus, if ve
+specimens are treated in each quenching medium, we say that ve replicates have been
+obtained. Each of the 10 observations should be run in random order. Replication has two
+important properties. First, it allows the experimenter to obtain an estimate of the experi-
+mental error. This estimate of error becomes a basic unit of measurement for determining
+whether observed differences in the data are really statistically different. Second, if the sam-
+ple mean ( ) is used to estimate the true mean response for one of the factor levels in the
+experiment, replication permits the experimenter to obtain a more precise estimate of this
+parameter. For example; if 2 is the variance of an individual observation and there are 
+n replicates, the variance of the sample mean is
+The practical implication of this is that if we had n 1 replicates and observed 
+y1 145 (oil quench) and y2 147 (saltwater quench), we would probably be unable to
+make satisfactory inferences about the effect of the quenching medium—that is, the
+observed difference could be the result of experimental error. The point is that without
+replication we have no way of knowing why the two observations are different. On the
+other hand, if n was reasonably large and the experimental error was sufficiently small and
+if we observed sample averages  
+, we would be reasonably safe in concluding that
+y1 < y2
+y
+2
+2
+n
+y
+12
+Chapter 1 ■Introduction

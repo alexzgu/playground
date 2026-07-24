@@ -1,0 +1,55 @@
+164CHAPTER 5. CHANGE OF MEASURE AND GIRSANOV THEOREM
+If we assume (5.16) and plug in (5.12) and (5.13), we get
+dVt
+=
+at St [m dt + σ dBt] + bt r Rt dt
+=
+at St [m dt + σ dBt] + r [Vt −at St] dt
+=
+[m at St + r (Vt −at St)] dt + σ at St dBt
+(5.17)
+Under our denition, Vt = f(t, St). Therefore, assuming f is suciently dif-
+ferentiable, Itˆo’s formula shows that
+dVt
+=
+df(t, St)
+=
+∂tf(t, St) dt + f ′(t, St) dSt + 1
+2 f ′′(t, St) d⟨S⟩t
+=
+
+∂tf(t, St) + m St f ′(t, St) + σ2S2
+t
+2
+f ′′(t, St)
+
+dt
++σ St f ′(t, St) dBt
+(5.18)
+By equating the dBt terms in (5.17) and (5.18), we see that that the portfolio
+is given by
+at = f ′(t, St),
+bt = Vt −at St
+Rt
+,
+(5.19)
+and then by equating the dt terms we get the Black-Scholes equation
+∂tf(t, x) = r f(t, x) −r x f ′(t, x) −σ2 x2
+2
+f ′′(t, x)
+There are two things to note about this equation.
+The drift term m does not appear. If we think about this, we realize why
+our assumptions should give us an equation independent of m. Our price
+was based on being able to hedge our portfolio so that with probability
+one the value at time T is (ST −K)+. Geometric Brownian motions
+with the same σ but dierent m are mutually absolutely continuous
+and hence have the same events of probability one.
+The equation is exactly the same as (5.14) except that m has been
+replaced with r. Therefore, we can write
+f(t, x) = E
+
+e−r(T −t) F(St) St = x
+
+,
+where S satises
+dSt = St [r dt + σ dBt]

@@ -1,0 +1,107 @@
+has the N(0, 1) distribution. Now we would replace the unknown variance 2 by its estimate,
+the mean square error MSE and use the statistic
+(3.27)
+to test the hypotheses in Equation 3.25. The null hypothesis would be rejected if |t0| in
+Equation 3.27 exceeds t/2,Na.
+The second approach uses an F test. Now the square of a t random variable with 
+degrees of freedom is an F random variable with 1 numerator and v denominator degrees of
+freedom. Therefore, we can obtain
+(3.28)
+as an F statistic for testing Equation 3.25. The null hypothesis would be rejected if F0 
+F,1,Na. We can write the test statistic of Equation 3.28 as
+where the single degree of freedom contrast sum of squares is
+(3.29)
+Condence Interval for a Contrast. Instead of testing hypotheses about a contrast,
+it may be more useful to construct a condence interval. Suppose that the contrast of interest
+is
+Replacing the treatment means with the treatment averages yields
+Because
+the 100(1 ) percent condence interval on the contrast 
+is
+(3.30)
+
+a
+i1
+ci yi. t/2,Na
+MSE
+n 
+a
+i1
+c2
+i 
+a
+i1
+cii 
+a
+i1
+ci yi. t/2,Na
+MSE
+n 
+a
+i1
+c2
+i
+a
+i1cii
+E
+a
+i1
+ci yi.
+a
+i1
+cii 
+ and 
+ V(C) 2/n 
+a
+i1
+c2
+i
+C 
+a
+i1
+ci yi.
+
+a
+i1
+cii
+SSC 
+a
+i1
+ci yi.
+2
+1
+n 
+a
+i1
+c2
+i
+F0 MSC
+MSE
+SSC/1
+MSE
+F0 t 2
+0 
+a
+i1
+ci yi.
+2
+MSE
+n 
+a
+i1
+c2
+i
+t0 
+
+a
+i1
+ci yi.
+
+MSE
+n 
+a
+i1
+c2
+i
+3.5 Practical Interpretation of Results
+93

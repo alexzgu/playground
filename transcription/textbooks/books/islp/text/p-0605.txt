@@ -1,0 +1,97 @@
+Index
+599
+Boston, 12, 67, 117, 122, 133,
+199, 227, 287, 327, 364,
+556
+BrainCancer, 12, 472–474, 476,
+482
+Caravan, 12, 184, 366
+Carseats, 12, 126, 130, 364
+CIFAR100, 406, 409–411, 448,
+449
+College, 12, 65, 286, 328
+Credit, 12, 91, 92, 94, 97, 98,
+106–109
+Default, 12, 136–139, 141–
+144, 152–156, 160, 161,
+225, 226, 466
+Fund, 12, 567–570, 572, 575,
+576, 585, 588, 589
+Heart, 339, 340, 344–347, 352,
+353, 382, 383
+Hitters, 12, 332, 333, 336,
+338, 339, 366, 425, 426,
+437, 446
+IMDb, 413, 415, 416, 418, 420,
+437, 458, 467
+Income, 16–18, 21–23
+Khan, 12, 579–581, 583, 590,
+593
+MNIST, 402–404, 406, 430, 431,
+441, 444, 445, 448
+NCI60, 4, 5, 12, 546, 548–550
+NYSE, 12, 422–424, 466, 467
+OJ, 12, 365, 398
+Portfolio, 12
+Publication, 12, 482–487
+Smarket, 2, 3, 12, 173, 184,
+196
+USArrests, 12, 507, 508, 510,
+512, 513, 515, 516, 518,
+519
+Wage, 1, 2, 8, 9, 12, 290, 291,
+293, 295, 297–300, 302–
+306, 309, 315, 327
+Weekly, 12, 196, 226
+data type, 42
+decision function, 387
+decision tree, 11, 331–342
+deep learning, 399
+Default data set, 12, 136–139, 141–
+144, 152–156, 160, 161,
+225, 226, 466
+degrees of freedom, 30, 266, 295,
+296, 301
+dendrogram, 521, 525–530
+density function, 146
+dependent variable, 15
+derivative, 296, 300
+detector layer, 410
+deviance, 232
+dictionary, 66
+dimension reduction, 230, 253–262
+discriminant function, 149
+discriminant method, 146–161
+dissimilarity, 530–532
+distance
+correlation-based, 530–532, 554
+Euclidean, 509, 522, 523, 529–
+532
+double descent, 431–435
+double-exponential distribution, 251
+dropout, 406, 431
+dummy variable, 91–94, 138, 142,
+292
+early stopping, 430
+effective degrees of freedom, 301
+eigen decomposition, 506, 516
+elbow, 548
+embedding, 418
+embedding layer, 419
+ensemble, 343–354
+entropy, 337–339, 363
+epochs, 430
+error
+irreducible, 17, 30
+rate, 34
+reducible, 17
+term, 16
+Euclidean distance, 509, 522, 523,
+529–532, 554
+event time, 470
+exception, 45
+expected value, 18
+exploratory data analysis, 504
+exponential, 173
+exponential family, 173
+F-statistic, 84

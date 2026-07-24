@@ -1,0 +1,121 @@
+8.2 The One-Half Fraction of the 2k Design
+327
+effects is signicant this is called weak heredity; and this
+is relatively less common). So in this example, with A sig-
+nicant and B not signicant this support the assumption
+that AB is not signicant. 
+Because factor B is not signicant, we may drop it from
+consideration. Consequently, we may project this 
+design into a single replicate of the 23 design in factors A,
+C, and D, as shown in Figure 8.4. Visual examination of
+this cube plot makes us more comfortable with the conclu-
+sions reached above. Notice that if the temperature (A) is at
+the low level, the concentration (C) has a large positive
+effect, whereas if the temperature is at the high level, the
+concentration has a very small effect. This is probably due
+to an AC interaction. Furthermore, if the temperature is at
+the low level, the effect of the stirring rate (D) is negligible,
+whereas if the temperature is at the high level, the stirring
+rate has a large positive effect. This is probably due to the
+AD interaction tentatively identied previously.
+Based on the above analysis, we can now obtain a model
+to predict ltration rate over the experimental region. This
+model is
+ˆ
+3x3 ˆ
+4x4 ˆ
+13x1x3 ˆ
+14x1x4
+yˆ ˆ
+0 ˆ
+1x1 
+241
+IV
+where x1, x3, and x4 are coded variables (1  xi  1)
+that represent A, C, and D, and the ’s are regression coef-
+cients that can be obtained from the effect estimates as we
+did previously. Therefore, the prediction equation is
+Remember that the intercept 
+is the average of all
+responses at the eight runs in the design. This model is very
+similar to the one that resulted from the full 2k factorial
+design in Example 6.2.
+ˆ 0
+
+18.50
+2 x1x3 
+19.00
+2 x1x4
+yˆ 70.75 
+19.00
+2 x1 
+14.00
+2 x3 
+16.50
+2 x4
+ˆ
+■TA B L E 8 . 4
+Estimates of Effects and Aliases from Example 8.1a
+Estimate
+Alias Structure
+[A] 19.00
+[A] : A BCD
+[B] 
+1.50
+[B] : B ACD
+[C] 14.00
+[C] : C ABD
+[D] 16.50
+[D] : D ABC
+[AB] 1.00
+[AB] : AB CD
+[AC] 18.50
+[AC] : AC BD
+[AD] 19.00
+[AD] : AD BC
+a Signicant effects are shown in boldface type.
+75
+96
+80
+45
+65
+100
+45
+Low
+Low
+Low
+High
+High
+High
+C (Concentration)
+D (Stirring rate)
+A (Temperature)
+60
+■F I G U R E 8 . 4
+Projection of the 
+design
+into a 23 design in A, C, and D for Example 8.1
+241
+IV
+E X A M P L E 8 . 2
+A 251 Design Used for Process Improvement
+Five factors in a manufacturing process for an integrated
+circuit were investigated in a 251 design with the objective
+of improving the process yield. The ve factors were A 
+aperture setting (small, large), B exposure time (20 per-
+cent below nominal, 20 percent above nominal), C 
+develop time (30 and 45 sec), D mask dimension (small,
+large), and E etch time (14.5 and 15.5 min). The con-
+struction of the 251 design is shown in Table 8.5. Notice
+that the design was constructed by writing down the basic
+design having 16 runs (a 24 design in A, B, C, and D),
+selecting ABCDE as the generator, and then setting the
+levels of the fth factor E ABCD. Figure 8.5 gives a pic-
+torial representation of the design.
+The dening relation for the design is I ABCDE.
+Consequently, every main effect is aliased with a four-factor
+interaction (for example, [A] : A BCDE), and every two-
+factor interaction is aliased with a three-factor interaction (e.g.,
+[AB] : AB CDE). Thus, the design is of resolution V. We
+would expect this 251 design to provide excellent information
+concerning the main effects and two-factor interactions.

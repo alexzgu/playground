@@ -1,0 +1,50 @@
+8.3 Lab: Tree-Based Methods
+359
+First, we split the data into training and test sets, and fit the tree to the
+training data. Here we use 30% of the data for the test set.
+In [19]: (X_train,
+X_test,
+y_train,
+y_test) = skm.train_test_split(X,
+Boston['medv'],
+test_size=0.3,
+random_state=0)
+Having formed our training and test data sets, we fit the regression tree.
+In [20]: reg = DTR(max_depth=3)
+reg.fit(X_train, y_train)
+ax = subplots(figsize=(12,12))[1]
+plot_tree(reg,
+feature_names=feature_names ,
+ax=ax);
+The variable lstat measures the percentage of individuals with lower
+socioeconomic status. The tree indicates that lower values of lstat corre-
+spond to more expensive houses. The tree predicts a median house price
+of $12,042 for small-sized homes (rm < 6.8), in suburbs in which residents
+have low socioeconomic status (lstat > 14.4) and the crime-rate is mod-
+erate (crim > 5.8).
+Now we use the cross-validation function to see whether pruning the tree
+will improve performance.
+In [21]: ccp_path = reg.cost_complexity_pruning_path(X_train, y_train)
+kfold = skm.KFold(5,
+shuffle=True,
+random_state=10)
+grid = skm.GridSearchCV(reg,
+{'ccp_alpha': ccp_path.ccp_alphas},
+refit=True,
+cv=kfold,
+scoring='neg_mean_squared_error')
+G = grid.fit(X_train, y_train)
+In keeping with the cross-validation results, we use the pruned tree to
+make predictions on the test set.
+In [22]: best_ = grid.best_estimator_
+np.mean((y_test - best_.predict(X_test))**2)
+Out[22]: 28.07
+In other words, the test set MSE associated with the regression tree is
+28.07. The square root of the MSE is therefore around 5.30, indicating that
+this model leads to test predictions that are within around $5300 of the
+true median home value for the suburb.
+Let’s plot the best tree to see how interpretable it is.
+In [23]: ax = subplots(figsize=(12,12))[1]
+plot_tree(G.best_estimator_ ,
+feature_names=feature_names ,
+ax=ax);

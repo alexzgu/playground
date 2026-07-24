@@ -1,0 +1,46 @@
+8.1. DIRICHLET PROBLEM
+247
+z. To make this precise, one denes a point z ∂D to be if for every
+ϵ > 0 there exists δ > 0 such that if x D with x −z< δ, then
+Px Bτ −z≥ϵ≤ϵ
+Theorem 8.1.4. SD z ∂D
+. SF ∂D. T
+f : D →R D 
+F ∂D (8.4).
+Example 8.1.1. Let D be the annular region
+D = x Rd : r < x< R,
+and let F(x) = 1 if x= R, F(x) = 0 if x= r. Then for x D,
+f(x; r, R) = Ex [F(Bτ)] = PxBτ= R
+We claim that
+f(x; r, R) = x −r
+R −r,
+d = 1,
+f(x; r, R) = log x−log r
+log R −log r ,
+d = 2,
+f(x; r, R) = rd−2 −xd−2
+rd−2 −Rd−2 ,
+d ≥3
+One can check this by noting that 2f(x) = 0 and f has the correct boundary
+condition. The theorem implies that there is only one such function. Note
+that
+lim
+R∞f(x; r, R) =
+0,
+d ≤2
+1 −(rx)2−d,
+d ≥3
+,
+lim
+r0 f(x; r, R) =
+xR
+d = 1
+1,
+d ≥2 
+(8.5)
+We have already seen the d = 1 case as the gambler’s ruin estimate for
+Brownian motion.
+Example 8.1.2. Let d ≥2. It follows from (8.5) that if x̸ = 0, then the
+probability that a Brownian motion starting at x ever hits zero is zero. Let
+D = x Rd : 0 < x< 1. Then 0 is a regular point of ∂D, since
+if we start near the origin the Brownian motion will not exit D near 0. Let

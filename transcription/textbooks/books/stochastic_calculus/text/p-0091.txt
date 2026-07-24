@@ -1,0 +1,48 @@
+3.2. STOCHASTIC INTEGRAL
+85
+3.2
+Stochastic integral
+Let Bt be a standard (one-dimensional) Brownian motion with respect to a
+ltration Ft. We want to dene the process
+Zt =
+t
+0
+As dBs
+We think of Zt as a Brownian motion which at time s has variance A2
+s. In
+analogy to the discrete stochastic integral, we think of As as the amount
+betor investedat time s with negative bets indicating bets that the
+process will go down. Also, as in the discrete case, we want to restrict our
+betting strategies to those that cannot look into the future. For continuous
+time processes for which changes are happening innitesimally it is somewhat
+trickier to make the last condition precise. We will start by doing some easy
+cases and then dene more complicated cases by taking limits.
+3.2.1
+Review of Riemann integration
+Let us review the denition of the usual Riemann integral from calculus.
+Suppose f(t) is a continuous function and we wish to dene
+1
+0
+f(t) dt
+We partition [0, 1] into small intervals, say
+0 = t0 < t1 < · · · < tn = 1,
+and approximate f(t) by a 
+fn(t) = f(sj),
+tj−1 < t ≤tj,
+where sj is some point chosen in [tj−1, tj]. We dene
+1
+0
+fn(t) dt =
+n
+
+j=1
+f(sj) (tj −tj−1)
+It is a theorem that if we take a sequence of partitions such that the maximum
+length of the intervals [tj−1, tj] goes to zero, then the limit
+1
+0
+f(t) dt = lim
+n∞
+1
+0
+fn(t) dt

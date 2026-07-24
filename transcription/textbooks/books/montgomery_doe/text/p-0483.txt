@@ -1,0 +1,83 @@
+10.5 Conﬁdence Intervals in Multiple Regression
+467
+10.5
+Conﬁdence Intervals in Multiple Regression
+It is often necessary to construct condence interval estimates for the regression coefcients
+{j} and for other quantities of interest from the regression model. The development of a pro-
+cedure for obtaining these condence intervals requires that we assume the errors {i} to be
+normally and independently distributed with mean zero and variance 2, the same assumption
+made in the section on hypothesis testing in Section 10.4.
+10.5.1
+Conﬁdence Intervals on the Individual Regression
+Coefﬁcients
+Because the least squares estimator 
+is a linear combination of the observations, it follows
+that 
+is normally distributed with mean vector & and covariance matrix 2(XX)1. Then
+each of the statistics
+(10.37)
+is distributed as t with n p degrees of freedom, where Cjj is the (jj)th element of the
+matrix, and 
+is the estimate of the error variance, obtained from Equation 10.17.
+Therefore, a 100(1 ) percent condence interval for the regression coefcient j, j 0,
+1, . . . , k, is
+(10.38)
+Note that this condence interval could also be written as
+because se
+.
+(ˆ
+j) ˆ 2Cjj
+ˆ
+j t/2,npse(ˆ
+j) j ˆ
+j t/2,npse(ˆ
+j)
+ˆ
+j t/2,npˆ 2Cjj j ˆ
+j t/2,npˆ 2Cjj
+ˆ 2
+(XX)1
+ˆ
+j j
+ˆ 2Cjj
+ 
+ j 0, 1, . . . , k
+&ˆ
+&ˆ
+which was called the model sum of squares in the table.
+This sum of squares has two degrees of freedom.
+The reduced model is
+The least squares t for this model is
+and the regression sum of squares for this model (with one
+degree of freedom) is
+Note that SSR(10) is shown at the bottom of the
+Minitab output in Table 10.4 under the heading “Seq SS.”
+Therefore,
+3316.3
+SSR(20, 1) 44,157.1 40,840.8
+SSR(10) 40,840.8
+yˆ 1652.3955 7.6397x1
+y 0 1x1 
+with 2 1 1 degree of freedom. This is the increase in
+the regression sum of squares that results from adding x2 to
+a model already containing x1, and it is shown at the bottom
+of the Minitab output on Table 10.4. To test H0 : 2 0,
+from the test statistic we obtain
+Note that MSE from the full model (Table 10.4) is used in
+the denominator of F0. Now, because F0.05,1,13 4.67, we
+would reject H0 : 2 0 and conclude that x2 (feed rate)
+contributes signicantly to the model.
+Because this partial F test involves only a single
+regressor, it is equivalent to the t-test because the square
+of a t random variable with v degrees of freedom is an F
+random variable with 1 and v degrees of freedom. To see
+this, note from Table 10.4 that the t-statistic for H0:2 0
+resulted in t0 3.5203 and that 
+(3.5203)2 12.3925
+F0.
+t 2
+0
+F0 SsR(20, 1)/1
+MSE
+3316.3/1
+267.604 12.3926

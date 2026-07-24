@@ -1,0 +1,51 @@
+80
+CHAPTER 2. BROWNIAN MOTION
+Exercise 2.5. Let Bt be a standard Brownian motion and let
+Y = max
+
+B2
+1 + (B2 −B1)2, B2
+2
+
+
+Show that
+Y = B2
+2 + 2 B1 (B1 −B2) 1B1(B1 −B2) ≥0
+Find E[Y ].
+Show that for every k < ∞, E
+
+Y k
+< ∞
+Exercise 2.6. Let Bt be a standard Brownian motion and let Ftdenote
+the usual ltration. Suppose s < t. Compute the following.
+1. E[B2
+t Fs]
+2. E[B3
+t Fs]
+3. E[B4
+t Fs]
+4. E[e4Bt−2 Fs]
+Exercise 2.7. Let Bt be a standard Brownian motion and let
+Y (t) = t B(1t)
+1. Is Y (t) a Gaussian process?
+2. Compute Cov(Y (s), Y (t)).
+3. Does Y (t) have the distribution of a standard Brownian motion?
+Exercise 2.8. If f(t), 0 ≤t ≤1 is a continuous function, dene the (32)-
+variation up to time one to be
+Q = lim
+n∞
+n
+
+j=1
+f
+j
+n
+
+−f
+j −1
+n
+
+32
+
+What is Q if
+1. f is a nonconstant, continuously dierentiable function on R?

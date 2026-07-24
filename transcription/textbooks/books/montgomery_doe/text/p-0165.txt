@@ -1,0 +1,64 @@
+8900 psi (2 and 3) are also similar. The highest pressure (9100 psi) results in a mean
+yield that is much lower than all other means. This figure is a useful aid in interpreting the
+results of the experiment and the Fisher LSD calculations in the Design-Expert output in
+Figure 4.2.
+4.1.2
+Model Adequacy Checking
+We have previously discussed the importance of checking the adequacy of the assumed
+model. Generally, we should be alert for potential problems with the normality assumption,
+unequal error variance by treatment or block, and block–treatment interaction. As in the
+completely randomized design, residual analysis is the major tool used in this diagnostic
+checking. The residuals for the randomized block design in Example 4.1 are listed at the bot-
+tom of the Design-Expert output in Figure 4.2.
+A normal probability plot of these residuals is shown in Figure 4.4. There is no severe
+indication of nonnormality, nor is there any evidence pointing to possible outliers. Figure 4.5
+plots the residuals versus the tted values . There should be no relationship between the size
+of the residuals and the tted values 
+. This plot reveals nothing of unusual interest. Figure
+4.6 shows plots of the residuals by treatment (extrusion pressure) and by batch of resin or
+block. These plots are potentially very informative. If there is more scatter in the residuals for
+a particular treatment, that could indicate that this treatment produces more erratic response
+readings than the others. More scatter in the residuals for a particular block could indicate that
+the block is not homogeneous. However, in our example, Figure 4.6 gives no indication of
+inequality of variance by treatment but there is an indication that there is less variability in
+the yield for batch 6. However, since all of the other residual plots are satisfactory, we will
+ignore this.
+yˆij
+yˆij
+4.1 The Randomized Complete Block Design
+149
+–3.57083 –6.63333 0.304167
+4.17917
+2.24167
+99
+95
+90
+80
+70
+50
+30
+20
+10
+5
+1
+Residuals
+Residual
+–1.63333
+–3.57083
+81.30
+85.34
+89.38
+97.47
+93.43
+4.17917
+2.24167
+0.304167
+Residuals
+Predicted
+■F I G U R E 4 . 4
+Normal probability plot
+of residuals for Example 4.1
+■F I G U R E 4 . 5
+Plot of residuals versus ij
+for Example 4.1
+yˆ

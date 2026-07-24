@@ -1,0 +1,78 @@
+96
+Chapter 3 ■Experiments with a Single Factor: The Analysis of Variance
+■TA B L E 3 . 1 1
+Analysis of Variance for the Plasma Etching Experiment
+Sum of 
+Degrees of
+Mean 
+Source of Variation
+Squares
+Freedom
+Square
+F0
+P-Value
+Power setting
+66,870.55
+3
+22,290.18
+66.80
+0.001
+Orthogonal contrasts
+C1 : 1 2
+(3276.10)
+1
+3276.10
+9.82
+0.01
+C2 : 1 3 3 4
+(46,948.05)
+1
+46,948.05
+140.69
+0.001
+C3 : 3 4
+(16,646.40)
+1
+16,646.40
+49.88
+0.001
+Error
+5,339.20
+16
+333.70
+Total
+72,209.75
+19
+3.5.6
+Scheffe’s Method for Comparing All Contrasts
+In many situations, experimenters may not know in advance which contrasts they wish to
+compare, or they may be interested in more than a 1 possible comparisons. In many
+exploratory experiments, the comparisons of interest are discovered only after preliminary
+examination of the data. Scheffe (1953) has proposed a method for comparing any and all
+possible contrasts between treatment means. In the Scheffe method, the type I error is at most
+for any of the possible comparisons.
+Suppose that a set of m contrasts in the treatment means
+(3.31)
+of interest have been determined. The corresponding contrast in the treatment averages 
+is
+(3.32)
+and the standard error of this contrast is
+(3.33)
+where ni is the number of observations in the ith treatment. It can be shown that the critical
+value against which Cu should be compared is
+(3.34)
+To test the hypothesis that the contrast u differs signicantly from zero, refer Cu to the critical
+value. If CuS,u, the hypothesis that the contrast u equals zero is rejected.
+The Scheffe procedure can also be used to form condence intervals for all possible
+contrasts among treatment means. The resulting intervals, say Cu S,u u Cu S,u, are
+simultaneous conﬁdence intervals in that the probability that all of them are simultaneously
+true is at least 1 .
+S,u SCu(a 1)F,a1,Na
+SCu MSE 
+a
+i1
+ (c2
+iu/ni)
+Cu c1uy1. c2uy2. Á cauya. u 1, 2, . . . , m
+yi.
+u c1u1 c2u2 Á caua u 1, 2, . . . , m

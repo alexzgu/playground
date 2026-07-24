@@ -1,0 +1,123 @@
+14.3 Designs with Both Nested and Factorial Factors
+619
+■TA B L E 1 4 . 1 4
+Minitab Balanced ANOVA Analysis of Example 14.2 Using the Unrestricted Model
+Analysis of Variance (Balanced Designs)
+Factor
+Type
+Levels
+Values
+Layout
+fixed
+2
+1
+2
+Operator(Layout)
+random
+4
+1
+2
+3
+4
+Fixture
+fixed
+3
+1
+2
+3
+Analysis of Variance for Time
+Source
+DF
+SS
+MS
+F
+P
+Layout
+1
+4.083
+4.083
+0.34
+0.581
+Operator(Layout)
+6
+71.917
+11.986
+2.18
+0.117
+Fixture
+2
+82.792
+41.396
+7.55
+0.008
+Layout*Fixture
+2
+19.042
+9.521
+1.74
+0.218
+Fixture*Operator(Layout)
+12
+65.833
+5.486
+2.35
+0.036
+Error
+24
+56.000
+2.333
+Total
+47
+299.667
+Source
+Expected Mean Square 
+Variance
+Error
+for Each Term (using 
+component
+term
+unrestricted model)
+1 Layout
+2
+(6) 
+2(5) 
+6(2) 
+Q[1,4]
+2 Operator(Layout)
+1.083
+5
+(6) 
+2(5) 
+6(2)
+3 Fixture
+5
+(6) 
+2(5) 
+Q[3,4]
+4 Layout*Fixture
+5
+(6) 
+2(5) 
+Q[4]
+5 Fixture*Operator 
+(Layout)
+1.576
+6
+(6) 
+2(5)
+6 Error
+2.333
+(6)
+Table 14.15 presents the JMP output for Example 14.3. Because JMP uses the unre-
+stricted form of the mixed model, estimates of the variance components agree with the
+Minitab ANOVA estimates in Table 14.14, but the REML procedure is a preferred analysis
+because it provides condence intervals. The xed effects tests indicate that there is a strong
+xture effect, and even though the condence intervals on the operators (layout) and the x-
+ture operators (layout) interaction variance components includes zero, we would be reluc-
+tant to discount an operator effect and an interaction because these two variance components
+account for over 50 percent of the total variability.
+If no specialized software such as JMP or Minitab is available, then a program for
+analyzing factorial experiments can be used to analyze experiments with nested and fac-
+torial factors. For instance, the experiment in Example 14.2 could be considered as a
+three-factor factorial, with fixtures (F), operators (O), and layouts (L) as the factors. Then
+certain sums of squares and degrees of freedom from the factorial analysis would be

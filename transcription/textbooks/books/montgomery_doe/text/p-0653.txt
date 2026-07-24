@@ -1,0 +1,217 @@
+14.6 Problems
+637
+14.6
+Problems
+14.1.
+A rocket propellant manufacturer is studying the
+burning rate of propellant from three production processes.
+Four batches of propellant are randomly selected from the
+output of each process, and three determinations of burning
+rate are made on each batch. The results follow. Analyze the
+data and draw conclusions.
+Process 1
+Process 2
+Process 3
+Batch 1
+2
+3
+4
+1
+2
+3
+4
+1
+2
+3
+4
+25
+19
+15 15 19
+23 18
+35 14
+35
+38
+25
+30
+28
+17 16 17
+24 21
+27 15
+21
+54
+29
+26
+20
+14 13 14
+21 17
+25 20
+24
+50
+33
+14.2. The surface finish of metal parts made on four
+machines is being studied. An experiment is conducted in
+which each machine is run by three different operators and
+two specimens from each operator are collected and tested.
+Because of the location of the machines, different operators
+are used on each machine, and the operators are chosen at ran-
+dom. The data are shown in the following table. Analyze the
+data and draw conclusions.
+Machine 1
+Machine 2
+Machine 3
+Machine 4
+Operator 1
+2
+3
+1
+2
+3
+1
+2
+3
+1
+2
+3
+79
+94
+46
+92
+85
+76
+88
+53
+46
+36
+40
+62
+62
+74
+57
+99
+79
+68
+75
+56
+57
+53
+56
+47
+14.3.
+A manufacturing engineer is studying the dimension-
+al variability of a particular component that is produced on
+three machines. Each machine has two spindles, and four
+components are randomly selected from each spindle. The
+results follow. Analyze the data, assuming that machines and
+spindles are xed factors.
+Machine 1
+Machine 2
+Machine 3
+Spindle
+1
+2
+1
+2
+1
+2
+12
+8
+14
+12
+14
+16
+9
+9
+15
+10
+10
+15
+11
+10
+13
+11
+12
+15
+12
+8
+14
+13
+11
+14
+14.4.
+To simplify production scheduling, an industrial
+engineer is studying the possibility of assigning one time
+standard to a particular class of jobs, believing that differ-
+ences between jobs are negligible. To see if this simplifica-
+tion is possible, six jobs are randomly selected. Each job is
+given to a different group of three operators. Each operator
+completes the job twice at different times during the week,
+and the following results are obtained. What are your con-
+clusions about the use of a common time standard for all
+jobs in this class? What value would you use for the 
+standard?
+Job
+Operator 1
+Operator 2
+Operator 3
+1
+158.3
+159.4
+159.2
+159.6
+158.9
+157.8
+2
+154.6
+154.9
+157.7
+156.8
+154.8
+156.3
+3
+162.5
+162.6
+161.0
+158.9
+160.5
+159.5
+4
+160.0
+158.7
+157.5
+158.9
+161.1
+158.5
+5
+156.3
+158.1
+158.3
+156.9
+157.7
+156.9
+6
+163.7
+161.0
+162.3
+160.3
+162.6
+161.8
+14.5.
+Consider the three-stage nested design shown in
+Figure 14.5 to investigate alloy hardness. Using the data that
+follow, analyze the design, assuming that alloy chemistry and
+heats are xed factors and ingots are random. Use the restrict-
+ed form of the mixed model.
+to the original whole plots used for factor A. Figure 14.11 illustrates a situation in which both
+factors A and B have three levels. Note that the levels of factor A are confounded with the
+whole plots, and the levels of factor B are confounded with the strips (which can be thought
+of as a second set of whole plots).
+A model for the strip-split plot design in Figure 14.11, assuming r replicates, a levels
+of factor A, and b levels of factor B, is
+where ()ij and ()ik are whole-plot errors for factors A and B, respectively, and ijk is a “sub-
+plot” error used to test the AB interaction. Table 14.26 shows an abbreviated analysis of
+variance assuming A and B are xed factors and replicates are random. The replicates are
+sometimes considered as blocks.
+yijk i j ()ij k ()ik ()jk ijk 
+i 1, 2, . . . , r
+j 1, 2, . . . , a
+k 1, 2, . . . , b

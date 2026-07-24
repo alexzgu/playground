@@ -1,0 +1,53 @@
+10.6 Prediction of New Response Observations
+469
+A 100(1 ) percent prediction interval for this future observation is
+(10.42)
+In predicting new observations and in estimating the mean response at a given point x01,
+x02, . . . , x0k, we must be careful about extrapolating beyond the region containing the origi-
+nal observations. It is very possible that a model that ts well in the region of the original data
+will no longer t well outside of that region.
+The prediction interval in Equation 10.42 has many useful applications. One of these is
+in conrmation experiments following a factorial or fractional factorial experiment. In a con-
+rmation experiment, we are usually testing the model developed from the original experi-
+ment to determine if our interpretation was correct. Often we will do this by using the model
+to predict the response at some point of interest in the design space and then comparing the
+predicted response with an actual observation obtained by conducting another trial at that
+point. We illustrated this in Chapter 8, using the 241 fractional factorial design in Example
+8.1. A useful measure of conrmation is to see if the new observation falls inside the predic-
+tion interval on the response at that point.
+To illustrate, reconsider the situation in Example 8.1. The interpretation of this experi-
+ment indicated that three of the four main effects (A, C, and D) and two of the two-factor
+interactions (AC and AD) were important. The point with A, B, and D at the high level and C
+at the low level was considered to be a reasonable conrmation run, and the predicted value
+of the response at that point was 100.25. If the fractional factorial has been interpreted cor-
+rectly and the model for the response is valid, we would expect the observed value at this
+point to fall inside the prediction interval computed from Equation 10.42. This interval is easy
+to calculate. Since the 24 1 is an orthogonal design, and the model contains six terms (the
+intercept, the three main effects, and the two two-factor interactions), the (XX)1 matrix has
+a particularly simple form, namely (XX)1 
+I6. Furthermore, the coordinates of the point
+of interest are x1 1, x2 1, x3 1, and x4 1, but since B (or x2) isn’t in the model and
+the two interactions AC and AD (or x1x3 and x1x4 1) are in the model, the coordinates of the
+point of interest x0 are given by 
+[1, x1, x3, x4, x1x3, x1x4] [1, 1, 1, 1, 1, 1]. It is also
+easy to show that the estimate of 2 (with two degrees of freedom) for this model is 
+
+3.25. Therefore, using Equation 10.42, a 95 percent prediction interval on the observation at
+this point is
+Therefore, we would expect the conrmation run with A, B, and D at the high level and C at
+the low level to result in an observation on the ltration rate response that falls between 90
+and 110.50. The actual observation was 104. The successful conrmation run provides some
+assurance that the fractional factorial was interpreted correctly.
+ 90 y0 110.50
+ 100.25 10.25 y0 100.25 10.25
+ 100.25 4.303.25(1 0.75) y0 100.25 4.303.25(1 0.75)
+ 100.25 4.303.251 x0 1
+8 I6x0y0 100.25 4.303.251 x0 1
+8 I6x0
+yˆ(x0) t0.025,2ˆ 2(1 x0(XX)1x0) y0 yˆ(x0) t0.025,2ˆ 2(1 x0(XX)1x0)
+ˆ 2
+x0
+1
+8
+yˆ(x0) t/2,npˆ 2(1 x0(XX)1x0)
+yˆ(x0) t/2,npˆ 2(1 x0(XX)1x0) y0

@@ -1,0 +1,72 @@
+590
+Chapter 13 ■Experiments with Random Factors
+represented by the sum of squares of the model components associated with that fac-
+tor divided by its degrees of freedom. In our example, the xed effect for A is
+Rule 6. Expected Mean Squares.
+There is an expected mean square for each model com-
+ponent. The expected mean square for error is E(MSE) 2. In the case of the restrict-
+ed model, for every other model term, the expected mean square contains 2 plus either
+the variance component or the xed effect component for that term, plus those compo-
+nents for all other model terms that contain the effect in question and that involve no
+interactions with other xed effects. The coefcient of each variance component or xed
+effect is the number of observations at each distinct value of that component.
+To illustrate for the case of the two-factor xed effects model, consider nding the inter-
+action expected mean square, E(MSAB). The expected mean square will contain only the xed
+effect for the AB interaction (because no other model terms contain AB) plus 2, and the xed
+effect for AB will be multiplied by n because there are n observations at each distinct value
+of the interaction component (the n observations in each cell). Thus, the expected mean
+square for AB is
+As another illustration of the two-factor xed effects model, the expected mean square for the
+main effect of A would be
+The multiplier in the numerator is bn because there are bn observations at each level of A. The
+AB interaction term is not included in the expected mean square because while it does include
+the effect in question (A), factor B is a xed effect.
+To illustrate how Rule 6 applies to a model with random effects, consider the two-
+factor random model. The expected mean square for the AB interaction would be
+and the expected mean square for the main effect of A would be
+Note that the variance component for the AB interaction term is included because A is includ-
+ed in AB and B is a random effect.
+Now consider the restricted form of the two-factor mixed model. Once again, the
+expected mean square for the AB interaction term is
+For the main effect of A, the xed factor, the expected mean square is
+The interaction variance component is included because A is included in AB and B is a ran-
+dom effect. For the main effect of B, the expected mean square is
+E(MSB) 2 an2
+
+E(MSA) 2 n2
+
+bn 
+a
+i1
+2
+i
+a 1
+E(MSAB) 2 n2
+
+E(MSA) 2 n2
+bn2
+
+E(MSAB) 2 n2
+
+E(MSA) 2 
+bn 
+a
+i1
+2
+i
+(a 1)
+E(MSAB) 2 
+n 
+a
+i1 
+b
+j1
+ ()2
+ij
+(a 1)(b 1)
+
+a
+i1
+2
+i
+a 1

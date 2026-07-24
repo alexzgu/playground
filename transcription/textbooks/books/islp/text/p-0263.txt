@@ -1,0 +1,50 @@
+6.3 Dimension Reduction Methods
+255
+a low-dimensional set of features from a large set of variables. PCA is
+discussed in greater detail as a tool for unsupervised learning in Chapter 12.
+Here we describe its use as a dimension reduction technique for regression.
+An Overview of Principal Components Analysis
+PCA is a technique for reducing the dimension of an n × p data matrix X.
+The first principal component direction of the data is that along which the
+observations vary the most. For instance, consider Figure 6.14, which shows
+population size (pop) in tens of thousands of people, and ad spending for a
+particular company (ad) in thousands of dollars, for 100 cities.6 The green
+solid line represents the first principal component direction of the data. We
+can see by eye that this is the direction along which there is the greatest
+variability in the data. That is, if we projected the 100 observations onto
+this line (as shown in the left-hand panel of Figure 6.15), then the resulting
+projected observations would have the largest possible variance; projecting
+the observations onto any other line would yield projected observations
+with lower variance. Projecting a point onto a line simply involves finding
+the location on the line which is closest to the point.
+The first principal component is displayed graphically in Figure 6.14, but
+how can it be summarized mathematically? It is given by the formula
+Z1 = 0.839 × (pop −pop) + 0.544 × (ad −ad).
+(6.19)
+Here φ11 = 0.839 and φ21 = 0.544 are the principal component loadings,
+which define the direction referred to above. In (6.19), pop indicates the
+mean of all pop values in this data set, and ad indicates the mean of all ad-
+vertising spending. The idea is that out of every possible linear combination
+of pop and ad such that φ2
+11 + φ2
+21 = 1, this particular linear combination
+yields the highest variance: i.e. this is the linear combination for which
+Var(φ11 × (pop −pop) + φ21 × (ad −ad)) is maximized. It is necessary to
+consider only linear combinations of the form φ2
+11+φ2
+21 = 1, since otherwise
+we could increase φ11 and φ21 arbitrarily in order to blow up the variance.
+In (6.19), the two loadings are both positive and have similar size, and so
+Z1 is almost an average of the two variables.
+Since n = 100, pop and ad are vectors of length 100, and so is Z1 in
+(6.19). For instance,
+zi1 = 0.839 × (popi −pop) + 0.544 × (adi −ad).
+(6.20)
+The values of z11, . . . , zn1 are known as the principal component scores, and
+can be seen in the right-hand panel of Figure 6.15.
+There is also another interpretation of PCA: the first principal compo-
+nent vector defines the line that is as close as possible to the data. For
+instance, in Figure 6.14, the first principal component line minimizes the
+sum of the squared perpendicular distances between each point and the
+line. These distances are plotted as dashed line segments in the left-hand
+6This dataset is distinct from the Advertising data discussed in Chapter 3.

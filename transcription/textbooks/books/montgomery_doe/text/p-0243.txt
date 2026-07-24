@@ -1,0 +1,185 @@
+5.13.
+An experiment was conducted to determine whether
+either ring temperature or furnace position affects the baked
+density of a carbon anode. The data are shown below:
+Temperature (°C)
+Position
+800
+825
+850
+570
+1063
+565
+1
+565
+1080
+510
+583
+1043
+590
+528
+988
+526
+2
+547
+1026
+538
+521
+1004
+532
+Suppose we assume that no interaction exists. Write down the
+statistical model. Conduct the analysis of variance and test
+hypotheses on the main effects. What conclusions can be
+drawn? Comment on the model’s adequacy.
+5.14.
+Derive the expected mean squares for a two-factor
+analysis of variance with one observation per cell, assuming
+that both factors are xed.
+5.15.
+Consider the following data from a two-factor factorial
+experiment. Analyze the data and draw conclusions. Perform a
+test for nonadditivity. Use 0.05.
+Column Factor
+Row Factor
+1
+2
+3
+4
+1
+36
+39
+36
+32
+2
+18
+20
+22
+20
+3
+30
+37
+33
+34
+5.16.
+The shear strength of an adhesive is thought to be
+affected by the application pressure and temperature. A facto-
+rial experiment is performed in which both factors are
+assumed to be xed. Analyze the data and draw conclusions.
+Perform a test for nonadditivity.
+Pressure
+Temperature (°F)
+(lb/in2)
+250
+260
+270
+120
+9.60
+11.28
+9.00
+130
+9.69
+10.10
+9.57
+140
+8.43
+11.01
+9.03
+150
+9.98
+10.44
+9.80
+5.17.
+Consider the three-factor model
+yijk i j
+k ()ij
+ ()jk ijk
+i 1, 2, . . . , a
+j 1, 2, . . . , b
+k 1, 2, . . . , c
+Notice that there is only one replicate. Assuming all the fac-
+tors are xed, write down the analysis of variance table,
+including the expected mean squares. What would you use as
+the “experimental error” to test hypotheses?
+5.18.
+The percentage of hardwood concentration in raw
+pulp, the vat pressure, and the cooking time of the pulp are
+being investigated for their effects on the strength of paper.
+Three levels of hardwood concentration, three levels of pres-
+sure, and two cooking times are selected. A factorial experi-
+ment with two replicates is conducted, and the following data
+are obtained:
+Percentage of
+Cooking Time 3.0 Hours
+Hardwood
+Pressure
+Concentration
+400
+500
+650
+2
+196.6
+197.7
+199.8
+196.0
+196.0
+199.4
+4
+198.5
+196.0
+198.4
+197.2
+196.9
+197.6
+8
+197.5
+195.6
+197.4
+196.6
+196.2
+198.1
+Percentage of
+Cooking Time 4.0 Hours
+Hardwood
+Pressure
+Concentration
+400
+500
+650
+2
+198.4
+199.6
+200.6
+198.6
+200.4
+200.9
+4
+197.5
+198.7
+199.6
+198.1
+198.0
+199.0
+8
+197.6
+197.0
+198.5
+198.4
+197.8
+199.8
+(a) Analyze the data and draw conclusions. Use 0.05.
+(b) Prepare appropriate residual plots and comment on the
+model’s adequacy.
+(c) Under what set of conditions would you operate this
+process? Why?
+5.19.
+The quality control department of a fabric nishing
+plant is studying the effect of several factors on the dyeing of
+cotton–synthetic cloth used to manufacture men’s shirts.
+Three operators, three cycle times, and two temperatures were
+selected, and three small specimens of cloth were dyed under
+each set of conditions. The nished cloth was compared to a
+standard, and a numerical score was assigned. The results are
+as follows. Analyze the data and draw conclusions. Comment
+on the model’s adequacy.
+5.7 Problems
+227

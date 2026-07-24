@@ -1,0 +1,44 @@
+20
+CHAPTER 1. MARTINGALES IN DISCRETE TIME
+for all n. Suppose a < b are real numbers. We will show that it is
+impossible for the martingale to uctuate innitely often below a and
+above b. Dene a sequence of stopping times by
+S1 = minn : Mn ≤a,
+T1 = minn > S1 : Mn ≥b,
+and for j > 1,
+Sj = minn > Tj−1 : Mn ≤a,
+Tj = minn > Sj : Mn ≥b
+We set up the discrete stochastic integral
+Wn =
+n
+
+k=0
+Bk [Mk −Mk−1] ,
+with Bn = 0 if n −1 < S1 and
+Bn = 1
+if Sj ≤n −1 < Tj,
+Bn = 0
+if Tj ≤n −1 < Sj+1
+In other words, every time the pricedrops below a we buy a unit of
+the asset and hold onto it until the price goes above b at which time
+we sell. Let Un denote the number of times by time n that we have
+seen a uctuation; that is,
+Un = j
+if
+Tj < n ≤Tj+1
+We call Un the number of upcrossings by time n. Every upcrossing
+results in a prot of at least b −a. From this we see that
+Wn ≥Un (b −a) + (Mn −a)
+The term a −Mn represents a possible loss caused by holding a share
+of the asset at the current time. Since Wn is a martingale, we know
+that E[Wn] = E[W0] = 0, and hence
+E[Un] ≤E[a −Mn]
+b −a
+≤a+ E[Mn]
+b −a
+≤a+ C
+b −a 
+This holds for every n, and hence
+E[U∞] ≤a+ C
+b −a
+< ∞

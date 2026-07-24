@@ -1,0 +1,67 @@
+9.4 SVMs with More than Two Classes
+383
+False positive rate
+True positive rate
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+Support Vector Classifier
+LDA
+False positive rate
+True positive rate
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+Support Vector Classifier
+SVM: γ=10−3
+SVM: γ=10−2
+SVM: γ=10−1
+FIGURE 9.11. ROC curves for the test set of the Heart data. Left: The support
+vector classifier and LDA are compared. Right: The support vector classifier is
+compared to an SVM using a radial basis kernel with γ = 10−3, 10−2, and 10−1.
+LDA and the support vector classifier both perform well, though there is a
+suggestion that the support vector classifier may be slightly superior.
+The right-hand panel of Figure 9.10 displays ROC curves for SVMs using
+a radial kernel, with various values of γ. As γ increases and the fit becomes
+more non-linear, the ROC curves improve. Using γ = 10−1 appears to give
+an almost perfect ROC curve. However, these curves represent training
+error rates, which can be misleading in terms of performance on new test
+data. Figure 9.11 displays ROC curves computed on the 90 test observa-
+tions. We observe some differences from the training ROC curves. In the
+left-hand panel of Figure 9.11, the support vector classifier appears to have
+a small advantage over LDA (although these differences are not statisti-
+cally significant). In the right-hand panel, the SVM using γ = 10−1, which
+showed the best results on the training data, produces the worst estimates
+on the test data. This is once again evidence that while a more flexible
+method will often produce lower training error rates, this does not neces-
+sarily lead to improved performance on test data. The SVMs with γ = 10−2
+and γ = 10−3 perform comparably to the support vector classifier, and all
+three outperform the SVM with γ = 10−1.
+9.4
+SVMs with More than Two Classes
+So far, our discussion has been limited to the case of binary classification:
+that is, classification in the two-class setting. How can we extend SVMs
+to the more general case where we have some arbitrary number of classes?
+It turns out that the concept of separating hyperplanes upon which SVMs
+are based does not lend itself naturally to more than two classes. Though
+a number of proposals for extending SVMs to the K-class case have been
+made, the two most popular are the one-versus-one and one-versus-all
+approaches. We briefly discuss those two approaches here.

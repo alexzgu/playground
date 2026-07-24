@@ -1,0 +1,58 @@
+466
+Chapter 10 ■Fitting Regression Models
+For the full model (including both &1 and &2), we know that 
+(XX) 1Xy. Also,
+the regression sum of squares for all variables including the intercept is
+and
+SSR(&) is called the regression sum of squares due to &. To nd the contribution of the terms
+in &1 to the regression, we t the model assuming the null hypothesis H0 : &1 0 to be true.
+The reduced model is found from Equation 10.32 with &1 0:
+(10.33)
+The least squares estimator of &2 is 
+, and
+(10.34)
+The regression sum of squares due to &1 given that &2 is already in the model is
+(10.35)
+This sum of squares has r degrees of freedom. It is the “extra sum of squares” due to &1. Note
+that SSR(&1&2) is the increase in the regression sum of squares due to inclusion of variables
+x1, x2, . . . , xr in the model.
+Now, SSR(&1&2) is independent of MSE, and the null hypothesis &1 0 may be tested
+by the statistic
+(10.36)
+If F0  F,r,n p, we reject H0, concluding that at least one of the parameters in &1 is not zero,
+and, consequently, at least one of the variables x1, x2, . . . , xr in X1 contributes signicantly to
+the regression model. Some authors call the test in Equation 10.36 a partial F test.
+The partial F test is very useful. We can use it to measure the contribution of xj as if it
+were the last variable added to the model by computing
+This is the increase in the regression sum of squares due to adding xj to a model that already
+includes x1, . . . , xj1, xj1, . . . , xk. Note that the partial F test on a single variable xj is equiv-
+alent to the t test in Equation 10.28. However, the partial F test is a more general procedure
+in that we can measure the effect of sets of variables.
+SSR(j0, 1, . . . , j1, j1, . . . , k)
+F0 
+SsR(&1&2)/r
+MSE
+SSR(&1&2) SSR(&) SSR(&2)
+SSR(&2) &ˆ2X2y 
+ (p r degrees of freedom)
+&ˆ
+2 (X2X2)1X2y
+y X2&2 
+MSE yy &ˆXy
+n p
+SSR(&) &ˆXy 
+ (p degrees of freedom)
+&ˆ
+E X A M P L E 1 0 . 6
+Consider the viscosity data in Example 10.1. Suppose that
+we wish to investigate the contribution of the variable x2
+(feed rate) to the model. That is, the hypotheses we wish to
+test are
+H12 Z 0
+H02 0
+This will require the extra sum of squares due to 2, or
+Now from Table 10.4, where we tested for signicance of
+regression, we have
+SSR(1, 20) 44,157.1
+SsR(1, 20) SSR(20)
+SSR(21, 0) SSR(0, 1, 2) SSR(0, 1)

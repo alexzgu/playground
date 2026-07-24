@@ -1,0 +1,53 @@
+3.3. IT ˆO’S FORMULA
+99
+Orthogonality of martingale increments implies that E[M 2
+1 ] = E[Qn].
+Continuity of the paths implies that with probability one δn ↓0 and
+hence Qn →0. Since Qn ≤δn K ≤K2, we can use the bounded
+convergence theorem to conclude that
+E
+
+M 2
+1
+
+= lim
+n∞E[Qn] = 0
+If V1(M) is not bounded, we can consider the stopping times
+TK = inft : Vt(M) = K
+The argument above gives E
+
+M 2
+1∧TK
+
+= 0 for each K, and hence with
+probability one for each K, M1∧TK = 0. But M1 = limK∞M1∧TK
+Using the proposition, we see that if Yt is an increasing adapted process
+such that Z2
+t −Yt is a martingale, then
+Mt −(Z2
+t −Yt) = Yt −⟨Z⟩t,
+is a continuous martingale with paths of bounded variation. Therefore,
+Yt = ⟨Z⟩t.
+3.3
+Itˆo’s formula
+Itˆo’s formula is the fundamental theorem of stochastic calculus. Before stating
+it, let us review the fundamental theorem of ordinary calculus. Suppose f
+is a C1 function. (We recall that a function if Ck if it has k continuous
+derivatives.) Then we can expand f in a Taylor approximation,
+f(t + s) = f(t) + f ′(t) s + o(s),
+where o(s) denotes a term such that o(s)s →0 as s →0. We write f as a
+telescoping sum:
+f(1) = f(0) +
+n
+
+j=1
+
+f
+j
+n
+
+−f
+j −1
+n
+
+

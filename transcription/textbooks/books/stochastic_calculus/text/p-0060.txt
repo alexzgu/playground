@@ -1,0 +1,35 @@
+54
+CHAPTER 2. BROWNIAN MOTION
+2.6.1
+Brownian motion as a continuous martingale
+The denition of a martingale in continuous time is essentially the same as in
+discrete time. Suppose we have an increasing ltration Ftof information
+and integrable random variables Mt such that for each t, Mt is Ft-measurable.
+(We say that Mt is to the ltration if Mt is Ft-measurable for each
+t.) Then, Mt is a with respect to Ftif for each s < t,
+E [Mt Fs] = Ms
+When one writes an equality as above there is an implicit up to an event of
+probability zero. In discrete time this presents no problem because there are
+only a countable number of pairs of times (s, t) and hence there can be only
+a countable number of sets of measure zero. For continuous time, there are
+instances where some care is needed but we will not worry about this at the
+moment. As in the discrete case, if the ltration is not mentioned explicitly
+then one assumes that Ft is the information contained in Ms : s ≤t. In
+that case, if Bt is a standard Brownian motion and s < t,
+E[Bt Fs] = E[Bs Fs] + E[Bt −Bs Fs] = Bs + E[Bt −Bs] = Bs
+(2.4)
+Often we will have more information at time t than the values of the
+Brownian motion so it is useful to extend our denition of Brownian motion.
+We say that Bt is Brownian motion with respect to the ltration Ftif each
+Bt is Ft-measurable and Bt satises the conditions to be a Brownian motion
+with the third condition being replaced by
+If s < t, the random variable Bt −Bs is independent of Fs.
+In other words, although we may have more information at time s than the
+value of the Brownian motion, there is nothing useful for predicting the future
+increments. Under these conditions, (2.4) holds and Bt is a martingale with
+respect to Ft.
+If Ms, 0 ≤s ≤t is a martingale, then by denition, for each s ≤t,
+E(Y Fs) = Ms
+where Y = Mt. Conversely, if Y is an integrable random variable that is
+measurable with respect to Ft, we can dene a martingale Ms, 0 ≤s ≤t by
+Ms = E(Y Fs)

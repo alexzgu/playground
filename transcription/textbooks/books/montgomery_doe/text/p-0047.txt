@@ -1,0 +1,72 @@
+does not contain unknown parameters. For example, suppose that y1, y2, . . . , yn represents a
+sample. Then the sample mean
+(2.7)
+and the sample variance
+(2.8)
+are both statistics. These quantities are measures of the central tendency and dispersion of the
+sample, respectively. Sometimes S 
+, called the sample standard deviation, is used as
+a measure of dispersion. Experimenters often prefer to use the standard deviation to measure
+dispersion because its units are the same as those for the variable of interest y.
+Properties of the Sample Mean and Variance. The sample mean 
+is a point
+estimator of the population mean , and the sample variance S2 is a point estimator of the
+population variance 2. In general, an estimator of an unknown parameter is a statistic that
+corresponds to that parameter. Note that a point estimator is a random variable. A particular
+numerical value of an estimator, computed from sample data, is called an estimate. For example,
+suppose we wish to estimate the mean and variance of the suspended solid material in the
+water of a lake. A random sample of n 25 observation is tested, and the mg/l of suspended
+solid material is recorded for each. The sample mean and variance are computed according to
+Equations 2.7 and 2.8, respectively, and are 
+and S2 1.20. Therefore, the estimate
+of is 
+, and the estimate of 2 is S2 1.20.
+Several properties are required of good point estimators. Two of the most important are
+the following:
+1. The point estimator should be unbiased. That is, the long-run average or expected
+value of the point estimator should be equal to the parameter that is being estimated.
+Although unbiasedness is desirable, this property alone does not always make an
+estimator a good one.
+2. An unbiased estimator should have minimum variance. This property states that
+the minimum variance point estimator has a variance that is smaller than the vari-
+ance of any other estimator of that parameter.
+We may easily show that 
+and S2 are unbiased estimators of and 2, respectively.
+First consider . Using the properties of expectation, we have
+because the expected value of each observation yi is . Thus,
+is an unbiased estimator of .
+y
+
+1
+n 
+n
+i1
+
+1
+n 
+n
+i1
+E(yi)
+E(y) E
+n
+i1
+yi
+n 
+y
+y
+y 18.6
+y 18.6
+y
+S2
+S2 
+n
+i1
+ (yi y)2
+n 1
+y 
+n
+i1
+yi
+n
+2.3 Sampling and Sampling Distributions
+31

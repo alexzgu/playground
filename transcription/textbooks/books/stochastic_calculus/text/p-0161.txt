@@ -1,0 +1,58 @@
+5.3. GIRSANOV THEOREM
+155
+or (5.8), it may be hard to determine if Mt is a martingale, so it is useful
+to have a version that applies for local martingales. If we do not know Mt
+is a martingale, we can still use Theorem 5.3.1 if we are careful to stop the
+process before anything bad happens. To be more precise, suppose Mt = eYt
+satises (5.8), and note that
+⟨Y ⟩t =
+t
+0
+A2
+s ds
+Let
+Tn = inft : Mt + ⟨Y ⟩t = n,
+and let
+A(n)
+t
+=
+
+At,
+t < Tn
+0,
+t ≥Tn 
+Then
+dMt∧Tn = A(n)
+t
+Mt∧Tn dBt,
+which is a square integrable martingale since
+E
+
+(Mt∧Tn −1)2
+=
+t
+0
+E[A(n)
+s
+Ms∧Tn]2 ds
+≤
+n2 E
+t
+0
+[A(n)
+s ]2ds ≤n3
+There is the corresponding measure, which we might denote by P∗
+n, which
+gives a drift of At up to time Tn and then proceeds with drift 0. If n < m,
+then P∗
+n and P∗
+m are the same measure restricted to t ≤Tn. Hence we can
+write P∗for a measure on Bt, 0 ≤t < T, where
+T = lim
+n∞Tn
+This shows how to tilt the measure up to time T, There are examples
+such that P∗T < ∞> 0. However, if for some xed t0, P∗T > t0= 1,
+then Mt, 0 ≤t ≤t0 is a martingale. In other words, what prevents a solution
+to (5.7) from being a martingale is that 
+P∗, either Mt or Atgoes to innity in nite time. We summarize with a
+restatement of the Girsanov theorem.

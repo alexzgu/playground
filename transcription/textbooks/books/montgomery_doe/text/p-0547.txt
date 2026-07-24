@@ -1,0 +1,73 @@
+11.6 Mixture Experiments
+531
+When there are three components of the mixture, the constrained experimental region
+can be conveniently represented on trilinear coordinate paper as shown in Figure 11.40.
+Each of the three sides of the graph in Figure 11.40 represents a mixture that has none of the
+three components (the component labeled on the opposite vertex). The nine grid lines in each
+direction mark off 10 percent increments in the respective components.
+Simplex designs are used to study the effects of mixture components on the response
+variable. A {p, m} simplex lattice design for p components consists of points dened by the
+following coordinate settings: the proportions assumed by each component take the m 1
+equally spaced values from 0 to 1,
+(11.24)
+and all possible combinations (mixtures) of the proportions from Equation 11.24 are used. As
+an example, let p 3 and m 2. Then
+and the simplex lattice consists of the following six runs:
+(x1, x2, x3) (1, 0, 0), (0, 1, 0), (0, 0, 1), (
+1
+2,
+1
+2, 0), (
+1
+2, 0, 
+1
+2), (0, 
+1
+2,
+1
+2)
+xi 0, 
+1
+2, 1 
+ i 1, 2, 3
+xi 0, 1
+m, 2
+m, . . . , 1 
+ i 1, 2, . . . , p
+1
+0
+1
+1
+1
+1
+0
+(a)
+(b)
+x1
+x3
+x2
+x2
+x1 + x2 + x3 = 1 
+x1 + x2 = 1 
+x1
+x1
+x2
+x3
+0.8
+0.6
+0.4
+0.2
+0.8
+0.6
+0.4
+0.2
+0.8
+0.6
+0.4
+0.2
+■F I G U R E 1 1 . 3 9
+Constrained factor space for mix-
+tures with (a) p 2 components
+and (b) p 3 components
+■F I G U R E 1 1 . 4 0
+Trilinear coordinate system

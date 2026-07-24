@@ -1,0 +1,37 @@
+170CHAPTER 5. CHANGE OF MEASURE AND GIRSANOV THEOREM
+Our goal is to determine the price Vt and the corresponding portfolio
+(at, bt), where at denotes the number of units of S and bt the number of units
+of R. This will require some mathematical assumptions that we will make as
+we need them. Recall that
+Vt = at St + bt Rt,
+and (at, bt) is self-nancing if
+dVt = at dSt + bt dRt
+We will start by giving two bad, but unrealistic, examples that show that we
+need to take some care. The two examples are similar. In the rst example,
+we allow the stock price to uctuate too much. In the second, we choose a
+very risky portfolio similar to the martingale betting strategy.
+Example 5.6.1. Suppose for ease that rt ≡0 and R0 = 1 so that Rt ≡1. Let
+St = eZt where Zt is the martingale betting strategy revisitedin Example
+4.1.1. We recall that Zt satises
+dZt = At dBt,
+Z0 = 0,
+and the betsAt are chosen so that with probability one Z1 ≥1. Itˆo’s
+formula shows that St satises
+dSt = St
+A2
+t
+2 dt + At dBt
+
+
+We cannot nd an equivalent measure such that St is a martingale. Indeed,
+we know that with probability one S1 > S0, and hence this fact must be true
+in any equivalent measure.
+Example 5.6.2. Suppose that Rt ≡1 and St = eBt−(t2) which satises
+dSt = St dBt,
+S0 = 1
+Let At be as in Example 5.6.1, and choose a portfolio with at = AtSt. The
+value of the portfolio is Vt = at St + bt Rt = At + btIf the portfolio is to be
+self-nancing, we need that
+dVt = at dSt + bt dRt = At
+St
+St dBt = At dBt

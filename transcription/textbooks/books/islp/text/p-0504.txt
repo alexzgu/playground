@@ -1,0 +1,63 @@
+498
+11. Survival Analysis and Censored Data
+In [35]: X = MS(D.columns,
+intercept=False).fit_transform(D)
+fit_queuing = coxph().fit(
+X,
+'Wait time',
+'Failed')
+fit_queuing.summary[['coef', 'se(coef)', 'p']]
+Out[35]:
+coef
+se(coef)
+p
+covariate
+Operators
+0.043934
+0.007520
+5.143677e-09
+Center[B]
+-0.236059
+0.058113
+4.864734e-05
+Center[C]
+0.012231
+0.057518
+8.316083e-01
+Time[Even.]
+0.268845
+0.057797
+3.294914e-06
+Time[Morn.]
+-0.148215
+0.057334
+9.734378e-03
+The p-values for Center B and evening time are very small. It is also
+clear that the hazard — that is, the instantaneous risk that a call will be
+answered — increases with the number of operators. Since we generated
+the data ourselves, we know that the true coefficients for Operators, Center
+= B, Center = C, Time = Even. and Time = Morn. are 0.04, −0.3, 0, 0.2, and
+−0.2, respectively. The coefficient estimates from the fitted Cox model are
+fairly accurate.
+11.9
+Exercises
+Conceptual
+1. For each example, state whether or not the censoring mechanism is
+independent. Justify your answer.
+(a) In a study of disease relapse, due to a careless research scientist,
+all patients whose phone numbers begin with the number “2”
+are lost to follow up.
+(b) In a study of longevity, a formatting error causes all patient ages
+that exceed 99 years to be lost (i.e. we know that those patients
+are more than 99 years old, but we do not know their exact
+ages).
+(c) Hospital A conducts a study of longevity. However, very sick
+patients tend to be transferred to Hospital B, and are lost to
+follow up.
+(d) In a study of unemployment duration, the people who find work
+earlier are less motivated to stay in touch with study investiga-
+tors, and therefore are more likely to be lost to follow up.
+(e) In a study of pregnancy duration, women who deliver their ba-
+bies pre-term are more likely to do so away from their usual
+hospital, and thus are more likely to be censored, relative to
+women who deliver full-term babies.

@@ -1,0 +1,156 @@
+276
+Chapter 6 ■The 2k Factorial Design
+–0.50
+0.00
+0.50
+1.00
+Time
+(a) x3 = –1
+(b) x3 = +1
+Temperature
+–1.00
+–0.50
+0.00
+0.50
+1.00
+–0.50
+0.00
+0.50
+1.00
+Time
+Temperature
+–1.00
+–0.50
+0.00
+0.50
+1.00
+400
+390
+410
+420
+430
+380
+390
+400
+410
+420
+380
+■F I G U R E 6 . 3 2
+Contour plots of average oxide thickness with pressure (x 3) held 
+constant
+■TA B L E 6 . 2 0
+Analysis of Variance (from Design-Expert) for the Average Oxide Thickness Response, Example 6.5
+Sum of
+Mean
+F
+Source
+Squares
+DF
+Square
+Value
+Prob F
+Model
+10774.31
+5
+2154.86
+122.35
+0.000
+A
+7439.06
+1
+7439.06
+422.37
+0.000
+B
+1314.06
+1
+1314.06
+74.61
+0.000
+C
+430.56
+1
+430.56
+24.45
+0.0006
+AB
+1139.06
+1
+1139.06
+64.67
+0.000
+AC
+451.46
+1
+451.56
+25.64
+0.0005
+Residual
+176.12
+10
+17.61
+Cor Total
+10950.44
+15
+Std. Dev.
+4.20
+R-Squared
+0.9839
+Mean
+399.19
+Adj R-Squared
+0.9759
+C.V.
+1.05
+Pred R-Squared
+0.9588
+PRESS
+450.88
+Adeq Precision
+27.967
+Coefﬁcient
+Standard
+95% CI
+95% CI
+Factor
+Estimate
+DF
+Error
+Low
+High
+Intercept
+399.19
+1
+1.05
+396.85
+401.53
+A-Time
+21.56
+1
+1.05
+19.22
+23.90
+B-Temp
+9.06
+1
+1.05
+6.72
+11.40
+C-Pressure
+5.19
+1
+1.05
+7.53
+2.85
+AB
+8.44
+1
+1.05
+6.10
+10.78
+AC
+5.31
+1
+1.05
+7.65
+2.97

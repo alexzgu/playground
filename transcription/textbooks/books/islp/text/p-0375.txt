@@ -1,0 +1,63 @@
+368
+9. Support Vector Machines
+9.1.1
+What Is a Hyperplane?
+In a p-dimensional space, a hyperplane is a flat affine subspace of hyperplane
+dimension p −1.1 For instance, in two dimensions, a hyperplane is a flat
+one-dimensional subspace—in other words, a line. In three dimensions, a
+hyperplane is a flat two-dimensional subspace—that is, a plane. In p > 3
+dimensions, it can be hard to visualize a hyperplane, but the notion of a
+(p −1)-dimensional flat subspace still applies.
+The mathematical definition of a hyperplane is quite simple. In two di-
+mensions, a hyperplane is defined by the equation
+β0 + β1X1 + β2X2 = 0
+(9.1)
+for parameters β0, β1, and β2. When we say that (9.1) “defines” the hyper-
+plane, we mean that any X = (X1, X2)T for which (9.1) holds is a point
+on the hyperplane. Note that (9.1) is simply the equation of a line, since
+indeed in two dimensions a hyperplane is a line.
+Equation 9.1 can be easily extended to the p-dimensional setting:
+β0 + β1X1 + β2X2 + · · · + βpXp = 0
+(9.2)
+defines a p-dimensional hyperplane, again in the sense that if a point X =
+(X1, X2, . . . , Xp)T in p-dimensional space (i.e. a vector of length p) satisfies
+(9.2), then X lies on the hyperplane.
+Now, suppose that X does not satisfy (9.2); rather,
+β0 + β1X1 + β2X2 + · · · + βpXp > 0.
+(9.3)
+Then this tells us that X lies to one side of the hyperplane. On the other
+hand, if
+β0 + β1X1 + β2X2 + · · · + βpXp < 0,
+(9.4)
+then X lies on the other side of the hyperplane. So we can think of the
+hyperplane as dividing p-dimensional space into two halves. One can easily
+determine on which side of the hyperplane a point lies by simply calculating
+the sign of the left-hand side of (9.2). A hyperplane in two-dimensional
+space is shown in Figure 9.1.
+9.1.2
+Classification Using a Separating Hyperplane
+Now suppose that we have an n × p data matrix X that consists of n
+training observations in p-dimensional space,
+x1 =
+
+
+
+x11
+...
+x1p
+
+
+, . . . , xn =
+
+
+
+xn1
+...
+xnp
+
+
+,
+(9.5)
+and that these observations fall into two classes—that is, y1, . . . , yn ∈
+{−1, 1} where −1 represents one class and 1 the other class. We also have a
+1The word affine indicates that the subspace need not pass through the origin.

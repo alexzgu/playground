@@ -1,0 +1,38 @@
+6.2. POISSON PROCESS
+189
+and hence
+PT > t=
+∞
+t
+f(s) ds = e−λt
+Our assumptions imply that the waiting times of a Poisson distribution with
+parameter λ must be exponential with rate λ. Note that
+E[T] =
+∞
+0
+t f(t) dt = 1
+λ,
+so that the mean waiting time is (quite reasonably) the reciprocal of the rate.
+This observation gives a way to construct a Poisson process. This construction
+also gives a good way to simulate Poisson processes (see Exercise 6.1).
+Let T1, T2, T3, be independent random variables each exponential
+with rate λ.
+Let τ0 = 0 and for positive integer n,
+τn = T1 + · · · + Tn
+In other words, τn is the time at which the nth jump occurs.
+Set
+Xt = n
+for
+τn ≤t < τn+1
+Note that we have dened the process so that the paths are right-continuous,
+Xt = Xt+ := lim
+st Xs
+The paths also have limits from the left, that is, for every t the limit
+Xt−= lim
+st Xs
+exists. If t is a time that the process jumps, that is, if t = τn for some n > 0,
+then
+Xt = Xt+ = Xt−+ 1
+At all other times the path is continuous, Xt−= Xt+.
+The i.i.d. increments follow from the construction. We can use the as-
+sumptions to show the following.

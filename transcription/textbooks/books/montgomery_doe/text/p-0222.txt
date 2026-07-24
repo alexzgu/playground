@@ -1,0 +1,86 @@
+206
+Chapter 5 ■Introduction to Factorial Designs
+In concluding this section, we note that the two-factor factorial model with one obser-
+vation per cell (Equation 5.22) looks exactly like the randomized complete block model
+(Equation 4.1). In fact, the Tukey single-degree-of-freedom test for nonadditivity can be
+directly applied to test for interaction in the randomized block model. However, remember
+that the experimental situations that lead to the randomized block and factorial models are
+very different. In the factorial model, all ab runs have been made in random order, whereas
+in the randomized block model, randomization occurs only within the block. The blocks are
+a randomization restriction. Hence, the manner in which the experiments are run and the
+interpretation of the two models are quite different.
+5.4
+The General Factorial Design
+The results for the two-factor factorial design may be extended to the general case where there
+are a levels of factor A, b levels of factor B, c levels of factor C, and so on, arranged in a fac-
+torial experiment. In general, there will be abc . . . n total observations if there are n replicates
+of the complete experiment. Once again, note that we must have at least two replicates (n 2)
+to determine a sum of squares due to error if all possible interactions are included in the model.
+If all factors in the experiment are xed, we may easily formulate and test hypotheses
+about the main effects and interactions using the ANOVA. For a xed effects model, test sta-
+tistics for each main effect and interaction may be constructed by dividing the corresponding
+mean square for the effect or interaction by the mean square error. All of these F tests will be
+upper-tail, one-tail tests. The number of degrees of freedom for any main effect is the num-
+ber of levels of the factor minus one, and the number of degrees of freedom for an interaction
+is the product of the number of degrees of freedom associated with the individual components
+of the interaction.
+For example, consider the three-factor analysis of variance model:
+(5.26)
+Assuming that A, B, and C are xed, the analysis of variance table is shown in Table 5.12.
+The F tests on main effects and interactions follow directly from the expected mean squares.
+Usually, the analysis of variance computations would be done using a statistics software
+package. However, manual computing formulas for the sums of squares in Table 5.12 are
+occasionally useful. The total sum of squares is found in the usual way as
+(5.27)
+The sums of squares for the main effects are found from the totals for factors A(yi...), B(y.j..),
+and C(y..k.) as follows:
+(5.28)
+(5.29)
+(5.30)
+SSC 
+1
+abn 
+c
+k1
+y2
+..k. y2
+....
+abcn
+SSB 
+1
+acn 
+b
+j1
+y2
+.j.. y2
+....
+abcn
+SSA 
+1
+bcn 
+a
+i1
+y2
+i... y2
+....
+abcn
+SST 
+a
+i1 
+b
+j1 
+c
+k1 
+n
+l1
+y2
+ijkl y2
+....
+abcn
+ ()ijk ijkl 
+ 
+i 1, 2, . . . , a
+j 1, 2, . . . , b
+k 1, 2, . . . , c
+l 1, 2, . . . , n
+yijkl i j k ()ij ()ik ()jk

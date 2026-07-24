@@ -1,0 +1,86 @@
+306
+7. Moving Beyond Linearity
+2003
+2005
+2007
+2009
+−30
+−20
+−10
+0
+10
+20
+30
+20
+30
+40
+50
+60
+70
+80
+−50
+−40
+−30
+−20
+−10
+0
+10
+20
+−30
+−20
+−10
+0
+10
+20
+30
+40
+<HS
+HS
+<Coll
+Coll
+>Coll
+f1(year)
+f2(age)
+f3(education)
+year
+age
+education
+FIGURE 7.11. For the Wage data, plots of the relationship between each feature
+and the response, wage, in the fitted model (7.16). Each plot displays the fitted
+function and pointwise standard errors. The first two functions are natural splines
+in year and age, with four and five degrees of freedom, respectively. The third
+function is a step function, fit to the qualitative variable education.
+examine GAMs for a quantitative response in Section 7.7.1, and then for a
+qualitative response in Section 7.7.2.
+7.7.1
+GAMs for Regression Problems
+A natural way to extend the multiple linear regression model
+yi = β0 + β1xi1 + β2xi2 + · · · + βpxip + ϵi
+in order to allow for non-linear relationships between each feature and the
+response is to replace each linear component βjxij with a (smooth) non-
+linear function fj(xij). We would then write the model as
+yi
+=
+β0 +
+p
+0
+j=1
+fj(xij) + ϵi
+=
+β0 + f1(xi1) + f2(xi2) + · · · + fp(xip) + ϵi.
+(7.15)
+This is an example of a GAM. It is called an additive model because we
+calculate a separate fj for each Xj, and then add together all of their
+contributions.
+In Sections 7.1–7.6, we discuss many methods for fitting functions to a
+single variable. The beauty of GAMs is that we can use these methods
+as building blocks for fitting an additive model. In fact, for most of the
+methods that we have seen so far in this chapter, this can be done fairly
+trivially. Take, for example, natural splines, and consider the task of fitting
+the model
+wage = β0 + f1(year) + f2(age) + f3(education) + ϵ
+(7.16)
+on the Wage data. Here year and age are quantitative variables, while the
+variable education is qualitative with five levels: <HS, HS, <Coll, Coll, >Coll,
+referring to the amount of high school or college education that an individ-
+ual has completed. We fit the first two functions using natural splines. We

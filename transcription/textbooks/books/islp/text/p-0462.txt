@@ -1,0 +1,55 @@
+10.9 Lab: Deep Learning
+455
+tensorflow, a different tensor and deep learning library, we have converted
+the data to be suitable for torch. The code used to convert from keras
+is available in the module ISLP.torch._make_imdb. It requires some of the
+keras packages to run. These data use a dictionary of size 10,000.
+We have stored three different representations of the review data for this
+lab:
+• load_tensor(), a sparse tensor version usable by torch;
+• load_sparse(), a sparse matrix version usable by sklearn, since we
+will compare with a lasso fit;
+• load_sequential(), a padded version of the original sequence repre-
+sentation, limited to the last 500 words of each review.
+In [69]: (imdb_seq_train ,
+imdb_seq_test) = load_sequential(root='data/IMDB')
+padded_sample = np.asarray(imdb_seq_train.tensors[0][0])
+sample_review = padded_sample[padded_sample > 0][:12]
+sample_review[:12]
+Out[69]: array([
+1,
+14,
+22,
+16,
+43,
+530,
+973, 1622, 1385,
+65,
+458, 4468], dtype=int32)
+The datasets imdb_seq_train and imdb_seq_test are both instances of the
+class TensorDataset. The tensors used to construct them can be found in
+the tensors attribute, with the first tensor the features X and the second
+the outcome Y. We have taken the first row of features and stored it as
+padded_sample. In the preprocessing used to form these data, sequences
+were padded with 0s in the beginning if they were not long enough, hence
+we remove this padding by restricting to entries where padded_sample > 0.
+We then provide the first 12 words of the sample review.
+We can find these words in the lookup dictionary from the ISLP.torch.imdb
+module.
+In [70]: lookup = load_lookup(root='data/IMDB')
+' '.join(lookup[i] for i in sample_review)
+Out[70]: "<START> this film was just brilliant casting location scenery
+story direction everyone's"
+For our first model, we have created a binary feature for each of the
+10,000 possible words in the dataset, with an entry of one in the i, j entry
+if word j appears in review i. As most reviews are quite short, such a feature
+matrix has over 98% zeros. These data are accessed using load_tensor()
+from the ISLP library.
+In [71]: max_num_workers=10
+(imdb_train ,
+imdb_test) = load_tensor(root='data/IMDB')
+imdb_dm = SimpleDataModule(imdb_train,
+imdb_test,
+validation=2000,
+num_workers=min(6, max_num_workers),
+batch_size=512)

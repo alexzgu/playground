@@ -1,0 +1,66 @@
+6.10 Problems
+303
+(a) Analyze the lead response for shbone apatite. What
+factors are important?
+(b) Analyze the residuals from this response and comment
+on model adequacy.
+(c) Analyze the pH response for shbone apatite. What
+factors are important?
+(d) Analyze the residuals from this response and comment
+on model adequacy.
+(e) Analyze the lead response for hydroxyapatite apatite.
+What factors are important?
+(f) Analyze the residuals from this response and comment
+on model adequacy.
+(g) Analyze the pH response for hydroxyapatite apatite.
+What factors are important?
+(h) Analyze the residuals from this response and comment
+on model adequacy.
+(i) What differences do you see between shbone and
+hydroxyapatite apatite? The authors of this paper con-
+cluded that that shbone apatite was comparable to
+hydroxyapatite apatite. Because the shbone apatite is
+cheaper, it was recommended for adoption. Do you
+agree with these conclusions?
+6.43.
+Often the tted regression model from a 2k factorial
+design is used to make predictions at points of interest in the
+design space. Assume that the model contains all main effects
+and two-factor interactions.
+(a) Find the variance of the predicted response at a point
+x1, x2, . . . , xk in the design space. Hint: Remember that
+the x’s are coded variables and assume a 2k design with
+yˆ
+an equal number of replicates n at each design point so
+that the variance of a regression coefcient 
+is
+2/(n2k) and that the covariance between any pair of
+regression coefcients is zero.
+(b) Use the result in part (a) to nd an equation for a 100(1
+) percent condence interval on the true mean
+response at the point x1, x2, . . . , xk in design space.
+6.44.
+Hierarchical models. Several times we have used the
+hierarchy principle in selecting a model; that is, we have
+included nonsignicant lower order terms in a model because
+they were factors involved in signicant higher order terms.
+Hierarchy is certainly not an absolute principle that must be
+followed in all cases. To illustrate, consider the model result-
+ing from Problem 6.1, which required that a nonsignicant
+main effect be included to achieve hierarchy. Using the data
+from Problem 6.1.
+(a) Fit both the hierarchical and the nonhierarchical models.
+(b) Calculate the PRESS statistic, the adjusted R2, and the
+mean square error for both models.
+(c) Find a 95 percent condence interval on the estimate
+of the mean response at a cube corner (x1 x2  x3 
+1). Hint: Use the results of Problem 6.36.
+(d) Based on the analyses you have conducted, which
+model do you prefer?
+6.45.
+Suppose that you want to run a 23 factorial design. The
+variance of an individual observation is expected to be about 4.
+Suppose that you want the length of a 95 percent condence
+interval on any effect to be less than or equal to 1.5. How many
+replicates of the design do you need to run?
+ˆ

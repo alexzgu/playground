@@ -1,0 +1,194 @@
+12.4 Combined Array Designs and the Response Model Approach
+565
+We observe that the standard deviation of the ltration rate response in Example 12.1
+is still very large. This illustrates that sometimes a process robustness study may not yield an
+entirely satisfactory solution. It may still be necessary to employ other measures to achieve
+satisfactory process performance, such as controlling temperature more precisely in the full-
+scale process.
+Example 12.1 illustrates the use of a rst-order model with interaction as the model for
+the controllable factors f(x). We now present an example adapted from Montgomery (1999)
+that involves a second-order model.
+E X A M P L E 1 2 . 2
+An experiment was run in a semiconductor manufacturing
+facility involving two controllable variables and three
+noise variables. The combined array design used by the
+experimenters is shown in Table 12.3. The design is a 23-
+run variation of a central composite design that was creat-
+ed by starting with a standard central composite design
+(CCD) for five factors (the cube portion is a 251) and
+deleting the axial runs associated with the three noise
+variables. This design will support a response model that
+has a second-order model in the controllable variables, the
+main effects of the three noise variables, and the interac-
+tions between the control and noise factors. The fitted
+■T A B L E 1 2 . 3
+Combined Array Experiment with Two Controllable Variables and Three Noise Variables,
+Example 12.2
+Run Number
+x1
+x2
+z1
+z2
+z3
+y
+1
+1.00
+1.00
+1.00
+1.00
+1.00
+44.2
+2
+1.00
+1.00
+1.00
+1.00
+1.00
+30.0
+3
+1.00
+1.00
+1.00
+1.00
+1.00
+30.0
+4
+1.00
+1.00
+1.00
+1.00
+1.00
+35.4
+5
+1.00
+1.00
+1.00
+1.00
+1.00
+49.8
+6
+1.00
+1.00
+1.00
+1.00
+1.00
+36.3
+7
+1.00
+1.00
+1.00
+1.00
+1.00
+41.3
+8
+1.00
+1.00
+1.00
+1.00
+1.00
+31.4
+9
+1.00
+1.00
+1.00
+1.00
+1.00
+43.5
+10
+1.00
+1.00
+1.00
+1.00
+1.00
+36.1
+11
+1.00
+1.00
+1.00
+1.00
+1.00
+22.7
+12
+1.00
+1.00
+1.00
+1.00
+1.00
+16.0
+13
+1.00
+1.00
+1.00
+1.00
+1.00
+43.2
+14
+1.00
+1.00
+1.00
+1.00
+1.00
+30.3
+15
+1.00
+1.00
+1.00
+1.00
+1.00
+30.1
+16
+1.00
+1.00
+1.00
+1.00
+1.00
+39.2
+17
+2.00
+0.00
+0.00
+0.00
+0.00
+46.1
+18
+2.00
+0.00
+0.00
+0.00
+0.00
+36.1
+19
+0.00
+2.00
+0.00
+0.00
+0.00
+47.4
+20
+0.00
+2.00
+0.00
+0.00
+0.00
+31.5
+21
+0.00
+0.00
+0.00
+0.00
+0.00
+30.8
+22
+0.00
+0.00
+0.00
+0.00
+0.00
+30.7
+23
+0.00
+0.00
+0.00
+0.00
+0.00
+31.0

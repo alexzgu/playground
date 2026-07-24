@@ -1,0 +1,107 @@
+Davies, O. L. (1956). Design and Analysis of Industrial
+Experiments. 2nd edition. Hafner Publishing Company,
+New York.
+Derringer, G., and R. Suich (1980). “Simultaneous Optimization
+of Several Response Variables.” Journal of Quality
+Technology, Vol. 12, pp. 214–219.
+Dolby, J. L. (1963). “A Quick Method for Choosing a
+Transformation.” Technometrics, Vol. 5, pp. 317–326.
+Draper, N. R., and W. G. Hunter (1969). “Transformations: Some
+Examples Revisited.” Technometrics, Vol. 11, pp. 23–40.
+DuMouchel, W., and B. Jones (1994). “A Simple Bayesian
+Modication of D-Optimal Designs to Reduce Dependence
+on an Assumed Model.” Technometrics, Vol. 36, pp. 37–47. 
+Duncan, A. J. (1986). Quality Control and Industrial Statistics.
+5th edition. Richard D. Irwin, Homewood, IL.
+Duncan, D. B. (1955). “Multiple Range and Multiple F Tests.”
+Biometrics, Vol. 11, pp. 1–42.
+Dunnett, C. W. (1964). “New Tables for Multiple Comparisons
+with a Control.” Biometrics, Vol. 20, pp. 482–491.
+Edwards, D. J., and R. W. Mee (2008). “Empirically
+Determined P-Values for Lenth t-Statistics.” Journal of
+Quality Technology, Vol. 40, No. 4, pp. 368–380.
+Eisenhart, C. (1947). “The Assumptions Underlying the
+Analysis of Variance.” Biometrics, Vol. 3, pp. 1–21.
+Fang, K. T. (1980), “The Uniform Design: Application of
+Number-Theoretic Methods in Experimental Design,”
+Acta Math. Appl. Sinica., Vol. 3, pp. 363–372.
+Fang, K. T., R. Li, and A. Sudjianto (2006), Design and
+Modeling for Computer Experiments, Taylor & Francis
+Group, Boca Raton, FL.
+Fisher, R. A. (1958). Statistical Methods for Research Workers.
+13th edition. Oliver and Boyd, Edinburgh.
+Fisher, R. A. (1966). The Design of Experiments. 8th edition.
+Hafner Publishing Company, New York.
+Fisher, R. A., and F. Yates (1953). Statistical Tables for
+Biological, Agricultural, and Medical Research. 4th
+edition. Oliver and Boyd, Edinburgh.
+Fries, A., and W. G. Hunter (1980). “Minimum Aberration
+2kp Designs.” Technometrics, Vol. 22, pp. 601–608.
+Gaylor, D. W., and T. D. Hartwell (1969). “Expected Mean
+Squares for Nested Classications.” Biometrics, Vol. 25,
+pp. 427–430.
+Gaylor, D. W., and F. N. Hopper (1969). “Estimating the
+Degrees of Freedom for Linear Combinations of Mean
+Squares by Satterthwaite’s Formula.” Technometrics, Vol.
+11, No. 4, pp. 699–706.
+Giovannitti-Jensen, A., and R. H. Myers (1989). “Graphical
+Assessment of the Prediction Capability of Response
+Surface Designs.” Technometrics, Vol. 31, pp. 159–171.
+Gotwalt, C. M., B. A. Jones, and D. M. Steinberg (2009). “Fast
+Computation of Designs Robust to Parameter Uncertainty
+for Nonlinear Settings.” Technometrics, Vol. 51, pp. 86–95.
+Graybill, F. A. (1961). An Introduction to Linear Statistical
+Models. Vol. 1. McGraw-Hill, New York.
+Graybill, F. A., and C. M. Wang (1980). “Condence Intervals on
+Nonnegative Linear Combinations of Variances.” Journal of
+the American Statistical Association, Vol. 75, pp. 869–873.
+Graybill, F. A., and D. L. Weeks (1959). “Combining Interblock
+and Intrablock Information in Balanced Incomplete Blocks.”
+Annals of Mathematical Statistics, Vol. 30, pp. 799–805.
+Hall, M. Jr. (1961). Hadamard Matrix of Order 16, Jet
+Propulsion Laboratory Research Summary, 1, pp. 21–26.
+Hamada, M., and N. Balakrishnan (1998). “Analyzing Unreplicated
+Factorial Experiments: A Review with Some New Proposals”
+(with Discussion). Statistica Sinica, Vol. 8, pp. 1–41.
+Hamada, M., and C. F. J. Wu (1992). “Analysis of Designed
+Experiments with Complex Aliasing.” Journal of Quality
+Technology, Vol. 24, No. 3, pp. 130–137.
+Hill, W. G., and W. G. Hunter (1966). “A Review of Response
+Surface Methodology: A Literature Survey.” Technometrics,
+Vol. 8, pp. 571–590.
+Hines, W. W., D. C. Montgomery, D. M. Goldsman, and C. M.
+Borror (2003). Probability and Statistics in Engineering.
+4th edition. Wiley, New York.
+Hocking, R. R. (1973). “A Discussion of the Two-Way Mixed
+Model.” The American Statistician, Vol. 27, No. 4,
+pp. 148–152.
+Hocking, R. R., O. P. Hackney, and F. M. Speed (1978). “The
+Analysis of Linear Models with Unbalanced Data.” in
+Contributions to Survey Sampling and Applied Statistics,
+H. A. David (ed.). Academic Press, New York.
+Hocking, R. R., and F. M. Speed (1975). “A Full Rank Analysis
+of Some Linear Model Problems.” Journal of the
+American Statistical Association, Vol. 70, pp. 706–712.
+Holcomb, D. R. and W. M. Carlyle, (2002), “Some Notes on the
+Construction and Evaluation of Supersaturated Designs”,
+Quality and Reliability Engineering International, Vol. 18,
+pp. 299–304.
+Holcomb, D. R., D. C. Montgomery, and W. M. Carlyle (2003).
+“Analysis of Supersaturated Designs.” Journal of Quality
+Technology, Vol. 35, No. 1, pp. 13–27.
+Hsu, J. (1996), Multiple Comparisons: Theory and Methods,
+Chapman and Hall/CRC, Boca Raton, FL.
+Huang, P., D. Chen, and J. Voelkel (1999). “Minimum
+Aberration Two-Level Split-Plot Designs.” Technometrics,
+Vol. 41, pp. 314–326.
+Hunter, J. S. (1985). “Statistical Design Applied to Product Design.”
+Journal of Quality Technology, Vol. 17, pp. 210–221.
+Hunter, J. S. (1989). “Let’s All Beware the Latin Square.”
+Quality Engineering, Vol. 1, pp. 453–465.
+John, J. A., and P. Prescott (1975). “Critical Values of a Test to
+Detect Outliers in Factorial Experiments.” Applied
+Statistics, Vol. 24, pp. 56–59.
+John, P. W. M. (1961). “The Three-Quarter Replicates of 24 and
+25 Designs.” Biometrics, Vol. 17, pp. 319–321.
+Bibliography
+721

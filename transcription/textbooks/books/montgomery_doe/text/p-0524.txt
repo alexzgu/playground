@@ -1,0 +1,74 @@
+508
+Chapter 11 ■Response Surface Methods and Designs
+12
+12
+14
+10
+6
+4
+2
+0
+8
+11
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+Radius, r
+(a)
+1.2
+1.4
+1.6
+1.8
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+Radius, r
+(b)
+1.2
+1.4
+1.6
+1.8
+SPV
+SPV
+nC = 1
+nC = 2
+nC = 3
+nC = 4
+nC = 5
+0
+0.5
+1
+Radius, r
+1.5
+2
+SPV
+25
+20
+15
+10
+5
+■F I G U R E 1 1 . 2 6
+Variance dispersion graphs. (a) the CCD with
+k 3 and 1.68 (four center runs). (b) The CCD with k 3 and 
+1.732 (four center runs)
+■F I G U R E 1 1 . 2 7
+Variance dispersion graph
+for CCD with k 4 and 
+2

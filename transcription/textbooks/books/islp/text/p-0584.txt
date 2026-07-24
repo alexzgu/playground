@@ -1,0 +1,75 @@
+578
+13. Multiple Testing
+13.5.1
+A Re-Sampling Approach to the p-Value
+We return to the example of Section 13.1.1, in which we wish to test whether
+the mean of a random variable X equals the mean of a random variable Y ,
+i.e. H0 : E(X) = E(Y ), against the alternative Ha : E(X)̸ = E(Y ). Given
+nX independent observations from X and nY independent observations
+from Y , the two-sample t-statistic takes the form
+T =
+ˆµX −ˆµY
+s
+G
+1
+nX +
+1
+nY
+(13.11)
+where ˆµX =
+1
+nX
+)nX
+i=1 xi, ˆµY =
+1
+nY
+)nY
+i=1 yi, s =
+G
+(nX−1)s2
+X+(nY −1)s2
+Y
+nX+nY −2
+,
+and s2
+X and s2
+Y are unbiased estimators of the variances in the two groups.
+A large (absolute) value of T provides evidence against H0.
+If nX and nY are large, then T in (13.11) approximately follows a N(0, 1)
+distribution. But if nX and nY are small, then in the absence of a strong
+assumption about the distribution of X and Y , we do not know the the-
+oretical null distribution of T.17 In this case, it turns out that we can
+approximate the null distribution of T using a re-sampling approach, or re-sampling
+more specifically, a permutation approach.
+permutation
+To do this, we conduct a thought experiment. If H0 holds, so that E(X) =
+E(Y ), and we make the stronger assumption that the distributions of X
+and Y are the same, then the distribution of T is invariant under swapping
+observations of X with observations of Y . That is, if we randomly swap
+some of the observations in X with the observations in Y , then the test
+statistic T in (13.11) computed based on this swapped data has the same
+distribution as T based on the original data. This is true only if H0 holds,
+and the distributions of X and Y are the same.
+This suggests that in order to approximate the null distribution of T,
+we can take the following approach. We randomly permute the nX + nY
+observations B times, for some large value of B, and each time we compute
+(13.11). We let T ∗1, . . . , T ∗B denote the values of (13.11) on the permuted
+data. These can be viewed as an approximation of the null distribution
+of T under H0. Recall that by definition, a p-value is the probability of
+observing a test statistic at least this extreme under H0. Therefore, to
+compute a p-value for T, we can simply compute
+p-value =
+)B
+b=1 1(|T ∗b|≥|T |)
+B
+,
+(13.12)
+the fraction of permuted datasets for which the value of the test statistic
+is at least as extreme as the value observed on the original data. This
+procedure is summarized in Algorithm 13.3.
+17If we assume that X and Y are normally distributed, then T in (13.11) follows a
+t-distribution with nX + nY −2 degrees of freedom under H0. However, in practice, the
+distribution of random variables is rarely known, and so it can be preferable to perform
+a re-sampling approach instead of making strong and unjustified assumptions. If the
+results of the re-sampling approach disagree with the results of assuming a theoretical
+null distribution, then the results of the re-sampling approach are more trustworthy.

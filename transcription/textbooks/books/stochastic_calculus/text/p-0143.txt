@@ -1,0 +1,51 @@
+4.4. BINOMIAL APPROXIMATIONS
+137
+4.4
+Binomial approximations
+In the next few sections we will be considering the SDE
+dXt = m(t, Xt) dt + σ(t, Xt) dBt
+We will give some heuristic derivations based on discrete approximations.
+Recall that the Euler method to sample from this equation uses the rule
+X(t + ∆t) = X(t) + m(t, X(t)) ∆t + σ(t, X(t))
+√
+∆t Z
+where Z ∼N(0, 1). Here we wish to consider some sampling
+schemes, that is, schemes such that given X(t), X(t + ∆t) takes one of two
+values.
+If Xt is Brownian motion with drift zero and variance σ2,
+dXt = σ dBt,
+then the binomial scheme is approximation by random walk,
+PX(t + ∆t) −X(t) = σ
+√
+∆t X(t)
+= PX(t + ∆t) −X(t) = −σ
+√
+∆t X(t)= 1
+2
+In this case the values of X(k∆t) lie in the lattice of points
+
+, −2σ
+√
+∆t, −σ
+√
+∆t, 0, σ
+√
+∆t, 2σ
+√
+∆t, 
+
+
+If m ≡0 and σ(t, x) is not constant, we can change this rule to
+PX(t + ∆t) −X(t) = ±σ(t, X(t))
+√
+∆t X(t)= 1
+2,
+but then the values of X(t) do not stay in a lattice.
+Suppose σ is constant, but m varies,
+dXt = m(t, Xt) dt + σ dBt
+There are two reasonable ways to incorporate drift in this binomial model.
+One is to use a version of the Euler’s method and set
+PX(t + ∆t) −X(t) = m(t, Xt) ∆t ± σ
+√
+∆t X(t)= 1
+2,

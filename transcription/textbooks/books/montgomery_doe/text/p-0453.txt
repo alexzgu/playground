@@ -1,0 +1,114 @@
+one alias chain and the constants in the alias chains are not all either zero or 
+). Therefore, this
+is a nonregular design. The two-factor interaction alias relationships in the 18-run design are
+much more complicated than they are in the standard 32-run 294 design. Because of partial 
+aliasing of the two-factor interactions it may be possible to estimate some of these effects.
+Furthermore, the standard errors of the main effects and interaction regression model coefcients
+are 0.24while in the standard 32-run 294 design they are 0.18, so the 18-run design does not
+provide as much precision in parameter estimation as the standard 32-run design. Finally, the
+standard 294 design is an orthogonal design whereas the 18-run design is not. This results in 
+correlation between the model coefcients and contributes to the ination of the standard errors
+of the model coefcients for the 18-run design.
+It is also of interest to construct minimum-run resolution IV designs as alternatives to
+the standard resolution IV designs for k 6 or 7 factors. The 12-run resolution IV design
+for six factors is shown in Table 9.38. The alias relationships for this design (ignoring three-
+factor and higher order interactions) are
+[A] A, [B] B, [C] C, [D] D, [E] E, [F] F
+[AB] AB 0.2 BC 0.6 BD 0.2 BE 0.6 BF 0.4 CD 0.8 CE 0.4 CF  0.4
+DE 0.4 DF 0.4 EF
+[AC] AC 0.2 BC 0.4 BD 0.8 BE 0.4 BF 0.6 CD 0.2 CE 0.6 CF 0.4
+DE 0.4 DF 0.4 EF
+[AD] AD 0.4 BC 0.2 BD 0.4 BE 0.8 BF 0.2 CD 0.4 CE 0.8 CF 0.2
+DE 0.2 DF 0.8 EF
+[AE] AE 0.8 BC 0.4 BD 0.2 BE 0.4 BF 0.4 CD 0.2 CE 0.4 CF 0.6
+DE 0.4 DF 0.6 EF
+[AF] AF 0.4 BC 0.8 BD 0.4 BE 0.2 BF 0.8 CD 0.4 CE 0.2 CF 0.8
+DE 0.2 DF 0.2 EF
+Once again, notice that the price an experimenter is paying to reduce the number of runs
+from 16 to 12 is to introduce more complication into the alias relationships for the two-
+factor interactions. There is also a loss in the precision of estimation for model coefcients in
+comparison to the standard design. However, because we do not have complete confounding
+between two-factor interactions it may be possible to estimate some of these effects.
+1
+9.6 Constructing Factorial and Fractional Factorial Designs Using an Optimal Design Tool
+437
+■TA B L E 9 . 3 8
+A 12-run Resolution IV Design in k 6 Factors
+A
+B
+C
+D
+E
+F
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,96 @@
+719
+B i b l i o g r a p h y
+Abraham, B., H. Chipman, and K. Vijayan (1999). “Some Risks
+in the Construction and Analysis of Supersaturated
+Designs.” Technometrics, Vol. 41, pp. 135–141.
+Addelman, S. (1961). “Irregular Fractions of the 2n Factorial
+Experiments.” Technometrics, Vol. 3, pp. 479–496.
+Addelman, S. (1962). “Orthogonal Main Effect-Plans for Asym-
+metric Factorial Experiments.” Technometrics, Vol. 4,
+pp. 21–46.
+Addelman, S. (1963). “Techniques for Constructing Fractional
+Replicate Plans.” Journal of the American Statistical
+Association, Vol. 58, pp. 45–71.
+Almimi, A. A., M. Kulahci, and D. C. Montgomery (2009).
+“Checking the Adequacy of Fit of Models from Split-
+Plot Designs.” Journal of Quality Technology, Vol. 41,
+pp. 272–284.
+Almimi, A. A., M. Kulahci, and D. C. Montgomery (2008a).
+“Follow-Up Designs to Resolve confounding in Split-Plot
+Experiments.” Journal of Quality Technology, Vol. 40,
+pp. 154–166.
+Almimi, A. A., M. Kulahci, and D. C. Montgomery (2008b).
+“Estimation of Missing Observations in Two-level Split-
+Plot Designs.” Quality and Reliability Engineering
+International, Vol. 24, pp. 127–152.
+Anderson, V. L., and R. A. McLean (1974). Design of Experi-
+ments: A Realistic Approach. Dekker, New York.
+Andere-Rendon, J., D. C. Montgomery, and D. A. Rollier
+(1997). “Design of Mixture Experiments Using Bayesian
+D-Optimality.” Journal of Quality Technology, Vol. 29,
+pp. 451–463.
+Anderson-Cook, C. M., C. M. Borror, and D. C. Montgomery
+(2009). “Response Surface Design Evaluation and
+Comparison” (with discussion). Journal of Statistical
+Planning and Inference, Vol. 139, pp. 629–674.
+Anscombe, F. J. (1960). “Rejection of Outliers.” Technometrics,
+Vol. 2, pp. 123–147.
+Anscombe, F. J., and J. W. Tukey (1963). “The Examination
+and Analysis of Residuals.” Technometrics, Vol. 5,
+pp. 141–160.
+Bainbridge, T. R. (1965). “Staggered, Nested Designs for
+Estimating Variance Components.” Industrial Quality
+Control, Vol. 22, pp. 12–20.
+Bancroft, T. A. (1968). Topics in Intermediate Statistical
+Methods. Iowa State University Press, Ames, Iowa.
+Barlett, M. S. (1947). “The Use of Transformations.”
+Biometrics, Vol. 3, pp. 39–52.
+Barnett, V., and T. Lewis (1994). Outliers in Statistical Data.
+3rd edition. Wiley, New York.
+Barton, R. R (1994), “Metamodels: A State of the Art Review”,
+Winter Simulation Conference, pp. 237–277.
+Barton, R. R. (1992), “Metamodels for Simulation Input-
+Output Relations”,
+Winter Simulation Conference,
+pp. 289–299.
+Bennett, C. A., and N. L. Franklin (1954). Statistical Analysis
+in Chemistry and the Chemical Industry. Wiley, New York.
+Bingham, D., and R. R. Sitter (1999). “Minimum Aberration
+Two-Level Fractional Factorial Split-Plot Designs.”
+Technometrics, Vol. 41, pp. 62–70.
+Bisgaard, S. (1998–1999). “Conditional Inference Chart for
+Small Unreplicated Two-Level Factorial Experiments.”
+Quality Engineering, Vol. 11, pp. 267–271.
+Bisgaard, S. (2000). “The Design and Analysis of 2kp 
+2qr
+Split Plot Experiments.”
+Journal of Quality
+Technology, Vol. 32, pp. 39–56.
+Bisgaard, S. and H. T. Fuller, (1994–95), “Analysis of Factorial
+Experiments with Defects or Defectives as the Response”,
+Quality Engineering, Vol. 7, pp. 429–443.
+Booth, K. H., and D. R. Cox, (1962). “Some Systematic
+Supersaturated 
+Designs.”
+Technometrics,
+Vol. 
+4,
+pp. 489–495.
+Bowker, A. H., and G. J. Lieberman (1972). Engineering
+Statistics. 2nd edition. Prentice Hall, Englewood Cliffs, NJ.
+Box, G. E. P. (1954a). “Some Theorems on Quadratic Forms
+Applied in the Study of Analysis of Variance Problems: I.
+Effect of Inequality of Variance in the One-Way
+Classication.” Annals of Mathematical Statistics, Vol. 25,
+pp. 290–302.
+Box, G. E. P. (1954b). “Some Theorems on Quadratic Forms
+Applied in the Study of Analysis of Variance Problems: II.
+Effect of Inequality of Variance and of Correlation of Errors
+in the Two-Way Classication.” Annals of Mathematical
+Statistics, Vol. 25, pp. 484–498.
+Box, G. E. P. (1957). “Evolutionary Operation: A Method for
+Increasing Industrial Productivity.” Applied Statistics,
+Vol. 6, pp. 81–101.
+Box, G. E. P. (1988). “Signal-to-Noise Ratios, Performance
+Criteria, and Transformation.” Technometrics, Vol. 30,
+pp. 1–40.

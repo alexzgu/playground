@@ -1,0 +1,66 @@
+9.5 Relationship to Logistic Regression
+385
+classifier. Thus, a small value of λ in (9.25) amounts to a small value of C
+in (9.15). Note that the λ )p
+j=1 β2
+j term in (9.25) is the ridge penalty term
+from Section 6.2.1, and plays a similar role in controlling the bias-variance
+trade-off for the support vector classifier.
+Now (9.25) takes the “Loss + Penalty” form that we have seen repeatedly
+throughout this book:
+minimize
+β0,β1,...,βp {L(X, y, β) + λP(β)} .
+(9.26)
+In (9.26), L(X, y, β) is some loss function quantifying the extent to which
+the model, parametrized by β, fits the data (X, y), and P(β) is a penalty
+function on the parameter vector β whose effect is controlled by a nonneg-
+ative tuning parameter λ. For instance, ridge regression and the lasso both
+take this form with
+L(X, y, β) =
+n
+0
+i=1
+
+yi −β0 −
+p
+0
+j=1
+xijβj
+
+
+2
+and with P(β) = )p
+j=1 β2
+j for ridge regression and P(β) = )p
+j=1 |βj| for
+the lasso. In the case of (9.25) the loss function instead takes the form
+L(X, y, β) =
+n
+0
+i=1
+max [0, 1 −yi(β0 + β1xi1 + · · · + βpxip)] .
+This is known as hinge loss, and is depicted in Figure 9.12. However, it hinge loss
+turns out that the hinge loss function is closely related to the loss function
+used in logistic regression, also shown in Figure 9.12.
+An interesting characteristic of the support vector classifier is that only
+support vectors play a role in the classifier obtained; observations on the
+correct side of the margin do not affect it. This is due to the fact that the
+loss function shown in Figure 9.12 is exactly zero for observations for which
+yi(β0 + β1xi1 + · · · + βpxip) ≥1; these correspond to observations that are
+on the correct side of the margin.3 In contrast, the loss function for logistic
+regression shown in Figure 9.12 is not exactly zero anywhere. But it is very
+small for observations that are far from the decision boundary. Due to the
+similarities between their loss functions, logistic regression and the support
+vector classifier often give very similar results. When the classes are well
+separated, SVMs tend to behave better than logistic regression; in more
+overlapping regimes, logistic regression is often preferred.
+When the support vector classifier and SVM were first introduced, it was
+thought that the tuning parameter C in (9.15) was an unimportant “nui-
+sance” parameter that could be set to some default value, like 1. However,
+the “Loss + Penalty” formulation (9.25) for the support vector classifier
+indicates that this is not the case. The choice of tuning parameter is very
+important and determines the extent to which the model underfits or over-
+fits the data, as illustrated, for example, in Figure 9.7.
+3With this hinge-loss + penalty representation, the margin corresponds to the value
+one, and the width of the margin is determined by ! β2
+j .

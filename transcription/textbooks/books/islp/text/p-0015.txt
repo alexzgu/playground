@@ -1,0 +1,47 @@
+4
+1. Introduction
+Down
+Up
+0.46
+0.48
+0.50
+0.52
+Today’s Direction
+Predicted Probability
+FIGURE 1.3. We fit a quadratic discriminant analysis model to the subset
+of the Smarket data corresponding to the 2001–2004 time period, and predicted
+the probability of a stock market decrease using the 2005 data. On average, the
+predicted probability of decrease is higher for the days in which the market does
+decrease. Based on these results, we are able to correctly predict the direction of
+movement in the market 60% of the time.
+clustering problem. Unlike in the previous examples, here we are not trying
+to predict an output variable.
+We devote Chapter 12 to a discussion of statistical learning methods
+for problems in which no natural output variable is available. We consider
+the NCI60 data set, which consists of 6,830 gene expression measurements
+for each of 64 cancer cell lines. Instead of predicting a particular output
+variable, we are interested in determining whether there are groups, or
+clusters, among the cell lines based on their gene expression measurements.
+This is a difficult question to address, in part because there are thousands
+of gene expression measurements per cell line, making it hard to visualize
+the data.
+The left-hand panel of Figure 1.4 addresses this problem by represent-
+ing each of the 64 cell lines using just two numbers, Z1 and Z2. These
+are the first two principal components of the data, which summarize the
+6,830 expression measurements for each cell line down to two numbers or
+dimensions. While it is likely that this dimension reduction has resulted in
+some loss of information, it is now possible to visually examine the data
+for evidence of clustering. Deciding on the number of clusters is often a
+difficult problem. But the left-hand panel of Figure 1.4 suggests at least
+four groups of cell lines, which we have represented using separate colors.
+In this particular data set, it turns out that the cell lines correspond
+to 14 different types of cancer. (However, this information was not used
+to create the left-hand panel of Figure 1.4.) The right-hand panel of Fig-
+ure 1.4 is identical to the left-hand panel, except that the 14 cancer types
+are shown using distinct colored symbols. There is clear evidence that cell
+lines with the same cancer type tend to be located near each other in this
+two-dimensional representation. In addition, even though the cancer infor-
+mation was not used to produce the left-hand panel, the clustering obtained
+does bear some resemblance to some of the actual cancer types observed
+in the right-hand panel. This provides some independent verification of the
+accuracy of our clustering analysis.

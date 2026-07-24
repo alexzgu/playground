@@ -1,0 +1,43 @@
+6.7. GENERALIZED POISSON PROCESSES II
+211
+In other words, the characteristic function of Xt is ϕXt(s) = [λ(λ−is)]t. This
+is the characteristic function of a Gamma random variable with parameters
+λ and t, that is, the density of Xt is
+ft(x) =
+λ
+Γ(t) (λx)t−1 e−λx,
+0 < x < 1,
+where
+Γ(t) =
+∞
+0
+xt−1 e−x dx,
+is the Gamma function. Important values of t are the following.
+X1 has the distribution of an exponential random variable with rate λ.
+If n is a positive integer, then Xn has the distribution of the sum of
+n independent random variables each exponential with rate λ. If Ns
+is a Poisson process with rate λ with N0 = 0, then Xn has the same
+distribution as infs : Ns = n.
+If λ = 12 and n is a positive integer, then Xn2 has a χ2 distribution
+with n degrees of freedom, that is, it has the same distribution as
+Z2
+1 + · · · + Z2
+n,
+where Z1, , Zn are independent, standard normal random variables.
+The process Xt is called the Gλ.
+6.7
+Generalized Poisson processes II
+In the previous section, we assumed that the expected sum of the absolute
+values of the jump was nite. There are jump L´evy processes that do not sat-
+isfy this condition. These processes have many smalljumps. Although the
+absolute values of the jumps are not summable, there is enough cancellation
+between the positive jumps and negative jumps to give a nontrivial process.
+We will construct such a process associated to a L´evy measure µ satisying
+the following assumptions.
+For every ϵ > 0, the number of jumps of absolute value greater than ϵ in
+a nite time interval is nite. More precisely, if µϵ denotes µ restricted
+to x> ϵ, then
+µϵ(R) = µ x : x> ϵ< ∞
+for every
+ϵ > 0
+(6.18)

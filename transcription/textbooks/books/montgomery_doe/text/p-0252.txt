@@ -1,0 +1,62 @@
+236
+Chapter 6 ■The 2k Factorial Design
+of the square (
+) and the average of the two treatment combinations on the bottom 
+(
+), or
+Finally, the interaction effect AB is the average of the right-to-left diagonal treatment combi-
+nations in the square [ab and (1)] minus the average of the left-to-right diagonal treatment
+combinations (a and b), or
+which is identical to Equation 6.3.
+Using the experiment in Figure 6.1, we may estimate the average effects as
+The effect of A (reactant concentration) is positive; this suggests that increasing A from the
+low level (15%) to the high level (25%) will increase the yield. The effect of B (catalyst) is
+negative; this suggests that increasing the amount of catalyst added to the process will
+decrease the yield. The interaction effect appears to be small relative to the two main effects.
+In experiments involving 2k designs, it is always important to examine the magnitude
+and direction of the factor effects to determine which variables are likely to be important. The
+analysis of variance can generally be used to conrm this interpretation (t-tests could be used
+too). Effect magnitude and direction should always be considered along with the ANOVA,
+because the ANOVA alone does not convey this information. There are several excellent sta-
+tistics software packages that are useful for setting up and analyzing 2k designs. There are also
+special time-saving methods for performing the calculations manually.
+Consider determining the sums of squares for A, B, and AB. Note from Equation 6.1
+that a contrast is used in estimating A, namely
+(6.4)
+We usually call this contrast the total effect of A. From Equations 6.2 and 6.3, we see that
+contrasts are also used to estimate B and AB. Furthermore, these three contrasts are orthogo-
+nal. The sum of squares for any contrast can be computed from Equation 3.29, which states
+that the sum of squares for any contrast is equal to the contrast squared divided by the num-
+ber of observations in each total in the contrast times the sum of the squares of the contrast
+coefcients. Consequently, we have
+(6.5)
+(6.6)
+SSB [ab b a (1)]2
+4n
+SSA [ab a b (1)]2
+4n
+ContrastA ab a b (1)
+AB 
+1
+2(3) (90 80 100 60) 1.67
+B 
+1
+2(3) (90 60 100 80) 5.00
+A 
+1
+2(3) (90 100 60 80) 8.33
+1
+2n [ab (1) a b]
+AB ab (1)
+2n
+a b
+2n
+1
+2n [ab b a (1)]
+ab b
+2n
+a (1)
+2n
+B yByB
+yB
+yB

@@ -1,0 +1,133 @@
+170
+Chapter 4 ■Randomized Blocks, Latin Squares, and Related Designs
+■T A B L E 4 . 2 3
+Analysis of Variance for the Balanced Incomplete Block Design
+Source of
+Degrees of
+Variation
+Sum of Squares
+Freedom
+Mean Square
+F0
+Treatments
+a 1
+(adjusted)
+Blocks
+b 1
+Error
+SSE (by subtraction)
+N a b 1
+Total
+N 1
+y2
+ij y2
+..
+N
+SSE
+N a b 1
+SSBlocks
+b 1
+1
+k y2
+.j y2
+..
+N
+F0 
+MSTreatments(adjusted)
+MSE
+SSTreatments(adjusted)
+a 1
+kQ2
+i
+a
+E X A M P L E 4 . 5
+Consider the data in Table 4.22 for the catalyst experiment.
+This is a BIBD with a 4, b 4, k 3, r 3, 2, and
+N 12. The analysis of this data is as follows. The total
+sum of squares is
+The block sum of squares is found from Equation 4.33 as
+To compute the treatment sum of squares adjusted for
+blocks, we rst determine the adjusted treatment totals
+using Equation 4.35 as
+55.00
+1
+3 [(221)2 (207)2 (224)2 (218)2] (870)2
+12
+SSBlocks 1
+3 
+4
+j1
+y2
+.j y2
+..
+12
+63,156 (870)2
+12
+81.00
+SST 
+i 
+j
+y2
+ij y2
+..
+12
+The adjusted sum of squares for treatments is computed
+from Equation 4.34 as
+The error sum of squares is obtained by subtraction as
+The analysis of variance is shown in Table 4.24. Because
+the P-value is small, we conclude that the catalyst
+employed has a signicant effect on the time of reaction.
+81.00 22.75 55.00 3.25
+SSE SST SSTreatments(adjusted) SSBlocks
+22.75
+3[(9/3)2 (7/3)2 (4/3)2 (20/3)2]
+(2)(4)
+SSTreatments(adjusted) 
+k
+4
+i1
+Q2
+i
+a
+Q4 (222) 
+1
+3(221 207 218) 20/3
+Q3 (216) 
+1
+3(221 207 224) 4/3
+Q2 (214) 
+1
+3(207 224 218) 7/3
+Q1 (218) 
+1
+3(221 224 218) 9/3
+■T A B L E 4 . 2 4
+Analysis of Variance for Example 4.5
+Source of
+Sum of
+Degrees of
+Mean
+Variation
+Squares
+Freedom
+Square
+F0
+P-Value
+Treatments (adjusted
+22.75
+3
+7.58
+11.66
+0.0107
+for blocks)
+Blocks
+55.00
+3
+—
+Error
+3.25
+5
+0.65
+Total
+81.00
+11 

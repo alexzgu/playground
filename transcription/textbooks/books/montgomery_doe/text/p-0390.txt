@@ -1,0 +1,59 @@
+374
+Chapter 8 ■Two-Level Fractional Factorial Designs
+V design, permitting study of ve factors and estimation of all ve main effects and all 10 two-
+factor interactions in only 16 runs. We illustrated the use of this design in Example 8.2.
+The smallest design of resolution at least V for k 6 factors is the 
+design with 32
+runs, which is of resolution VI. For k 7 factors, it is the 64-run 
+which is of resolution VII,
+and for k 8 factors, it is the 64 run 
+design. For k 9 or more factors, all these designs
+require at least 128 runs. These are very large designs, so statisticians have long been interest-
+ed in smaller alternatives that maintain the desired resolution. Mee (2004) gives a survey of this
+topic. Nonregular fractions can be very useful. This will be discussed further in chapter 9. 
+8.8
+Supersaturated Designs
+A saturated design is dened as a fractional factorial in which the number of factors or design
+variables k N 1, where N is the number of runs. In recent years, considerable interest has
+been shown in developing and using supersaturated designs for factor screening experi-
+ments. In a supersaturated design, the number of variables k N 1, and usually these
+designs contain quite a few more variables than runs. The idea of using supersaturated designs
+was rst proposed by Satterthwaite (1959). He proposed generating these designs at random.
+In an extensive discussion of this paper, some of the leading authorities in experimental
+design of the day, including Jack Youden, George Box, J. Stuart Hunter, William Cochran,
+John Tukey, Oscar Kempthorne, and Frank Anscombe, criticized random balanced designs.
+As a result, supersaturated designs received little attention for the next 30 years. A notable
+exception is the systematic supersaturated design developed by Booth and Cox (1962). Their
+designs were not randomly generated, which was a signicant departure from Satterthwaite’s
+proposal. They generated their designs with elementary computer search methods. They also
+developed the basic criteria by which supersaturated designs are judged.
+Lin (1993) revisited the supersaturated design concept and stimulated much additional
+research on the topic. Many authors have proposed methods to construct supersaturated
+designs. A good survey is in Lin (2000). Most design construction techniques are limited
+computer search procedures based on simple heuristics [see Lin (1995), Li and Wu (1997),
+and Holcomb and Carlyle (2002), for example]. Others have proposed methods based on opti-
+mal design construction techniques (we will discuss optimal designs in Chapter 11).
+Another construction method for supersaturated designs is based on the structure of
+existing orthogonal designs. These include using the half-fraction of Hadamard matrices [Lin
+(1993)] and enumerating the two-factor interactions of certain Hadamard matrices [Wu (1997)].
+A Hadamard matrix is a square orthogonal matrix whose elements are either 1 or 1.
+When the number of factors in the experiment exceeds the number of runs, the design matrix
+cannot be orthogonal. Consequently, the factor effect estimates are not independent. An
+experiment with one dominant factor may contaminate and obscure the contribution of anoth-
+er factor. Supersaturated designs are created to minimize this amount of nonorthogonality
+between factors. Supersaturated designs can also be constructed using the optimal design
+approach. The custom designer in JMP uses this approach to constructing supersaturated
+designs.
+The supersaturated designs that are based on the half fraction of a Hadamard matrix are
+very easy to construct. Table 8.34 is the Plackett–Burman design for N 12 runs and k 11
+factors. It is also a Hadamard matrix design. In the table, the design has been sorted by the
+signs in the last column (Factor 11 or L). This is sometimes called the branching column.
+Now retain only the runs that are positive (say) in column L from the design and delete col-
+umn L from this group of runs. The resulting design is a supersaturated design for k 10 fac-
+tors in N 6 runs. We could have used the runs that are negative in column L equally well.
+282
+V
+271
+VII
+261
+VI

@@ -1,0 +1,47 @@
+48
+2. Statistical Learning
+Since arrays are row-major ordered, the first axis, i.e. axis=0, refers to its
+rows. We pass this argument into the mean() method for the object X.
+.mean()
+In [37]: X.mean(axis=0)
+Out[37]: array([0.15, 0.14, -0.34])
+The following yields the same result.
+In [38]: X.mean(0)
+Out[38]: array([0.15, 0.14, -0.34])
+2.3.4
+Graphics
+In Python, common practice is to use the library matplotlib for graphics. matplotlib
+However, since Python was not written with data analysis in mind, the no-
+tion of plotting is not intrinsic to the language. We will use the subplots()
+function from matplotlib.pyplot to create a figure and the axes onto which
+we plot our data. For many more examples of how to make plots in Python,
+readers are encouraged to visit matplotlib.org/stable/gallery/.
+In matplotlib, a plot consists of a figure and one or more axes. You can figure
+axes
+think of the figure as the blank canvas upon which one or more plots will
+be displayed: it is the entire plotting window. The axes contain important
+information about each plot, such as its x- and y-axis labels, title, and
+more. (Note that in matplotlib, the word axes is not the plural of axis: a
+plot’s axes contains much more information than just the x-axis and the
+y-axis.)
+We begin by importing the subplots() function from matplotlib. We subplots()
+use this function throughout when creating figures. The function returns
+a tuple of length two: a figure object as well as the relevant axes object.
+We will typically pass figsize as a keyword argument. Having created our
+axes, we attempt our first plot using its plot() method. To learn more .plot()
+about it, type ax.plot?.
+In [39]: from matplotlib.pyplot import subplots
+fig, ax = subplots(figsize=(8, 8))
+x = rng.standard_normal(100)
+y = rng.standard_normal(100)
+ax.plot(x, y);
+We pause here to note that we have unpacked the tuple of length two re-
+turned by subplots() into the two distinct variables fig and ax. Unpacking
+is typically preferred to the following equivalent but slightly more verbose
+code:
+In [40]: output = subplots(figsize=(8, 8))
+fig = output[0]
+ax = output[1]
+We see that our earlier cell produced a line plot, which is the default.
+To create a scatterplot, we provide an additional argument to ax.plot(),
+indicating that circles should be displayed.

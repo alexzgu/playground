@@ -1,0 +1,57 @@
+28
+2. Statistical Learning
+best, but some other method may work better on a similar but different
+data set. Hence it is an important task to decide for any given set of data
+which method produces the best results. Selecting the best approach can
+be one of the most challenging parts of performing statistical learning in
+practice.
+In this section, we discuss some of the most important concepts that
+arise in selecting a statistical learning procedure for a specific data set. As
+the book progresses, we will explain how the concepts presented here can
+be applied in practice.
+2.2.1
+Measuring the Quality of Fit
+In order to evaluate the performance of a statistical learning method on
+a given data set, we need some way to measure how well its predictions
+actually match the observed data. That is, we need to quantify the extent
+to which the predicted response value for a given observation is close to
+the true response value for that observation. In the regression setting, the
+most commonly-used measure is the mean squared error (MSE), given by
+mean
+squared
+error
+MSE = 1
+n
+n
+0
+i=1
+(yi −ˆf(xi))2,
+(2.5)
+where ˆf(xi) is the prediction that ˆf gives for the ith observation. The MSE
+will be small if the predicted responses are very close to the true responses,
+and will be large if for some of the observations, the predicted and true
+responses differ substantially.
+The MSE in (2.5) is computed using the training data that was used to
+fit the model, and so should more accurately be referred to as the training
+MSE. But in general, we do not really care how well the method works training
+MSE
+on the training data. Rather, we are interested in the accuracy of the pre-
+dictions that we obtain when we apply our method to previously unseen
+test data. Why is this what we care about? Suppose that we are interested test data
+in developing an algorithm to predict a stock’s price based on previous
+stock returns. We can train the method using stock returns from the past
+6 months. But we don’t really care how well our method predicts last week’s
+stock price. We instead care about how well it will predict tomorrow’s price
+or next month’s price. On a similar note, suppose that we have clinical
+measurements (e.g. weight, blood pressure, height, age, family history of
+disease) for a number of patients, as well as information about whether each
+patient has diabetes. We can use these patients to train a statistical learn-
+ing method to predict risk of diabetes based on clinical measurements. In
+practice, we want this method to accurately predict diabetes risk for future
+patients based on their clinical measurements. We are not very interested
+in whether or not the method accurately predicts diabetes risk for patients
+used to train the model, since we already know which of those patients
+have diabetes.
+To state it more mathematically, suppose that we fit our statistical learn-
+ing method on our training observations {(x1, y1), (x2, y2), . . . , (xn, yn)},
+and we obtain the estimate ˆf. We can then compute ˆf(x1), ˆf(x2), . . . , ˆf(xn).

@@ -1,0 +1,63 @@
+74
+3. Linear Regression
+−2
+−1
+0
+1
+2
+−10
+−5
+0
+5
+10
+X
+Y
+−2
+−1
+0
+1
+2
+−10
+−5
+0
+5
+10
+X
+Y
+FIGURE 3.3.
+A simulated data set. Left: The red line represents the true
+relationship, f(X) = 2 + 3X, which is known as the population regression line.
+The blue line is the least squares line; it is the least squares estimate for f(X)
+based on the observed data, shown in black. Right: The population regression line
+is again shown in red, and the least squares line in dark blue. In light blue, ten
+least squares lines are shown, each computed on the basis of a separate random
+set of observations. Each least squares line is different, but on average, the least
+squares lines are quite close to the population regression line.
+the population mean µ of some random variable Y . Unfortunately, µ is
+unknown, but we do have access to n observations from Y , y1, . . . , yn,
+which we can use to estimate µ. A reasonable estimate is ˆµ = ¯y, where
+¯y = 1
+n
+)n
+i=1 yi is the sample mean. The sample mean and the population
+mean are different, but in general the sample mean will provide a good
+estimate of the population mean. In the same way, the unknown coefficients
+β0 and β1 in linear regression define the population regression line. We seek
+to estimate these unknown coefficients using ˆβ0 and ˆβ1 given in (3.4). These
+coefficient estimates define the least squares line.
+The analogy between linear regression and estimation of the mean of a
+random variable is an apt one based on the concept of bias. If we use the bias
+sample mean ˆµ to estimate µ, this estimate is unbiased, in the sense that unbiased
+on average, we expect ˆµ to equal µ. What exactly does this mean? It means
+that on the basis of one particular set of observations y1, . . . , yn, ˆµ might
+overestimate µ, and on the basis of another set of observations, ˆµ might
+underestimate µ. But if we could average a huge number of estimates of
+µ obtained from a huge number of sets of observations, then this average
+would exactly equal µ. Hence, an unbiased estimator does not systematically
+over- or under-estimate the true parameter. The property of unbiasedness
+holds for the least squares coefficient estimates given by (3.4) as well: if
+we estimate β0 and β1 on the basis of a particular data set, then our
+estimates won’t be exactly equal to β0 and β1. But if we could average
+the estimates obtained over a huge number of data sets, then the average
+of these estimates would be spot on! In fact, we can see from the right-
+hand panel of Figure 3.3 that the average of many least squares lines, each

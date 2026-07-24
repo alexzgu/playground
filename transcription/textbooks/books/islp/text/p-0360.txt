@@ -1,0 +1,48 @@
+8.2 Bagging, Random Forests, Boosting, and Bayesian Additive Regression Trees
+353
+5
+10
+50
+100
+500
+5000
+0.0
+0.1
+0.2
+0.3
+0.4
+0.5
+Number of Iterations
+Error
+BART Training Error
+BART Test Error
+Boosting Training Error
+Boosting Test Error
+FIGURE 8.13. BART and boosting results for the Heart data. Both training
+and test errors are displayed. After a burn-in period of 100 iterations (shown in
+gray), the error rates for BART settle down. Boosting begins to overfit after a
+few hundred iterations.
+The training and test errors for boosting are also displayed in Figure 8.13.
+We see that the test error for boosting approaches that of BART, but then
+begins to increase as the number of iterations increases. Furthermore, the
+training error for boosting decreases as the number of iterations increases,
+indicating that boosting has overfit the data.
+Though the details are outside of the scope of this book, it turns out
+that the BART method can be viewed as a Bayesian approach to fitting an
+ensemble of trees: each time we randomly perturb a tree in order to fit the
+residuals, we are in fact drawing a new tree from a posterior distribution.
+(Of course, this Bayesian connection is the motivation for BART’s name.)
+Furthermore, Algorithm 8.3 can be viewed as a Markov chain Monte Carlo Markov
+chain Monte
+Carlo
+algorithm for fitting the BART model.
+When we apply BART, we must select the number of trees K, the number
+of iterations B, and the number of burn-in iterations L. We typically choose
+large values for B and K, and a moderate value for L: for instance, K = 200,
+B = 1,000, and L = 100 is a reasonable choice. BART has been shown to
+have very impressive out-of-box performance — that is, it performs well
+with minimal tuning.
+8.2.5
+Summary of Tree Ensemble Methods
+Trees are an attractive choice of weak learner for an ensemble method
+for a number of reasons, including their flexibility and ability to handle

@@ -1,0 +1,57 @@
+25
+C H A P T E R
+2
+S i m p l e
+C o m p a r a t i v e
+E x p e r i m e n t s
+CHAPTER OUTLINE
+2.5 INFERENCES ABOUT THE DIFFERENCES IN
+MEANS, PAIRED COMPARISON DESIGNS
+2.5.1 The Paired Comparison Problem
+2.5.2 Advantages of the Paired Comparison Design
+2.6 INFERENCES ABOUT THE VARIANCES OF
+NORMAL DISTRIBUTIONS
+SUPPLEMENTAL MATERIAL FOR CHAPTER 2
+S2.1 Models for the Data and the t-Test
+S2.2 Estimating the Model Parameters
+S2.3 A Regression Model Approach to the t-Test
+S2.4 Constructing Normal Probability Plots
+S2.5 More about Checking Assumptions in the t-Test
+S2.6 Some More Information about the Paired t-Test
+I
+n this chapter, we consider experiments to compare two conditions (sometimes called
+treatments). These are often called simple comparative experiments. We begin with an
+example of an experiment performed to determine whether two different formulations of a
+product give equivalent results. The discussion leads to a review of several basic statistical
+concepts, such as random variables, probability distributions, random samples, sampling dis-
+tributions, and tests of hypotheses.
+2.1
+Introduction
+An engineer is studying the formulation of a Portland cement mortar. He has added a poly-
+mer latex emulsion during mixing to determine if this impacts the curing time and tension
+bond strength of the mortar. The experimenter prepared 10 samples of the original formula-
+tion and 10 samples of the modied formulation. We will refer to the two different formula-
+tions as two treatments or as two levels of the factor formulations. When the cure process
+The supplemental material is on the textbook website www.wiley.com/college/montgomery.
+2.1 INTRODUCTION
+2.2 BASIC STATISTICAL CONCEPTS
+2.3 SAMPLING AND SAMPLING DISTRIBUTIONS
+2.4 INFERENCES ABOUT THE DIFFERENCES IN
+MEANS, RANDOMIZED DESIGNS
+2.4.1 Hypothesis Testing
+2.4.2 Condence Intervals
+2.4.3 Choice of Sample Size
+2.4.4 The Case Where 
+2.4.5 The Case Where 
+and 
+Are Known
+2.4.6 Comparing a Single Mean to a 
+Specied Value
+2.4.7 Summary
+2
+2
+2
+1
+2
+1 Z 2
+2

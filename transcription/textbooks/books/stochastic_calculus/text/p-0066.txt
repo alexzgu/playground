@@ -1,0 +1,52 @@
+60
+CHAPTER 2. BROWNIAN MOTION
+If S, T are stopping times then
+S T = minS, T
+and
+S T = maxS, T
+are stopping times.
+Theorem 2.7.1 (Strong Markov Property). IT 
+PT < ∞= 1 
+Yt = BT +t −BT,
+Yt B. M, Y 
+Bt : 0 ≤t ≤T
+Let us apply this theorem, to prove a very useful tool for computing
+probabilities.
+Proposition 2.7.2 (Reection Principle). IBt B-
+B0 = 0, a > 0,
+P
+
+max
+0≤s≤t Bs ≥a
+
+= 2PBt > a= 2
+
+1 −Φ(a
+√
+t)
+
+
+To derive the reection principle, let
+Ta = min s : Bs ≥a= min s : Bs = a
+The second equality holds because Bs is a continuous function of s. Then
+P
+
+max
+0≤s≤t Bs ≥a
+
+= PTa ≤t= PTa < t
+The second equality uses the fact that PTa = t≤PBt = a= 0. Since
+BTa = a,
+PBt > a
+=
+PTa < t, Bt > a
+=
+PTa < tPBt −BTa > 0 Ta < t
+We now appeal to the Strong Markov Property to say that
+PBt −BTa > 0 Ta < t= 12
+This gives the rst equality of the proposition and the second follows from
+PBt > a= PB1 > a
+√
+t= 1 −Φ(a
+√
+t)

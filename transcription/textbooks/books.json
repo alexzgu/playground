@@ -1,0 +1,405 @@
+[
+ {
+  "key": "stochastic_calculus",
+  "pdf": "stochastic_calculus.pdf",
+  "title": "Stochastic Calculus: An Introduction with Applications",
+  "author": "Gregory F. Lawler",
+  "npages": 260,
+  "printed_offset": 6,
+  "text_layer": "good",
+  "chapters": [
+   {
+    "num": "0",
+    "title": "Introductory comments",
+    "pdf_start": 7
+   },
+   {
+    "num": "1",
+    "title": "Martingales in discrete time",
+    "pdf_start": 9
+   },
+   {
+    "num": "2",
+    "title": "Brownian motion",
+    "pdf_start": 41
+   },
+   {
+    "num": "3",
+    "title": "Stochastic integration",
+    "pdf_start": 89
+   },
+   {
+    "num": "4",
+    "title": "More stochastic calculus",
+    "pdf_start": 131
+   },
+   {
+    "num": "5",
+    "title": "Change of measure and Girsanov theorem",
+    "pdf_start": 151
+   },
+   {
+    "num": "6",
+    "title": "Jump processes",
+    "pdf_start": 191
+   },
+   {
+    "num": "7",
+    "title": "Fractional Brownian motion",
+    "pdf_start": 243
+   },
+   {
+    "num": "8",
+    "title": "Harmonic functions",
+    "pdf_start": 249
+   }
+  ],
+  "front_matter_end": 6
+ },
+ {
+  "key": "mcmt",
+  "pdf": "MCMT.pdf",
+  "title": "Markov Chains and Mixing Times (2nd ed.)",
+  "author": "David A. Levin, Yuval Peres",
+  "npages": 461,
+  "printed_offset": 16,
+  "text_layer": "unusable (private-use-area fonts)",
+  "chapters": [
+   {
+    "num": "1",
+    "title": "Introduction to Finite Markov Chains",
+    "pdf_start": 18
+   },
+   {
+    "num": "2",
+    "title": "Classical (and Useful) Markov Chains",
+    "pdf_start": 37
+   },
+   {
+    "num": "3",
+    "title": "Markov Chain Monte Carlo: Metropolis and Glauber Chains",
+    "pdf_start": 54
+   },
+   {
+    "num": "4",
+    "title": "Introduction to Markov Chain Mixing",
+    "pdf_start": 63
+   },
+   {
+    "num": "5",
+    "title": "Coupling",
+    "pdf_start": 76
+   },
+   {
+    "num": "6",
+    "title": "Strong Stationary Times",
+    "pdf_start": 91
+   },
+   {
+    "num": "7",
+    "title": "Lower Bounds on Mixing Times",
+    "pdf_start": 104
+   },
+   {
+    "num": "8",
+    "title": "The Symmetric Group and Shuffling Cards",
+    "pdf_start": 116
+   },
+   {
+    "num": "9",
+    "title": "Random Walks on Networks",
+    "pdf_start": 132
+   },
+   {
+    "num": "10",
+    "title": "Hitting Times",
+    "pdf_start": 144
+   },
+   {
+    "num": "11",
+    "title": "Cover Times",
+    "pdf_start": 166
+   },
+   {
+    "num": "12",
+    "title": "Eigenvalues",
+    "pdf_start": 177
+   },
+   {
+    "num": "13",
+    "title": "Eigenfunctions and Comparison of Chains",
+    "pdf_start": 196
+   },
+   {
+    "num": "14",
+    "title": "The Transportation Metric and Path Coupling",
+    "pdf_start": 217
+   },
+   {
+    "num": "15",
+    "title": "The Ising Model",
+    "pdf_start": 231
+   },
+   {
+    "num": "16",
+    "title": "From Shuffling Cards to Shuffling Genes",
+    "pdf_start": 248
+   },
+   {
+    "num": "17",
+    "title": "Martingales and Evolving Sets",
+    "pdf_start": 259
+   },
+   {
+    "num": "18",
+    "title": "The Cutoff Phenomenon",
+    "pdf_start": 277
+   },
+   {
+    "num": "19",
+    "title": "Lamplighter Walks",
+    "pdf_start": 288
+   },
+   {
+    "num": "20",
+    "title": "Continuous-Time Chains*",
+    "pdf_start": 296
+   },
+   {
+    "num": "21",
+    "title": "Countable State Space Chains*",
+    "pdf_start": 307
+   },
+   {
+    "num": "22",
+    "title": "Monotone Chains",
+    "pdf_start": 321
+   },
+   {
+    "num": "23",
+    "title": "The Exclusion Process",
+    "pdf_start": 339
+   },
+   {
+    "num": "24",
+    "title": "Ces\u00e0ro Mixing Time, Stationary Times, and Hitting Large Sets",
+    "pdf_start": 351
+   },
+   {
+    "num": "25",
+    "title": "Coupling from the Past",
+    "pdf_start": 364
+   },
+   {
+    "num": "26",
+    "title": "Open Problems",
+    "pdf_start": 375
+   },
+   {
+    "num": "A",
+    "title": "Background Material",
+    "pdf_start": 379
+   },
+   {
+    "num": "B",
+    "title": "Introduction to Simulation",
+    "pdf_start": 391
+   },
+   {
+    "num": "C",
+    "title": "Ergodic Theorem",
+    "pdf_start": 406
+   },
+   {
+    "num": "D",
+    "title": "Solutions to Selected Exercises",
+    "pdf_start": 408
+   }
+  ],
+  "front_matter_end": 17
+ },
+ {
+  "key": "islp",
+  "pdf": "ISLP_Textbook.pdf",
+  "title": "An Introduction to Statistical Learning with Applications in Python",
+  "author": "James, Witten, Hastie, Tibshirani, Taylor",
+  "npages": 613,
+  "printed_offset": null,
+  "text_layer": "good",
+  "chapters": [
+   {
+    "num": "",
+    "title": "Preface",
+    "pdf_start": 3
+   },
+   {
+    "num": "",
+    "title": "Contents",
+    "pdf_start": 5
+   },
+   {
+    "num": "1",
+    "title": "Introduction",
+    "pdf_start": 12
+   },
+   {
+    "num": "2",
+    "title": "Statistical Learning",
+    "pdf_start": 25
+   },
+   {
+    "num": "3",
+    "title": "Linear Regression",
+    "pdf_start": 78
+   },
+   {
+    "num": "4",
+    "title": "Classification",
+    "pdf_start": 144
+   },
+   {
+    "num": "5",
+    "title": "Resampling Methods",
+    "pdf_start": 209
+   },
+   {
+    "num": "6",
+    "title": "Linear Model Selection and Regularization",
+    "pdf_start": 237
+   },
+   {
+    "num": "7",
+    "title": "Moving Beyond Linearity",
+    "pdf_start": 297
+   },
+   {
+    "num": "8",
+    "title": "Tree-Based Methods",
+    "pdf_start": 338
+   },
+   {
+    "num": "9",
+    "title": "Support Vector Machines",
+    "pdf_start": 374
+   },
+   {
+    "num": "10",
+    "title": "Deep Learning",
+    "pdf_start": 406
+   },
+   {
+    "num": "11",
+    "title": "Survival Analysis and Censored Data",
+    "pdf_start": 475
+   },
+   {
+    "num": "12",
+    "title": "Unsupervised Learning",
+    "pdf_start": 509
+   },
+   {
+    "num": "13",
+    "title": "Multiple Testing",
+    "pdf_start": 563
+   },
+   {
+    "num": "",
+    "title": "Index",
+    "pdf_start": 603
+   }
+  ],
+  "front_matter_end": 11
+ },
+ {
+  "key": "montgomery_doe",
+  "pdf": "546_textbook.pdf",
+  "title": "Design and Analysis of Experiments (8th ed.)",
+  "author": "Douglas C. Montgomery",
+  "npages": 757,
+  "printed_offset": 16,
+  "text_layer": "usable (ligatures fi/ff/fl dropped)",
+  "chapters": [
+   {
+    "num": "1",
+    "title": "Introduction",
+    "pdf_start": 17
+   },
+   {
+    "num": "2",
+    "title": "Simple Comparative Experiments",
+    "pdf_start": 41
+   },
+   {
+    "num": "3",
+    "title": "Experiments with a Single Factor: The Analysis of Variance",
+    "pdf_start": 81
+   },
+   {
+    "num": "4",
+    "title": "Randomized Blocks, Latin Squares, and Related Designs",
+    "pdf_start": 155
+   },
+   {
+    "num": "5",
+    "title": "Introduction to Factorial Designs",
+    "pdf_start": 199
+   },
+   {
+    "num": "6",
+    "title": "The 2k Factorial Design",
+    "pdf_start": 249
+   },
+   {
+    "num": "7",
+    "title": "Blocking and Confounding in the 2k Factorial Design",
+    "pdf_start": 320
+   },
+   {
+    "num": "8",
+    "title": "Two-Level Fractional Factorial Designs",
+    "pdf_start": 336
+   },
+   {
+    "num": "9",
+    "title": "Additional Design and Analysis Topics for Factorial and Fractional Factorial Designs",
+    "pdf_start": 410
+   },
+   {
+    "num": "10",
+    "title": "Fitting Regression Models",
+    "pdf_start": 465
+   },
+   {
+    "num": "11",
+    "title": "Response Surface Methods and Designs",
+    "pdf_start": 494
+   },
+   {
+    "num": "12",
+    "title": "Robust Parameter Design and Process Robustness Studies",
+    "pdf_start": 570
+   },
+   {
+    "num": "13",
+    "title": "Experiments with Random Factors",
+    "pdf_start": 589
+   },
+   {
+    "num": "14",
+    "title": "Nested and Split-Plot Designs",
+    "pdf_start": 620
+   },
+   {
+    "num": "15",
+    "title": "Other Design and Analysis Topics",
+    "pdf_start": 658
+   },
+   {
+    "num": "A",
+    "title": "Appendix (Statistical Tables)",
+    "pdf_start": 699
+   }
+  ],
+  "front_matter_end": 16
+ }
+]

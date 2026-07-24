@@ -1,0 +1,91 @@
+Applying the rules in Section 3.9.2 for nding the normal equations for an experimen-
+tal design model, we obtain
+(4.23)
+Notice that the second through the (a 1)st equations in Equation 4.23 sum to the rst
+normal equation, as do the last b equations. Thus, there are two linear dependencies in the
+normal equations, implying that two constraints must be imposed to solve Equation 4.23. The
+usual constraints are
+(4.24)
+Using these constraints helps simplify the normal equations considerably. In fact, they
+become
+(4.25)
+whose solution is
+(4.26)
+Using the solution to the normal equation in Equation 4.26, we may nd the estimated or t-
+ted values of yij as
+This result was used previously in Equation 4.13 for computing the residuals from a random-
+ized block design.
+yi. y.j y..
+y.. (yi. y..) (y.j y..)
+yˆij ˆ ˆi ˆ
+j
+ˆ
+j y.j y.. 
+ j 1, 2, . . . , b
+ˆi yi. y.. 
+ i 1, 2, . . . , a
+ˆ y..
+aˆ aˆ
+j y.j 
+ j 1, 2, . . . , b
+bˆ bˆi yi.  i 1, 2, . . . , a
+ab ˆ y..
+
+a
+i1
+ˆi 0 
+ 
+b
+j1
+ˆ
+j 0
+y.b
+b: aaˆ bˆ1 bˆ2 Á
+bˆa aˆ
+1 aˆ
+2 Á 
+aˆ
+b
+o
+o
+o
+2: aaˆ bˆ1 bˆ2 Á
+bˆa aˆ
+1 aˆ
+22 Á aˆ
+b y.2
+1: aaˆ bˆ1 bˆ2 Á
+bˆa aˆ
+1 aˆ
+2 Á 
+aˆ
+b y.1
+bˆa aˆ
+1 aˆ
+2 Á 
+aˆ
+b ya.
+a: abˆ
+o
+o
+o
+2: abˆ bˆ1 bˆ2 Á
+bˆa aˆ
+1 aˆ
+2 Á 
+aˆ
+b y2.
+1: abˆ bˆ1 bˆ2 Á
+bˆa aˆ
+1 aˆ
+2 Á 
+aˆ
+b y1.
+: abˆ bˆ1 bˆ2 Á
+bˆa aˆ
+1 aˆ
+2 Á 
+aˆ
+b y..
+156
+Chapter 4 ■Randomized Blocks, Latin Squares, and Related Designs

@@ -1,0 +1,66 @@
+154
+4. Classification
+True default status
+No
+Yes
+Total
+Predicted
+No
+9432
+138
+9570
+default status
+Yes
+235
+195
+430
+Total
+9667
+333
+10000
+TABLE 4.5.
+A confusion matrix compares the LDA predictions to the true
+default statuses for the 10,000 training observations in the Default data set,
+using a modified threshold value that predicts default for any individuals whose
+posterior default probability exceeds 20 %.
+0.0
+0.1
+0.2
+0.3
+0.4
+0.5
+0.0
+0.2
+0.4
+0.6
+Threshold
+Error Rate
+FIGURE 4.7. For the Default data set, error rates are shown as a function of
+the threshold value for the posterior probability that is used to perform the assign-
+ment. The black solid line displays the overall error rate. The blue dashed line
+represents the fraction of defaulting customers that are incorrectly classified, and
+the orange dotted line indicates the fraction of errors among the non-defaulting
+customers.
+improvement over the error rate of 75.7 % that resulted from using the
+threshold of 50 %. However, this improvement comes at a cost: now 235
+individuals who do not default are incorrectly classified. As a result, the
+overall error rate has increased slightly to 3.73 %. But a credit card company
+may consider this slight increase in the total error rate to be a small price to
+pay for more accurate identification of individuals who do indeed default.
+Figure 4.7 illustrates the trade-off that results from modifying the thresh-
+old value for the posterior probability of default. Various error rates are
+shown as a function of the threshold value. Using a threshold of 0.5, as in
+(4.26), minimizes the overall error rate, shown as a black solid line. This
+is to be expected, since the Bayes classifier uses a threshold of 0.5 and is
+known to have the lowest overall error rate. But when a threshold of 0.5 is
+used, the error rate among the individuals who default is quite high (blue
+dashed line). As the threshold is reduced, the error rate among individuals
+who default decreases steadily, but the error rate among the individuals
+who do not default increases. How can we decide which threshold value is
+best? Such a decision must be based on domain knowledge, such as detailed
+information about the costs associated with default.
+The ROC curve is a popular graphic for simultaneously displaying the ROC curve
+two types of errors for all possible thresholds. The name “ROC” is historic,
+and comes from communications theory. It is an acronym for receiver op-
+erating characteristics. Figure 4.8 displays the ROC curve for the LDA
+classifier on the training data. The overall performance of a classifier, sum-

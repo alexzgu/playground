@@ -1,0 +1,51 @@
+80
+Chapter 3 ■Experiments with a Single Factor: The Analysis of Variance
+There are two advantages in choosing a balanced design. First, the test statistic is rela-
+tively insensitive to small departures from the assumption of equal variances for the a treat-
+ments if the sample sizes are equal. This is not the case for unequal sample sizes. Second, the
+power of the test is maximized if the samples are of equal size.
+3.4
+Model Adequacy Checking
+The decomposition of the variability in the observations through an analysis of variance identity
+(Equation 3.6) is a purely algebraic relationship. However, the use of the partitioning to test for-
+mally for no differences in treatment means requires that certain assumptions be satised.
+Specically, these assumptions are that the observations are adequately described by the model
+and that the errors are normally and independently distributed with mean zero and constant
+but unknown variance 2. If these assumptions are valid, the analysis of variance procedure
+is an exact test of the hypothesis of no difference in treatment means.
+In practice, however, these assumptions will usually not hold exactly. Consequently, it is
+usually unwise to rely on the analysis of variance until the validity of these assumptions has
+been checked. Violations of the basic assumptions and model adequacy can be easily investigated
+by the examination of residuals. We dene the residual for observation j in treatment i as
+(3.16)
+where 
+is an estimate of the corresponding observation yij obtained as follows:
+(3.17)
+Equation 3.17 gives the intuitively appealing result that the estimate of any observation in the
+ith treatment is just the corresponding treatment average.
+Examination of the residuals should be an automatic part of any analysis of variance. If
+the model is adequate, the residuals should be structureless; that is, they should contain no
+obvious patterns. Through analysis of residuals, many types of model inadequacies and vio-
+lations of the underlying assumptions can be discovered. In this section, we show how model
+diagnostic checking can be done easily by graphical analysis of residuals and how to deal
+with several commonly occurring abnormalities.
+3.4.1
+The Normality Assumption
+A check of the normality assumption could be made by plotting a histogram of the residuals.
+If the NID(0, 2) assumption on the errors is satised, this plot should look like a sample from
+a normal distribution centered at zero. Unfortunately, with small samples, considerable uc-
+tuation in the shape of a histogram often occurs, so the appearance of a moderate departure
+from normality does not necessarily imply a serious violation of the assumptions. Gross devi-
+ations from normality are potentially serious and require further analysis.
+An extremely useful procedure is to construct a normal probability plot of the resid-
+uals. Recall from Chapter 2 that we used a normal probability plot of the raw data to check
+the assumption of normality when using the t-test. In the analysis of variance, it is usually
+more effective (and straightforward) to do this with the residuals. If the underlying error dis-
+tribution is normal, this plot will resemble a straight line. In visualizing the straight line, place
+more emphasis on the central values of the plot than on the extremes.
+yi.
+y.. (yi. y..)
+ˆyij ˆ ˆi
+yˆij
+eij yij yˆij
+yij i ij

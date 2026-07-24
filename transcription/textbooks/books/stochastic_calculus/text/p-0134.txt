@@ -1,0 +1,44 @@
+128
+CHAPTER 4. MORE STOCHASTIC CALCULUS
+Theorem 4.1.1 (Optional Sampling Theorem). SZt 
+T , Ft.
+IMt = Zt∧T, Mt Ft.
+I, E[Zt∧T] = E[Z0]
+SC < ∞t, E[Z2
+t∧T] ≤C. T
+PT < ∞= 1, E[ZT] = E[Z0].
+Example 4.1.2. Suppose Zt is a continuous martingale with Z0 = 0. Sup-
+pose that a, b > 0 and let
+T = inft : Zt = −a or Zt = b
+Suppose that PT < ∞= 1, which happens, for example, if Zt is a standard
+Brownian motion. Then Zt∧T is a bounded martingale and hence
+0 = E[Z0] = E[ZT] = −a PZT = a+ b PZT = b
+By solving, we get
+PZT = b=
+a
+a + b,
+which is the gambler’s ruin estimate for continuous martingales.
+Results about continuous martingales can be deduced from corre-
+sponding results about discrete-time martingales. If Zt is a continuous
+martingale and
+Dn =
+k
+2n : k = 0, 1, 
+
+,
+then Zt, t Dn is a discrete-time martingale. If Tn is a stopping time
+taking values in Dn, then Zt∧Tn is also a martingale.
+For more general T, we dene Tn by
+Tn = k
+2n
+if
+k −1
+2n
+≤T < k
+2n ,
+k = 1, 2, , n2n,
+Tn = n
+if
+T ≥n,
+Suppose s < t and let sn, tn denote the smallest element of Dn greater
+than or equal to s, t, respectively. If A is an Fs-measurable event, then

@@ -1,0 +1,47 @@
+2.11. EXERCISES
+79
+3. For what values of r are X1 and X3 independent random variables?
+4. For what values of r does the random vector X have a density in R3?
+Exercise 2.2. Let Bt be a standard Brownian motion. Find the following
+probabilities. If you cannot give the answer precisely give it up to at least
+three decimal places using a table of the normal distribution.
+1. PB3 ≥12
+2. PB1 ≤12, B3 > B1 + 2
+3. P(E) where E is the event that the path stays below the line y = 6 up
+to time t = 10.
+4. PB4 ≤0 B2 ≥0.
+Exercise 2.3. Let Bt be a standard Brownian motion. For each positive
+integer n, let
+Jn =
+n
+
+j=1
+
+B
+j
+n
+
+−B
+j −1
+n
+2
+
+1. Find the mean and variance of the random variable Jn.
+2. Prove the following weak law of large numbers: if ϵ > 0, then
+lim
+n∞P Jn −1> ϵ= 0
+Hint: this uses Chebyshev’s inequality — look it up if this is not familiar
+to you.
+In the next exercise, you can use the following computation. If X ∼
+N(0, 1), then the moment generating function of X is given by
+m(t) = E
+
+etX
+= et22
+Exercise 2.4. Suppose Bt is a standard Brownian motion and let Ft be its
+corresponding ltration. Let
+Mt = eσBt−σ2t
+2 
+Show that Mt is a martingale with respect to Ft. In other words, show that
+if s < t, then
+E(Mt Fs) = Ms

@@ -1,0 +1,86 @@
+586
+Chapter 13 ■Experiments with Random Factors
+JMP can also analyze the mixed model. JMP uses the REML method for variance com-
+ponent estimation. Table 13.6 is the JMP output for the two-factor mixed model in
+Example 13.2. Recall that this is a measurement systems capability study, where now
+the parts are random but the operators are fixed. The JMP output includes both variance
+components estimates and tests for the fixed effects. JMP assumes the unrestricted form
+of the mixed model, so the results differ slightly from the previous analysis of this
+experiment given in Table 13.4 where the restricted form of the mixed model was
+employed.
+■TA B L E 1 3 . 6
+JMP Output for the Two-Factor Mixed Model in Example 13.2
+Response Y
+Summary of Fit
+RSquare
+0.911896
+RSquare Adj
+0.91039
+Root Mean Square Error
+0.995825
+Mean of Response
+22.39167
+Observations (or Sum Wgts)
+120
+REML Variance Component Estimates
+Random Effect
+Var Ratio
+Var Component
+Std Error
+95% Lower
+9% Upper
+Pct of Total
+Parts
+10.36621
+10.279825
+3.3738173
+3.6672642
+16.892385
+92.348
+Parts*Operators
+0.141088
+0.139912
+0.1219114
+0.378854
+0.0990296
+1.257
+Residual
+0.9916667
+0.1810527
+0.7143057
+1.4697982
+8.909
+Total
+11.131579
+100.000
+2 LogLikelihood  410.4121524
+Covariance Matrix of Variance Component Estimates
+Random Effect
+Parts
+Parts*Operators
+Residual
+Parts
+11.382643
+0.002222
+2.659e-14
+Parts*Operators
+0.002222
+0.0148624
+0.01639
+Residual
+2.659e-14
+0.01639
+0.0327801
+Fixed Effects Tests
+Source
+Nparm
+DF
+DFDen
+F Ratio
+Prob > F
+Operators
+2
+2
+38
+1.8380
+0.1730

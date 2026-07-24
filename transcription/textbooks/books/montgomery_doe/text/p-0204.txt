@@ -1,0 +1,93 @@
+188
+Chapter 5 ■Introduction to Factorial Designs
+The engineer decides to test all three plate materials at three temperature levels—15,
+70, and 125°F—because these temperature levels are consistent with the product end-use
+environment. Because there are two factors at three levels, this design is sometimes called a
+32 factorial design. Four batteries are tested at each combination of plate material and tem-
+perature, and all 36 tests are run in random order. The experiment and the resulting observed
+battery life data are given in Table 5.1.
+In this problem the engineer wants to answer the following questions:
+1. What effects do material type and temperature have on the life of the battery?
+2. Is there a choice of material that would give uniformly long life regardless of
+temperature?
+This last question is particularly important. It may be possible to nd a material alternative
+that is not greatly affected by temperature. If this is so, the engineer can make the battery
+robust to temperature variation in the eld. This is an example of using statistical experimen-
+tal design for robust product design, a very important engineering problem.
+This design is a specic example of the general case of a two-factor factorial. To pass
+to the general case, let yijk be the observed response when factor A is at the ith level (i 1,
+2, . . . , a) and factor B is at the jth level (j 1, 2, . . . , b) for the kth replicate (k 1, 2, . . . , n).
+In general, a two-factor factorial experiment will appear as in Table 5.2. The order in which
+the abn observations are taken is selected at random so that this design is a completely
+randomized design.
+The observations in a factorial experiment can be described by a model. There are sev-
+eral ways to write the model for a factorial experiment. The effects model is
+(5.1)
+where is the overall mean effect, i is the effect of the ith level of the row factor A, j is
+the effect of the jth level of column factor B, ()ij is the effect of the interaction between
+i and j, and ijk is a random error component. Both factors are assumed to be fixed, and
+the treatment effects are defined as deviations from the overall mean, so 
+and
+. Similarly, the interaction effects are xed and are dened such that
+
+0. Because there are n replicates of the experiment, there are abn total
+observations.
+"b
+j1()ij
+"a
+i1()ij
+"b
+j1j 0
+"a
+i1i 0
+yijk i j ()ij ijk 
+i 1, 2, . . . , a
+j 1, 2, . . . , b
+k 1, 2, . . . , n
+■T A B L E 5 . 1
+Life (in hours) Data for the Battery Design Example
+Material
+Temperature (°F)
+Type
+15
+70
+125
+1
+130
+155
+34
+40
+20
+70
+74
+180
+80
+75
+82
+58
+2
+150
+188
+136
+122
+25
+70
+159
+126
+106
+115
+58
+45
+3
+138
+110
+174
+120
+96
+104
+168
+160
+150
+139
+82
+60 

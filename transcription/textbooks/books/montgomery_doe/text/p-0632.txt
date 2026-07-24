@@ -1,0 +1,137 @@
+E X A M P L E 1 4 . 2
+An industrial engineer is studying the hand insertion of
+electronic components on printed circuit boards to
+improve the speed of the assembly operation. He has
+designed three assembly fixtures and two workplace lay-
+outs that seem promising. Operators are required to per-
+form the assembly, and it is decided to randomly select
+four operators for each fixture–layout combination.
+However, because the workplaces are in different loca-
+tions within the plant, it is difficult to use the same four
+operators for each layout. Therefore, the four operators
+chosen for layout 1 are different individuals from the four
+operators chosen for layout 2. Because there are only
+three fixtures and two layouts, but the operators are
+chosen at random, this is a mixed model. The treatment
+combinations in this design are run in random order, and
+two replicates are obtained. The assembly times are meas-
+ured in seconds and are shown in Table 14.10.
+In this experiment, operators are nested within the lev-
+els of layouts, whereas xtures and layouts are arranged in
+a factorial. Thus, this design has both nested and factorial
+factors. The linear model for this design is
+(ijk)l
+yijkl i j k(j) ()ij ()ik(j)
+(14.14)
+where i is the effect of the ith xture, j is the effect of the
+jth layout, k(j) is the effect of the kth operator within the jth
+level of layout, ()ij is the xture layout interaction,
+()ik(j) is the xture operators within layout interaction,
+and (ijk)l is the usual error term. Notice that no layout 
+operator interaction can exist because all the operators do
+not use all the layouts. Similarly, there can be no three-way
+xture layout operator interaction. The expected mean
+squares are shown in Table 14.11 using the methods of
+Chapter 13 and assuming a restricted mixed model. The
+proper test statistic for any effect or interaction can be
+found from the inspection of this table.
+The complete analysis of variance is shown in Table
+14.12. We see that assembly xtures are signicant and that
+operators within layouts also differ signicantly. There is also
+a signicant interaction between xtures and operators with-
+in layouts, indicating that the effects of the different xtures
+are not the same for all operators. The workplace layouts
+
+i 1, 2, 3
+j 1, 2
+k 1, 2, 3, 4
+l 1,2
+■TA B L E 1 4 . 1 0
+Assembly Time Data for Example 14.2
+Layout 1
+Layout 2
+Operator
+1
+2
+3
+4
+1
+2
+3
+4
+yi...
+Fixture 1
+22
+23
+28
+25
+26
+27
+28
+24
+404
+24
+24
+29
+23
+28
+25
+25
+23
+Fixture 2
+30
+29
+30
+27
+29
+30
+24
+28
+447
+27
+28
+32
+25
+28
+27
+23
+30
+Fixture 3
+25
+24
+27
+26
+27
+26
+24
+28
+401
+21
+22
+25
+23
+25
+24
+27
+27
+Operator totals, y.jk.
+149
+150
+171
+149
+163
+159
+151
+160
+Layout totals, y.j..
+619
+633
+1252 y....
+616
+Chapter 14 ■Nested and Split-Plot Designs
+14.3
+Designs with Both Nested and Factorial Factors
+Occasionally in a multifactor experiment, some factors are arranged in a factorial layout
+and other factors are nested. We sometimes call these designs nested–factorial designs.
+The statistical analysis of one such design with three factors is illustrated in the following
+example.

@@ -1,0 +1,65 @@
+E X A M P L E 1 4 . 3
+The factors affecting uniformity in a single-wafer plasma
+etching process are being investigated. Three factors on the
+etching tool are relatively difcult to change from run to
+run: A electrode gap, B gas ow, and C pressure.
+Two other factors are easy to change from run to run: D 
+time and E RF (radio frequency) power. The experi-
+menters want to use a fractional factorial experiment to
+investigate these ve factors because the number of test
+wafers available is limited. The hard-to-change factors also
+indicate that a split-plot design should be considered. The
+experimenters decide to use the strategy discussed above: a
+251 design with factors A, B, and C in the whole plots and
+factors D and E in the subplots. The design generator is E 
+ABCD. This produces a 16-run fractional factorial with
+eight whole plots. Every whole plot contains one of the eight
+treatment combinations from a complete 23 factorial design
+in factors A, B, and C. Each whole plot is divided into two
+subplots, with one of the treatment combinations for factors
+D and E in each subplot. The design and the resulting uni-
+formity data are shown in Table 14.22. The eight whole
+plots were run in random order, but once a whole plot con-
+guration for factors A, B, and C was set up on the etching
+tool, both subplot runs were made (also in random order).
+The statistical analysis of this experiment involves keep-
+ing the whole-plot and subplot factors separate. We assume
+that all interactions beyond order two are negligible. Table
+14.23 lists the effect estimates separated into whole-plot and
+subplot terms. Furthermore, available degrees of freedom
+are used to estimate effects, so we cannot estimate either the
+whole-plot or the subplot error. Therefore, we must use
+14.5 Other Variations of the Split-Plot Design
+629
+to change and that the other two factors D and E are easy to change. For example, it might be
+necessary to rst manufacture the springs by varying factors A, B, and C, and then hold those
+factors xed while varying factors D and E in a subsequent experiment.
+We consider a modication of that experiment because the original experimenters may
+not have run it as a split plot and because they did not use the design generator that we are
+going to use. Let the whole-plot factors be denoted by A, B, and C and the split-plot factors
+be denoted by D and E (the bold symbol is used to help us identify the easy-to-change fac-
+tors). We will select the design generator E ABCD. The layout of this design has eight
+whole plots (the eight combinations of factors A, B, and C each at two levels). Each whole
+plot is divided into two subplots, and a combination of the factors D and E are tested in each
+split plot. (The exact treatment combinations depend on the signs on the treatment combina-
+tions for the whole-plot factors through the generator.)
+Assume that all three-, four-, and ve-factor interactions are negligible. If this assump-
+tion is reasonable, then all whole-plot factors A, B, and C and their two-factor interactions can
+be estimated in the whole plot . If the design is replicated, these effects would be tested against
+the whole-plot error. Alternatively, if the design is unreplicated, their effects could be assessed
+via a normal probability plot (or possibly by Lenth’s method). The subplot factors D and E and
+their two-factor interaction DE can also be estimated. However, since DE ABC, the DE
+interaction needs to be treated as a whole-plot term. There are six two-factor interactions of
+whole-plot and split-plot factors that can also be estimated: AD, AE, BD, BE, CD, and CE. In
+general, it turns out that any split-plot main effect or interaction that is aliased with whole-plot
+main effects or interactions involving only whole-plot factors would be compared to the whole-
+plot error. Furthermore, split-plot main effects or interactions involving at least one split-plot
+factor that are not aliased with whole-plot main effects or interactions involving only whole-
+plot factors are compared to the split-plot error. See Bisgaard (2000) for a thorough discussion.
+Therefore, in our problem, all of the effects D, E, AD, AE, BD, BE, CD, and CE are compared
+to the split-plot error. Alternatively, they could be assessed via a normal probability plot.
+Recently, several papers have appeared on the subject of fractional factorials and
+response surface experiments in split plots. The papers by Vining, Kowalski and Montgomery
+(2005), Vining and Kowalski (2008), Macharia and Goos (2010), Bisgaard (2000), Bingham
+and Sitter (1999), Huang, Chen, and Voelkel (1999), and Almimi, Kulahci and Montgomery
+(2008a)(2008b)(2009) are recommended.

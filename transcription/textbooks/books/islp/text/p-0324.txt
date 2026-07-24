@@ -1,0 +1,105 @@
+316
+7. Moving Beyond Linearity
+Out[17]:
+coef
+std err
+...
+intercept
+60.494
+9.460
+...
+bs(age, internal_knots=[25, 40, 60])[0]
+3.980
+12.538
+...
+bs(age, internal_knots=[25, 40, 60])[1]
+44.631
+9.626
+...
+bs(age, internal_knots=[25, 40, 60])[2]
+62.839
+10.755
+...
+bs(age, internal_knots=[25, 40, 60])[3]
+55.991
+10.706
+...
+bs(age, internal_knots=[25, 40, 60])[4]
+50.688
+14.402
+...
+bs(age, internal_knots=[25, 40, 60])[5]
+16.606
+19.126
+...
+The column names are a little cumbersome, and have caused us to trun-
+cate the printed summary. They can be set on construction using the name
+argument as follows.
+In [18]: bs_age = MS([bs('age',
+internal_knots=[25,40,60],
+name='bs(age)')])
+Xbs = bs_age.fit_transform(Wage)
+M = sm.OLS(y, Xbs).fit()
+summarize(M)
+Out[18]:
+coef std err
+t
+P>|t|
+intercept
+60.494
+9.460
+6.394
+0.000
+bs(age, knots)[0]
+3.981
+12.538
+0.317
+0.751
+bs(age, knots)[1]
+44.631
+9.626
+4.636
+0.000
+bs(age, knots)[2]
+62.839
+10.755
+5.843
+0.000
+bs(age, knots)[3]
+55.991
+10.706
+5.230
+0.000
+bs(age, knots)[4]
+50.688
+14.402
+3.520
+0.000
+bs(age, knots)[5]
+16.606
+19.126
+0.868
+0.385
+Notice that there are 6 spline coefficients rather than 7. This is because, by
+default, bs() assumes intercept=False, since we typically have an overall
+intercept in the model. So it generates the spline basis with the given knots,
+and then discards one of the basis functions to account for the intercept.
+We could also use the df (degrees of freedom) option to specify the com-
+plexity of the spline. We see above that with 3 knots, the spline basis has
+6 columns or degrees of freedom. When we specify df=6 rather than the
+actual knots, bs() will produce a spline with 3 knots chosen at uniform
+quantiles of the training data. We can see these chosen knots most easily
+using Bspline() directly:
+In [19]: BSpline(df=6).fit(age).internal_knots_
+Out[19]: array([33.75, 42.0, 51.0])
+When asking for six degrees of freedom, the transform chooses knots at
+ages 33.75, 42.0, and 51.0, which correspond to the 25th, 50th, and 75th
+percentiles of age.
+When using B-splines we need not limit ourselves to cubic polynomials
+(i.e. degree=3). For instance, using degree=0 results in piecewise constant
+functions, as in our example with pd.qcut() above.
+In [20]: bs_age0 = MS([bs('age',
+df=3,
+degree=0)]).fit(Wage)
+Xbs0 = bs_age0.transform(Wage)
+summarize(sm.OLS(y, Xbs0).fit())

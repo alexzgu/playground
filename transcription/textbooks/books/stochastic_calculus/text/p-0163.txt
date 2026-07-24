@@ -1,0 +1,67 @@
+5.3. GIRSANOV THEOREM
+157
+Example 5.3.1. Let Bt be a standard Brownian motion with B0 = 1. Let
+τ = inft : Bt = 0. Then Mt = Bt∧τ is a nonnegative martingale, satisfying
+dMt = dBt = At Mt dBt,
+t < τ,
+where
+At = 1
+Mt
+= 1
+Bt
+
+If we tilt the measure using Mt, then
+dBt = At dt + dWt = dt
+Bt
++ dWt,
+where Wt is a standard Brownian motion in the new measure P∗. Note that
+this equation gives the Bessel process that we studied in Section 4.2 with
+a = 1. Using properties of the Bessel process, we see that
+P∗τ < ∞= 0
+In other words, in the new measure the process avoids the origin.
+Example 5.3.2. Let Bt be a standard Brownian motion with B0 = 1 and
+r R. Let τ = inft : Bt = 0. For t < τ, Itˆo’s formula gives
+dBr
+t
+=
+r Br−1
+t
+dBt + r(r −1)
+2
+Br−2
+t
+dt
+=
+Br
+t
+r
+Bt
+dBt + r(r −1)
+2B2
+t
+dt
+
+
+Let
+Mt = exp
+
+−
+t
+0
+r(r −1)
+2B2
+s
+ds
+
+Br
+t 
+The product rule shows that Mt satises the exponential SDE
+dMt = r
+Bt
+Mt dBt,
+t < τ
+Therefore,
+dBt = r
+Bt
+dt + dWt,
+t < τ,

@@ -1,0 +1,56 @@
+10.9 Lab: Deep Learning
+459
+the sequence of words in a document, taking their order into account. We
+loaded the preprocessed data at the beginning of Section 10.9.5. A script
+that details the preprocessing can be found in the ISLP library. Notably,
+since more than 90% of the documents had fewer than 500 words, we set
+the document length to 500. For longer documents, we used the last 500
+words, and for shorter documents, we padded the front with blanks.
+In [85]: imdb_seq_dm = SimpleDataModule(imdb_seq_train ,
+imdb_seq_test ,
+validation=2000,
+batch_size=300,
+num_workers=min(6, max_num_workers)
+)
+The first layer of the RNN is an embedding layer of size 32, which will
+be learned during training. This layer one-hot encodes each document as a
+matrix of dimension 500 × 10, 003, and then maps these 10, 003 dimensions
+down to 32.29 Since each word is represented by an integer, this is effectively
+achieved by the creation of an embedding matrix of size 10, 003 × 32; each
+of the 500 integers in the document are then mapped to the appropriate
+32 real numbers by indexing the appropriate rows of this matrix.
+The second layer is an LSTM with 32 units, and the output layer is a
+single logit for the binary classification task. In the last line of the forward()
+method below, we take the last 32-dimensional output of the LSTM and
+map it to our response.
+In [86]: class LSTMModel(nn.Module):
+def __init__(self, input_size):
+super(LSTMModel, self).__init__()
+self.embedding = nn.Embedding(input_size, 32)
+self.lstm = nn.LSTM(input_size=32,
+hidden_size=32,
+batch_first=True)
+self.dense = nn.Linear(32, 1)
+def forward(self, x):
+val, (h_n, c_n) = self.lstm(self.embedding(x))
+return torch.flatten(self.dense(val[:,-1]))
+We instantiate and take a look at the summary of the model, using the
+first 10 documents in the corpus.
+In [87]: lstm_model = LSTMModel(X_test.shape[-1])
+summary(lstm_model,
+input_data=imdb_seq_train.tensors[0][:10],
+col_names=['input_size',
+'output_size',
+'num_params'])
+Out[87]: ====================================================================
+Layer (type:depth-idx)
+Input Shape
+Output Shape
+Param #
+====================================================================
+LSTMModel
+[10, 500]
+[10]
+--
+29The extra 3 dimensions correspond to commonly occurring non-word entries in the
+reviews.

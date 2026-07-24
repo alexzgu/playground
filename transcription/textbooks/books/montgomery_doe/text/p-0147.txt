@@ -1,0 +1,187 @@
+3.12 Problems
+131
+with scores above 16 and less than or equal to 22 are consid-
+ered possibly depressed, while those with scores above 22 are
+considered likely to be depressed. The survey found that peo-
+ple who were not depressed ate an average 5.4 servings of
+chocolate per month, possibly depressed individuals ate an
+average of 8.4 servings of chocolate per month, while those
+individuals who scored above 22 and were likely to be
+depressed ate the most chocolate, an average of 11.8 servings
+per month. No differentiation was made between dark and
+milk chocolate. Other foods were also examined, but no pat-
+tern emerged between other foods and depression. Is this
+study really a designed experiment? Does it establish a cause-
+and-effect link between chocolate consumption and depres-
+sion? How would the study have to be conducted to establish
+such a cause-and effect link?
+3.6.
+An article in Bioelectromagnetics (“Electromagnetic
+Effects on Forearm Disuse Osteopenia: A Randomized,
+Double-Blind, Sham-Controlled Study,” Vol. 32, 2011, pp.
+273–282) described a randomized, double-blind, sham-con-
+trolled, feasibility and dosing study to determine if a com-
+mon pulsing electromagnetic field (PEMF) treatment could
+moderate the substantial osteopenia that occurs after fore-
+arm disuse. Subjects were randomized into four groups after
+a distal radius fracture, or carpal surgery requiring immobi-
+lization in a cast. Active or identical sham PEMF transduc-
+ers were worn on the distal forearm for 1, 2, or 4h/day for 
+8 weeks starting after cast removal (“baseline”) when bone
+density continues to decline. Bone mineral density (BMD)
+and bone geometry were measured in the distal forearm by
+dual energy X-ray absorptiometry (DXA) and peripheral
+quantitative computed tomography (pQCT). The data below
+are the percent losses in BMD measurements on the radius
+after 16 weeks for patients wearing the active or sham PEMF
+transducers for 1, 2, or 4h/day (data were constructed to
+match the means and standard deviations read from a graph
+in the paper).
+(a) Is there evidence to support a claim that PEMF usage
+affects BMD loss? If so, analyze the data to determine
+which specic treatments produce the differences.
+(b) Analyze the residuals from this experiment and comment
+on the underlying assumptions and model adequacy.
+PEMF 
+PEMF 
+PEMF 
+Sham
+1 h/day
+2 h/day
+4 h/day
+4.51
+5.32
+4.73
+7.03
+7.95
+6.00
+5.81
+4.65
+4.97
+5.12
+5.69
+6.65
+3.00
+7.08
+3.86
+5.49
+7.97
+5.48
+4.06
+6.98
+2.23
+6.52
+6.56
+4.85
+3.95
+4.09
+8.34
+7.26
+5.64
+6.28
+3.01
+5.92
+9.35
+7.77
+6.71
+5.58
+6.52
+5.68
+6.51
+7.91
+4.96
+8.47
+1.70
+4.90
+6.10
+4.58
+5.89
+4.54
+7.19
+4.11
+6.55
+8.18
+4.03
+5.72
+5.34
+5.42
+2.72
+5.91
+5.88
+6.03
+9.19
+6.89
+7.50
+7.04
+5.17
+6.99
+3.28
+5.17
+5.70
+4.98
+5.38
+7.60
+5.85
+9.94
+7.30
+7.90
+6.45
+6.38
+5.46
+7.91
+3.7.
+The tensile strength of Portland cement is being stud-
+ied. Four different mixing techniques can be used economi-
+cally. A completely randomized experiment was conducted
+and the following data were collected:
+Mixing
+Technique
+Tensile Strength (lb/in2)
+1
+3129
+3000
+2865
+2890
+2
+3200
+3300
+2975
+3150
+3
+2800
+2900
+2985
+3050
+4
+2600
+2700
+2600
+2765
+(a) Test the hypothesis that mixing techniques affect the
+strength of the cement. Use 0.05.
+(b) Construct a graphical display as described in Section
+3.5.3 to compare the mean tensile strengths for the
+four mixing techniques. What are your conclusions?
+(c) Use the Fisher LSD method with 0.05 to make
+comparisons between pairs of means.
+(d) Construct a normal probability plot of the residuals.
+What conclusion would you draw about the validity of
+the normality assumption?
+(e) Plot the residuals versus the predicted tensile strength.
+Comment on the plot.
+(f) Prepare a scatter plot of the results to aid the interpre-
+tation of the results of this experiment.
+3.8(a)
+Rework part (c) of Problem 3.7 using Tukey’s test
+with 0.05. Do you get the same conclusions from
+Tukey’s test that you did from the graphical procedure
+and/or the Fisher LSD method?
+(b) Explain the difference between the Tukey and Fisher
+procedures.
+3.9.
+Reconsider the experiment in Problem 3.7. Find a 95
+percent condence interval on the mean tensile strength of the
+Portland cement produced by each of the four mixing techniques.
+Also nd a 95 percent condence interval on the difference in
+means for techniques 1 and 3. Does this aid you in interpreting
+the results of the experiment?

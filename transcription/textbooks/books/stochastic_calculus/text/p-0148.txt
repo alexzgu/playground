@@ -1,0 +1,46 @@
+142
+CHAPTER 4. MORE STOCHASTIC CALCULUS
+If we let G(t) = E[f(Mt)], we get the equation
+G′(t) = −λ2
+2 G(t),
+G(0) = 1,
+which has solution G(t) = e−λ2t2
+Theorem 4.5.2. SMt 
+FtM0 = 0, 
+Mt B
+⟨M⟩t = lim
+n∞
+
+j<2nt
+
+M
+j + 1
+2n
+
+−M
+j
+2n
+2
+= t
+TMt B.
+P. We need to show that Mt satises the conditions of a standard Brow-
+nian motion. We are given M0 = 0 and that t →Mt is continuous, so we only
+need to establish independent, normal increments. One way to express both
+of these conditions is to say that for every s < t, the conditional distribution
+of Mt −Ms given Fs is N(0, t −s). But the proposition above shows that for
+every λ,
+E
+
+eiλ(Mt−Ms) Fs
+
+= e−λ2(t−s)2
+Since the characteristic function determines the distribution, we are nished.
+This theorem can be extended to say that any continuous martingale
+is a time change of a Brownian motion. To be precise, suppose that
+Mt is a continuous martingale. The quadratic variation can be dened
+as the process ⟨M⟩t such that M 2
+t −⟨M⟩t is a local martingale. Let
+τs = inft : ⟨M⟩t = s
+Then Ys = Mτs is a continuous martingale whose quadratic variation
+is the same as standard Brownian motion. Hence Ys is a standard
+Brownian motion.

@@ -1,0 +1,68 @@
+8.3 Lab: Tree-Based Methods
+361
+In [28]: feature_imp = pd.DataFrame(
+{'importance':RF_boston.feature_importances_},
+index=feature_names)
+feature_imp.sort_values(by='importance', ascending=False)
+Out[28]:
+importance
+lstat
+0.368683
+rm
+0.333842
+ptratio
+0.057306
+indus
+0.053303
+crim
+0.052426
+dis
+0.042493
+nox
+0.034410
+age
+0.024327
+tax
+0.022368
+rad
+0.005048
+zn
+0.003238
+chas
+0.002557
+This is a relative measure of the total decrease in node impurity that results
+from splits over that variable, averaged over all trees (this was plotted in
+Figure 8.9 for a model fit to the Heart data).
+The results indicate that across all of the trees considered in the random
+forest, the wealth level of the community (lstat) and the house size (rm)
+are by far the two most important variables.
+8.3.4
+Boosting
+Here we use GradientBoostingRegressor() from sklearn.ensemble to fit Gradient
+Boosting
+Regressor()
+boosted regression trees to the Boston data set. For classification we would
+use GradientBoostingClassifier(). The argument n_estimators=5000 indi-
+Gradient
+Boosting
+Classifier()
+cates that we want 5000 trees, and the option max_depth=3 limits the depth
+of each tree. The argument learning_rate is the λ mentioned earlier in the
+description of boosting.
+In [29]: boost_boston = GBR(n_estimators=5000,
+learning_rate=0.001,
+max_depth=3,
+random_state=0)
+boost_boston.fit(X_train, y_train)
+We can see how the training error decreases with the train_score_ at-
+tribute. To get an idea of how the test error decreases we can use the
+staged_predict() method to get the predicted values along the path.
+In [30]: test_error = np.zeros_like(boost_boston.train_score_)
+for idx, y_ in enumerate(boost_boston.staged_predict(X_test)):
+test_error[idx] = np.mean((y_test - y_)**2)
+plot_idx = np.arange(boost_boston.train_score_.shape[0])
+ax = subplots(figsize=(8,8))[1]
+ax.plot(plot_idx,
+boost_boston.train_score_ ,
+'b',
+label='Training')

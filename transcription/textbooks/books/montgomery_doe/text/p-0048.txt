@@ -1,0 +1,85 @@
+Now consider the sample variance S2. We have
+where SS 
+is the corrected sum of squares of the observations yi. Now
+(2.9)
+(2.10)
+Therefore,
+and we see that S2 is an unbiased estimator of 2.
+Degrees of Freedom. The quantity n 1 in Equation 2.10 is called the number of
+degrees of freedom of the sum of squares SS. This is a very general result; that is, if y is a
+random variable with variance 2 and SS (yi )2 has 
+degrees of freedom, then
+(2.11)
+The number of degrees of freedom of a sum of squares is equal to the number of independ-
+ent elements in that sum of squares. For example, SS 
+in Equation 2.9 consists
+of the sum of squares of the n elements y1 , y2 , . . . , yn . These elements are not
+all independent because 
+; in fact, only n 1 of them are independent,
+implying that SS has n 1 degrees of freedom.
+The Normal and Other Sampling Distributions. Often we are able to determine
+the probability distribution of a particular statistic if we know the probability distribution of
+the population from which the sample was drawn. The probability distribution of a statistic
+is called a sampling distribution. We will now briey discuss several useful sampling
+distributions.
+One of the most important sampling distributions is the normal distribution. If y is a
+normal random variable, the probability distribution of y is
+(2.12)
+where 
+
+is the mean of the distribution and 2 0 is the variance. The normal
+distribution is shown in Figure 2.5.
+
+
+f(y) 
+1
+2
+e(1/2)[(y)/]2 
+ ! y ! 
+"n
+i1(yi y) 0
+y
+y
+y
+"n
+i1(yi y)2
+E
+SS
+v2
+v
+y
+E(S 2) 
+1
+n 1 E(SS) 2
+ (n 1)2
+
+n
+i1
+ (2 2) n(2 2/n)
+E
+n
+i1
+y2
+i ny 2
+E(SS) E
+n
+i1
+ (yi y)2
+"n
+i1(yiy)2
+
+1
+n 1 E(SS)
+
+1
+n 1 E
+n
+i1
+ (yi y )2
+E(S 2) E
+n
+i1
+ (yi y )2
+n 1 
+32
+Chapter 2 ■Simple Comparative Experiments

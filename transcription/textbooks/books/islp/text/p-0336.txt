@@ -1,0 +1,46 @@
+328
+7. Moving Beyond Linearity
+10. This question relates to the College data set.
+(a) Split the data into a training set and a test set. Using out-of-state
+tuition as the response and the other variables as the predictors,
+perform forward stepwise selection on the training set in order
+to identify a satisfactory model that uses just a subset of the
+predictors.
+(b) Fit a GAM on the training data, using out-of-state tuition as
+the response and the features selected in the previous step as
+the predictors. Plot the results, and explain your findings.
+(c) Evaluate the model obtained on the test set, and explain the
+results obtained.
+(d) For which variables, if any, is there evidence of a non-linear
+relationship with the response?
+11. In Section 7.7, it was mentioned that GAMs are generally fit using
+a backfitting approach. The idea behind backfitting is actually quite
+simple. We will now explore backfitting in the context of multiple
+linear regression.
+Suppose that we would like to perform multiple linear regression, but
+we do not have software to do so. Instead, we only have software
+to perform simple linear regression. Therefore, we take the following
+iterative approach: we repeatedly hold all but one coefficient esti-
+mate fixed at its current value, and update only that coefficient
+estimate using a simple linear regression. The process is continued un-
+til convergence—that is, until the coefficient estimates stop changing.
+We now try this out on a toy example.
+(a) Generate a response Y and two predictors X1 and X2, with
+n = 100.
+(b) Write a function simple_reg() that takes two arguments outcome
+and feature, fits a simple linear regression model with this out-
+come and feature, and returns the estimated intercept and slope.
+(c) Initialize beta1 to take on a value of your choice. It does not
+matter what value you choose.
+(d) Keeping beta1 fixed, use your function simple_reg() to fit the
+model:
+Y −beta1 · X1 = β0 + β2X2 + ϵ.
+Store the resulting values as beta0 and beta2.
+(e) Keeping beta2 fixed, fit the model
+Y −beta2 · X2 = β0 + β1X1 + ϵ.
+Store the result as beta0 and beta1 (overwriting their previous
+values).
+(f) Write a for loop to repeat (c) and (d) 1,000 times. Report the
+estimates of beta0, beta1, and beta2 at each iteration of the for
+loop. Create a plot in which each of these values is displayed,
+with beta0, beta1, and beta2.

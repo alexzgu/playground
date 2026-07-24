@@ -1,0 +1,56 @@
+232
+Chapter 5 ■Introduction to Factorial Designs
+In addition to the ANOVA, you are given the following data
+totals. Row totals (factor A) 18, 10, 14; column totals (fac-
+tor B) 16, 26; cell totals 10, 8, 2, 8, 4, 10; and replicate
+totals 19, 23. The grand total is 42. The original experiment
+was a completely randomized design. Now suppose that the
+experiment had been run in two complete blocks. Answer the
+following questions about the ANOVA for the blocked exper-
+iment.
+(a) The block sum of squares is ______.
+(b) There are______ degrees of freedom for blocks.
+(c) The error sum of squares is now ______.
+(d) The interaction effect is now signicant at 1 percent
+(Yes or No).
+5.46.
+Consider the following incomplete ANOVA table:
+Source
+SS
+DF
+MS
+F
+A
+50.00
+1
+50.00
+B
+80.00
+2
+40.00
+AB
+30.00
+2
+15.00
+Error
+12
+Total
+172.00
+17
+In addition to the ANOVA table, you know that the experi-
+ment has been replicated three times and that the totals of the
+three replicates are 10, 12, and 14, respectively. The original
+experiment was run as a completely randomized design.
+Answer the following questions:
+(a) The pure error estimate of the standard deviation of the
+sample observations is 1 (Yes or No).
+(b) Suppose that the experiment had been run in blocks, so
+that it is a randomized complete block design. The
+number of degrees of freedom for blocks would be
+______.
+(c) The block sum of squares is ______.
+(d) The error sum of squares in the randomized complete
+block design is now ______.
+(e) For the randomized complete block design, what is the
+estimate of the standard deviation of the sample obser-
+vations?

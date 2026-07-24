@@ -1,0 +1,201 @@
+5.7 Problems
+225
+5.7
+Problems
+5.1.
+The following output was obtained from a computer
+program that performed a two-factor ANOVA on a factorial
+experiment.
+Two-way ANOVA: y versus, A, B
+Source
+DF
+SS
+MS
+F
+P
+A
+1
+0.322
+B
+80.554
+40.2771
+4.59
+Interaction
+Error
+12
+105.327
+8.7773
+Total
+17
+231.551
+(a) Fill in the blanks in the ANOVA table. You can use
+bounds on the P-values.
+(b) How many levels were used for factor B?
+(c) How many replicates of the experiment were per-
+formed?
+(d) What conclusions would you draw about this experi-
+ment?
+5.2.
+The following output was obtained from a computer
+program that performed a two-factor ANOVA on a factorial
+experiment.
+Two-way ANOVA: y versus A, B
+Source
+DF
+SS
+MS
+F
+P
+A
+1
+0.0002
+B
+180.378
+Interaction
+3
+8.479
+0.932
+Error
+8
+158.797
+Total
+15
+347.653
+(a) Fill in the blanks in the ANOVA table. You can use
+bounds on the P-values.
+(b) How many levels were used for factor B?
+(c) How many replicates of the experiment were per-
+formed?
+(d) What conclusions would you draw about this experi-
+ment?
+5.3.
+The yield of a chemical process is being studied. The
+two most important variables are thought to be the pressure
+and the temperature. Three levels of each factor are selected,
+and a factorial experiment with two replicates is performed.
+The yield data are as follows:
+Pressure (psig) 
+Temperature (°C)
+200
+215
+230
+150
+90.4
+90.7
+90.2
+90.2
+90.6
+90.4
+160
+90.1
+90.5
+89.9
+90.3
+90.6
+90.1
+170
+90.5
+90.8
+90.4
+90.7
+90.9
+90.1
+(a) Analyze the data and draw conclusions. Use 0.05.
+(b) Prepare appropriate residual plots and comment on the
+model’s adequacy.
+(c) Under what conditions would you operate this
+process?
+5.4.
+An engineer suspects that the surface nish of a metal
+part is inuenced by the feed rate and the depth of cut. He
+selects three feed rates and four depths of cut. He then con-
+ducts a factorial experiment and obtains the following data:
+Feed Rate
+Depth of Cut (in)
+(in/min)
+0.15
+0.18
+0.20
+0.25
+74
+79
+82
+99
+0.20
+64
+68
+88
+104
+60
+73
+92
+96
+92
+98
+99
+104
+0.25
+86
+104
+108
+110
+88
+88
+95
+99
+99
+104
+108
+114
+0.30
+98
+99
+110
+111
+102
+95
+99
+107
+(a) Analyze the data and draw conclusions. Use 0.05.
+(b) Prepare appropriate residual plots and comment on the
+model’s adequacy.
+(c) Obtain point estimates of the mean surface nish at
+each feed rate.
+(d) Find the P-values for the tests in part (a).
+5.5.
+For the data in Problem 5.4, compute a 95 percent
+confidence interval estimate of the mean difference in
+response for feed rates of 0.20 and 0.25 in/min.
+5.6.
+An article in Industrial Quality Control (1956, pp.
+5–8) describes an experiment to investigate the effect of the
+type of glass and the type of phosphor on the brightness of a
+television tube. The response variable is the current necessary
+(in microamps) to obtain a specied brightness level. The data
+are as follows:
+Glass
+Phosphor Type
+Type
+1
+2
+3
+280
+300
+290
+1
+290
+310
+285
+285
+295
+290
+230
+260
+220
+2
+235
+240
+225
+240
+235
+230

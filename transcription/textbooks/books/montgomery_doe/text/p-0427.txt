@@ -1,0 +1,93 @@
+9.3 Fractional Replication of the 3k Factorial Design
+411
+We may also generate the runs dening a 3kp fractional factorial design by rst writing
+down the treatment combinations of a full 3kp factorial design and then introducing the addi-
+tional p factors by equating them to components of interaction, as we did in Section 9.3.1.
+We illustrate the procedure by constructing a 342 design, that is, a one-ninth fraction
+of the 34 design. Let AB2C and BCD be the two components of interaction chosen to construct
+the design. Their generalized interactions are (AB2C)(BCD) AC2D and (AB2C)(BCD)2 
+ABD2. Thus, the dening relation for this design is I AB2C BCD AC2D ABD2, and
+the design is of resolution III. The nine treatment combinations in the design are found by
+writing down a 32 design in the factors A and B, and then adding two new factors by setting
+This is equivalent to using AB2C and BCD to partition the full 34 design into nine blocks and then
+selecting one of these blocks as the desired fraction. The complete design is shown in Table 9.7.
+This design has eight degrees of freedom that may be used to estimate four main effects
+and their aliases. The aliases of any effect may be found by multiplying the effect modulus 3
+by AB2C, BCD, AC2D, ABD2, and their squares. The complete alias structure for the design is
+given in Table 9.8.
+From the alias structure, we see that this design is useful only in the absence of inter-
+action. Furthermore, if A denotes the rows and B denotes the columns, then from examining
+Table 9.7 we see that the 
+design is also a Graeco–Latin square.
+The publication by Connor and Zelen (1959) contains an extensive selection of designs
+for 4 k 10. This pamphlet was prepared for the National Bureau of Standards and is the
+most complete table of fractional 3kp plans available.
+In this section, we have noted several times the complexity of the alias relationships
+in 3kp fractional factorial designs. In general, if k is moderately large, say k 4 or 5, the
+size of the 3k design will drive most experimenters to consider fairly small fractions. These
+designs have alias relationships that involve the partial aliasing of two-degrees-of-
+freedom components of interaction. This, in turn, results in a design that can be difficult
+and in many cases impossible to interpret if interactions are not negligible. Furthermore,
+342
+III
+x4 2x2 2x3
+x3 2x1 x2
+■TA B L E 9 . 7
+A 
+Design with I AB2C and I BCD
+0000
+0111
+0222
+1021
+1102
+1210
+2012
+2120
+2201
+342
+III
+■TA B L E 9 . 8
+Alias Structure for the 
+Design in Table 9.7
+Effect
+Aliases
+I
+I2
+A
+ABC2
+ABCD
+ACD2
+AB2D
+BC2
+AB2C2D2
+CD2
+BD2
+B
+AC
+BC2D2
+ABC2D
+AB2D2
+ABC
+CD
+AB2C2D
+AD2
+C
+AB2C2
+BC2D
+AD
+ABCD2
+AB2
+BD
+ACD
+ABC2D2
+D
+AB2CD
+BCD2
+AC2D2
+AB
+AB2CD2
+BC
+AC2
+ABD
+3III
+42

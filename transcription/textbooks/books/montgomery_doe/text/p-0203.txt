@@ -1,0 +1,64 @@
+If a factorial experiment had been performed, an additional treatment combination,
+AB, would have been taken. Now, using just four observations, two estimates of the A
+effect can be made: ABABand ABAB. Similarly, two estimates of the B
+effect can be made. These two estimates of each main effect could be averaged to produce
+average main effects that are just as precise as those from the single-factor experiment, but
+only four total observations are required and we would say that the relative efciency of the
+factorial design to the one-factor-at-a-time experiment is (6/4) 1.5. Generally, this relative
+efciency will increase as the number of factors increases, as shown in Figure 5.8.
+Now suppose interaction is present. If the one-factor-at-a-time design indicated that 
+ABand ABgave better responses than AB, a logical conclusion would be that AB
+would be even better. However, if interaction is present, this conclusion may be seriously in
+error. For an example, refer to the experiment in Figure 5.2.
+In summary, note that factorial designs have several advantages. They are more efcient
+than one-factor-at-a-time experiments. Furthermore, a factorial design is necessary when
+interactions may be present to avoid misleading conclusions. Finally, factorial designs allow
+the effects of a factor to be estimated at several levels of the other factors, yielding conclu-
+sions that are valid over a range of experimental conditions.
+5.3
+The Two-Factor Factorial Design
+5.3.1
+An Example
+The simplest types of factorial designs involve only two factors or sets of treatments. There
+are a levels of factor A and b levels of factor B, and these are arranged in a factorial design;
+that is, each replicate of the experiment contains all ab treatment combinations. In general,
+there are n replicates.
+As an example of a factorial design involving two factors, an engineer is designing a bat-
+tery for use in a device that will be subjected to some extreme variations in temperature. The
+only design parameter that he can select at this point is the plate material for the battery, and he
+has three possible choices. When the device is manufactured and is shipped to the eld, the engi-
+neer has no control over the temperature extremes that the device will encounter, and he knows
+from experience that temperature will probably affect the effective battery life. However, tem-
+perature can be controlled in the product development laboratory for the purposes of a test.
+5.3 The Two-Factor Factorial Design
+187
+Factor A
+Factor B
+–
++
+–
++
+A–B+
+A–B–
+A+B–
+3
+2
+4
+Number of factors
+5
+6
+1.0
+1.5
+2.0
+2.5
+3.0
+3.5
+4.0
+Relative efficiency
+■F I G U R E 5 . 7
+A one-
+factor-at-a-time experiment
+■F I G U R E 5 . 8
+Relative efﬁciency of a
+factorial design to a one-factor-at-a-time experi-
+ment (two factor levels)

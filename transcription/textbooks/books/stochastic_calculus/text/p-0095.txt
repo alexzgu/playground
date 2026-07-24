@@ -1,0 +1,70 @@
+3.2. STOCHASTIC INTEGRAL
+89
+and hence,
+E
+
+Y 2
+i (Bti+1 −Bti)2
+=
+E
+
+E
+
+Y 2
+i (Bti+1 −Bti)2 Fti
+
+=
+E[Y 2
+i ] (ti+1 −ti)
+The function s →E[A2
+s] is a step function that takes on the value E[Y 2
+i ] for
+ti ≤s < ti+1. Therefore,
+E[Z2
+t ] =
+j−1
+
+i=0
+E[Y 2
+i ] (ti+1 −ti) =
+t
+0
+E[A2
+s] ds
+3.2.3
+Integration of continuous processes
+In this section we will assume that At is a process with continuous paths that
+is adapted to the ltration Ft. Recall that this implies that each At is Ft-
+measurable. To integrate these processes we use the following approximation
+result.
+Lemma 3.2.2. SAt , 
+Ft. SC < ∞
+At≤C t. T
+A(n)
+t
+t,
+lim
+n∞
+t
+0
+E
+
+As −A(n)
+s 2
+ds = 0
+(3.3)
+M, n, t, A(n)
+t ≤C.
+We will prove this lemma for t = 1. let
+A(n)
+t
+= A(j, n),
+j
+n ≤t < j + 1
+n
+,
+where A(0, n) = A0 and for j ≥1,
+A(j, n) = n
+jn
+(j−1)n
+As ds

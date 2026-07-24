@@ -1,0 +1,52 @@
+2.2 Assessing Model Accuracy
+27
+measurement. For the remaining n −m observations, we have predictor
+measurements but no response measurement. Such a scenario can arise if
+the predictors can be measured relatively cheaply but the corresponding
+responses are much more expensive to collect. We refer to this setting as
+a semi-supervised learning problem. In this setting, we wish to use a sta- semi-
+supervised
+learning
+tistical learning method that can incorporate the m observations for which
+response measurements are available as well as the n −m observations for
+which they are not. Although this is an interesting topic, it is beyond the
+scope of this book.
+2.1.5
+Regression Versus Classification Problems
+Variables can be characterized as either quantitative or qualitative (also quantitative
+qualitative
+known as categorical). Quantitative variables take on numerical values. Ex-
+categorical
+amples include a person’s age, height, or income, the value of a house, and
+the price of a stock. In contrast, qualitative variables take on values in
+one of K different classes, or categories. Examples of qualitative variables class
+include a person’s marital status (married or not), the brand of product
+purchased (brand A, B, or C), whether a person defaults on a debt (yes
+or no), or a cancer diagnosis (Acute Myelogenous Leukemia, Acute Lym-
+phoblastic Leukemia, or No Leukemia). We tend to refer to problems with
+a quantitative response as regression problems, while those involving a regression
+qualitative response are often referred to as classification problems. How- classification
+ever, the distinction is not always that crisp. Least squares linear regression
+(Chapter 3) is used with a quantitative response, whereas logistic regression
+(Chapter 4) is typically used with a qualitative (two-class, or binary) re- binary
+sponse. Thus, despite its name, logistic regression is a classification method.
+But since it estimates class probabilities, it can be thought of as a regres-
+sion method as well. Some statistical methods, such as K-nearest neighbors
+(Chapters 2 and 4) and boosting (Chapter 8), can be used in the case of
+either quantitative or qualitative responses.
+We tend to select statistical learning methods on the basis of whether
+the response is quantitative or qualitative; i.e. we might use linear regres-
+sion when quantitative and logistic regression when qualitative. However,
+whether the predictors are qualitative or quantitative is generally consid-
+ered less important. Most of the statistical learning methods discussed in
+this book can be applied regardless of the predictor variable type, provided
+that any qualitative predictors are properly coded before the analysis is
+performed. This is discussed in Chapter 3.
+2.2
+Assessing Model Accuracy
+One of the key aims of this book is to introduce the reader to a wide range
+of statistical learning methods that extend far beyond the standard linear
+regression approach. Why is it necessary to introduce so many different
+statistical learning approaches, rather than just a single best method? There
+is no free lunch in statistics: no one method dominates all others over all
+possible data sets. On a particular data set, one specific method may work

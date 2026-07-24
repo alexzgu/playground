@@ -1,0 +1,153 @@
+572
+Chapter 12 ■Robust Parameter Design and Process Robustness Studies
+(c) Find a set of optimum conditions that result in the
+mean as large as possible with the standard deviation
+less than 60.
+12.12. Suppose that there are four controllable variables and
+two noise variables. It is necessary to estimate the main
+effects and two-factor interactions of all of the controllable
+variables, the main effects of the noise variables, and the two-
+factor interactions between all controllable and noise factors.
+If all factors are at two levels, what is the minimum number
+of runs that can be used to estimate all of the model parame-
+ters using a combined array design? Use a D-optimal algo-
+rithm to nd a design.
+12.13. Suppose that there are four controllable variables and
+two noise variables. It is necessary to t a complete quadratic
+model in the controllable variables, the main effects of the
+noise variables, and the two-factor interactions between all
+controllable and noise factors. Set up a combined array design
+for this by modifying a central composite design.
+12.14. Reconsider the situation in Problem 12.13. Could a
+modied small composite design be used for this problem?
+Are any disadvantages associated with the use of the small
+composite design?
+12.15. Reconsider the situation in Problem 12.13. What is the
+minimum number of runs that can be used to estimate all of the
+model parameters using a combined array design? Use a D-
+optimal algorithm to nd a reasonable design for this problem.
+12.16. Rework Problem 12.15 using the I-criterion to construct
+the design. Compare this design to the D-optimal design in
+Problem 12.15. Which design would you prefer?
+12.17. Rework Problem 12.12 using the I-criterion. Compare
+this design to the D-optimal design in Problem 12.12. Which
+design would you prefer?
+12.18. An experiment was run in a wave soldering process.
+There are ve controllable variables and three noise variables.
+The response variable is the number of solder defects per
+million opportunities. The experimental design employed was
+the following crossed array.
+Outer Array
+F
+1
+1
+1
+1
+Inner Array
+G
+1
+1
+1
+1
+A
+B
+C
+D
+E
+H
+1
+1
+1
+1
+1
+1
+1
+1
+1
+194
+197
+193
+275
+1
+1
+1
+1
+1
+136
+136
+132
+136
+1
+1
+1
+1
+1
+185
+261
+264
+264
+1
+1
+1
+1
+1
+47
+125
+127
+42
+1
+1
+1
+1
+1
+295
+216
+204
+293
+1
+1
+1
+1
+1
+234
+159
+231
+157
+1
+1
+1
+1
+1
+328
+326
+247
+322
+1
+1
+1
+1
+1
+186
+187
+105
+104
+(a) What types of designs were used for the inner and
+outer arrays? What are the alias relationships in these
+designs?
+(b) Develop models for the mean and variance of solder
+defects. What set of operating conditions would you
+recommend?
+12.19. Reconsider the wave soldering experiment in Problem
+12.16. Find a combined array design for this experiment that
+requires fewer runs.
+12.20. Reconsider the wave soldering experiment in Problem
+12.16. Suppose that it was necessary to t a complete quadratic
+model in the controllable variables, all main effects of the
+noise variables, and all controllable variable–noise variable
+interactions. What design would you recommend?
+12.21. Consider the alloy cracking experiment in Problem
+6.15. Suppose that temperature (A) is a noise variable. Find
+the response model, and the model for the mean response, and
+the model for the transmitted variability. Can you nd settings
+for the controllable factors that minimize crack length and
+make the transmitted variability small?

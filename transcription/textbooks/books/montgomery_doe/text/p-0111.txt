@@ -1,0 +1,78 @@
+There are many ways to choose the orthogonal contrast coefcients for a set of treat-
+ments. Usually, something in the nature of the experiment should suggest which comparisons
+will be of interest. For example, if there are a 3 treatments, with treatment 1 a control and
+treatments 2 and 3 actual levels of the factor of interest to the experimenter, appropriate
+orthogonal contrasts might be as follows:
+Coefﬁcients for 
+Treatment
+Orthogonal Contrasts
+1 (control)
+2
+0
+2 (level 1)
+1
+1
+3 (level 2)
+1
+1
+Note that contrast 1 with ci  2, 1, 1 compares the average effect of the factor with the con-
+trol, whereas contrast 2 with di 0, 1, 1 compares the two levels of the factor of interest.
+Generally, the method of contrasts (or orthogonal contrasts) is useful for what are called
+preplanned comparisons. That is, the contrasts are specied prior to running the experiment
+and examining the data. The reason for this is that if comparisons are selected after examin-
+ing the data, most experimenters would construct tests that correspond to large observed dif-
+ferences in means. These large differences could be the result of the presence of real effects,
+or they could be the result of random error. If experimenters consistently pick the largest dif-
+ferences to compare, they will inate the type I error of the test because it is likely that, in an
+unusually high percentage of the comparisons selected, the observed differences will be the
+result of error. Examining the data to select comparisons of potential interest is often called
+data snooping. The Scheffe method for all comparisons, discussed in the next section, per-
+mits data snooping.
+3.5 Practical Interpretation of Results
+95
+E X A M P L E 3 . 6
+Consider the plasma etching experiment in Example 3.1.
+There are four treatment means and three degrees of free-
+dom between these treatments. Suppose that prior to run-
+ning the experiment the following set of comparisons
+among the treatment means (and their associated contrasts)
+were specied:
+Hypothesis
+Contrast
+H0 : 1 2
+C1 
+H0 : 1 2 3 4
+C2 
+H0 : 3 4
+C3 
+Notice that the contrast coefcients are orthogonal. Using
+the data in Table 3.4, we nd the numerical values of the
+contrasts and the sums of squares to be as follows:
+SSC1 (36.2)2
+1
+5 (2)
+3276.10
+C1 1(551.2) 1(587.4) 36.2
+y3. y4.
+y1. y2. y3. y4.
+y1. y2.
+These contrast sums of squares completely partition the
+treatment sum of squares. The tests on such orthogonal
+contrasts are usually incorporated in the ANOVA, as
+shown in Table 3.11. We conclude from the P-values that
+there are signicant differences in mean etch rates between
+levels 1 and 2 and between levels 3 and 4 of the power set-
+tings, and that the average of levels 1 and 2 does differ sig-
+nicantly from the average of levels 3 and 4 at the 
+0.05 level.
+SSC3 (81.6)2
+1
+5 (2)
+16,646.40
+C3 1(625.4) 1(707.6) 81.6
+SSC2 (193.8)2
+1
+5 (4)
+46,948.05
+C2 1(551.2) 1(587.4)
+1(625.4) 1(707.0) 193.8

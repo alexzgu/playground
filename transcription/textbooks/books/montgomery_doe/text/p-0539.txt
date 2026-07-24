@@ -1,0 +1,52 @@
+11.5 Experiments with Computer Models
+523
+11.5
+Experiments with Computer Models
+We customarily think of applying designed experiments to a physical process, such as chem-
+ical vapor deposition in semiconductor manufacturing, wave soldering or machining.
+However, designed experiments can also be successfully applied to computer simulation mod-
+els of physical systems. In such applications, the data from the experimental design is used to
+build a model of the system being modeled by the computer simulation—a metamodel—and
+optimization is carried out on the metamodel. The assumption is that if the computer simula-
+tion model is a faithful representation of the real system, then optimization of the model will
+result in adequate determination of the optimum conditions for the real system.
+Generally, there are two types of simulation models, stochastic and deterministic. In
+a stochastic simulation model, the output responses are random variables. Examples include
+systems simulations such as the factory planning and scheduling models used in the semicon-
+ductor industry and trafc ow simulators employed by civil engineers, and Monte Carlo sim-
+ulations that sample from probability distributions to study complex mathematical phenomena
+that do not have direct analytical solutions. Sometimes the output from a stochastic simula-
+tion model will be in the form of a time series. Often standard experimental design techniques
+can be applied to the output from a stochastic simulation model, although a number of spe-
+cialized techniques have been developed. Sometimes polynomials of higher-order than the
+usual quadratic response surface model are used.
+In a deterministic simulation model the output responses are not random variables; they
+are entirely deterministic quantities whose values are determined by the (often highly complex)
+mathematical models upon which the computer model is based. Deterministic simulation mod-
+els are often used by engineers and scientists  as computer-based design tools. Typical examples
+are circuit simulators used for designing electronic circuits and semiconductor devices, nite
+element analysis models for mechanical and structural design and computational models for
+physical phenomena such as uid dynamics. These are often very complex models, requiring
+considerable computer resources and time to run.
+As an example of a situation where a nite element analysis model may be employed,
+consider the problem of designing a turbine engine to contain a failed compressor rotor. Many
+factors may inuence the design, such as engine operating conditions as well as the location,
+size, and material properties of surrounding parts. Figure 11.33 shows a cutaway view of a typ-
+ical compressor containment model. Many parameters for each component are potentially
+important. The thickness, material type, and geometric feature (bend radius, bolt hole size and
+location, stiffening ribs or gussets, etc.) are engineering design parameters and, potentially,
+experimental factors that could be included in a response surface model. One can see that large
+numbers of factors are potentially important in the design of such a product. Furthermore, the
+sign or direction of the effect of many of these factors is unknown. For instance, setting fac-
+tors that increase the axial stiffness of a backface (such as increasing the thickness of the tran-
+sition duct) may help align a rotor fragment, centering the impact on the containment structure.
+On the other hand, the increased stiffness may nudge the fragment too much, causing it to miss
+the primary containment structure. From experience the design engineers may condently
+assume that only a small number of these potentially important factors have a signicant effect
+on the performance of the design in containing a failed part. Detailed analysis or testing of the
+turbine engine is needed to understand which factors are important and to quantify their effect
+on the design. The cost of building a prototype turbine engine frequently exceeds one million
+dollars, so studying the effects of these factors using a computer model is very attractive. The
+type of model used is called a ﬁnite element analysis model. Simulating a containment event
+with a nite element analysis model is very computationally intensive. The model shown in
+Figure 11.32 has over 100,000 elements and takes about 90 hr of computer time to model 2 ms

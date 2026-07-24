@@ -1,0 +1,142 @@
+628
+Chapter 14 ■Nested and Split-Plot Designs
+where i represents the replicate effect, j and k represent the whole-plot main effects, ijk is
+the whole-plot error, l and m represent the subplot main effects, and ijklm is the subplot error.
+We have included all interactions between the four design factors. Table 14.21 presents the
+analysis of variance for this design, assuming that replicates are random and all design fac-
+tors are xed effects. In this table,
+and 
+represent the variances of the whole-plot and
+subplot errors, respectively,
+is the variance of the block effects, and (for simplicity) we
+have used capital Latin letters to denote xed-type effects. The whole-plot main effects and
+interaction are tested against the whole-plot error, whereas the subplot factors and all other
+interactions are tested against the subplot error. If some of the design factors are random, the
+test statistics will be different. In some cases, there will be no exact F tests and Satterthwaite’s
+procedure (described in Chapter 13) should be used.
+Factorial experiments with three or more factors in a split-plot structure tend to be
+rather large experiments. On the other hand, the split-plot structure often makes it easier to
+conduct a larger experiment. For instance, in the oxide furnace example, the experimenters
+only have to change the hard-to-change factors (A and B) eight times, so perhaps a 32-run
+experiment is not too unreasonable.
+As the number of factors in the experiment grows, the experimenter may consider using
+a fractional factorial experiment in the split-plot setting. As an illustration, consider the exper-
+iment that was originally described in Problem 8.7. This is a 251 fractional factorial experi-
+ment conducted to study the effect of heat-treating process variables on the height of truck
+springs. The factors are A transfer time, B heating time, C oil quench temperature,
+D temperature, and E hold down time. Suppose that factors A, B, and C are very hard
+2
+
+2
+
+2
+
+■TA B L E 1 4 . 2 1
+An Abbreviated Analysis for a Split-Plot Design with Factors A and B in the Whole Plots and
+Factors C and D in the Subplots (Refer to Figure 14.7)
+Source of 
+Sum of
+Degrees of
+Expected 
+Variation
+Squares
+Freedom
+Mean Square
+Replicates (i)
+SSReplicates
+1
+A (j)
+SSA
+1
+B (k)
+SSB
+1
+AB
+SSAB
+1
+Whole-Plot Error (ijk)
+SSWP
+3
+C (l)
+SSC
+1
+D (m)
+SSD
+1
+CD
+SSCD
+1
+AC
+SSAC
+1
+BC
+SSBC
+1
+AD
+SSAD
+1
+BD
+SSBD
+1
+ABC
+SSABC
+1
+ABD
+SSABD
+1
+ACD
+SSACD
+1
+BCD
+SSBCD
+1
+ABCD
+SSABCD
+1
+Subplot Error (ijklm)
+SSSP
+12
+Total
+SST
+31
+2
+
+2
+ABCD
+2
+BCD
+2
+ACD
+2
+ABD
+2
+ABC
+2
+BD
+2
+AD
+2
+BC
+2
+AC
+2
+CD
+2
+D
+2
+C
+2
+82
+
+2
+82
+AB
+2
+82
+B
+2
+82
+A
+2
+162
+

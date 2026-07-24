@@ -1,0 +1,58 @@
+6.9. INTEGRATION WITH RESPECT TO L´EVY PROCESSES
+225
+as an Itˆo integral as in Chapter 3.
+We start with simple processes. Suppose At is a simple process as in
+Section 3.2.2. To be specic, suppose that times 0 ≤t0 < t1 < · · · < tn < ∞
+are given, and As = Atj t for tj ≤s < tj+1. Then, we dene
+t
+0
+As dYs =
+j−1
+
+i=0
+Ati [Yti+1 −Yti] + Atj [Yt −Ytj]
+With probability one, the paths of Yt are continuous at the times t1, , tn so
+the denition above does not care whether we choose the simple process As
+to be right continuous or left continuous. The following proposition is proved
+in the same way as Proposition 3.2.1.
+Proposition 6.9.1. SAt, ˆAt 
+Yt.
+Linearity. Ia, b , aAt +b ˆAt 
+
+t
+0
+(aAs + b ˆAs) dYs = a
+t
+0
+As dYs + b
+t
+0
+ˆAs dYs
+M, 0 < r < t,
+t
+0
+As ds =
+r
+0
+As dYs +
+t
+r
+As dYs
+Martingale property. T
+Zt =
+t
+0
+As dYs
+Ft.
+Variance rule. Zt 
+Var[Zt] = σ2E
+
+Z2
+t
+
+=
+t
+0
+E[A2
+s] ds
+Cadlag paths. W, t →Zt .

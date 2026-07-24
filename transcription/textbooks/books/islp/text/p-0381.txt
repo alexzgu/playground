@@ -1,0 +1,61 @@
+374
+9. Support Vector Machines
+−1
+0
+1
+2
+3
+−1
+0
+1
+2
+3
+−1
+0
+1
+2
+3
+−1
+0
+1
+2
+3
+X1
+X1
+X2
+X2
+FIGURE 9.5.
+Left: Two classes of observations are shown in blue and in
+purple, along with the maximal margin hyperplane. Right: An additional blue
+observation has been added, leading to a dramatic shift in the maximal margin
+hyperplane shown as a solid line. The dashed line indicates the maximal margin
+hyperplane that was obtained in the absence of this additional point.
+• Greater robustness to individual observations, and
+• Better classification of most of the training observations.
+That is, it could be worthwhile to misclassify a few training observations
+in order to do a better job in classifying the remaining observations.
+The support vector classifier, sometimes called a soft margin classifier, support
+vector
+classifier
+soft margin
+classifier
+does exactly this. Rather than seeking the largest possible margin so that
+every observation is not only on the correct side of the hyperplane but
+also on the correct side of the margin, we instead allow some observations
+to be on the incorrect side of the margin, or even the incorrect side of
+the hyperplane. (The margin is soft because it can be violated by some
+of the training observations.) An example is shown in the left-hand panel
+of Figure 9.6. Most of the observations are on the correct side of the margin.
+However, a small subset of the observations are on the wrong side of the
+margin.
+An observation can be not only on the wrong side of the margin, but also
+on the wrong side of the hyperplane. In fact, when there is no separating
+hyperplane, such a situation is inevitable. Observations on the wrong side of
+the hyperplane correspond to training observations that are misclassified by
+the support vector classifier. The right-hand panel of Figure 9.6 illustrates
+such a scenario.
+9.2.2
+Details of the Support Vector Classifier
+The support vector classifier classifies a test observation depending on
+which side of a hyperplane it lies. The hyperplane is chosen to correctly
+separate most of the training observations into the two classes, but may

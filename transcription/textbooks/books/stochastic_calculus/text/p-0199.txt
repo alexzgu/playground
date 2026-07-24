@@ -1,0 +1,44 @@
+6.3. COMPOUND POISSON PROCESS
+193
+Let Nt denote the corresponding Poisson process as in the previous
+section,
+Nt = n
+if
+T1 + · · · + Tn ≤t < T1 + · · · + Tn+1
+Let Y1, Y2, Y3, be independent random variables, independent of
+T1, T2, , with distribution function F, and let
+Sn = Y1 + · · · + Yn,
+S0 = 0
+Set Xt = SNt.
+We call the process Xt a P(CPP) starting at the
+origin.
+Let µ# denote the distribution of the random variables Yj, that is, if
+V ⊂R, then µ#(V ) = PY1 V . We set
+µ = λ µ#
+which is a measure on R with µ(R) = λ. For the usual Poisson process µ#, µ
+are just point masseson the point 1,
+µ#(1) = 1,
+µ(1) = λ,
+µ#(R \ 1) = µ(R \ 1) = 0
+The measure µ encodes both λ and µ# so we can consider µ as the parameter
+for the compound Poisson process. For any measure µ with λ = µ(R) < ∞
+there is such a process. The measure µ is called the L´for the
+process. Without loss of generality we assume that µ(0) = 0 since jumps
+of size zerodo not aect the process Xt. The construction shows that the
+increments of Xt are i.i.d., and hence Xt is a L´evy process.
+Proposition 6.3.1. SXt CPP L´µ X0 = 0.
+T
+Ψ(s) =
+∞
+−∞
+[eisx −1] dµ(x),
+Lf(x) =
+∞
+−∞
+[f(x + y) −f(x)] dµ(y)
+(6.4)
+M, 
+σ2 :=
+
+x2 dµ(x) < ∞,
+(6.5)

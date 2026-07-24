@@ -1,0 +1,53 @@
+448
+10. Deep Learning
+mnist_model ,
+mnist_dm,
+mnist_trainer ,
+mnist_module ,
+mnist_results ,
+mlr_model,
+mlr_module,
+mlr_trainer)
+10.9.3
+Convolutional Neural Networks
+In this section we fit a CNN to the CIFAR100 data, which is available in the
+torchvision package. It is arranged in a similar fashion as the MNIST data.
+In [48]: (cifar_train ,
+cifar_test) = [CIFAR100(root="data",
+train=train,
+download=True)
+for train in [True, False]]
+In [49]: transform = ToTensor()
+cifar_train_X = torch.stack([transform(x) for x in
+cifar_train.data])
+cifar_test_X = torch.stack([transform(x) for x in
+cifar_test.data])
+cifar_train = TensorDataset(cifar_train_X ,
+torch.tensor(cifar_train.targets))
+cifar_test = TensorDataset(cifar_test_X ,
+torch.tensor(cifar_test.targets))
+The CIFAR100 dataset consists of 50,000 training images, each represented
+by a three-dimensional tensor: each three-color image is represented as a
+set of three channels, each of which consists of 32 × 32 eight-bit pixels. We
+standardize as we did for the digits, but keep the array structure. This is
+accomplished with the ToTensor() transform.
+Creating the data module is similar to the MNIST example.
+In [50]: cifar_dm = SimpleDataModule(cifar_train ,
+cifar_test ,
+validation=0.2,
+num_workers=max_num_workers ,
+batch_size=128)
+We again look at the shape of typical batches in our data loaders.
+In [51]: for idx, (X_ ,Y_) in enumerate(cifar_dm.train_dataloader()):
+print('X: ', X_.shape)
+print('Y: ', Y_.shape)
+if idx >= 1:
+break
+X:
+torch.Size([128, 3, 32, 32])
+Y:
+torch.Size([128])
+X:
+torch.Size([128, 3, 32, 32])
+Y:
+torch.Size([128])

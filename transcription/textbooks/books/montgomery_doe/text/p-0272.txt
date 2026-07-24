@@ -1,0 +1,60 @@
+256
+Chapter 6 ■The 2k Factorial Design
+resources only allow a single replicate of the design to be run, unless the experimenter is
+willing to omit some of the original factors.
+An obvious risk when conducting an experiment that has only one run at each test com-
+bination is that we may be tting a model to noise. That is, if the response y is highly vari-
+able, misleading conclusions may result from the experiment. The situation is illustrated in
+Figure 6.9a. In this gure, the straight line represents the true factor effect. However, because
+of the random variability present in the response variable (represented by the shaded band),
+the experimenter actually obtains the two measured responses represented by the dark dots.
+Consequently, the estimated factor effect is close to zero, and the experimenter has reached
+an erroneous conclusion concerning this factor. Now if there is less variability in the response,
+the likelihood of an erroneous conclusion will be smaller. Another way to ensure that reliable
+effect estimates are obtained is to increase the distance between the low () and high () lev-
+els of the factor, as illustrated in Figure 6.9b. Notice that in this gure, the increased distance
+between the low and high factor levels results in a reasonable estimate of the true factor effect.
+The single-replicate strategy is often used in screening experiments when there are rel-
+atively many factors under consideration. Because we can never be entirely certain in such
+cases that the experimental error is small, a good practice in these types of experiments is to
+spread out the factor levels aggressively. You might nd it helpful to reread the guidance on
+choosing factor levels in Chapter 1.
+A single replicate of a 2k design is sometimes called an unreplicated factorial. With
+only one replicate, there is no internal estimate of error (or “pure error”). One approach to the
+analysis of an unreplicated factorial is to assume that certain high-order interactions are neg-
+ligible and combine their mean squares to estimate the error. This is an appeal to the sparsity
+of effects principle; that is, most systems are dominated by some of the main effects and low-
+order interactions, and most high-order interactions are negligible.
+While the effect sparsity principle has been observed by experimenters for many decades,
+only recently has it been studied more objectively. A paper by Li, Sudarsanam, and Frey (2006)
+studied 113 response variables obtained from 43 published experiments from a wide range of sci-
+ence and engineering disciplines. All of the experiments were full factorials with between three
+and seven factors, so no assumptions had to be made about interactions. Most of the experiments
+had either three or four factors. The authors found that about 40 percent of the main effects in
+the experiments they studied were signicant, while only about 11 percent of the two-factor inter-
+actions were signicant. Three-factor interactions were very rare, occurring only about 5 percent
+of the time. The authors also investigated the absolute values of factor effects for main effects,
+two-factor interactions, and three-factor interactions. The median of main effect strength was
+about four times larger than the median strength of two-factor interactions. The median strength
+Estimate of
+factor effect
+Factor, x
+(a) Small distance between factor levels
+Response, y
+–
++
+True
+factor
+effect
+Estimate of
+factor effect
+Factor, x
+(b) Aggressive spacing of factor levels
+Response, y
+–
++
+True
+factor
+effect
+■F I G U R E 6 . 9
+The impact of the choice of factor levels in an unreplicated design

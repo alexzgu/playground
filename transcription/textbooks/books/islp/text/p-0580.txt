@@ -1,0 +1,53 @@
+574
+13. Multiple Testing
+Therefore, we instead control the false discovery rate (FDR)15, defined false
+discovery
+rate
+as
+FDR = E(FDP) = E(V/R).
+(13.9)
+When we control the FDR at (say) level q = 20%, we are rejecting as many
+null hypotheses as possible while guaranteeing that no more than 20% of
+those rejected null hypotheses are false positives, on average.
+In the definition of the FDR in (13.9), the expectation is taken over the
+population from which the data are generated. For instance, suppose we
+control the FDR for m null hypotheses at q = 0.2. This means that if we
+repeat this experiment a huge number of times, and each time control the
+FDR at q = 0.2, then we should expect that, on average, 20% of the rejected
+null hypotheses will be false positives. On a given dataset, the fraction of
+false positives among the rejected hypotheses may be greater than or less
+than 20%.
+Thus far, we have motivated the use of the FDR from a pragmatic per-
+spective, by arguing that when m is large, controlling the FWER is simply
+too stringent, and will not lead to “enough” discoveries. An additional mo-
+tivation for the use of the FDR is that it aligns well with the way that data
+are often collected in contemporary applications. As datasets continue to
+grow in size across a variety of fields, it is increasingly common to conduct a
+huge number of hypothesis tests for exploratory, rather than confirmatory,
+purposes. For instance, a genomic researcher might sequence the genomes
+of individuals with and without some particular medical condition, and
+then, for each of 20,000 genes, test whether sequence variants in that gene
+are associated with the medical condition of interest. This amounts to per-
+forming m = 20,000 hypothesis tests. The analysis is exploratory in nature,
+in the sense that the researcher does not have any particular hypothesis
+in mind; instead she wishes to see whether there is modest evidence for
+the association between each gene and the disease, with a plan to further
+investigate any genes for which there is such evidence. She is likely willing
+to tolerate some number of false positives in the set of genes that she will
+investigate further; thus, the FWER is not an appropriate choice. How-
+ever, some correction for multiple testing is required: it would not be a
+good idea for her to simply investigate all genes with p-values less than
+(say) 0.05, since we would expect 1,000 genes to have such small p-values
+simply by chance, even if no genes are associated with the disease (since
+0.05 × 20,000 = 1,000). Controlling the FDR for her exploratory analysis
+at 20% guarantees that — on average — no more than 20% of the genes
+that she investigates further are false positives.
+It is worth noting that unlike p-values, for which a threshold of 0.05
+is typically viewed as the minimum standard of evidence for a “positive”
+result, and a threshold of 0.01 or even 0.001 is viewed as much more com-
+pelling, there is no standard accepted threshold for FDR control. Instead,
+the choice of FDR threshold is typically context-dependent, or even dataset-
+dependent. For instance, the genomic researcher in the previous example
+might seek to control the FDR at a threshold of 10% if the planned follow-
+15If R = 0, then we replace the ratio V/R with 0, to avoid computing 0/0. Formally,
+FDR = E(V/R|R > 0) Pr(R > 0).

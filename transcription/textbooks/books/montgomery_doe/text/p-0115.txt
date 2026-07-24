@@ -1,0 +1,69 @@
+When using any procedure for pairwise testing of means, we occasionally nd that the
+overall F test from the ANOVA is signicant, but the pairwise comparison of means fails to
+reveal any signicant differences. This situation occurs because the F test is simultaneously
+considering all possible contrasts involving the treatment means, not just pairwise compar-
+isons. That is, in the data at hand, the signicant contrasts may not be of the form i j.
+The derivation of the Tukey condence interval of Equation 3.36 for equal sample sizes
+is straightforward. For the studentized range statistic q, we have
+If 
+is less than or equal to q(a, f )
+, it must be true that
+for every pair of means. Therefore
+Rearranging this expression to isolate i j between the inequalities will lead to the set of
+100(1 ) percent simultaneous condence intervals given in Equation 3.38.
+The Fisher Least Signicant Difference (LSD) Method. The Fisher method for
+comparing all pairs of means controls the error rate for each individual pairwise compari-
+son but does not control the experimentwise or family error rate. This procedure uses the t sta-
+tistic for testing H0 : i j
+(3.39)
+t0 
+yi. yj.
+MSE
+1
+ni 1
+nj
+Pq(a, f )
+MSE
+n
+yi. yj. (i j) q(a, f )
+MSE
+n 1 
+( yi. i) ( yj. j)q(a, f )MSE/n
+MSE/n
+max( yi. i) min( yi. i)
+P
+max( yi. i) min(yi. i)
+MSE/n
+q(a, f )1 
+3.5 Practical Interpretation of Results
+99
+E X A M P L E 3 . 7
+To illustrate Tukey’s test, we use the data from the plasma
+etching experiment in Example 3.1. With 0.05 and f 
+16 degrees of freedom for error, Appendix Table VII gives
+q0.05(4, 16) 4.05. Therefore, from Equation 3.35,
+Thus, any pairs of treatment averages that differ in absolute
+value by more than 33.09 would imply that the correspon-
+ding pair of population means are signicantly different.
+The four treatment averages are
+y3. 625.4 y4. 707.0
+y1. 551.2 y2. 587.4
+T0.05 q0.05(4, 16)
+MSE
+n
+4.05
+333.70
+5
+33.09
+and the differences in averages are
+The starred values indicate the pairs of means that are sig-
+nicantly different. Note that the Tukey procedure indicates
+that all pairs of means differ. Therefore, each power setting
+results in a mean etch rate that differs from the mean etch
+rate at any other power setting.
+y3. y4. 625.4 707.0 81.60*
+y2. y4. 587.4 707.0 119.6*
+y2. y3. 587.4 625.4 38.0*
+y1. y4. 551.2 707.0 155.8*
+y1. y3. 551.2 625.4 74.20*
+y1. y2. 551.2 587.4 36.20*

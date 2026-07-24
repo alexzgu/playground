@@ -1,0 +1,59 @@
+4.5 A Comparison of Classification Methods
+161
+True default status
+No
+Yes
+Total
+Predicted
+No
+9339
+130
+9469
+default status
+Yes
+328
+203
+531
+Total
+9667
+333
+10000
+TABLE 4.9.
+Comparison of the naive Bayes predictions to the true default
+status for the 10, 000 training observations in the Default data set, when we
+predict default for any observation for which P(Y = default|X = x) > 0.2.
+correctly predicts a higher fraction of the true defaulters. In this implemen-
+tation of naive Bayes, we have assumed that each quantitative predictor is
+drawn from a Gaussian distribution (and, of course, that within each class,
+each predictor is independent).
+Just as with LDA, we can easily adjust the probability threshold for
+predicting a default. For example, Table 4.9 provides the confusion matrix
+resulting from predicting a default if P(Y = default|X = x) > 0.2. Again,
+the results are mixed relative to LDA with the same threshold (Table 4.5).
+Naive Bayes has a higher error rate, but correctly predicts almost two-thirds
+of the true defaults.
+In this example, it should not be too surprising that naive Bayes does
+not convincingly outperform LDA: this data set has n = 10,000 and p = 2,
+and so the reduction in variance resulting from the naive Bayes assumption
+is not necessarily worthwhile. We expect to see a greater pay-off to using
+naive Bayes relative to LDA or QDA in instances where p is larger or n is
+smaller, so that reducing the variance is very important.
+4.5
+A Comparison of Classification Methods
+4.5.1
+An Analytical Comparison
+We now perform an analytical (or mathematical) comparison of LDA, QDA,
+naive Bayes, and logistic regression. We consider these approaches in a
+setting with K classes, so that we assign an observation to the class that
+maximizes Pr(Y = k|X = x). Equivalently, we can set K as the baseline
+class and assign an observation to the class that maximizes
+log
+* Pr(Y = k|X = x)
+Pr(Y = K|X = x)
++
+(4.31)
+for k = 1, . . . , K. Examining the specific form of (4.31) for each method
+provides a clear understanding of their similarities and differences.
+First, for LDA, we can make use of Bayes’ theorem (4.15) as well as
+the assumption that the predictors within each class are drawn from a
+multivariate normal density (4.23) with class-specific mean and shared co-

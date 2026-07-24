@@ -1,0 +1,35 @@
+216
+CHAPTER 6. JUMP PROCESSES
+Then if Mn = M ϵn, by the Borel-Cantelli lemma, with probability
+one, for all n suciently large Mn ≤1n and this inequality implies
+that for all t,
+lim sup
+qt
+Yq+ −lim
+qt Y ϵn
+q+
+≤1
+n
+Similar estimates hold for the liminf and for limits from the left.
+We now dene Yt for all t by Yt = Yt+, and then the paths of Yt are
+cadlag.
+6.8
+The L´evy-Khinchin characterization
+The next theorem tells us that all L´evy processes can be given as independent
+sums of the processes we have described.
+Theorem 6.8.1. SXt L´X0 = 0. TXt 
+
+Xt = m t + σ Bt + Ct + Yt,
+(6.23)
+m R, σ ≥0, Bt, Ct, Yt :
+Bt B,
+Ct PL´µC 
+µCx≤1= 0,
+µC(R) = µCx> 1< ∞,
+Yt PL´µY
+
+µY (0) = 0,
+µY x> 1= 0,
+∞
+−∞
+x2 dµY (x) < ∞

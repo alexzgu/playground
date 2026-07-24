@@ -1,0 +1,97 @@
+238
+Chapter 6 ■The 2k Factorial Design
+Note that the contrast coefcients for estimating the interaction effect are just the product of
+the corresponding coefcients for the two main effects. The contrast coefcient is always
+either 1 or 1, and a table of plus and minus signs such as in Table 6.2 can be used to
+determine the proper sign for each treatment combination. The column headings in Table 6.2
+are the main effects (A and B), the AB interaction, and I, which represents the total or aver-
+age of the entire experiment. Notice that the column corresponding to I has only plus signs.
+The row designators are the treatment combinations. To nd the contrast for estimating any
+effect, simply multiply the signs in the appropriate column of the table by the corresponding
+treatment combination and add. For example, to estimate A, the contrast is (1) a b ab,
+which agrees with Equation 6.1. Note that the contrasts for the effects A, B, and AB are
+orthogonal. Thus, the 22 (and all 2k designs) is an orthogonal design. The 1 coding for the
+low and high levels of the factors is often called the orthogonal coding or the effects coding.
+The Regression Model. In a 2k factorial design, it is easy to express the results of the
+experiment in terms of a regression model. Because the 2k is just a factorial design, we could
+also use either an effects or a means model, but the regression model approach is much more nat-
+ural and intuitive. For the chemical process experiment in Figure 6.1, the regression model is
+where x1 is a coded variable that represents the reactant concentration, x2 is a coded variable
+that represents the amount of catalyst, and the ’s are regression coefcients. The relationship
+between the natural variables, the reactant concentration and the amount of catalyst, and the
+coded variables is
+and
+x2 
+Catalyst (Catalystlow Catalysthigh)/2
+(Catalysthigh Catalystlow)/2
+x1 
+Conc (Conclow Conchigh)/2
+(Conchigh Conclow)/2
+y 0 1x1 2x2 
+■TA B L E 6 . 1
+Analysis of Variance for the Experiment in Figure 6.1
+Source of
+Sum of
+Degrees of
+Mean
+Variation
+Squares
+Freedom
+Square
+Fq
+P-Value
+A
+208.33
+1
+208.33
+53.15
+0.0001
+B
+75.00
+1
+75.00
+19.13
+0.0024
+AB
+8.33
+1
+8.33
+2.13
+0.1826
+Error
+31.34
+8
+3.92
+Total
+323.00
+11 
+■TA B L E 6 . 2
+Algebraic Signs for Calculating Effects in 
+the 22 Design
+Treatment
+Factorial Effect
+Combination
+I
+A
+B
+AB
+(1)
+
+
+
+
+a
+
+
+
+
+b
+
+
+
+
+ab
+
+
+
+

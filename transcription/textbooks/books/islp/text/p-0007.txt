@@ -1,0 +1,158 @@
+Contents
+xi
+5
+Resampling Methods
+201
+5.1
+Cross-Validation . . . . . . . . . . . . . . . . . . . . . . . .
+202
+5.1.1
+The Validation Set Approach
+. . . . . . . . . . . .
+202
+5.1.2
+Leave-One-Out Cross-Validation
+. . . . . . . . . .
+204
+5.1.3
+k-Fold Cross-Validation
+. . . . . . . . . . . . . . .
+206
+5.1.4
+Bias-Variance Trade-Off for k-Fold
+Cross-Validation
+. . . . . . . . . . . . . . . . . . .
+208
+5.1.5
+Cross-Validation on Classification Problems . . . .
+209
+5.2
+The Bootstrap . . . . . . . . . . . . . . . . . . . . . . . . .
+212
+5.3
+Lab: Cross-Validation and the Bootstrap
+. . . . . . . . . .
+215
+5.3.1
+The Validation Set Approach
+. . . . . . . . . . . .
+216
+5.3.2
+Cross-Validation
+. . . . . . . . . . . . . . . . . . .
+217
+5.3.3
+The Bootstrap
+. . . . . . . . . . . . . . . . . . . .
+220
+5.4
+Exercises . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+224
+6
+Linear Model Selection and Regularization
+229
+6.1
+Subset Selection . . . . . . . . . . . . . . . . . . . . . . . .
+231
+6.1.1
+Best Subset Selection . . . . . . . . . . . . . . . . .
+231
+6.1.2
+Stepwise Selection
+. . . . . . . . . . . . . . . . . .
+233
+6.1.3
+Choosing the Optimal Model
+. . . . . . . . . . . .
+235
+6.2
+Shrinkage Methods
+. . . . . . . . . . . . . . . . . . . . . .
+240
+6.2.1
+Ridge Regression . . . . . . . . . . . . . . . . . . .
+240
+6.2.2
+The Lasso . . . . . . . . . . . . . . . . . . . . . . .
+244
+6.2.3
+Selecting the Tuning Parameter . . . . . . . . . . .
+252
+6.3
+Dimension Reduction Methods . . . . . . . . . . . . . . . .
+253
+6.3.1
+Principal Components Regression . . . . . . . . . .
+254
+6.3.2
+Partial Least Squares . . . . . . . . . . . . . . . . .
+260
+6.4
+Considerations in High Dimensions
+. . . . . . . . . . . . .
+262
+6.4.1
+High-Dimensional Data . . . . . . . . . . . . . . . .
+262
+6.4.2
+What Goes Wrong in High Dimensions? . . . . . .
+263
+6.4.3
+Regression in High Dimensions
+. . . . . . . . . . .
+265
+6.4.4
+Interpreting Results in High Dimensions . . . . . .
+266
+6.5
+Lab: Linear Models and Regularization Methods . . . . . .
+267
+6.5.1
+Subset Selection Methods
+. . . . . . . . . . . . . .
+268
+6.5.2
+Ridge Regression and the Lasso . . . . . . . . . . .
+273
+6.5.3
+PCR and PLS Regression
+. . . . . . . . . . . . . .
+280
+6.6
+Exercises . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+283
+7
+Moving Beyond Linearity
+289
+7.1
+Polynomial Regression . . . . . . . . . . . . . . . . . . . . .
+290
+7.2
+Step Functions . . . . . . . . . . . . . . . . . . . . . . . . .
+292
+7.3
+Basis Functions
+. . . . . . . . . . . . . . . . . . . . . . . .
+293
+7.4
+Regression Splines . . . . . . . . . . . . . . . . . . . . . . .
+294
+7.4.1
+Piecewise Polynomials . . . . . . . . . . . . . . . .
+294
+7.4.2
+Constraints and Splines
+. . . . . . . . . . . . . . .
+296
+7.4.3
+The Spline Basis Representation
+. . . . . . . . . .
+296
+7.4.4
+Choosing the Number and Locations
+of the Knots . . . . . . . . . . . . . . . . . . . . . .
+297
+7.4.5
+Comparison to Polynomial Regression
+. . . . . . .
+299

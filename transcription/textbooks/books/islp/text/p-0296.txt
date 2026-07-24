@@ -1,0 +1,4 @@
+288
+6. Linear Model Selection and Regularization
+(c) Does your chosen model involve all of the features in the data
+set? Why or why not?

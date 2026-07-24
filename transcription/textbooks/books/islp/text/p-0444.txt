@@ -1,0 +1,49 @@
+10.9 Lab: Deep Learning
+437
+In [7]: from ISLP.torch import (SimpleDataModule ,
+SimpleModule ,
+ErrorTracker ,
+rec_num_workers)
+In addition we have included some helper functions to load the IMDb
+database, as well as a lookup that maps integers to particular keys in the
+database. We’ve included a slightly modified copy of the preprocessed IMDb
+data from keras, a separate package for fitting deep learning models. This keras
+saves us significant preprocessing and allows us to focus on specifying and
+fitting the models themselves.
+In [8]: from ISLP.torch.imdb import (load_lookup ,
+load_tensor ,
+load_sparse ,
+load_sequential)
+Finally, we introduce some utility imports not directly related to torch.
+The glob() function from the glob module is used to find all files matching glob()
+wildcard characters, which we will use in our example applying the ResNet50
+model to some of our own images. The json module will be used to load a json
+JSON file for looking up classes to identify the labels of the pictures in the
+ResNet50 example.
+In [9]: from glob import glob
+import json
+10.9.1
+Single Layer Network on Hitters Data
+We start by fitting the models in Section 10.6 on the Hitters data.
+In [10]: Hitters = load_data('Hitters').dropna()
+n = Hitters.shape[0]
+We will fit two linear models (least squares and lasso) and compare their
+performance to that of a neural network. For this comparison we will use
+mean absolute error on a validation dataset.
+MAE(y, ˆy) = 1
+n
+n
+0
+i=1
+|yi −ˆyi|.
+We set up the model matrix and the response.
+In [11]: model = MS(Hitters.columns.drop('Salary'), intercept=False)
+X = model.fit_transform(Hitters).to_numpy()
+Y = Hitters['Salary'].to_numpy()
+The to_numpy() method above converts pandas data frames or series to to_numpy()
+numpy arrays. We do this because we will need to use sklearn to fit the
+lasso model, and it requires this conversion. We also use a linear regres-
+sion method from sklearn, rather than the method in Chapter 3 from
+statsmodels, to facilitate the comparisons.
+We now split the data into test and training, fixing the random state
+used by sklearn to do the split.

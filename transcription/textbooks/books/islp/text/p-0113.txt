@@ -1,0 +1,82 @@
+104
+3. Linear Regression
+−2
+−1
+0
+1
+2
+−4
+−2
+0
+2
+4
+6
+20
+−2
+0
+2
+4
+6
+−1
+0
+1
+2
+3
+4
+Fitted Values
+Residuals
+20
+−2
+0
+2
+4
+6
+0
+2
+4
+6
+Fitted Values
+Studentized Residuals
+20
+X
+Y
+FIGURE 3.12. Left: The least squares regression line is shown in red, and the
+regression line after removing the outlier is shown in blue. Center: The residual
+plot clearly identifies the outlier. Right: The outlier has a studentized residual of
+6; typically we expect values between −3 and 3.
+model. Outliers can arise for a variety of reasons, such as incorrect recording
+of an observation during data collection.
+The red point (observation 20) in the left-hand panel of Figure 3.12
+illustrates a typical outlier. The red solid line is the least squares regression
+fit, while the blue dashed line is the least squares fit after removal of the
+outlier. In this case, removing the outlier has little effect on the least squares
+line: it leads to almost no change in the slope, and a miniscule reduction
+in the intercept. It is typical for an outlier that does not have an unusual
+predictor value to have little effect on the least squares fit. However, even
+if an outlier does not have much effect on the least squares fit, it can cause
+other problems. For instance, in this example, the RSE is 1.09 when the
+outlier is included in the regression, but it is only 0.77 when the outlier
+is removed. Since the RSE is used to compute all confidence intervals and
+p-values, such a dramatic increase caused by a single data point can have
+implications for the interpretation of the fit. Similarly, inclusion of the
+outlier causes the R2 to decline from 0.892 to 0.805.
+Residual plots can be used to identify outliers. In this example, the out-
+lier is clearly visible in the residual plot illustrated in the center panel of
+Figure 3.12. But in practice, it can be difficult to decide how large a resid-
+ual needs to be before we consider the point to be an outlier. To address
+this problem, instead of plotting the residuals, we can plot the studentized
+residuals, computed by dividing each residual ei by its estimated standard studentized
+residual
+error. Observations whose studentized residuals are greater than 3 in abso-
+lute value are possible outliers. In the right-hand panel of Figure 3.12, the
+outlier’s studentized residual exceeds 6, while all other observations have
+studentized residuals between −2 and 2.
+If we believe that an outlier has occurred due to an error in data collec-
+tion or recording, then one solution is to simply remove the observation.
+However, care should be taken, since an outlier may instead indicate a
+deficiency with the model, such as a missing predictor.
+5. High Leverage Points
+We just saw that outliers are observations for which the response yi is
+unusual given the predictor xi. In contrast, observations with high leverage high
+leverage
+have an unusual value for xi. For example, observation 41 in the left-hand

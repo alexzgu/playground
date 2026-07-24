@@ -1,0 +1,50 @@
+10.9 Lab: Deep Learning
+449
+Before we start, we look at some of the training images; similar code
+produced Figure 10.5 on page 406. The example below also illustrates that
+TensorDataset objects can be indexed with integers — we are choosing ran-
+dom images from the training data by indexing cifar_train. In order to dis-
+play correctly, we must reorder the dimensions by a call to np.transpose().
+In [52]: fig, axes = subplots(5, 5, figsize=(10,10))
+rng = np.random.default_rng(4)
+indices = rng.choice(np.arange(len(cifar_train)), 25,
+replace=False).reshape((5,5))
+for i in range(5):
+for j in range(5):
+idx = indices[i,j]
+axes[i,j].imshow(np.transpose(cifar_train[idx][0],
+[1,2,0]),
+interpolation=None)
+axes[i,j].set_xticks([])
+axes[i,j].set_yticks([])
+Here the imshow() method recognizes from the shape of its argument that .imshow()
+it is a 3-dimensional array, with the last dimension indexing the three RGB
+color channels.
+We specify a moderately-sized CNN for demonstration purposes, simi-
+lar in structure to Figure 10.8. We use several layers, each consisting of
+convolution, ReLU, and max-pooling steps. We first define a module that
+defines one of these layers. As in our previous examples, we overwrite the
+__init__() and forward() methods of nn.Module. This user-defined module
+can now be used in ways just like nn.Linear() or nn.Dropout().
+In [53]: class BuildingBlock(nn.Module):
+def __init__(self,
+in_channels ,
+out_channels):
+super(BuildingBlock , self).__init__()
+self.conv = nn.Conv2d(in_channels=in_channels ,
+out_channels=out_channels ,
+kernel_size=(3,3),
+padding='same')
+self.activation = nn.ReLU()
+self.pool = nn.MaxPool2d(kernel_size=(2,2))
+def forward(self, x):
+return self.pool(self.activation(self.conv(x)))
+Notice that we used the padding = "same" argument to nn.Conv2d(),
+which ensures that the output channels have the same dimension as the
+input channels. There are 32 channels in the first hidden layer, in contrast
+to the three channels in the input layer. We use a 3 × 3 convolution fil-
+ter for each channel in all the layers. Each convolution is followed by a
+max-pooling layer over 2 × 2 blocks.
+In forming our deep learning model for the CIFAR100 data, we use several
+of our BuildingBlock() modules sequentially. This simple example illus-
+trates some of the power of torch. Users can define modules of their own,

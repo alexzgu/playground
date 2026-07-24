@@ -1,0 +1,50 @@
+180
+4. Classification
+The LDA output indicates that ˆπDown = 0.492 and ˆπUp = 0.508.
+In [26]: lda.priors_
+Out[26]: array([0.492, 0.508])
+The linear discriminant vectors can be found in the scalings_ attribute:
+In [27]: lda.scalings_
+Out[27]: array([[-0.642],
+[-0.513]])
+These values provide the linear combination of Lag1 and Lag2 that are used
+to form the LDA decision rule. In other words, these are the multipliers of
+the elements of X = x in (4.24). If −0.64 × Lag1 −0.51 × Lag2 is large,
+then the LDA classifier will predict a market increase, and if it is small,
+then the LDA classifier will predict a market decline.
+In [28]: lda_pred = lda.predict(X_test)
+As we observed in our comparison of classification methods (Section 4.5),
+the LDA and logistic regression predictions are almost identical.
+In [29]: confusion_table(lda_pred, L_test)
+Out[29]:
+Truth
+Down
+Up
+Predicted
+Down
+35
+35
+Up
+76
+106
+We can also estimate the probability of each class for each point in a
+training set. Applying a 50% threshold to the posterior probabilities of be-
+ing in class one allows us to recreate the predictions contained in lda_pred.
+In [30]: lda_prob = lda.predict_proba(X_test)
+np.all(
+np.where(lda_prob[:,1] >= 0.5, 'Up','Down') == lda_pred
+)
+Out[30]: True
+Above, we used the np.where() function that creates an array with value np.where()
+'Up' for indices where the second column of lda_prob (the estimated poste-
+rior probability of 'Up') is greater than 0.5. For problems with more than
+two classes the labels are chosen as the class whose posterior probability is
+highest:
+In [31]: np.all(
+[lda.classes_[i] for i in np.argmax(lda_prob, 1)] ==
+lda_pred
+)
+Out[31]: True
+If we wanted to use a posterior probability threshold other than 50% in
+order to make predictions, then we could easily do so. For instance, suppose
+that we wish to predict a market decrease only if we are very certain that the

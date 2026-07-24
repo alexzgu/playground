@@ -1,0 +1,63 @@
+where 
+and 
+are the two sample variances. This result follows directly from Equations 2.15
+and 2.20.
+2.4
+Inferences About the Differences in 
+Means, Randomized Designs
+We are now ready to return to the Portland cement mortar problem posed in Section 2.1. Recall
+that two different formulations of mortar were being investigated to determine if they differ in
+tension bond strength. In this section we discuss how the data from this simple comparative
+experiment can be analyzed using hypothesis testing and conﬁdence interval procedures for
+comparing two treatment means.
+Throughout this section we assume that a completely randomized experimental
+design is used. In such a design, the data are usually viewed as if they were a random sample
+from a normal distribution.
+2.4.1
+Hypothesis Testing
+We now reconsider the Portland cement experiment introduced in Section 2.1. Recall that we
+are interested in comparing the strength of two different formulations: an unmodied mortar
+and a modied mortar. In general, we can think of these two formulations as two levels of the
+factor “formulations.” Let y11, y12, . . . ,
+represent the n1 observations from the rst factor
+level and y21, y22, . . . ,
+represent the n2 observations from the second factor level. We
+assume that the samples are drawn at random from two independent normal populations.
+Figure 2.9 illustrates the situation.
+A Model for the Data. We often describe the results of an experiment with a model.
+A simple statistical model that describes the data from an experiment such as we have just
+described is
+(2.23)
+where yij is the jth observation from factor level i, i is the mean of the response at the ith fac-
+tor level, and ij is a normal random variable associated with the ijth observation. We assume
+
+yij i ij
+i 1, 2
+j 1, 2, . . . , ni
+y2n2
+y1n1
+S2
+2
+S2
+1
+36
+Chapter 2 ■Simple Comparative Experiments
+x
+Probability density
+0
+2
+4
+6
+ 8 
+0
+0.2
+0.4
+0.6
+0.8
+1
+u = 4, v = 10   
+u = 4, v = 30
+u = 10, v = 10
+u = 10, v = 30
+■F I G U R E 2 . 8
+Several F distributions

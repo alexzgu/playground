@@ -1,0 +1,71 @@
+2.2. MULTIVARIATE NORMAL DISTRIBUTION
+39
+Clearly E[Xj] = mj. Let us consider the case of mean-zero (also called
+) joint normals, in which case the equation above can be written in
+matrix form
+X = A Z,
+where
+X =
+
+
+
+
+
+X1
+X2
+...
+Xn
+
+
+
+
+,
+Z =
+
+
+
+
+
+Z1
+Z2
+...
+Zm
+
+
+
+
+,
+and A is the n × m matrix with entries ajk. Each Xj is a normal random
+variable with mean zero and variance
+E[X2
+j ] = a2
+j1 + · · · + a2
+jm
+More generally, the covariance of Xj and Xk is given by
+Cov(Xj, Xk) = E[XjXk] =
+m
+
+l=1
+ajlakl
+Let Γ = AAT be the n × n matrix whose entries are
+Γjk = E[XjXk]
+Then Γ is called the .
+We list some important properties. Assume (X1, , Xn) has a joint nor-
+mal distribution with mean zero and covariance matrix Γ.
+Each Xj has a normal distribution. In fact, if b1, , bn are constants,
+then
+b1 X1 + · · · + bn Xn,
+has a normal distribution. We can see this easily since we can write
+the sum above as a linear combination of the independent normals
+Z1, , Zm.
+The matrix Γ is symmetric, Γjk = Γkj. Moreover, it is -
+which means that if b = (b1, , bn) is a vector in Rn, then
+b · Γb =
+n
+
+j=1
+n
+
+k=1
+Γjkbjbk ≥0
+(2.1)

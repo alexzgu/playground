@@ -1,0 +1,47 @@
+6
+1. Introduction
+developed by statisticians and computer scientists to an essential toolkit
+for a much broader community.
+This Book
+The Elements of Statistical Learning (ESL) by Hastie, Tibshirani, and
+Friedman was first published in 2001. Since that time, it has become an
+important reference on the fundamentals of statistical machine learning.
+Its success derives from its comprehensive and detailed treatment of many
+important topics in statistical learning, as well as the fact that (relative to
+many upper-level statistics textbooks) it is accessible to a wide audience.
+However, the greatest factor behind the success of ESL has been its topical
+nature. At the time of its publication, interest in the field of statistical
+learning was starting to explode. ESL provided one of the first accessible
+and comprehensive introductions to the topic.
+Since ESL was first published, the field of statistical learning has con-
+tinued to flourish. The field’s expansion has taken two forms. The most
+obvious growth has involved the development of new and improved statis-
+tical learning approaches aimed at answering a range of scientific questions
+across a number of fields. However, the field of statistical learning has
+also expanded its audience. In the 1990s, increases in computational power
+generated a surge of interest in the field from non-statisticians who were
+eager to use cutting-edge statistical tools to analyze their data. Unfortu-
+nately, the highly technical nature of these approaches meant that the user
+community remained primarily restricted to experts in statistics, computer
+science, and related fields with the training (and time) to understand and
+implement them.
+In recent years, new and improved software packages have significantly
+eased the implementation burden for many statistical learning methods.
+At the same time, there has been growing recognition across a number of
+fields, from business to health care to genetics to the social sciences and
+beyond, that statistical learning is a powerful tool with important practical
+applications. As a result, the field has moved from one of primarily academic
+interest to a mainstream discipline, with an enormous potential audience.
+This trend will surely continue with the increasing availability of enormous
+quantities of data and the software to analyze it.
+The purpose of An Introduction to Statistical Learning (ISL) is to facili-
+tate the transition of statistical learning from an academic to a mainstream
+field. ISL is not intended to replace ESL, which is a far more comprehen-
+sive text both in terms of the number of approaches considered and the
+depth to which they are explored. We consider ESL to be an important
+companion for professionals (with graduate degrees in statistics, machine
+learning, or related fields) who need to understand the technical details
+behind statistical learning approaches. However, the community of users of
+statistical learning techniques has expanded to include individuals with a
+wider range of interests and backgrounds. Therefore, there is a place for a
+less technical and more accessible version of ESL.

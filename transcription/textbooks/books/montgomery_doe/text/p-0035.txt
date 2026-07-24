@@ -1,0 +1,52 @@
+experimental designs, and it can ultimately be used as a guide for selecting an appro-
+priate experimental design for a wide variety of problems.
+There are also several interactive statistical software packages that support this
+phase of experimental design. The experimenter can enter information about the num-
+ber of factors, levels, and ranges, and these programs will either present a selection of
+designs for consideration or recommend a particular design. (We usually prefer to see
+several alternatives instead of relying entirely on a computer recommendation in most
+cases.) Most software packages also provide some diagnostic information about how
+each design will perform. This is useful in evaluation of different design alternatives for
+the experiment. These programs will usually also provide a worksheet (with the order
+of the runs randomized) for use in conducting the experiment.
+Design selection also involves thinking about and selecting a tentative empirical
+model to describe the results. The model is just a quantitative relationship (equation)
+between the response and the important design factors. In many cases, a low-order
+polynomial model will be appropriate. A ﬁrst-order model in two variables is 
+where y is the response, the x’s are the design factors, the ’s are unknown parame-
+ters that will be estimated from the data in the experiment, and 
+is a random error
+term that accounts for the experimental error in the system that is being studied. The
+rst-order model is also sometimes called a main effects model. First-order models
+are used extensively in screening or characterization experiments. A common exten-
+sion of the rst-order model is to add an interaction term, say
+where the cross-product term x1x2 represents the two-factor interaction between the
+design factors. Because interactions between factors is relatively common, the rst-
+order model with interaction is widely used. Higher-order interactions can also be
+included in experiments with more than two factors if necessary. Another widely used
+model is the second-order model
+Second-order models are often used in optimization experiments.
+In selecting the design, it is important to keep the experimental objectives in
+mind. In many engineering experiments, we already know at the outset that some of
+the factor levels will result in different values for the response. Consequently, we are
+interested in identifying which factors cause this difference and in estimating the mag-
+nitude of the response change. In other situations, we may be more interested in ver-
+ifying uniformity. For example, two production conditions A and B may be compared,
+A being the standard and B being a more cost-effective alternative. The experimenter
+will then be interested in demonstrating that, say, there is no difference in yield
+between the two conditions.
+5. Performing the experiment. When running the experiment, it is vital to monitor
+the process carefully to ensure that everything is being done according to plan.
+Errors in experimental procedure at this stage will usually destroy experimental
+validity. One of the most common mistakes that I have encountered is that the peo-
+ple conducting the experiment failed to set the variables to the proper levels on
+some runs. Someone should be assigned to check factor settings before each run.
+Up-front planning to prevent mistakes like this is crucial to success. It is easy to
+y 0 1x1 2x2 12x1x2 11x2
+11 22x2
+2 
+y 0 1x1 2x2 12x1x2 
+
+y 0 1x1 2x2 
+1.4 Guidelines for Designing Experiments
+19

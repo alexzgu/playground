@@ -1,0 +1,27 @@
+596
+13. Multiple Testing
+These data represent each fund manager’s percentage returns for each
+of n = 20 months. We wish to test the null hypothesis that each
+fund manager’s percentage returns have population mean equal to
+zero. Notice that we simulated the data in such a way that each fund
+manager’s percentage returns do have population mean zero; in other
+words, all m null hypotheses are true.
+(a) Conduct a one-sample t-test for each fund manager, and plot a
+histogram of the p-values obtained.
+(b) If we control Type I error for each null hypothesis at level α =
+0.05, then how many null hypotheses do we reject?
+(c) If we control the FWER at level 0.05, then how many null hy-
+potheses do we reject?
+(d) If we control the FDR at level 0.05, then how many null hy-
+potheses do we reject?
+(e) Now suppose we “cherry-pick” the 10 fund managers who per-
+form the best in our data. If we control the FWER for just these
+10 fund managers at level 0.05, then how many null hypothe-
+ses do we reject? If we control the FDR for just these 10 fund
+managers at level 0.05, then how many null hypotheses do we
+reject?
+(f) Explain why the analysis in (e) is misleading.
+Hint: The standard approaches for controlling the FWER and
+FDR assume that all tested null hypotheses are adjusted for mul-
+tiplicity, and that no “cherry-picking” of the smallest p-values
+has occurred. What goes wrong if we cherry-pick?

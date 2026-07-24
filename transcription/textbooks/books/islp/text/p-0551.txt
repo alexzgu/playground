@@ -1,0 +1,45 @@
+12.5 Lab: Unsupervised Learning
+545
+dendrogram(linkage_comp ,
+ax=ax,
+**cargs);
+We may want to color branches of the tree above and below a cut-
+threshold differently. This can be achieved by changing the color_threshold.
+Let’s cut the tree at a height of 4, coloring links that merge above 4 in black.
+In [42]: fig, ax = plt.subplots(1, 1, figsize=(8, 8))
+dendrogram(linkage_comp ,
+ax=ax,
+color_threshold=4,
+above_threshold_color='black');
+To determine the cluster labels for each observation associated with a
+given cut of the dendrogram, we can use the cut_tree() function from cut_tree()
+scipy.cluster.hierarchy:
+In [43]: cut_tree(linkage_comp , n_clusters=4).T
+Out[43]: array([[0, 1, 0, 0, 1, 1, 0, 1, 0, 0, 2, 0, 0, 0, 1, 1, 0, 0, 1,
+0, 0, 2, 0, 2, 2, 3, 2, 3, 3, 3, 3, 2, 3, 3, 3, 3, 2, 3,
+3, 3, 3, 2, 3, 3, 3, 3, 3, 3, 3, 3]])
+This can also be achieved by providing an argument n_clusters to HClust();
+however each cut would require recomputing the clustering. Similarly, trees
+may be cut by distance threshold with an argument of distance_threshold
+to HClust() or height to cut_tree().
+In [44]: cut_tree(linkage_comp , height=5)
+Out[44]: array([[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,
+0, 0, 1, 0, 1, 1, 2, 1, 2, 2, 2, 2, 1, 2, 2, 2, 2, 1, 2,
+2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2]])
+To scale the variables before performing hierarchical clustering of the
+observations, we use StandardScaler() as in our PCA example:
+In [45]: scaler = StandardScaler()
+X_scale = scaler.fit_transform(X)
+hc_comp_scale = HClust(distance_threshold=0,
+n_clusters=None,
+linkage='complete').fit(X_scale)
+linkage_comp_scale = compute_linkage(hc_comp_scale)
+fig, ax = plt.subplots(1, 1, figsize=(8, 8))
+dendrogram(linkage_comp_scale , ax=ax, **cargs)
+ax.set_title("Hierarchical Clustering with Scaled Features");
+Correlation-based distances between observations can be used for clus-
+tering. The correlation between two observations measures the similarity
+of their feature values.10 With n observations, the n × n correlation matrix
+10Suppose each observation has p features, each a single numerical value. We measure
+the similarity of two such observations by computing the correlation of these p pairs of
+numbers.

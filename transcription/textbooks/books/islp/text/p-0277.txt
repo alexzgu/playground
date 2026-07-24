@@ -1,0 +1,49 @@
+6.5 Lab: Linear Models and Regularization Methods
+269
+We need to estimate the residual variance σ2, which is the first argument
+in our scoring function above. We will fit the biggest model, using all the
+variables, and estimate σ2 based on its MSE.
+In [6]: design = MS(Hitters.columns.drop('Salary')).fit(Hitters)
+Y = np.array(Hitters['Salary'])
+X = design.transform(Hitters)
+sigma2 = OLS(Y,X).fit().scale
+The function sklearn_selected() expects a scorer with just three argu-
+ments — the last three in the definition of nCp() above. We use the function
+partial() first seen in Section 5.3.3 to freeze the first argument with our
+estimate of σ2.
+In [7]: neg_Cp = partial(nCp, sigma2)
+We can now use neg_Cp() as a scorer for model selection.
+Along with a score we need to specify the search strategy. This is done
+through the object Stepwise() in the ISLP.models package. The method
+Stepwise.first_peak() runs forward stepwise until any further additions
+to the model do not result in an improvement in the evaluation score.
+Similarly, the method Stepwise.fixed_steps() runs a fixed number of steps
+of stepwise search.
+In [8]: strategy = Stepwise.first_peak(design,
+direction='forward',
+max_terms=len(design.terms))
+We now fit a linear regression model with Salary as outcome using for-
+ward selection. To do so, we use the function sklearn_selected() from the sklearn_
+selected()
+ISLP.models package. This takes a model from statsmodels along with a
+search strategy and selects a model with its fit method. Without specify-
+ing a scoring argument, the score defaults to MSE, and so all 19 variables
+will be selected (output not shown).
+In [9]: hitters_MSE = sklearn_selected(OLS,
+strategy)
+hitters_MSE.fit(Hitters, Y)
+hitters_MSE.selected_state_
+Using neg_Cp results in a smaller model, as expected, with just 10 vari-
+ables selected.
+In [10]: hitters_Cp = sklearn_selected(OLS,
+strategy,
+scoring=neg_Cp)
+hitters_Cp.fit(Hitters, Y)
+hitters_Cp.selected_state_
+Out[10]: ('Assists',
+'AtBat',
+'CAtBat',
+'CRBI',
+'CRuns',
+'CWalks',
+'Division',

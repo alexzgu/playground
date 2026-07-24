@@ -1,0 +1,54 @@
+88
+3. Linear Regression
+Three: Model Fit
+Two of the most common numerical measures of model fit are the RSE and
+R2, the fraction of variance explained. These quantities are computed and
+interpreted in the same fashion as for simple linear regression.
+Recall that in simple regression, R2 is the square of the correlation of the
+response and the variable. In multiple linear regression, it turns out that it
+equals Cor(Y, ˆY )2, the square of the correlation between the response and
+the fitted linear model; in fact one property of the fitted linear model is
+that it maximizes this correlation among all possible linear models.
+An R2 value close to 1 indicates that the model explains a large por-
+tion of the variance in the response variable. As an example, we saw in
+Table 3.6 that for the Advertising data, the model that uses all three ad-
+vertising media to predict sales has an R2 of 0.8972. On the other hand,
+the model that uses only TV and radio to predict sales has an R2 value
+of 0.89719. In other words, there is a small increase in R2 if we include
+newspaper advertising in the model that already contains TV and radio
+advertising, even though we saw earlier that the p-value for newspaper ad-
+vertising in Table 3.4 is not significant. It turns out that R2 will always
+increase when more variables are added to the model, even if those vari-
+ables are only weakly associated with the response. This is due to the fact
+that adding another variable always results in a decrease in the residual
+sum of squares on the training data (though not necessarily the testing
+data). Thus, the R2 statistic, which is also computed on the training data,
+must increase. The fact that adding newspaper advertising to the model
+containing only TV and radio advertising leads to just a tiny increase in
+R2 provides additional evidence that newspaper can be dropped from the
+model. Essentially, newspaper provides no real improvement in the model
+fit to the training samples, and its inclusion will likely lead to poor results
+on independent test samples due to overfitting.
+By contrast, the model containing only TV as a predictor had an R2 of
+0.61 (Table 3.2). Adding radio to the model leads to a substantial improve-
+ment in R2. This implies that a model that uses TV and radio expenditures
+to predict sales is substantially better than one that uses only TV advertis-
+ing. We could further quantify this improvement by looking at the p-value
+for the radio coefficient in a model that contains only TV and radio as
+predictors.
+The model that contains only TV and radio as predictors has an RSE
+of 1.681, and the model that also contains newspaper as a predictor has
+an RSE of 1.686 (Table 3.6). In contrast, the model that contains only TV
+has an RSE of 3.26 (Table 3.2). This corroborates our previous conclusion
+that a model that uses TV and radio expenditures to predict sales is much
+more accurate (on the training data) than one that only uses TV spending.
+Furthermore, given that TV and radio expenditures are used as predictors,
+there is no point in also using newspaper spending as a predictor in the
+model. The observant reader may wonder how RSE can increase when
+newspaper is added to the model given that RSS must decrease. In general
+RSE is defined as
+RSE =
+9
+1
+n −p −1RSS,
+(3.25)

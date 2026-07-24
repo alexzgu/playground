@@ -1,0 +1,52 @@
+13.4 The False Discovery Rate
+573
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+Family−Wise Error Rate
+Power
+m = 10
+m = 100
+m = 500
+FIGURE 13.5. In a simulation setting in which 90% of the m null hypotheses are
+true, we display the power (the fraction of false null hypotheses that we successfully
+reject) as a function of the family-wise error rate. The curves correspond to
+m = 10 (orange), m = 100 (blue), and m = 500 (purple). As the value of m
+increases, the power decreases. The vertical dashed line indicates a FWER of
+0.05.
+This is scientifically uninteresting, and typically results in very low power,
+as in Figure 13.5.
+In practice, when m is large, we may be willing to tolerate a few false
+positives, in the interest of making more discoveries, i.e. more rejections of
+the null hypothesis. This is the motivation behind the false discovery rate,
+which we present next.
+13.4
+The False Discovery Rate
+13.4.1
+Intuition for the False Discovery Rate
+As we just discussed, when m is large, then trying to prevent any false
+positives (as in FWER control) is simply too stringent. Instead, we might
+try to make sure that the ratio of false positives (V ) to total positives (V +
+S = R) is sufficiently low, so that most of the rejected null hypotheses are
+not false positives. The ratio V/R is known as the false discovery proportion false
+discovery
+proportion
+(FDP).
+It might be tempting to ask the data analyst to control the FDP: to
+make sure that no more than, say, 20% of the rejected null hypotheses are
+false positives. However, in practice, controlling the FDP is an impossible
+task for the data analyst, since she has no way to be certain, on any par-
+ticular dataset, which hypotheses are true and which are false. This is very
+similar to the fact that the data analyst can control the FWER, i.e. she
+can guarantee that Pr(V ≥1) ≤α for any pre-specified α, but she cannot
+guarantee that V = 0 on any particular dataset (short of failing to reject
+any null hypotheses, i.e. setting R = 0).

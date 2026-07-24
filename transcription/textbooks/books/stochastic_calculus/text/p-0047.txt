@@ -1,0 +1,136 @@
+2.2. MULTIVARIATE NORMAL DISTRIBUTION
+41
+(X1, , Xn) is
+ϕ(θ1, , θn)
+=
+E [exp i(θ1X1 + + θnXn)]
+=
+E
+
+exp
+
+
+i
+n
+
+j=1
+θj
+n
+
+k=1
+ajkZk
+
+
+
+
+
+=
+E
+
+exp
+
+
+i
+n
+
+k=1
+Zk(
+n
+
+j=1
+θjajk)
+
+
+
+
+
+=
+n
+
+k=1
+E
+
+exp
+
+
+iZk(
+n
+
+j=1
+θjajk)
+
+
+
+
+
+=
+exp
+
+
+−1
+2
+n
+
+k=1
+
+
+n
+
+j=1
+θjajk
+
+
+2
+
+
+=
+exp
+
+
+−1
+2
+n
+
+k=1
+n
+
+j=1
+n
+
+l=1
+θjθiajkalk
+
+
+
+=
+exp
+
+−1
+2θAAT θT
+
+=
+exp
+
+−1
+2θΓθT
+
+where we write θ = (θ1, , θn). Even though we used A, which is
+not unique, in our computation, the answer only involves Γ. Since the
+characteristic function determines the distribution, the distribution
+depends only on the covariance matrix.
+If Γ is invertible, then (X1, , Xn) has a density. We write it in the
+case that the random variables have mean m = (m1, , mn),
+f(x1, , xn) = f(x) =
+1
+(2π)n2 √
+det Γ
+exp
+
+−(x −m) · Γ−1(x −m)T
+2
+
+
+Sometimes this density is used as a denition of a joint normal. The
+formula for the density looks messy, but note that if n = 1, m =
+m, Γ = [σ2], then the right-hand side is the density of a N(m, σ2)
+random variable.

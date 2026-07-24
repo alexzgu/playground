@@ -1,0 +1,112 @@
+15.4 Repeated Measures
+677
+15.4
+Repeated Measures
+In experimental work in the social and behavioral sciences and some aspects of engineering
+the physical sciences, and business, the experimental units are frequently people. Because of
+differences in experience, training, or background, the differences in the responses of differ-
+ent people to the same treatment may be very large in some experimental situations. Unless
+it is controlled, this variability between people would become part of the experimental error,
+and in some cases, it would signicantly inate the error mean square, making it more dif-
+cult to detect real differences between treatments. In many repeated measures the experi-
+mental units are not necessarily people; they could be different stores in a marketing study,
+or plants, or experimental animals, and so on. We typically think of these experimental units
+as subjects.
+It is possible to control this variability between people or “projects” by using a design
+in which each of the a treatments is used on each person. Such a design is called a repeated
+measures design. In this section, we give a brief introduction to repeated measures experi-
+ments with a single factor.
+Suppose that an experiment involves a treatments and every treatment is to be used
+exactly once on each of n subjects. The data would appear as in Table 15.25. Note that the
+observation yij represents the response of subject j to treatment i and that only n subjects are
+used. The model that we use for this design is
+(15.45)
+yij i j ij
+■TA B L E 1 5 . 2 4
+The Alias Matrix
+Effect
+12
+13
+14
+23
+24
+34
+Intercept
+0.417
+0.066
+0.007
+0.084
+0.005
+0
+Viscosity
+0.19
+0.2
+0.15
+0.24
+0.18
+Molecular weight
+0.094
+0.252
+0.33
+0.387
+0.415
+0
+X3
+0.011
+0.01
+0.008
+0.14
+0.02
+0
+X4
+0.063
+0.019
+0.005
+0
+0.12
+0
+X3X4
+0.09
+0.03
+0.04
+0.04
+0.042
+1
+■TA B L E 1 5 . 2 5
+Data for a Single-Factor Repeated Measures Design
+Subject
+Treatment
+Treatment
+1
+2
+
+n
+Totals
+1
+y11
+y12
+
+y1n
+y1.
+2
+y21
+y22
+
+y2n
+y2.
+a
+ya1
+ya2
+yan
+ya.
+Subject Totals
+y.1
+y.2
+
+y.n
+y..
+o
+o
+o
+o
+o

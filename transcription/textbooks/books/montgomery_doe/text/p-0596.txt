@@ -1,0 +1,108 @@
+580
+Chapter 13 ■Experiments with Random Factors
+matrix of the variance component estimates. The square roots of the diagonal elements of
+the matrix are the standard errors. The lower and upper bounds on the large-sample CI are
+found from
+The 95% CI on the interaction variance component includes zero, evidence that this variance
+component is likely zero. Furthermore, the CI on the operator variance component also
+includes zero, and although its point estimate is positive, it would not be unreasonable to
+assume that this variance component is also zero.
+L ˆ i
+2 Za2se(ˆ i
+2) and U ˆ i
+2 Za2se(ˆ i
+2)
+■TA B L E 1 3 . 3
+JMP REML Analysis for the Two-Factor Random Model in Example 13.1
+Response Y
+Whole Model
+Summary of Fit
+RSquare
+0.910717
+RSquare Adj
+0.910717
+Root Mean Square Error
+0.995825
+Mean of Response
+22.39167
+Observations (or Sum Wgts)
+120
+Parameter Estimates
+Term
+Estimate
+Std Error
+DFDen
+t Ratio
+Prob|t|
+Intercept
+22.391667
+0.724496
+19.28
+30.91
+.0001*
+REML Variance Component Estimates
+Var
+Random Effect
+Var Ratio
+Component
+Std Error
+95% Lower
+95% Upper
+Pct of Total
+Parts
+10.36621
+10.279825
+3.3738173
+3.6672642
+16.892385
+92.225
+Operators
+0.0150376
+0.0149123
+0.0329622
+0.049692
+0.0795169
+0.134
+Parts*Operators
+0.141088
+0.139912
+0.1219114
+0.378854
+0.0990296
+1.255
+Residual
+0.9916667
+0.1810527
+0.7143057
+1.4697982
+8.897
+Total
+11.146491
+100.000
+2 LogLikelihood 408.14904346
+Covariance Matrix of Variance Component Estimates
+Random Effect
+Parts
+Operators
+Parts*Operators
+Residual
+Parts
+11.382643
+0.0001111
+0.002222
+3.125e-14
+Operators
+0.0001111
+0.0010865
+0.000333
+6.126e-17
+Parts*Operators
+0.002222
+0.000333
+0.0148624
+0.01639
+Residual
+3.125e-14
+6.126e-17
+0.01639
+0.0327801

@@ -1,0 +1,73 @@
+92
+Chapter 3 ■Experiments with a Single Factor: The Analysis of Variance
+3.5.4
+Contrasts
+Many multiple comparison methods use the idea of a contrast. Consider the plasma etching
+experiment of Example 3.1. Because the null hypothesis was rejected, we know that some
+power settings produce different etch rates than others, but which ones actually cause this dif-
+ference? We might suspect at the outset of the experiment that 200 W and 220 W produce the
+same etch rate, implying that we would like to test the hypothesis
+or equivalently
+(3.23)
+If we had suspected at the start of the experiment that the average of the lowest levels of
+power did not differ from the average of the highest levels of power, then the hypothesis
+would have been
+or
+(3.24)
+In general, a contrast is a linear combination of parameters of the form
+where the contrast constants c1, c2, . . . , ca sum to zero; that is,
+ci 0. Both of the above
+hypotheses can be expressed in terms of contrasts:
+(3.25)
+The contrast constants for the hypotheses in Equation 3.23 are c1 c2 0, c3  1, and 
+c4  1, whereas for the hypotheses in Equation 3.24, they are c1 c2  1 and c3 
+c4 1.
+Testing hypotheses involving contrasts can be done in two basic ways. The rst method
+uses a t-test. Write the contrast of interest in terms of the treatment averages, giving
+The variance of C is
+(3.26)
+when the sample sizes in each treatment are equal. If the null hypothesis in Equation 3.25 is
+true, the ratio
+
+a
+i1
+ci yi.
+
+2
+n 
+a
+i1
+c2
+i
+V(C) 2
+n 
+a
+i1
+c2
+i
+C 
+a
+i1
+ci yi.
+H1
+a
+i1
+cii 0
+H0
+a
+i1
+cii 0
+"a
+i1
+
+a
+i1
+cii
+H11 2 3 4 Z 0
+H01 2 3 4 0
+H11 2 3 4
+H01 2 3 4
+H13 4 0
+H03 4 0
+H13 4
+H03 4

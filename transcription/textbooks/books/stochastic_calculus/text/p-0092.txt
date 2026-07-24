@@ -1,0 +1,41 @@
+86
+CHAPTER 3. STOCHASTIC INTEGRATION
+exists and is independent of the choice of sequence of partitions or the choice
+of sj. This is the of the left-hand side. One later proves the impor-
+tant facts, for example, the fundamental theorem of calculus,
+b
+a
+f ′(t) dt = f(b) −f(a)
+3.2.2
+Integration of simple processes
+The analogue of a step function for the stochastic integral is a .
+This corresponds to a betting strategy that allows one to change bets only at
+a prescribed nite set of times. To be more precise, a process At is a simple
+process if there exist times
+0 = t0 < t1 < · · · < tn < ∞
+and random variables Yj, j = 0, 1, , n that are Ftj-measurable such that
+At = Yj,
+tj ≤t < tj+1
+Here we set tn+1 = ∞. Since Yj is Ftj-measurable, At is Ft-measurable. We
+also assume that E[Y 2
+j ] < ∞for each j. If At is a simple process we dene
+Zt =
+t
+0
+As dBs,
+by
+Ztj =
+j−1
+
+i=0
+Yi [Bti+1 −Bti],
+and, more generally,
+Zt = Ztj + Yj [Bt −Btj]
+if tj ≤t ≤tj+1,
+t
+r
+As dBs = Zt −Zr
+There are four important properties of the stochastic integral of simple
+processes which we give in the next proposition. The reader should com-
+pare these with the properties of integration with respect to random walk in
+Section 1.6.

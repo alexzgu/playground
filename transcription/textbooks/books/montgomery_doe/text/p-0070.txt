@@ -1,0 +1,79 @@
+where yij is the observation on hardness for tip i on specimen j, i is the true mean hardness
+of the ith tip, j is an effect on hardness due to the jth specimen, and ij is a random experi-
+mental error with mean zero and variance 
+. That is,
+is the variance of the hardness meas-
+urements from tip 1, and 
+is the variance of the hardness measurements from tip 2.
+Note that if we compute the jth paired difference
+(2.40)
+the expected value of this difference is
+That is, we may make inferences about the difference in the mean hardness readings of the two
+tips 1 2 by making inferences about the mean of the differences d. Notice that the addi-
+tive effect of the specimens j cancels out when the observations are paired in this manner.
+Testing H0 : 1 2 is equivalent to testing
+This is a single-sample t-test. The test statistic for this hypothesis is
+(2.41)
+where
+(2.42)
+is the sample mean of the differences and
+(2.43)
+is the sample standard deviation of the differences. H0 : d 0 would be rejected if t0
+t/2,n1. A P-value approach could also be used. Because the observations from the factor
+levels are “paired” on each experimental unit, this procedure is usually called the paired
+t-test.
+For the data in Table 2.6, we nd
+d5 8 8 0
+d10 4 5 1
+d4 4 3 1
+d9 5 4 1
+d3 3 5 2 
+ d8 9 9 0
+d2 3 3 0
+d7 2 4 2
+d1 7 6 1
+d6 3 2 1
+Sd 
+n
+j1
+ (dj d )2
+n 1 
+1/2
+
+n
+j1
+d 2
+j 1
+n
+n
+j1
+dj
+2
+n 1
+
+1/2
+d 1
+n 
+n
+j1
+dj
+t0 
+d
+Sd/n
+H1d Z 0
+H0d 0
+1 2
+1 j (2 j)
+E(y1j) E(y2j)
+E(y1j y2j)
+d E(dj)
+dj y1j y2j 
+ j 1, 2, . . . , 10
+2
+2
+2
+1
+2
+i
+54
+Chapter 2 ■Simple Comparative Experiments

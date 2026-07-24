@@ -1,0 +1,71 @@
+244
+6. Linear Model Selection and Regularization
+large decrease in variance. Hence, ridge regression works best in situations
+where the least squares estimates have high variance.
+Ridge regression also has substantial computational advantages over best
+subset selection, which requires searching through 2p models. As we dis-
+cussed previously, even for moderate values of p, such a search can be
+computationally infeasible. In contrast, for any fixed value of λ, ridge re-
+gression only fits a single model, and the model-fitting procedure can be
+performed quite quickly. In fact, one can show that the computations re-
+quired to solve (6.5), simultaneously for all values of λ, are almost identical
+to those for fitting a model using least squares.
+6.2.2
+The Lasso
+Ridge regression does have one obvious disadvantage. Unlike best subset,
+forward stepwise, and backward stepwise selection, which will generally
+select models that involve just a subset of the variables, ridge regression
+will include all p predictors in the final model. The penalty λ ) β2
+j in (6.5)
+will shrink all of the coefficients towards zero, but it will not set any of them
+exactly to zero (unless λ = ∞). This may not be a problem for prediction
+accuracy, but it can create a challenge in model interpretation in settings in
+which the number of variables p is quite large. For example, in the Credit
+data set, it appears that the most important variables are income, limit,
+rating, and student. So we might wish to build a model including just
+these predictors. However, ridge regression will always generate a model
+involving all ten predictors. Increasing the value of λ will tend to reduce
+the magnitudes of the coefficients, but will not result in exclusion of any of
+the variables.
+The lasso is a relatively recent alternative to ridge regression that over- lasso
+comes this disadvantage. The lasso coefficients, ˆβL
+λ , minimize the quantity
+n
+0
+i=1
+
+yi −β0 −
+p
+0
+j=1
+βjxij
+
+
+2
++ λ
+p
+0
+j=1
+|βj| = RSS + λ
+p
+0
+j=1
+|βj|.
+(6.7)
+Comparing (6.7) to (6.5), we see that the lasso and ridge regression have
+similar formulations. The only difference is that the β2
+j term in the ridge
+regression penalty (6.5) has been replaced by |βj| in the lasso penalty (6.7).
+In statistical parlance, the lasso uses an ℓ1 (pronounced “ell 1”) penalty
+instead of an ℓ2 penalty. The ℓ1 norm of a coefficient vector β is given by
+∥β∥1 = ) |βj|.
+As with ridge regression, the lasso shrinks the coefficient estimates to-
+wards zero. However, in the case of the lasso, the ℓ1 penalty has the effect
+of forcing some of the coefficient estimates to be exactly equal to zero when
+the tuning parameter λ is sufficiently large. Hence, much like best subset se-
+lection, the lasso performs variable selection. As a result, models generated
+from the lasso are generally much easier to interpret than those produced
+by ridge regression. We say that the lasso yields sparse models—that is, sparse
+models that involve only a subset of the variables. As in ridge regression,
+selecting a good value of λ for the lasso is critical; we defer this discussion
+to Section 6.2.3, where we use cross-validation.

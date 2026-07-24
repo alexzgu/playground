@@ -1,0 +1,54 @@
+146CHAPTER 5. CHANGE OF MEASURE AND GIRSANOV THEOREM
+µ and ν are measures, written µ ⊥ν, if there exists an event
+E F with µ(E) = 0 and ν(Ω\ E) = 0.
+Example 5.1.1. Suppose Ωis a countable set and F is the collection of all
+subsets of Ω. If p : Ω→[0, ∞) is a function, then there is a corresponding
+measure µ dened by
+µ(E) =
+
+ω∈E
+p(ω)
+Suppose ν is another measure given by the function q. Let
+Aµ = ω : p(ω) > 0,
+Aν = ω : q(ω) > 0
+Then ν ≪µ if and only if Aν ⊂Aµ, and
+q(ω) = dν
+dµ(ω) p(ω),
+ω Ω,
+where dνdµ is dened on Aµ by
+dν
+dµ(ω) = q(ω)
+p(ω)
+Note that for any event E,
+ν(E) =
+
+ω∈E
+dν
+dµ(ω) p(ω)
+In this case, ν and µ are equivalent if Aν = Aµ, and ν ⊥µ if Aν Aµ = ∅.
+Example 5.1.2. Suppose µ denotes Lebesgue measure on R,
+µ(A) =
+
+A
+dµ =
+
+A
+dx = length(A),
+and X is a continuous random variable with density f. Let PX denote the
+distribution of X, that is, the probability measure on R given by
+PX(A) = PX A=
+
+A
+f(x) dx =
+
+A
+f dµ
+Then PX ≪µ and we can write
+PX(A) =
+
+A
+dPX
+dµ dµ
+where
+dPX
+dµ = f

@@ -1,0 +1,100 @@
+11.4 Experimental Designs for Fitting Response Surfaces
+503
+response are concentric circles. A design with this property will leave the variance of unchanged
+when the design is rotated about the center (0, 0, . . . , 0), hence the name rotatable design.
+Rotatability is a reasonable basis for the selection of a response surface design. Because
+the purpose of RSM is optimization and the location of the optimum is unknown prior to run-
+ning the experiment, it makes sense to use a design that provides equal precision of estima-
+tion in all directions. (It can be shown that any rst-order orthogonal design is rotatable.)
+A central composite design is made rotatable by the choice of . The value of for
+rotatability depends on the number of points in the factorial portion of the design; in fact,
+(nF)1/4 yields a rotatable central composite design where nF is the number of points used
+in the factorial portion of the design.
+The Spherical CCD. Rotatability is a spherical property; that is, it makes the most
+sense as a design criterion when the region of interest is a sphere. However, it is not impor-
+tant to have exact rotatability to have a good design. For a spherical region of interest, the
+best choice of from a prediction variance viewpoint for the CCD is to set 
+. This
+design, called a spherical CCD, puts all the factorial and axial design points on the surface
+of a sphere of radius 
+. For more discussion of this, see Myers, Montgomery and
+Anderson-Cook (2009).
+Center Runs in the CCD. The choice of in the CCD is dictated primarily by the
+region of interest. When this region is a sphere, the design must include center runs to pro-
+vide reasonably stable variance of the predicted response. Generally, three to ve center runs
+are recommended.
+The Box–Behnken Design. Box and Behnken (1960) have proposed some three-
+level designs for tting response surfaces. These designs are formed by combining 2k facto-
+rials with incomplete block designs. The resulting designs are usually very efcient in terms
+of the number of required runs, and they are either rotatable or nearly rotatable.
+Table 11.8 shows a three-variable Box–Behnken design. The design is also shown geomet-
+rically in Figure 11.22. Notice that the Box–Behnken design is a spherical design, with all points
+k
+k
+yˆ
+■TA B L E 1 1 . 8
+A Three-Variable Box–Behnken Design
+Run
+x1
+x2
+x3
+1
+1
+1
+0
+2
+1
+1
+0
+3
+1
+1
+0
+4
+1
+1
+0
+5
+1
+0
+1
+6
+1
+0
+1
+7
+1
+0
+1
+8
+1
+0
+1
+9
+0
+1
+1
+10
+0
+1
+1
+11
+0
+1
+1
+12
+0
+1
+1
+13
+0
+0
+0
+14
+0
+0
+0
+15
+0
+0
+0

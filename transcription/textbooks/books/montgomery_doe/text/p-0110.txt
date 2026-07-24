@@ -1,0 +1,81 @@
+94
+Chapter 3 ■Experiments with a Single Factor: The Analysis of Variance
+Note that we have used MSE to estimate 2. Clearly, if the condence interval in Equation 3.30
+includes zero, we would be unable to reject the null hypothesis in Equation 3.25.
+Standardized Contrast. When more than one contrast is of interest, it is often useful to
+evaluate them on the same scale. One way to do this is to standardize the contrast so that it has
+variance 2. If the contrast 
+is written in terms of treatment averages as 
+, divid-
+ing it by 
+will produce a standardized contrast with variance 2. Effectively, then,
+the standardized contrast is
+where
+Unequal Sample Sizes. When the sample sizes in each treatment are different, minor
+modications are made in the above results. First, note that the denition of a contrast now
+requires that
+Other required changes are straightforward. For example, the t statistic in Equation 3.27
+becomes
+and the contrast sum of squares from Equation 3.29 becomes
+3.5.5
+Orthogonal Contrasts
+A useful special case of the procedure in Section 3.5.4 is that of orthogonal contrasts. Two
+contrasts with coefcients {ci} and {di} are orthogonal if
+or, for an unbalanced design, if
+For a treatments, the set of a 1 orthogonal contrasts partition the sum of squares due to
+treatments into a 1 independent single-degree-of-freedom components. Thus, tests per-
+formed on orthogonal contrasts are independent.
+
+a
+i1
+nicidi 0
+
+a
+i1
+cidi 0
+SSC 
+a
+i1
+ci yi.
+2
+
+a
+i1
+c2
+i
+ni
+t0 
+
+a
+i1
+ci yi.
+MSE 
+a
+i1
+c2
+i
+ni
+
+a
+i1
+nici 0
+c*i 
+ci
+
+1
+n 
+a
+i1
+c2
+i
+
+a
+i1
+c*i yi.
+(1/n)"a
+i1c2
+i
+"a
+i1ci yi.
+"a
+i1cii

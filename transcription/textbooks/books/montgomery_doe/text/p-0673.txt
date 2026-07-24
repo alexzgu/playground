@@ -1,0 +1,126 @@
+response and the covariate, we nd that an appropriate statistical model is
+(15.15)
+where yij is the jth observation on the response variable taken under the ith treatment or level
+of the single factor, xij is the measurement made on the covariate or concomitant variable cor-
+responding to yij (i.e., the ijth run),
+is the mean of the xij values, is an overall mean, i is
+the effect of the ith treatment, is a linear regression coefcient indicating the dependency
+of yij on xij, and ij is a random error component. We assume that the errors ij are NID(0, 2),
+that the slope 0 and the true relationship between yij and xij is linear, that the regression
+coefcients for each treatment are identical, that the treatment effects sum to zero (
+i 0),
+and that the concomitant variable xij is not affected by the treatments.
+This model assumes that all treatment regression lines have identical slopes. If the treat-
+ments interact with the covariates this can result in non-identical slopes. Covariance analysis
+is not appropriate in these cases. Estimating and comparing different regression models is the
+correct approach.
+Equation 15.15 assumes a linear relationship between y and x. However, any other rela-
+tionship, such as a quadratic (for example) could be used.
+Notice from Equation 15.15 that the analysis of covariance model is a combination of
+the linear models employed in analysis of variance and regression. That is, we have treatment
+effects {i} as in a single-factor analysis of variance and a regression coefcient as in a
+regression equation. The concomitant variable in Equation 15.15 is expressed as (xij 
+)
+instead of xij so that the parameter is preserved as the overall mean. The model could have
+been written as
+(15.16)
+where is a constant not equal to the overall mean, which for this model is .
+Equation 15.15 is more widely found in the literature.
+To describe the analysis, we introduce the following notation:
+(15.17)
+(15.18)
+(15.19)
+(15.20)
+(15.21)
+(15.22)
+(15.23)
+Eyy 
+a
+i1 
+n
+j1
+ (yij yi.)2 Syy Tyy
+Txy n
+a
+i1
+ (xi. x..)(yi. y..) 1
+n 
+a
+i1
+ (xi.)(yi.) (x..)(y..)
+an
+Txx n
+a
+i1
+ (xi. x..)2 1
+n 
+a
+i1
+x2
+i. x2
+..
+an
+Tyy n
+a
+i1
+ (yi. y..)2 1
+n 
+a
+i1
+y2
+i. y2
+..
+an
+Sxy 
+a
+i1 
+n
+j1
+ (xij x..)(yij y..) 
+a
+i1 
+n
+j1
+xijyij (x..)(y..)
+an
+Sxx 
+a
+i1 
+n
+j1
+ (xij x..)2 
+a
+i1 
+n
+j1
+x 2
+ij x2
+..
+an
+Syy 
+a
+i1 
+n
+j1
+ (yij y..)2 
+a
+i1 
+n
+j1
+y2
+ij y2
+..
+an
+x..
+yij i xij ij 
+i 1, 2, . . . , a
+j 1, 2, . . . , n
+x..
+"a
+i1
+x..
+yij i (xij x..) ij 
+i 1, 2, . . . , a
+j 1, 2, . . . , n
+15.3 The Analysis of Covariance
+657

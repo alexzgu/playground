@@ -1,0 +1,37 @@
+22
+2. Statistical Learning
+Years of Education
+Seniority
+Income
+FIGURE 2.5. A smooth thin-plate spline fit to the Income data from Figure 2.3
+is shown in yellow; the observations are displayed in red. Splines are discussed in
+Chapter 7.
+Since we have assumed a linear relationship between the response and the
+two predictors, the entire fitting problem reduces to estimating β0, β1, and
+β2, which we do using least squares linear regression. Comparing Figure 2.3
+to Figure 2.4, we can see that the linear fit given in Figure 2.4 is not quite
+right: the true f has some curvature that is not captured in the linear fit.
+However, the linear fit still appears to do a reasonable job of capturing the
+positive relationship between years of education and income, as well as the
+slightly less positive relationship between seniority and income. It may be
+that with such a small number of observations, this is the best we can do.
+Non-Parametric Methods
+Non-parametric methods do not make explicit assumptions about the func-
+tional form of f. Instead they seek an estimate of f that gets as close to the
+data points as possible without being too rough or wiggly. Such approaches
+can have a major advantage over parametric approaches: by avoiding the
+assumption of a particular functional form for f, they have the potential
+to accurately fit a wider range of possible shapes for f. Any parametric
+approach brings with it the possibility that the functional form used to
+estimate f is very different from the true f, in which case the resulting
+model will not fit the data well. In contrast, non-parametric approaches
+completely avoid this danger, since essentially no assumption about the
+form of f is made. But non-parametric approaches do suffer from a major
+disadvantage: since they do not reduce the problem of estimating f to a
+small number of parameters, a very large number of observations (far more
+than is typically needed for a parametric approach) is required in order to
+obtain an accurate estimate for f.
+An example of a non-parametric approach to fitting the Income data is
+shown in Figure 2.5. A thin-plate spline is used to estimate f. This ap- thin-plate
+spline
+proach does not impose any pre-specified model on f. It instead attempts

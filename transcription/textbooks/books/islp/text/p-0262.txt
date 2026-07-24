@@ -1,0 +1,77 @@
+254
+6. Linear Model Selection and Regularization
+10
+20
+30
+40
+50
+60
+70
+0
+5
+10
+15
+20
+25
+30
+35
+Population
+Ad Spending
+FIGURE 6.14. The population size (pop) and ad spending (ad) for 100 different
+cities are shown as purple circles. The green solid line indicates the first principal
+component, and the blue dashed line indicates the second principal component.
+simpler problem of estimating the M + 1 coefficients θ0, θ1, . . . , θM, where
+M < p. In other words, the dimension of the problem has been reduced
+from p + 1 to M + 1.
+Notice that from (6.16),
+M
+0
+m=1
+θmzim =
+M
+0
+m=1
+θm
+p
+0
+j=1
+φjmxij =
+p
+0
+j=1
+M
+0
+m=1
+θmφjmxij =
+p
+0
+j=1
+βjxij,
+where
+βj =
+M
+0
+m=1
+θmφjm.
+(6.18)
+Hence (6.17) can be thought of as a special case of the original linear
+regression model given by (6.1). Dimension reduction serves to constrain
+the estimated βj coefficients, since now they must take the form (6.18).
+This constraint on the form of the coefficients has the potential to bias the
+coefficient estimates. However, in situations where p is large relative to n,
+selecting a value of M ≪p can significantly reduce the variance of the fitted
+coefficients. If M = p, and all the Zm are linearly independent, then (6.18)
+poses no constraints. In this case, no dimension reduction occurs, and so
+fitting (6.17) is equivalent to performing least squares on the original p
+predictors.
+All dimension reduction methods work in two steps. First, the trans-
+formed predictors Z1, Z2, . . . , ZM are obtained. Second, the model is fit
+using these M predictors. However, the choice of Z1, Z2, . . . , ZM, or equiv-
+alently, the selection of the φjm’s, can be achieved in different ways. In this
+chapter, we will consider two approaches for this task: principal components
+and partial least squares.
+6.3.1
+Principal Components Regression
+Principal components analysis (PCA) is a popular approach for deriving principal
+components
+analysis

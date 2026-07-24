@@ -1,0 +1,64 @@
+10.4 Document Classification
+413
+flamingo
+Cooper’s hawk
+Cooper’s hawk
+flamingo
+0.83
+kite
+0.60
+fountain
+0.35
+spoonbill
+0.17
+great grey owl
+0.09
+nail
+0.12
+white stork
+0.00
+robin
+0.06
+hook
+0.07
+Lhasa Apso
+cat
+Cape weaver
+Tibetan terrier
+0.56
+Old English sheepdog
+0.82
+jacamar
+0.28
+Lhasa
+0.32
+Shih-Tzu
+0.04
+macaw
+0.12
+cocker spaniel
+0.03
+Persian cat
+0.04
+robin
+0.12
+FIGURE 10.10. Classification of six photographs using the resnet50 CNN
+trained on the imagenet corpus. The table below the images displays the true
+(intended) label at the top of each panel, and the top three choices of the classifier
+(out of 100). The numbers are the estimated probabilities for each choice. (A kite
+is a raptor, but not a hawk.)
+The vignettes and book12 that accompany the keras package give more
+details on such applications.
+10.4
+Document Classification
+In this section we introduce a new type of example that has important
+applications in industry and science: predicting attributes of documents.
+Examples of documents include articles in medical journals, Reuters news
+feeds, emails, tweets, and so on. Our example will be IMDb (Internet Movie
+Database) ratings — short documents where viewers have written critiques
+of movies.13 The response in this case is the sentiment of the review, which
+will be positive or negative.
+12Deep Learning with R by F. Chollet and J.J. Allaire, 2018, Manning Publications.
+13For details, see Maas et al. (2011) “Learning word vectors for sentiment analysis”,
+in Proceedings of the 49th Annual Meeting of the Association for Computational Lin-
+guistics: Human Language Technologies, pages 142–150.

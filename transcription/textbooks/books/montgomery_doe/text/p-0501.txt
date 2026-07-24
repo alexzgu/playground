@@ -1,0 +1,118 @@
+11.2 The Method of Steepest Ascent
+485
+A new rst-order model is t around the point (1 85, 2 175). The region of exploration for 1 is [80, 90], and it is
+[170, 180] for 2. Thus, the coded variables are
+Once again, a 22 design with ve center points is used. The experimental design is shown in Table 11.4.
+The rst-order model t to the coded variables in Table 11.4 is
+The analysis of variance for this model, including the interaction and pure quadratic term checks, is shown in Table 11.5.
+The interaction and pure quadratic checks imply that the first-order model is not an adequate approximation. This curva-
+ture in the true surface may indicate that we are near the optimum. At this point, additional analysis must be done to locate
+the optimum more precisely.
+yˆ 78.97 1.00x1 0.50x2
+x1 1 85
+5
+ and x2 2 175
+5
+■TA B L E 1 1 . 4
+Data for Second First-Order Model
+Natural 
+Coded 
+Variables
+Variables
+Response
+1
+2
+x1
+x2
+y
+80
+170
+1
+1
+76.5
+80
+180
+1
+1
+77.0
+90
+170
+1
+1
+78.0
+90
+180
+1
+1
+79.5
+85
+175
+0
+0
+79.9
+85
+175
+0
+0
+80.3
+85
+175
+0
+0
+80.0
+85
+175
+0
+0
+79.7
+85
+175
+0
+0
+79.8
+■TA B L E 1 1 . 5
+Analysis of Variance for the Second First-Order Model
+Sum of 
+Degrees of 
+Mean 
+Source of Variation
+Squares
+Freedom
+Square
+F0
+P-Value
+Regression
+5.00
+2
+Residual
+11.1200
+6
+(Interaction)
+(0.2500)
+1
+0.2500
+4.72
+0.0955
+(Pure quadratic)
+(10.6580)
+1
+10.6580
+201.09
+0.0001
+(Pure error)
+(0.2120)
+4
+0.0530
+Total
+16.1200
+8
+We notice from Example 11.1 that the path of steepest ascent is proportional to the
+signs and magnitudes of the regression coefﬁcients in the tted rst-order model
+It is easy to give a general algorithm for determining the coordinates of a point on the path of steep-
+est ascent. Assume that the point x1 x2 
+xk 0 is the base or origin point. Then
+Á
+yˆ ˆ 0 
+k
+i1
+ˆ ixi

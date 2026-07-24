@@ -1,0 +1,58 @@
+108
+CHAPTER 3. STOCHASTIC INTEGRATION
+In some of our derivations below, we will use this kind of argument. For
+example, a formal derivation of Itˆo’s formula II can be given as
+df(t, Bt) = ∂tf(t, Bt) dt+∂xf(t, Bt) dBt+1
+2 ∂xxf(t, Bt) (dBt)2
++o(dt) + o((dt)(dBt)) + o((dBt)2)
+By setting (dBt)2 = dt and setting the last three terms equal to zero we get
+the formula.
+Suppose that Xt satises
+dXt = Rt dt + At dBt,
+(3.19)
+which we recall is equivalent to
+Xt = X0 +
+t
+0
+Rs ds +
+t
+0
+As dBs
+Whenever we write such equations we will assume implicitly that Rt, At are
+adapted processes with piecewise continuous paths. As before, we dene the
+quadratic variation by
+⟨X⟩t = lim
+n∞
+
+j≤tn
+
+X
+j
+n
+
+−X
+j −1
+n
+2
+
+As in the case for Brownian motion, the drift term does not contribute to
+the quadratic variation,
+⟨X⟩t = ⟨
+
+A dB⟩t =
+t
+0
+A2
+s ds
+This is often written in the dierential form
+d ⟨X⟩t = A2
+t dt
+To see that Rt does not appear, we can do the formal calculation
+(dXt)2
+=
+(Rt dt + At dBt)2
+=
+R2
+t (dt)2 + 2 Rt At (dt) (dBt) + A2
+t (dBt)2 = A2
+t dt

@@ -1,0 +1,46 @@
+10.9 Lab: Deep Learning
+447
+In [42]: mnist_results = pd.read_csv(mnist_logger.experiment.
+metrics_file_path)
+fig, ax = subplots(1, 1, figsize=(6, 6))
+summary_plot(mnist_results ,
+ax,
+col='accuracy',
+ylabel='Accuracy')
+ax.set_ylim([0.5, 1])
+ax.set_ylabel('Accuracy')
+ax.set_xticks(np.linspace(0, 30, 7).astype(int));
+Once again we evaluate the accuracy using the test() method of our
+trainer. This model achieves 97% accuracy on the test data.
+In [43]: mnist_trainer.test(mnist_module ,
+datamodule=mnist_dm)
+Out[43]: [{'test_loss': 0.1471, 'test_accuracy': 0.9681}]
+Table 10.1 also reports the error rates resulting from LDA (Chapter 4) and
+multiclass logistic regression. For LDA we refer the reader to Section 4.7.3.
+Although we could use the sklearn function LogisticRegression() to fit
+multiclass logistic regression, we are set up here to fit such a model with
+torch. We just have an input layer and an output layer, and omit the hidden
+layers!
+In [44]: class MNIST_MLR(nn.Module):
+def __init__(self):
+super(MNIST_MLR, self).__init__()
+self.linear = nn.Sequential(nn.Flatten(),
+nn.Linear(784, 10))
+def forward(self, x):
+return self.linear(x)
+mlr_model = MNIST_MLR()
+mlr_module = SimpleModule.classification(mlr_model)
+mlr_logger = CSVLogger('logs', name='MNIST_MLR')
+In [45]: mlr_trainer = Trainer(deterministic=True,
+max_epochs=30,
+callbacks=[ErrorTracker()])
+mlr_trainer.fit(mlr_module, datamodule=mnist_dm)
+We fit the model just as before and compute the test results.
+In [46]: mlr_trainer.test(mlr_module,
+datamodule=mnist_dm)
+Out[46]: [{'test_loss': 0.3187, 'test_accuracy': 0.9241}]
+The accuracy is above 90% even for this pretty simple model.
+As in the Hitters example, we delete some of the objects we created
+above.
+In [47]: del(mnist_test,
+mnist_train ,

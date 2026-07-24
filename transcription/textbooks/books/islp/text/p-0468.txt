@@ -1,0 +1,46 @@
+10.9 Lab: Deep Learning
+461
+Next we set up the lagged versions of the data, dropping any rows with
+missing values using the dropna() method.
+In [94]: for lag in range(1, 6):
+for col in cols:
+newcol = np.zeros(X.shape[0]) * np.nan
+newcol[lag:] = X[col].values[:-lag]
+X.insert(len(X.columns), "{0}_{1}".format(col, lag), newcol)
+X.insert(len(X.columns), 'train', NYSE['train'])
+X = X.dropna()
+Finally, we extract the response, training indicator, and drop the current
+day’s DJ_return and log_volatility to predict only from previous day’s
+data.
+In [95]: Y, train = X['log_volume'], X['train']
+X = X.drop(columns=['train'] + cols)
+X.columns
+Out[95]: Index(['DJ_return_1', 'log_volume_1', 'log_volatility_1',
+'DJ_return_2', 'log_volume_2', 'log_volatility_2',
+'DJ_return_3', 'log_volume_3', 'log_volatility_3',
+'DJ_return_4', 'log_volume_4', 'log_volatility_4',
+'DJ_return_5', 'log_volume_5', 'log_volatility_5'],
+dtype='object')
+We first fit a simple linear model and compute the R2 on the test data
+using the score() method.
+In [96]: M = LinearRegression()
+M.fit(X[train], Y[train])
+M.score(X[∼train], Y[∼train])
+Out[96]: 0.4129
+We refit this model, including the factor variable day_of_week. For a cate-
+gorical series in pandas, we can form the indicators using the get_dummies()
+method.
+In [97]: X_day = pd.merge(X,
+pd.get_dummies(NYSE['day_of_week']),
+on='date')
+Note that we do not have to reinstantiate the linear regression model as its
+fit() method accepts a design matrix and a response directly.
+In [98]: M.fit(X_day[train], Y[train])
+M.score(X_day[∼train], Y[∼train])
+Out[98]: 0.4595
+This model achieves an R2 of about 46%.
+To fit the RNN, we must reshape the data, as it will expect 5 lagged
+versions of each feature as indicated by the input_shape argument to the
+layer nn.RNN() below. We first ensure the columns of our data frame are
+such that a reshaped matrix will have the variables correctly lagged. We
+use the reindex() method to do this.

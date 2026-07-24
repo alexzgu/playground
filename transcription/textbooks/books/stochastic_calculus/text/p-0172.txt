@@ -1,0 +1,45 @@
+166CHAPTER 5. CHANGE OF MEASURE AND GIRSANOV THEOREM
+5.5
+Martingale
+approach
+to
+Black-Scholes
+equation
+We will give a dierent approach to deriving the Black-Scholes formula. Sup-
+pose for the moment that the risk-free bond has rate r(t, x) and that the
+volatility is given by σ(t, x). If Rt denotes the value of the bond at time t,
+then
+dRt = r(t, St) Rt dt,
+Rt = R0 exp
+t
+0
+r(s, Ss) ds
+
+
+As explained in the previous section, if we want a strategy to hedge a port-
+folio so that its value is determined at time T, then the strategy must be
+independent of the drift coecient m(t, x). For this reason, we may assume
+that the stock price satises
+dSt = St [r(t, St) dt + σ(t, St) dBt] ,
+(5.22)
+and then the value of the portfolio at time t satises
+Vt = f(t, St) = EQ [(RtRT) F(ST) St] = EQ [(RtRT) F(ST) Ft] 
+We write EQ, EQ to emphasize that the expectations are taken with respect
+to the measure under which St satises (5.22).
+Let ˜St = StRt, ˜Vt = VtRt be the stock price and portfolio value, respec-
+tively, discounted by the bond rate. The product rule shows that ˜St satises
+d ˜St = σ(t, Rt) ˜St dBt
+In other words (under some growth restrictions on σ, for example, if σ is
+uniformly bounded), ˜St is a martingale. Also,
+˜Vt = VtRt = R−1
+t
+EQ ((RtRT) F(ST) Ft)
+= EQ
+
+R−1
+T F(ST) Ft
+
+= EQ[ ˜VT Ft]
+We have just demonstrated the following principle.
+Theorem 5.5.1. SSt 
+dSt = St [m(t, St) dt + σ(t, St) dBt] ,

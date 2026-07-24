@@ -1,0 +1,85 @@
+426
+10. Deep Learning
+Model
+# Parameters
+Mean Abs. Error
+Test Set R2
+Linear Regression
+20
+254.7
+0.56
+Lasso
+12
+252.3
+0.51
+Neural Network
+1345
+257.4
+0.54
+TABLE 10.2. Prediction results on the Hitters test data for linear models fit
+by ordinary least squares and lasso, compared to a neural network fit by stochastic
+gradient descent with dropout regularization.
+Coefficient
+Std. error
+t-statistic
+p-value
+Intercept
+-226.67
+86.26
+-2.63
+0.0103
+Hits
+3.06
+1.02
+3.00
+0.0036
+Walks
+0.181
+2.04
+0.09
+0.9294
+CRuns
+0.859
+0.12
+7.09
+< 0.0001
+PutOuts
+0.465
+0.13
+3.60
+0.0005
+TABLE 10.3. Least squares coefficient estimates associated with the regres-
+sion of Salary on four variables chosen by lasso on the Hitters data set. This
+model achieved the best performance on the test data, with a mean absolute error
+of 224.8. The results reported here were obtained from a regression on the test
+data, which was not used in fitting the lasso model.
+Table 10.2 compares the results. We see similar performance for all three
+models. We report the mean absolute error on the test data, as well as
+the test R2 for each method, which are all respectable (see Exercise 5).
+We spent a fair bit of time fiddling with the configuration parameters of
+the neural network to achieve these results. It is possible that if we were to
+spend more time, and got the form and amount of regularization just right,
+that we might be able to match or even outperform linear regression and
+the lasso. But with great ease we obtained linear models that work well.
+Linear models are much easier to present and understand than the neural
+network, which is essentially a black box. The lasso selected 12 of the 19
+variables in making its prediction. So in cases like this we are much better
+off following the Occam’s razor principle: when faced with several methods Occam’s
+razor
+that give roughly equivalent performance, pick the simplest.
+After a bit more exploration with the lasso model, we identified an even
+simpler model with four variables. We then refit the linear model with these
+four variables to the training data (the so-called relaxed lasso), and achieved
+a test mean absolute error of 224.8, the overall winner! It is tempting to
+present the summary table from this fit, so we can see coefficients and p-
+values; however, since the model was selected on the training data, there
+would be selection bias. Instead, we refit the model on the test data, which
+was not used in the selection. Table 10.3 shows the results.
+We have a number of very powerful tools at our disposal, including neural
+networks, random forests and boosting, support vector machines and gen-
+eralized additive models, to name a few. And then we have linear models,
+and simple variants of these. When faced with new data modeling and pre-
+diction problems, it’s tempting to always go for the trendy new methods.
+Often they give extremely impressive results, especially when the datasets
+are very large and can support the fitting of high-dimensional nonlinear
+models. However, if we can produce models with the simpler tools that

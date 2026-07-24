@@ -1,0 +1,53 @@
+540
+Chapter 11 ■Response Surface Methods and Designs
+11.7
+Evolutionary Operation
+Response surface methodology is often applied to pilot plant operations by research and
+development personnel. When it is applied to a full-scale production process, it is usually
+done only once (or very infrequently) because the experimental procedure is relatively
+elaborate. However, conditions that were optimum for the pilot plant may not be optimum
+for the full-scale process. The pilot plant may produce 2 pounds of product per day, where-
+as the full-scale process may produce 2000 pounds per day. This “scale-up” of the pilot
+plant to the full-scale production process usually results in distortion of the optimum con-
+ditions. Even if the full-scale plant begins operation at the optimum, it will eventually
+“drift” away from that point because of variations in raw materials, environmental
+changes, and operating personnel.
+A method is needed for the continuous monitoring and improvement of a full-scale
+process with the goal of moving the operating conditions toward the optimum or following
+a “drift.” The method should not require large or sudden changes in operating conditions
+that might disrupt production. Evolutionary operation (EVOP) was proposed by Box
+(1957) as such an operating procedure. It is designed as a method of routine plant opera-
+tion that is carried out by manufacturing personnel with minimum assistance from the
+research and development staff.
+EVOP consists of systematically introducing small changes in the levels of the operat-
+ing variables under consideration. Usually, a 2k design is employed to do this. The changes in
+the variables are assumed to be so small enough that serious disturbances in yield, quality, or
+quantity will not occur, yet large enough that potential improvements in process performance
+will eventually be discovered. Data are collected on the response variables of interest at each
+point of the 2k design. When one observation has been taken at each design point, a cycle is
+said to have been completed. The effects and interactions of the process variables may then
+be computed. Eventually, after several cycles, the effect of one or more process variables or
+their interactions may appear to have a signicant effect on the response. At this point, a deci-
+sion may be made to change the basic operating conditions to improve the response. When
+improved conditions have been detected, a phase is said to have been completed.
+In testing the signicance of process variables and interactions, an estimate of experi-
+mental error is required. This is calculated from the cycle data. Also, the 2k design is usually
+centered about the current best operating conditions. By comparing the response at this point
+with the 2k points in the factorial portion, we may check on curvature or change in mean
+(CIM); that is, if the process is really centered at the maximum, say, then the response at the
+center should be signicantly greater than the responses at the 2k-peripheral points.
+In theory, EVOP can be applied to k process variables. In practice, only two or three
+variables are usually considered. We will give an example of the procedure for two variables.
+Box and Draper (1969) give a detailed discussion of the three-variable case, including neces-
+sary forms and worksheets.
+E X A M P L E 1 1 . 7
+Consider a chemical process whose yield is a function of
+temperature (x1) and pressure (x2). The current operating
+conditions are x1 250°F and x2 145 psi. The EVOP
+procedure uses the 22 design plus the center point shown in
+Figure 11.49. The cycle is completed by running each
+design point in numerical order (1, 2, 3, 4, 5). The yields in
+the rst cycle are also shown in Figure 11.49.
+The yields from the rst cycle are entered in the EVOP
+calculation sheet, as shown in Table 11.23. At the end of the
+rst cycle, no estimate of the standard deviation can be

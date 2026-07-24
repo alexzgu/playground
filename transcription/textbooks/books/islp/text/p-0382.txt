@@ -1,0 +1,101 @@
+9.2 Support Vector Classifiers
+375
+−0.5
+0.0
+0.5
+1.0
+1.5
+2.0
+2.5
+−1
+0
+1
+2
+3
+4
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+−0.5
+0.0
+0.5
+1.0
+1.5
+2.0
+2.5
+−1
+0
+1
+2
+3
+4
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+X1
+X1
+X2
+X2
+FIGURE 9.6. Left: A support vector classifier was fit to a small data set. The
+hyperplane is shown as a solid line and the margins are shown as dashed lines.
+Purple observations: Observations 3, 4, 5, and 6 are on the correct side of the
+margin, observation 2 is on the margin, and observation 1 is on the wrong side of
+the margin. Blue observations: Observations 7 and 10 are on the correct side of
+the margin, observation 9 is on the margin, and observation 8 is on the wrong side
+of the margin. No observations are on the wrong side of the hyperplane. Right:
+Same as left panel with two additional points, 11 and 12. These two observations
+are on the wrong side of the hyperplane and the wrong side of the margin.
+misclassify a few observations. It is the solution to the optimization problem
+maximize
+β0,β1,...,βp,ϵ1,...,ϵn, M M
+(9.12)
+subject to
+p
+0
+j=1
+β2
+j = 1,
+(9.13)
+yi(β0 + β1xi1 + β2xi2 + · · · + βpxip) ≥M(1 −ϵi),
+(9.14)
+ϵi ≥0,
+n
+0
+i=1
+ϵi ≤C,
+(9.15)
+where C is a nonnegative tuning parameter. As in (9.11), M is the width
+of the margin; we seek to make this quantity as large as possible. In (9.14),
+ϵ1, . . . , ϵn are slack variables that allow individual observations to be on slack
+variable
+the wrong side of the margin or the hyperplane; we will explain them in
+greater detail momentarily. Once we have solved (9.12)–(9.15), we classify
+a test observation x∗as before, by simply determining on which side of the
+hyperplane it lies. That is, we classify the test observation based on the
+sign of f(x∗) = β0 + β1x∗
+1 + · · · + βpx∗
+p.
+The problem (9.12)–(9.15) seems complex, but insight into its behavior
+can be made through a series of simple observations presented below. First
+of all, the slack variable ϵi tells us where the ith observation is located,
+relative to the hyperplane and relative to the margin. If ϵi = 0 then the ith
+observation is on the correct side of the margin, as we saw in Section 9.1.4.
+If ϵi > 0 then the ith observation is on the wrong side of the margin, and
+we say that the ith observation has violated the margin. If ϵi > 1 then it is
+on the wrong side of the hyperplane.

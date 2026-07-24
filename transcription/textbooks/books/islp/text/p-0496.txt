@@ -1,0 +1,57 @@
+490
+11. Survival Analysis and Censored Data
+Out[5]: Meningioma
+42
+HG glioma
+22
+Other
+14
+LG glioma
+9
+Name: diagnosis, dtype: int64
+In [6]: BrainCancer['status'].value_counts()
+Out[6]: 0
+53
+1
+35
+Name: status, dtype: int64
+Before beginning an analysis, it is important to know how the status
+variable has been coded. Most software uses the convention that a status
+of 1 indicates an uncensored observation (often death), and a status of 0
+indicates a censored observation. But some scientists might use the opposite
+coding. For the BrainCancer data set 35 patients died before the end of the
+study, so we are using the conventional coding.
+To begin the analysis, we re-create the Kaplan-Meier survival curve
+shown in Figure 11.2. The main package we will use for survival analy-
+sis is lifelines. The variable time corresponds to yi, the time to the ith lifelines
+event (either censoring or death). The first argument to km.fit is the event
+time, and the second argument is the censoring variable, with a 1 indicat-
+ing an observed failure time. The plot() method produces a survival curve .plot()
+with pointwise confidence intervals. By default, these are 90% confidence
+intervals, but this can be changed by setting the alpha argument to one
+minus the desired confidence level.
+In [7]: fig, ax = subplots(figsize=(8,8))
+km = KaplanMeierFitter()
+km_brain = km.fit(BrainCancer['time'], BrainCancer['status'])
+km_brain.plot(label='Kaplan Meier estimate', ax=ax)
+Next we create Kaplan-Meier survival curves that are stratified by sex, in
+order to reproduce Figure 11.3. We do this using the groupby() method of .groupby()
+a dataframe. This method returns a generator that can be iterated over in
+the for loop. In this case, the items in the for loop are 2-tuples representing
+the groups: the first entry is the value of the grouping column sex while
+the second value is the dataframe consisting of all rows in the dataframe
+matching that value of sex. We will want to use this data below in the log-
+rank test, hence we store this information in the dictionary by_sex. Finally,
+we have also used the notion of string interpolation to automatically label string
+interpolation
+the different lines in the plot. String interpolation is a powerful technique
+to format strings — Python has many ways to facilitate such operations.
+In [8]: fig, ax = subplots(figsize=(8,8))
+by_sex = {}
+for sex, df in BrainCancer.groupby('sex'):
+by_sex[sex] = df
+km_sex = km.fit(df['time'], df['status'])
+km_sex.plot(label='Sex=%s' % sex, ax=ax)
+As discussed in Section 11.4, we can perform a log-rank test to compare
+the survival of males to females. We use the logrank_test() function from logrank_
+test()

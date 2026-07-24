@@ -1,0 +1,130 @@
+11.3 Analysis of a Second-Order Response Surface
+493
+linear, quadratic, and cubic terms in the model (there is a
+warning message concerning aliasing in the cubic model
+because the CCD does not contain enough runs to support
+a full cubic model). On the basis of the small P-value for
+the quadratic terms, we decided to t the second-order
+model to the yield response. The computer output shows
+the nal model in terms of both the coded variables and the
+natural or actual factor levels.
+Figure 11.11 shows the three-dimensional response sur-
+face plot and the contour plot for the yield response in
+terms of the process variables time and temperature. It is
+relatively easy to see from examining these gures that the
+optimum is very near 175°F and 85 minutes of reaction
+time and that the response is at a maximum at this point.
+From examination of the contour plot, we note that the
+process may be slightly more sensitive to changes in reac-
+tion time than to changes in temperature.
+We could also nd the location of the stationary point
+using the general solution in Equation 11.7. Note that
+and from Equation 11.7, the stationary point is
+That is, x1,s 0.389 and x2,s 0.306. In terms of the natu-
+ral variables, the stationary point is
+
+1
+2
+0.7345
+0.0917
+0.0917
+1.0096
+0.995
+0.515
+0.389
+0.306
+xs 
+1
+2B1b
+b 
+0.995
+0.515 B 
+1.376
+0.1250
+ 0.1250
+ 1.001 
+which yields 1 86.95 87 minutes of reaction time
+and 2 176.53 176.5°F. This is very close to the sta-
+tionary point found by visual examination of the contour
+plot in Figure 11.11. Using Equation 11.8, we may find
+the predicted response at the stationary point as 
+
+80.21.
+We may also use the canonical analysis described in this
+section to characterize the response surface. First, it is nec-
+essary to express the tted model in canonical form
+(Equation 11.9). The eigenvalues 1 and 2 are the roots of
+the determinantal equation
+which reduces to
+The roots of this quadratic equation are 1 0.9634 and
+2 1.4141. Thus, the canonical form of the tted
+model is
+Because both 1 and 2 are negative and the stationary point
+is within the region of exploration, we conclude that the
+stationary point is a maximum.
+yˆ 80.21 0.9634w2
+1 1.4141w2
+2
+2 2.37881.3639 0
+1.376 
+  0.1250
+  0.1250
+1.001 0
+B I0
+yˆs
+0.389 1 85
+5
+ 
+ 0.306 2 175
+5
+Time
+(a) The contour plot
+Temperature
+77.93
+80.29
+82.64
+85.00
+87.36
+89.71
+92.07
+167.9
+170.3
+172.6
+175.0
+177.4
+179.7
+182.1
+80.21
+77.99
+75.77
+73.55
+182.1
+179.2
+176.4
+173.6
+170.8
+167.9
+77.93
+80.76
+83.59
+86.41
+89.24
+92.07
+Temperature
+Time
+Yield
+(b) The response surface plot
+79.00
+80.00
+78.00
+77.00
+77.00
+78.00
+76.00
+76.00
+75.00
+75.00
+74.00
+76.00
+■F I G U R E 1 1 . 1 1
+Contour and response surface plots of the yield response, Example 11.2

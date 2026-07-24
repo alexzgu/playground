@@ -1,0 +1,46 @@
+120
+CHAPTER 3. STOCHASTIC INTEGRATION
+3.8
+Exercises
+Exercise 3.1. Suppose At is a simple process with At≤C for all t. Let
+Zt =
+t
+0
+As dBs
+Show that
+E
+
+Z4
+t
+
+≤4 C4 t2
+Hint: We may assume C = 1. By conditioning with respect to Ft show
+that if s, t > 0,
+E
+
+Z4
+t+s
+
+≤E
+
+Z4
+t
+
++ s2 + 2
+
+E[Z4
+t ] s
+Exercise 3.2. Use Itˆo’s formula to nd the stochastic dierential f(t, Bt)
+where Bt is a standard Brownian motion and
+1. f(t, x) = sin x;
+2. f(t, x) = e−t (xt)2
+3. Repeat these exercises for f(t, Xt) where
+dXt = Xt [m dt + σ dBt]
+Exercise 3.3. Suppose an asset follows the following geometric SDE,
+dXt = 4 Xt dt + Xt dBt
+1. Write the exact solution of this equation. In other words, nd Xt as a
+function of Bt.
+2. Suppose X0 = 2What is the probability that X1 > 8?
+3. Suppose X0 = 1. What is the probability that X2 < 6?
+4. Suppose X0 = 44565What is the probability that Xt < 0 for some
+2 < t < 5?.

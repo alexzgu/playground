@@ -1,0 +1,108 @@
+724
+Bibliography
+Santner, T. J., B. J. Williams, and W. I. Notz (2003). The Design
+and Analysis of Computer Experiments, Springer Series in
+Statistics Springer–Verlag, New York.
+Satterthwaite, F. E. (1946). “An Approximate Distribution of
+Estimates of Variance Components.” Biometrics Bull., Vol.
+2, pp. 110–112.
+Satterthwaite, F. E. (1959). “Random Balance Experimentation”
+(with discussion). Technometrics, Vol. 1, pp. 111–137.
+Scheffe, H. (1953). “A Method for Judging All Contrasts in the
+Analysis of Variance.” Biometrika, Vol. 40, pp. 87–104.
+Scheffe, H. (1956a). “A ‘Mixed Model’for the Analysis of Variance.”
+Annals of Mathematical Statistics, Vol. 27, pp. 23–36.
+Scheffe, H. (1956b). “Alternative Models for the Analysis of
+Variance.” Annals of Mathematical Statistics, Vol. 27,
+pp. 251–271.
+Scheffe, H. (1959). The Analysis of Variance. Wiley, New York.
+Searle, S. R. (1971a). Linear Models. Wiley, New York.
+Searle, S. R. (1971b). “Topics in Variance Component
+Estimation.” Biometrics, Vol. 27, pp. 1–76.
+Searle, S. R. (1987). Linear Models for Unbalanced Data.
+Wiley, New York.
+Searle, S. R., G. Casella, and G. E. McCulloch (1992). Variance
+Components. Wiley, New York.
+Searle, S. R., and R. F. Fawcett (1970). “Expected Mean Squares
+in Variance 
+Component 
+Models 
+Having 
+Finite
+Populations,” Biometrics, Vol. 26, pp. 243–254.
+Searle, S. R., F. M. Speed, and H. V. Henderson (1981). “Some
+Computational and Model Equivalences in Analyses of
+Variance of Unequal-Subclass-Numbers Data.” The
+American Statistician, Vol. 35, pp. 16–33.
+Simpson, T. and J. Peplinski (1997), “On the Use of Statistics
+in Design and the Implications for Deterministic
+Computer Simulation”,
+ASME Design Engineering
+Technical Conference, pp. 1–12.
+Smith, H. F. (1957). “Interpretations of Adjusted Treatment
+Means and Regressions in Analysis of Covariance.”
+Biometrics, Vol. 13, No. 3, pp. 282–308.
+Smith, J. R., and J. M. Beverly (1981). “The Use and Analysis
+of Staggered Nested Factorial Designs.” Journal of
+Quality Technology, Vol. 13, pp. 166–173.
+Speed, F. M., and R. R. Hocking (1976). “The Use of the R
+( )-Notation with Unbalanced Data.” The American
+Statistician, Vol. 30, pp. 30–33.
+Speed, F. M., R. R. Hocking, and O. P. Hackney (1978).
+“Methods of Analysis of Linear Models with Unbalanced
+Data.” Journal of the American Statistical Association,
+Vol. 73, pp. 105–112.
+Stefansky, W. (1972). “Rejecting Outliers in Factorial Designs.”
+Technometrics, Vol. 14, pp. 469–479.
+Taguchi, G. (1987). System of Experimental Design: Engineering
+Methods to Optimize Quality and Minimize Cost,
+UNIPUB, White Plains, NY.
+Taguchi, G., (1991). Introduction to Quality Engineering.
+Asian Productivity Organization, UNIPUB, White
+Plains, NY.
+Taguchi, G., and Y. Wu (1980). Introduction to Off-Line Quality
+Control. Central Japan Quality Control Association,
+Nagoya, Japan.
+Ting, N., R. K. Burdick, F. A. Graybill, S. Jeyaratnam, and 
+T.-F. C. Lu (1990). “Condence Intervals on Linear
+Combinations of Variance Components That Are
+Unrestricted in Sign.” Journal of Statistical Computation
+and Simulation, Vol. 35, pp. 135–143.
+Tukey, J. W. (1949a). “One Degree of Freedom for Non-
+Additivity.” Biometrics, Vol. 5, pp. 232–242.
+Tukey, J. W. (1949b). “Comparing Individual Means in the
+Analysis of Variance.” Biometrics, Vol. 5, pp. 99–114.
+Tukey, J. W. (1951). “Quick and Dirty Methods in Statistics,
+Part II. Simple Analysis for Standard Designs.”
+Proceedings of the Fifth Annual Convention, American
+Society for Quality Control, pp. 189–197.
+Tukey, J. W. (1953). “The Problem of Multiple Comparisons.”
+Unpublished Notes, Princeton University.
+Vining, G. G., S. M. Kowalski, and D. C. Montgomery
+(2005). “Response Surface Designs Within a Split-Plot
+Structure.” Journal of Quality Technology, Vol. 37,
+pp. 115–129.
+Vining, G. G., and S. M. Kowalski (2008). “Exact Inference for
+Response Surface Designs Within a Split-Plot Structure.”
+Journal of Quality Technology, Vol. 40, pp. 394–406.
+Winer, B. J. (1971). Statistical Principles in Experimental
+Design. 2nd edition. McGraw-Hill, New York.
+Wu, C. F. J. (1993). “Construction of Supersaturated Designs
+Through Partially Aliased Interactions.” Biometrika, Vol. 80,
+pp. 661–669.
+Xiao, L., D.K.J. Lin, and F. Bai (2012). “Constructing
+Dinitive Screening Designs Using Conference Matrices.”
+Journal of Quality Technology, Vol. 44, pp. 2–8.
+Yates, F. (1934). “The Analysis of Multiple Classifications
+with Unequal Numbers in the Different Classes.”
+Journal of the American Statistical Association, Vol. 29,
+pp. 52–66.
+Yates, F. (1937). Design and Analysis of Factorial Experiments.
+Tech. Comm. No. 35, Imperial Bureau of Soil Sciences,
+London.
+Yates, F. (1940). “The Recovery of Interblock Information in
+Balanced Incomplete Block Designs.” Annals of Eugenics,
+Vol. 10, pp. 317–325.
+Ye, K., and M. Hamada (2000). “Critical Values of the Lenth
+Method for Unreplicated Factorial Designs.” Journal of
+Quality Technology, Vol. 32, pp. 57–66.

@@ -1,0 +1,66 @@
+58
+CHAPTER 2. BROWNIAN MOTION
+2.6.4
+Brownian motion as a self-similar process
+If one looks at a small piece of a Brownian motion and blows it up, then the
+blown-up picture looks like a Brownian motion provided that the dilation
+uses the appropriate scaling. We leave the derivation as Exercise 2.12.
+Theorem 2.6.3. SBt Ba > 0. L
+Yt = Bat
+√a
+TYt B.
+The key here is that if time is scaled by a factor of a, then space must
+be scaled by a factor of 1√a. The proof of this theorem is not dicult; one
+needs only show that Yt satises the conditions to be a standard Brownian
+motion. One can check that the scaling is right by computing
+Var[Yt] = Var[Bat√a] = a−1 Var[Bat] = a−1 (at) = t
+2.7
+Computations for Brownian motion
+We will discuss some methods for computing probabilities for Brownian mo-
+tions. For ease, we will assume that Bt is a standard Brownian motion start-
+ing at the origin with respect to a ltration Ft. If we are interested in
+probabilities about the Brownian motion at one time t, we need only use the
+normal distribution. Often, it is easier to scale to the standard normal. For
+example,
+E [Bt] = E
+
+t12B1
+
+=
+t12
+√
+2π
+∞
+−∞
+xe−x22 dx
+=
+
+2t
+π
+∞
+0
+x e−x22 dx
+=
+
+2t
+π ,
+and
+PBt ≥r= P
+√
+t B1 ≥r
+=
+PB1 ≥r
+√
+t
+=
+1 −Φ(r
+√
+t)
+=
+∞
+r
+√
+t
+1
+√
+2πe−x22 dx,

@@ -1,0 +1,69 @@
+284
+6. Linear Model Selection and Regularization
+3. Suppose we estimate the regression coefficients in a linear regression
+model by minimizing
+n
+0
+i=1
+
+yi −β0 −
+p
+0
+j=1
+βjxij
+
+
+2
+subject to
+p
+0
+j=1
+|βj| ≤s
+for a particular value of s. For parts (a) through (e), indicate which
+of i. through v. is correct. Justify your answer.
+(a) As we increase s from 0, the training RSS will:
+i. Increase initially, and then eventually start decreasing in an
+inverted U shape.
+ii. Decrease initially, and then eventually start increasing in a
+U shape.
+iii. Steadily increase.
+iv. Steadily decrease.
+v. Remain constant.
+(b) Repeat (a) for test RSS.
+(c) Repeat (a) for variance.
+(d) Repeat (a) for (squared) bias.
+(e) Repeat (a) for the irreducible error.
+4. Suppose we estimate the regression coefficients in a linear regression
+model by minimizing
+n
+0
+i=1
+
+yi −β0 −
+p
+0
+j=1
+βjxij
+
+
+2
++ λ
+p
+0
+j=1
+β2
+j
+for a particular value of λ. For parts (a) through (e), indicate which
+of i. through v. is correct. Justify your answer.
+(a) As we increase λ from 0, the training RSS will:
+i. Increase initially, and then eventually start decreasing in an
+inverted U shape.
+ii. Decrease initially, and then eventually start increasing in a
+U shape.
+iii. Steadily increase.
+iv. Steadily decrease.
+v. Remain constant.
+(b) Repeat (a) for test RSS.
+(c) Repeat (a) for variance.
+(d) Repeat (a) for (squared) bias.
+(e) Repeat (a) for the irreducible error.

@@ -1,0 +1,51 @@
+186
+CHAPTER 6. JUMP PROCESSES
+that is, with probability one if r < s, then Tr < Ts. We calculated the density
+of Ts in Example 2.7.1,
+fs(t) =
+s
+t32 √
+2π e−s2
+2t ,
+0 < t < ∞
+In particular, the distribution of Ts is not normal. We claim that (with
+probability one) the function s →Ts is not continuous. To see this, let
+M = max0≤t≤1 Bt and let s0 (0, 1) be a time t with Bt = M. Then by
+denition of M, Ts we see that TM ≤s0, but Ts > 1 for s > M, showing that
+T is not continuous at s0. The scaling property of Brownian motion implies
+that Ts has the same distribution as s2 T1. A tricky calculation which we omit
+computes the characteristic function
+E[ei(rs2) Ts] = E[eirT1] =
+∞
+−∞
+eirt f1(t) dt = eΨ(r),
+where
+Ψ(r) =
+2r12(1 −i)
+if r ≥0
+2r12(1 + i)
+if r ≤0 
+Example 6.1.2. Let Bt = (B1
+t , B2
+t ) be a standard two-dimensional Brownian
+motion. Let
+Ts = inft : B1
+t = s,
+and
+Xs = B2(Ts)
+Using the strong Markov property, one can show that the increments are i.i.d.
+and similarly to Example 6.1.1 that the paths as discontinuous. The scaling
+property of Brownian motion implies that Xs has the same distribution as
+s X1. The density of X1 turns out to be Cauchy,
+f(x) =
+1
+π (x2 + 1),
+−∞< x < ∞,
+with characteristic function
+E
+
+eirXt
+=
+∞
+−∞
+eirx f(x) dx = e−|r|

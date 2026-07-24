@@ -1,0 +1,178 @@
+476
+Chapter 10 ■Fitting Regression Models
+246
+3000
+94
+98
+237
+3200
+90
+100
+233
+2800
+88
+105
+224
+3400
+86
+97
+223
+1800
+90
+100
+230
+2500
+89
+104
+(a) Fit a multiple regression model to these data.
+(b) Test for signicance of regression. What conclusions
+can you draw?
+(c) Based on t-tests, do you need all three regressor vari-
+ables in the model?
+10.8.
+Analyze the residuals from the regression model in
+Problem 10.7. Comment on model adequacy.
+10.9.
+The yield of a chemical process is related to the con-
+centration of the reactant and the operating temperature. An
+experiment has been conducted with the following results.
+Yield
+Concentration
+Temperature
+81
+1.00
+150
+89
+1.00
+180
+83
+2.00
+150
+91
+2.00
+180
+79
+1.00
+150
+87
+1.00
+180
+84
+2.00
+150
+90
+2.00
+180
+(a) Suppose we wish to t a main effects model to this
+data. Set up the XX matrix using the data exactly as
+it appears in the table.
+(b) Is the matrix you obtained in part (a) diagonal?
+Discuss your response.
+(c) Suppose we write our model in terms of the “usual”
+coded variables
+Set up the XX matrix for the model in terms of these
+coded variables. Is this matrix diagonal? Discuss your
+response.
+(d) Dene a new set of coded variables
+Set up the X X matrix for the model in terms of this
+set of coded variables. Is this matrix diagonal? Discuss
+your response.
+(e) Summarize what you have learned from this problem
+about coding the variables.
+
+x1 Conc 1.0
+1.0
+x2 Temp 150
+30
+x1 Conc 1.5
+0.5
+x2 Temp 165
+15
+10.10. Consider the 24 factorial experiment in Example 6.2.
+Suppose that the last observation is missing. Reanalyze the
+data and draw conclusions. How do these conclusions com-
+pare with those from the original example?
+10.11. Consider the 24 factorial experiment in Example 6.2.
+Suppose that the last two observations are missing. Reanalyze
+the data and draw conclusions. How do these conclusions
+compare with those from the original example?
+10.12. Given the following data, t the second-order polyno-
+mial regression model
+y
+x1
+x2
+26
+1.0
+1.0
+24
+1.0
+1.0
+175
+1.5
+4.0
+160
+1.5
+4.0
+163
+1.5
+4.0
+55
+0.5
+2.0
+62
+1.5
+2.0
+100
+0.5
+3.0
+26
+1.0
+1.5
+30
+0.5
+1.5
+70
+1.0
+2.5
+71
+0.5
+2.5
+After you have t the model, test for signicance of
+regression.
+10.13.
+(a) Consider the quadratic regression model from
+Problem 10.12. Compute t statistics for each model
+parameter and comment on the conclusions that follow
+from these quantities.
+(b) Use the extra sum of squares method to evaluate the
+value of the quadratic terms 
+, and x1x2 to the model.
+10.14. Relationship between analysis of variance and
+regression. Any analysis of variance model can be expressed
+in terms of the general linear model y x& , where the X
+matrix consists of 0s and 1s. Show that the single-factor
+model yij i ij, i 1, 2, 3, j 1, 2, 3, 4 can be writ-
+ten in general linear model form. Then,
+(a) Write the normal equations (XX)
+Xy and com-
+pare them with the normal equations found for this
+model in Chapter 3.
+(b) Find the rank of XX. Can (XX)1 be obtained?
+(c) Suppose the rst normal equation is deleted and the
+restriction 
+is added. Can the resulting sys-
+tem of equations be solved? If so, nd the solution. Find
+the regression sum of squares 
+Xy, and compare it to
+the treatment sum of squares in the single-factor model.
+&ˆ
+3
+i1 nˆi 0
+&ˆ
+x2
+1, x2
+2
+22x 2
+2 12x1x2 
+y 0 1x1 2x2 11x 2
+1

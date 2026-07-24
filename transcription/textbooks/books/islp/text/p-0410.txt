@@ -1,0 +1,38 @@
+10.2 Multilayer Neural Networks
+403
+FIGURE 10.3. Examples of handwritten digits from the MNIST corpus. Each
+grayscale image has 28 × 28 pixels, each of which is an eight-bit number (0–255)
+which represents how dark that pixel is. The first 3, 5, and 8 are enlarged to show
+their 784 individual pixel values.
+the relative amount of the written digit in that tiny square.2 These pixels
+are stored in the input vector X (in, say, column order). The output is
+the class label, represented by a vector Y = (Y0, Y1, . . . , Y9) of 10 dummy
+variables, with a one in the position corresponding to the label, and zeros
+elsewhere. In the machine learning community, this is known as one-hot
+encoding. There are 60,000 training images, and 10,000 test images.
+one-hot
+encoding
+On a historical note, digit recognition problems were the catalyst that
+accelerated the development of neural network technology in the late 1980s
+at AT&T Bell Laboratories and elsewhere. Pattern recognition tasks of this
+kind are relatively simple for humans. Our visual system occupies a large
+fraction of our brains, and good recognition is an evolutionary force for
+survival. These tasks are not so simple for machines, and it has taken more
+than 30 years to refine the neural-network architectures to match human
+performance.
+Figure 10.4 shows a multilayer network architecture that works well for
+solving the digit-classification task. It differs from Figure 10.1 in several
+ways:
+• It has two hidden layers L1 (256 units) and L2 (128 units) rather
+than one. Later we will see a network with seven hidden layers.
+• It has ten output variables, rather than one. In this case the ten vari-
+ables really represent a single qualitative variable and so are quite
+dependent. (We have indexed them by the digit class 0–9 rather than
+1–10, for clarity.) More generally, in multi-task learning one can pre- multi-task
+learning
+dict different responses simultaneously with a single network; they
+all have a say in the formation of the hidden layers.
+• The loss function used for training the network is tailored for the
+multiclass classification task.
+2In the analog-to-digital conversion process, only part of the written numeral may
+fall in the square representing a particular pixel.

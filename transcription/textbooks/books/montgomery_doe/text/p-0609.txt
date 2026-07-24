@@ -1,0 +1,71 @@
+which is distributed approximately as Fp, q, where
+(13.20)
+and
+(13.21)
+In p and q, fi is the number of degrees of freedom associated with the mean square MSi. There is
+no assurance that p and q will be integers, so it may be necessary to interpolate in the tables of
+the F distribution. For example, in the three-factor random effects model (Table 13.9), it is rela-
+tively easy to see that an appropriate test statistic for H0:
+0 would be F MS/MS, with
+and
+The degrees of freedom for F would be computed from Equations 13.20 and 13.21.
+The theory underlying this test is that both the numerator and the denominator of the
+test statistic (Equation 13.19) are distributed approximately as multiples of chi-square random
+variables, and because no mean square appears in both the numerator or denominator of
+Equation 13.19, the numerator and denominator are independent. Thus F in Equation 13.19
+is distributed approximately as Fp,q. Satterthwaite remarks that caution should be used in
+applying the procedure when some of the mean squares in MSand MSare involved nega-
+tively. Gaylor and Hopper (1969) report that if MSMS1 MS2, then Satterthwaite’s
+approximation holds reasonably well if
+and if f1 100 and f2 f1/2.
+MS1
+MS2
+# F0.025,f2,f1 F0.50,f2,f2
+MSMSAB MSAC
+MSMSA MSABC
+2
+
+q 
+(MSu Á MSv)2
+MS 2
+u/fu Á MS 2
+v/fv
+p 
+(MSr Á MSs)2
+MS 2
+r/fr Á MS 2
+s/fs
+13.6 Approximate F Tests
+593
+E X A M P L E 1 3 . 6
+The pressure drop measured across an expansion valve in a
+turbine is being studied. The design engineer considers the
+important variables that inuence pressure drop reading to
+be gas temperature on the inlet side (A), operator (B), and
+the specic pressure gauge used by the operator (C). These
+three factors are arranged in a factorial design, with gas
+temperature xed, and operator and pressure gauge ran-
+dom. The coded data for two replicates are shown in Table
+13.9. The linear model for this design is
+where i is the effect of the gas temperature (A), j is the oper-
+ator effect (B), and kis the effect of the pressure gauge (C).
+The analysis of variance is shown in Table 13.11. A col-
+umn entitled Expected Mean Squares has been added to
+this table, and the entries in this column are derived using
+()ik ()jk ()ijk ijkl
+yijkl i j k ()ij
+the rules discussed in Section 13.5. From the Expected
+Mean Squares column, we observe that exact tests exist for
+all effects except the main effect A. Results for these tests
+are shown in Table 13.10. To test the gas temperature effect,
+or H0: i 0, we could use the statistic
+where
+and
+because
+E(MS) E(MS) bcn2
+i
+a 1
+MSMSAB MSAC
+MSMSA MSABC
+F MS
+MS

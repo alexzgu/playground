@@ -1,0 +1,216 @@
+460
+Chapter 10 ■Fitting Regression Models
+E X A M P L E 1 0 . 4
+Inaccurate Levels in Design Factors
+When running a designed experiment, it is sometimes dif-
+cult to reach and hold the precise factor levels required by
+the design. Small discrepancies are not important, but large
+ones are potentially of more concern. Regression methods
+are useful in the analysis of a designed experiment where
+the experimenter has been unable to obtain the required fac-
+tor levels.
+To illustrate, the experiment presented in Table 10.5
+shows a variation of the 23 design from Example 10.2, where
+many of the test combinations are not exactly the ones spec-
+ied in the design. Most of the difculty seems to have
+occurred with the temperature variable.
+We will t the main effects model
+y 0 1x1 2x2 3x3 
+The X matrix and y vector are
+1
+0
+0
+0
+53
+1
+0
+0
+0
+56
+To estimate the model parameters, we need
+Xy 
+612
+77.55
+100.7
+19.144
+XX 
+12
+0.60
+0.25
+0.2670
+0.60
+8.18
+0.31
+0.1403
+0.25
+0.31
+8.5375
+0.3437
+0.2670
+0.1403
+0.3437
+9.2437
+X 
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+0.75
+0.90
+0.95
+1
+1.10
+1.15
+0.90
+1.25
+0
+0
+0.95
+1
+1.1
+0
+1.05
+1
+1
+1.15
+0
+0
+1.133
+1
+1
+1
+1.4
+1
+1
+1
+0
+0
+ 
+y 
+ 32
+46
+57
+65
+36
+48
+57
+68
+50
+44
+■TA B L E 1 0 . 5
+Experimental Design for Example 10.4
+Process Variables
+Pressure 
+Conc 
+Coded Variables
+Yield 
+Run
+Temp (°C)
+(psig)
+(g/l)
+x1
+x2
+x3
+y
+1
+125
+41
+14
+0.75
+0.95
+1.133
+32
+2
+158
+40
+15
+0.90
+1
+1
+46
+3
+121
+82
+15
+0.95
+1.1
+1
+57
+4
+160
+80
+15
+1
+1
+1
+65
+5
+118
+39
+33
+1.10
+1.05
+1.14
+36
+6
+163
+40
+30
+1.15
+1
+1
+48
+7
+122
+80
+30
+0.90
+1
+1
+57
+8
+165
+83
+30
+1.25
+1.15
+1
+68
+9
+140
+60
+22.5
+0
+0
+0
+50
+10
+140
+60
+22.5
+0
+0
+0
+44
+11
+140
+60
+22.5
+0
+0
+0
+53
+12
+140
+60
+22.5
+0
+0
+0
+56

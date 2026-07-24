@@ -1,0 +1,69 @@
+118
+3. Linear Regression
+Type Boston? to find out more about these data.
+We start by using the sm.OLS() function to fit a simple linear regression sm.OLS()
+model. Our response will be medv and lstat will be the single predictor.
+For this model, we can create the model matrix by hand.
+In [9]: X = pd.DataFrame({'intercept': np.ones(Boston.shape[0]),
+'lstat': Boston['lstat']})
+X[:4]
+Out[9]:
+intercept
+lstat
+0
+1.0
+4.98
+1
+1.0
+9.14
+2
+1.0
+4.03
+3
+1.0
+2.94
+We extract the response, and fit the model.
+In [10]: y = Boston['medv']
+model = sm.OLS(y, X)
+results = model.fit()
+Note that sm.OLS() does not fit the model; it specifies the model, and then
+model.fit() does the actual fitting.
+Our ISLP function summarize() produces a simple table of the parame- summarize()
+ter estimates, their standard errors, t-statistics and p-values. The function
+takes a single argument, such as the object results returned here by the
+fit method, and returns such a summary.
+In [11]: summarize(results)
+Out[11]:
+coef
+std err
+t
+P>|t|
+intercept
+34.5538
+0.563
+61.415
+0.0
+lstat
+-0.9500
+0.039 -24.528
+0.0
+Before we describe other methods for working with fitted models, we
+outline a more useful and general framework for constructing a model ma-
+trix X.
+Using Transformations: Fit and Transform
+Our model above has a single predictor, and constructing X was straight-
+forward. In practice we often fit models with more than one predictor,
+typically selected from an array or data frame. We may wish to introduce
+transformations to the variables before fitting the model, specify interac-
+tions between variables, and expand some particular variables into sets of
+variables (e.g. polynomials). The sklearn package has a particular notion sklearn
+for this type of task: a transform. A transform is an object that is created
+with some parameters as arguments. The object has two main methods:
+fit() and transform().
+.fit()
+.transform()
+We provide a general approach for specifying models and constructing
+the model matrix through the transform ModelSpec() in the ISLP library. ModelSpec()
+ModelSpec() (renamed MS() in the preamble) creates a transform object,
+and then a pair of methods transform() and fit() are used to construct a
+corresponding model matrix.

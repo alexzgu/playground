@@ -1,0 +1,74 @@
+10.8 Testing for Lack of Fit
+473
+affect the use of the model. In this section we describe and illustrate some useful measures
+of influence.
+Leverage Points. The disposition of points in x space is important in determining
+model properties. In particular, remote observations potentially have disproportionate lever-
+age on the parameter estimates, predicted values, and the usual summary statistics.
+The hat matrix H X(XX)1Xis very useful in identifying inuential observations.
+As noted earlier, H determines the variances and covariances of and e because V( ) 2H
+and V(e) 2(I H). The elements hij of H may be interpreted as the amount of leverage
+exerted by yj on
+i. Thus, inspection of the elements of H can reveal points that are potentially
+inuential by virtue of their location in x space. Attention is usually focused on the diagonal
+elements hii. Because 
+hii rank(H) rank(X) p, the average size of the diagonal ele-
+ment of the H matrix is p/n. As a rough guideline, then, if a diagonal element hii is greater
+than 2p/n, observation i is a high-leverage point. To apply this to the viscosity model in
+Example 10.1, note that 2p/n 2(3)/16 0.375. Table 10.3 gives the hat diagonals hii for the
+rst-order model; because none of the hii exceeds 0.375, we would conclude that there are no
+leverage points in these data.
+Inuence on Regression Coefcients. The hat diagonals will identify points that are
+potentially inuential due to their location in x space. It is desirable to consider both the loca-
+tion of the point and the response variable in measuring inuence. Cook (1977, 1979) has
+suggested using a measure of the squared distance between the least squares estimate based
+on all n points
+and the estimate obtained by deleting the i point, say 
+. This distance meas-
+ure can be expressed as
+(10.54)
+A reasonable cutoff for Di is unity. That is, we usually consider observations for which Di  1
+to be inuential.
+The Di statistic is actually calculated from
+(10.55)
+Note that, apart from the constant p, Di is the product of the square of the ith studentized
+residual and hii/(1 hii). This ratio can be shown to be the distance from the vector xi to the
+centroid of the remaining data. Thus, Di is made up of a component that reects how well 
+the model ts the ith observation yi and a component that measures how far that point is from
+the rest of the data. Either component (or both) may contribute to a large value of Di.
+Table 10.3 presents the values of Di for the regression model t to the viscosity data in
+Example 10.1. None of these values of Di exceeds 1, so there is no strong evidence of inu-
+ential observations in these data.
+10.8
+Testing for Lack of Fit
+In Section 6.8 we showed how adding center points to a 2k factorial design allows the exper-
+imenter to obtain an estimate of pure experimental error. This allows the partitioning of the
+residual sum of squares SSE into two components; that is
+where SSPE is the sum of squares due to pure error and SSLOF is the sum of squares due to lack
+of t.
+SSE SSPE SSLOF
+Di r 2
+i
+p
+V[yˆ(xi)]
+V(ei)
+r 2
+i
+p
+hii
+(1 hii) 
+ i 1, 2, . . . , n
+D1 (&ˆ
+(i) &ˆ)XX(&ˆ
+(i) &ˆ)
+pMSE
+ 
+ i 1, 2, . . . , n
+&ˆ
+(i)
+&ˆ
+n
+i1
+yˆ
+yˆ
+yˆ

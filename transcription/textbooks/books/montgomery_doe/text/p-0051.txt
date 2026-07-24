@@ -1,0 +1,83 @@
+follows the t distribution with k degrees of freedom, denoted tk. The density function of t is
+(2.18)
+and the mean and variance of t are 0 and 2 k/(k 2) for k 2, respectively. Several
+t distributions are shown in Figure 2.7. Note that if k 
+, the t distribution becomes the stan-
+dard normal distribution. The percentage points of the t distribution are given in Table II of
+the Appendix. If y1, y2, . . . , yn is a random sample from the N(, 2) distribution, then the
+quantity
+(2.19)
+is distributed as t with n 1 degrees of freedom.
+The nal sampling distribution that we will consider is the F distribution. If 
+and 
+are two independent chi-square random variables with u and 
+degrees of freedom, respec-
+tively, then the ratio
+(2.20)
+follows the F distribution with u numerator degrees of freedom and
+denominator
+degrees of freedom. If x is an F random variable with u numerator and 
+denominator
+degrees of freedom, then the probability distribution of x is
+(2.21)
+Several F distributions are shown in Figure 2.8. This distribution is very important in the sta-
+tistical analysis of designed experiments. Percentage points of the F distribution are given in
+Table IV of the Appendix.
+As an example of a statistic that is distributed as F, suppose we have two independent
+normal populations with common variance 2. If y11, y12, . . . ,
+is a random sample of n1
+observations from the rst population, and if y21, y22, . . . ,
+is a random sample of n2 obser-
+vations from the second, then
+(2.22)
+S 2
+1
+S 2
+2
+Fn11, n21
+y2n2
+y1n1
+h(x) 
+
+u v
+2 
+u
+v
+u/2
+x(u/2)1
+
+u
+x
+v
+2
+u
+vx 1
+(uv)/2 
+ 0 ! x ! 
+v
+v
+Fu,v 2
+u/u
+2
+v/v
+v
+2
+v
+2
+u
+t y 
+S/n
+
+f(t) [(k 1)/2]
+k(k/2)
+1
+[(t 2/k) 1](k1)/2 
+ ! t ! 
+2.3 Sampling and Sampling Distributions
+35
+0
+k = 10
+k = 1
+k = ∞ (normal)
+■F I G U R E 2 . 7
+Several t distributions

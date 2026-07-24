@@ -1,0 +1,128 @@
+210
+Chapter 5 ■Introduction to Factorial Designs
+the variability in the carbonation levels presently experi-
+enced. As the process is impacted by the values of the car-
+bonation level drawn from this distribution, the ll heights
+will uctuate considerably. This variability in the ll
+heights could be reduced if the distribution of the carbona-
+tion level values followed the normal distribution shown
+with the dashed line in Figure 5.17. Reducing the standard
+deviation of the carbonation level distribution was ultimate-
+ly achieved by improving temperature control during man-
+ufacturing.
+■TA B L E 5 . 1 4
+Analysis of Variance for Example 5.3
+Sum of 
+Degrees of 
+Mean 
+Source of Variation
+Squares
+Freedom
+Square
+F0
+P-Value
+Percentage of carbonation (A)
+252.750
+2
+126.375
+178.412
+0.0001
+Operating pressure (B)
+45.375
+1
+45.375
+64.059
+0.0001
+Line speed (C)
+22.042
+1
+22.042
+31.118
+0.0001
+AB
+5.250
+2
+2.625
+3.706
+0.0558
+AC
+0.583
+2
+0.292
+0.412
+0.6713
+BC
+1.042
+1
+1.042
+1.471
+0.2485
+ABC
+1.083
+2
+0.542
+0.765
+0.4867
+Error
+8.500
+12
+0.708
+Total
+336.625
+23
+■F I G U R E 5 . 1 6
+Main effects and interaction plots for
+Example 5.3. (a) Percentage of carbonation
+(A). (b) Pressure (B). (c) Line speed (C).
+(d) Carbonation–pressure interaction
+10
+12
+14
+Percent carbonation (A)
+(a)
+Average fill deviation
+A
+–2
+0
+2
+4
+6
+8
+25
+30
+Pressure (B)
+(b)
+B
+–2
+0
+2
+4
+6
+8
+200
+250
+Line speed (C)
+(c)
+Average fill deviation
+C
+–2
+0
+2
+4
+6
+10
+Carbonation–pressure
+interaction
+(d)
+A
+B = 25 psi
+B = 30 psi
+–2
+0
+2
+4
+6
+8
+10
+14
+12

@@ -1,0 +1,70 @@
+478
+11. Survival Analysis and Censored Data
+is the probability of surviving at least until time yi. Assuming that the n
+observations are independent, the likelihood for the data takes the form
+L =
+n
+E
+i=1
+f(yi)δiS(yi)1−δi =
+n
+E
+i=1
+h(yi)δiS(yi),
+(11.13)
+where the second equality follows from (11.10).
+We now consider the task of modeling the survival times. If we assume ex-
+ponential survival, i.e. that the probability density function of the survival
+time T takes the form f(t) = λ exp(−λt), then estimating the parameter λ
+by maximizing the likelihood in (11.13) is straightforward.9 Alternatively,
+we could assume that the survival times are drawn from a more flexible
+family of distributions, such as the Gamma or Weibull family. Another
+possibility is to model the survival times non-parametrically, as was done
+in Section 11.3 using the Kaplan–Meier estimator.
+However, what we would really like to do is model the survival time as
+a function of the covariates. To do this, it is convenient to work directly
+with the hazard function, instead of the probability density function.10
+One possible approach is to assume a functional form for the hazard func-
+tion h(t|xi), such as h(t|xi) = exp
+1
+β0 + )p
+j=1 βjxij
+2
+, where the exponent
+function guarantees that the hazard function is non-negative. Note that
+the exponential hazard function is special, in that it does not vary with
+time.11 Given h(t|xi), we could calculate S(t|xi). Plugging these equations
+into (11.13), we could then maximize the likelihood in order to estimate the
+parameter β = (β0, β1, . . . , βp)T . However, this approach is quite restric-
+tive, in the sense that it requires us to make a very stringent assumption
+on the form of the hazard function h(t|xi). In the next section, we will
+consider a much more flexible approach.
+11.5.2
+Proportional Hazards
+The Proportional Hazards Assumption
+The proportional hazards assumption states that
+proportional
+hazards
+assumption
+h(t|xi) = h0(t) exp
+
+
+p
+0
+j=1
+xijβj
+
+,
+(11.14)
+where h0(t) ≥0 is an unspecified function, known as the baseline hazard. baseline
+hazard
+It is the hazard function for an individual with features xi1 = · · · = xip =
+0. The name “proportional hazards” arises from the fact that the hazard
+function for an individual with feature vector xi is some unknown function
+9See Exercise 9.
+10Given the close relationship between the hazard function h(t) and the density func-
+tion f(t) explored in Exercise 8, posing an assumption about the form of the hazard
+function is closely related to posing an assumption about the form of the density func-
+tion, as was done in the previous paragraph.
+11The notation h(t|xi) indicates that we are now considering the hazard function for
+the ith observation conditional on the values of the covariates, xi.

@@ -1,0 +1,60 @@
+11.3 Analysis of a Second-Order Response Surface
+495
+or
+If we wished to explore the response surface in the vicinity of the stationary point, we could
+determine appropriate points at which to take observations in the (w1, w2) space and then use
+the above relationship to convert these points into the (x1, x2) space so that the runs may be
+made.
+11.3.3
+Ridge Systems
+It is not unusual to encounter variations of the pure maximum, minimum, or saddle point
+response surfaces discussed in the previous section. Ridge systems, in particular, are fairly
+common. Consider the canonical form of the second-order model given previously in Equa-
+tion 11.9:
+Now suppose that the stationary point xs is within the region of experimentation; furthermore,
+let one or more of the i be very small (e.g., i 0). The response variable is then very insen-
+sitive to the variables wi multiplied by the small i.
+A contour plot illustrating this situation is shown in Figure 11.12 for k 2 variables
+with 1 0. (In practice, 1 would be close to but not exactly equal to zero.) The canonical
+model for this response surface is theoretically
+with 2 negative. Notice that the severe elongation in the w1 direction has resulted in a line of
+centers at 
+70 and the optimum may be taken anywhere along that line. This type of
+response surface is called a stationary ridge system.
+If the stationary point is far outside the region of exploration for tting the second-order
+model and one (or more) i is near zero, then the surface may be a rising ridge. Figure 11.13
+illustrates a rising ridge for k 2 variables with 1 near zero and 2 negative. In this type of
+ridge system, we cannot draw inferences about the true surface or the stationary point because
+xs is outside the region where we have t the model. However, further exploration is warranted
+in the w1 direction. If 2 had been positive, we would call this system a falling ridge.
+yˆ
+yˆ yˆs 2w2
+2
+yˆ yˆs 1w2
+1 2w2
+2 Á kw2
+k
+w2 0.9574(x1 0.389) 0.2888(x2 0.306)
+w1 0.2897(x1 0.389) 0.9571(x2 0.306)
+x2
+w2
+w1
+x1
+60
+65
+70
+65
+60
+x2
+xs
+w1
+x1
+80
+75
+70
+■F I G U R E 1 1 . 1 3
+A contour plot of a
+rising ridge system
+■F I G U R E 1 1 . 1 2
+A contour plot of a
+stationary ridge system

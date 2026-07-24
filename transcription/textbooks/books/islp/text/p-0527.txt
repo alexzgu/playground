@@ -1,0 +1,51 @@
+12.4 Clustering Methods
+521
+• PCA looks to find a low-dimensional representation of the observa-
+tions that explain a good fraction of the variance;
+• Clustering looks to find homogeneous subgroups among the observa-
+tions.
+Another application of clustering arises in marketing. We may have ac-
+cess to a large number of measurements (e.g. median household income,
+occupation, distance from nearest urban area, and so forth) for a large
+number of people. Our goal is to perform market segmentation by identify-
+ing subgroups of people who might be more receptive to a particular form
+of advertising, or more likely to purchase a particular product. The task of
+performing market segmentation amounts to clustering the people in the
+data set.
+Since clustering is popular in many fields, there exist a great num-
+ber of clustering methods. In this section we focus on perhaps the two
+best-known clustering approaches: K-means clustering and hierarchical K-means
+clustering
+clustering. In K-means clustering, we seek to partition the observations
+hierarchical
+clustering
+into a pre-specified number of clusters. On the other hand, in hierarchical
+clustering, we do not know in advance how many clusters we want; in fact,
+we end up with a tree-like visual representation of the observations, called
+a dendrogram, that allows us to view at once the clusterings obtained for dendrogram
+each possible number of clusters, from 1 to n. There are advantages and
+disadvantages to each of these clustering approaches, which we highlight in
+this chapter.
+In general, we can cluster observations on the basis of the features in
+order to identify subgroups among the observations, or we can cluster fea-
+tures on the basis of the observations in order to discover subgroups among
+the features. In what follows, for simplicity we will discuss clustering obser-
+vations on the basis of the features, though the converse can be performed
+by simply transposing the data matrix.
+12.4.1
+K-Means Clustering
+K-means clustering is a simple and elegant approach for partitioning a
+data set into K distinct, non-overlapping clusters. To perform K-means
+clustering, we must first specify the desired number of clusters K; then the
+K-means algorithm will assign each observation to exactly one of the K
+clusters. Figure 12.7 shows the results obtained from performing K-means
+clustering on a simulated example consisting of 150 observations in two
+dimensions, using three different values of K.
+The K-means clustering procedure results from a simple and intuitive
+mathematical problem. We begin by defining some notation. Let C1, . . . , CK
+denote sets containing the indices of the observations in each cluster. These
+sets satisfy two properties:
+1. C1 ∪C2 ∪· · · ∪CK = {1, . . . , n}. In other words, each observation
+belongs to at least one of the K clusters.
+2. Ck ∩Ck′ = ∅for all k̸ = k′. In other words, the clusters are non-
+overlapping: no observation belongs to more than one cluster.

@@ -1,0 +1,68 @@
+64
+2. Statistical Learning
+4. You will now think of some real-life applications for statistical learn-
+ing.
+(a) Describe three real-life applications in which classification might
+be useful. Describe the response, as well as the predictors. Is the
+goal of each application inference or prediction? Explain your
+answer.
+(b) Describe three real-life applications in which regression might
+be useful. Describe the response, as well as the predictors. Is the
+goal of each application inference or prediction? Explain your
+answer.
+(c) Describe three real-life applications in which cluster analysis
+might be useful.
+5. What are the advantages and disadvantages of a very flexible (versus
+a less flexible) approach for regression or classification? Under what
+circumstances might a more flexible approach be preferred to a less
+flexible approach? When might a less flexible approach be preferred?
+6. Describe the differences between a parametric and a non-parametric
+statistical learning approach. What are the advantages of a para-
+metric approach to regression or classification (as opposed to a non-
+parametric approach)? What are its disadvantages?
+7. The table below provides a training data set containing six observa-
+tions, three predictors, and one qualitative response variable.
+Obs.
+X1
+X2
+X3
+Y
+1
+0
+3
+0
+Red
+2
+2
+0
+0
+Red
+3
+0
+1
+3
+Red
+4
+0
+1
+2
+Green
+5
+−1
+0
+1
+Green
+6
+1
+1
+1
+Red
+Suppose we wish to use this data set to make a prediction for Y when
+X1 = X2 = X3 = 0 using K-nearest neighbors.
+(a) Compute the Euclidean distance between each observation and
+the test point, X1 = X2 = X3 = 0.
+(b) What is our prediction with K = 1? Why?
+(c) What is our prediction with K = 3? Why?
+(d) If the Bayes decision boundary in this problem is highly non-
+linear, then would we expect the best value for K to be large or
+small? Why?

@@ -1,0 +1,53 @@
+508
+12. Unsupervised Learning
+PC1
+PC2
+Murder
+0.5358995
+−0.4181809
+Assault
+0.5831836
+−0.1879856
+UrbanPop
+0.2781909
+0.8728062
+Rape
+0.5434321
+0.1673186
+TABLE 12.1. The principal component loading vectors, φ1 and φ2, for the
+USArrests data. These are also displayed in Figure 12.1.
+deviation one. Figure 12.1 plots the first two principal components of these
+data. The figure represents both the principal component scores and the
+loading vectors in a single biplot display. The loadings are also given in biplot
+Table 12.2.1.
+In Figure 12.1, we see that the first loading vector places approximately
+equal weight on Assault, Murder, and Rape, but with much less weight on
+UrbanPop. Hence this component roughly corresponds to a measure of overall
+rates of serious crimes. The second loading vector places most of its weight
+on UrbanPop and much less weight on the other three features. Hence, this
+component roughly corresponds to the level of urbanization of the state.
+Overall, we see that the crime-related variables (Murder, Assault, and Rape)
+are located close to each other, and that the UrbanPop variable is far from the
+other three. This indicates that the crime-related variables are correlated
+with each other—states with high murder rates tend to have high assault
+and rape rates—and that the UrbanPop variable is less correlated with the
+other three.
+We can examine differences between the states via the two principal com-
+ponent score vectors shown in Figure 12.1. Our discussion of the loading
+vectors suggests that states with large positive scores on the first compo-
+nent, such as California, Nevada and Florida, have high crime rates, while
+states like North Dakota, with negative scores on the first component, have
+low crime rates. California also has a high score on the second component,
+indicating a high level of urbanization, while the opposite is true for states
+like Mississippi. States close to zero on both components, such as Indiana,
+have approximately average levels of both crime and urbanization.
+12.2.2
+Another Interpretation of Principal Components
+The first two principal component loading vectors in a simulated three-
+dimensional data set are shown in the left-hand panel of Figure 12.2; these
+two loading vectors span a plane along which the observations have the
+highest variance.
+In the previous section, we describe the principal component loading vec-
+tors as the directions in feature space along which the data vary the most,
+and the principal component scores as projections along these directions.
+However, an alternative interpretation of principal components can also be

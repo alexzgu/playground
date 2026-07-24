@@ -1,0 +1,75 @@
+282
+Chapter 6 ■The 2k Factorial Design
+The least squares estimates of the model regression coefcients are exactly equal to one-half
+of the usual effect estimates.
+It turns out that the variance of any model regression coefcient is easy to nd:
+All model regression coefcients have the same variance. Furthermore, there is no other
+four-run design on the design space bounded by 1 that makes the variance of the model
+regression coefcients smaller. In general, the variance of any model regression coefcient in
+a 2k design where each design point is replicated n times is 
+, where N
+is the total number of runs in the design. This is the minimum possible variance for the regres-
+sion coefcient.
+For the 22 design, the determinant of the 
+matrix is
+This is the maximum possible value of the determinant for a four-run design on the design
+space bounded by 1. It turns out that the volume of the joint condence region that contains
+all the model regression coefcients is inversely proportional to the square root of the deter-
+minant of 
+. Therefore, to make this joint condence region as small as possible, we would
+want to choose a design that makes the determinant of 
+as large as possible. This is
+accomplished by choosing the 22 design.
+In general, a design that minimizes the variance of the model regression coefcients is
+called a D-optimal design. The D terminology is used because these designs are found by
+selecting runs in the design to maximize the determinant of 
+. The 2k design is a D-optimal
+design for tting the rst-order model or the rst-order model with interaction. Many com-
+puter software packages, such as JMP, Design-Expert, and Minitab, have algorithms for nd-
+ing D-optimal designs. These algorithms can be very useful in constructing experimental
+designs for many practical situations. We will make use of them in subsequent chapters.
+Now consider the variance of the predicted response in the 22 design
+The variance of the predicted response is a function of the point in the design space where the
+prediction is made (x1 and x2) and the variance of the model regression coefcients. The esti-
+mates of the regression coefcients are independent because the 22 design is orthogonal and
+they all have variance 
+, so
+The maximum prediction variance occurs when 
+and is equal to 2. To
+determine how good this is, we need to know the best possible value of prediction variance that
+x1 x2 1
+2
+4 (1 x1
+2 x2
+2 x1
+2x2
+2)
+V [yˆ(x1,x2)] V(ˆ
+0 ˆ
+1x1 ˆ
+2x2 ˆ
+12x1x2)
+24
+V [yˆ(x1 x2)] V(ˆ
+0 ˆ
+1x1 ˆ
+2x2 ˆ
+12x1x2)
+XX
+XX
+XX
+(XX)256
+XX
+V(ˆ) 2(n2k) 2N
+2
+4
+V( ˆ) 2(diagonal element of (XX)1)
+
+(1) a b ab
+4
+(1) a b ab
+4
+(1) a b ab
+4
+(1) a b ab
+4

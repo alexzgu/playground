@@ -1,0 +1,49 @@
+6.7. GENERALIZED POISSON PROCESSES II
+213
+If µ is symmetric about the origin, that is, if for every 0 < a < b the
+rate of jumps with increments in [a, b] is the same as that of jumps in
+[−b, −a], then mϵ = 0 for every ϵ and
+Yt = lim
+ϵ0 Xϵ
+t 
+Proposition 6.7.1. IYt CGPP L´µ, 
+Ψ(s) =
+1
+−1
+[eisx −1 −isx] dµ(x),
+Lf(s) =
+∞
+−∞
+[f(x + y) −f(x) −yf ′(x)] dµ(y)
+Tf C2 . I
+E[f(Yt)2] < ∞, 
+Mt = f(Yt) −
+t
+0
+Lf(Ys) ds
+
+⟨M⟩t =
+
+s≤t
+[f(Ys) −f(Ys−)]2
+P. Let Xϵ = Xϵ
+1 and M ϵ = M ϵ
+1 = Xϵ −mϵ. Let Ψϵ = ΨMϵ and note that
+Ψϵ(s) = ΨXϵ(s) −imϵs =
+
+|x|>ϵ
+[eisx −1]dµ(x) −imϵs
+Since
+mϵ =
+
+|x|>ϵ
+x dµ(x),
+we can write
+Ψϵ(s) =
+
+|x|>ϵ
+[eisx −1 −isx] dµ(x)
+Using Taylor series, we see that eisx −1 −isx= O(s2x2), and hence (6.20)
+implies that for each s,
+
+eisx −1 −isxdµ(x) < ∞

@@ -1,0 +1,80 @@
+258
+6. Linear Model Selection and Regularization
+−1.0
+−0.5
+0.0
+0.5
+1.0
+20
+30
+40
+50
+60
+2nd Principal Component
+Population
+−1.0
+−0.5
+0.0
+0.5
+1.0
+5
+10
+15
+20
+25
+30
+2nd Principal Component
+Ad Spending
+FIGURE 6.17. Plots of the second principal component scores zi2 versus pop
+and ad. The relationships are weak.
+0
+10
+20
+30
+40
+0
+10
+20
+30
+40
+50
+60
+70
+Number of Components
+Mean Squared Error
+0
+10
+20
+30
+40
+0
+50
+100
+150
+Number of Components
+Mean Squared Error
+Squared Bias
+Test MSE
+Variance
+FIGURE 6.18. PCR was applied to two simulated data sets. In each panel, the
+horizontal dashed line represents the irreducible error. Left: Simulated data from
+Figure 6.8. Right: Simulated data from Figure 6.9.
+directions in which X1, . . . , Xp show the most variation are the directions
+that are associated with Y . While this assumption is not guaranteed to be
+true, it often turns out to be a reasonable enough approximation to give
+good results.
+If the assumption underlying PCR holds, then fitting a least squares
+model to Z1, . . . , ZM will lead to better results than fitting a least squares
+model to X1, . . . , Xp, since most or all of the information in the data that
+relates to the response is contained in Z1, . . . , ZM, and by estimating only
+M ≪p coefficients we can mitigate overfitting. In the advertising data, the
+first principal component explains most of the variance in both pop and ad,
+so a principal component regression that uses this single variable to predict
+some response of interest, such as sales, will likely perform quite well.
+Figure 6.18 displays the PCR fits on the simulated data sets from Fig-
+ures 6.8 and 6.9. Recall that both data sets were generated using n = 50
+observations and p = 45 predictors. However, while the response in the
+first data set was a function of all the predictors, the response in the sec-
+ond data set was generated using only two of the predictors. The curves are
+plotted as a function of M, the number of principal components used as
+predictors in the regression model. As more principal components are used

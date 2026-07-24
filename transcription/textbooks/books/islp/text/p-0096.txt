@@ -1,0 +1,57 @@
+3.2 Multiple Linear Regression
+87
+X2 only, and (4) a model containing both X1 and X2. We can then se-
+lect the best model out of all of the models that we have considered. How
+do we determine which model is best? Various statistics can be used to
+judge the quality of a model. These include Mallow’s Cp, Akaike informa- Mallow’s Cp
+tion criterion (AIC), Bayesian information criterion (BIC), and adjusted
+Akaike
+information
+criterion
+Bayesian
+information
+criterion
+R2. These are discussed in more detail in Chapter 6. We can also deter-
+adjusted R2
+mine which model is best by plotting various model outputs, such as the
+residuals, in order to search for patterns.
+Unfortunately, there are a total of 2p models that contain subsets of p
+variables. This means that even for moderate p, trying out every possible
+subset of the predictors is infeasible. For instance, we saw that if p = 2, then
+there are 22 = 4 models to consider. But if p = 30, then we must consider
+230 = 1,073,741,824 models! This is not practical. Therefore, unless p is very
+small, we cannot consider all 2p models, and instead we need an automated
+and efficient approach to choose a smaller set of models to consider. There
+are three classical approaches for this task:
+• Forward selection. We begin with the null model—a model that con- forward
+selection
+null model
+tains an intercept but no predictors. We then fit p simple linear re-
+gressions and add to the null model the variable that results in the
+lowest RSS. We then add to that model the variable that results
+in the lowest RSS for the new two-variable model. This approach is
+continued until some stopping rule is satisfied.
+• Backward selection. We start with all variables in the model, and backward
+selection
+remove the variable with the largest p-value—that is, the variable
+that is the least statistically significant. The new (p −1)-variable
+model is fit, and the variable with the largest p-value is removed. This
+procedure continues until a stopping rule is reached. For instance, we
+may stop when all remaining variables have a p-value below some
+threshold.
+• Mixed selection. This is a combination of forward and backward se- mixed
+selection
+lection. We start with no variables in the model, and as with forward
+selection, we add the variable that provides the best fit. We con-
+tinue to add variables one-by-one. Of course, as we noted with the
+Advertising example, the p-values for variables can become larger as
+new predictors are added to the model. Hence, if at any point the
+p-value for one of the variables in the model rises above a certain
+threshold, then we remove that variable from the model. We con-
+tinue to perform these forward and backward steps until all variables
+in the model have a sufficiently low p-value, and all variables outside
+the model would have a large p-value if added to the model.
+Backward selection cannot be used if p > n, while forward selection can
+always be used. Forward selection is a greedy approach, and might include
+variables early that later become redundant. Mixed selection can remedy
+this.

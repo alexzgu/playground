@@ -1,0 +1,48 @@
+24
+CHAPTER 1. MARTINGALES IN DISCRETE TIME
+a success on the (n+1)st trial given that Sn = k is the conditional expectation
+of θ given Sn = k. A little computation which we omit shows that
+E[θ Sn = k] =
+1
+0
+θ fn,k(θ) dθ = k + 1
+n + 2 = Sn + 1
+n + 2 
+These are exactly the transition probabilities for Polya’s urn if we view Sn+1
+as the number of red balls in the urn (Sn is the number of red balls added to
+the urn). The martingale convergence theorem can now be viewed as the law
+of large numbers (1.10) for θ. Even though we do not initially know the value
+of θ (and hence treat it as a random variable) we know that the conditional
+value of θ given Fn approaches θ.
+Example 1.4.1. We end with a simple example where the conditions of
+the martingale convergence theorem do not apply. Let Sn = X1 + · · · + Xn
+be simple symmetric random walk starting at the origin as in the previous
+section. Then one can easily see that E[Sn] →∞. For this example, with
+probability one
+lim sup
+n∞Sn = ∞,
+lim inf
+n∞Sn = −∞
+1.5
+Square integrable martingales
+Denition A martingale Mn is called if for each n,
+E [M 2
+n] < ∞
+Note that this condition is not as strong as (1.9). We do not require that
+there exists a C < ∞such that E [M 2
+n] ≤C for each n. Random variables
+X, Y are if E[XY ] = E[X] E[Y ]. Independent random variables
+are orthogonal, but orthogonal random variables need not be independent. If
+X1, , Xn are pairwise orthogonal random variables with mean zero, then
+E[XjXk] = 0 for j̸ = k and by expanding the square we can see that
+E
+
+(X1 + · · · + Xn)2
+=
+n
+
+j=1
+E[X2
+j ]
+This can be thought of as a generalization of the Pythagorean theorem a2 +
+b2 = c2 for right triangles. The increments of a martingale are not necessarily

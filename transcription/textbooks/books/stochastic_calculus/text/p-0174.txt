@@ -1,0 +1,58 @@
+168CHAPTER 5. CHANGE OF MEASURE AND GIRSANOV THEOREM
+Straightforward calculus shows that Z has a density
+g(z) = 1
+az ϕ
+−y + log z
+a
+
+,
+where ϕ is the standard normal density, and hence
+˜Vt =
+∞
+˜
+K
+(z −˜K) g(z) dz
+Another computation gives
+˜Vt = ˜St Φ
+
+log( ˜St˜K) + a2
+2
+a
+
+−˜K Φ
+
+log( ˜St˜K) −a2
+2
+a
+
+,
+which implies that
+Vt = ert ˜Vt = St Φ
+
+log(StK) + rs + a2
+2
+a
+
+−e−rs K Φ
+
+log(StK) + rs −a2
+2
+a
+
+,
+where s = T −t. Plugging in a = σ√s gives (5.20).
+One of the hypotheses in Theorem 5.5.1 is that if St satises
+dSt = St [m(t, St) dt + σ(t, St) dBt] ,
+then there exists a probability measure Q under which
+dSt = St [r(t, St) dt + σ(t, St) dWt] ,
+(5.24)
+where Wt is a Q-Brownian motion. Indeed, if St satises (5.24), then the
+discounted price ˜St = StRt satises
+d ˜St = ˜St σ(t, St) dWt = ˜St σ(t, Rt ˜St) dWt
+(5.25)
+The Girsanov theorem tells us that the way to obtain Q is to tilt by the local
+martingale Mt where
+dMt = Mt
+r(t, St) −m(t, St)
+σ(t, St)
+dBt,

@@ -1,0 +1,61 @@
+8.10 Problems
+393
+(b) Compare the aliases from this combined design to
+those from the combined design from Problem 8.35.
+What differences resulted by changing the signs in a
+different column?
+8.58.
+Consider the 
+design.
+(a) Suppose that a partial fold over of this design is run
+using column A (signs only). Determine the alias
+relationships in the combined design.
+(b) Rework part (a) using the negative signs to dene the
+partial fold over. Does it make any difference which
+signs are used to dene the partial fold over?
+8.59.
+Consider a partial fold over for the 
+design. Suppose
+that the signs are reversed in column A, but the eight runs that
+are retained are the runs that have positive signs in column C.
+Determine the alias relationships in the combined design.
+8.60.
+Consider a partial fold over for the 
+design.
+Suppose that the partial fold over of this design is constructed
+using column A ( signs only). Determine the alias relation-
+ships in the combined design.
+274
+III
+262
+IV
+273
+IV
+8.61.
+Consider a partial fold over for the 
+design.
+Suppose that the partial fold over of this design is constructed
+using column A ( signs only). Determine the alias relation-
+ships in the combined design.
+8.62.
+Reconsider the 241 design in Example 8.1. The sig-
+nicant factors are A, C, D, AC BD, and AD BC. Find a
+partial fold-over design that will allow the AC, BD, AD, and
+BC interactions to be estimated.
+8.63.
+Construct a supersaturated design for k 8 factors in
+P 6 runs.
+8.64.
+Consider the 283 design in Problem 8.37. Suppose
+that the alias chain involving the AB interaction was large.
+Recommend a partial fold-one design to resolve the ambiguity
+about this interaction.
+8.65.
+Construct a supersaturated design for h 12 factors
+in N 10 runs.
+8.66.
+How could an “optimal design” approach be used to
+augment a fractional factorial design to de-alias effects of
+potential interest?
+252
+III

@@ -1,0 +1,56 @@
+4.7 Lab: Logistic Regression, LDA, QDA, and KNN
+177
+loc method. For instance, the command Smarket.loc[train] would pick
+out a submatrix of the stock market data set, corresponding only to the
+dates before 2005, since those are the ones for which the elements of train
+are True. The ∼symbol can be used to negate all of the elements of a
+Boolean vector. That is, ∼train is a vector similar to train, except that
+the elements that are True in train get swapped to False in ∼train, and
+vice versa. Therefore, Smarket.loc[∼train] yields a subset of the rows of
+the data frame of the stock market data containing only the observations
+for which train is False. The output above indicates that there are 252
+such observations.
+We now fit a logistic regression model using only the subset of the ob-
+servations that correspond to dates before 2005. We then obtain predicted
+probabilities of the stock market going up for each of the days in our test
+set — that is, for the days in 2005.
+In [15]: X_train, X_test = X.loc[train], X.loc[∼train]
+y_train, y_test = y.loc[train], y.loc[∼train]
+glm_train = sm.GLM(y_train,
+X_train,
+family=sm.families.Binomial())
+results = glm_train.fit()
+probs = results.predict(exog=X_test)
+Notice that we have trained and tested our model on two completely
+separate data sets: training was performed using only the dates before
+2005, and testing was performed using only the dates in 2005.
+Finally, we compare the predictions for 2005 to the actual movements of
+the market over that time period. We will first store the test and training
+labels (recall y_test is binary).
+In [16]: D = Smarket.Direction
+L_train, L_test = D.loc[train], D.loc[∼train]
+Now we threshold the fitted probability at 50% to form our predicted labels.
+In [17]: labels = np.array(['Down']*252)
+labels[probs >0.5] = 'Up'
+confusion_table(labels, L_test)
+Out[17]:
+Truth
+Down
+Up
+Predicted
+Down
+77
+97
+Up
+34
+44
+The test accuracy is about 48% while the error rate is about 52%
+In [18]: np.mean(labels == L_test), np.mean(labels != L_test)
+Out[18]: (0.4802, 0.5198)
+The != notation means not equal to, and so the last command computes !=
+the test set error rate. The results are rather disappointing: the test error
+rate is 52%, which is worse than random guessing! Of course this result
+is not all that surprising, given that one would not generally expect to be
+able to use previous days’ returns to predict future market performance.
+(After all, if it were possible to do so, then the authors of this book would
+be out striking it rich rather than writing a statistics textbook.)

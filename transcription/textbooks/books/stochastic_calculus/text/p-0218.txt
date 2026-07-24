@@ -1,0 +1,52 @@
+212
+CHAPTER 6. JUMP PROCESSES
+All jumps are bounded in absolute value by 1, that is,
+µx : x> 1= 0
+(6.19)
+The second moment of the measure is nite,
+σ2 :=
+∞
+−∞
+x2 dµ(x) < ∞
+(6.20)
+Note that (6.20) can hold even if (6.15) does not hold.
+Let
+mϵ =
+∞
+−∞
+x dµϵ(x) =
+
+ϵ<|x|≤1
+x dµ(x),
+which is nite and well dened for all ϵ > 0 by (6.18)–(6.20). For each
+ϵ > 0, there is a CPP Xϵ
+t associated to the measure µϵ and a correponding
+compensated Poisson process M ϵ
+t = Xϵ
+t −mϵt.
+Denition Suppose µ is a measure on R satisfying (6.18)–(6.20). Then the
+P(CGPP) L´µ is
+given by
+Yt = lim
+ϵ0 M ϵ
+t = lim
+ϵ0 [Xϵ
+t −mϵt]
+(6.21)
+Two important cases are the following.
+If
+∞
+−∞
+xdµ(x) < ∞,
+then the (uncompensated) generalized Poisson process
+Xt = lim
+ϵ0 Xϵ
+t ,
+as in the previous section exists. In this case
+Yt = Xt −mt,
+where
+m = lim
+ϵ0 mϵ =
+∞
+−∞
+x dµ(x)

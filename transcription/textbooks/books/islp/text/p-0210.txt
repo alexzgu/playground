@@ -1,0 +1,53 @@
+202
+5. Resampling Methods
+5.1
+Cross-Validation
+In Chapter 2 we discuss the distinction between the test error rate and the
+training error rate. The test error is the average error that results from using
+a statistical learning method to predict the response on a new observation—
+that is, a measurement that was not used in training the method. Given
+a data set, the use of a particular statistical learning method is warranted
+if it results in a low test error. The test error can be easily calculated if a
+designated test set is available. Unfortunately, this is usually not the case.
+In contrast, the training error can be easily calculated by applying the
+statistical learning method to the observations used in its training. But as
+we saw in Chapter 2, the training error rate often is quite different from the
+test error rate, and in particular the former can dramatically underestimate
+the latter.
+In the absence of a very large designated test set that can be used to
+directly estimate the test error rate, a number of techniques can be used
+to estimate this quantity using the available training data. Some methods
+make a mathematical adjustment to the training error rate in order to
+estimate the test error rate. Such approaches are discussed in Chapter 6.
+In this section, we instead consider a class of methods that estimate the
+test error rate by holding out a subset of the training observations from the
+fitting process, and then applying the statistical learning method to those
+held out observations.
+In Sections 5.1.1–5.1.4, for simplicity we assume that we are interested
+in performing regression with a quantitative response. In Section 5.1.5 we
+consider the case of classification with a qualitative response. As we will
+see, the key concepts remain the same regardless of whether the response
+is quantitative or qualitative.
+5.1.1
+The Validation Set Approach
+Suppose that we would like to estimate the test error associated with fit-
+ting a particular statistical learning method on a set of observations. The
+validation set approach, displayed in Figure 5.1, is a very simple strategy validation
+set approach
+for this task. It involves randomly dividing the available set of observa-
+tions into two parts, a training set and a validation set or hold-out set. The validation
+set
+hold-out set
+model is fit on the training set, and the fitted model is used to predict the
+responses for the observations in the validation set. The resulting validation
+set error rate—typically assessed using MSE in the case of a quantitative
+response—provides an estimate of the test error rate.
+We illustrate the validation set approach on the Auto data set. Recall from
+Chapter 3 that there appears to be a non-linear relationship between mpg
+and horsepower, and that a model that predicts mpg using horsepower and
+horsepower2 gives better results than a model that uses only a linear term.
+It is natural to wonder whether a cubic or higher-order fit might provide
+even better results. We answer this question in Chapter 3 by looking at
+the p-values associated with a cubic term and higher-order polynomial
+terms in a linear regression. But we could also answer this question using
+the validation method. We randomly split the 392 observations into two

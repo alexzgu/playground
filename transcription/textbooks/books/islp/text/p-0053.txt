@@ -1,0 +1,39 @@
+2.3 Lab: Introduction to Python
+43
+In [12]: x.dtype
+Out[12]: dtype('int64')
+Why is x comprised of integers? This is because we created x by passing
+in exclusively integers to the np.array() function. If we had passed in any
+decimals, then we would have obtained an array of floating point numbers floating
+point
+(i.e. real-valued numbers).
+In [13]: np.array([[1, 2], [3.0, 4]]).dtype
+Out[13]: dtype('float64')
+Typing fun? will cause Python to display documentation associated with
+the function fun, if it exists. We can try this for np.array().
+In [14]: np.array?
+This documentation indicates that we could create a floating point array
+by passing a dtype argument into np.array().
+dtype
+In [15]: np.array([[1, 2], [3, 4]], float).dtype
+Out[15]: dtype('float64')
+The array x is two-dimensional. We can find out the number of rows and
+columns by looking at its shape attribute.
+shape
+In [16]: x.shape
+Out[16]: (2, 2)
+A method is a function that is associated with an object. For instance, method
+given an array x, the expression x.sum() sums all of its elements, using the
+sum() method for arrays. The call x.sum() automatically provides x as the .sum()
+first argument to its sum() method.
+In [17]: x = np.array([1, 2, 3, 4])
+x.sum()
+Out[17]: 10
+We could also sum the elements of x by passing in x as an argument to the
+np.sum() function.
+np.sum()
+In [18]: x = np.array([1, 2, 3, 4])
+np.sum(x)
+Out[18]: 10
+As another example, the reshape() method returns a new array with the .reshape()
+same elements as x, but a different shape. We do this by passing in a tuple tuple

@@ -1,0 +1,59 @@
+6.5. CHANGE OF MEASURE
+205
+Note that we can write
+Zt = Z0 exp
+
+0<s≤t
+log[1 + ( ˆXs −ˆXs−)]
+
+
+Example 6.4.4. More generally, the equations
+dZt = At−Zt−dXt,
+dMt = At−Mt−dYt
+where X is a CPP with compensated process Yt = Xt −mt, have solutions
+Zt = Z0 exp
+
+0<s≤t
+log[1 + As−(Xs −Xs−)]
+
+,
+Mt = Zt exp
+
+−m
+t
+0
+As−ds
+
+= Zt exp
+
+−m
+t
+0
+As ds
+
+
+6.5
+Change of measure
+Suppose Xt is a CPP dened on the probability space (Ω, F, P) with L´evy
+measure µ and corresponding ltration Ft. We would like to do the ana-
+logue of the Girsanov theorem to change the measure.
+Suppose that strictly positive martingale Mt is a strictly positive mar-
+tingale with respect to Ftwith M0 = 1. As before, we can dene a new
+probability measure Q by saying that if V is Ft-measurable, then
+Q[V ] = E [Mt 1V ] 
+If we let Pt, Qt denote P, Q restricted to Ft, then Pt and Qt are mutually
+absolutely continuous with
+dQt
+dPt
+= Mt,
+dPt
+dQt
+= 1
+Mt
+
+If ν is a another measure on R, we can ask if we can nd a martingale so
+that under the measure Q, Xt is a CPP with L´evy measure ν. A necessary
+condition for this to hold is that µ and ν are mutually absolutely continuous
+measures on R. Indeed, if V is a subset of R with µ(V ) > 0, ν(V ) = 0, then
+Xt under P has positive probability of having Xs −Xs−V for some s ≤1,
+while this has zero probability under Q.

@@ -1,0 +1,51 @@
+272
+6. Linear Model Selection and Regularization
+We now add the cross-validation error estimates to our MSE plot. We
+include the mean error across the five folds, and the estimate of the standard
+error of the mean.
+In [16]: ax.errorbar(np.arange(n_steps),
+cv_mse.mean(1),
+cv_mse.std(1) / np.sqrt(K),
+label='Cross-validated',
+c='r') # color red
+ax.set_ylim([50000,250000])
+ax.legend()
+mse_fig
+To repeat the above using the validation set approach, we simply change
+our cv argument to a validation set: one random split of the data into a
+test and training. We choose a test size of 20%, similar to the size of each
+test set in 5-fold cross-validation.
+skm.Shuffle
+Split()
+In [17]: validation = skm.ShuffleSplit(n_splits=1,
+test_size=0.2,
+random_state=0)
+for train_idx, test_idx in validation.split(Y):
+full_path.fit(Hitters.iloc[train_idx],
+Y[train_idx])
+Yhat_val = full_path.predict(Hitters.iloc[test_idx])
+errors = (Yhat_val - Y[test_idx,None])**2
+validation_mse = errors.mean(0)
+As for the in-sample MSE case, the validation set approach does not provide
+standard errors.
+In [18]: ax.plot(np.arange(n_steps),
+validation_mse ,
+'b--', # color blue, broken line
+label='Validation')
+ax.set_xticks(np.arange(n_steps)[::2])
+ax.set_ylim([50000,250000])
+ax.legend()
+mse_fig
+Best Subset Selection
+Forward stepwise is a greedy selection procedure; at each step it augments
+the current set by including one additional variable. We now apply best
+subset selection to the Hitters data, which for every subset size, searches
+for the best set of predictors.
+We will use a package called l0bnb to perform best subset selection.
+Instead of constraining the subset to be a given size, this package produces a
+path of solutions using the subset size as a penalty rather than a constraint.
+Although the distinction is subtle, the difference comes when we cross-
+validate.
+In [19]: D = design.fit_transform(Hitters)
+D = D.drop('intercept', axis=1)
+X = np.asarray(D)

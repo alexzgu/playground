@@ -1,0 +1,49 @@
+436
+10. Deep Learning
+Torch-Specific Imports
+There are a number of imports for torch. (These are not included with
+ISLP, so must be installed separately.) First we import the main library
+and essential tools used to specify sequentially-structured networks.
+In [2]: import torch
+from torch import nn
+from torch.optim import RMSprop
+from torch.utils.data import TensorDataset
+There are several other helper packages for torch. For instance, the
+torchmetrics package has utilities to compute various metrics to evalu- torchmetrics
+ate performance when fitting a model. The torchinfo package provides a torchinfo
+useful summary of the layers of a model. We use the read_image() function read_image()
+when loading test images in Section 10.9.4.
+In [3]: from torchmetrics import (MeanAbsoluteError ,
+R2Score)
+from torchinfo import summary
+from torchvision.io import read_image
+The package pytorch_lightning is a somewhat higher-level interface to
+torch that simplifies the specification and fitting of models by reducing the
+amount of boilerplate code needed (compared to using torch alone).
+In [4]: from pytorch_lightning import Trainer
+from pytorch_lightning.loggers import CSVLogger
+In order to reproduce results we use seed_everything(). We will also seed_
+everything()
+instruct torch to use deterministic algorithms where possible.
+In [5]: from pytorch_lightning.utilities.seed import seed_everything
+seed_everything(0, workers=True)
+torch.use_deterministic_algorithms(True, warn_only=True)
+We will use several datasets shipped with torchvision for our examples: torchvision
+a pretrained network for image classification, as well as some transforms
+used for preprocessing.
+In [6]: from torchvision.datasets import MNIST, CIFAR100
+from torchvision.models import (resnet50,
+ResNet50_Weights)
+from torchvision.transforms import (Resize,
+Normalize,
+CenterCrop ,
+ToTensor)
+We have provided a few utilities in ISLP specifically for this lab. The
+SimpleDataModule and SimpleModule are simple versions of objects used
+in pytorch_lightning, the high-level module for fitting torch models. Al-
+though more advanced uses such as computing on graphical processing
+units (GPUs) and parallel data processing are possible in this module, we
+will not be focusing much on these in this lab. The ErrorTracker handles
+collections of targets and predictions over each mini-batch in the validation
+or test stage, allowing computation of the metric over the entire validation
+or test data set.

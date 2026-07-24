@@ -1,0 +1,52 @@
+underestimate the logistical and planning aspects of running a designed experiment
+in a complex manufacturing or research and development environment.
+Coleman and Montgomery (1993) suggest that prior to conducting the experi-
+ment a few trial runs or pilot runs are often helpful. These runs provide information
+about consistency of experimental material, a check on the measurement system, a
+rough idea of experimental error, and a chance to practice the overall experimental
+technique. This also provides an opportunity to revisit the decisions made in steps
+1–4, if necessary.
+6. Statistical analysis of the data. Statistical methods should be used to analyze the data
+so that results and conclusions are objective rather than judgmental in nature. If the
+experiment has been designed correctly and performed according to the design, the
+statistical methods required are not elaborate. There are many excellent software
+packages designed to assist in data analysis, and many of the programs used in step 4
+to select the design provide a seamless, direct interface to the statistical analysis. Often
+we nd that simple graphical methods play an important role in data analysis and
+interpretation. Because many of the questions that the experimenter wants to answer
+can be cast into an hypothesis-testing framework, hypothesis testing and condence
+interval estimation procedures are very useful in analyzing data from a designed
+experiment. It is also usually very helpful to present the results of many experiments
+in terms of an empirical model, that is, an equation derived from the data that express
+the relationship between the response and the important design factors. Residual
+analysis and model adequacy checking are also important analysis techniques. We will
+discuss these issues in detail later.
+Remember that statistical methods cannot prove that a factor (or factors) has a
+particular effect. They only provide guidelines as to the reliability and validity of
+results. When properly applied, statistical methods do not allow anything to be proved
+experimentally, but they do allow us to measure the likely error in a conclusion or to
+attach a level of condence to a statement. The primary advantage of statistical meth-
+ods is that they add objectivity to the decision-making process. Statistical techniques
+coupled with good engineering or process knowledge and common sense will usually
+lead to sound conclusions.
+7. Conclusions and recommendations. Once the data have been analyzed, the experi-
+menter must draw practical conclusions about the results and recommend a course of
+action. Graphical methods are often useful in this stage, particularly in presenting the
+results to others. Follow-up runs and conﬁrmation testing should also be performed
+to validate the conclusions from the experiment.
+Throughout this entire process, it is important to keep in mind that experimen-
+tation is an important part of the learning process, where we tentatively formulate
+hypotheses about a system, perform experiments to investigate these hypotheses,
+and on the basis of the results formulate new hypotheses, and so on. This suggests
+that experimentation is iterative. It is usually a major mistake to design a single,
+large, comprehensive experiment at the start of a study. A successful experiment
+requires knowledge of the important factors, the ranges over which these factors
+should be varied, the appropriate number of levels to use, and the proper units of
+measurement for these variables. Generally, we do not perfectly know the answers
+to these questions, but we learn about them as we go along. As an experimental pro-
+gram progresses, we often drop some input variables, add others, change the region
+of exploration for some factors, or add new response variables. Consequently, we
+usually experiment sequentially, and as a general rule, no more than about 25 percent
+of the available resources should be invested in the rst experiment. This will ensure
+20
+Chapter 1 ■Introduction

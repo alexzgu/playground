@@ -1,0 +1,30 @@
+Chapter 4
+More stochastic calculus
+4.1
+Martingales and local martingales
+In the last chapter we dened
+Zt =
+t
+0
+As dBs,
+where Bt is a standard Brownian motion and As is a continuous or piecewise
+continuous process. If
+t
+0
+E[A2
+s] ds < ∞
+for each t, then Zt is a square integrable martingale. However, our next
+example will show that if this inequality does not hold, the stochastic integral
+might not be a martingale. Our example is a modication of the martingale
+betting strategy from Section 1.2. In that example, we beat a fair game by
+doubling our bet until we won. We recall that if Wn denotes the winnings
+after n plays, then E[Wn] = 0, but with probability one W∞= 1. In order to
+beat the game, we had to allow for arbitrarily large numbers of plays of the
+game until we won. In continuous time, one can do the same idea, but adapt
+it so that we guarantee to win by time 1.
+Example 4.1.1. (Martingale betting strategy revisited) We will consider
+Zt =
+t
+0
+As dBs
+125

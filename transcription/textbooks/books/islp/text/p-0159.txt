@@ -1,0 +1,51 @@
+150
+4. Classification
+x1
+x1
+x2
+x2
+FIGURE 4.5.
+Two multivariate Gaussian density functions are shown, with
+p = 2. Left: The two predictors are uncorrelated. Right: The two variables have
+a correlation of 0.7.
+4.4.2
+Linear Discriminant Analysis for p >1
+We now extend the LDA classifier to the case of multiple predictors. To
+do this, we will assume that X = (X1, X2, . . . , Xp) is drawn from a multi-
+variate Gaussian (or multivariate normal) distribution, with a class-specific multivariate
+Gaussian
+mean vector and a common covariance matrix. We begin with a brief review
+of this distribution.
+The multivariate Gaussian distribution assumes that each individual pre-
+dictor follows a one-dimensional normal distribution, as in (4.16), with some
+correlation between each pair of predictors. Two examples of multivariate
+Gaussian distributions with p = 2 are shown in Figure 4.5. The height of
+the surface at any particular point represents the probability that both X1
+and X2 fall in a small region around that point. In either panel, if the sur-
+face is cut along the X1 axis or along the X2 axis, the resulting cross-section
+will have the shape of a one-dimensional normal distribution. The left-hand
+panel of Figure 4.5 illustrates an example in which Var(X1) = Var(X2) and
+Cor(X1, X2) = 0; this surface has a characteristic bell shape. However, the
+bell shape will be distorted if the predictors are correlated or have unequal
+variances, as is illustrated in the right-hand panel of Figure 4.5. In this
+situation, the base of the bell will have an elliptical, rather than circular,
+shape. To indicate that a p-dimensional random variable X has a multi-
+variate Gaussian distribution, we write X ∼N(µ, Σ). Here E(X) = µ is
+the mean of X (a vector with p components), and Cov(X) = Σ is the
+p × p covariance matrix of X. Formally, the multivariate Gaussian density
+is defined as
+f(x) =
+1
+(2π)p/2|Σ|1/2 exp
+*
+−1
+2(x −µ)T Σ−1(x −µ)
++
+.
+(4.23)
+In the case of p > 1 predictors, the LDA classifier assumes that the
+observations in the kth class are drawn from a multivariate Gaussian dis-
+tribution N(µk, Σ), where µk is a class-specific mean vector, and Σ is a
+covariance matrix that is common to all K classes. Plugging the density
+function for the kth class, fk(X = x), into (4.15) and performing a little
+bit of algebra reveals that the Bayes classifier assigns an observation X = x

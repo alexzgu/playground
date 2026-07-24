@@ -1,0 +1,129 @@
+12.2 Principal Components Analysis
+509
+First principal component
+Second principal component
+−1.0
+−0.5
+0.0
+0.5
+1.0
+−1.0
+−0.5
+0.0
+0.5
+1.0
+•
+• •
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+• •
+••
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+• •
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+• •
+•
+•
+•
+•
+•
+•
+•
+• •
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+FIGURE 12.2. Ninety observations simulated in three dimensions. The obser-
+vations are displayed in color for ease of visualization. Left: the first two principal
+component directions span the plane that best fits the data. The plane is positioned
+to minimize the sum of squared distances to each point. Right: the first two prin-
+cipal component score vectors give the coordinates of the projection of the 90
+observations onto the plane.
+useful: principal components provide low-dimensional linear surfaces that
+are closest to the observations. We expand upon that interpretation here.3
+The first principal component loading vector has a very special property:
+it is the line in p-dimensional space that is closest to the n observations
+(using average squared Euclidean distance as a measure of closeness). This
+interpretation can be seen in the left-hand panel of Figure 6.15; the dashed
+lines indicate the distance between each observation and the line defined
+by the first principal component loading vector. The appeal of this inter-
+pretation is clear: we seek a single dimension of the data that lies as close
+as possible to all of the data points, since such a line will likely provide a
+good summary of the data.
+The notion of principal components as the dimensions that are clos-
+est to the n observations extends beyond just the first principal com-
+ponent. For instance, the first two principal components of a data set
+span the plane that is closest to the n observations, in terms of average
+squared Euclidean distance. An example is shown in the left-hand panel
+of Figure 12.2. The first three principal components of a data set span
+the three-dimensional hyperplane that is closest to the n observations, and
+so forth.
+Using this interpretation, together the first M principal component score
+vectors and the first M principal component loading vectors provide the
+best M-dimensional approximation (in terms of Euclidean distance) to
+3In this section, we continue to assume that each column of the data matrix X has
+been centered to have mean zero—that is, the column mean has been subtracted from
+each column.

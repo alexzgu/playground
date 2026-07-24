@@ -1,0 +1,62 @@
+6.3. COMPOUND POISSON PROCESS
+195
+Therefore,
+E [f(X∆t) X0 = x]
+=
+[1 −λ∆t] f(x) + ∆t
+∞
+−∞
+f(x + y) dµ(y) + o(∆t)
+=
+f(x) + ∆t
+∞
+−∞
+[f(x + y) −f(x)] dµ(y) + o(∆t),
+which is a restatement of (6.4).
+The moments of Xt can be computed by dierentiating its characteristic
+function,
+ϕ′
+Xt(0) = i E[Xt],
+ϕ′′
+Xt(0) = −E[X2
+t ],
+assuming that the moments exist. For any positive integer n, if
+∞
+−∞
+xn dµ(x) < ∞,
+then we can dierentiate under the integral n times to see that
+Ψ(n)(s) = in
+∞
+−∞
+xn eisx dµ(x)
+In particular, if (6.5) holds,
+Ψ′(0) = i
+∞
+−∞
+x dµ(x),
+Ψ′′(0) = −
+∞
+−∞
+x2 dµ(x),
+and since ϕXt(s) = exptΨ(s)and Ψ(0) = 0, we get
+ϕ′
+Xt(0) = tΨ′(0) = it
+∞
+−∞
+x dµ(x) = itm,
+ϕ′′
+Xt(0) = tΨ′′(0) + [tΨ′(0)]2 = −[tσ2 + (tm)2]
+Therefore,
+E[Xt] = tm,
+Var[Xt] = E
+
+(Xt −tm)2
+= E
+
+X2
+t
+
+−(E[Xt])2 = tσ2
+If Fs denote the information contained in Xr : r ≤sand s < t, then
+Xt −Xs is independent of Fs and
+E[Xt Fs] = Xs + E[Xt −Xs Fs] = Xs + E[Xt −Xs] = Xs + (t −s)m,

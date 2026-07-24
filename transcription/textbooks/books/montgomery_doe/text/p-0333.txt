@@ -1,0 +1,48 @@
+7.8 Partial Confounding
+317
+and AC is confounded in replicate IV. As a result, information on ABC can be obtained from
+the data in replicates II, III, and IV; information on AB can be obtained from replicates I, III,
+and IV; information on AC can be obtained from replicates I, II, and III; and information on
+BC can be obtained from replicates I, II, and IV. We say that three-quarters information can
+be obtained on the interactions because they are unconfounded in only three replicates. Yates
+(1937) calls the ratio 3/4 the relative information for the confounded effects. This design
+is said to be partially confounded.
+The analysis of variance for this design is shown in Table 7.10. In calculating the inter-
+action sums of squares, only data from the replicates in which an interaction is unconfound-
+ed are used. The error sum of squares consists of replicates main effect sums of squares
+plus replicates interaction sums of squares for each replicate in which that interaction is
+unconfounded (e.g., replicates ABC for replicates II, III, and IV). Furthermore, there are
+seven degrees of freedom among the eight blocks. This is usually partitioned into three
+degrees of freedom for replicates and four degrees of freedom for blocks within replicates.
+The composition of the sum of squares for blocks is shown in Table 7.10 and follows directly
+from the choice of the effect confounded in each replicate.
+■F I G U R E 7 . 7
+Partial confounding in the 23 design
+■TA B L E 7 . 1 0
+Analysis of Variance for a Partially Confounded 23 Design
+Degrees of
+Source of Variation
+Freedom
+Replicates
+3
+Blocks within replicates [or ABC (rep. I) AB (rep. II)
+BC (rep. III) AC (rep. IV)]
+4
+A
+1
+B
+1
+C
+1
+AB (from replicates I, III, and IV)
+1
+AC (from replicates I, II, and III)
+1
+BC (from replicates I, II, and IV)
+1
+ABC (from replicates II, III, and IV)
+1
+Error
+17
+Total
+31

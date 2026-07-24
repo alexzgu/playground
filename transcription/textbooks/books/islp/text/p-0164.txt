@@ -1,0 +1,49 @@
+4.4 Generative Models for Classification
+155
+ROC Curve
+False positive rate
+True positive rate
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+FIGURE 4.8. A ROC curve for the LDA classifier on the Default data. It
+traces out two types of error as we vary the threshold value for the posterior
+probability of default. The actual thresholds are not shown. The true positive rate
+is the sensitivity: the fraction of defaulters that are correctly identified, using
+a given threshold value. The false positive rate is 1-specificity: the fraction of
+non-defaulters that we classify incorrectly as defaulters, using that same threshold
+value. The ideal ROC curve hugs the top left corner, indicating a high true positive
+rate and a low false positive rate. The dotted line represents the “no information”
+classifier; this is what we would expect if student status and credit card balance
+are not associated with probability of default.
+marized over all possible thresholds, is given by the area under the (ROC)
+curve (AUC). An ideal ROC curve will hug the top left corner, so the larger area under
+the (ROC)
+curve
+the AUC the better the classifier. For this data the AUC is 0.95, which is
+close to the maximum of 1.0, so would be considered very good. We expect
+a classifier that performs no better than chance to have an AUC of 0.5
+(when evaluated on an independent test set not used in model training).
+ROC curves are useful for comparing different classifiers, since they take
+into account all possible thresholds. It turns out that the ROC curve for
+the logistic regression model of Section 4.3.4 fit to these data is virtually
+indistinguishable from this one for the LDA model, so we do not display it
+here.
+As we have seen above, varying the classifier threshold changes its true
+positive and false positive rate. These are also called the sensitivity and one sensitivity
+minus the specificity of our classifier. Since there is an almost bewildering specificity
+array of terms used in this context, we now give a summary. Table 4.6
+shows the possible results when applying a classifier (or diagnostic test)
+to a population. To make the connection with the epidemiology literature,
+we think of “+” as the “disease” that we are trying to detect, and “−” as
+the “non-disease” state. To make the connection to the classical hypothesis
+testing literature, we think of “−” as the null hypothesis and “+” as the

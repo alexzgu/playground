@@ -1,0 +1,58 @@
+336
+8. Tree-Based Methods
+with fewer splits (that is, fewer regions R1, . . . , RJ) might lead to lower
+variance and better interpretation at the cost of a little bias. One possible
+alternative to the process described above is to build the tree only so long
+as the decrease in the RSS due to each split exceeds some (high) threshold.
+This strategy will result in smaller trees, but is too short-sighted since a
+seemingly worthless split early on in the tree might be followed by a very
+good split—that is, a split that leads to a large reduction in RSS later on.
+Therefore, a better strategy is to grow a very large tree T0, and then
+prune it back in order to obtain a subtree. How do we determine the best prune
+subtree
+way to prune the tree? Intuitively, our goal is to select a subtree that
+leads to the lowest test error rate. Given a subtree, we can estimate its
+test error using cross-validation or the validation set approach. However,
+estimating the cross-validation error for every possible subtree would be too
+cumbersome, since there is an extremely large number of possible subtrees.
+Instead, we need a way to select a small set of subtrees for consideration.
+Cost complexity pruning—also known as weakest link pruning—gives us cost
+complexity
+pruning
+weakest link
+pruning
+a way to do just this. Rather than considering every possible subtree, we
+consider a sequence of trees indexed by a nonnegative tuning parameter α.
+For each value of α there corresponds a subtree T ⊂T0 such that
+|T |
+0
+m=1
+0
+i: xi∈Rm
+(yi −ˆyRm)2 + α|T|
+(8.4)
+is as small as possible. Here |T| indicates the number of terminal nodes
+of the tree T, Rm is the rectangle (i.e. the subset of predictor space) cor-
+responding to the mth terminal node, and ˆyRm is the predicted response
+associated with Rm—that is, the mean of the training observations in Rm.
+The tuning parameter α controls a trade-off between the subtree’s com-
+plexity and its fit to the training data. When α = 0, then the subtree T
+will simply equal T0, because then (8.4) just measures the training error.
+However, as α increases, there is a price to pay for having a tree with
+many terminal nodes, and so the quantity (8.4) will tend to be minimized
+for a smaller subtree. Equation 8.4 is reminiscent of the lasso (6.7) from
+Chapter 6, in which a similar formulation was used in order to control the
+complexity of a linear model.
+It turns out that as we increase α from zero in (8.4), branches get pruned
+from the tree in a nested and predictable fashion, so obtaining the whole
+sequence of subtrees as a function of α is easy. We can select a value of
+α using a validation set or using cross-validation. We then return to the
+full data set and obtain the subtree corresponding to α. This process is
+summarized in Algorithm 8.1.
+Figures 8.4 and 8.5 display the results of fitting and pruning a regression
+tree on the Hitters data, using nine of the features. First, we randomly
+divided the data set in half, yielding 132 observations in the training set
+and 131 observations in the test set. We then built a large regression tree
+on the training data and varied α in (8.4) in order to create subtrees with
+different numbers of terminal nodes. Finally, we performed six-fold cross-
+validation in order to estimate the cross-validated MSE of the trees as

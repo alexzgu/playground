@@ -1,0 +1,222 @@
+6.10 Problems
+293
+vibration: bit size (A) and cutting speed (B). Two bit sizes (
+and 
+in.) and two speeds (40 and 90 rpm) are selected, and
+four boards are cut at each set of conditions shown below.
+The response variable is vibration measured as the resultant
+vector of three accelerometers (x, y, and z) on each test cir-
+cuit board.
+Replicate
+Treatment
+A
+B
+Combination
+I
+II
+III
+IV
+
+
+(1)
+18.2
+18.9
+12.9
+14.4
+
+
+a
+27.2
+24.0
+22.4
+22.5
+
+
+b
+15.9
+14.5
+15.1
+14.2
+
+
+ab
+41.0
+43.9
+36.3
+39.9
+(a) Analyze the data from this experiment.
+(b) Construct a normal probability plot of the residuals,
+and plot the residuals versus the predicted vibration
+level. Interpret these plots.
+(c) Draw the AB interaction plot. Interpret this plot. What
+levels of bit size and speed would you recommend for
+routine operation?
+6.6.
+Reconsider the experiment described in Problem 6.1.
+Suppose that the experimenter only performed the eight trials
+from replicate I. In addition, he ran four center points and
+obtained the following response values: 36, 40, 43, 45.
+(a) Estimate the factor effects. Which effects are large?
+(b) Perform an analysis of variance, including a check for
+pure quadratic curvature. What are your conclusions?
+(c) Write down an appropriate model for predicting tool
+life, based on the results of this experiment. Does this
+model differ in any substantial way from the model in
+Problem 6.1, part (c)?
+(d) Analyze the residuals.
+(e) What conclusions would you draw about the appropri-
+ate operating conditions for this process?
+6.7.
+An experiment was performed to improve the yield of
+a chemical process. Four factors were selected, and two repli-
+cates of a completely randomized experiment were run. The
+results are shown in the following table:
+Replicate
+Replicate
+Treatment
+Treatment
+Combination
+I
+II
+Combination
+I
+II
+(1)
+90
+93
+d
+98
+95
+a
+74
+78
+ad
+72
+76
+b
+81
+85
+bd
+87
+83
+ab
+83
+80
+abd
+85
+86
+c
+77
+78
+cd
+99
+90
+ac
+81
+80
+acd
+79
+75
+bc
+88
+82
+bcd
+87
+84
+abc
+73
+70
+abcd
+80
+80
+1
+8
+1
+16
+(a) Estimate the factor effects.
+(b) Prepare an analysis of variance table and determine
+which factors are important in explaining yield.
+(c) Write down a regression model for predicting yield,
+assuming that all four factors were varied over the range
+from 1 to 1 (in coded units).
+(d) Plot the residuals versus the predicted yield and on a
+normal probability scale. Does the residual analysis
+appear satisfactory?
+(e) Two three-factor interactions, ABC and ABD, appar-
+ently have large effects. Draw a cube plot in the factors
+A, B, and C with the average yields shown at each cor-
+ner. Repeat using the factors A, B, and D. Do these two
+plots aid in data interpretation? Where would you rec-
+ommend that the process be run with respect to the
+four variables?
+6.8.
+A bacteriologist is interested in the effects of two dif-
+ferent culture media and two different times on the growth of
+a particular virus. He or she performs six replicates of a 22
+design, making the runs in random order. Analyze the bacte-
+rial growth data that follow and draw appropriate conclu-
+sions. Analyze the residuals and comment on the model’s
+adequacy.
+Culture Medium
+Time (h)
+1
+2
+21
+22
+25
+26
+12
+23
+28
+24
+25
+20
+26
+29
+27
+37
+39
+31
+34
+18
+38
+38
+29
+33
+35
+36
+30
+35
+6.9.
+An industrial engineer employed by a beverage bottler
+is interested in the effects of two different types of 32-ounce
+bottles on the time to deliver 12-bottle cases of the product. The
+two bottle types are glass and plastic. Two workers are used to
+perform a task consisting of moving 40 cases of the product 50
+feet on a standard type of hand truck and stacking the cases in
+a display. Four replicates of a 22 factorial design are performed,
+and the times observed are listed in the following table. Analyze
+the data and draw appropriate conclusions. Analyze the residu-
+als and comment on the model’s adequacy.
+Worker
+Bottle Type
+1
+2
+Glass
+5.12
+4.89
+6.65
+6.24
+4.98
+5.00
+5.49
+5.55
+Plastic
+4.95
+4.43
+5.28
+4.91
+4.27
+4.25
+4.75
+4.71

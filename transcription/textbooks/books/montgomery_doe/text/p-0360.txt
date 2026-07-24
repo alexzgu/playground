@@ -1,0 +1,63 @@
+344
+Chapter 8 ■Two-Level Fractional Factorial Designs
+that is not a word in the dening relation. There are 35 subsets of four factors, seven of which
+appear in the complete dening relation (see Table 8.15). Thus, there are 28 subsets of four
+factors that would form 24 designs. One combination that is obvious upon inspecting Table
+8.15 is A, B, C, and D.
+To illustrate the usefulness of this projection properly, suppose that we are conducting
+an experiment to improve the efciency of a ball mill and the seven factors are as follows:
+1. Motor speed
+2. Gain
+3. Feed mode
+4. Feed sizing
+5. Material type
+6. Screen angle
+7. Screen vibration level
+We are fairly certain that motor speed, feed mode, feed sizing, and material type will affect
+efciency and that these factors may interact. The role of the other three factors is less well
+known, but it is likely that they are negligible. A reasonable strategy would be to assign motor
+speed, feed mode, feed sizing, and material type to columns A, B, C, and D, respectively, in
+Table 8.15. Gain, screen angle, and screen vibration level would be assigned to columns E, F,
+and G, respectively. If we are correct and the “minor variables” E, F, and G are negligible, we
+will be left with a full 24 design in the key process variables.
+8.4.3
+Blocking Fractional Factorials
+Occasionally, a fractional factorial design requires so many runs that all of them cannot be
+made under homogeneous conditions. In these situations, fractional factorials may be con-
+founded in blocks. Appendix Table X contains recommended blocking arrangements for
+many of the fractional factorial designs in Table 8.14. The minimum block size for these
+designs is eight runs.
+To illustrate the general procedure, consider the 
+fractional factorial design with the
+dening relation I ABCE BCDF ADEF shown in Table 8.10. This fractional design
+contains 16 treatment combinations. Suppose we wish to run the design in two blocks of eight
+treatment combinations each. In selecting an interaction to confound with blocks, we note
+from examining the alias structure in Appendix Table X(f) that there are two alias sets involv-
+ing only three-factor interactions. The table suggests selecting ABD (and its aliases) to be con-
+founded with blocks. This would give the two blocks shown in Figure 8.18. Notice that the
+262
+IV
+Block 1
+Block 2
+(1)
+ae
+abf
+acf
+cef
+bef
+abce
+bc
+adef
+df
+bde
+abd
+acd
+cde
+bcdf
+abcdef
+■F I G U R E 8 . 1 8
+The 
+design 
+in two blocks with ABD confounded
+262
+IV

@@ -1,0 +1,87 @@
+480
+11. Survival Analysis and Censored Data
+Cox’s Proportional Hazards Model
+Because the form of h0(t) in the proportional hazards assumption (11.14)
+is unknown, we cannot simply plug h(t|xi) into the likelihood (11.13) and
+then estimate β = (β1, . . . , βp)T by maximum likelihood. The magic of
+Cox’s proportional hazards model lies in the fact that it is in fact possible Cox’s
+proportional
+hazards
+model
+to estimate β without having to specify the form of h0(t).
+To accomplish this, we make use of the same “sequential in time” logic
+that we used to derive the Kaplan–Meier survival curve and the log-rank
+test. For simplicity, assume that there are no ties among the failure, or
+death, times: i.e. each failure occurs at a distinct time. Assume that δi =
+1, i.e. the ith observation is uncensored, and thus yi is its failure time.
+Then the hazard function for the ith observation at time yi is h(yi|xi) =
+h0(yi) exp
+1)p
+j=1 xijβj
+2
+, and the total hazard at time yi for the at risk
+observations12 is
+0
+i′:yi′≥yi
+h0(yi) exp
+
+
+p
+0
+j=1
+xi′jβj
+
+.
+Therefore, the probability that the ith observation is the one to fail at time
+yi (as opposed to one of the other observations in the risk set) is
+h0(yi) exp
+1)p
+j=1 xijβj
+2
+)
+i′:yi′≥yi h0(yi) exp
+1)p
+j=1 xi′jβj
+2 =
+exp
+1)p
+j=1 xijβj
+2
+)
+i′:yi′≥yi exp
+1)p
+j=1 xi′jβj
+2.
+(11.15)
+Notice that the unspecified baseline hazard function h0(yi) cancels out of
+the numerator and denominator!
+The partial likelihood is simply the product of these probabilities over all partial
+likelihood
+of the uncensored observations,
+PL(β) =
+E
+i:δi=1
+exp
+1)p
+j=1 xijβj
+2
+)
+i′:yi′≥yi exp
+1)p
+j=1 xi′jβj
+2.
+(11.16)
+Critically, the partial likelihood is valid regardless of the true value of h0(t),
+making the model very flexible and robust.13
+To estimate β, we simply maximize the partial likelihood (11.16) with
+respect to β. As was the case for logistic regression in Chapter 4, no closed-
+form solution is available, and so iterative algorithms are required.
+In addition to estimating β, we can also obtain other model outputs that
+we saw in the context of least squares regression in Chapter 3 and logistic
+regression in Chapter 4. For example, we can obtain p-values corresponding
+12Recall that the “at risk” observations at time yi are those that are still at risk of
+failure, i.e. those that have not yet failed or been censored before time yi.
+13In general, the partial likelihood is used in settings where it is difficult to compute
+the full likelihood for all of the parameters. Instead, we compute a likelihood for just the
+parameters of primary interest: in this case, β1, . . . , βp. It can be shown that maximizing
+(11.16) provides good estimates for these parameters.

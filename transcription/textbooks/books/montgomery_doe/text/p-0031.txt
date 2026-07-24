@@ -1,0 +1,53 @@
+the important factors that result in desirable values of the response. For
+example, if a screening experiment on a chemical process results in the
+identification of time and temperature as the two most important fac-
+tors, the optimization experiment may have as its objective finding the
+levels of time and temperature that maximize yield, or perhaps maxi-
+mize yield while keeping some product property that is critical to the
+customer within specifications. An optimization experiment is usually
+a follow-up to a screening experiment. It would be very unusual for a
+screening experiment to produce the optimal settings of the important
+factors.
+c. Conrmation. In a conrmation experiment, the experimenter is usually
+trying to verify that the system operates or behaves in a manner that is
+consistent with some theory or past experience.  For example, if theory
+or experience indicates that a particular new material is equivalent to the
+one currently in use and the new material is desirable (perhaps less
+expensive, or easier to work with in some way), then a conrmation
+experiment would be conducted to verify that substituting the new mate-
+rial results in no change in product characteristics that impact its use.
+Moving a new manufacturing process to full-scale production based on
+results found during experimentation at a pilot plant or development site
+is another situation that often results in conrmation experiments—that
+is, are the same factors and settings that were determined during devel-
+opment work appropriate for the full-scale process?
+d. Discovery. In discovery experiments, the experimenters are usually trying
+to determine what happens when we explore new materials, or new fac-
+tors, or new ranges for factors. In the pharmaceutical industry, scientists
+are constantly conducting discovery experiments to nd new materials or
+combinations of materials that will be effective in treating disease.
+e. Robustness. These experiments often address questions such as under
+what conditions do the response variables of interest seriously degrade?
+Or what conditions would lead to unacceptable variability in the response
+variables? A variation of this is determining how we can set the factors in
+the system that we can control to minimize the variability transmitted into
+the response from factors that we cannot control very well. We will dis-
+cuss some experiments of this type in Chapter 12.
+Obviously, the specic questions to be addressed in the experiment relate
+directly to the overall objectives. An important aspect of problem formulation is the
+recognition that one large comprehensive experiment is unlikely to answer the key
+questions satisfactorily. A single comprehensive experiment requires the experi-
+menters to know the answers to a lot of questions, and if they are wrong, the results
+will be disappointing. This leads to wasting time, materials, and other resources and
+may result in never answering the original research questions satisfactorily. A
+sequential approach employing a series of smaller experiments, each with a specific
+objective, such as factor screening, is a better strategy.
+2. Selection of the response variable.
+In selecting the response variable, the exper-
+imenter should be certain that this variable really provides useful information about
+the process under study. Most often, the average or standard deviation (or both) of
+the measured characteristic will be the response variable. Multiple responses are
+not unusual. The experimenters must decide how each response will be measured,
+and address issues such as how will any measurement system be calibrated and
+1.4 Guidelines for Designing Experiments
+15

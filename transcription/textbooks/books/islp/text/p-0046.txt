@@ -1,0 +1,235 @@
+36
+2. Statistical Learning
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+oo
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+oo
+o
+o
+o
+o
+o
+o
+o o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+oo o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+o
+X1
+X2
+FIGURE 2.13. A simulated data set consisting of 100 observations in each of
+two groups, indicated in blue and in orange. The purple dashed line represents
+the Bayes decision boundary. The orange background grid indicates the region
+in which a test observation will be assigned to the orange class, and the blue
+background grid indicates the region in which a test observation will be assigned
+to the blue class.
+to the orange class, and similarly an observation on the blue side of the
+boundary will be assigned to the blue class.
+The Bayes classifier produces the lowest possible test error rate, called
+the Bayes error rate. Since the Bayes classifier will always choose the class Bayes error
+rate
+for which (2.10) is largest, the error rate will be 1−maxj Pr(Y = j|X = x0)
+at X = x0. In general, the overall Bayes error rate is given by
+1 −E
+*
+max
+j
+Pr(Y = j|X)
++
+,
+(2.11)
+where the expectation averages the probability over all possible values of
+X. For our simulated data, the Bayes error rate is 0.133. It is greater than
+zero, because the classes overlap in the true population, which implies that
+maxj Pr(Y = j|X = x0) < 1 for some values of x0. The Bayes error rate is
+analogous to the irreducible error, discussed earlier.
+K-Nearest Neighbors
+In theory we would always like to predict qualitative responses using the
+Bayes classifier. But for real data, we do not know the conditional distri-
+bution of Y given X, and so computing the Bayes classifier is impossi-
+ble. Therefore, the Bayes classifier serves as an unattainable gold standard
+against which to compare other methods. Many approaches attempt to
+estimate the conditional distribution of Y given X, and then classify a
+given observation to the class with highest estimated probability. One such
+method is the K-nearest neighbors (KNN) classifier. Given a positive in- K-nearest
+neighbors

@@ -1,0 +1,211 @@
+(a) What is the generator for column D? 
+(b) What is the generator for column E?
+(c) If this design were folded over, what is the resolution of
+the combined design?
+8.49.
+In an article in Quality Engineering (“An Application of
+Fractional Factorial Experimental Designs,” 1988, Vol. 1, pp.
+19–23), M. B. Kilgo describes an experiment to determine the
+effect of CO2 pressure (A), CO2 temperature (B), peanut mois-
+ture (C), CO2 ow rate (D), and peanut particle size (E) on the
+total yield of oil per batch of peanuts (y). The levels that she used
+for these factors are shown in Table P8.11. She conducted the
+16-run fractional factorial experiment shown in Table P8.12.
+■TA B L E P 8 . 1 1
+Factor Levels for the Experiment in Problem 8.49
+A,
+B,
+C,
+E, Part.
+Coded
+Pressure 
+Temp,
+Moisture  
+D, Flow
+Size
+Level
+(bar)
+(°C)
+(% by weight)
+(liters/min)
+(mm)
+1
+415
+25
+5
+40
+1.28
+1
+550
+95
+15
+60
+4.05 
+■TA B L E P 8 . 1 2
+The Peanut Oil Experiment
+A
+B
+C
+D
+E
+y
+415
+25
+5
+40
+1.28
+63
+550
+25
+5
+40
+4.05
+21
+415
+95
+5
+40
+4.05
+36
+550
+95
+5
+40
+1.28
+99
+415
+25
+15
+40
+4.05
+24
+550
+25
+15
+40
+1.28
+66
+415
+95
+15
+40
+1.28
+71
+550
+95
+15
+40
+4.05
+54
+415
+25
+5
+60
+4.05
+23
+550
+25
+5
+60
+1.28
+74
+415
+95
+5
+60
+1.28
+80
+550
+95
+5
+60
+4.05
+33
+415
+25
+15
+60
+1.28
+63
+550
+25
+15
+60
+4.05
+21
+415
+95
+15
+60
+4.05
+44
+550
+95
+15
+60
+1.28
+96
+(a) What type of design has been used? Identify the dening
+relation and the alias relationships.
+(b) Estimate the factor effects and use a normal 
+probability plot to tentatively identify the important
+factors.
+8.10 Problems
+389
+(c) Perform an appropriate statistical analysis to test the
+hypotheses that the factors identified in part 
+(b) above have a significant effect on the yield of
+peanut oil.
+(d) Fit a model that could be used to predict peanut oil
+yield in terms of the factors that you have identied as
+important.
+(e) Analyze the residuals from this experiment and com-
+ment on model adequacy.
+8.50.
+A 16-run fractional factorial experiment in 10 factors
+on sand-casting of engine manifolds was conducted by engi-
+neers at the Essex Aluminum Plant of the Ford Motor
+Company and described in the article “Evaporative Cast
+Process 3.0 Liter Intake Manifold Poor Sandll Study,” by D.
+Becknell (Fourth Symposium on Taguchi Methods, American
+Supplier Institute, Dearborn, MI, 1986, pp. 120–130). The
+purpose was to determine which of 10 factors has an effect on
+the proportion of defective castings. The design and the result-
+ing proportion of nondefective castings 
+observed on each
+run are shown in Table P8.13. This is a resolution III fraction
+with generators E CD, F BD, G BC, H AC, J 
+AB, and K ABC. Assume that the number of castings made
+at each run in the design is 1000.
+(a) Find the dening relation and the alias relationships in
+this design.
+(b) Estimate the factor effects and use a normal probabil-
+ity plot to tentatively identify the important factors.
+(c) Fit an appropriate model using the factors identied in
+part (b) above.
+(d) Plot the residuals from this model versus the predicted
+proportion of nondefective castings. Also prepare a
+normal probability plot of the residuals. Comment on
+the adequacy of these plots.
+(e) In part (d) you should have noticed an indication that
+the variance of the response is not constant.
+(Considering that the response is a proportion, you
+should have expected this.) The previous table also
+shows a transformation on , the arcsin square root,
+that is a widely used variance stabilizing transforma-
+tion for proportion data (refer to the discussion of vari-
+ance stabilizing transformations in Chapter 3). Repeat
+parts (a) through (d) above using the transformed
+response and comment on your results. Specically,
+are the residual plots improved?
+(f) There is a modication to the arcsin square root trans-
+formation,
+proposed by Freeman and Tukey
+(“Transformations Related to the Angular and the
+Square Root,” Annals of Mathematical Statistics,
+Vol. 21, 1950, pp. 607–611), that improves its per-
+formance in the tails. F&T’s modication is
+ arcsin(npˆ 1)/(n 1)]/2
+[arcsinnpˆ/(n 1)
+pˆ
+pˆ

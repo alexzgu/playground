@@ -1,0 +1,50 @@
+C H A P T E R
+5
+I n t r o d u c t i o n t o
+F a c t o r i a l D e s i g n s
+CHAPTER OUTLINE
+5.1 BASIC DEFINITIONS AND PRINCIPLES
+5.2 THE ADVANTAGE OF FACTORIALS
+5.3 THE TWO-FACTOR FACTORIAL DESIGN
+5.3.1 An Example
+5.3.2 Statistical Analysis of the Fixed Effects Model
+5.3.3 Model Adequacy Checking
+5.3.4 Estimating the Model Parameters
+5.3.5 Choice of Sample Size
+5.3.6 The Assumption of No Interaction in a 
+Two-Factor Model
+5.3.7 One Observation per Cell
+5.4 THE GENERAL FACTORIAL DESIGN
+5.5 FITTING RESPONSE CURVES AND SURFACES
+5.6 BLOCKING IN A FACTORIAL DESIGN
+SUPPLEMENTAL MATERIAL FOR CHAPTER 5
+S5.1 Expected Mean Squares in the Two-Factor Factorial
+S5.2 The Denition of Interaction
+S5.3 Estimable Functions in the Two-Factor Factorial
+Model
+S5.4 Regression Model Formulation of the Two-Factor
+Factorial
+S5.5 Model Hierarchy
+5.1
+Basic Deﬁnitions and Principles
+Many experiments involve the study of the effects of two or more factors. In general,
+factorial designs are most efficient for this type of experiment. By a factorial design, we
+mean that in each complete trial or replicate of the experiment all possible combinations of
+the levels of the factors are investigated. For example, if there are a levels of factor A and
+b levels of factor B, each replicate contains all ab treatment combinations. When factors are
+arranged in a factorial design, they are often said to be crossed.
+The effect of a factor is defined to be the change in response produced by a change
+in the level of the factor. This is frequently called a main effect because it refers to the pri-
+mary factors of interest in the experiment. For example, consider the simple experiment in
+Figure 5.1. This is a two-factor factorial experiment with both design factors at two levels.
+We have called these levels “low” and “high” and denoted them “” and “,” respectively.
+The main effect of factor A in this two-level design can be thought of as the difference
+between the average response at the low level of A and the average response at the high
+level of A. Numerically, this is
+A 40 52
+2
+20 30
+2
+21
+The supplemental material is on the textbook website www.wiley.com/college/montgomery.
+183

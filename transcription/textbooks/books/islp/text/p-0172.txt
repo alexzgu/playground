@@ -1,0 +1,60 @@
+4.5 A Comparison of Classification Methods
+163
+Inspection of (4.32), (4.33), and (4.34) yields the following observations
+about LDA, QDA, and naive Bayes:
+• LDA is a special case of QDA with ckjl = 0 for all j = 1, . . . , p,
+l = 1, . . . , p, and k = 1, . . . , K. (Of course, this is not surprising, since
+LDA is simply a restricted version of QDA with Σ1 = · · · = ΣK = Σ.)
+• Any classifier with a linear decision boundary is a special case of naive
+Bayes with gkj(xj) = bkjxj. In particular, this means that LDA is
+a special case of naive Bayes! This is not at all obvious from the
+descriptions of LDA and naive Bayes earlier in this chapter, since
+each method makes very different assumptions: LDA assumes that
+the features are normally distributed with a common within-class
+covariance matrix, and naive Bayes instead assumes independence of
+the features.
+• If we model fkj(xj) in the naive Bayes classifier using a one-dimensio-
+nal Gaussian distribution N(µkj, σ2
+j ), then we end up with gkj(xj) =
+bkjxj where bkj = (µkj−µKj)/σ2
+j . In this case, naive Bayes is actually
+a special case of LDA with Σ restricted to be a diagonal matrix with
+jth diagonal element equal to σ2
+j .
+• Neither QDA nor naive Bayes is a special case of the other. Naive
+Bayes can produce a more flexible fit, since any choice can be made
+for gkj(xj). However, it is restricted to a purely additive fit, in the
+sense that in (4.34), a function of xj is added to a function of xl, for
+j̸ = l; however, these terms are never multiplied. By contrast, QDA
+includes multiplicative terms of the form ckjlxjxl. Therefore, QDA
+has the potential to be more accurate in settings where interactions
+among the predictors are important in discriminating between classes.
+None of these methods uniformly dominates the others: in any setting, the
+choice of method will depend on the true distribution of the predictors in
+each of the K classes, as well as other considerations, such as the values of
+n and p. The latter ties into the bias-variance trade-off.
+How does logistic regression tie into this story? Recall from (4.12) that
+multinomial logistic regression takes the form
+log
+* Pr(Y = k|X = x)
+Pr(Y = K|X = x)
++
+= βk0 +
+p
+0
+j=1
+βkjxj.
+This is identical to the linear form of LDA (4.32): in both cases,
+log
+1
+Pr(Y =k|X=x)
+Pr(Y =K|X=x)
+2
+is a linear function of the predictors. In LDA, the co-
+efficients in this linear function are functions of estimates for πk, πK, µk,
+µK, and Σ obtained by assuming that X1, . . . , Xp follow a normal distri-
+bution within each class. By contrast, in logistic regression, the coefficients
+are chosen to maximize the likelihood function (4.5). Thus, we expect LDA
+to outperform logistic regression when the normality assumption (approxi-
+mately) holds, and we expect logistic regression to perform better when it
+does not.

@@ -1,0 +1,73 @@
+13.3
+The Two-Factor Mixed Model
+We now consider the situation where one of the factors A is fixed and the other factor B
+is random. This is called the mixed model analysis of variance. The linear statistical
+model is
+(13.8)
+Here i is a xed effect, j is a random effect, the interaction ()ij is assumed to be a ran-
+dom effect, and ijk is a random error. We also assume that the {i} are xed effects such that
+i 0 and j is a NID(0,
+) random variable. The interaction effect, ()ij, is a normal
+random variable with mean 0 and variance [(a 1)/a]
+; however, summing the interac-
+tion component over the xed factor equals zero. That is,
+This restriction implies that certain interaction elements at different levels of the xed factor
+are not independent. In fact, we may show that
+The covariance between ()ijand ()ijfor j jis zero, and the random error ijk is NID
+(0, 2). Because the sum of the interaction effects over the levels of the xed factor equals
+zero, this version of the mixed model is often called the restricted model.
+In this model, the variance of ()ij is dened as [(a 1)/a]
+rather than 
+to sim-
+plify the expected mean squares. The assumption ().j 0 also has an effect on the expect-
+ed mean squares, which we may show are
+(13.9)
+and
+Therefore, the appropriate test statistic for testing that the means of the xed factor effects are
+equal, or H0: i 0, is
+for which the reference distribution is Fa1,(a1)(b1). For testing H0:
+0, the test statistic is
+F0 MSB
+MSE
+2
+
+F0 MSA
+MSAB
+E(MSE) 2
+E(MSAB) 2 n2
+
+E(MSB) 2 an2
+
+E(MSA) 2 n2
+
+bn 
+a
+i1
+2
+i
+a 1
+2
+
+2
+
+Cov[()ij, ()ij] 1
+a 2
+ 
+ i i
+
+a
+i1
+()ij ().j 0
+j 1, 2, . . . , b
+2
+
+2
+
+"a
+i1
+yijk i j ()ij ijk 
+i 1, 2, . . . , a
+j 1, 2, . . . , b
+k 1, 2, . . . , n
+13.3 The Two-Factor Mixed Model
+581

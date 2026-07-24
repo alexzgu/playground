@@ -1,0 +1,81 @@
+7.7 Generalized Additive Models
+307
+2003
+2005
+2007
+2009
+−30
+−20
+−10
+0
+10
+20
+30
+20
+30
+40
+50
+60
+70
+80
+−50
+−40
+−30
+−20
+−10
+0
+10
+20
+−30
+−20
+−10
+0
+10
+20
+30
+40
+<HS
+HS
+<Coll
+Coll
+>Coll
+f1(year)
+f2(age)
+f3(education)
+year
+age
+education
+FIGURE 7.12. Details are as in Figure 7.11, but now f1 and f2 are smoothing
+splines with four and five degrees of freedom, respectively.
+fit the third function using a separate constant for each level, via the usual
+dummy variable approach of Section 3.3.1.
+Figure 7.11 shows the results of fitting the model (7.16) using least
+squares. This is easy to do, since as discussed in Section 7.4, natural splines
+can be constructed using an appropriately chosen set of basis functions.
+Hence the entire model is just a big regression onto spline basis variables
+and dummy variables, all packed into one big regression matrix.
+Figure 7.11 can be easily interpreted. The left-hand panel indicates that
+holding age and education fixed, wage tends to increase slightly with year;
+this may be due to inflation. The center panel indicates that holding
+education and year fixed, wage tends to be highest for intermediate val-
+ues of age, and lowest for the very young and very old. The right-hand
+panel indicates that holding year and age fixed, wage tends to increase
+with education: the more educated a person is, the higher their salary, on
+average. All of these findings are intuitive.
+Figure 7.12 shows a similar triple of plots, but this time f1 and f2 are
+smoothing splines with four and five degrees of freedom, respectively. Fit-
+ting a GAM with a smoothing spline is not quite as simple as fitting a GAM
+with a natural spline, since in the case of smoothing splines, least squares
+cannot be used. However, standard software such as the Python package
+pygam can be used to fit GAMs using smoothing splines, via an approach pygam
+known as backfitting. This method fits a model involving multiple predic- backfitting
+tors by repeatedly updating the fit for each predictor in turn, holding the
+others fixed. The beauty of this approach is that each time we update a
+function, we simply apply the fitting method for that variable to a partial
+residual.6
+The fitted functions in Figures 7.11 and 7.12 look rather similar. In most
+situations, the differences in the GAMs obtained using smoothing splines
+versus natural splines are small.
+6A partial residual for X3, for example, has the form ri = yi −f1(xi1)−f2(xi2). If we
+know f1 and f2, then we can fit f3 by treating this residual as a response in a non-linear
+regression on X3.

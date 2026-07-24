@@ -1,0 +1,110 @@
+Estimating Missing Values. When using the RCBD, sometimes an observation in
+one of the blocks is missing. This may happen because of carelessness or error or for reasons
+beyond our control, such as unavoidable damage to an experimental unit. A missing observa-
+tion introduces a new problem into the analysis because treatments are no longer orthogonal
+to blocks; that is, every treatment does not occur in every block. There are two general
+approaches to the missing value problem. The rst is an approximate analysis in which the
+missing observation is estimated and the usual analysis of variance is performed just as if the
+estimated observation were real data, with the error degrees of freedom reduced by 1. This
+approximate analysis is the subject of this section. The second is an exact analysis, which is
+discussed in Section 4.1.4.
+Suppose the observation yij for treatment i in block j is missing. Denote the missing
+observation by x. As an illustration, suppose that in the vascular graft experiment of Example
+4.1 there was a problem with the extrusion machine when the 8700 psi run was conducted in
+the fourth batch of material, and the observation y24 could not be obtained. The data might
+appear as in Table 4.7.
+In general, we will let 
+represent the grand total with one missing observation,
+rep-
+resent the total for the treatment with one missing observation, and 
+be the total for the
+block with one missing observation. Suppose we wish to estimate the missing observation x
+y. j
+yi.
+yij
+154
+Chapter 4 ■Randomized Blocks, Latin Squares, and Related Designs
+E X A M P L E 4 . 2
+Consider the RCBD for the vascular grafts described in
+Example 4.1. Suppose that we wish to determine the appro-
+priate number of blocks to run if we are interested in detect-
+ing a true maximum difference in yield of 6 with a reasonably
+high probability and an estimate of the standard deviation
+of the errors is 3. From Equation 3.45, the minimum
+value of 2 is (writing b, the number of blocks, for n)
+where D is the maximum difference we wish to detect. Thus,
+2 
+b(6)2
+2(4)(3)2 0.5b
+2 bD2
+2a2
+If we use b 5 blocks, 
+1.58,
+and there are (a 1)(b 1) 3(4) 12 error degrees of
+freedom. Appendix Chart V with 1 a 1 3 and 
+0.05 indicates that the risk for this design is approxi-
+mately 0.55 (power 1 0.45). If we use b 6
+blocks,
+
+,
+with (a 1)
+(b 1) 3(5) 15 error degrees of freedom, and the cor-
+responding risk is approximately 0.4 (power 1 
+0.6). Because the batches of resin are expensive and the cost
+of experimentation is high, the experimenter decides to use
+six blocks, even though the power is only about 0.6 (actually
+many experiments work very well with power values of only
+0.5 or higher).
+0.5b 0.5(6) 1.73
+0.5b 0.5(5)
+■T A B L E 4 . 7
+Randomized Complete Block Design for the Vascular Graft Experiment with One Missing Value
+Batch of Resin (Block)
+Extrusion
+Pressures (PSI)
+1
+2
+3
+4
+5
+6
+8500
+90.3
+89.2
+98.2
+93.9
+87.4
+97.9
+556.9
+8700
+92.5
+89.5
+90.6
+x
+87.0
+95.8
+455.4
+8900
+85.5
+90.8
+89.6
+86.2
+88.0
+93.4
+533.5
+9100
+82.5
+89.5
+85.6
+87.4
+78.9
+90.7
+514.6
+Block totals
+350.8
+359.0
+364.0
+267.5
+341.3
+377.8
+y.. 2060.4

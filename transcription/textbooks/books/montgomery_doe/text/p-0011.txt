@@ -1,0 +1,139 @@
+3
+Experiments with a Single Factor: 
+The Analysis of Variance
+65
+3.1
+An Example
+66
+3.2
+The Analysis of Variance
+68
+3.3
+Analysis of the Fixed Effects Model
+70
+3.3.1
+Decomposition of the Total Sum of Squares
+71
+3.3.2
+Statistical Analysis
+73
+3.3.3
+Estimation of the Model Parameters
+78
+3.3.4
+Unbalanced Data
+79
+3.4
+Model Adequacy Checking
+80
+3.4.1
+The Normality Assumption
+80
+3.4.2
+Plot of Residuals in Time Sequence
+82
+3.4.3
+Plot of Residuals Versus Fitted Values
+83
+3.4.4
+Plots of Residuals Versus Other Variables
+88
+3.5
+Practical Interpretation of Results
+89
+3.5.1
+A Regression Model
+89
+3.5.2
+Comparisons Among Treatment Means
+90
+3.5.3
+Graphical Comparisons of Means
+91
+3.5.4
+Contrasts
+92
+3.5.5
+Orthogonal Contrasts
+94
+3.5.6
+Scheffe’s Method for Comparing All Contrasts
+96
+3.5.7
+Comparing Pairs of Treatment Means
+97
+3.5.8
+Comparing Treatment Means with a Control
+101
+3.6
+Sample Computer Output
+102
+3.7
+Determining Sample Size
+105
+3.7.1
+Operating Characteristic Curves
+105
+3.7.2
+Specifying a Standard Deviation Increase
+108
+3.7.3
+Condence Interval Estimation Method
+109
+3.8
+Other Examples of Single-Factor Experiments
+110
+3.8.1
+Chocolate and Cardiovascular Health
+110
+3.8.2
+A Real Economy Application of a Designed Experiment
+110
+3.8.3
+Discovering Dispersion Effects
+114
+3.9
+The Random Effects Model
+116
+3.9.1
+A Single Random Factor
+116
+3.9.2
+Analysis of Variance for the Random Model
+117
+3.9.3
+Estimating the Model Parameters
+118
+3.10 The Regression Approach to the Analysis of Variance
+125
+3.10.1
+Least Squares Estimation of the Model Parameters
+125
+3.10.2
+The General Regression Signicance Test
+126
+3.11 Nonparametric Methods in the Analysis of Variance
+128
+3.11.1
+The Kruskal–Wallis Test
+128
+3.11.2
+General Comments on the Rank Transformation
+130
+3.12 Problems
+130
+4
+Randomized Blocks, Latin Squares,
+and Related Designs
+139
+4.1
+The Randomized Complete Block Design
+139
+4.1.1
+Statistical Analysis of the RCBD
+141
+4.1.2
+Model Adequacy Checking
+149
+xii
+Contents

@@ -1,0 +1,65 @@
+512
+12. Unsupervised Learning
+1.0
+1.5
+2.0
+2.5
+3.0
+3.5
+4.0
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+Principal Component
+Prop. Variance Explained
+1.0
+1.5
+2.0
+2.5
+3.0
+3.5
+4.0
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+Principal Component
+Cumulative Prop. Variance Explained
+FIGURE 12.3. Left: a scree plot depicting the proportion of variance explained
+by each of the four principal components in the USArrests data. Right: the cu-
+mulative proportion of variance explained by the four principal components in the
+USArrests data.
+In the USArrests data, the first principal component explains 62.0 % of
+the variance in the data, and the next principal component explains 24.7 %
+of the variance. Together, the first two principal components explain almost
+87 % of the variance in the data, and the last two principal components
+explain only 13 % of the variance. This means that Figure 12.1 provides a
+pretty accurate summary of the data using just two dimensions. The PVE
+of each principal component, as well as the cumulative PVE, is shown
+in Figure 12.3. The left-hand panel is known as a scree plot, and will be scree plot
+discussed later in this chapter.
+12.2.4
+More on PCA
+Scaling the Variables
+We have already mentioned that before PCA is performed, the variables
+should be centered to have mean zero. Furthermore, the results obtained
+when we perform PCA will also depend on whether the variables have
+been individually scaled (each multiplied by a different constant). This is in
+contrast to some other supervised and unsupervised learning techniques,
+such as linear regression, in which scaling the variables has no effect. (In
+linear regression, multiplying a variable by a factor of c will simply lead to
+multiplication of the corresponding coefficient estimate by a factor of 1/c,
+and thus will have no substantive effect on the model obtained.)
+For instance, Figure 12.1 was obtained after scaling each of the variables
+to have standard deviation one. This is reproduced in the left-hand plot in
+Figure 12.4. Why does it matter that we scaled the variables? In these data,
+the variables are measured in different units; Murder, Rape, and Assault are
+reported as the number of occurrences per 100, 000 people, and UrbanPop is
+the percentage of the state’s population that lives in an urban area. These
+four variables have variances of 18.97, 87.73, 6945.16, and 209.5, respec-
+tively. Consequently, if we perform PCA on the unscaled variables, then

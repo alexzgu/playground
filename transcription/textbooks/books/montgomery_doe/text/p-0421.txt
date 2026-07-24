@@ -1,0 +1,127 @@
+9.2 Confounding in the 3k Factorial Design
+405
+We now look at a slightly more complicated design—a 33 factorial confounded in three
+blocks of nine runs each. The AB2C2 component of the three-factor interaction will be con-
+founded with blocks. The dening contrast is
+It is easy to verify that the treatment combinations 000, 012, and 101 belong in the principal
+block. The remaining runs in the principal block are generated as follows:
+To nd the runs in another block, note that the treatment combination 200 is not in the prin-
+cipal block. Thus, the elements of block 2 are
+Notice that all these runs satisfy L 2 (mod 3). The nal block is found by observing that
+100 does not belong in block 1 or 2. Using 100 as above yields
+The blocks are shown in Figure 9.7.
+The analysis of variance for this design is shown in Table 9.5. Through the use of this
+confounding scheme, information on all the main effects and two-factor interactions is avail-
+able. The remaining components of the three-factor interaction (ABC, AB2C, and ABC2) are
+combined as an estimate of error. The sum of squares for those three components could be
+obtained by subtraction. In general, for the 3k design in three blocks, we would always select
+a component of the highest order interaction to confound with blocks. The remaining uncon-
+founded components of this interaction could be obtained by computing the k-factor interac-
+tion in the usual way and subtracting from this quantity the sum of squares for blocks.
+(3) 100 101 201 
+ (6) 100 110 210 
+ (9) 100 220 020
+(2) 100 012 112 
+ (5) 100 021 121 
+ (8) 100 211 011
+(1) 100 000 100 
+ (4) 100 202 002 
+ (7) 100 122 222
+(3) 200 101 001 
+ (6) 200 110 010 
+ (9) 200 220 120
+(2) 200 012 212 
+ (5) 200 021 221 
+ (8) 200 211 111
+(1) 200 000 200 
+ (4) 200 202 102 
+ (7) 200 122 022
+(3) 101 
+ (6) 101 012 110 
+ (9) 021 202 220
+(2) 012 
+ (5) 012 012 021 
+ (8) 012 202 211
+(1) 000 
+ (4) 101 101 202 
+ (7) 101 021 122
+L x1 2x2 2x3
+Factor A
+Factor B
+Factor C
+0
+1
+2
+0
+0
+1
+2
+1
+2
+022
+122
+212
+112
+202
+102
+221
+220
+002
+011
+111
+211
+210
+120
+020
+110
+010
+012
+021
+121
+101
+201
+001
+200
+100
+000
+222
+000
+012
+101
+202
+021
+110
+122
+211
+220
+Block 1
+200
+212
+001
+102
+221
+010
+022
+111
+120
+Block 2
+100
+112
+201
+002
+121
+210
+222
+011
+020
+= Block 1
+= Block 2
+= Block 3
+Block 3
+(a) Assignment of the treatment
+combinations to blocks
+(b) Geometric view
+■F I G U R E 9 . 7
+The 33 design in three
+blocks with AB2C2
+confounded

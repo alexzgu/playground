@@ -1,0 +1,6 @@
+4.1 The Randomized Complete Block Design
+147
+.
+(a)
+■F I G U R E 4 . 2
+Computer output for Example 4.1. (a) Design-Expert; (b) JMP

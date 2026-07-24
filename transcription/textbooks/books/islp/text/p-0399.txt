@@ -1,0 +1,56 @@
+392
+9. Support Vector Machines
+y_train,
+best_svm,
+ax=ax)
+y_hat_test = best_svm.predict(X_test)
+confusion_table(y_hat_test , y_test)
+Out[25]:
+Truth
+1
+2
+Predicted
+1
+69
+6
+2
+6
+19
+With these parameters, 12% of test observations are misclassified by this
+SVM.
+9.6.3
+ROC Curves
+SVMs and support vector classifiers output class labels for each observation.
+However, it is also possible to obtain fitted values for each observation,
+which are the numerical scores used to obtain the class labels. For instance,
+in the case of a support vector classifier, the fitted value for an observation
+X = (X1, X2, . . . , Xp)T takes the form ˆβ0 + ˆβ1X1 + ˆβ2X2 +. . . + ˆβpXp. For
+an SVM with a non-linear kernel, the equation that yields the fitted value
+is given in (9.23). The sign of the fitted value determines on which side
+of the decision boundary the observation lies. Therefore, the relationship
+between the fitted value and the class prediction for a given observation
+is simple: if the fitted value exceeds zero then the observation is assigned
+to one class, and if it is less than zero then it is assigned to the other.
+By changing this threshold from zero to some positive value, we skew the
+classifications in favor of one class versus the other. By considering a range
+of these thresholds, positive and negative, we produce the ingredients for a
+ROC plot. We can access these values by calling the decision_function() .function_
+decision()
+method of a fitted SVM estimator.
+The function ROCCurveDisplay.from_estimator() (which we have abbre-
+viated to roc_curve()) will produce a plot of a ROC curve. It takes a fitted roc_curve()
+estimator as its first argument, followed by a model matrix X and labels y.
+The argument name is used in the legend, while color is used for the color
+of the line. Results are plotted on our axis object ax.
+In [26]: fig, ax = subplots(figsize=(8,8))
+roc_curve(best_svm,
+X_train,
+y_train,
+name='Training',
+color='r',
+ax=ax);
+In this example, the SVM appears to provide accurate predictions. By
+increasing γ we can produce a more flexible fit and generate further im-
+provements in accuracy.
+In [27]: svm_flex = SVC(kernel="rbf",
+gamma=50,

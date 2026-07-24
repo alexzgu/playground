@@ -1,0 +1,52 @@
+72
+3. Linear Regression
+0
+50
+100
+150
+200
+250
+300
+5
+10
+15
+20
+25
+TV
+Sales
+FIGURE 3.1. For the Advertising data, the least squares fit for the regression
+of sales onto TV is shown. The fit is found by minimizing the residual sum of
+squares. Each grey line segment represents a residual. In this case a linear fit
+captures the essence of the relationship, although it overestimates the trend in the
+left of the plot.
+where ¯y ≡1
+n
+)n
+i=1 yi and ¯x ≡1
+n
+)n
+i=1 xi are the sample means. In other
+words, (3.4) defines the least squares coefficient estimates for simple linear
+regression.
+Figure 3.1 displays the simple linear regression fit to the Advertising
+data, where ˆβ0 = 7.03 and ˆβ1 = 0.0475. In other words, according to
+this approximation, an additional $1,000 spent on TV advertising is asso-
+ciated with selling approximately 47.5 additional units of the product. In
+Figure 3.2, we have computed RSS for a number of values of β0 and β1,
+using the advertising data with sales as the response and TV as the predic-
+tor. In each plot, the red dot represents the pair of least squares estimates
+(ˆβ0, ˆβ1) given by (3.4). These values clearly minimize the RSS.
+3.1.2
+Assessing the Accuracy of the Coefficient Estimates
+Recall from (2.1) that we assume that the true relationship between X and
+Y takes the form Y = f(X) + ϵ for some unknown function f, where ϵ
+is a mean-zero random error term. If f is to be approximated by a linear
+function, then we can write this relationship as
+Y = β0 + β1X + ϵ.
+(3.5)
+Here β0 is the intercept term—that is, the expected value of Y when X = 0,
+and β1 is the slope—the average increase in Y associated with a one-unit
+increase in X. The error term is a catch-all for what we miss with this
+simple model: the true relationship is probably not linear, there may be
+other variables that cause variation in Y , and there may be measurement
+error. We typically assume that the error term is independent of X.

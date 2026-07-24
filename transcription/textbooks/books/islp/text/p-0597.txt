@@ -1,0 +1,52 @@
+13.6 Lab: Multiple Testing
+591
+process 10,000 times allows us to approximate the null distribution of the
+test statistic. We compute the fraction of the time that our observed test
+statistic exceeds the test statistics obtained via re-sampling.
+In [25]: B = 10000
+Tnull = np.empty(B)
+D_ = np.hstack([D2[gene_11], D4[gene_11]])
+n_ = D2[gene_11].shape[0]
+D_null = D_.copy()
+for b in range(B):
+rng.shuffle(D_null)
+ttest_ = ttest_ind(D_null[:n_],
+D_null[n_:],
+equal_var=True)
+Tnull[b] = ttest_.statistic
+(np.abs(Tnull) > np.abs(observedT)).mean()
+Out[25]: 0.0398
+This fraction, 0.0398, is our re-sampling-based p-value. It is almost identi-
+cal to the p-value of 0.0412 obtained using the theoretical null distribution.
+We can plot a histogram of the re-sampling-based test statistics in order
+to reproduce Figure 13.7.
+In [26]: fig, ax = plt.subplots(figsize=(8,8))
+ax.hist(Tnull,
+bins=100,
+density=True,
+facecolor='y',
+label='Null')
+xval = np.linspace(-4.2, 4.2, 1001)
+ax.plot(xval,
+t_dbn.pdf(xval, D_.shape[0]-2),
+c='r')
+ax.axvline(observedT,
+c='b',
+label='Observed')
+ax.legend()
+ax.set_xlabel("Null Distribution of Test Statistic");
+The re-sampling-based null distribution is almost identical to the theoret-
+ical null distribution, which is displayed in red.
+Finally, we implement the plug-in re-sampling FDR approach outlined
+in Algorithm 13.4. Depending on the speed of your computer, calculating
+the FDR for all 2,308 genes in the Khan dataset may take a while. Hence,
+we will illustrate the approach on a random subset of 100 genes. For each
+gene, we first compute the observed test statistic, and then produce 10,000
+re-sampled test statistics. This may take a few minutes to run. If you are
+in a rush, then you could set B equal to a smaller value (e.g. B=500).
+In [27]: m, B = 100, 10000
+idx = rng.choice(Khan['xtest'].columns, m, replace=False)
+T_vals = np.empty(m)
+Tnull_vals = np.empty((m, B))
+for j in range(m):
+col = idx[j]

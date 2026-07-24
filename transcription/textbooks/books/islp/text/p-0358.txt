@@ -1,0 +1,100 @@
+8.2 Bagging, Random Forests, Boosting, and Bayesian Additive Regression Trees
+351
+(a): ˆf b−1
+k
+(X)
+(b): Possibility #1 for ˆf b
+k(X)
+|
+X < 169.17
+X < 114.305
+X < 140.35
+−0.5031
+ 0.2667
+−0.2470
+ 0.4079
+|
+X < 169.17
+X < 114.305
+X < 140.35
+−0.5110
+ 0.2693
+−0.2649
+ 0.4221
+(c): Possibility #2 for ˆf b
+k(X)
+(d): Possibility #3 for ˆf b
+k(X)
+|
+X < 169.17
+−0.1218
+ 0.4079
+|
+X < 169.17
+X < 114.305
+X < 106.755
+X < 140.35
+−0.05089
+−1.03100
+ 0.26670
+−0.24700
+ 0.40790
+FIGURE 8.12. A schematic of perturbed trees from the BART algorithm. (a):
+The kth tree at the (b −1)st iteration, ˆf b−1
+k
+(X), is displayed. Panels (b)–(d)
+display three of many possibilities for ˆf b
+k(X), given the form of ˆf b−1
+k
+(X). (b): One
+possibility is that ˆf b
+k(X) has the same structure as ˆf b−1
+k
+(X), but with different
+predictions at the terminal nodes. (c): Another possibility is that ˆf b
+k(X) results
+from pruning ˆf b−1
+k
+(X). (d): Alternatively, ˆf b
+k(X) may have more terminal nodes
+than ˆf b−1
+k
+(X).
+values divided by the total number of trees. Thus, ˆf 1(x) = )K
+k=1 ˆf 1
+k(x) =
+1
+n
+)n
+i=1 yi.
+In subsequent iterations, BART updates each of the K trees, one at a
+time. In the bth iteration, to update the kth tree, we subtract from each
+response value the predictions from all but the kth tree, in order to obtain
+a partial residual
+ri = yi −
+0
+k′<k
+ˆf b
+k′(xi) −
+0
+k′>k
+ˆf b−1
+k′
+(xi)
+for the ith observation, i = 1, . . . , n. Rather than fitting a fresh tree to this
+partial residual, BART randomly chooses a perturbation to the tree from
+the previous iteration ( ˆf b−1
+k
+) from a set of possible perturbations, favoring
+ones that improve the fit to the partial residual. There are two components
+to this perturbation:
+1. We may change the structure of the tree by adding or pruning branches.
+2. We may change the prediction in each terminal node of the tree.
+Figure 8.12 illustrates examples of possible perturbations to a tree.
+The output of BART is a collection of prediction models,
+ˆf b(x) =
+K
+0
+k=1
+ˆf b
+k(x), for b = 1, 2, . . . , B.

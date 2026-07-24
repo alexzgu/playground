@@ -1,0 +1,59 @@
+554
+12. Unsupervised Learning
+6. We saw in Section 12.2.2 that the principal component loading and
+score vectors provide an approximation to a matrix, in the sense of
+(12.5). Specifically, the principal component score and loading vectors
+solve the optimization problem given in (12.6).
+Now, suppose that the M principal component score vectors zim, m =
+1, . . . , M, are known. Using (12.6), explain that each of the first M
+principal component loading vectors φjm, m = 1, . . . , M, can be ob-
+tained by performing p separate least squares linear regressions. In
+each regression, the principal component score vectors are the pre-
+dictors, and one of the features of the data matrix is the response.
+Applied
+7. In this chapter, we mentioned the use of correlation-based distance
+and Euclidean distance as dissimilarity measures for hierarchical clus-
+tering. It turns out that these two measures are almost equivalent: if
+each observation has been centered to have mean zero and standard
+deviation one, and if we let rij denote the correlation between the ith
+and jth observations, then the quantity 1 −rij is proportional to the
+squared Euclidean distance between the ith and jth observations.
+On the USArrests data, show that this proportionality holds.
+Hint:
+The
+Euclidean
+distance
+can
+be
+calculated
+using
+the
+pairwise_distances() function from the sklearn.metrics module, and pairwise_
+distances()
+correlations can be calculated using the np.corrcoef() function.
+8. In Section 12.2.3, a formula for calculating PVE was given in Equa-
+tion 12.10. We also saw that the PVE can be obtained using the
+explained_variance_ratio_ attribute of a fitted PCA() estimator.
+On the USArrests data, calculate PVE in two ways:
+(a) Using the explained_variance_ratio_ output of the fitted PCA()
+estimator, as was done in Section 12.2.3.
+(b) By applying Equation 12.10 directly. The loadings are stored
+as the components_ attribute of the fitted PCA() estimator. Use
+those loadings in Equation 12.10 to obtain the PVE.
+These two approaches should give the same results.
+Hint: You will only obtain the same results in (a) and (b) if the same
+data is used in both cases. For instance, if in (a) you performed PCA()
+using centered and scaled variables, then you must center and scale
+the variables before applying Equation 12.10 in (b).
+9. Consider the USArrests data. We will now perform hierarchical clus-
+tering on the states.
+(a) Using
+hierarchical
+clustering
+with
+complete
+linkage
+and
+Euclidean distance, cluster the states.
+(b) Cut the dendrogram at a height that results in three distinct
+clusters. Which states belong to which clusters?

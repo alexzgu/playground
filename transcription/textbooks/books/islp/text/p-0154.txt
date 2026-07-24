@@ -1,0 +1,61 @@
+4.3 Logistic Regression
+145
+It turns out that it is possible to extend the two-class logistic regression
+approach to the setting of K > 2 classes. This extension is sometimes
+known as multinomial logistic regression. To do this, we first select a single multinomial
+logistic
+regression
+class to serve as the baseline; without loss of generality, we select the Kth
+class for this role. Then we replace the model (4.7) with the model
+Pr(Y = k|X = x) =
+eβk0+βk1x1+···+βkpxp
+1 + )K−1
+l=1 eβl0+βl1x1+···+βlpxp
+(4.10)
+for k = 1, . . . , K−1, and
+Pr(Y = K|X = x) =
+1
+1 + )K−1
+l=1 eβl0+βl1x1+···+βlpxp .
+(4.11)
+It is not hard to show that for k = 1, . . . , K−1,
+log
+* Pr(Y = k|X = x)
+Pr(Y = K|X = x)
++
+= βk0 + βk1x1 + · · · + βkpxp.
+(4.12)
+Notice that (4.12) is quite similar to (4.6). Equation 4.12 indicates that once
+again, the log odds between any pair of classes is linear in the features.
+It turns out that in (4.10)–(4.12), the decision to treat the Kth class as
+the baseline is unimportant. For example, when classifying emergency room
+visits into stroke, drug overdose, and epileptic seizure, suppose that we
+fit two multinomial logistic regression models: one treating stroke as the
+baseline, another treating drug overdose as the baseline. The coefficient
+estimates will differ between the two fitted models due to the differing
+choice of baseline, but the fitted values (predictions), the log odds between
+any pair of classes, and the other key model outputs will remain the same.
+Nonetheless, interpretation of the coefficients in a multinomial logistic
+regression model must be done with care, since it is tied to the choice
+of baseline. For example, if we set epileptic seizure to be the baseline,
+then we can interpret βstroke0 as the log odds of stroke versus epileptic
+seizure, given that x1 = · · · = xp = 0. Furthermore, a one-unit increase
+in Xj is associated with a βstrokej increase in the log odds of stroke over
+epileptic seizure. Stated another way, if Xj increases by one unit, then
+Pr(Y = stroke|X = x)
+Pr(Y = epileptic seizure|X = x)
+increases by eβstrokej.
+We now briefly present an alternative coding for multinomial logistic
+regression, known as the softmax coding. The softmax coding is equivalent softmax
+to the coding just described in the sense that the fitted values, log odds
+between any pair of classes, and other key model outputs will remain the
+same, regardless of coding. But the softmax coding is used extensively in
+some areas of the machine learning literature (and will appear again in
+Chapter 10), so it is worth being aware of it. In the softmax coding, rather
+than selecting a baseline class, we treat all K classes symmetrically, and
+assume that for k = 1, . . . , K,
+Pr(Y = k|X = x) =
+eβk0+βk1x1+···+βkpxp
+)K
+l=1 eβl0+βl1x1+···+βlpxp .
+(4.13)

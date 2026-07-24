@@ -1,0 +1,88 @@
+We see that both batches of raw material (rows) and operators (columns) are orthogonal to
+treatments.
+The Latin square design is used to eliminate two nuisance sources of variability; that is,
+it systematically allows blocking in two directions. Thus, the rows and columns actually
+represent two restrictions on randomization. In general, a Latin square for p factors, or a 
+p p Latin square, is a square containing p rows and p columns. Each of the resulting p2 cells
+contains one of the p letters that corresponds to the treatments, and each letter occurs once
+and only once in each row and column. Some examples of Latin squares are
+4 4
+5 5
+6 6
+A B D C
+A D B E C
+A D C E B F
+B C A D
+D A C B E
+B A E C F D
+C D B A
+C B E D A
+C E D F A B
+D A C B
+B E A C D
+D C F B E A
+E C D A B
+F B A D C E
+E F B A D C
+Latin squares are closely related to a popular puzzle called a sudoku puzzle that origi-
+nated in Japan (sudoku means “single number” in Japanese). The puzzle typically consists of
+a 9 9 grid, with nine additional 3 3 blocks contained within. A few of the spaces contain
+numbers and the others are blank. The goal is to ll the blanks with the integers from 1 to 9 so
+that each row, each column, and each of the nine 3 3 blocks making up the grid contains just
+one of each of the nine integers. The additional constraint that a standard 9 9 sudoku puzzle
+have 3 3 blocks that also contain each of the nine integers reduces the large number of pos-
+sible 9 9 Latin squares to a smaller but still quite large number, approximately 6 1021.
+Depending on the number of clues and the size of the grid, sudoku puzzles can be
+extremely difcult to solve. Solving an n n sudoku puzzle belongs to a class of computa-
+tional problems called NP-complete (the NP refers to non-polynomial computing time). An
+NP-complete problem is one for which it’s relatively easy to check whether a particular
+answer is correct but may require an impossibly long time to solve by any simple algorithm as
+n gets larger.
+Solving a sudoku puzzle is also equivalent to “coloring” a graph—an array of points
+(vertices) and lines (edges) in a particular way. In this case, the graph has 81 vertices, one for
+each cell of the grid. Depending on the puzzle, only certain pairs of vertices are joined by an
+edge. Given that some vertices have already been assigned a “color” (chosen from the nine
+number possibilities), the problem is to “color” the remaining vertices so that any two ver-
+tices joined by an edge don’t have the same “color.”
+4.2 The Latin Square Design
+159
+■T A B L E 4 . 9
+Latin Square Design for the Rocket Propellant Problem
+Operators
+Batches of
+Raw Material
+1
+2
+3
+4
+5
+1
+A 24
+B 20
+C 19
+D 24
+E 24
+2
+B 17
+C 24
+D 30
+E 27
+A 36
+3
+C 18
+D 38
+E 26
+A 27
+B 21
+4
+D 26
+E 31
+A 26
+B 23
+C 22
+5
+E 22
+A 30
+B 20
+C 29
+D 31

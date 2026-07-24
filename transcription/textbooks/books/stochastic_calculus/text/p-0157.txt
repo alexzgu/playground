@@ -1,0 +1,51 @@
+5.2. GIVING DRIFT TO A BROWNIAN MOTION
+151
+The process t →Bt, Q, is a Brownian motion with
+drift m and σ2 = 1.
+We prove this by showing it satises the conditions to be a Brownian motion.
+The continuity of paths is immediate as well as B0 = 0. To show the rest, it
+suces to show that if s, t ≥0, then Bt+s −Bs is independent of Fs with a
+normal distribution with mean mt and variance t. We can establish this by
+showing it has the (conditional) moment generating function
+EQ (expλ(Bt+s −Bs)Fs) = eλmt eλ2t2
+(5.5)
+Here we are writing EQ to denote that the conditional expectation is taken
+using the measure Q. To establish (5.5), we need to show that if V is Fs-
+measurable, then
+EQ [1V expλ(Bt+s −Bs)]
+=
+EQ
+
+1V eλmt eλ2t2
+=
+eλmt eλ2t2 Q(V ),
+or equivalently, by the denition of EQ,
+E [1V expλ(Bt+s −Bs)Mt+s] = eλmt eλ2t2 E[1V Ms]
+Note that if Y = Bt+s −Bs, then Y is independent of Fs and
+E
+
+eλY Mt+s Fs
+
+=
+Ms e−m2t2E
+
+eλY emY Fs
+
+=
+Ms e−m2t2E
+
+e(λ+m)Y 
+=
+Ms e−m2t2 e(λ+m)2t2
+=
+Ms eλ2t2 eλmt
+Therefore, if V is Fs-measurable,
+E [1V expλ(Bt+s −Bs)Mt+s]
+=
+E [E(1V expλ(Bt+s −Bs)Mt+s Fs)]
+=
+E [1V E(expλ(Bt+s −Bs)Mt+s Fs)]
+=
+eλ2t2 eλmt E[1V Ms]
+Example 5.2.1. Suppose Xt is a geometric Brownian motion satisfying
+dXt = Xt [m dt + σ dBt] ,

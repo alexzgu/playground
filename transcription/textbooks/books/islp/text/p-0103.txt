@@ -1,0 +1,64 @@
+94
+3. Linear Regression
+Coefficient
+Std. error
+t-statistic
+p-value
+Intercept
+531.00
+46.32
+11.464
+< 0.0001
+region[South]
+−12.50
+56.68
+−0.221
+0.8260
+region[West]
+−18.69
+65.02
+−0.287
+0.7740
+TABLE 3.8. Least squares coefficient estimates associated with the regression of
+balance onto region in the Credit data set. The linear model is given in (3.30).
+That is, region is encoded via two dummy variables (3.28) and (3.29).
+From Table 3.8, we see that the estimated balance for the baseline, East,
+is $531.00. It is estimated that those in the South will have $18.69 less
+debt than those in the East, and that those in the West will have $12.50
+less debt than those in the East. However, the p-values associated with the
+coefficient estimates for the two dummy variables are very large, suggesting
+no statistical evidence of a real difference in average credit card balance
+between South and East or between West and East.12 Once again, the
+level selected as the baseline category is arbitrary, and the final predictions
+for each group will be the same regardless of this choice. However, the
+coefficients and their p-values do depend on the choice of dummy variable
+coding. Rather than rely on the individual coefficients, we can use an F-test
+to test H0 : β1 = β2 = 0; this does not depend on the coding. This F-test
+has a p-value of 0.96, indicating that we cannot reject the null hypothesis
+that there is no relationship between balance and region.
+Using this dummy variable approach presents no difficulties when in-
+corporating both quantitative and qualitative predictors. For example, to
+regress balance on both a quantitative variable such as income and a qual-
+itative variable such as student, we must simply create a dummy variable
+for student and then fit a multiple regression model using income and the
+dummy variable as predictors for credit card balance.
+There are many different ways of coding qualitative variables besides
+the dummy variable approach taken here. All of these approaches lead to
+equivalent model fits, but the coefficients are different and have different
+interpretations, and are designed to measure particular contrasts. This topic contrast
+is beyond the scope of the book.
+3.3.2
+Extensions of the Linear Model
+The standard linear regression model (3.19) provides interpretable results
+and works quite well on many real-world problems. However, it makes sev-
+eral highly restrictive assumptions that are often violated in practice. Two
+of the most important assumptions state that the relationship between the
+predictors and response are additive and linear. The additivity assumption additive
+linear
+means that the association between a predictor Xj and the response Y does
+not depend on the values of the other predictors. The linearity assumption
+states that the change in the response Y associated with a one-unit change
+in Xj is constant, regardless of the value of Xj. In later chapters of this
+book, we examine a number of sophisticated methods that relax these two
+12There could still in theory be a difference between South and West, although the
+data here does not suggest any difference.

@@ -1,0 +1,58 @@
+8.4 Exercises
+363
+In [35]: var_inclusion = pd.Series(bart_boston.variable_inclusion_.mean(0),
+index=D.columns)
+var_inclusion
+Out[35]:
+crim
+25.333333
+zn
+27.000000
+indus
+21.266667
+chas
+20.466667
+nox
+25.400000
+rm
+32.400000
+age
+26.133333
+dis
+25.666667
+rad
+24.666667
+tax
+23.933333
+ptratio
+25.000000
+lstat
+31.866667
+dtype: float64
+8.4
+Exercises
+Conceptual
+1. Draw an example (of your own invention) of a partition of two-
+dimensional feature space that could result from recursive binary
+splitting. Your example should contain at least six regions. Draw a
+decision tree corresponding to this partition. Be sure to label all as-
+pects of your figures, including the regions R1, R2, . . ., the cutpoints
+t1, t2, . . ., and so forth.
+Hint: Your result should look something like Figures 8.1 and 8.2.
+2. It is mentioned in Section 8.2.3 that boosting using depth-one trees
+(or stumps) leads to an additive model: that is, a model of the form
+f(X) =
+p
+0
+j=1
+fj(Xj).
+Explain why this is the case. You can begin with (8.12) in
+Algorithm 8.2.
+3. Consider the Gini index, classification error, and entropy in a simple
+classification setting with two classes. Create a single plot that dis-
+plays each of these quantities as a function of ˆpm1. The x-axis should
+display ˆpm1, ranging from 0 to 1, and the y-axis should display the
+value of the Gini index, classification error, and entropy.
+Hint: In a setting with two classes, ˆpm1 = 1 −ˆpm2. You could make
+this plot by hand, but it will be much easier to make in R.
+4. This question relates to the plots in Figure 8.14.

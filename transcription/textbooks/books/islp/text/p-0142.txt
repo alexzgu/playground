@@ -1,0 +1,46 @@
+3.7 Exercises
+133
+(b) What is the correlation between x1 and x2? Create a scatterplot
+displaying the relationship between the variables.
+(c) Using this data, fit a least squares regression to predict y using
+x1 and x2. Describe the results obtained. What are ˆβ0, ˆβ1, and
+ˆβ2? How do these relate to the true β0, β1, and β2? Can you
+reject the null hypothesis H0 : β1 = 0? How about the null
+hypothesis H0 : β2 = 0?
+(d) Now fit a least squares regression to predict y using only x1.
+Comment on your results. Can you reject the null hypothesis
+H0 : β1 = 0?
+(e) Now fit a least squares regression to predict y using only x2.
+Comment on your results. Can you reject the null hypothesis
+H0 : β1 = 0?
+(f) Do the results obtained in (c)–(e) contradict each other? Explain
+your answer.
+(g) Suppose we obtain one additional observation, which was unfor-
+tunately mismeasured. We use the function np.concatenate() to np.conca-
+tenate()
+add this additional observation to each of x1, x2 and y.
+x1 = np.concatenate([x1, [0.1]])
+x2 = np.concatenate([x2, [0.8]])
+y = np.concatenate([y, [6]])
+Re-fit the linear models from (c) to (e) using this new data. What
+effect does this new observation have on the each of the models?
+In each model, is this observation an outlier? A high-leverage
+point? Both? Explain your answers.
+15. This problem involves the Boston data set, which we saw in the lab
+for this chapter. We will now try to predict per capita crime rate
+using the other variables in this data set. In other words, per capita
+crime rate is the response, and the other variables are the predictors.
+(a) For each predictor, fit a simple linear regression model to predict
+the response. Describe your results. In which of the models is
+there a statistically significant association between the predictor
+and the response? Create some plots to back up your assertions.
+(b) Fit a multiple regression model to predict the response using
+all of the predictors. Describe your results. For which predictors
+can we reject the null hypothesis H0 : βj = 0?
+(c) How do your results from (a) compare to your results from (b)?
+Create a plot displaying the univariate regression coefficients
+from (a) on the x-axis, and the multiple regression coefficients
+from (b) on the y-axis. That is, each predictor is displayed as a
+single point in the plot. Its coefficient in a simple linear regres-
+sion model is shown on the x-axis, and its coefficient estimate
+in the multiple linear regression model is shown on the y-axis.

@@ -1,0 +1,65 @@
+This same procedure can be applied to the 16-, 32-, and 64-run 2k designs. For 16 runs,
+it is possible to construct resolution V fractional factorials with two two-level factors and
+either two or three factors at three levels. A 16-run resolution V fraction can also be obtained with
+three two-level factors and one three-level factor. If we include 4 two-level factors and a
+single three-level factor in 16 runs, the design will be of resolution III. The 32- and 64-run
+designs allow similar arrangements. For additional discussion of some of these designs, see
+Addelman (1962).
+9.4.2
+Factors at Two and Four Levels
+It is very easy to accommodate a four-level factor in a 2k design. The procedure for doing this
+involves using two two-level factors to represent the four-level factor. For example, suppose
+that A is a four-level factor with levels a1, a2, a3, and a4. Consider two columns of the usual
+table of plus and minus signs, say columns P and Q. The pattern of signs in these two columns
+is as shown on the left side of Table 9.12. The right side of this table shows how these four
+sign patterns would correspond to the four levels of factor A. The effects represented by
+columns P and Q and the PQ interaction are mutually orthogonal and correspond to the
+three-degrees-of-freedom A effect. This method of constructing a four-level factor from two
+two-level factors is called the method of replacement.
+To illustrate this idea more completely, suppose that we have one four-level factor and
+two two-level factors and that we need to estimate all the main effects and interactions involv-
+ing these factors. This can be done with a 16-run design. Table 9.13 shows the usual table of
+plus and minus signs for the 16-run 24 design, with columns A and B used to form the four-
+level factor, say X, with levels x1, x2, x3, and x4. Sums of squares would be calculated for each
+column A, B, . . . , ABCD just as in the usual 2k system. Then the sums of squares for all fac-
+tors X, C, D, and their interactions are formed as follows:
+ (3 degrees of freedom)
+SSXCD SSACD SSBCD SSABCD
+ (3 degrees of freedom)
+SSXD SSAD SSBD SSABD
+ (3 degrees of freedom)
+SSXC SSAC SSBC SSABC
+ (1 degree of freedom)
+SSCD SSCD
+ (1 degree of freedom)
+SSD SSD
+ (1 degree of freedom)
+SSC SSC
+ (3 degrees of freedom)
+SSX SSA SSB SSAB
+414
+Chapter 9 ■Additional Design and Analysis Topics for Factorial and Fractional Factorial Designs
+■TA B L E 9 . 1 2
+Four-Level Factor A Expressed as Two Two-Level Factors
+Two-Level Factors
+Four-Level Factor
+Run
+P
+Q
+A
+1
+
+
+a1
+2
+
+
+a2
+3
+
+
+a3
+4
+
+
+a4

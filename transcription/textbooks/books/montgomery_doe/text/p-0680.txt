@@ -1,0 +1,63 @@
+664
+Chapter 15 ■Other Design and Analysis Topics
+strength, then we would try to equalize the strength output of the three machines. However,
+in this problem the machines do not differ in the strength of ber produced after the linear
+effect of ber diameter is removed. It would be helpful to reduce the within-machine ber
+diameter variability because this would probably reduce the strength variability in the ber.
+Analysis of Covariance as an Alternative to Blocking In some situations, the
+experimenter may have a choice between either running a completely randomized design
+with a covariate or running a randomized block design with the covariate used in some fash-
+ion to form the blocks. If the relationship between the covariate and the response is really
+well-approximated by a straight line and that is the form of the covariance model that the
+experimenter chooses, then either of these approaches is about equally effective. However,
+if the relationship isn’t linear and a linear model is assumed, the analysis of covariance will
+be outperformed in error reduction by the randomized block design. Randomized block
+designs do not make any explicit assumptions about relationships between the nuisance vari-
+ables (covariates) and the response. Generally, a randomized block design will have fewer
+degrees if freedom for error than a covariance model but the resulting loss of statistical
+power is usually quite small. 
+15.3.2
+Computer Solution
+Several computer software packages now available can perform the analysis of covariance.
+The output from the Minitab General Linear Models procedure for the data in Example 15.4
+is shown in Table 15.15. This output is very similar to those presented previously. In the
+section of the output entitled “Analysis of Variance,” the “Seq SS” correspond to a “sequen-
+tial” partitioning of the overall model sum of squares, say
+whereas the “Adj SS” corresponds to the “extra” sum of squares for each factor, that is,
+and
+Note that SS (MachineƒDiameter) is the correct sum of squares to use for testing for no
+machine effect, and SS (DiameterƒMachine) is the correct sum of squares to use for testing the
+hypothesis that 0. The test statistics in Table 15.15 differ slightly from those computed
+manually because of rounding.
+The program also computes the adjusted treatment means from Equation 15.31
+(Minitab refers to those as least squares means on the sample output) and the standard errors.
+SS (DiameterMachine) 178.01
+SS (MachineDiameter) 13.28
+ 318.41
+ 305.13 13.28
+SS (Model) SS (Diameter) SS (MachineDiameter)
+■TA B L E 1 5 . 1 4
+Incorrect Analysis of the Breaking Strength Data as a Single-Factor Experiment
+Source of
+Sum of 
+Degrees of
+Mean 
+Variation
+Squares
+Freedom
+Square
+F0
+P-Value
+Machines
+140.40
+2
+70.20
+4.09
+0.0442
+Error
+206.00
+12
+17.17
+Total
+346.40
+14 

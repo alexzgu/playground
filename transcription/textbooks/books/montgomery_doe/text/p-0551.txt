@@ -1,0 +1,62 @@
+11.6 Mixture Experiments
+535
+axial runs be placed midway between the centroid of the simplex and each vertex so that 
+( p 1)/2p. Sometimes these points are called axial check blends because a fairly common
+practice is to exclude them when tting the preliminary mixture model and then use the
+responses at these axial points to check the adequacy of the t of the preliminary model.
+Figure 11.44 shows the {3, 2} simplex lattice design augmented with the axial points.
+This design has 10 points, with four of these points in the interior of the simplex. The {3, 3}
+simplex lattice will support tting the full cubic model, whereas the augmented simplex lattice
+will not; however, the augmented simplex lattice will allow the experimenter to t the special
+cubic model or to add special quartic terms such as 1233x1x2
+to the quadratic model. The aug-
+mented simplex lattice is superior for studying the response of complete mixtures in the sense
+that it can detect and model curvature in the interior of the triangle that cannot be accounted
+for by the terms in the full cubic model. The augmented simplex lattice has more power for
+detecting lack of t than does the {3, 3} lattice. This is particularly useful when the experi-
+menter is unsure about the proper model to use and also plans to sequentially build a model by
+starting with a simple polynomial (perhaps rst order), test the model for lack of t, and then
+augment the model with higher order terms, test the new model for lack of t, and so forth.
+In some mixture problems, constraints on the individual components arise. Lower
+bound constraints of the form
+are fairly common. When only lower bound constraints are present, the feasible design region
+is still a simplex, but it is inscribed inside the original simplex region. This situation may be
+simplied by the introduction of pseudocomponents, dened as
+(11.29)
+with π
+p
+j1 lj 1. Now
+x1 x2 Á xp 1
+xi 
+xi li
+1 
+p
+j1
+lj
+li xi  1 
+ i 1, 2, . . . , p
+x2
+3
+x1 = x2 = 6, x3 = 3
+1
+2
+x1 = x3 = 6, x2 = 3
+1
+2
+x1 = x3 = 2
+1
+x2 = x3 = 2
+1
+x1 = x2 = 2
+1
+x1 = x2 = x3 = 3
+1
+x3 = 1 
+x1 = 1 
+x1 = 3, x2 = x3 = 6
+1
+2
+x2 = 1 
+■F I G U R E 1 1 . 4 4
+An augmented simplex-
+lattice design

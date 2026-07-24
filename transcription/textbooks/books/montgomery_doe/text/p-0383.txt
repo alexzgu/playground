@@ -1,0 +1,107 @@
+factor could be associated with this column. The result is a 
+fractional factorial design.
+The process is demonstrated in Table 8.29 for the 
+design. It is easy to verify that the
+resulting design is a 
+design with dening relation I ABCD.
+Table 8.30 provides a convenient summary of 2k p fractional factorial designs with N 
+4, 8, 16, and 32 runs. Notice that although 16-run resolution IV designs are available for 6 
+k 8 factors, if there are nine or more factors the smallest resolution IV design in the 
+29p family is the 294, which requires 32 runs. Since this is a rather large number of runs,
+many experimenters are interested in smaller designs. Recall that a resolution IV design must
+contain at least 2k runs, so for example, a nine-factor resolution IV design must have at least
+18 runs. A design with exactly N 18 runs can be created by using an algorithm for con-
+structing “optimal” designs. This design is a nonregular design, and it will be illustrated in
+chapter 9 as part of a broader discussion of nonregular designs.
+8.7.2
+Sequential Experimentation with Resolution 
+IV Designs
+Because resolution IV designs are used as screening experiments, it is not unusual to nd that
+upon conducting and analyzing the original experiment, additional experimentation is necessary
+241
+IV
+231
+III
+2k1p
+IV
+8.7 Resolution IV and V Designs
+367
+■TA B L E 8 . 2 9
+A 
+Design Obtained by Fold Over
+D
+I
+A
+B
+C
+Original
+I ABC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Second 
+with Signs Switched
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+231
+III
+231
+III
+241
+IV
+■TA B L E 8 . 3 0
+Useful Factorial and Fractional Factorial Designs from the 2kp System.
+The Numbers in the Cells Are the Numbers of Factors in the Experiment
+Number of Runs
+Design Type
+4
+8
+16
+32
+Full factorial
+2
+3
+4
+5
+Half-fraction
+3
+4
+5
+6
+Resolution IV fraction
+—
+4
+6–8
+7–16
+Resolution III fraction
+3
+5–7
+9–15
+17–31

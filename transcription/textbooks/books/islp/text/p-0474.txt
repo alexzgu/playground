@@ -1,0 +1,9 @@
+10.10 Exercises
+467
+12. Consider the RNN fit to the NYSE data in Section 10.9.6. Modify the
+code to allow inclusion of the variable day_of_week, and fit the RNN.
+Compute the test R2.
+13. Repeat the analysis of Lab 10.9.5 on the IMDb data using a similarly
+structured neural network. We used 16 hidden units at each of two
+hidden layers. Explore the effect of increasing this to 32 and 64 units
+per layer, with and without 30% dropout regularization.

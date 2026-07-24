@@ -1,0 +1,114 @@
+52
+Chapter 2 ■Simple Comparative Experiments
+■T A B L E 2 . 5
+Tests on Means of Normal Distributions, Variance Unknown
+Fixed Signiﬁcance Level
+Hypothesis
+Test Statistic
+Criteria for Rejection
+P-Value
+H0 : 0
+sum of the probability
+H1 : 0
+t0t/2,n1
+above t0 and below t0
+H0 : 0
+H1 : 0
+t0 t,n1
+probability below t0
+H0 : 0
+H1 : 0
+t0 t,n1
+probability above t0
+if
+H0 : 1 2
+H1 : 1 2
+t0t/2,v
+sum of the probability
+v n1 n2 2
+above t0 and below t0
+if
+H0 : 1 2
+H1 : 1 2
+t0 t,v
+probability below t0
+H0 : 1 2
+H1 : 1 2
+t0 t,v
+probability above t0
+v 
+S2
+1
+n1 S2
+2
+n2
+2
+(S2
+1/n1)2
+n1 1 (S2
+2/n2)2
+n2 1
+t0 
+y1 y2
+
+S2
+1
+n1 S2
+2
+n2
+2
+1 Z 2
+2
+t0 
+y1 y2
+Sp
+1
+n1 1
+n2
+2
+1 2
+2
+t0 y 0
+S/n
+■T A B L E
+2 . 4
+Tests on Means with Variance Known
+Fixed Signiﬁcance Level
+Hypothesis
+Test Statistic
+Criteria for Rejection
+P-Value
+H0 : 0
+H1 : 0
+Z0Z/2
+H0 : 0
+H1 : 0
+Z0 Z
+H0 : 0
+H1 : 0
+Z0 Z
+H0 : 1 2
+H1 : 1 2
+Z0Z/2
+H0 : 1 2
+H1 : 1 2
+Z0 Z
+H0 : 1 2
+H1 : 1 2
+Z0 Z 
+P 1 (Z0)
+P (Z0)
+Z0 
+y1 y2
+
+2
+1
+n1 2
+2
+n2
+P 2[1 (Z0)]
+P 1 (Z0)
+P (Z0)
+Z0 y 0
+/n
+P 2[1 (Z0)]

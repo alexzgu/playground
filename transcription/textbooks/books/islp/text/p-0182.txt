@@ -1,0 +1,57 @@
+4.7 Lab: Logistic Regression, LDA, QDA, and KNN
+173
+applies a transformation to E(Y |X1, . . . , Xp) so that the transformed mean
+is a linear function of the predictors. That is,
+η(E(Y |X1, . . . , Xp)) = β0 + β1X1 + · · · + βpXp.
+(4.42)
+The link functions for linear, logistic and Poisson regression are η(µ) = µ,
+η(µ) = log(µ/(1 −µ)), and η(µ) = log(µ), respectively.
+The Gaussian, Bernoulli and Poisson distributions are all members of a
+wider class of distributions, known as the exponential family. Other well- exponential
+family
+known members of this family are the exponential distribution, the Gamma
+exponential
+Gamma
+distribution, and the negative binomial distribution. In general, we can per-
+negative
+binomial
+form a regression by modeling the response Y as coming from a particular
+member of the exponential family, and then transforming the mean of the
+response so that the transformed mean is a linear function of the predictors
+via (4.42). Any regression approach that follows this very general recipe is
+known as a generalized linear model (GLM). Thus, linear regression, logistic generalized
+linear model
+regression, and Poisson regression are three examples of GLMs. Other ex-
+amples not covered here include Gamma regression and negative binomial
+regression.
+4.7
+Lab: Logistic Regression, LDA, QDA, and
+KNN
+4.7.1
+The Stock Market Data
+In this lab we will examine the Smarket data, which is part of the ISLP
+library. This data set consists of percentage returns for the S&P 500 stock
+index over 1,250 days, from the beginning of 2001 until the end of 2005.
+For each date, we have recorded the percentage returns for each of the five
+previous trading days, Lag1 through Lag5. We have also recorded Volume
+(the number of shares traded on the previous day, in billions), Today (the
+percentage return on the date in question) and Direction (whether the
+market was Up or Down on this date).
+We start by importing our libraries at this top level; these are all imports
+we have seen in previous labs.
+In [1]: import numpy as np
+import pandas as pd
+from matplotlib.pyplot import subplots
+import statsmodels.api as sm
+from ISLP import load_data
+from ISLP.models import (ModelSpec as MS,
+summarize)
+We also collect together the new imports needed for this lab.
+In [2]: from ISLP import confusion_table
+from ISLP.models import contrast
+from sklearn.discriminant_analysis import \
+(LinearDiscriminantAnalysis as LDA,
+QuadraticDiscriminantAnalysis as QDA)
+from sklearn.naive_bayes import GaussianNB
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.preprocessing import StandardScaler

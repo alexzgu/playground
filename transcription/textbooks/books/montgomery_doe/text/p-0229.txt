@@ -1,0 +1,66 @@
+5.5 Fitting Response Curves and Surfaces
+213
+linear and quadratic effects of temperature, and “B” rep-
+resents the main effect of the material type factor. Recall
+that material type is a qualitative factor with three levels.
+The terms “AB” and “A2B” are the interactions of the lin-
+ear and quadratic temperature factor with material type.
+The P-values indicate that A2 and AB are not signifi-
+cant, whereas the A2B term is significant. Often we think
+about removing nonsignificant terms or factors from a
+model, but in this case, removing A2 and AB and retain-
+ing A2B will result in a model that is not hierarchical.
+The hierarchy principle indicates that if a model con-
+tains a high-order term (such as A2B), it should also con-
+tain all of the lower order terms that compose it (in this
+case A2 and AB). Hierarchy promotes a type of internal
+■TA B L E 5 . 1 5
+(Continued)
+Final Equation in Terms of Actual Factors:
+Material Type
+1
+Life 
+169.38017
+2.48860
+*Temp
+0.012851
+*Temp2
+Material Type
+2
+Life 
+159.62397
+0.17901
+*Temp
+0.41627
+*Temp2
+Material Type
+3
+Life 
+132.76240
+0.89264
+*Temp
+0.43218
+*Temp2
+15.00
+42.50
+70.00
+Temperature
+Material type 1
+Material type 2
+Material type 3
+97.50
+2
+2
+2
+125.00
+Life
+188
+146
+104
+62
+20
+■F I G U R E 5 . 1 8
+Predicted life as a
+function of temperature
+for the three material
+types, Example 5.4

@@ -1,0 +1,35 @@
+6.8. THE L´EVY-KHINCHIN CHARACTERIZATION
+217
+The process Ct+Yt is called a L´. We can summarize
+the theorem by saying that every L´evy process is the independent sum of a
+Brownian motion (with mean m and variance σ2) and a pure jump process
+(with L´evy measure µ = µC + µY .)
+We have not included the generalized Poisson process in our decomposi-
+tion (6.23). If Xt is such a process we can write it as
+Xt = Ct + ˆXt
+where Ct denotes the sum of jumps of absolute value greater than one. Then
+we can write ˆXt = Yt + ˆmt where Yt is a compensated generalized Poisson
+process and ˆm = E[ ˆX1], which by the assumptions is nite.
+The conditions on µC, µY can be summarized as follows:
+µ(0) = 0,
+∞
+−∞
+[x2 1] dµ(x) < ∞
+(6.24)
+To specify the distribution of a L´evy processes, one needs to give m R, σ >
+0 and a measure µ satisfying (6.24). We then set µC to be µ restricted to
+x> 1and µY to be µ restricted to x≤1. We have already shown
+that (m, σ, µ) determine a L´evy process. To prove the theorem, therefore, we
+need to show that any L´evy process can be written like this.
+We will not give the entire proof of this theorem, but let us sketch how
+one derives it. Suppose Xt is a L´evy process. Suppose that the process has
+jumps. For every a > 0, we can write
+Xt = ˆXt,a + ˆCt,a,
+where ˆCt,a denotes the movement by jumps of absolute value greater than a
+and ˆXt,a denotes a L´evy process with all jumps bounded by a. For each a
+one can show that ˆCt,a is a CPP independent of ˆXt,a. We let a go to zero,
+and after careful analysis we see that
+Xt = Zt + Ct,1 + Yt,
+where Yt is compensated generalized Poisson process and Zt is a L´evy process
+with continuous paths. We then show that Zt must be a Brownian motion.
+The following theorem is related and proved similarly.

@@ -1,0 +1,61 @@
+98
+Chapter 3 ■Experiments with a Single Factor: The Analysis of Variance
+Tukey’s Test. Suppose that, following an ANOVA in which we have rejected the null
+hypothesis of equal treatment means, we wish to test all pairwise mean comparisons:
+for all i j. Tukey (1953) proposed a procedure for testing hypotheses for which the over-
+all signicance level is exactly when the sample sizes are equal and at most when the
+sample sizes are unequal. His procedure can also be used to construct condence intervals on
+the differences in all pairs of means. For these intervals, the simultaneous condence level is
+100(1 ) percent when the sample sizes are equal and at least 100(1 ) percent when
+sample sizes are unequal. In other words, the Tukey procedure controls the experimentwise
+or “family” error rate at the selected level . This is an excellent data snooping procedure
+when interest focuses on pairs of means.
+Tukey’s procedure makes use of the distribution of the studentized range statistic
+where 
+and 
+are the largest and smallest sample means, respectively, out of a group of
+p sample means. Appendix Table VII contains values of q( p, f ), the upper percentage
+points of q, where f is the number of degrees of freedom associated with the MSE. For equal
+sample sizes, Tukey’s test declares two means signicantly different if the absolute value of
+their sample differences exceeds
+(3.35)
+Equivalently, we could construct a set of 100(1 ) percent condence intervals for all pairs
+of means as follows:
+(3.36)
+When sample sizes are not equal, Equations 3.35 and 3.36 become
+(3.37)
+and
+(3.38)
+respectively. The unequal sample size version is sometimes called the Tukey–Kramer
+procedure.
+yi. yj. q(a, f )
+2 MSE
+1
+ni 1
+nj, i j
+yi. yj. q(a, f )
+2 MSE
+1
+ni 1
+nji j
+Tq(a, f )
+2 MSE
+1
+ni 1
+nj
+yi. yj. q(a, f )
+MSE
+n , i j.
+yi. yj. q(a, f )
+MSE
+n
+i j
+Tq(a, f )
+MSE
+n
+ymin
+ymax
+q ymax ymin
+MSE/n
+H1i j
+H0i j

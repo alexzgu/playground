@@ -1,0 +1,129 @@
+
+1
+1  exp(1.01 0.169x1 0.169x2 0.023x3  0.041x2x3)
+yˆ 
+1
+1  exp[(1.01  0.169x1  0.169x2  0.023x3 0.041x2x3)]
+E X A M P L E 1 5 . 2
+A consumer products company is studying the factors that
+impact the chances that a customer will redeem a coupon
+for one of its personal care products. A 23 factorial experi-
+ment was conducted to investigate the following variables:
+A coupon value (low, high), B length of time for
+which the coupon is valid, and C ease of use (easy, hard).
+A total of 1000 customers were randomly selected for each
+of the eight cells of the 23 design, and the response is the
+number of coupons redeemed. The experimental results are
+shown in Table 15.1.
+We can think of the response as the number of successes
+out of 1000 Bernoulli trials in each cell of the design, so a
+reasonable model for the response is a generalized linear
+model with a binomial response distribution and a logit
+link. This particular form of the GLM is usually called
+logistic regression.
+Minitab and JMP will fit logistic regression models.
+The experimenters decided to fit a model involving only
+the main effects and two-factor interactions. Therefore, the
+model for the expected response is
+Table 15.2 presents a portion of the Minitab output for
+the data in Table 15.1. The upper portion of the table ts the
+full model involving all three main effects and the three
+two-factor interactions. Notice that the output contains a
+display of the estimated model coefcients and their stan-
+dard errors. It turns out that the ratio of the estimated
+regression coefficient to its standard error (a t-like ratio)
+has an asymptotically normal distribution under the null
+hypothesis that the regression coefficient is equal to zero.
+Thus, the ratios Z 
+can be used to test the con-
+ˆ/se(ˆ)
+E(y) 
+1
+1  exp0 
+3
+i1
+ixi 
+2
+i! 
+3
+j2
+ijxixj
+tribution that each main effect and interaction term is
+significant. Here, the word “asymptotic” means when the
+sample size is large. Now the sample size here is certainly
+not large, and we should be careful about interpreting the
+P-values associated with these t-like ratios, but these
+statistics can be used as a guide to the analysis of the
+data. The P-values in the table indicate that the intercept,
+the main effects of A and B, and the BC interaction are
+significant.
+The goodness-of-t section of the table presents three
+different test statistics (Pearson, Deviance, and Hosmer–
+Lemeshow) that measure the overall adequacy of the
+model. All of the P-values for these goodness-of-t statis-
+tics are large implying that the model is satisfactory. The
+bottom portion of the table presents the analysis for a
+reduced model containing the three main effects and the BC
+interaction (factor C was included to maintain model hier-
+archy). The tted model is
+■TA B L E 1 5 . 1
+Design and Data for the Coupon Redemption
+Experiment
+A
+B
+C
+Number of Coupons Redeemed
+
+
+
+200
+
+
+
+250
+
+
+
+265
+
+
+
+347
+
+
+
+210
+
+
+
+286
+
+
+
+271
+
+
+
+326
+Since the effects of C and the BC interaction are very small,
+these terms could likely be dropped from the model with no
+major consequences.
+Minitab reports an odds ratio for each regression model
+coefcient. The odds ratio follows directly from the logit
+link in Equation 15.9 and is interpreted much like factor
+effect estimates in standard two-level designs. For factor A,
+it can be interpreted as the ratio of the odds of redeeming a
+coupon of high value (x1 1) to the odds of redeeming a
+coupon of value x1 0. The computed value of the odds
+ratio is 
+e0.168765 1.18. The quantity 
+e2(0.168765)
+1.40 is the ratio of the odds of redeeming a coupon of
+high value (x1 1) to the odds of redeeming a coupon of
+low value (x1 1). Thus, a high-value coupon increases
+the odds of redemption by about 40 percent.
+e21ˆ
+eˆ
+1
+15.1 Nonnormal Responses and Transformations
+647

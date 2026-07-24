@@ -1,0 +1,105 @@
+566
+Chapter 12 ■Robust Parameter Design and Process Robustness Studies
+response model is
+The mean and variance models are
+and
+where we have substituted parameter estimates from the
+tted response model into the equations for the mean and
+variance models and, as in the previous example, assumed
+that 
+. Figures 12.10 and 12.11 (from Design-
+Expert) present contour plots of the process mean and POE
+(remember POE is the square root of the variance response
+surface) generated from these models.
+In this problem, it is desirable to keep the process mean
+below 30. From inspection of Figures 12.10 and 12.11, it is
+clear that some trade-off will be necessary if we wish to
+make the process variance small. Because there are only
+two controllable variables, a logical way to accomplish this
+2
+z 1
+8.52x2
+2 4.42x1x2
+Vz[y(x, z)] 19.26 6.40x1 24.91x2 7.52x2
+1
+2.60x2
+1 2.18x2
+2 2.87x1x2
+30.37 2.92x1 4.13x2
+Ez[y(x, z)]
+2.01x2z1 1.43x2z2 1.56x2z3
+0.89x1z2 2.58x1z3
+2.73z1 2.33z2 2.33z3 0.27x1z1
+2.60x2
+1 2.18x2
+2 2.87x1x2
+30.37 2.92x1 4.13x2
+yˆ(x, z)
+trade-off is to overlay the contours of constant mean
+response and constant variance, as shown in Figure 12.12.
+This plot shows the contours for which the process mean is
+less than or equal to 30 and the process standard deviation
+is less than or equal to 5. The region bounded by these con-
+tours would represent a typical operating region of low
+mean response and low process variance.
+1.00
+0.50
+0.00
+–0.50
+–1.00
+–1.00
+–0.50
+0.00
+0.50
+1.00
+x1
+x2
+30
+30
+33
+36
+39
+42
+0.00
+–1.00
+–0.50
+0.50
+1.00
+x1
+1.00
+0.50
+0.00
+–0.50
+–1.00
+x2
+2.75
+3.9
+5
+6.6
+7.5
+■F I G U R E 1 2 . 1 1
+Contour plot of the POE,
+Example 12.2
+■F I G U R E 1 2 . 1 0
+Contour plot of the mean
+model, Example 12.2
+1.00
+0.50
+0.00
+–0.50
+–1.00
+–1.00
+–0.50
+0.00
+0.50
+1.00
+x1
+x2
+POE(y): 5
+y: 30
+y: 30
+■F I G U R E 1 2 . 1 2
+Overlay of the mean and
+POE contours for Example 12.2, with the open
+region indicating satisfactory operating conditions
+for process mean and variance

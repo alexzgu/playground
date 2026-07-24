@@ -1,0 +1,341 @@
+6.10 Problems
+299
+There are many different ways to bake brownies. The
+purpose of this experiment was to determine how the pan
+material, the brand of brownie mix, and the stirring method
+affect the scrumptiousness of brownies. The factor levels
+were
+Factor
+Low ()
+High ()
+A pan material
+Glass
+Aluminum
+B stirring method
+Spoon
+Mixer
+C brand of mix
+Expensive
+Cheap
+The response variable was scrumptiousness, a subjective
+measure derived from a questionnaire given to the subjects
+who sampled each batch of brownies. (The questionnaire
+dealt with such issues as taste, appearance, consistency,
+aroma, and so forth.) An eight-person test panel sampled each
+batch and lled out the questionnaire. The design matrix and
+the response data are as follows.
+(a) Analyze the data from this experiment as if there were
+eight replicates of a 23 design. Comment on the results.
+(b) Is the analysis in part (a) the correct approach? There
+are only eight batches; do we really have eight repli-
+cates of a 23 factorial design?
+(c) Analyze the average and standard deviation of the
+scrumptiousness ratings. Comment on the results. Is
+this analysis more appropriate than the one in part (a)?
+Why or why not?
+Brownie
+Test Panel Results
+Batch
+A
+B
+C
+1
+2
+3
+4
+5
+6
+7
+8
+1
+
+
+
+11
+9
+10
+10
+11
+10
+8
+9
+2
+
+
+
+15
+10
+16
+14
+12
+9
+6
+15
+3
+
+
+
+9
+12
+11
+11
+11
+11
+11
+12
+4
+
+
+
+16
+17
+15
+12
+13
+13
+11
+11
+5
+
+
+
+10
+11
+15
+8
+6
+8
+9
+14
+6
+
+
+
+12
+13
+14
+13
+9
+13
+14
+9
+7
+
+
+
+10
+12
+13
+10
+7
+7
+17
+13
+9
+
+
+
+15
+12
+15
+13
+12
+12
+9
+14
+6.31.
+An experiment was conducted on a chemical process
+that produces a polymer. The four factors studied were temper-
+ature (A), catalyst concentration (B), time (C), and pressure
+(D). Two responses, molecular weight and viscosity, were
+observed. The design matrix and response data are shown in
+Table P6.8.
+■TA B L E P 6 . 8
+The 24 Experiment for Problem 6.31
+Actual
+Run
+Run
+Molecular
+Factor Levels
+Number
+Order
+A
+B
+C
+D
+Weight
+Viscosity
+Low ()
+High ()
+1
+18
+
+
+
+
+2400
+1400
+A (C)
+100
+120
+2
+9
+
+
+
+
+2410
+1500
+B (%)
+4
+8
+3
+13
+
+
+
+
+2315
+1520
+C (min)
+20
+30
+4
+8
+
+
+
+
+2510
+1630
+D (psi)
+60
+75
+5
+3
+
+
+
+
+2615
+1380
+6
+11
+
+
+
+
+2625
+1525
+7
+14
+
+
+
+
+2400
+1500
+8
+17
+
+
+
+
+2750
+1620
+9
+6
+
+
+
+
+2400
+1400
+10
+7
+
+
+
+
+2390
+1525
+11
+2
+
+
+
+
+2300
+1500
+12
+10
+
+
+
+
+2520
+1500
+13
+4
+
+
+
+
+2625
+1420
+14
+19
+
+
+
+
+2630
+1490
+15
+15
+
+
+
+
+2500
+1500
+16
+20
+
+
+
+
+2710
+1600
+17
+1
+0
+0
+0
+0
+2515
+1500
+18
+5
+0
+0
+0
+0
+2500
+1460
+19
+16
+0
+0
+0
+0
+2400
+1525
+20
+12
+0
+0
+0
+0
+2475
+1500

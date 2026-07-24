@@ -1,0 +1,49 @@
+6.5 Lab: Linear Models and Regularization Methods
+267
+For instance, suppose that we are trying to predict blood pressure on the
+basis of half a million SNPs, and that forward stepwise selection indicates
+that 17 of those SNPs lead to a good predictive model on the training data.
+It would be incorrect to conclude that these 17 SNPs predict blood pressure
+more effectively than the other SNPs not included in the model. There are
+likely to be many sets of 17 SNPs that would predict blood pressure just
+as well as the selected model. If we were to obtain an independent data set
+and perform forward stepwise selection on that data set, we would likely
+obtain a model containing a different, and perhaps even non-overlapping,
+set of SNPs. This does not detract from the value of the model obtained—
+for instance, the model might turn out to be very effective in predicting
+blood pressure on an independent set of patients, and might be clinically
+useful for physicians. But we must be careful not to overstate the results
+obtained, and to make it clear that what we have identified is simply one
+of many possible models for predicting blood pressure, and that it must be
+further validated on independent data sets.
+It is also important to be particularly careful in reporting errors and mea-
+sures of model fit in the high-dimensional setting. We have seen that when
+p > n, it is easy to obtain a useless model that has zero residuals. There-
+fore, one should never use sum of squared errors, p-values, R2 statistics, or
+other traditional measures of model fit on the training data as evidence of
+a good model fit in the high-dimensional setting. For instance, as we saw
+in Figure 6.23, one can easily obtain a model with R2 = 1 when p > n.
+Reporting this fact might mislead others into thinking that a statistically
+valid and useful model has been obtained, whereas in fact this provides
+absolutely no evidence of a compelling model. It is important to instead
+report results on an independent test set, or cross-validation errors. For
+instance, the MSE or R2 on an independent test set is a valid measure of
+model fit, but the MSE on the training set certainly is not.
+6.5
+Lab: Linear Models and Regularization
+Methods
+In this lab we implement many of the techniques discussed in this chapter.
+We import some of our libraries at this top level.
+In [1]: import numpy as np
+import pandas as pd
+from matplotlib.pyplot import subplots
+from statsmodels.api import OLS
+import sklearn.model_selection as skm
+import sklearn.linear_model as skl
+from sklearn.preprocessing import StandardScaler
+from ISLP import load_data
+from ISLP.models import ModelSpec as MS
+from functools import partial
+We again collect the new imports needed for this lab.
+In [2]: from sklearn.pipeline import Pipeline
+from sklearn.decomposition import PCA

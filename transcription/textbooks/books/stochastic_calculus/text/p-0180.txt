@@ -1,0 +1,71 @@
+174CHAPTER 5. CHANGE OF MEASURE AND GIRSANOV THEOREM
+the portfolio is self-nancing and
+at St + bt Rt =
+At
+σt ˜St
+˜St Rt +
+
+˜Vt −At
+σt
+
+Rt = Rt ˜Vt = Vt
+Along the way we made the assumption that we could write Vt as (5.29).
+It turns out, as we discuss in the next section, that this can always be done
+although we cannot guarantee that the process At is continuous or piecewise
+continuous. Knowing existence of the process is not very useful if one cannot
+nd At. For now we just write as an assumption that the computations work
+out.
+Assumption 3. We can write ˜Vt as (5.29), and if we dene at, bt as in
+(5.30), then the stochastic integral
+Vt =
+t
+0
+as dSs +
+t
+0
+bs dRs,
+is well dened.
+Theorem 5.6.1. IV 1-3 , 
+-
+Vt = Rt EQ( ˜VT Ft)
+We have done most of the work in proving this theorem. What remains
+is to show that if (a∗
+t, b∗
+t) is a self-nancing strategy with value
+V ∗
+t = a∗
+t St + b∗
+t Rt,
+such that with probability one, V ∗
+t ≥0 for all t and V ∗
+T ≥V , then for all
+t, with probability one V ∗
+t ≥VtWhen we say with probability onethis
+can be with respect to either P or Q since one of our assumptions is that the
+two measures are mutually absolutely continuous. Let ˜V ∗
+t = V ∗
+t Rt be the
+discounted values. The product rule gives
+dV ∗
+t = d(Rt ˜V ∗
+t ) = Rt d ˜V ∗
+t + ˜V ∗
+t dRt = Rt d ˜V ∗
+t +
+
+a∗
+t ˜St + b∗
+t
+
+dRt,
+and the self-nancing assumptions implies that
+dV ∗
+t = a∗
+t dSt + b∗
+t dRt = a∗
+t
+
+Rt d ˜St + ˜St dRt
+
++ b∗
+t dRt

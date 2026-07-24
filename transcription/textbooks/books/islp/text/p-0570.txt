@@ -1,0 +1,51 @@
+564
+13. Multiple Testing
+acumen. She tells 1,024 (1,024 = 210) potential new clients that she can
+correctly predict whether Apple’s stock price will increase or decrease for 10
+days running. There are 210 possibilities for how Apple’s stock price might
+change over the course of these 10 days. Therefore, she emails each client
+one of these 210 possibilities. The vast majority of her potential clients
+will find that the stockbroker’s predictions are no better than chance (and
+many will find them to be even worse than chance). But a broken clock is
+right twice a day, and one of her potential clients will be really impressed
+to find that her predictions were correct for all 10 of the days! And so the
+stockbroker gains a new client.
+What happened here? Does the stockbroker have any actual insight into
+whether Apple’s stock price will increase or decrease? No. How, then, did
+she manage to predict Apple’s stock price perfectly for 10 days running?
+The answer is that she made a lot of guesses, and one of them happened
+to be exactly right.
+How does this relate to multiple testing? Suppose that we flip 1,024 fair
+coins11 ten times each. Then we would expect (on average) one coin to
+come up all tails. (There’s a 1/210 = 1/1,024 chance that any single coin
+will come up all tails. So if we flip 1,024 coins, then we expect one coin to
+come up all tails, on average.) If one of our coins comes up all tails, then
+we might therefore conclude that this particular coin is not fair. In fact, a
+standard hypothesis test for the null hypothesis that this particular coin
+is fair would lead to a p-value below 0.002!12 But it would be incorrect to
+conclude that the coin is not fair: in fact, the null hypothesis holds, and we
+just happen to have gotten ten tails in a row by chance.
+These examples illustrate the main challenge of multiple testing: when multiple
+testing
+testing a huge number of null hypotheses, we are bound to get some very
+small p-values by chance. If we make a decision about whether to reject each
+null hypothesis without accounting for the fact that we have performed a
+very large number of tests, then we may end up rejecting a great number
+of true null hypotheses — that is, making a large number of Type I errors.
+How severe is the problem? Recall from the previous section that if we
+reject a single null hypothesis, H0, if its p-value is less than, say, α = 0.01,
+then there is a 1% chance of making a false rejection if H0 is in fact true.
+Now what if we test m null hypotheses, H01, . . . , H0m, all of which are true?
+There’s a 1% chance of rejecting any individual null hypothesis; therefore,
+we expect to falsely reject approximately 0.01 × m null hypotheses. If m =
+10,000, then that means that we expect to falsely reject 100 null hypotheses
+by chance! That is a lot of Type I errors.
+The crux of the issue is as follows: rejecting a null hypothesis if the p-value
+is below α controls the probability of falsely rejecting that null hypothesis
+at level α. However, if we do this for m null hypotheses, then the chance of
+falsely rejecting at least one of the m null hypotheses is quite a bit higher!
+11A fair coin is one that has an equal chance of landing heads or tails.
+12Recall that the p-value is the probability of observing data at least this extreme,
+under the null hypothesis. If the coin is fair, then the probability of observing at least
+ten tails is (1/2)10 = 1/1,024 < 0.001. The p-value is therefore 2/1,024 < 0.002, since
+this is the probability of observing ten heads or ten tails.

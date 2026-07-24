@@ -1,0 +1,54 @@
+2.7. COMPUTATIONS FOR BROWNIAN MOTION
+59
+where Φ denotes the distribution function for a standard normal.
+If we are considering probabilities for a nite number of times, we can use
+the joint normal distribution. Often it is easier to use the Markov property
+as we now illustrate. We will compute
+PB1 > 0, B2 > 0
+The events B1 > 0and B2 > 0are not independent; we would expect
+them to be positively correlated. We compute by considering the possibilities
+at time 1,
+PB1 > 0, B2 > 0
+=
+∞
+0
+PB2 > 0 B1 = xdPB1 = x
+=
+∞
+0
+PB2 −B1 > −x
+1
+√
+2πe−x22 dx
+=
+∞
+0
+∞
+−x
+1
+2πe−(x2+y2)2 dy dx
+=
+∞
+0
+π2
+−π4
+e−r22
+2π
+dθ r dr = 3
+8
+One needs to review polar coordinates to do the fourth equality. Note that
+PB2 > 0 B1 > 0= PB1 > 0, B2 > 0
+PB1 > 0
+= 3
+4,
+which conrms our intuition that the events are positively correlated.
+For more complicated calculations, we need to use the M
+. We say that a random variable T taking values in [0, ∞] is a 
+(Ft) if for each t, the event PT ≤tis Ft-
+measurable. In other words, the decision to stop can use the information up
+to time t but cannot use information about the future values of the Brownian
+motion.
+If x R and
+T = mint : Bt = x,
+then T is a stopping time.
+Constants are stopping times.

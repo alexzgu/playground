@@ -1,0 +1,54 @@
+3.5. DIFFUSIONS
+111
+We write the conclusion of the theorem in dierential form by
+df(t, Xt) = ˙f(t, Xt) dt + f ′(t, Xt) dXt + 1
+2 f ′′(t, Xt) d⟨X⟩t
+t < T
+Example 3.4.4. Suppose that Bt is a standard Brownian motion, and Yt =
+tB2
+t . Let T = inft : Bt = 0. Then we can use Itˆo’s formula to see that for
+t < T,
+dYt
+=
+˙f(t, Bt) dt + f ′(t, Bt) dBt + 1
+2 f ′′(t, Bt) dt
+=
+[B−2
+t
++ 3tB−4
+t ] dt −2tB−3
+t
+dBt
+To prove the local form of Itˆo’s formula, we let ϵ > 0 and Tϵ = inft :
+Xt ≤a + 2ϵ or Xt ≥b −2ϵ. We can nd a C∞function ϕϵ such
+that ϕϵ(x) = 0 if x < a + ϵ or x > b −ϵ and such that ϕ(x) = 1 for
+a + 2ϵ ≤x ≤b −2ϵ. Let fϵ(t, x) = ϕϵ(x) f(t, x). Then fϵ satises the
+conditions of Itˆo’s formula and
+fϵ(t, Xt) −fϵ(0, X0) =
+t
+0
+As f ′
+ϵ(s, Xs) dBs
++
+t
+0
+
+˙fϵ(s, Xs) + Rs f ′
+ϵ(s, Xs) + A2
+s
+2 f ′′
+ϵ (s, Xs)
+
+ds
+If t < Tϵ, then both sides of this equation are not changed if we replace
+fϵ with f.
+3.5
+Diusions
+Geometric Brownian motion is an example of a time-homogeneous diusion.
+We say that Xt is a () if it is a solution to an SDE of the
+form
+dXt = m(t, Xt) dt + σ(t, Xt) dBt,
+(3.21)
+where m(t, x), σ(t, x) are functions. It is called -if the func-
+tions do not depend on t,
+dXt = m(Xt) dt + σ(Xt) dBt

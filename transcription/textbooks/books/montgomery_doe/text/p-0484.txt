@@ -1,0 +1,53 @@
+468
+Chapter 10 ■Fitting Regression Models
+10.5.2
+Conﬁdence Interval on the Mean Response
+We may also obtain a condence interval on the mean response at a particular point, say, x01,
+x02, . . . , x0k. We rst dene the vector
+The mean response at this point is
+The estimated mean response at this point is
+(10.39)
+This estimator is unbiased because 
+, and the variance of 
+(x0) is
+(10.40)
+Therefore, a 100(1 ) percent condence interval on the mean response at the point x01,
+x02, . . . , x0k is
+(10.41)
+10.6
+Prediction of New Response Observations
+A regression model can be used to predict future observations on the response y correspon-
+ding to particular values of the regressor variables, say x01, x02, . . . , x0k. If 
+[1, x01,
+x02, . . . , x0k], then a point estimate for the future observation y0 at the point x01, x02, . . . , x0k
+is computed from Equation 10.39:
+yˆ(x0) x0&ˆ
+x0
+yˆ(x0) t/2,npˆ 2x0(XX)1x0
+yˆ(x0) t/2,npˆ 2x0(XX)1x0 yx0
+V[yˆ(x0)] 2x0(XX)1x0
+yˆ
+E[yˆ(x0)] E(x0 &ˆ) x0& yx0
+yˆ(x0) x0&ˆ
+yx0 0 1x01 2x02 Á kx0k x0&
+x0 
+1
+x01
+x02
+o
+x0k
+E X A M P L E 1 0 . 7
+We will construct a 95 percent condence interval for the parameter 1 in Example 10.1. Now 
+7.62129, and because
+267.604 and C11 1.429184 103, we nd that
+and the 95 percent condence interval on 1 is
+6.2855 1  8.9570
+7.62129 2.16(0.6184) 1  7.62129 2.16(0.6184)
+ 7.62129 2.16(267.604)(1.429184  103)
+ 7.62129 2.16(267.604)(1.429184  103) 1
+ˆ
+1 t0.025,13ˆ 2C11 1 ˆ
+1 t0.025,13ˆ 2C11
+ˆ 2
+ˆ
+1

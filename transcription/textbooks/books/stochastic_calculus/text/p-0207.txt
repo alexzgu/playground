@@ -1,0 +1,47 @@
+6.4. INTEGRATION WITH RESPECT TO COMPOUND POISSON PROCESSES201
+Suppose that E[X1] = m, Var[X1] = σ2, and let Mt be the square in-
+tegrable martingale Mt = Xt −mtThen if the paths of At are Riemann
+integrable, and the integral
+Zt =
+t
+0
+As dMs =
+t
+0
+As dXs −m
+t
+0
+As ds
+is well dened. Let Ft denote the information contained in Ms : s ≤t
+which is the same as the information contained in Xs : s ≤t. In analogy
+with the Itˆo integral, we might hope that if At is square integrable, piecewise
+continuous, and adapted to Ft, then Zt would be a martingale. However,
+this is not always the case as we now show.
+Example 6.4.1. Suppose Xt is the CPP that takes jumps of rate 1 and when
+it jumps it chooses ±1 each with the same probability. In other words, the
+L´evy measure of X is the probability measure with µ(1) = µ(−1) = 12.
+Then m = 0, σ2 = 1, and At = Xt−Xt−is adapted to Ft. It is discontinuous
+only at the jumps of Xt and hence is piecewise continuous. However, if we
+dene the integral as in (6.9), then
+t
+0
+As dXs =
+
+0≤s≤t
+[Xs −Xs−]2 ,
+which has positive expectation (since it is nonnegative and has a positive
+probability to be strictly positive).
+The problem in our setup is that we allow a betting strategy that sees a
+jump at time s and immediately changes the bet to take advantage of this. In
+our frameweork, we will not allow these instantaneous changes by restricting
+to strategies that are -continuous.
+Proposition 6.4.1. SXt CPP σ2 < ∞Mt = Xt −mt.
+SAt :
+At Xs : 0 ≤s ≤t;
+, At -, , At =
+At−;
+t < ∞,
+t
+0
+E[A2
+s] ds < ∞

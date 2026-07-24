@@ -1,0 +1,66 @@
+370
+9. Support Vector Machines
+−1
+0
+1
+2
+3
+−1
+0
+1
+2
+3
+−1
+0
+1
+2
+3
+−1
+0
+1
+2
+3
+X1
+X1
+X2
+X2
+FIGURE 9.2. Left: There are two classes of observations, shown in blue and
+in purple, each of which has measurements on two variables. Three separating
+hyperplanes, out of many possible, are shown in black. Right: A separating hy-
+perplane is shown in black. The blue and purple grid indicates the decision rule
+made by a classifier based on this separating hyperplane: a test observation that
+falls in the blue portion of the grid will be assigned to the blue class, and a test
+observation that falls into the purple portion of the grid will be assigned to the
+purple class.
+f(x∗) is far from zero, then this means that x∗lies far from the hyperplane,
+and so we can be confident about our class assignment for x∗. On the other
+hand, if f(x∗) is close to zero, then x∗is located near the hyperplane, and so
+we are less certain about the class assignment for x∗. Not surprisingly, and
+as we see in Figure 9.2, a classifier that is based on a separating hyperplane
+leads to a linear decision boundary.
+9.1.3
+The Maximal Margin Classifier
+In general, if our data can be perfectly separated using a hyperplane, then
+there will in fact exist an infinite number of such hyperplanes. This is
+because a given separating hyperplane can usually be shifted a tiny bit up or
+down, or rotated, without coming into contact with any of the observations.
+Three possible separating hyperplanes are shown in the left-hand panel
+of Figure 9.2. In order to construct a classifier based upon a separating
+hyperplane, we must have a reasonable way to decide which of the infinite
+possible separating hyperplanes to use.
+A natural choice is the maximal margin hyperplane (also known as the maximal
+margin
+hyperplane
+optimal separating hyperplane), which is the separating hyperplane that
+optimal
+separating
+hyperplane
+is farthest from the training observations. That is, we can compute the
+(perpendicular) distance from each training observation to a given separat-
+ing hyperplane; the smallest such distance is the minimal distance from the
+observations to the hyperplane, and is known as the margin. The maximal
+margin
+margin hyperplane is the separating hyperplane for which the margin is
+largest—that is, it is the hyperplane that has the farthest minimum dis-
+tance to the training observations. We can then classify a test observation
+based on which side of the maximal margin hyperplane it lies. This is known

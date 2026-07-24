@@ -1,0 +1,48 @@
+324
+7. Moving Beyond Linearity
+In the second-to-last line above, we subtract one from the codes of the
+category, due to a bug in pygam. It just relabels the education values and
+hence has no effect on the fit.
+We now fit the model.
+In [45]: gam_logit_ = LogisticGAM(age_term +
+year_term +
+f_gam(2, lam=0))
+gam_logit_.fit(Xgam_, high_earn_)
+Out[45]: LogisticGAM(callbacks=[Deviance(), Diffs(), Accuracy()],
+fit_intercept=True, max_iter=100,
+terms=s(0) + s(1) + f(2) + intercept, tol=0.0001, verbose=False)
+Let’s look at the effect of education, year and age on high earner status
+now that we’ve removed those observations.
+In [46]: fig, ax = subplots(figsize=(8, 8))
+ax = plot_gam(gam_logit_, 2)
+ax.set_xlabel('Education')
+ax.set_ylabel('Effect on wage')
+ax.set_title('Partial dependence of high earner status on education
+', fontsize=20);
+ax.set_xticklabels(Wage['education'].cat.categories[1:],
+fontsize=8);
+In [47]: fig, ax = subplots(figsize=(8, 8))
+ax = plot_gam(gam_logit_, 1)
+ax.set_xlabel('Year')
+ax.set_ylabel('Effect on wage')
+ax.set_title('Partial dependence of high earner status on year',
+fontsize=20);
+In [48]: fig, ax = subplots(figsize=(8, 8))
+ax = plot_gam(gam_logit_, 0)
+ax.set_xlabel('Age')
+ax.set_ylabel('Effect on wage')
+ax.set_title('Partial dependence of high earner status on age',
+fontsize=20);
+7.8.4
+Local Regression
+We illustrate the use of local regression using the lowess() function from lowess()
+sm.nonparametric. Some implementations of GAMs allow terms to be local
+regression operators; this is not the case in pygam.
+Here we fit local linear regression models using spans of 0.2 and 0.5;
+that is, each neighborhood consists of 20% or 50% of the observations. As
+expected, using a span of 0.5 is smoother than 0.2.
+In [49]: lowess = sm.nonparametric.lowess
+fig, ax = subplots(figsize=(8,8))
+ax.scatter(age, y, facecolor='gray', alpha=0.5)
+for span in [0.2, 0.5]:
+fitted = lowess(y,

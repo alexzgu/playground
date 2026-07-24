@@ -1,0 +1,34 @@
+1.3. OPTIONAL SAMPLING THEOREM
+15
+Theorem 1.3.1 (Optional Sampling Theorem I). ST 
+Mn Fn. TYn = Mn∧T 
+. I, n,
+E [Mn∧T] = E [M0] 
+IT , , k < ∞PT ≤k= 1, 
+E [MT] = E [M0] 
+(1.7)
+The nal conclusion (1.7) of the theorem holds since E[Mn∧T] = E[MT]
+for n ≥k. What if the stopping time T is not bounded but PT < ∞= 1?
+Then, we cannot conclude (1.7) without further assumptions. To see this we
+need only consider the martingale betting strategy of the previous section. If
+we dene
+T = minn : Xn = 1= minn : Wn = 1,
+then with probability one T < ∞and WT = 1. Hence,
+1 = E [WT] > E [W0] = 0
+Often one does want to conclude (1.7) for unbounded stopping times, so
+it is useful to give conditions under which it holds. Let us try to derive the
+equality and see what conditions we need to impose. First, we will assume
+that we stop, PT < ∞= 1, so that MT makes sense. For every n < ∞, we
+know that
+E[M0] = E[Mn∧T] = E[MT] + E[Mn∧T −MT]
+If we can show that
+lim
+n∞E [Mn∧T −MT] = 0,
+then we have (1.7). The random variable Mn∧T −MT is zero if n T = T,
+and
+Mn∧T −MT = 1T > n[Mn −MT]
+If E[MT] < ∞, then one can show that
+lim
+n∞E [MT1T > n] = 0
+In the martingale betting strategy example, this term did not cause a problem
+since WT = 1 and hence E[WT] < ∞.

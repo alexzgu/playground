@@ -1,0 +1,90 @@
+198
+Chapter 5 ■Introduction to Factorial Designs
+5.3.3
+Model Adequacy Checking
+Before the conclusions from the ANOVA are adopted, the adequacy of the underlying model
+should be checked. As before, the primary diagnostic tool is residual analysis. The residuals
+for the two-factor factorial model with interaction are
+(5.11)
+and because the tted value 
+(the average of the observations in the ijth cell),
+Equation 5.11 becomes
+(5.12)
+The residuals from the battery life data in Example 5.1 are shown in the Design-Expert
+computer output (Figure 5.10a) and in Table 5.6. The normal probability plot of these resid-
+uals (Figure 5.11) does not reveal anything particularly troublesome, although the largest neg-
+ative residual (60.75 at 15°F for material type 1) does stand out somewhat from the others.
+The standardized value of this residual is
+2.34, and this is the only
+residual whose absolute value is larger than 2.
+Figure 5.12 plots the residuals versus the tted values 
+. This plot was also shown in
+the JMP computer output in Figure 5.10b. There is some mild tendency for the variance of the
+residuals to increase as the battery life increases. Figures 5.13 and 5.14 plot the residuals ver-
+sus material types and temperature, respectively. Both plots indicate mild inequality of vari-
+ance, with the treatment combination of 15°F and material type 1 possibly having larger vari-
+ance than the others.
+From Table 5.6 we see that the 15°F-material type 1 cell contains both extreme residu-
+als (60.75 and 45.25). These two residuals are primarily responsible for the inequality of
+variance detected in Figures 5.12, 5.13, and 5.14. Reexamination of the data does not reveal
+any obvious problem, such as an error in recording, so we accept these responses as legiti-
+mate. It is possible that this particular treatment combination produces slightly more erratic
+battery life than the others. The problem, however, is not severe enough to have a dramatic
+impact on the analysis and conclusions.
+5.3.4
+Estimating the Model Parameters
+The parameters in the effects model for two-factor factorial
+(5.13)
+yijk i j ()ij ijk
+yˆijk
+60.75/675.21
+eijk yijk yij.
+yˆijk yij.
+eijk yijk yˆijk
+■TA B L E 5 . 6
+Residuals for Example 5.1
+Material
+Temperature (°F)
+Type
+15
+70
+125
+1
+4.75
+20.25
+23.25
+17.25
+37.50
+12.50
+60.75
+45.25
+22.75
+17.75
+24.50
+0.50
+2
+5.75
+32.25
+16.25
+2.25
+24.50
+20.50
+3.25
+29.75
+13.75
+4.75
+8.50
+4.50
+3
+6.00
+34.00
+28.25
+25.75
+10.50
+18.50
+24.00
+16.00
+4.25
+6.75
+3.50
+25.50

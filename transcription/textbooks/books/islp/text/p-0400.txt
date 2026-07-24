@@ -1,0 +1,50 @@
+9.6 Lab: Support Vector Machines
+393
+C=1)
+svm_flex.fit(X_train, y_train)
+fig, ax = subplots(figsize=(8,8))
+roc_curve(svm_flex,
+X_train,
+y_train,
+name='Training $\gamma=50$',
+color='r',
+ax=ax);
+However, these ROC curves are all on the training data. We are really
+more interested in the level of prediction accuracy on the test data. When
+we compute the ROC curves on the test data, the model with γ = 0.5
+appears to provide the most accurate results.
+In [28]: roc_curve(svm_flex,
+X_test,
+y_test,
+name='Test $\gamma=50$',
+color='b',
+ax=ax)
+fig;
+Let’s look at our tuned SVM.
+In [29]: fig, ax = subplots(figsize=(8,8))
+for (X_, y_, c, name) in zip(
+(X_train, X_test),
+(y_train, y_test),
+('r', 'b'),
+('CV tuned on training',
+'CV tuned on test')):
+roc_curve(best_svm,
+X_,
+y_,
+name=name,
+ax=ax,
+color=c)
+9.6.4
+SVM with Multiple Classes
+If the response is a factor containing more than two levels, then the SVC()
+function will perform multi-class classification using either the one-versus-
+one approach (when decision_function_shape=='ovo') or one-versus-rest4
+(when decision_function_shape=='ovr'). We explore that setting briefly
+here by generating a third class of observations.
+In [30]: rng = np.random.default_rng(123)
+X = np.vstack([X, rng.standard_normal((50, 2))])
+y = np.hstack([y, [0]*50])
+X[y==0,1] += 2
+fig, ax = subplots(figsize=(8,8))
+ax.scatter(X[:,0], X[:,1], c=y, cmap=cm.coolwarm);
+4One-versus-rest is also known as one-versus-all.

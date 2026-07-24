@@ -1,0 +1,50 @@
+1.1 Strategy of Experimentation
+3
+In general, experiments are used to study the performance of processes and systems.
+The process or system can be represented by the model shown in Figure 1.1. We can usually
+visualize the process as a combination of operations, machines, methods, people, and other
+resources that transforms some input (often a material) into an output that has one or more
+observable response variables. Some of the process variables and material properties x1,
+x2, . . . , xp are controllable, whereas other variables z1, z2, . . . , zq are uncontrollable
+(although they may be controllable for purposes of a test). The objectives of the experiment
+may include the following:
+1. Determining which variables are most inuential on the response y
+2. Determining where to set the inuential x’s so that y is almost always near the
+desired nominal value
+3. Determining where to set the inuential x’s so that variability in y is small
+4. Determining where to set the inuential x’s so that the effects of the uncontrollable
+variables z1, z2, . . . , zq are minimized.
+As you can see from the foregoing discussion, experiments often involve several factors.
+Usually, an objective of the experimenter is to determine the inuence that these factors have
+on the output response of the system. The general approach to planning and conducting the
+experiment is called the strategy of experimentation. An experimenter can use several strate-
+gies. We will illustrate some of these with a very simple example.
+I really like to play golf. Unfortunately, I do not enjoy practicing, so I am always look-
+ing for a simpler solution to lowering my score. Some of the factors that I think may be impor-
+tant, or that may inuence my golf score, are as follows:
+1. The type of driver used (oversized or regular sized)
+2. The type of ball used (balata or three piece)
+3. Walking and carrying the golf clubs or riding in a golf cart
+4. Drinking water or drinking “something else” while playing
+5. Playing in the morning or playing in the afternoon
+6. Playing when it is cool or playing when it is hot
+7. The type of golf shoe spike worn (metal or soft)
+8. Playing on a windy day or playing on a calm day.
+Obviously, many other factors could be considered, but let’s assume that these are the ones of pri-
+mary interest. Furthermore, based on long experience with the game, I decide that factors 5
+through 8 can be ignored; that is, these factors are not important because their effects are so small
+Inputs
+Controllable factors
+Uncontrollable factors
+Output
+Process
+y
+xp
+x2
+x1
+zq
+z2
+z1
+■F I G U R E 1 . 1
+General model of a 
+process or system

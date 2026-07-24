@@ -1,0 +1,71 @@
+or
+(2.29)
+Comparing Equations 2.29 and 2.27, we see that
+(2.30)
+is a 100(1 ) percent condence interval for 1 2.
+The actual 95 percent condence interval estimate for the difference in mean tension
+bond strength for the formulations of Portland cement mortar is found by substituting in
+Equation 2.30 as follows:
+Thus, the 95 percent condence interval estimate on the difference in means extends from
+0.55 to 0.01 kgf/cm2. Put another way, the condence interval is 1 2 0.28 
+0.27 kgf/cm2, or the difference in mean strengths is 0.28 kgf/cm2, and the accuracy of this
+estimate is 0.27 kgf/cm2. Note that because 1 2 0 is not included in this interval, the
+data do not support the hypothesis that 1 2 at the 5 percent level of signicance (recall
+that the P-value for the two-sample t-test was 0.042, just slightly less than 0.05). It is likely
+that the mean strength of the unmodied formulation exceeds the mean strength of the mod-
+ied formulation. Notice from Table 2.2 that both Minitab and JMP reported this condence
+interval when the hypothesis testing procedure was conducted.
+2.4.3
+Choice of Sample Size
+Selection of an appropriate sample size is one of the most important parts of any experimental
+design problem. One way to do this is to consider the impact of sample size on the estimate of
+the difference in two means. From Equation 2.30 we know that the 100(1 – )% condence
+interval on the difference in two means is a measure of the precision of estimation of the
+difference in the two means. The length of this interval is determined by 
+We consider the case where the sample sizes from the two populations are equal, so that n1 
+n2 n. Then the length of the CI is determined by
+t/2, n1 n22 Sp
+1
+n1 1
+n2
+0.55 1 2
+0.01
+0.28 0.27 1 2 0.28 0.27
+ 16.76 17.04 (2.101)0.284
+1
+10 
+1
+10
+ 16.76 17.04 (2.101)0.284
+1
+10 
+1
+10 1 2
+y1 y2 t/2,n1n22 Sp
+1
+n1 1
+n2
+y1 y2 t/2,n1n22 Sp
+1
+n1 1
+n2 1 2
+y1 y2 t/2,n1n22 Sp
+1
+n1 1
+n2
+1 
+P
+y1 y2 t/2,n1n22 Sp
+1
+n1 1
+n2 1 2
+P
+t/2,n1n22 y1 y2 (1 2)
+Sp
+1
+n1 1
+n2
+t/2,n1n22
+1 
+44
+Chapter 2 ■Simple Comparative Experiments

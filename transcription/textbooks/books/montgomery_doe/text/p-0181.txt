@@ -1,0 +1,48 @@
+in 20 subjects. In the rst period, half of the subjects (chosen at random) are given uid A and
+the other half uid B. At the end of the period, the response is measured and a period of time
+is allowed to pass in which any physiological effect of the uids is eliminated. Then the
+experimenter has the subjects who took uid A take uid B and those who took uid B take
+uid A. This design is called a crossover design. It is analyzed as a set of 10 Latin squares
+with two rows (time periods) and two treatments (uid types). The two columns in each of
+the 10 squares correspond to subjects.
+The layout of this design is shown in Figure 4.7. Notice that the rows in the Latin square
+represent the time periods and the columns represent the subjects. The 10 subjects who
+received uid A rst (1, 4, 6, 7, 9, 12, 13, 15, 17, and 19) are randomly determined.
+An abbreviated analysis of variance is summarized in Table 4.17. The subject sum of
+squares is computed as the corrected sum of squares among the 20 subject totals, the period
+sum of squares is the corrected sum of squares among the rows, and the uid sum of squares
+is computed as the corrected sum of squares among the letter totals. For further details of the
+statistical analysis of these designs see Cochran and Cox (1957), John (1971), and Anderson
+and McLean (1974).
+It is also possible to employ Latin square type designs for experiments in which the
+treatments have a residual effect—that is, for example, if the data for uid B in period 2 still
+reected some effect of uid A taken in period 1. Designs balanced for residual effects are
+discussed in detail by Cochran and Cox (1957) and John (1971).
+4.3
+The Graeco-Latin Square Design
+Consider a p p Latin square, and superimpose on it a second p p Latin square in which
+the treatments are denoted by Greek letters. If the two squares when superimposed have the
+property that each Greek letter appears once and only once with each Latin letter, the two
+Latin squares are said to be orthogonal, and the design obtained is called a Graeco-Latin
+square. An example of a 4 4 Graeco-Latin square is shown in Table 4.18.
+4.3 The Graeco-Latin Square Design
+165
+■TA B L E 4 . 1 7
+Analysis of Variance for the Crossover
+Design in Figure 4.7
+Source of
+Degrees of
+Variation
+Freedom
+Subjects (columns)
+19
+Periods (rows)
+1
+Fluids (letters)
+1
+Error
+18
+Total
+39 
+■F I G U R E 4 . 7
+A crossover design

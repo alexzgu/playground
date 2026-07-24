@@ -1,0 +1,53 @@
+11.4 Experimental Designs for Fitting Response Surfaces
+513
+3. Unusual sample size requirements.
+Occasionally, an experimenter may need to
+reduce the number of runs required by a standard response surface design. For
+example, suppose we intend to t a second-order model in four variables. The cen-
+tral composite design for this situation requires between 28 and 30 runs, depending
+on the number of center points selected. However, the model has only 15 terms. If
+the runs are extremely expensive or time-consuming, the experimenter will want a
+design with fewer trials. Although computer-generated designs can be used for this
+purpose, there are other approaches. For example, a small composite design can be
+constructed for four factors with 20 runs, including four center points, and a hybrid
+design with as few as 16 runs is also available. These may be superior choices to
+using a computer-generated design to reduce the number of trials.
+There are several popular design optimality criteria. Perhaps the most widely used is the
+D-optimality criterion. A design is said to be D-optimal if
+is minimized. A D-optimal design minimizes the volume of the joint condence region on the
+vector of regression coefcients. A measure of the relative efciency of design 1 to design 2
+according to the D-criterion is given by
+(11.21)
+where X1 and X2 are the X matrices for the two designs and p is the number of model
+parameters. Many popular software packages including JMP, Design-Expert, and Minitab
+will construct D-optimal designs.
+The A-optimality criterion deals with only the variances of the regression coefcients.
+A design is A-optimal if it minimizes the sum of the main diagonal elements of (XX)1. (This
+is called the trace of (XX)1, usually denoted tr(XX)1.) Thus, an A-optimal design mini-
+mizes the sum of the variances of the regression coefcients.
+Because many response surface experiments are concerned with the prediction of the
+response, prediction variance criteria are of considerable practical interest. Perhaps the
+most popular of these is the G-optimality criterion. A design is said to be G-optimal if it
+minimizes the maximum scaled prediction variance over the design region; that is, if the
+maximum value of
+over the design region is a minimum, where N is the number of points in the design. If the
+model has p parameters, the G-efciency of a design is just
+(11.22)
+The V-criterion considers the prediction variance at a set of points of interest in the design
+region, say x1, x2, . . . , xm. The set of points could be the candidate set from which the design
+was selected, or it could be some other collection of points that have specic meaning to the
+experimenter. A design that minimizes the average prediction variance over this set of m
+points is a V-optimal design.
+As we observed in Chapter 6 (Section 6.7), an alterative to calculating the prediction
+variance at a nite set of points in the design space is to compute an average or integrated
+Ge 
+p
+max NV[yˆ(x)]
+2
+NV[yˆ(x)]
+2
+De 
+X2 X2)1
+(X1 X1)1
+1/p
+(XX)1

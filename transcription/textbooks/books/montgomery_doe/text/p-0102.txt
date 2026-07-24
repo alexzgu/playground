@@ -1,0 +1,128 @@
+86
+Chapter 3 ■Experiments with a Single Factor: The Analysis of Variance
+■TA B L E 3 . 7
+Peak Discharge Data
+Estimation
+Method
+Observations
+Si
+1
+0.34
+0.12
+1.23
+0.70
+1.75
+0.12
+0.71
+0.520
+0.66
+2
+0.91
+2.94
+2.14
+2.36
+2.86
+4.55
+2.63
+2.610
+1.09
+3
+6.31
+8.37
+9.75
+6.09
+9.82
+7.24
+7.93
+7.805
+1.66
+4
+17.15
+11.82
+10.95
+17.20
+14.35
+16.82
+14.72
+15.59
+2.77
+Estimation
+Method
+Deviations dij for the Modiﬁed Levene Test
+1
+0.18
+0.40
+0.71
+0.18
+1.23
+0.40
+2
+1.70
+0.33
+0.47
+0.25
+0.25
+1.94
+3
+1.495
+0.565
+1.945
+1.715
+2.015
+0.565
+4
+1.56
+3.77
+4.64
+1.61
+1.24
+1.23 
+ y˜i
+yi.
+■TA B L E 3 . 8
+Analysis of Variance for Peak Discharge Data
+Source of 
+Sum of 
+Degrees of
+Mean 
+Variation
+Squares
+Freedom
+Square
+F0
+P-Value
+Methods
+708.3471
+3
+236.1157
+76.07
+0.001
+Error
+62.0811
+20
+3.1041
+Total
+770.4282
+23 
+5
+0
+10
+15
+yij
+20
+eij
+4
+3
+2
+1
+–1
+–2
+–3
+–4
+0
+ˆ
+■F I G U R E 3 . 7
+Plot of residuals versus 
+for
+Example 3.5
+yˆij

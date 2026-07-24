@@ -1,0 +1,110 @@
+so that x will have a minimum contribution to the error sum of squares. Because SSE 
+, this is equivalent to choosing x to minimize
+or
+(4.20)
+where R includes all terms not involving x. From dSSE / dx 0, we obtain
+(4.21)
+as the estimate of the missing observation.
+For the data in Table 4.7, we nd that 
+and 
+.
+Therefore, from Equation 4.16,
+The usual analysis of variance may now be performed using y24 91.08 and reducing the
+error degrees of freedom by 1. The analysis of variance is shown in Table 4.8. Compare the
+results of this approximate analysis with the results obtained for the full data set (Table 4.4).
+If several observations are missing, they may be estimated by writing the error sum of
+squares as a function of the missing values, differentiating with respect to each missing value,
+equating the results to zero, and solving the resulting equations. Alternatively, we may use
+Equation 4.21 iteratively to estimate the missing values. To illustrate the iterative approach,
+suppose that two values are missing. Arbitrarily estimate the rst missing value, and then use
+this value along with the real data and Equation 4.21 to estimate the second. Now Equation
+4.21 can be used to reestimate the rst missing value, and following this, the second can be
+reestimated. This process is continued until convergence is obtained. In any missing value
+problem, the error degrees of freedom are reduced by one for each missing observation.
+4.1.4
+Estimating Model Parameters and the General
+Regression Signiﬁcance Test
+If both treatments and blocks are xed, we may estimate the parameters in the RCBD model
+by least squares. Recall that the linear statistical model is
+(4.22)
+yij i j ij 
+ 
+i 1, 2, . . . , a
+j 1, 2, . . . , b
+x y24 4(455.4) 6(267.5) 2060.4
+(3)(5)
+91.08
+y.. 2060.4
+y2. 455.4, y.4 267.5,
+x 
+ayi. by.j y..
+(a 1)(b 1)
+SSE x2 1
+b(yi. x)2 1
+a(y.j x)2 1
+ab(y.. x)2 R
+SSE 
+a
+i1 
+b
+j1
+y2
+ij 1
+b
+a
+i1
+b
+j1
+yij
+2
+1
+a
+b
+j1
+a
+i1
+yij
+2
+1
+ab
+a
+i1 
+b
+j1
+yij
+2
+(yij yi. y.j y..)2
+"a
+i1"b
+j1
+4.1 The Randomized Complete Block Design
+155
+■T A B L E 4 . 8
+Approximate Analysis of Variance for Example 4.1 with One Missing Value
+Source of
+Sum of
+Degrees of
+Mean
+Variation
+Squares
+Freedom
+Square
+F0
+P-Value
+Extrusion pressure
+166.14
+3
+55.38
+7.63
+0.0029
+Batches of raw material
+189.52
+5
+37.90
+Error
+101.70
+14
+7.26
+Total
+457.36
+23

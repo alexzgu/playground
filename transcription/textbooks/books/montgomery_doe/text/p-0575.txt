@@ -1,0 +1,86 @@
+12.3 Analysis of the Crossed Array Design
+559
+variables, so any differences between these quantities are due to differences in the levels of
+the controllable variables. Consequently, choosing the levels of the controllable variables to
+optimize the mean and simultaneously minimize the variability is a valid approach.
+To illustrate this approach, consider the leaf spring experiment in Table 12.1. The last
+two columns of this table show the sample means 
+and variances 
+for each run in the inner
+array. Figure 12.2 is the half-normal probability plot of the effects for the mean free height
+response. Clearly, factors A, B, and D have important effects. Since these factors are aliased
+with three-factor interactions, it seems reasonable to conclude that these effects are real. The
+model for the mean free height response is
+where the x’s represent the original design factors A, B, and D. Because the sample variance
+does not have a normal distribution (it is scaled chi-square), it is usually best to analyze the
+natural log of the variance. Figure 12.3 is the half-normal probability plot of the effects of the
+response. The only signicant effect is factor B. The model for the 
+response is
+Figure 12.4 is a contour plot of the mean free height in terms of factors A and B with factor
+D 0, and Figure 12.5 is a plot of the variance response in the original scale. Clearly, the
+variance of the free height decreases as the heating time (factor B) increases.
+Suppose that the objective of the experimenter is to nd a set of conditions that results
+in a mean free height between 7.74 and 7.76 inches, with minimum variability. This is a stan-
+dard multiple response optimization problem and can be solved by any of the methods for
+solving these problems described in Chapter 11. Figure 12.6 is an overlay plot of the two
+responses, with factor D hold down time held constant at the high level. By also selecting
+ln (s2
+i )
+√≈
+3.74 1.09x2
+ln(s2
+i)
+ln(s2
+i)
+yˆi  7.63 0.12x1 0.081x2 0.044x4
+s 2
+i
+yi
+99
+97
+95
+90
+85
+80
+70
+60
+40
+20
+0.00
+0.06
+0.12
+|Effect|
+0.18
+0.24
+0
+Half-normal % probability
+D
+B
+A
+■F I G U R E 1 2 . 2
+Half-normal plot of effect,
+mean free height response
+99
+97
+95
+90
+85
+80
+70
+60
+40
+20
+0.00
+0.55
+1.09
+|Effect|
+1.64
+2.18
+0
+Half-normal % probability
+B
+■F I G U R E 1 2 . 3
+Half-normal plot of effects,
+response
+ln (s2
+i)

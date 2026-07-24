@@ -1,0 +1,83 @@
+290
+Chapter 6 ■The 2k Factorial Design
+the quantitative factors. In other words, the center points can be run at the high- and
+low-level treatment combinations of the qualitative factors as long as those sub-
+spaces involve only quantitative factors.
+6.9
+Why We Work with Coded Design Variables
+The reader will have noticed that we have performed all of the analysis and model tting for
+a 2k factorial design in this chapter using coded design variables, 1 xi 1, and not the
+design factors in their original units (sometimes called actual, natural, or engineering units).
+When the engineering units are used, we can obtain different numerical results in comparison
+to the coded unit analysis, and often the results will not be as easy to interpret.
+To illustrate some of the differences between the two analyses, consider the following
+experiment. A simple DC-circuit is constructed in which two different resistors, 1 and 2, can
+be connected. The circuit also contains an ammeter and a variable-output power supply. With
+a resistor installed in the circuit, the power supply is adjusted until a current ow of either 4
+or 6 amps is obtained. Then the voltage output of the power supply is read from a voltmeter.
+Two replicates of a 22 factorial design are performed, and Table 6.25 presents the results. We
+know that Ohm’s law determines the observed voltage, apart from measurement error.
+However, the analysis of these data via empirical modeling lends some insight into the value
+of coded units and the engineering units in designed experiments.
+Table 6.26 and 6.27 present the regression models obtained using the design vari-
+ables in the usual coded variables (x1 and x2) and the engineering units, respectively.
+Minitab was used to perform the calculations. Consider first the coded variable analysis in
+Table 6.26. The design is orthogonal and the coded variables are also orthogonal. Notice
+that both main effects (x1  current) and (x2  resistance) are significant as is the interac-
+tion. In the coded variable analysis, the magnitudes of the model coefficients are directly
+comparable; that is, they all are dimensionless, and they measure the effect of changing
+each design factor over a one-unit interval. Furthermore, they are all estimated with the
+same precision (notice that the standard error of all three coefficients is 0.053). The inter-
+action effect is smaller than either main effect, and the effect of current is just slightly
+more than one-half the resistance effect. This suggests that over the range of the factors
+studied, resistance is a more important variable. Coded variables are very effective for
+determining the relative size of factor effects.
+Now consider the analysis based on the engineering units, as shown in Table 6.27. In
+this model, only the interaction is signicant. The model coefcient for the interaction term
+■TA B L E 6 . 2 5
+The Circuit Experiment
+I (Amps)
+R (Ohms)
+x1
+x2
+V (Volts)
+4
+1
+1
+1
+3.802
+4
+1
+1
+1
+4.013
+6
+1
+1
+1
+6.065
+6
+1
+1
+1
+5.992
+4
+2
+1
+1
+7.934
+4
+2
+1
+1
+8.159
+6
+2
+1
+1
+11.865
+6
+2
+1
+1
+12.138 

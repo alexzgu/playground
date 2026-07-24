@@ -1,0 +1,46 @@
+478
+C H A P T E R
+1 1
+R e s p o n s e S u r f a c e
+M e t h o d s a n d
+D e s i g n s
+CHAPTER OUTLINE
+11.1 INTRODUCTION TO RESPONSE SURFACE
+METHODOLOGY
+11.2 THE METHOD OF STEEPEST ASCENT
+11.3 ANALYSIS OF A SECOND-ORDER RESPONSE
+SURFACE
+11.3.1 Location of the Stationary Point
+11.3.2 Characterizing the Response Surface
+11.3.3 Ridge Systems
+11.3.4 Multiple Responses
+11.4 EXPERIMENTAL DESIGNS FOR FITTING
+RESPONSE SURFACES
+11.4.1 Designs for Fitting the First-Order Model
+11.4.2 Designs for Fitting the Second-Order Model
+11.4.3 Blocking in Response Surface Designs
+11.4.4 Optimal Designs for Response Surfaces
+11.5 EXPERIMENT WITH COMPUTER MODELS
+11.6 MIXTURE EXPERIMENTS
+11.7 EVOLUTIONARY OPERATION 
+SUPPLEMENTAL MATERIAL FOR CHAPTER 11
+S11.1 The Method of Steepest Ascent
+S11.2 The Canonical Form of the Second-Order Response
+Surface Model
+S11.3 Center Points in the Central Composite Design
+S11.4 Center Runs in the Face-Centered Cube
+S11.5 A Note on Rotatability
+11.1
+Introduction to Response Surface Methodology
+Response surface methodology, or RSM, is a collection of mathematical and statistical
+techniques useful for the modeling and analysis of problems in which a response of interest
+is inuenced by several variables and the objective is to optimize this response. For example,
+suppose that a chemical engineer wishes to nd the levels of temperature (x1) and pressure
+(x2) that maximize the yield (y) of a process. The process yield is a function of the levels of
+temperature and pressure, say
+where represents the noise or error observed in the response y. If we denote the expected
+response by E(y) f(x1, x2) , then the surface represented by
+is called a response surface.
+f(x1, x2)
+y f(x1, x2) 
+The supplemental material is on the textbook website www.wiley.com/college/montgomery.

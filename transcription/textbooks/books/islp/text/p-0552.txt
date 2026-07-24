@@ -1,0 +1,54 @@
+546
+12. Unsupervised Learning
+can then be used as a similarity (or affinity) matrix, i.e. so that one minus
+the correlation matrix is the dissimilarity matrix used for clustering.
+Note that using correlation only makes sense for data with at least three
+features since the absolute correlation between any two observations with
+measurements on two features is always one. Hence, we will cluster a three-
+dimensional data set.
+In [46]: X = np.random.standard_normal((30, 3))
+corD = 1 - np.corrcoef(X)
+hc_cor = HClust(linkage='complete',
+distance_threshold=0,
+n_clusters=None,
+metric='precomputed')
+hc_cor.fit(corD)
+linkage_cor = compute_linkage(hc_cor)
+fig, ax = plt.subplots(1, 1, figsize=(8, 8))
+dendrogram(linkage_cor , ax=ax, **cargs)
+ax.set_title("Complete Linkage with Correlation -Based Dissimilarity
+");
+12.5.4
+NCI60 Data Example
+Unsupervised techniques are often used in the analysis of genomic data.
+In particular, PCA and hierarchical clustering are popular tools. We illus-
+trate these techniques on the NCI60 cancer cell line microarray data, which
+consists of 6830 gene expression measurements on 64 cancer cell lines.
+In [47]: NCI60 = load_data('NCI60')
+nci_labs = NCI60['labels']
+nci_data = NCI60['data']
+Each cell line is labeled with a cancer type. We do not make use of the
+cancer types in performing PCA and clustering, as these are unsupervised
+techniques. But after performing PCA and clustering, we will check to
+see the extent to which these cancer types agree with the results of these
+unsupervised techniques.
+The data has 64 rows and 6830 columns.
+In [48]: nci_data.shape
+Out[48]: (64, 6830)
+We begin by examining the cancer types for the cell lines.
+In [49]: nci_labs.value_counts()
+Out[49]: label
+NSCLC
+9
+RENAL
+9
+MELANOMA
+8
+BREAST
+7
+COLON
+7
+LEUKEMIA
+6
+OVARIAN
+6

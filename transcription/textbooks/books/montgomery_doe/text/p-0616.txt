@@ -1,0 +1,124 @@
+600
+Chapter 13 ■Experiments with Random Factors
+13.7.2
+The Modiﬁed Large-Sample Method
+The Satterthwaite method in the previous section is a relatively simple way to nd an approx-
+imate condence interval on a variance component that can be expressed as a linear combi-
+nation of mean squares, say
+(13.27)
+The Satterthwaite method works well when the degrees of freedom on each mean square MSi
+are all relatively large and when the constants ci in Equation 13.27 are all positive. However,
+often some of the ci are negative. Graybill and Wang (1980) proposed a procedure called the
+modiﬁed large-sample method, which can be a very useful alternative to Satterthwaite’s
+method. If all of the constants ci in Equation 13.27 are positive, then the approximate 100
+(1 ) percent modied large-sample condence interval on 
+is
+(13.28)
+where
+Note that an F random variable with an innite number of denominator degrees of freedom
+is equivalent to a chi-square random variable divided by its degrees of freedom.
+Now consider the more general case of Equation 13.27, where the constants ci are unre-
+stricted in sign. This may be written as
+(13.29)
+Ting et al. (1990) give an approximate 100(1 ) percent lower condence limit on 
+as
+(13.30)
+where
+These results can also be extended to include approximate condence intervals on ratios
+of variance components. For a complete account of these methods, refer to the excellent book
+by Burdick and Graybill (1992). Also see the supplemental material for this chapter.
+  if P # 1 and G*it 0 if P 1
+G*it 
+1
+Fa,fift,
+2 ( fi fi)2
+fi ft
+G2
+ifi
+ft
+G2
+ifi
+ft  (P 1),
+Gij 
+(F,fi,fj 1)2 G 2
+iF 2
+,fi,fj H 2
+j
+F,fi,fj
+Hj 
+1
+F1,fi,
+1
+Gi  1 
+1
+F,fi,
+
+P1
+i1 
+P
+t#1
+G*it cict MSi MSt
+VL 
+P
+i1
+Gi
+2ci
+2MSi
+2 
+Q
+jP1
+Hj
+2cj
+2MSj
+2 
+P
+i1 
+Q
+jP1
+Gij
+2cicjMSiMSj
+L ˆ 2
+0 VL
+2
+0
+ˆ 0
+2 
+P
+i1
+ciMSi 
+Q
+jP1
+cjMSj   ci,cj 0
+Gi 1 
+1
+f,fi,
+ 
+ and 
+ Hi 
+1
+F1,fi,
+1
+
+Q
+i1
+Hi
+2ci
+2MSi
+2
+ˆ0
+2 
+Q
+i1
+Gi
+2ci
+2MSi
+2 0
+2 ˆ0
+2
+2
+0
+ˆ 0
+2 
+Q
+i1
+ciMSi

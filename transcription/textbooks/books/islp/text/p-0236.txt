@@ -1,0 +1,28 @@
+228
+5. Resampling Methods
+(b) Provide an estimate of the standard error of ˆµ. Interpret this
+result.
+Hint: We can compute the standard error of the sample mean by
+dividing the sample standard deviation by the square root of the
+number of observations.
+(c) Now estimate the standard error of ˆµ using the bootstrap. How
+does this compare to your answer from (b)?
+(d) Based on your bootstrap estimate from (c), provide a 95 % con-
+fidence interval for the mean of medv. Compare it to the results
+obtained by using Boston['medv'].std() and the two standard
+error rule (3.9).
+Hint: You can approximate a 95 % confidence interval using the
+formula [ˆµ −2SE(ˆµ), ˆµ + 2SE(ˆµ)].
+(e) Based on this data set, provide an estimate, ˆµmed, for the median
+value of medv in the population.
+(f) We now would like to estimate the standard error of ˆµmed. Unfor-
+tunately, there is no simple formula for computing the standard
+error of the median. Instead, estimate the standard error of the
+median using the bootstrap. Comment on your findings.
+(g) Based on this data set, provide an estimate for the tenth per-
+centile of medv in Boston census tracts. Call this quantity ˆµ0.1.
+(You can use the np.percentile() function.)
+np.
+percentile()
+(h) Use the bootstrap to estimate the standard error of ˆµ0.1. Com-
+ment on your findings.

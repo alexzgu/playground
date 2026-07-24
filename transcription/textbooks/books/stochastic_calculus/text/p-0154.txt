@@ -1,0 +1,39 @@
+148CHAPTER 5. CHANGE OF MEASURE AND GIRSANOV THEOREM
+such as in Example 5.1.1, but does not make precise sense when the point x
+gets zero measure in both measures. Example 5.1.2 shows that this subtlety is
+something we are already familiar with. If µ denotes length, then the density
+f = dPXdµ of a continuous random variable can be interpreted as saying
+that the probability of obtaining a value in [x, x + dx] is f(x) times dx, the
+length of [x, x + dx].
+If (Ω, F, P) is a probability space, and Q is a probability measure with
+Q ≪P, then the Radon-Nikodym derivative
+X = dQ
+dP
+is a nonnegative random variable with E[X] = 1. If E is an event, then (5.1)
+can be written as
+Q(E) = EP [X 1E] 
+(5.2)
+Here EP denotes expectation P. (Up to now, we
+have been considering a single probability measure P on a space and using E
+to denote expectation with respect to it. Since we are now going to consider
+dierent measures on the same space, we adopt the notation EP to denote
+expectations using the measure P.) It is not hard to extend the relation (5.2)
+to give
+EQ[Y ] = EP
+
+Y dQ
+dP
+
+
+Example 5.1.4. Suppose (Ω, F, P) is a probability space, and G ⊂F is a
+sub σ-algebra. As before, we think of G as partial information. Let X be
+a nonnegative, integrable F-measurable random variable. Then
+Q(A) = E [1A X] ,
+A G,
+denes a measure on (Ω, G) that satises Q ≪P. Therefore, there exists a
+G-random variable Y such that for all A G,
+Q(A) = E [1A Y ] 
+This random variable Y is the conditional expectation E(X G) as dened
+in Section 1.1.
+Example 5.1.5. Let the set of outcomes Ωbe the set of continuous functions
+f : [0, 1] →R. If Bt denotes a Brownian motion with drift zero and variance

@@ -1,0 +1,97 @@
+Alloy
+formulation
+Observations
+y1111
+y1121
+y1211
+y1221
+y1112
+y1122
+y1212
+y1222
+y1311
+y1321
+y1312
+y1322
+Ingots
+Heats
+1
+2
+1
+3
+1
+2
+1
+2
+1
+2
+1
+2
+y2111
+y2121
+y2211
+y2221
+y2112
+y2122
+y2212
+y2222
+y2311
+y2321
+y2312
+y2322
+1
+2
+2
+3
+1
+2
+1
+2
+1
+2
+1
+2
+■F I G U R E 1 4 . 5
+A
+three-stage nested design
+614
+Chapter 14 ■Nested and Split-Plot Designs
+14.2
+The General m-Stage Nested Design
+The results of Section 14.1 can be easily extended to the case of m completely nested factors.
+Such a design would be called an m-stage nested design. As an example, suppose a foundry
+wishes to investigate the hardness of two different formulations of a metal alloy. Three heats
+of each alloy formulation are prepared, two ingots are selected at random from each heat for
+testing, and two hardness measurements are made on each ingot. The situation is illustrated
+in Figure 14.5.
+In this experiment, heats are nested under the levels of the factor alloy formulation, and
+ingots are nested under the levels of the factor heats. Thus, this is a three-stage nested design
+with two replicates.
+The model for the general three stage nested design is
+(14.13)
+For our example, i is the effect of the ith alloy formulation, j(i) is the effect of the jth heat
+within the ith alloy, k(ij) is the effect of the kth ingot within the jth heat and ith alloy, and 
+(ijk)l is the usual NID(0, 2) error term. Extension of this model to m factors is straightforward.
+Notice that in the above example the overall variability in hardness consists of three
+components: one that results from alloy formulations, one that results from heats, and one that
+results from analytical test error. These components of the variability in overall hardness are
+illustrated in Figure 14.6.
+This example demonstrates how the nested design is often used in analyzing processes
+to identify the major sources of variability in the output. For instance, if the alloy formulation
+variance component is large, then this implies that overall hardness variability could be
+reduced by using only one alloy formulation.
+The calculation of the sums of squares and the analysis of variance for the m-stage
+nested design are similar to the analysis presented in Section 14.1. For example, the analysis
+of variance for the three-stage nested design is summarized in Table 14.8. Denitions of the
+sums of squares are also shown in this table. Notice that they are a simple extension of 
+the formulas for the two-stage nested design. Many statistics software packages will perform
+the calculations.
+To determine the proper test statistics, we must nd the expected mean squares using
+the methods of Chapter 13. For example, if factors A and B are xed and factor C is random,
+then the expected mean squares are as shown in Table 14.9. This table indicates the proper
+test statistics for this situation.
+yijkl i j(i) k(ij) (ijk)l 
+i 1, 2, . . . , a
+j 1, 2, . . . , b
+k 1, 2, . . . , c
+l 1, 2, . . . , n

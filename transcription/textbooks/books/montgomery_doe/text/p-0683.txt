@@ -1,0 +1,74 @@
+This sum of squares has a 1 degrees of freedom because the rank of the normal equations
+is a 1. The error sum of squares for this model is
+(15.39)
+with an (a 1) a(n 1) 1 degrees of freedom. This quantity was obtained previously
+as Equation 15.27.
+Now consider the model restricted to the null hypothesis, that is, to H0: 1 2 
+a 0. This reduced model is
+(15.40)
+This is a simple linear regression model, and the least squares normal equations for this model are
+(15.41a)
+(15.41b)
+The solutions to these equations are 
+and 
+, and the reduction in the total
+sum of squares due to tting the reduced model is
+(15.42)
+This sum of squares has two degrees of freedom.
+We may nd the appropriate sum of squares for testing H0: 1 2 a 0 as
+(15.43)
+using Tyy Syy Eyy. Note that R(ƒ, ) has a 1 2 a 1 degrees of freedom and is
+identical to the sum of squares given by 
+SSE in Section 15.3.1. Thus, the test statistic
+for H0: i 0 is
+(15.44)
+which we gave previously as Equation 15.30. Therefore, by using the general regression sig-
+nicance test, we have justied the heuristic development of the analysis of covariance in
+Section 15.3.1.
+15.3.4
+Factorial Experiments with Covariates
+Analysis of covariance can be applied to more complex treatment structures, such as factorial
+designs. Provided enough data exists for every treatment combination, nearly any complex
+treatment structure can be analyzed through the analysis of covariance approach. We now
+show how the analysis of covariance could be used in the most common family of factorial
+designs used in industrial experimentation, the 2k factorials.
+F0 
+R(, )/(a 1)
+SSE/[a(n 1) 1] (SSE SSE)/(a 1)
+SSE/[a(n 1) 1]
+SSE
+Syy (Sxy)2/Sxx [Eyy (Exy)2/Exx]
+y2
+../an Tyy (Exy)2/Exx y2
+../an (Sxy)2/Sxx
+R(, ) R(, , ) R(, )
+y2
+../an (Sxy)2/Sxx
+ (y..)y.. (Sxy/Sxx)Sxy
+R(, ) ˆ y.. ˆSxy
+ˆ Sxy/Sxx
+ˆ y..
+ˆSxx Sxy
+anˆ y..
+yij (xij x..) ij 
+i 1, 2, . . . , a
+j 1, 2, . . . , n
+Eyy (Exy)2/Exx
+Syy Tyy (Exy)2/Exx
+
+a
+i1 
+n
+j1
+y2
+ij y2
+../an Tyy (Exy)2/Exx
+SSE 
+a
+i1 
+n
+j1
+y2
+ij R(, , )
+15.3 The Analysis of Covariance
+667

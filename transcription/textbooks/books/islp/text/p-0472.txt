@@ -1,0 +1,42 @@
+10.10 Exercises
+465
+We continue with the usual training steps, fit the model, and evaluate
+the test error. We see the test R2 is a slight improvement over the linear
+AR model that also includes day_of_week.
+In [112]: nl_trainer = Trainer(deterministic=True,
+max_epochs=20,
+callbacks=[ErrorTracker()])
+nl_trainer.fit(nl_module, datamodule=day_dm)
+nl_trainer.test(nl_module, datamodule=day_dm)
+Out[112]: [{'test_loss': 0.5625, 'test_r2': 0.4662}]
+10.10
+Exercises
+Conceptual
+1. Consider a neural network with two hidden layers: p = 4 input units,
+2 units in the first hidden layer, 3 units in the second hidden layer,
+and a single output.
+(a) Draw a picture of the network, similar to Figures 10.1 or 10.4.
+(b) Write out an expression for f(X), assuming ReLU activation
+functions. Be as explicit as you can!
+(c) Now plug in some values for the coefficients and write out the
+value of f(X).
+(d) How many parameters are there?
+2. Consider the softmax function in (10.13) (see also (4.13) on page 145)
+for modeling multinomial probabilities.
+(a) In (10.13), show that if we add a constant c to each of the zℓ,
+then the probability is unchanged.
+(b) In (4.13), show that if we add constants cj, j = 0, 1, . . . , p, to
+each of the corresponding coefficients for each of the classes, then
+the predictions at any new point x are unchanged.
+This shows that the softmax function is over-parametrized. However, over-
+parametrized
+regularization and SGD typically constrain the solutions so that this
+is not a problem.
+3. Show that the negative multinomial log-likelihood (10.14) is equiva-
+lent to the negative log of the likelihood expression (4.5) when there
+are M = 2 classes.
+4. Consider a CNN that takes in 32 × 32 grayscale images and has a
+single convolution layer with three 5 × 5 convolution filters (without
+boundary padding).
+(a) Draw a sketch of the input and first hidden layer similar to
+Figure 10.8.

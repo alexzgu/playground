@@ -1,0 +1,52 @@
+2.1 What Is Statistical Learning?
+25
+We have established that when inference is the goal, there are clear ad-
+vantages to using simple and relatively inflexible statistical learning meth-
+ods. In some settings, however, we are only interested in prediction, and
+the interpretability of the predictive model is simply not of interest. For
+instance, if we seek to develop an algorithm to predict the price of a
+stock, our sole requirement for the algorithm is that it predict accurately—
+interpretability is not a concern. In this setting, we might expect that it
+will be best to use the most flexible model available. Surprisingly, this is
+not always the case! We will often obtain more accurate predictions using
+a less flexible method. This phenomenon, which may seem counterintu-
+itive at first glance, has to do with the potential for overfitting in highly
+flexible methods. We saw an example of overfitting in Figure 2.6. We will
+discuss this very important concept further in Section 2.2 and throughout
+this book.
+2.1.4
+Supervised Versus Unsupervised Learning
+Most statistical learning problems fall into one of two categories: supervised supervised
+or unsupervised. The examples that we have discussed so far in this chap- unsupervised
+ter all fall into the supervised learning domain. For each observation of the
+predictor measurement(s) xi, i = 1, . . . , n there is an associated response
+measurement yi. We wish to fit a model that relates the response to the
+predictors, with the aim of accurately predicting the response for future
+observations (prediction) or better understanding the relationship between
+the response and the predictors (inference). Many classical statistical learn-
+ing methods such as linear regression and logistic regression (Chapter 4), as logistic
+regression
+well as more modern approaches such as GAM, boosting, and support vec-
+tor machines, operate in the supervised learning domain. The vast majority
+of this book is devoted to this setting.
+By contrast, unsupervised learning describes the somewhat more chal-
+lenging situation in which for every observation i = 1, . . . , n, we observe
+a vector of measurements xi but no associated response yi. It is not pos-
+sible to fit a linear regression model, since there is no response variable
+to predict. In this setting, we are in some sense working blind; the sit-
+uation is referred to as unsupervised because we lack a response vari-
+able that can supervise our analysis. What sort of statistical analysis is
+possible? We can seek to understand the relationships between the variables
+or between the observations. One statistical learning tool that we may use
+in this setting is cluster analysis, or clustering. The goal of cluster analysis cluster
+analysis
+is to ascertain, on the basis of x1, . . . , xn, whether the observations fall into
+relatively distinct groups. For example, in a market segmentation study we
+might observe multiple characteristics (variables) for potential customers,
+such as zip code, family income, and shopping habits. We might believe
+that the customers fall into different groups, such as big spenders versus
+low spenders. If the information about each customer’s spending patterns
+were available, then a supervised analysis would be possible. However, this
+information is not available—that is, we do not know whether each poten-
+tial customer is a big spender or not. In this setting, we can try to cluster
+the customers on the basis of the variables measured, in order to identify

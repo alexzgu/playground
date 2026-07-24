@@ -1,0 +1,92 @@
+11.3 Analysis of a Second-Order Response Surface
+487
+minimum response, or a saddle point. These three possibilities are shown in Figures 11.6,
+11.7, and 11.8.
+Contour plots play a very important role in the study of the response surface. By generat-
+ing contour plots using computer software for response surface analysis, the experimenter can
+usually characterize the shape of the surface and locate the optimum with reasonable precision.
+We may obtain a general mathematical solution for the location of the stationary point.
+Writing the tted second-order model in matrix notation, we have
+(11.5)
+yˆ ˆ 0 xb xBx
+x1
+x2
+x2
+x1
+103.04
+92.03
+81.02
+70.01
+59
+1.00
+1.00
+0.50
+0.00
+–0.50
+–1.00
+–1.00
+–0.50
+(b) Contour plot
+(a) Response surface
+0.00
+0.50
+1.00
+1.00
+0.50
+0.50
+0.00
+0.00
+–0.50
+–0.50
+–1.00
+–1.00
+73
+80
+96
+88
+80
+73
+65
+■F I G U R E 1 1 . 6
+Response surface and contour plot illustrating a surface with a maximum
+x1
+x2
+y
+x2
+x1
+129
+121.428
+113.855
+106.283
+98.71
+1.00
+1.00
+0.50
+0.00
+–0.50
+–1.00
+–1.00
+–0.50
+(b) Contour plot
+(a) Response surface
+0.00
+0.50
+1.00
+1.00
+0.50
+0.50
+0.00
+0.00
+–0.50
+–0.50
+–1.00
+–1.00
+108
+103
+108
+113
+118
+123
+›
+■F I G U R E 1 1 . 7
+Response surface and contour plot illustrating a surface with a minimum

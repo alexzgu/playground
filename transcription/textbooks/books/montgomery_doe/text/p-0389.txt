@@ -1,0 +1,53 @@
+Notice that there are 12 degrees of freedom available to estimate two-factor interactions,
+exactly as in the complete fold over. Furthermore, AB is no longer aliased with CE. The half-
+normal plot of the effects from the partial fold over is shown in Figure 8.27. As in the com-
+plete fold over, CE is identied as the signicant two-factor interaction.
+The partial fold-over technique is very useful with resolution IV designs and usually leads
+to an efcient use of experimental resources. Resolution IV designs always provide good esti-
+mates of main effects (assuming that three-factor interactions are negligible), and usually the
+number of possible two-factor interaction that need to be de-aliased is not large. A partial fold
+over of a resolution IV design will usually support estimation of as many two-factor interactions
+as a full fold over. One disadvantage of the partial fold over is that it is not orthogonal. This caus-
+es parameter estimates to be correlated and leads to ination in the standard errors of the effects
+or regression model coefcients. For example, in the partial fold over of the spin coater experi-
+ment, the standard errors of the regression model coefcients range from 0.20to 0.25, while
+in the complete fold over, which is orthogonal, the standard errors of the model coefcients are
+0.18. For more information on partial fold overs, see Mee and Peralta (2000) and the supple-
+mental material for this chapter.
+8.7.3
+Resolution V Designs
+Resolution V designs are fractional factorials in which the main effects and the two-factor
+interactions do not have other main effects and two-factor interactions as their aliases.
+Consequently, these are very powerful designs, allowing unique estimation of all main effects
+and two-factor interactions, provided of course that all interactions involving three or more fac-
+tors are negligible. The shortest word in the dening relation of a resolution V design must
+have ve letters. The 251 design with I ABCDE is perhaps the most widely used resolution
+8.7 Resolution IV and V Designs
+373
+05
+10
+20
+30
+50
+70
+80
+90
+0.00
+39.53
+79.06
+|Effect|
+118.59
+158.13
+95
+99
+Half-normal % probability
+C
+E
+CE
+B
+A
+■F I G U R E 8 . 2 7
+Half-normal
+plot of effects from the partial fold
+over of the spin coater experiment
+in Table 8.33

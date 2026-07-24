@@ -1,0 +1,63 @@
+nuisance effects between the two time periods is of interest. Fortunately, blocking in the com-
+bined experiment is easily accomplished.
+To illustrate, consider the fold-over experiment in Example 8.7. In the initial group of
+eight runs shown in Table 8.21, the generators are D AB, E AC, F BC, and G ABC.
+In the fold-over set of runs, Table 8.22, the signs are changed on three of the generators so
+that D  AB, E  AC, and F  BC. Thus, in the rst group of eight runs the signs on
+the effects ABD, ACE, and BCF are positive, and in the second group of eight runs the signs
+on ABD, ACE, and BCF are negative; therefore, these effects are confounded with blocks.
+Actually, there is a single-degree-of-freedom alias chain confounded with blocks (remember
+that there are two blocks, so there must be one degree of freedom for blocks), and the effects
+in this alias chain may be found by multiplying any one of the effects ABD, ACE, and BCF
+through the dening relation for the design. This yields
+as the complete set of effects that are confounded with blocks. In general, a completed fold-
+over experiment will always form two blocks with the effects whose signs are positive in one
+block and negative in the other (and their aliases) confounded with blocks. These effects can
+always be determined from the generators whose signs have been switched to form the fold
+over.
+8.6.3
+Plackett–Burman Designs
+These are two-level fractional factorial designs developed by Plackett and Burman (1946) for
+studying k N 1 variables in N runs, where N is a multiple of 4. If N is a power of 2, these
+designs are identical to those presented earlier in this section. However, for N 12, 20, 24,
+28, and 36, the Plackett–Burman designs are sometimes of interest. Because these designs
+cannot be represented as cubes, they are sometimes called nongeometric designs.
+The upper half of Table 8.23 presents rows of plus and minus signs that are used to con-
+struct the Plackett–Burman designs for N 12, 20, 24, and 36, whereas the lower half of the
+ABD CDG ACE BCF BEG AFG DEF ABCDEFG
+8.6 Resolution III Designs
+357
+■TA B L E 8 . 2 3
+Plus and Minus Signs for the Plackett–Burman Designs
+k 11, N 12                     
+k 19, N 20                                    
+k 23, N 24                                             
+k 35, N 36                                                        
+k 27, N 28
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                

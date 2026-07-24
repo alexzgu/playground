@@ -1,0 +1,44 @@
+8.3. TIME CHANGES
+251
+8.3
+Time changes
+To prepare for the next section we will consider time changes of Brownian
+motion. If Bt is a standard Brownian motion and Yt = Bat, then Yt is a
+Brownian motion with variance parameter a. We can write
+Yt =
+t
+0
+√a dWs,
+where Wt = a−12 Bat is a standard Brownian motion. We generalize this by
+considering Yt = Ba(t) where a is a strictly increasing continuous function.
+We allow a(t) to be random, but it must be adapted to the Brownian motion.
+In other words, for each t, the random time a(t) must be a stopping time for
+the Brownian motion Bt. We will make the further assumption that a is a
+C1 function, that is, we can write
+a(t) =
+t
+0
+˙a(s) ds,
+where s →˙a(s) is a continuous nonnegative function. The assumption that
+a(t) is strictly increasing implies that there are no open intervals on which
+˙a(s) is identically zero. If Y (t) = Ba(t), then Yt is a continuous local martin-
+gale and we can write
+Yt =
+t
+0
+
+˙a(s) dWs,
+where Wt is the standard Brownian motion
+Wt =
+t
+0
+[˙a(s)]−12 dBa(s)
+(8.7)
+One can verify this is a standard Brownian motion by checking that is a
+martingale with ⟨W⟩t = t. More generally, if Xt satises the SDE
+dXt = Rt dt + At dBt,
+and Yt = Xa(t), then Yt satises the SDE
+dYt = ˙a(t) Ra(t) dt +
+
+˙a(t) Aa(t) dWt,
+where Wt is the standard Brownian motion (8.7).

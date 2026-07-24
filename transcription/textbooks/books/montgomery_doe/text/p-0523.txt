@@ -1,0 +1,62 @@
+11.4 Experimental Designs for Fitting Response Surfaces
+507
+Figure 11.26a is a VDG for the rotatable CCD with k 3 variables and four center
+runs. Because the design is rotatable, the minimum, maximum, and average SPV are identi-
+cal for all points that are at the same distance from the center of the design, so there is only
+one line on the VDG. Notice how the graph displays the behavior of the SPV over the design
+space, with nearly constant variance out to a radius of approximately 1.2, and then increasing
+steadily from there out to the boundary of the design. Figure 11.26b is the VDG for a spher-
+ical CCD with k 3 variables and four center runs. Notice that there is very little difference
+between the three lines for minimum, maximum, and average SPV, leading us to conclude
+that any practical difference between the rotatable and spherical versions of this design is very
+minimal.
+Figure 11.27 is the VDG for the rotatable CCD with k 4 factors. In this VDG, the
+number of center points in the design varies from nC 1 to nC 5. The VDG shows clearly
+that a design with too few center points will have a very unstable distribution of prediction
+variance but that prediction variance quickly stabilizes with increasing values of nC. Using
+either four or ve center runs will give reasonably stable prediction variance over the design
+region. VDGs have been used to study the effect of changing the number of center runs in
+response surface design, and the recommendations given earlier in the chapter are based on
+some of these studies.
+11.4.3
+Blocking in Response Surface Designs
+When using response surface designs, it is often necessary to consider blocking to eliminate
+nuisance variables. For example, this problem may occur when a second-order design is
+assembled sequentially from a rst-order design, as was illustrated in Examples 11.1 and 11.2.
+Considerable time may elapse between the running of the rst-order design and the running of
+the supplemental experiments required to build up a second-order design, and test conditions
+may change during this time, thus necessitating blocking.
+A response surface design is said to block orthogonally if it is divided into blocks such
+that block effects do not affect the parameter estimates of the response surface model. If a 2k
+or 2kp design is used as a rst-order response surface design, the methods of Chapter 7 may
+be used to arrange the runs in 2r blocks. The center points in these designs should be allocated
+equally among the blocks.
+For a second-order design to block orthogonally, two conditions must be satised. If
+there are nb observations in the bth block, then these conditions are
+1. Each block must be a rst-order orthogonal design; that is,
+where xiu and xju are the levels of ith and jth variables in the uth run of the experiment
+with x0u 1 for all u.
+2. The fraction of the total sum of squares for each variable contributed by every
+block must be equal to the fraction of the total observations that occur in the block;
+that is,
+where N is the number of runs in the design.
+
+nb
+u1
+x2
+iu
+
+N
+u1
+x2
+iu
+nb
+N 
+ i 1, 2, . . . , k 
+ for all b
+
+nb
+u1
+xiu xju 0 
+ i Z j 0, 1, . . . , k 
+ for all b

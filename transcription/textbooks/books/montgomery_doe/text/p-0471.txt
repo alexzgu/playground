@@ -1,0 +1,134 @@
+10.3 Estimation of the Parameters in Linear Regression Models
+455
+The least squares t, with the regression coefcients reported
+to two decimal places, is
+The first three columns of Table 10.3 present the actu-
+al observations yi, the predicted or fitted values , and the
+residuals. Figure 10.1 is a normal probability plot of the
+residuals. Plots of the residuals versus the predicted
+yˆi
+yˆ 1566.08 7.62x1 8.58x2
+values 
+and versus the two variables x1 and x2 are shown
+in Figures 10.2, 10.3, and 10.4, respectively. Just as in
+designed experiments, residual plotting is an integral part
+of regression model building. These plots indicate that the
+variance of the observed viscosity tends to increase with
+the magnitude of viscosity. Figure 10.3 suggests that the
+variability in viscosity is increasing as temperature
+increases.
+yˆi
+■TA B L E 1 0 . 2
+Viscosity Data for Example 10.1 (viscosity in centistokes @ 100c)
+Temperature 
+Catalyst Feed 
+Observation
+(x1, °C)
+Rate (x2, lb/h)
+Viscosity
+1
+80
+8
+2256
+2
+93
+9
+2340
+3
+100
+10
+2426
+4
+82
+12
+2293
+5
+90
+11
+2330
+6
+99
+8
+2368
+7
+81
+8
+2250
+8
+96
+10
+2409
+9
+94
+12
+2364
+10
+93
+11
+2379
+11
+97
+13
+2440
+12
+95
+11
+2364
+13
+100
+8
+2404
+14
+85
+12
+2317
+15
+86
+9
+2309
+16
+87
+12
+2328
+Residual
+Normal percent probability
+–13.68
+–21.50
+–5.85
+1.97
+9.79
+17.61
+25.43
+1
+5
+10
+20
+30
+50
+70
+80
+90
+95
+99
+■F I G U R E 1 0 . 1
+Normal probability plot of
+residuals, Example 10.1
+Predicted viscosity in centistokes
+Residuals
+2273
+2244
+2302
+2331
+2359
+2388
+2417
+–21.50
+–13.68
+–5.85
+1.97
+9.79
+17.61
+25.43
+■F I G U R E 1 0 . 2
+Plot of residuals versus
+predicted viscosity, Example 10.1

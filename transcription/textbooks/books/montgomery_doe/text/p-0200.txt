@@ -1,0 +1,93 @@
+184
+Chapter 5 ■Introduction to Factorial Designs
+That is, increasing factor A from the low level to the high level causes an average response
+increase of 21 units. Similarly, the main effect of B is
+If the factors appear at more than two levels, the above procedure must be modied because there
+are other ways to dene the effect of a factor. This point is discussed more completely later.
+In some experiments, we may nd that the difference in response between the levels of
+one factor is not the same at all levels of the other factors. When this occurs, there is an
+interaction between the factors. For example, consider the two-factor factorial experiment
+shown in Figure 5.2. At the low level of factor B (or B), the A effect is
+and at the high level of factor B (or B), the A effect is
+Because the effect of A depends on the level chosen for factor B, we see that there is interaction
+between A and B. The magnitude of the interaction effect is the average difference in these two
+A effects, or AB (28 30)/2 29. Clearly, the interaction is large in this experiment.
+These ideas may be illustrated graphically. Figure 5.3 plots the response data in Fig-
+ure 5.1 against factor A for both levels of factor B. Note that the Band Blines are approxi-
+mately parallel, indicating a lack of interaction between factors A and B. Similarly, Figure 5.4
+A 12 40 28
+A 50 20 30
+B 30 52
+2
+20 40
+2
+11
+Factor A
+Factor B
+–
+(Low)
+–
+(Low)
++
+(High)
++
+(High)
+52
+30
+20
+40
+■F I G U R E 5 . 1
+A two-factor
+factorial experiment, with the
+response (y) shown at the corners
+Factor A
+Factor B
+–
+(Low)
+–
+(Low)
++
+(High)
++
+(High)
+12
+40
+20
+50
+■F I G U R E 5 . 2
+A two-factor
+factorial experiment with interaction 
+Factor A
+Response
+–
++
+10
+20
+30
+40
+50
+60
+B+
+B–
+B+
+B–
+Factor A
+Response
+–
++
+10
+20
+30
+40
+50
+60
+B–
+B+
+B–
+B+
+■F I G U R E 5 . 3
+A factorial
+experiment without interaction
+■F I G U R E 5 . 4
+A factorial
+experiment with interaction

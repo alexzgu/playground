@@ -1,0 +1,24 @@
+Chapter 1
+Martingales in discrete time
+A martingale is a mathematical model of a fair game. To understand the def-
+inition, we need to dene . The concept of conditional
+expectation will permeate this book.
+1.1
+Conditional expectation
+If X is a random variable, then its expectation, E[X] can be thought of as
+the best guess for X given no information about the result of the trial. A
+conditional expectation can be considered as the best guess given some but
+not total information.
+Let X1, X2, be random variables which we think of as a time series
+with the data arriving one at a time. At time n we have viewed the values
+X1, , Xn. If Y is another random variable, then E(Y X1, , Xn) is the
+best guess for Y given X1, , Xn. We will assume that Y is an 
+random variable which means E[Y ] < ∞. To save some space we will write
+Fn for the information contained in X1, , Xnand E[Y Fn] for E[Y 
+X1, , Xn]. We view F0 as no information. The best guess should satisfy
+the following properties.
+If we have no information, then the best guess is the expected value.
+In other words, E[Y F0] = E[Y ].
+The conditional expectation E[Y Fn] should only use the informa-
+tion available at time n. In other words, it should be a function of
+3

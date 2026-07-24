@@ -1,0 +1,148 @@
+14.1 The Two-Stage Nested Design
+605
+supplier, batch 2 from supplier 1 has no connection with batch 2 from any other supplier, and
+so forth. To emphasize the fact that the batches from each supplier are different batches, we
+may renumber the batches as 1, 2, 3, and 4 from supplier 1; 5, 6, 7, and 8 from supplier 2;
+and 9, 10, 11, and 12 from supplier 3, as shown in Figure 14.2.
+Sometimes we may not know whether a factor is crossed in a factorial arrangement or
+nested. If the levels of the factor can be renumbered arbitrarily as in Figure 14.2, then the fac-
+tor is nested.
+14.1.1
+Statistical Analysis
+The linear statistical model for the two-stage nested design is
+(14.1)
+That is, there are a levels of factor A, b levels of factor B nested under each level of A, and n
+replicates. The subscript j(i) indicates that the jth level of factor B is nested under the ith level
+of factor A. It is convenient to think of the replicates as being nested within the combination
+of levels of A and B; thus, the subscript (ij)k is used for the error term. This is a balanced
+nested design because there are an equal number of levels of B within each level of A and an
+equal number of replicates. Because not every level of factor B appears with every level of
+factor A, there can be no interaction between A and B.
+We may write the total corrected sum of squares as
+(14.2)
+Expanding the right-hand side of Equation 14.2 yields
+(14.3)
+because the three cross-product terms are zero. Equation 14.3 indicates that the total sum of
+squares can be partitioned into a sum of squares due to factor A, a sum of squares due 
+
+a
+i1 
+b
+j1 
+n
+k1
+ (yijk yij.)2
+
+a
+i1 
+b
+j1 
+n
+k1
+ (yijk y...)2 bn 
+a
+i1
+(yi.. y...)2 n 
+a
+i1 
+b
+j1
+ (yij. yi..)2
+
+a
+i1 
+b
+j1 
+n
+k1
+ (yijk y...)2 
+a
+i1 
+b
+j1 
+n
+k1
+ [(yi.. y...) (y ij. yi..) (yijk yij.)]2
+yijk i j(i) (ij)k 
+i  1, 2, . . . , a
+j  1, 2, . . . , b
+k  1, 2, . . . , n
+Batches
+Suppliers
+Observations
+y111
+y121
+y131
+y141
+y112
+y122
+y132
+y142
+y113
+y123
+y133
+y143
+1
+1
+2
+3
+4
+y211
+y221
+y231
+y241
+y212
+y222
+y232
+y242
+y213
+y223
+y233
+y243
+1
+1
+2
+3
+4
+2
+1
+2
+y311
+y321
+y331
+y341
+y312
+y322
+y332
+y342
+y313
+y323
+y333
+y343
+3
+1
+2
+3
+4
+■F I G U R E 1 4 . 1
+A two-stage nested design
+Batches
+Suppliers
+1
+1
+2
+3
+4
+1
+7
+8
+2
+5
+6
+3
+9
+10
+11
+12
+■F I G U R E 1 4 . 2
+Alternate layout for the two-stage nested design

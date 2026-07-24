@@ -1,0 +1,39 @@
+62
+2. Statistical Learning
+We now consider the cylinders variable. Typing in Auto.cylinders.dtype
+reveals that it is being treated as a quantitative variable. However, since
+there is only a small number of possible values for this variable, we may
+wish to treat it as qualitative. Below, we replace the cylinders column with
+a categorical version of Auto.cylinders. The function pd.Series() owes its pd.Series()
+name to the fact that pandas is often used in time series applications.
+In [106]: Auto.cylinders = pd.Series(Auto.cylinders, dtype='category')
+Auto.cylinders.dtype
+Now that cylinders is qualitative, we can display it using the boxplot() .boxplot()
+method.
+In [107]: fig, ax = subplots(figsize=(8, 8))
+Auto.boxplot('mpg', by='cylinders', ax=ax);
+The hist() method can be used to plot a histogram.
+.hist()
+In [108]: fig, ax = subplots(figsize=(8, 8))
+Auto.hist('mpg', ax=ax);
+The color of the bars and the number of bins can be changed:
+In [109]: fig, ax = subplots(figsize=(8, 8))
+Auto.hist('mpg', color='red', bins=12, ax=ax);
+See Auto.hist? for more plotting options.
+We can use the pd.plotting.scatter_matrix() function to create a scat- pd.plotting.
+scatter_
+matrix()
+terplot matrix to visualize all of the pairwise relationships between the
+columns in a data frame.
+In [110]: pd.plotting.scatter_matrix(Auto);
+We can also produce scatterplots for a subset of the variables.
+In [111]: pd.plotting.scatter_matrix(Auto[['mpg',
+'displacement',
+'weight']]);
+The describe() method produces a numerical summary of each column in .describe()
+a data frame.
+In [112]: Auto[['mpg', 'weight']].describe()
+We can also produce a summary of just a single column.
+In [113]: Auto['cylinders'].describe()
+Auto['mpg'].describe()
+To exit Jupyter, select File / Close and Halt.

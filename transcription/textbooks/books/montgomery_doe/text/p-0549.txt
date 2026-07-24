@@ -1,0 +1,82 @@
+11.6 Mixture Experiments
+533
+Full cubic
+(11.27)
+Special cubic
+(11.28)
+The terms in these models have relatively simple interpretations. In Equations 11.25
+through 11.28, the parameter i represents the expected response to the pure blend xi 1
+and xj 0 when j i. The portion π
+p
+i1 ixi is called the linear blending portion. When
+curvature arises from nonlinear blending between component pairs, the parameters ij rep-
+resent either synergistic or antagonistic blending. Higher order terms are frequently nec-
+essary in mixture models because (1) the phenomena studied may be complex and (2) the
+experimental region is frequently the entire operability region and therefore large, requiring
+an elaborate model.
+
+i!j!k
+ijkxixjxk
+E(y) 
+p
+i1
+ixi 
+p
+i!j
+ijxixj
+
+i!j!k
+ijk xixjxk
+
+p
+i!j
+ijxixj(xi xj)
+E(y) 
+p
+i1
+ixi 
+p
+i!j
+ijxixj
+x1 = 1 
+x1 = x3 = 2
+1
+x1 = x4 = 2
+1
+x1 = x2 = 2
+1
+x2 = x3 = 2
+1
+x3 = x4 = 2
+1
+x2 = x3 = 2
+1
+x1 = x2 = 2
+1
+x1 = x2 = x3 = 3
+1
+x1 = x3 = x4 = 3
+1
+x1 = x2 = x3 = x4 = 4
+1
+x3 = 1 
+x2 = 1 
+ (a)
+ (b)
+x1 = 1 
+x4 = 1 
+x2 = 1 
+x3 = 1 
+■F I G U R E 1 1 . 4 2
+Simplex centroid designs with (a) p 3 components and 
+(b) p 4 components
+E X A M P L E 1 1 . 5
+A Three-Component Mixture
+Cornell (2002) describes a mixture experiment in which three
+components—polyethylene (x1), polystyrene (x2), and poly-
+propylene (x3)—were blended to form ber that will be spun
+into yarn for draperies. The response variable of interest is
+yarn elongation in kilograms of force applied. A {3, 2} sim-
+plex lattice design is used to study the product. The design
+and the observed responses are shown in Table 11.19. Notice
+that all of the design points involve either pure or binary

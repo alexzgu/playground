@@ -1,0 +1,76 @@
+of the confounding pattern, much like what can be seen in the alias matrix. We introduced the
+alias matrix in Chapter 8. Recall that we plan to t the model 
+where X1 is the design matrix for the experiment that has been conducted expanded to model
+form,
+is the vector of model parameters, and 
+is the usual vector of NID(0,
+) errors but
+that the true model is 
+where the columns of X2 contain additional factors not included in the original model (such
+as interactions) and 
+is the corresponding vector of model parameters. In Chapter 8 we
+observed that the expected value of 
+, the least squares estimate of 
+, is
+The alias matrix A (X1X1)1 X1 X2 shows how estimates of terms in the tted model are
+biased by active terms that are not in the tted model. Each row of A is associated with a
+parameter in the tted model. Nonzero elements in a row of A show the degree of biasing of
+the tted model parameter due to terms associated with the columns of X2.
+In a regular design, an arbitrary entry in the alias matrix, say Aij, is either 0 or 
+. If
+Aij is 0 then the ith column of X1 is orthogonal to the jth column of X2. Otherwise if Aijis
+then the ith column of X1 and the jth column of X2 are perfectly correlated.
+For nonregular designs, the aliasing is more complex. If X1 is the design matrix for the
+main effects model and X2 is the design matrix for the two-factor interactions, then the entries
+of the alias matrix for orthogonal nonregular designs for 16 runs take the values 0, 1, or
+. A small subset of these designs have no entries of 1.
+Bursztyn and Steinberg (2006) propose using the trace of 
+(or equivalently the trace of
+) as a scalar measure of the total bias in a design. They use this as a means for comparing
+designs for computer simulations but this measure works equally well for ranking competitive
+screening designs.
+AA
+AA
+0.5
+1,
+1
+E(ˆ1) 1 (X1X1)
+1X1X22 1 A2
+1
+ˆ1
+2
+y X11 X22 
+2
+
+1
+y X11 
+9.5 Nonregular Fractional Factorial Designs
+417
+A
+B
+C
+D
+E
+F
+AB
+AC
+AD
+AE
+AF
+BC
+BD
+BE
+BF
+CD
+CE
+CF
+DE
+DF
+EF
+r
+–1
+0
+1
+■F I G U R E 9 . 1 0
+The correlation matrix for the regular 26-2
+resolution IV fractional factorial design 

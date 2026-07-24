@@ -1,0 +1,102 @@
+5.5 Fitting Response Curves and Surfaces
+215
+■TA B L E 5 . 1 7
+JMP ANOVA for the Tool Life Experiment in Example 5.5
+Summary of Fit
+RSquare
+0.895161
+RSquare Adj
+0.801971
+Root Mean Square Error
+1.20185
+Mean of Response
+1.333333
+Observations (or Sum Wgts)
+18
+Analysis of Variance
+Source
+DF
+Sum of Squares
+Mean Square
+F Ratio
+Model
+8
+111.00000
+13.8750
+9.6058
+Error
+9
+13.00000
+1.4444
+Prob F
+C. Total
+17
+124.00000
+0.0013
+Effect Tests
+Source
+Nparm
+DF
+Sum of Squares
+F Ratio
+Prob F
+Angle
+2
+2
+24.333333
+8.4231
+0.0087
+Speed
+2
+2
+25.333333
+8.7692
+0.0077
+Angle*Speed
+4
+4
+61.333333
+10.6154
+0.0018
+2.0
+1.5
+1.0
+0.5
+0.0
+–0.5
+–1.0
+–1.5
+–2.5
+Tool life predicted
+Tool life 
+residual
+–3
+–2
+–1
+0
+1
+2
+3
+4
+5
+6
+6
+4
+2
+0
+–2
+–4
+–3
+–2
+–1
+0
+1
+Tool life predicted
+Tool life actual
+P=0.0013 RSq=0.90
+RMSE=1.2019
+2
+3
+4
+5
+6

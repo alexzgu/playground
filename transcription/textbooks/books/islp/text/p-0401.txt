@@ -1,0 +1,71 @@
+394
+9. Support Vector Machines
+We now fit an SVM to the data:
+In [31]: svm_rbf_3 = SVC(kernel="rbf",
+C=10,
+gamma=1,
+decision_function_shape='ovo');
+svm_rbf_3.fit(X, y)
+fig, ax = subplots(figsize=(8,8))
+plot_svm(X,
+y,
+svm_rbf_3,
+scatter_cmap=cm.tab10,
+ax=ax)
+The sklearn.svm library can also be used to perform support vector re-
+gression with a numerical response using the estimator SupportVector-
+Regression().
+SupportVector
+Regression()
+9.6.5
+Application to Gene Expression Data
+We now examine the Khan data set, which consists of a number of tissue
+samples corresponding to four distinct types of small round blue cell tu-
+mors. For each tissue sample, gene expression measurements are available.
+The data set consists of training data, xtrain and ytrain, and testing data,
+xtest and ytest.
+We examine the dimension of the data:
+In [32]: Khan = load_data('Khan')
+Khan['xtrain'].shape, Khan['xtest'].shape
+Out[32]: ((63, 2308), (20, 2308))
+This data set consists of expression measurements for 2,308 genes. The
+training and test sets consist of 63 and 20 observations, respectively.
+We will use a support vector approach to predict cancer subtype using
+gene expression measurements. In this data set, there is a very large number
+of features relative to the number of observations. This suggests that we
+should use a linear kernel, because the additional flexibility that will result
+from using a polynomial or radial kernel is unnecessary.
+In [33]: khan_linear = SVC(kernel='linear', C=10)
+khan_linear.fit(Khan['xtrain'], Khan['ytrain'])
+confusion_table(khan_linear.predict(Khan['xtrain']),
+Khan['ytrain'])
+Out[33]:
+Truth
+1
+2
+3
+4
+Predicted
+1
+8
+0
+0
+0
+2
+0
+23
+0
+0
+3
+0
+0
+12
+0
+4
+0
+0
+0
+20
+We see that there are no training errors. In fact, this is not surprising,
+because the large number of variables relative to the number of observations
+implies that it is easy to find hyperplanes that fully separate the classes.

@@ -1,0 +1,103 @@
+This design is shown in Figure 11.41. The three vertices (1, 0, 0), (0, 1, 0), and (0, 0, 1) are
+the pure blends, whereas the points 
+, and 
+are binary blends or two-
+component mixtures located at the midpoints of the three sides of the triangle. Figure 11.41
+also shows the {3, 3}, {4, 2}, and {4, 3} simplex lattice designs. In general, the number of
+points in a {p, m} simplex lattice design is
+An alternative to the simplex lattice design is the simplex centroid design. In a p-
+component simplex centroid design, there are 2p 1 points, corresponding to the p permutations
+of (1, 0, 0, . . . , 0), the 
+permutations of 
+, the 
+permutations of
+, . . . , and the overall centroid 
+. Figure 11.42 shows some
+simplex centroid designs.
+A criticism of the simplex designs described above is that most of the experimental
+runs occur on the boundary of the region and, consequently, include only p 1 of the 
+p components. It is usually desirable to augment the simplex lattice or simplex centroid
+with additional points in the interior of the region where the blends will consist of all p
+mixture components. For more discussion, see Cornell (2002) and Myers, Montgomery
+and Anderson-Cook (2009).
+Mixture models differ from the usual polynomials employed in response surface work
+because of the constraint xi 1. The standard forms of the mixture models that are in wide-
+spread use are
+Linear
+(11.25)
+Quadratic
+(11.26)
+E(y) 
+p
+i1
+ixi 
+p
+i!j
+ijxixj
+E(y) 
+p
+i1
+i xi
+(
+1
+p, 1
+p, . . . ,
+1
+p)
+(
+1
+3, 1
+3, 1
+3, 0, . . . , 0)
+(p
+3)
+(
+1
+2, 1
+2, 0, . . . , 0)
+(p
+2)
+N (p m 1)!
+m!(p 1)!
+(0, 
+1
+2, 1
+2)
+(
+1
+2, 1
+2, 0), (
+1
+2, 0, 
+1
+2)
+532
+Chapter 11 ■Response Surface Methods and Designs
+A [3,2] lattice
+x1 = 1 
+x1 = x3 = 2
+1
+x2 = 0 
+x3 = 1 
+x1 = 0 
+x2 = 1 
+A [3,3] lattice
+x1 = 1 
+x1 = 3, x3 = 3
+1
+2
+x2 = 0 
+x3 = 1 
+x2 = 1 
+A [4,3] lattice
+x1 = 1 
+x4 = 1 
+x2 = 1 
+x3 = 1 
+A [4,2] lattice
+x1 = 1 
+x4 = 1 
+x2 = 1 
+x3 = 1 
+■F I G U R E 1 1 . 4 1
+Some simplex lattice designs for p 3 and p 4 components

@@ -1,0 +1,60 @@
+334
+8. Tree-Based Methods
+2. For every observation that falls into the region Rj, we make the same
+prediction, which is simply the mean of the response values for the
+training observations in Rj.
+For instance, suppose that in Step 1 we obtain two regions, R1 and R2,
+and that the response mean of the training observations in the first region
+is 10, while the response mean of the training observations in the second
+region is 20. Then for a given observation X = x, if x ∈R1 we will predict
+a value of 10, and if x ∈R2 we will predict a value of 20.
+We now elaborate on Step 1 above. How do we construct the regions
+R1, . . . , RJ? In theory, the regions could have any shape. However, we
+choose to divide the predictor space into high-dimensional rectangles, or
+boxes, for simplicity and for ease of interpretation of the resulting predic-
+tive model. The goal is to find boxes R1, . . . , RJ that minimize the RSS,
+given by
+J
+0
+j=1
+0
+i∈Rj
+(yi −ˆyRj)2,
+(8.1)
+where ˆyRj is the mean response for the training observations within the
+jth box. Unfortunately, it is computationally infeasible to consider every
+possible partition of the feature space into J boxes. For this reason, we take
+a top-down, greedy approach that is known as recursive binary splitting. The recursive
+binary
+splitting
+approach is top-down because it begins at the top of the tree (at which point
+all observations belong to a single region) and then successively splits the
+predictor space; each split is indicated via two new branches further down
+on the tree. It is greedy because at each step of the tree-building process,
+the best split is made at that particular step, rather than looking ahead
+and picking a split that will lead to a better tree in some future step.
+In order to perform recursive binary splitting, we first select the pre-
+dictor Xj and the cutpoint s such that splitting the predictor space into
+the regions {X|Xj < s} and {X|Xj ≥s} leads to the greatest possible
+reduction in RSS. (The notation {X|Xj < s} means the region of predictor
+space in which Xj takes on a value less than s.) That is, we consider all
+predictors X1, . . . , Xp, and all possible values of the cutpoint s for each of
+the predictors, and then choose the predictor and cutpoint such that the
+resulting tree has the lowest RSS. In greater detail, for any j and s, we
+define the pair of half-planes
+R1(j, s) = {X|Xj < s} and R2(j, s) = {X|Xj ≥s},
+(8.2)
+and we seek the value of j and s that minimize the equation
+0
+i: xi∈R1(j,s)
+(yi −ˆyR1)2 +
+0
+i: xi∈R2(j,s)
+(yi −ˆyR2)2,
+(8.3)
+where ˆyR1 is the mean response for the training observations in R1(j, s),
+and ˆyR2 is the mean response for the training observations in R2(j, s).
+Finding the values of j and s that minimize (8.3) can be done quite quickly,
+especially when the number of features p is not too large.
+Next, we repeat the process, looking for the best predictor and best
+cutpoint in order to split the data further so as to minimize the RSS within

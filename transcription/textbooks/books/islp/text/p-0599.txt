@@ -1,0 +1,30 @@
+13.7 Exercises
+593
+FIGURE 13.11. The estimated false discovery rate versus the number of rejected
+null hypotheses, for 100 genes randomly selected from the Khan dataset.
+13.7
+Exercises
+Conceptual
+1. Suppose we test m null hypotheses, all of which are true. We control
+the Type I error for each null hypothesis at level α. For each sub-
+problem, justify your answer.
+(a) In total, how many Type I errors do we expect to make?
+(b) Suppose that the m tests that we perform are independent.
+What is the family-wise error rate associated with these m tests?
+Hint: If two events A and B are independent, then Pr(A ∩B) =
+Pr(A) Pr(B).
+(c) Suppose that m = 2, and that the p-values for the two tests are
+positively correlated, so that if one is small then the other will
+tend to be small as well, and if one is large then the other will
+tend to be large. How does the family-wise error rate associated
+with these m = 2 tests qualitatively compare to the answer in
+(b) with m = 2?
+Hint: First, suppose that the two p-values are perfectly correlated.
+(d) Suppose again that m = 2, but that now the p-values for the
+two tests are negatively correlated, so that if one is large then
+the other will tend to be small. How does the family-wise error
+rate associated with these m = 2 tests qualitatively compare to
+the answer in (b) with m = 2?
+Hint: First, suppose that whenever one p-value is less than α,
+then the other will be greater than α. In other words, we can
+never reject both null hypotheses.

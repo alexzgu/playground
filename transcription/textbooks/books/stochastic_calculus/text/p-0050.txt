@@ -1,0 +1,32 @@
+44
+CHAPTER 2. BROWNIAN MOTION
+The function t →B(t) is a random function. In other words, it is a
+random variable whose value is a function.
+There are three major assumptions about the random variables Bt.
+Stationary increments. If s < t, then the distribution of Bt −Bs is
+the same as that of Bt−s −B0.
+Independent increments. If s < t, the random variable Bt −Bs is
+independent of the values Br for r ≤s.
+Continuous paths. The function t →Bt is a continuous function of
+t.
+We often assume B0 = 0 for convenience, but we can also take other initial
+conditions. All of the assumptions above are very reasonable for a model of
+random continuous motion. However, it is not obvious that these are enough
+assumptions to characterize our process uniquely. It turns out that they do
+up to two parameters. One can prove (see Theorem 6.8.4), that if Bt is a
+process satisfying the three conditions above, then the distribution of Bt for
+each t must be normal. Suppose Bt is such a process, and let m, σ2 be the
+mean and variance of B1. If s < t, then independent, identically distributed
+increments imply that
+E[Bt] = E[Bs] + E[Bt −Bs] = E[Bs] + E[Bt−s],
+Var[Bt] = Var[Bs] + Var[Bt −Bs] = Var[Bs] + Var[Bt−s]
+Using this relation, we can see that E[Bt] = tm, Var[Bt] = tσ2. At this point,
+we have only shown that a process exists, then the increments must have
+a normal distribution. We will show that such a process exists. It will be
+convenient to put the normal distribution in the denition.
+Denition A stochastic process Bt is called a (-) B
+with m and () σ2 starting at the origin if it
+satises the following.
+B0 = 0.
+For s < t, the distribution of Bt −Bs is normal with mean m(t −s)
+and variance σ2(t −s).

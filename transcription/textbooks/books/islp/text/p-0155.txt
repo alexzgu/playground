@@ -1,0 +1,52 @@
+146
+4. Classification
+Thus, rather than estimating coefficients for K −1 classes, we actually
+estimate coefficients for all K classes. It is not hard to see that as a result
+of (4.13), the log odds ratio between the kth and k′th classes equals
+log
+% Pr(Y = k|X = x)
+Pr(Y = k′|X = x)
+&
+= (βk0 −βk′0) + (βk1 −βk′1)x1 + · · · + (βkp −βk′p)xp.
+(4.14)
+4.4
+Generative Models for Classification
+Logistic regression involves directly modeling Pr(Y = k|X = x) using the
+logistic function, given by (4.7) for the case of two response classes. In
+statistical jargon, we model the conditional distribution of the response Y ,
+given the predictor(s) X. We now consider an alternative and less direct
+approach to estimating these probabilities. In this new approach, we model
+the distribution of the predictors X separately in each of the response
+classes (i.e. for each value of Y ). We then use Bayes’ theorem to flip these
+around into estimates for Pr(Y = k|X = x). When the distribution of X
+within each class is assumed to be normal, it turns out that the model is
+very similar in form to logistic regression.
+Why do we need another method, when we have logistic regression?
+There are several reasons:
+• When there is substantial separation between the two classes, the
+parameter estimates for the logistic regression model are surprisingly
+unstable. The methods that we consider in this section do not suffer
+from this problem.
+• If the distribution of the predictors X is approximately normal in
+each of the classes and the sample size is small, then the approaches
+in this section may be more accurate than logistic regression.
+• The methods in this section can be naturally extended to the case
+of more than two response classes. (In the case of more than two
+response classes, we can also use multinomial logistic regression from
+Section 4.3.5.)
+Suppose that we wish to classify an observation into one of K classes,
+where K ≥2. In other words, the qualitative response variable Y can take
+on K possible distinct and unordered values. Let πk represent the overall
+or prior probability that a randomly chosen observation comes from the prior
+kth class. Let fk(X) ≡Pr(X|Y = k)1 denote the density function of X
+density
+function
+for an observation that comes from the kth class. In other words, fk(x) is
+relatively large if there is a high probability that an observation in the kth
+class has X ≈x, and fk(x) is small if it is very unlikely that an observation
+in the kth class has X ≈x. Then Bayes’ theorem states that
+Bayes’
+theorem
+1Technically, this definition is only correct if X is a qualitative random variable. If
+X is quantitative, then fk(x)dx corresponds to the probability of X falling in a small
+region dx around x.

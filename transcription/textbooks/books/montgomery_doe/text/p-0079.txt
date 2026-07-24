@@ -1,0 +1,184 @@
+2.31.
+Twenty observations on etch uniformity on silicon
+wafers are taken during a qualication experiment for a plas-
+ma etcher. The data are as follows:
+5.34
+6.65
+4.76
+5.98
+7.25
+6.00
+7.55
+5.54
+5.62
+6.21
+5.97
+7.35
+5.44
+4.39
+4.98
+5.25
+6.35
+4.61
+6.00
+5.32
+(a) Construct a 95 percent confidence interval estimate
+of 2.
+(b) Test the hypothesis that 2 1.0. Use 0.05. What
+are your conclusions?
+(c) Discuss the normality assumption and its role in this
+problem.
+(d) Check normality by constructing a normal probability
+plot. What are your conclusions?
+2.32.
+The diameter of a ball bearing was measured by 12
+inspectors, each using two different kinds of calipers. The
+results were
+Inspector
+Caliper 1
+Caliper 2
+1
+0.265
+0.264
+2
+0.265
+0.265
+3
+0.266
+0.264
+4
+0.267
+0.266
+5
+0.267
+0.267
+6
+0.265
+0.268
+7
+0.267
+0.264
+8
+0.267
+0.265
+9
+0.265
+0.265
+10
+0.268
+0.267
+11
+0.268
+0.268
+12
+0.265
+0.269
+(a) Is there a signicant difference between the means of
+the population of measurements from which the two
+samples were selected? Use 0.05.
+(b) Find the P-value for the test in part (a).
+(c) Construct a 95 percent condence interval on the dif-
+ference in mean diameter measurements for the two
+types of calipers.
+2.33.
+An article in the journal Neurology (1998, Vol. 50, pp.
+1246–1252) observed that monozygotic twins share numerous
+physical, psychological, and pathological traits. The investi-
+gators measured an intelligence score of 10 pairs of twins.
+The data obtained are as follows:
+Pair
+Birth Order: 1
+Birth Order: 2
+1
+6.08
+5.73
+2
+6.22
+5.80
+2.7 Problems
+63
+3
+7.99
+8.42
+4
+7.44
+6.84
+5
+6.48
+6.43
+6
+7.99
+8.76
+7
+6.32
+6.32
+8
+7.60
+7.62
+9
+6.03
+6.59
+10
+7.52
+7.67
+(a) Is the assumption that the difference in score is nor-
+mally distributed reasonable?  
+(b) Find a 95% condence interval on the difference in
+mean score. Is there any evidence that mean score
+depends on birth order?
+(c) Test an appropriate set of hypotheses indicating that
+the mean score does not depend on birth order. 
+2.34.
+An article in the Journal of Strain Analysis (vol. 18,
+no. 2, 1983) compares several procedures for predicting the
+shear strength for steel plate girders. Data for nine girders in
+the form of the ratio of predicted to observed load for two of
+these procedures, the Karlsruhe and Lehigh methods, are as
+follows:
+Girder
+Karlsruhe Method
+Lehigh Method
+S1/1
+1.186
+1.061
+S2/1
+1.151
+0.992
+S3/1
+1.322
+1.063
+S4/1
+1.339
+1.062
+S5/1
+1.200
+1.065
+S2/1
+1.402
+1.178
+S2/2
+1.365
+1.037
+S2/3
+1.537
+1.086
+S2/4
+1.559
+1.052
+(a) Is there any evidence to support a claim that there is a
+difference in mean performance between the two
+methods? Use 0.05.
+(b) What is the P-value for the test in part (a)?
+(c) Construct a 95 percent condence interval for the dif-
+ference in mean predicted to observed load.
+(d) Investigate the normality assumption for both samples.
+(e) Investigate the normality assumption for the difference
+in ratios for the two methods.
+(f) Discuss the role of the normality assumption in the
+paired t-test.
+2.35.
+The deection temperature under load for two differ-
+ent formulations of ABS plastic pipe is being studied. Two
+samples of 12 observations each are prepared using each for-
+mulation and the deection temperatures (in °F) are reported
+below:

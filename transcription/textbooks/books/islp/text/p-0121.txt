@@ -1,0 +1,46 @@
+112
+3. Linear Regression
+y
+y
+x1
+x1
+x2
+x2
+y
+y
+y
+FIGURE 3.16.
+Plots of ˆf(X) using KNN regression on a two-dimensional
+data set with 64 observations (orange dots). Left: K = 1 results in a rough step
+function fit. Right: K = 9 produces a much smoother fit.
+In contrast, larger values of K provide a smoother and less variable fit; the
+prediction in a region is an average of several points, and so changing one
+observation has a smaller effect. However, the smoothing may cause bias by
+masking some of the structure in f(X). In Chapter 5, we introduce several
+approaches for estimating test error rates. These methods can be used to
+identify the optimal value of K in KNN regression.
+In what setting will a parametric approach such as least squares linear re-
+gression outperform a non-parametric approach such as KNN regression?
+The answer is simple: the parametric approach will outperform the non-
+parametric approach if the parametric form that has been selected is close
+to the true form of f. Figure 3.17 provides an example with data generated
+from a one-dimensional linear regression model. The black solid lines rep-
+resent f(X), while the blue curves correspond to the KNN fits using K = 1
+and K = 9. In this case, the K = 1 predictions are far too variable, while
+the smoother K = 9 fit is much closer to f(X). However, since the true
+relationship is linear, it is hard for a non-parametric approach to compete
+with linear regression: a non-parametric approach incurs a cost in variance
+that is not offset by a reduction in bias. The blue dashed line in the left-
+hand panel of Figure 3.18 represents the linear regression fit to the same
+data. It is almost perfect. The right-hand panel of Figure 3.18 reveals that
+linear regression outperforms KNN for this data. The green solid line, plot-
+ted as a function of 1/K, represents the test set mean squared error (MSE)
+for KNN. The KNN errors are well above the black dashed line, which is
+the test MSE for linear regression. When the value of K is large, then KNN
+performs only a little worse than least squares regression in terms of MSE.
+It performs far worse when K is small.
+In practice, the true relationship between X and Y is rarely exactly lin-
+ear. Figure 3.19 examines the relative performances of least squares regres-
+sion and KNN under increasing levels of non-linearity in the relationship
+between X and Y . In the top row, the true relationship is nearly linear.
+In this case we see that the test MSE for linear regression is still superior

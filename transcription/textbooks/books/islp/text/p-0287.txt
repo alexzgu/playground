@@ -1,0 +1,47 @@
+6.5 Lab: Linear Models and Regularization Methods
+279
+In [41]: outer_valid = skm.ShuffleSplit(n_splits=1,
+test_size=0.25,
+random_state=1)
+inner_cv = skm.KFold(n_splits=5,
+shuffle=True,
+random_state=2)
+ridgeCV = skl.ElasticNetCV(alphas=lambdas,
+l1_ratio=0,
+cv=inner_cv)
+pipeCV = Pipeline(steps=[('scaler', scaler),
+('ridge', ridgeCV)]);
+In [42]: results = skm.cross_validate(pipeCV,
+X,
+Y,
+cv=outer_valid ,
+scoring='neg_mean_squared_error')
+-results['test_score']
+Out[42]: array([132393.84])
+The Lasso
+We saw that ridge regression with a wise choice of λ can outperform least
+squares as well as the null model on the Hitters data set. We now ask
+whether the lasso can yield either a more accurate or a more interpretable
+model than ridge regression. In order to fit a lasso model, we once again
+use the ElasticNetCV() function; however, this time we use the argument
+l1_ratio=1. Other than that change, we proceed just as we did in fitting a
+ridge model.
+In [43]: lassoCV = skl.ElasticNetCV(n_alphas=100,
+l1_ratio=1,
+cv=kfold)
+pipeCV = Pipeline(steps=[('scaler', scaler),
+('lasso', lassoCV)])
+pipeCV.fit(X, Y)
+tuned_lasso = pipeCV.named_steps['lasso']
+tuned_lasso.alpha_
+Out[43]: 3.147
+In [44]: lambdas, soln_array = skl.Lasso.path(Xs,
+Y,
+l1_ratio=1,
+n_alphas=100)[:2]
+soln_path = pd.DataFrame(soln_array.T,
+columns=D.columns,
+index=-np.log(lambdas))
+We can see from the coefficient plot of the standardized coefficients that
+depending on the choice of tuning parameter, some of the coefficients will
+be exactly equal to zero.

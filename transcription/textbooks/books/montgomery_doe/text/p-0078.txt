@@ -1,0 +1,172 @@
+(c) Discuss the role of the normality assumption in this
+problem. Check the assumption of normality for both
+types of ares.
+2.27.
+An article in Solid State Technology, “Orthogonal
+Design for Process Optimization and Its Application to
+Plasma Etching” by G. Z. Yin and D. W. Jillie (May 1987)
+describes an experiment to determine the effect of the C2F6
+flow rate on the uniformity of the etch on a silicon wafer
+used in integrated circuit manufacturing. All of the runs
+were made in random order. Data for two flow rates are as
+follows:
+C2F6 Flow
+Uniformity Observation
+(SCCM)
+1
+2
+3
+4
+5
+6
+125
+2.7
+4.6
+2.6
+3.0
+3.2
+3.8
+200
+4.6
+3.4
+2.9
+3.5
+4.1
+5.1
+(a) Does the C2F6 ow rate affect average etch uniformi-
+ty? Use 0.05.
+(b) What is the P-value for the test in part (a)?
+(c) Does the C2F6 ow rate affect the wafer-to-wafer vari-
+ability in etch uniformity? Use 0.05.
+(d) Draw box plots to assist in the interpretation of the
+data from this experiment.
+2.28.
+A new ltering device is installed in a chemical unit.
+Before its installation, a random sample yielded the follow-
+ing information about the percentage of impurity:
+12.5,
+101.17, and n1 8. After installation, a random sample
+yielded
+10.2,
+94.73, n2 9.
+(a) Can you conclude that the two variances are equal?
+Use 0.05.
+(b) Has the ltering device reduced the percentage of
+impurity signicantly? Use 0.05.
+2.29.
+Photoresist is a light-sensitive material applied to
+semiconductor wafers so that the circuit pattern can be
+imaged on to the wafer. After application, the coated wafers
+are baked to remove the solvent in the photoresist mixture
+and to harden the resist. Here are measurements of photore-
+sist thickness (in kA) for eight wafers baked at two differ-
+ent temperatures. Assume that all of the runs were made in
+random order.
+95 C
+100 C
+11.176
+5.263
+7.089
+6.748
+8.097
+7.461
+11.739
+7.015
+11.291
+8.133
+10.759
+7.418
+6.467
+3.772
+8.315
+8.963
+S2
+2
+y2
+S2
+1
+y1
+62
+Chapter 2 ■Simple Comparative Experiments
+(a) Is there evidence to support the claim that the high-
+er baking temperature results in wafers with a lower
+mean photoresist thickness? Use 0.05.
+(b) What is the P-value for the test conducted in part (a)?
+(c) Find a 95 percent condence interval on the difference in
+means. Provide a practical interpretation of this interval.
+(d) Draw dot diagrams to assist in interpreting the results
+from this experiment.
+(e) Check the assumption of normality of the photoresist
+thickness.
+(f) Find the power of this test for detecting an actual dif-
+ference in means of 2.5 kA.
+(g) What sample size would be necessary to detect an
+actual difference in means of 1.5 kA with a power of
+at least 0.9?
+2.30.
+Front housings for cell phones are manufactured in
+an injection molding process. The time the part is allowed
+to cool in the mold before removal is thought to influence
+the occurrence of a particularly troublesome cosmetic
+defect, flow lines, in the finished housing. After manufac-
+turing, the housings are inspected visually and assigned a
+score between 1 and 10 based on their appearance, with 10
+corresponding to a perfect part and 1 corresponding to a
+completely defective part. An experiment was conducted
+using two cool-down times, 10 and 20 seconds, and 20
+housings were evaluated at each level of cool-down time.
+All 40 observations in this experiment were run in random
+order. The data are as follows.
+10 seconds 
+20 seconds
+1
+3
+7
+6
+2
+6
+8
+9
+1
+5
+5
+5
+3
+3
+9
+7
+5
+2
+5
+4
+1
+1
+8
+6
+5
+6
+6
+8
+2
+8
+4
+5
+3
+2
+6
+8
+5
+3
+7
+7
+(a) Is there evidence to support the claim that the longer
+cool-down time results in fewer appearance defects?
+Use 0.05.
+(b) What is the P-value for the test conducted in part (a)?
+(c) Find a 95 percent condence interval on the difference
+in means. Provide a practical interpretation of this
+interval.
+(d) Draw dot diagrams to assist in interpreting the results
+from this experiment.
+(e) Check the assumption of normality for the data from
+this experiment.

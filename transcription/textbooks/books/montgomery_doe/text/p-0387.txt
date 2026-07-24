@@ -1,0 +1,54 @@
+8.7 Resolution IV and V Designs
+371
+The generators for the original fractions are E ABC and F BCD, and because we
+changed the signs in column A to create the fold over, the generators for the second group of
+16 runs are E  ABC and F BCD. Since there is only one word of like sign (L 1, U 1)
+and the combined design has only one generator (it is a one-half fraction), the generator for
+the combined design is F BCD. Furthermore, since ABCE is positive in block 1 and ABCE
+is negative in block 2, ABCE plus its alias ADEF are confounded with blocks.
+Examination of the alias chains involving the two-factor interactions for the original 16-
+run design and the completed fold over reveals some troubling information. In the original
+resolution IV fraction, every two-factor interaction was aliased with another two-factor inter-
+action in six alias chains, and in one alias chain there were three two-factor interactions (refer
+to Table 8.8). Thus, seven degrees of freedom were available to estimate two-factor interac-
+tions. In the completed fold over, there are nine two-factor interactions that are estimated free
+of other two-factor interactions and three alias chains involving two two-factor interactions,
+resulting in 12 degrees of freedom for estimating two-factor interactions. Put another way, we
+used 16 additional runs but only gained ve additional degrees of freedom for estimating two-
+factor interactions. This is not a terribly efcient use of experimental resources.
+Fortunately, there is another alternative to using a complete fold over. In a partial fold over
+(or semifold) we make only half of the runs required for a complete fold over, which for the spin
+coater experiment would be eight runs. The following steps will produce a partial fold-over design:
+1. Construct a single-factor fold over from the original design in the usual way by
+changing the signs on a factor that is involved in a two-factor interaction of interest.
+2. Select only half of the fold-over runs by choosing those runs where the chosen fac-
+tor is either at its high or low level. Selecting the level that you believe will gener-
+ate the most desirable response is usually a good idea.
+Table 8.33 is the partial fold-over design for the spin coater experiment. Notice that we
+selected the runs where A is at its low level because in the original set of 16 runs (Table 8.31),
+05
+10
+20
+30
+50
+70
+80
+90
+0.00
+38.20
+76.41
+|Effect|
+114.61
+152.81
+95
+99
+Half-normal % probability
+C
+CE
+B
+A
+E
+■F I G U R E 8 . 2 6
+Half-normal
+plot of effects for the spin coater
+experiment in Table 8.32

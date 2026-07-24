@@ -1,0 +1,69 @@
+curves also assume that the sample sizes from the two populations are equal and that the sam-
+ple size shown on the horizontal scale (say n) is the total sample size, so that the sample size
+in each population is n/2.  Also notice that the difference in means is expressed as a ratio to
+the common standard deviation; that is
+From examining these curves we observe the following:
+1. The greater the difference in means 
+, the higher the power (smaller type
+II error probability).  That is, for a specied sample size and signicance level ,
+the test will detect large differences in means more easily than small ones.
+2. As the sample size get larger, the power of the test gets larger (the type II error
+probability gets smaller) for a given difference in means and signicance level .
+That is, to detect a specied difference in means we may make the test more pow-
+erful by increasing the sample size.
+Operating curves and power curves are often helpful in selecting a sample size to use in an
+experiment.  For example, consider the Portland cement mortar problem discussed previously.
+Suppose that a difference in mean strength of 0.5 kgf/cm2 has practical impact on the use of
+the mortar, so if the difference in means is at least this large, we would like to detect it with a
+high probability. Thus, because 
+kgf/cm2 is the “critical” difference in means
+that we wish to detect, we nd that the power curve parameter would be 
+.
+Unfortunately,
+involves the unknown standard deviation . However, suppose on the basis of
+past experience we think that it is very unlikely that the standard deviation will exceed 
+0.25 kgf/cm2. Then substituting 
+kgf/cm2 into the expression for results in 
+. If
+we wish to reject the null hypothesis when the difference in means 
+with prob-
+ability at least 0.95 (power = 0.95) with 
+, then referring to Figure 2.13 we nd that the
+required sample size on the horizontal axis is 16, approximately.  This is the total sample size,
+so the sample size in each population should be 
+In our example, the experimenter actually used a sample size of 10. The experimenter could
+have elected to increase the sample size slightly to guard against the possibility that the prior
+estimate of the common standard deviation was too conservative and was likely to be some-
+what larger than 0.25.
+Operating characteristic curves often play an important role in the choice of sample size
+in experimental design problems. Their use in this respect is discussed in subsequent chap-
+ters. For a discussion of the uses of operating characteristic curves for other simple compar-
+ative experiments similar to the two-sample t-test, see Montgomery and Runger (2011).
+Many statistics software packages can also assist the experimenter in performing power
+and sample size calculations. The following boxed display illustrates several computations for
+the Portland cement mortar problem from the power and sample size routine for the two-sample
+t test in Minitab. The rst section of output repeats the analysis performed with the OC
+curves; nd the sample size necessary for detecting the critical difference in means of
+0.5 kgf/cm2, assuming that the standard deviation of strength is 0.25 kgf/cm2. Notice that the
+answer obtained from Minitab, n1 n2 8, is identical to the value obtained from the OC
+curve analysis. The second section of the output computes the power for the case where the
+critical difference in means is much smaller; only 0.25 kgf/cm2. The power has dropped con-
+siderably, from over 0.95 to 0.562. The nal section determines the sample sizes that would
+be necessary to detect an actual difference in means of 0.25 kgf/cm2 with a power of at least
+0.9. The required sample size turns out to be considerably larger, n1 n2 23.
+n 16/2 8.
+0.05
+1 2 0.5
+2
+
+0.25
+
+
+0.5/
+1 2 0.5
+1 2
+
+1 2
+
+46
+Chapter 2 ■Simple Comparative Experiments

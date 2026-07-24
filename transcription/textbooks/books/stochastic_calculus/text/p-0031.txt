@@ -1,0 +1,51 @@
+1.5. SQUARE INTEGRABLE MARTINGALES
+25
+independent, but for square integrable martingales they are orthogonal as we
+now show.
+Proposition 1.5.1. SMn 
+Fn. Tm < n,
+E [(Mn+1 −Mn) (Mm+1 −Mm)] = 0
+M, n,
+E[M 2
+n] = E[M 2
+0] +
+n
+
+j=1
+E
+
+(Mj −Mj−1)2
+
+P. If m < n, then Mm+1 −Mm is Fn-measurable, and hence
+E [(Mn+1 −Mn) (Mm+1 −Mm) Fn]
+= (Mm+1 −Mm) E[Mn+1 −Mn Fn] = 0
+Hence
+E [(Mn+1 −Mn) (Mm+1 −Mm)]
+= E [E [(Mn+1 −Mn) (Mm+1 −Mm) Fn]] = 0
+Also, if we set M−1 = 0,
+M 2
+n
+=
+
+M0 +
+n
+
+j=1
+(Mj −Mj−1)
+2
+=
+M 2
+0 +
+n
+
+j=1
+(Mj −Mj−1)2 +
+
+j̸=k
+(Mj −Mj−1)(Mk −Mk−1)
+Taking expectations of both sides gives the second conclusion.
+The natural place to discuss the role of orthogonality in the study of
+square integrable martingales is L2 = L2(Ω, F, P), the space of square
+integrable random variables. This is a (real) Hilbert space under the
+inner product
+(X, Y ) = E[XY ]

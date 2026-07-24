@@ -1,0 +1,66 @@
+3.3 Other Considerations in the Regression Model
+107
+ 21.25 
+ 21.5 
+ 21.8 
+0.16
+0.17
+0.18
+0.19
+−5
+−4
+−3
+−2
+−1
+0
+ 21.5 
+ 21.8 
+−0.1
+0.0
+0.1
+0.2
+0
+1
+2
+3
+4
+5
+βLimit
+βLimit
+βAge
+βRating
+FIGURE 3.15. Contour plots for the RSS values as a function of the parameters
+β for various regressions involving the Credit data set. In each plot, the black
+dots represent the coefficient values corresponding to the minimum RSS. Left:
+A contour plot of RSS for the regression of balance onto age and limit. The
+minimum value is well defined. Right: A contour plot of RSS for the regression
+of balance onto rating and limit. Because of the collinearity, there are many
+pairs (βLimit, βRating) with a similar value for RSS.
+that correspond to the same RSS, with ellipses nearest to the center tak-
+ing on the lowest values of RSS. The black dots and associated dashed
+lines represent the coefficient estimates that result in the smallest possible
+RSS—in other words, these are the least squares estimates. The axes for
+limit and age have been scaled so that the plot includes possible coeffi-
+cient estimates that are up to four standard errors on either side of the
+least squares estimates. Thus the plot includes all plausible values for the
+coefficients. For example, we see that the true limit coefficient is almost
+certainly somewhere between 0.15 and 0.20.
+In contrast, the right-hand panel of Figure 3.15 displays contour plots
+of the RSS associated with possible coefficient estimates for the regression
+of balance onto limit and rating, which we know to be highly collinear.
+Now the contours run along a narrow valley; there is a broad range of
+values for the coefficient estimates that result in equal values for RSS.
+Hence a small change in the data could cause the pair of coefficient values
+that yield the smallest RSS—that is, the least squares estimates—to move
+anywhere along this valley. This results in a great deal of uncertainty in the
+coefficient estimates. Notice that the scale for the limit coefficient now runs
+from roughly −0.2 to 0.2; this is an eight-fold increase over the plausible
+range of the limit coefficient in the regression with age. Interestingly, even
+though the limit and rating coefficients now have much more individual
+uncertainty, they will almost certainly lie somewhere in this contour valley.
+For example, we would not expect the true value of the limit and rating
+coefficients to be −0.1 and 1 respectively, even though such a value is
+plausible for each coefficient individually.
+Since collinearity reduces the accuracy of the estimates of the regression
+coefficients, it causes the standard error for ˆβj to grow. Recall that the
+t-statistic for each predictor is calculated by dividing ˆβj by its standard

@@ -1,0 +1,123 @@
+6.3 The 23 Design
+247
+■TA B L E 6 . 5
+Effect Estimate Summary for Example 6.1
+Effect
+Sum of
+Percent
+Factor
+Estimate
+Squares
+Contribution
+A
+101.625
+41,310.5625
+7.7736
+B
+7.375
+217.5625
+0.0409
+C
+306.125
+374,850.0625
+70.5373
+AB
+24.875
+2475.0625
+0.4657
+AC
+153.625
+94,402.5625
+17.7642
+BC
+2.125
+18.0625
+0.0034
+ABC
+5.625
+126.5625
+0.0238 
+■TA B L E 6 . 6
+Analysis of Variance for the Plasma Etching Experiment
+Source of
+Sum of
+Degrees of
+Mean
+Variation
+Squares
+Freedom
+Square
+F0
+P-Value
+Gap (A)
+41,310.5625
+1
+41,310.5625
+18.34
+0.0027
+Gas ow (B)
+217.5625
+1
+217.5625
+0.10
+0.7639
+Power (C)
+374,850.0625
+1
+374,850.0625
+166.41
+0.0001
+AB
+2475.0625
+1
+2475.0625
+1.10
+0.3252
+AC
+94,402.5625
+1
+94,402.5625
+41.91
+0.0002
+BC
+18.0625
+1
+18.0625
+0.01
+0.9308
+ABC
+126.5625
+1
+126.5625
+0.06
+0.8186
+Error
+18,020.5000
+8
+2252.5625
+Total
+531,420.9375
+15
+The Regression Model and Response Surface. The regression model for predicting
+etch rate is
+where the coded variables x1 and x3 represent A and C, respectively. The x1x3 term is the AC
+interaction. Residuals can be obtained as the difference between observed and predicted etch
+rate values. We leave the analysis of these residuals as an exercise for the reader.
+Figure 6.7 presents the response surface and contour plot for etch rate obtained from the
+regression model. Notice that because the model contains interaction, the contour lines of
+constant etch rate are curved (or the response surface is a “twisted” plane). It is desirable to
+operate this process so that the etch rate is close to 900 A/m. The contour plot shows that sev-
+eral combinations of gap and power will satisfy this objective. However, it will be necessary
+to control both of these variables very precisely.
+776.0625 
+101.625
+2 x1 
+306.125
+2 x3 
+153.625
+2 x1x3
+yˆ ˆ
+0 ˆ
+1x1 ˆ
+3x3 ˆ
+13x1x3

@@ -1,0 +1,153 @@
+9.4 Factorials with Mixed Levels
+413
+the levels of X be represented by x1, x2, and x3. The right side of Table 9.9 shows how the sign
+patterns for B and C are combined to form the levels of the three-level factor.
+Now factor X has two degrees of freedom and if the factor is quantitative, it can be par-
+titioned into a linear and a quadratic component, each component having one degree of free-
+dom. Table 9.10 shows a 23 design with the columns labeled to show the actual effects that they
+estimate, with XL and XQ denoting the linear and quadratic effects of X, respectively. Note that
+the linear effect of X is the sum of the two effect estimates computed from the columns usually
+associated with B and C and that the effect of A can only be computed from the runs where
+X is at either the low or high levels, namely, runs 1, 2, 7, and 8. Similarly, the A XL effect is
+the sum of the two effects that would be computed from the columns usually labeled AB and AC.
+Furthermore, note that runs 3 and 5 are replicates. Therefore, a one-degree-of-freedom estimate
+of error can be made using these two runs. Similarly, runs 4 and 6 are replicates, and this would
+lead to a second one-degree-of-freedom estimate of error. The average variance at these two pairs
+of runs could be used as a mean square for error with two degrees of freedom. The complete
+analysis of variance is summarized in Table 9.11.
+If we are willing to assume that the two-factor and higher interactions are negligible,
+we can convert the design in Table 9.10 into a resolution III fraction with up to four two-level
+factors and a single three-level factor. This would be accomplished by associating the two-
+level factors with columns A, AB, AC, and ABC. Column BC cannot be used for a two-level
+factor because it contains the quadratic effect of the three-level factor X.
+■TA B L E 9 . 1 0
+One 2-Level and One 3-Level Factor in a 23 Design
+Actual
+Treatment
+A
+XL
+XL
+A XL
+A XL
+XQ
+A XQ
+Combinations
+Run
+A
+B
+C
+AB
+AC
+BC
+ABC
+A
+X
+1
+
+
+
+
+
+
+
+Low
+Low
+2
+
+
+
+
+
+
+
+High
+Low
+3
+
+
+
+
+
+
+
+Low
+Med
+4
+
+
+
+
+
+
+
+High
+Med
+5
+
+
+
+
+
+
+
+Low
+Med
+6
+
+
+
+
+
+
+
+High
+Med
+7
+
+
+
+
+
+
+
+Low
+High
+8
+
+
+
+
+
+
+
+High
+High 
+■TA B L E 9 . 1 1
+Analysis of Variance for the Design in Table 9.10
+Sum of
+Degrees of
+Mean
+Source of Variation
+Squares
+Freedom
+Square
+A
+SSA
+1
+MSA
+X (XL XQ)
+SSX
+2
+MSX1
+AX (A XL A XQ)
+SSAX
+2
+MSAX
+Error (from runs 3 and 5
+SSE
+2
+MSE
+and runs 4 and 6)
+Total
+SST
+7

@@ -1,0 +1,82 @@
+9.3 Support Vector Machines
+381
+−4
+−2
+0
+2
+4
+−4
+−2
+0
+2
+4
+  
+  
+  
+  
+  
+  
+−4
+−2
+0
+2
+4
+−4
+−2
+0
+2
+4
+  
+  
+  
+  
+X1
+X1
+X2
+X2
+FIGURE 9.9. Left: An SVM with a polynomial kernel of degree 3 is applied to
+the non-linear data from Figure 9.8, resulting in a far more appropriate decision
+rule. Right: An SVM with a radial kernel is applied. In this example, either kernel
+is capable of capturing the decision boundary.
+classifier in a higher-dimensional space involving polynomials of degree d,
+rather than in the original feature space. When the support vector classifier
+is combined with a non-linear kernel such as (9.22), the resulting classifier is
+known as a support vector machine. Note that in this case the (non-linear)
+function has the form
+f(x) = β0 +
+0
+i∈S
+αiK(x, xi).
+(9.23)
+The left-hand panel of Figure 9.9 shows an example of an SVM with a
+polynomial kernel applied to the non-linear data from Figure 9.8. The fit is
+a substantial improvement over the linear support vector classifier. When
+d = 1, then the SVM reduces to the support vector classifier seen earlier in
+this chapter.
+The polynomial kernel shown in (9.22) is one example of a possible
+non-linear kernel, but alternatives abound. Another popular choice is the
+radial kernel, which takes the form
+radial kernel
+K(xi, xi′) = exp(−γ
+p
+0
+j=1
+(xij −xi′j)2).
+(9.24)
+In (9.24), γ is a positive constant. The right-hand panel of Figure 9.9 shows
+an example of an SVM with a radial kernel on this non-linear data; it also
+does a good job in separating the two classes.
+How does the radial kernel (9.24) actually work? If a given test obser-
+vation x∗= (x∗
+1, . . . , x∗
+p)T is far from a training observation xi in terms of
+Euclidean distance, then )p
+j=1(x∗
+j −xij)2 will be large, and so K(x∗, xi) =
+exp(−γ )p
+j=1(x∗
+j −xij)2) will be tiny. This means that in (9.23), xi will
+play virtually no role in f(x∗). Recall that the predicted class label for the
+test observation x∗is based on the sign of f(x∗). In other words, training
+observations that are far from x∗will play essentially no role in the pre-
+dicted class label for x∗. This means that the radial kernel has very local

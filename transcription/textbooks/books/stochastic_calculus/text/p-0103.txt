@@ -1,0 +1,68 @@
+3.2. STOCHASTIC INTEGRAL
+97
+is really a limit of normal random variables and hence has a normal distri-
+bution (see Exercise 3.8).
+If
+Zt =
+t
+0
+As dBs,
+then the of Z is dened by
+⟨Z⟩t = lim
+n∞
+
+j≤nt
+
+Z
+j
+n
+
+−Z
+j −1
+n
+2
+
+Theorem 3.2.6. IAt 
+
+Zt =
+t
+0
+As dBs,
+
+⟨Z⟩t =
+t
+0
+A2
+s ds
+Note that if σ > 0 is a constant and Zt =
+t
+0 σ dBs, then Z is a Brownian
+motion with variance parameter σ2 for which we have already seen that
+⟨Z⟩t = σ2t. The quadratic variation ⟨Z⟩t should be viewed as the total
+amount of randomnessor the total amount of bettingthat has been done
+up to time t. For Brownian motion, the betting rate stays constant and hence
+the quadratic variation grows linearly. For more general stochastic integrals,
+the current bet depends on the results of the games up to that point and
+hence is a random variable. The quadratic variation at time t is a random
+variable with mean
+E [⟨Z⟩t] = E
+t
+0
+A2
+s ds
+
+=
+t
+0
+E
+
+A2
+s
+
+ds
+An alternative way to dene the quadratic variation ⟨Z⟩t for square
+integrable martingales is as the unique increasing process such that
+Mt = Z2
+t −⟨Z⟩t
+is a martingale. If At is a simple process, it is not hard (Exercise 3.4)
+to show that Mt as dened above is a martingale. More generally, one

@@ -1,0 +1,60 @@
+116
+CHAPTER 3. STOCHASTIC INTEGRATION
+If the Lipschitz condition holds only locally, then we can use this
+argument to show that there exists a stopping time T with PT >
+0= 1 such that Xt, 0 ≤t < T satises the equation. In the random
+case the time T for which the solution is valid is a random variable.
+3.6
+Covariation and the product rule
+Suppose Xt, Yt satisfy
+dXt = Ht dt + At dBt,
+dYt = Kt dt + Ct dBt
+(3.24)
+Here Bt is the same standard Brownian motion in both equations. As before,
+the covariation process is dened by
+⟨X, Y ⟩t = lim
+n∞
+
+j≤tn
+
+X
+j
+n
+
+−X
+j −1
+n
+
+Y
+j
+n
+
+−Y
+j −1
+n
+
+
+Using the formal rules for stochastic calculus we get
+[dXt] [dYt]
+=
+[Ht dt + At dBt] [Kt dt + Ct dBt]
+=
+At Ct dt + O((dt)2) + O((dt)(dBt))
+This indeed shows what happens and we get
+⟨X, Y ⟩t =
+t
+0
+As Cs ds,
+or in dierential form,
+d⟨X, Y ⟩t = At Ct dt
+The product rule for the usual derivative can be written in dierential
+form as
+d(fg) = f dg + g df = fg′ dt + f ′g dt
+It can be obtained formally by writing
+d(fg)
+=
+f(t + dt) g(t + dt) −f(t) g(t)
+=
+[f(t + dt) −f(t)] g(t + dt) + f(t) [g(t + dt) −g(t)]
+=
+(df)g + (dg)f + (df)(dg)

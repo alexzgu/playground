@@ -1,0 +1,31 @@
+1
+Introduction
+An Overview of Statistical Learning
+Statistical learning refers to a vast set of tools for understanding data. These
+tools can be classified as supervised or unsupervised. Broadly speaking,
+supervised statistical learning involves building a statistical model for pre-
+dicting, or estimating, an output based on one or more inputs. Problems of
+this nature occur in fields as diverse as business, medicine, astrophysics, and
+public policy. With unsupervised statistical learning, there are inputs but
+no supervising output; nevertheless we can learn relationships and struc-
+ture from such data. To provide an illustration of some applications of
+statistical learning, we briefly discuss three real-world data sets that are
+considered in this book.
+Wage Data
+In this application (which we refer to as the Wage data set throughout this
+book), we examine a number of factors that relate to wages for a group of
+men from the Atlantic region of the United States. In particular, we wish
+to understand the association between an employee’s age and education, as
+well as the calendar year, on his wage. Consider, for example, the left-hand
+panel of Figure 1.1, which displays wage versus age for each of the individu-
+als in the data set. There is evidence that wage increases with age but then
+decreases again after approximately age 60. The blue line, which provides
+an estimate of the average wage for a given age, makes this trend clearer.
+Given an employee’s age, we can use this curve to predict his wage. However,
+it is also clear from Figure 1.1 that there is a significant amount of vari-
+ability associated with this average value, and so age alone is unlikely to
+provide an accurate prediction of a particular man’s wage.
+© Springer Nature Switzerland AG 2023 
+G. James et al., An Introduction to Statistical Learning, Springer Texts in Statistics, 
+https://doi.org/10.1007/978-3-031-38747-0_1 
+1

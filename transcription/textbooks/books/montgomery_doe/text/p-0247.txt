@@ -1,0 +1,145 @@
+5.7 Problems
+231
+conducted in three blocks, with each replicate a block.
+Assume that the observations in the data table are given in
+order, that is, the first observation in each cell comes from
+the first replicate, and so on. Reanalyze the data as a fac-
+torial experiment in blocks and estimate the variance
+component for blocks. Does it appear that blocking was
+useful in this experiment?
+5.39.
+Reconsider the bone anchor experiment in Problem
+5.29. Suppose that this experiment had been conducted in two
+blocks, with each replicate a block. Assume that the observa-
+tions in the data table are given in order, that is, the rst obser-
+vation in each cell comes from the rst replicate, and so on.
+Reanalyze the data as a factorial experiment in blocks and
+estimate the variance component for blocks. Does it appear
+that blocking was useful in this experiment?
+5.40.
+Reconsider the keyboard experiment in Problem 5.30.
+Suppose that this experiment had been conducted in three
+blocks, with each replicate a block. Assume that the observa-
+tions in the data table are given in order, that is, the rst obser-
+vation in each cell comes from the rst replicate, and so on.
+Reanalyze the data as a factorial experiment in blocks and
+estimate the variance component for blocks. Does it appear
+that blocking was useful in this experiment?
+5.41.
+The C. F. Eye Care company manufactures lenses for
+transplantation into the eye following cataract surgery. An
+engineering group has conducted an experiment involving
+two factors to determine their effect on the lens polishing
+process. The results of this experiment are summarized in the
+following ANOVA display:
+Source
+DF
+SS
+MS
+F
+P-value
+Factor A
+—
+—
+0.0833
+0.05
+0.952
+Factor B
+—
+96.333
+96.3333
+57.80
+<0.001
+Interaction
+2
+12.167
+6.0833
+3.65
+—
+Error
+6
+10.000
+—
+Total
+11
+118.667
+Answer the following questions about this experiment.  
+(a) The sum of squares for factor A is______.
+(b) The number of degrees of freedom for factor A in the
+experiment is_____.
+(c) The number of degrees of freedom for factor B
+is_______.
+(d) The mean square for error is______.
+(e) An upper bound for the P-value for the interaction test
+statistic is______.
+(f) The engineers used ______ levels of the factor A in
+this experiment. 
+(g) The engineers used ______ levels of the factor B in
+this experiment.
+(h) There are ______ replicates of this experiment.
+(i) Would you conclude that the effect of factor B
+depends on the level of factor A (Yes or No)?
+(j) An estimate of the standard deviation of the response
+variable is ______.
+5.42.
+Reconsider the lens polishing experiment in Problem
+5.41. Suppose that this experiment had been conducted as a ran-
+domized complete block design. The sum of squares for blocks
+is 4.00. Reconstruct the ANOVA given this new information.
+What impact does the blocking have on the conclusions from
+the original experiment?
+5.43.
+In Problem 4.53 you met physics PhD student Laura
+Van Ertia who had conducted a single-factor experiment in her
+pursuit of the unied theory. She is at it again, and this time she
+has moved on to a two-factor factorial conducted as a com-
+pletely randomized deesign. From her experiment, Laura has
+constructed the following incomplete ANOVA display:
+Source
+SS
+DF
+MS
+F
+A
+350.00
+2
+B
+300.00
+150
+AB
+200.00
+50
+Error
+150.00
+18
+Total
+1000.00
+(a) How many levels of factor B did she use in the exper-
+iment? ______
+(b) How many degrees of freedom are associated with
+interaction? ______
+(c) The error mean square is ______.
+(d) The mean square for factor A is ______.
+(e) How many replicates of the experiment were condu-
+cted? ______ 
+(f) What are your conclusions about interaction and the
+two main effects?  
+(g) An estimate of the standard deviation of the response
+variable is ______. 
+(h) If this experiment had been run in blocks there would
+have been ______ degrees of freedom for blocks.
+5.44.
+Continuation of Problem 5.43. Suppose that Laura
+did actually conduct the experiment in Problem 5.43 as a ran-
+domized complete block design. Assume that the block sum
+of squares is 60.00. Reconstruct the ANOVA display under
+this new set of assumptions.
+5.45.
+Consider the following ANOVA for a two-factor 
+factorial experiment:
+Source_______DF______SS ______MS _____F______P
+A_____________2___8.0000__4.00000__2.00__0.216
+B_____________1___8.3333__8.33333__4.17__0.087
+Interaction___2__10.6667__5.33333__2.67__0.148
+Error_________6__12.0000__2.00000
+Total________11__39.0000

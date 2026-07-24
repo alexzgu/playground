@@ -1,0 +1,155 @@
+7.4 Confounding the 2k Factorial Design in Two Blocks
+307
+Now consider the AB interaction
+Because the two treatment combinations with the plus sign [ab and (1)] are in block 1 and the
+two with the minus sign (a and b) are in block 2, the block effect and the AB interaction are
+identical. That is, AB is confounded with blocks.
+The reason for this is apparent from the table of plus and minus signs for the 22 design.
+This was originally given as Table 6.2, but for convenience it is reproduced as Table 7.3 here.
+From this table, we see that all treatment combinations that have a plus sign on AB are
+assigned to block 1, whereas all treatment combinations that have a minus sign on AB are
+assigned to block 2. This approach can be used to confound any effect (A, B, or AB) with
+blocks. For example, if (1) and b had been assigned to block 1 and a and ab to block 2, the
+main effect A would have been confounded with blocks. The usual practice is to confound the
+highest order interaction with blocks.
+This scheme can be used to confound any 2k design in two blocks. As a second exam-
+ple, consider a 23 design run in two blocks. Suppose we wish to confound the three-factor
+interaction ABC with blocks. From the table of plus and minus signs shown in Table 7.4, we
+assign the treatment combinations that are minus on ABC to block 1 and those that are plus
+on ABC to block 2. The resulting design is shown in Figure 7.2. Once again, we emphasize
+that the treatment combinations within a block are run in random order.
+Other Methods for Constructing the Blocks. There is another method for con-
+structing these designs. The method uses the linear combination
+(7.1)
+L 1x1 2x2 Á akxk
+AB 
+1
+2[ab (1) a b]
+■TA B L E 7 . 3
+Table of Plus and Minus Signs for the 22 Design
+Treatment
+Factorial Effect
+Combination
+I
+A
+B
+AB
+Block
+(1)
+
+
+
+
+1
+a
+
+
+
+
+2
+b
+
+
+
+
+2
+ab
+
+
+
+
+1
+■TA B L E 7 . 4
+Table of Plus and Minus Signs for the 23 Design
+Treatment
+Factorial Effect
+Combination
+I
+A
+B
+AB
+C
+AC
+BC
+ABC
+Block
+(1)
+
+
+
+
+
+
+
+
+1
+a
+
+
+
+
+
+
+
+
+2
+b
+
+
+
+
+
+
+
+
+2
+ab
+
+
+
+
+
+
+
+
+1
+c
+
+
+
+
+
+
+
+
+2
+ac
+
+
+
+
+
+
+
+
+1
+bc
+
+
+
+
+
+
+
+
+1
+abc
+
+
+
+
+
+
+
+
+2

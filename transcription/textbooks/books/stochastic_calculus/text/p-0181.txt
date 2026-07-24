@@ -1,0 +1,47 @@
+5.6. MARTINGALE APPROACH TO PRICING
+175
+By equating coecients, we see that
+d ˜V ∗
+t = a∗
+t d ˜St = a∗
+t σt ˜St dWt
+In particular, ˜V ∗
+t is a nonnegative local martingale. We have seen that this
+implies that ˜V ∗
+t is a supermartingale and
+EQ
+
+˜V ∗
+T Ft
+
+≤˜V ∗
+t 
+If V ≤˜V ∗
+T , then
+EQ
+
+˜V ∗
+T Ft
+
+≥EQ [V Ft] = Vt
+Example 5.6.3. We will give another derivation of the Black-Scholes equa-
+tion. Assume that the stock price is a diusion satisfying
+dSt = St [m(t, St) dt + σ(t, St) dBt] ,
+and the bond rate satises
+dRt = r(t, St) Rt dt
+The product rule implies that the discounted stock price satises
+d ˜St = ˜St [(m(t, St) −r(t, St)) dt + σ(t, St) dBt] 
+If V is a claim of the form V = F(ST), let ϕ be the function
+ϕ(t, x) = EQ [(RtRT) V St = x] ,
+and note that
+Vt = Rt ˜Vt = Rt EQ
+
+R−1
+T V Ft
+
+= ϕ(t, St)
+Assuming sucient smoothness, Itˆo’s formula gives
+dϕ(t, St) = ∂tϕ(t, St) dt + ϕ′(t, St) dSt + 1
+2 ϕ′′(t, St) d⟨S⟩t
+Recalling that
+dSt = St [r(t, St) dt + σ(t, St) dWt] ,

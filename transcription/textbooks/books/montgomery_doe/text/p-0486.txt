@@ -1,0 +1,53 @@
+470
+Chapter 10 ■Fitting Regression Models
+10.7
+Regression Model Diagnostics
+As we emphasized in designed experiments, model adequacy checking is an important part
+of the data analysis procedure. This is equally important in building regression models, and
+as we illustrated in Example 10.1, the residual plots that we used with designed experiments
+should always be examined for a regression model. In general, it is always necessary to (1)
+examine the tted model to ensure that it provides an adequate approximation to the true sys-
+tem and (2) verify that none of the least squares regression assumptions are violated. The
+regression model will probably give poor or misleading results unless it is an adequate t.
+In addition to residual plots, other model diagnostics are frequently useful in regression.
+This section briey summarizes some of these procedures. For more complete presentations,
+see Montgomery, Peck, and Vining (2006) and Myers (1990).
+10.7.1
+Scaled Residuals and PRESS
+Standardized and Studentized Residuals. Many model builders prefer to work
+with scaled residuals in contrast to the ordinary least squares residuals. These scaled residu-
+als often convey more information than do the ordinary residuals.
+One type of scaled residual is the standardized residual:
+(10.43)
+where we generally use 
+in the computation. These standardized residuals have
+mean zero and approximately unit variance; consequently, they are useful in looking for out-
+liers. Most of the standardized residuals should lie in the interval 3 di 3, and any
+observation with a standardized residual outside of this interval is potentially unusual with
+respect to its observed response. These outliers should be carefully examined because they
+may represent something as simple as a data-recording error or something of more serious
+concern, such as a region of the regressor variable space where the tted model is a poor
+approximation to the true response surface.
+The standardizing process in Equation 10.43 scales the residuals by dividing them by
+their approximate average standard deviation. In some data sets, residuals may have standard
+deviations that differ greatly. We now present a scaling that takes this into account.
+The vector of tted values 
+corresponding to the observed values yi is
+(10.44)
+The n n matrix H X(XX)1Xis usually called the “hat” matrix because it maps the
+vector of observed values into a vector of tted values. The hat matrix and its properties play
+a central role in regression analysis.
+The residuals from the tted model may be conveniently written in matrix notation as
+and it turns out that the covariance matrix of the residuals is
+(10.45)
+The matrix I H is generally not diagonal, so the residuals have different variances and they
+are correlated.
+Cov(e) 2 (I H)
+e y yˆ
+Hy
+X(XX)1Xy
+yˆ X ˆ&
+yˆi
+ˆ MSE
+di ei
+ˆ i 1, 2, . . . , n

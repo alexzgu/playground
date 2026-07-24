@@ -1,0 +1,53 @@
+270
+6. Linear Model Selection and Regularization
+'Hits',
+'PutOuts',
+'Walks')
+Choosing Among Models Using the Validation Set Approach and
+Cross-Validation
+As an alternative to using Cp, we might try cross-validation to select a
+model in forward selection. For this, we need a method that stores the
+full path of models found in forward selection, and allows predictions for
+each of these. This can be done with the sklearn_selection_path() estima- sklearn_
+selection_
+path()
+tor from ISLP.models. The function cross_val_predict() from ISLP.models
+cross_val_
+predict()
+computes the cross-validated predictions for each of the models along the
+path, which we can use to evaluate the cross-validated MSE along the path.
+Here we define a strategy that fits the full forward selection path. While
+there are various parameter choices for sklearn_selection_path(), we use
+the defaults here, which selects the model at each step based on the biggest
+reduction in RSS.
+In [11]: strategy = Stepwise.fixed_steps(design,
+len(design.terms),
+direction='forward')
+full_path = sklearn_selection_path(OLS, strategy)
+We now fit the full forward-selection path on the Hitters data and com-
+pute the fitted values.
+In [12]: full_path.fit(Hitters, Y)
+Yhat_in = full_path.predict(Hitters)
+Yhat_in.shape
+Out[12]: (263, 20)
+This gives us an array of fitted values — 20 steps in all, including the
+fitted mean for the null model — which we can use to evaluate in-sample
+MSE. As expected, the in-sample MSE improves each step we take, indicat-
+ing we must use either the validation or cross-validation approach to select
+the number of steps. We fix the y-axis to range from 50,000 to 250,000
+to compare to the cross-validation and validation set MSE below, as well
+as other methods such as ridge regression, lasso and principal components
+regression.
+In [13]: mse_fig, ax = subplots(figsize=(8,8))
+insample_mse = ((Yhat_in - Y[:,None])**2).mean(0)
+n_steps = insample_mse.shape[0]
+ax.plot(np.arange(n_steps),
+insample_mse ,
+'k', # color black
+label='In-sample')
+ax.set_ylabel('MSE',
+fontsize=20)
+ax.set_xlabel('# steps of forward stepwise',
+fontsize=20)
+ax.set_xticks(np.arange(n_steps)[::2])
+ax.legend()

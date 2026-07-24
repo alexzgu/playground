@@ -1,0 +1,54 @@
+6.5 A Single Replicate of the 2k Design
+255
+model, usually consists of removing any nonsignicant variables from the full model. Step 5
+is the usual residual analysis to check for model adequacy and assumptions. Sometimes
+model renement will occur after residual analysis if we nd that the model is inadequate or
+assumptions are badly violated. The nal step usually consists of graphical analysis—either
+main effect or interaction plots, or response surface and contour plots.
+Although the calculations described above are almost always done with a computer,
+occasionally it is necessary to manually calculate an effect estimate or sum of squares for an
+effect. To estimate an effect or to compute the sum of squares for an effect, we must rst
+determine the contrast associated with that effect. This can always be done by using a table
+of plus and minus signs, such as Table 6.2 or Table 6.3. However, this is awkward for large
+values of k and we can use an alternate method. In general, we determine the contrast for
+effect 
+by expanding the right-hand side of
+(6.21)
+In expanding Equation 6.21, ordinary algebra is used with “1” being replaced by (1) in the
+nal expression. The sign in each set of parentheses is negative if the factor is included in the
+effect and positive if the factor is not included.
+To illustrate the use of Equation 6.21, consider a 23 factorial design. The contrast for AB
+would be
+As a further example, in a 25 design, the contrast for ABCD would be
+Once the contrasts for the effects have been computed, we may estimate the effects and
+compute the sums of squares according to
+(6.22)
+and
+(6.23)
+respectively, where n denotes the number of replicates. There is also a tabular algorithm due
+to Frank Yates that can occasionally be useful for manual calculation of the effect estimates
+and the sums of squares. Refer to the supplemental text material for this chapter.
+6.5
+A Single Replicate of the 2k Design
+For even a moderate number of factors, the total number of treatment combinations in a 2k
+factorial design is large. For example, a 25 design has 32 treatment combinations, a 26 design
+has 64 treatment combinations, and so on. Because resources are usually limited, the number
+of replicates that the experimenter can employ may be restricted. Frequently, available
+SSAB Á K 1
+n2k(ContrastAB Á K)2
+AB Á K 2
+n2k(ContrastAB Á K)
+ 
+be ce abce de abde acde bcde
+ 
+abc d abd acd bcd ae
+ 
+ad bc ac ab (1) a b c
+ 
+ace abe e abcd cd bd
+abcde cde bde ade bce
+ ContrastABCD (a 1)(b 1)(c 1)(d 1)(e 1)
+abc ab c (1) ac bc a b
+ ContrastAB (a 1)(b 1)(c 1)
+ContrastAB Á K (a 1)(b 1) Á (k 1)
+AB Á K

@@ -1,0 +1,36 @@
+3.2 Multiple Linear Regression
+89
+Sales
+Radio
+TV
+FIGURE 3.5. For the Advertising data, a linear regression fit to sales using
+TV and radio as predictors. From the pattern of the residuals, we can see that
+there is a pronounced non-linear relationship in the data. The positive residuals
+(those visible above the surface), tend to lie along the 45-degree line, where TV
+and Radio budgets are split evenly. The negative residuals (most not visible), tend
+to lie away from this line, where budgets are more lopsided.
+which simplifies to (3.15) for a simple linear regression. Thus, models with
+more variables can have higher RSE if the decrease in RSS is small relative
+to the increase in p.
+In addition to looking at the RSE and R2 statistics just discussed, it
+can be useful to plot the data. Graphical summaries can reveal problems
+with a model that are not visible from numerical statistics. For example,
+Figure 3.5 displays a three-dimensional plot of TV and radio versus sales.
+We see that some observations lie above and some observations lie below
+the least squares regression plane. In particular, the linear model seems to
+overestimate sales for instances in which most of the advertising money
+was spent exclusively on either TV or radio. It underestimates sales for
+instances where the budget was split between the two media. This pro-
+nounced non-linear pattern suggests a synergy or interaction effect between interaction
+the advertising media, whereby combining the media together results in a
+bigger boost to sales than using any single medium. In Section 3.3.2, we
+will discuss extending the linear model to accommodate such synergistic
+effects through the use of interaction terms.
+Four: Predictions
+Once we have fit the multiple regression model, it is straightforward to
+apply (3.21) in order to predict the response Y on the basis of a set of
+values for the predictors X1, X2, . . . , Xp. However, there are three sorts of
+uncertainty associated with this prediction.
+1. The coefficient estimates ˆβ0, ˆβ1, . . . , ˆβp are estimates for β0, β1, . . . , βp.
+That is, the least squares plane
+ˆY = ˆβ0 + ˆβ1X1 + · · · + ˆβpXp

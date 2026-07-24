@@ -1,0 +1,79 @@
+678
+Chapter 15 ■Other Design and Analysis Topics
+where i is the effect of the ith treatment and j is a parameter associated with the jth sub-
+ject. We assume that treatments are fixed (so 
+i 0) and that the subjects employed
+are a random sample of subjects from some larger population of potential subjects. Thus,
+the subjects collectively represent a random effect, so we assume that the mean of j is
+zero and that the variance of j is 
+. Because the term j is common to all a measure-
+ments on the same subject, the covariance between yij and 
+is not, in general, zero. It is
+customary to assume that the covariance between yij and 
+is constant across all 
+treatments and subjects.
+Consider an analysis of variance partitioning of the total sum of squares, say
+(15.46)
+We may view the rst term on the right-hand side of Equation 15.46 as a sum of squares that
+results from differences between subjects and the second term as a sum of squares of differ-
+ences within subjects. That is,
+The sums of squares SSBetween Subjects and SSWithin Subjects are statistically independent, with
+degrees of freedom
+The differences within subjects depend on both differences in treatment effects and
+uncontrolled variability (noise or error). Therefore, we may decompose the sum of squares
+resulting from differences within subjects as follows:
+(15.47)
+The rst term on the right-hand side of Equation 15.47 measures the contribution of the dif-
+ference between treatment means to SSWithin Subjects, and the second term is the residual varia-
+tion due to error. Both components of SSWithin Subjects are independent. Thus,
+with the degrees of freedom given by
+respectively.
+To test the hypothesis of no treatment effect, that is,
+we would use the ratio
+(15.48)
+If the model errors are normally distributed, then under the null hypothesis, H0: i 0, the
+statistic F0 follows an Fa1,(a1)(n1) distribution. The null hypothesis would be rejected if F0 
+F,a1,(a1)(n1).
+F0 SSTreatment/(a 1)
+SSE/(a 1)(n 1) MSTreatments
+MSE
+H1At least one i Z 0
+H01 2 Á a 0
+n(a 1) (a 1) (a 1)(n 1)
+SSWithin Subjects SSTreatments SSE
+
+a
+i1 
+n
+j1
+ (yij y.j)2 n 
+a
+i1
+ (yi. y..)2 
+a
+i1 
+n
+j1
+ (yij yi. y.j y..)2
+an 1 (n 1) n(a 1)
+SST SSBetween Subjects SSWithin Subjects
+
+a
+i1 
+n
+j1
+ (yij y..)2 a 
+n
+j1
+ (y.j y..)2 
+a
+i1 
+n
+j1
+ (yij y.j)2
+yij
+yij
+2
+
+"a
+i1

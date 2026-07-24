@@ -1,0 +1,100 @@
+3.3.1
+Decomposition of the Total Sum of Squares
+The name analysis of variance is derived from a partitioning of total variability into its com-
+ponent parts. The total corrected sum of squares
+is used as a measure of overall variability in the data. Intuitively, this is reasonable because if
+we were to divide SST by the appropriate number of degrees of freedom (in this case, an  1 
+N  1), we would have the sample variance of the y’s. The sample variance is, of course, a
+standard measure of variability.
+Note that the total corrected sum of squares SST may be written as
+(3.5)
+or
+However, the cross-product term in this last equation is zero, because
+Therefore, we have
+(3.6)
+Equation 3.6 is the fundamental ANOVA identity. It states that the total variability in the data,
+as measured by the total corrected sum of squares, can be partitioned into a sum of squares
+of the differences between the treatment averages and the grand average plus a sum of
+squares of the differences of observations within treatments from the treatment average. Now,
+the difference between the observed treatment averages and the grand average is a measure of
+the differences between treatment means, whereas the differences of observations within a
+treatment from the treatment average can be due to only random error. Thus, we may write
+Equation 3.6 symbolically as
+where SSTreatments is called the sum of squares due to treatments (i.e., between treatments), and
+SSE is called the sum of squares due to error (i.e., within treatments). There are an N total
+observations; thus, SST has N 1 degrees of freedom. There are a levels of the factor (and a
+treatment means), so SSTreatments has a 1 degrees of freedom. Finally, there are n replicates
+within any treatment providing n 1 degrees of freedom with which to estimate the experi-
+mental error. Because there are a treatments, we have a(n 1) an a N a degrees of
+freedom for error.
+It is instructive to examine explicitly the two terms on the right-hand side of the funda-
+mental ANOVA identity. Consider the error sum of squares
+SSE 
+a
+i1 
+n
+j1
+ (yij yi.)2 
+a
+i1
+n
+j1
+ (yij yi.)2
+SST SSTreatments SSE
+
+a
+i1 
+n
+j1
+ (yij y..)2 n 
+a
+i1
+ (yi. y..)2 
+a
+i1 
+n
+j1
+ (yij yi.)2
+
+n
+j1
+ (yij yi.) yi. nyi. yi. n(yi./n) 0
+2 
+a
+i1 
+n
+j1
+ (yi. y..)(yij yi.)
+
+a
+i1 
+n
+j1
+ (yij y..)2 n 
+a
+i1
+ (yi. y..)2 
+a
+i1 
+n
+j1
+ (yij yi.)2
+
+a
+i1 
+n
+j1
+ (yij y..)2 
+a
+i1 
+n
+j1
+ [(yi. y..) (yij yi.)]2
+SST 
+a
+i1 
+n
+j1
+ (yij y..)2
+3.3 Analysis of the Fixed Effects Model
+71

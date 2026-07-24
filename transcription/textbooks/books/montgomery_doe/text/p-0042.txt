@@ -1,0 +1,82 @@
+was completed, the experimenter did find a very large reduction in the cure time for the
+modified mortar formulation. Then he began to address the tension bond strength of
+the mortar. If the new mortar formulation has an adverse effect on bond strength, this could
+impact its usefulness.
+The tension bond strength data from this experiment are shown in Table 2.1 and plot-
+ted in Figure 2.1. The graph is called a dot diagram. Visual examination of these data gives
+the impression that the strength of the unmodied mortar may be greater than the strength of
+the modied mortar. This impression is supported by comparing the average tension bond
+strengths,
+for the modied mortar and 
+for the
+unmodied mortar. The average tension bond strengths in these two samples differ by what
+seems to be a modest amount. However, it is not obvious that this difference is large enough
+to imply that the two formulations really are different. Perhaps this observed difference in
+average strengths is the result of sampling uctuation and the two formulations are really
+identical. Possibly another two samples would give opposite results, with the strength of the
+modied mortar exceeding that of the unmodied formulation.
+A technique of statistical inference called hypothesis testing can be used to assist
+the experimenter in comparing these two formulations. Hypothesis testing allows the com-
+parison of the two formulations to be made on objective terms, with knowledge of the
+risks associated with reaching the wrong conclusion. Before presenting procedures for
+hypothesis testing in simple comparative experiments, we will briefly summarize some
+elementary statistical concepts.
+y2 17.04 kgf/cm2
+y1 16.76 kgf/cm2
+26
+Chapter 2 ■Simple Comparative Experiments
+■TA B L E 2 . 1
+Tension Bond Strength Data for the Portland
+Cement Formulation Experiment
+Modiﬁed
+Unmodiﬁed
+Mortar
+Mortar
+j
+y1j
+y2j
+1
+16.85
+16.62
+2
+16.40
+16.75
+3
+17.21
+17.37
+4
+16.35
+17.12
+5
+16.52
+16.98
+6
+17.04
+16.87
+7
+16.96
+17.34
+8
+17.15
+17.02
+9
+16.59
+17.08
+10
+16.57
+17.27
+17.08
+16.94
+16.80
+y1 = 16.76
+16.66
+16.52
+16.38
+17.22
+17.36
+Strength (kgf/cm2)
+y2 = 17.04
+Modified
+Unmodified
+■F I G U R E 2 . 1
+Dot diagram for the tension bond strength data in Table 2.1

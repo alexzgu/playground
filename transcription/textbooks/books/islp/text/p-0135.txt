@@ -1,0 +1,57 @@
+126
+3. Linear Regression
+freedom. This provides very clear evidence that the quadratic polynomial
+in lstat improves the linear model. This is not surprising, since earlier we
+saw evidence for non-linearity in the relationship between medv and lstat.
+The function anova_lm() can take more than two nested models as input,
+in which case it compares every successive pair of models. That also explains
+why their are NaNs in the first row above, since there is no previous model
+with which to compare the first.
+In [34]: ax = subplots(figsize=(8,8))[1]
+ax.scatter(results3.fittedvalues , results3.resid)
+ax.set_xlabel('Fitted value')
+ax.set_ylabel('Residual')
+ax.axhline(0, c='k', ls='--')
+We see that when the quadratic term is included in the model, there is
+little discernible pattern in the residuals. In order to create a cubic or
+higher-degree polynomial fit, we can simply change the degree argument to
+poly().
+3.6.7
+Qualitative Predictors
+Here we use the Carseats data, which is included in the ISLP package. We
+will attempt to predict Sales (child car seat sales) in 400 locations based
+on a number of predictors.
+In [35]: Carseats = load_data('Carseats')
+Carseats.columns
+Out[35]: Index(['Sales', 'CompPrice', 'Income', 'Advertising',
+'Population', 'Price', 'ShelveLoc', 'Age', 'Education',
+'Urban', 'US'],
+dtype='object')
+The Carseats data includes qualitative predictors such as ShelveLoc, an
+indicator of the quality of the shelving location — that is, the space within
+a store in which the car seat is displayed. The predictor ShelveLoc takes on
+three possible values, Bad, Medium, and Good. Given a qualitative variable
+such as ShelveLoc, ModelSpec() generates dummy variables automatically.
+These variables are often referred to as a one-hot encoding of the categorical one-hot
+encoding
+feature. Their columns sum to one, so to avoid collinearity with an inter-
+cept, the first column is dropped. Below we see the column ShelveLoc[Bad]
+has been dropped, since Bad is the first level of ShelveLoc. Below we fit a
+multiple regression model that includes some interaction terms.
+In [36]: allvars = list(Carseats.columns.drop('Sales'))
+y = Carseats['Sales']
+final = allvars + [('Income', 'Advertising'),
+('Price', 'Age')]
+X = MS(final).fit_transform(Carseats)
+model = sm.OLS(y, X)
+summarize(model.fit())
+Out[36]:
+coef
+std err
+t
+P>|t|
+intercept
+6.5756
+1.009
+6.519
+0.000

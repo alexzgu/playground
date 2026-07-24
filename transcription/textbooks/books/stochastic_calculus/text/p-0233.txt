@@ -1,0 +1,45 @@
+6.10. SYMMETRIC STABLE PROCESS
+227
+6.10
+Symmetric stable process
+An important example of a L´evy process is the symmetric stable process.
+A random variable X has a symmetric stable distribution with parameter
+α (0, 2] if ΨX(s) = −csα for some c > 0. If α = 2, this means that X
+has a normal distribution with mean zero and variance 2c2. For 0 < α < 2
+these distributions arise in L´evy processes that we call symmetric α-stable
+processes. The term stable comes from the following property.
+Proposition 6.10.1. IX α-
+X1, , Xn 
+X, X 
+Y = X1 + · · · + Xn
+n1α
+
+P. Using properties of characteristic functions, we get
+ΨY (s) =
+n
+
+j=1
+ΨXj(sn1α) = nΨX(sn1α) = ΨX(s)
+Denition If 0 < α ≤2, then a L´evy process Xt is a 
+if
+Ψ(s) = −csα
+for some c > 0.
+Proposition 6.10.2. S0 < α < 2, C > 0 Xt L´
+L´
+dµ(x) =
+C
+x1+α dx
+(6.28)
+TXt α-Ψ(s) = −Cbαsα 
+bα = 2
+∞
+0
+1 −cos y
+y1+α
+dy < ∞
+The condition 0 < α < 2 is needed to guarantee that µ as dened in
+(6.28) satises (6.24). Since 1 −cos(y) = O(y2) as y →0, we can see that bα
+is nite. In fact, it can be calculated
+bα =
+π
+Γ(α + 1) sin(απ2),

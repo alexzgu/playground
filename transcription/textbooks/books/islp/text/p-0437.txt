@@ -1,0 +1,73 @@
+430
+10. Deep Learning
+0
+5
+10
+15
+20
+25
+30
+0.1
+0.2
+0.3
+0.4
+Epochs
+Value of Objective Function
+Training Set
+Validation Set
+0
+5
+10
+15
+20
+25
+30
+0.00
+0.02
+0.04
+0.06
+0.08
+0.10
+0.12
+Epochs
+Classification Error
+FIGURE 10.18. Evolution of training and validation errors for the MNIST neural
+network depicted in Figure 10.4, as a function of training epochs. The objective
+refers to the log-likelihood (10.14).
+to avoid overfitting. The first row in Table 10.1 uses ridge regularization on
+the weights. This is achieved by augmenting the objective function (10.14)
+with a penalty term:
+R(θ; λ) = −
+n
+0
+i=1
+9
+0
+m=0
+yim log(fm(xi)) + λ
+0
+j
+θ2
+j.
+(10.31)
+The parameter λ is often preset at a small value, or else it is found using the
+validation-set approach of Section 5.3.1. We can also use different values of
+λ for the groups of weights from different layers; in this case W1 and W2
+were penalized, while the relatively few weights B of the output layer were
+not penalized at all. Lasso regularization is also popular as an additional
+form of regularization, or as an alternative to ridge.
+Figure 10.18 shows some metrics that evolve during the training of the
+network on the MNIST data. It turns out that SGD naturally enforces its
+own form of approximately quadratic regularization.21 Here the minibatch
+size was 128 observations per gradient update. The term epochs labeling the epochs
+horizontal axis in Figure 10.18 counts the number of times an equivalent of
+the full training set has been processed. For this network, 20% of the 60,000
+training observations were used as a validation set in order to determine
+when training should stop. So in fact 48,000 observations were used for
+training, and hence there are 48,000/128 ≈375 minibatch gradient updates
+per epoch. We see that the value of the validation objective actually starts
+to increase by 30 epochs, so early stopping can also be used as an additional early
+stopping
+form of regularization.
+21This and other properties of SGD for deep learning are the subject of much research
+in the machine learning literature at the time of writing.

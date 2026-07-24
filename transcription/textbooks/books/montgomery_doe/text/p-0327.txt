@@ -1,0 +1,146 @@
+7.4 Confounding the 2k Factorial Design in Two Blocks
+311
+poor quality batch becomes block 1 and the good quality
+batch becomes block 2 (it doesn’t matter which batch is
+called block 1 or which batch is called block 2). Now all
+the tests in block 1 are performed rst (the eight runs in the
+block are, of course, performed in random order), but the
+responses are 20 units lower than they would have been if
+good quality material had been used. Figure 7.4b shows the
+resulting responses—note that these have been found by
+subtracting the block effect from the original observations
+given in Example 6.2. That is, the original response for treat-
+ment combination (1) was 45, and in Figure 7.4b it is report-
+ed as (1) 25 (45 20). The other responses in this
+block are obtained similarly. After the tests in block 1 are
+performed, the eight tests in block 2 follow. There is no
+problem with the raw material in this batch, so the responses
+are exactly as they were originally in Example 6.2.
+The effect estimates for this “modied” version of
+Example 6.2 are shown in Table 7.6. Note that the estimates
+of the four main effects, the six two-factor interactions, and
+the four three-factor interactions are identical to the effect
+estimates obtained in Example 6.2 where there was no
+block effect. When a normal probability of these effect esti-
+mates is constructed, factors A, C, D, and the AC and AD
+interactions emerge as the important effects, just as in the
+original experiment. (The reader should verify this.)
+What about the ABCD interaction effect? The estimate
+of this effect in the original experiment (Example 6.2) was
+ABCD 1.375. In the present example, the estimate of the
+ABCD interaction effect is ABCD 18.625. Because
+ABCD is confounded with blocks, the ABCD interaction
+estimates the original interaction effect (1.375) plus the
+block effect (20), so ABCD 1.375 (20) 18.625.
+(Do you see why the block effect is 20?) The block effect
+may also be calculated directly as the difference in average
+response between the two blocks, or
+Of course, this effect really estimates Blocks ABCD.
+Table 7.7 summarizes the ANOVA for this experiment.
+The effects with large estimates are included in the model,
+and the block sum of squares is
+The conclusions from this experiment exactly match those
+from Example 6.2, where no block effect was present. Notice
+that if the experiment had not been run in blocks, and if an
+effect of magnitude 20 had affected the rst 8 trials (which
+would have been selected in a random fashion, because the
+16 trials would be run in random order in an unblocked
+design), the results could have been very different.
+SSBlocks (406)2 (555)2
+8
+(961)2
+16
+1387.5625
+18.625
+149
+8
+406
+8
+555
+8
+Block effect yBlock 1 yBlock 2
+■TA B L E 7 . 6
+Effect Estimates for the Blocked 24 Design in Example 7.2
+Regression
+Effect
+Sum of
+Percent
+Model Term
+Coefﬁcient
+Estimate
+Squares
+Contribution
+A
+10.81
+21.625
+1870.5625
+26.30
+B
+1.56
+3.125
+39.0625
+0.55
+C
+4.94
+9.875
+390.0625
+5.49
+D
+7.31
+14.625
+855.5625
+12.03
+AB
+0.062
+0.125
+0.0625
+0.01
+AC
+9.06
+18.125
+1314.0625
+18.48
+AD
+8.31
+16.625
+1105.5625
+15.55
+BC
+1.19
+2.375
+22.5625
+0.32
+BD
+0.19
+0.375
+0.5625
+0.01
+CD
+0.56
+1.125
+5.0625
+0.07
+ABC
+0.94
+1.875
+14.0625
+0.20
+ABD
+2.06
+4.125
+68.0625
+0.96
+ACD
+0.81
+1.625
+10.5625
+0.15
+BCD
+1.31
+2.625
+27.5625
+0.39
+Block (ABCD)
+18.625
+1387.5625
+19.51

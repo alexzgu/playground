@@ -1,0 +1,61 @@
+428
+10. Deep Learning
+FIGURE 10.17. Illustration of gradient descent for one-dimensional θ. The
+objective function R(θ) is not convex, and has two minima, one at θ = −0.46
+(local), the other at θ = 1.02 (global). Starting at some value θ0 (typically ran-
+domly chosen), each step in θ moves downhill — against the gradient — until it
+cannot go down any further. Here gradient descent reached the global minimum
+in 7 steps.
+where we make explicit the dependence of f on the parameters. The idea
+of gradient descent is very simple.
+1. Start with a guess θ0 for all the parameters in θ, and set t = 0.
+2. Iterate until the objective (10.25) fails to decrease:
+(a) Find a vector δ that reflects a small change in θ, such that θt+1 =
+θt + δ reduces the objective; i.e. such that R(θt+1) < R(θt).
+(b) Set t ←t + 1.
+One can visualize (Figure 10.17) standing in a mountainous terrain, and
+the goal is to get to the bottom through a series of steps. As long as each
+step goes downhill, we must eventually get to the bottom. In this case we
+were lucky, because with our starting guess θ0 we end up at the global
+minimum. In general we can hope to end up at a (good) local minimum.
+10.7.1
+Backpropagation
+How do we find the directions to move θ so as to decrease the objective R(θ)
+in (10.25)? The gradient of R(θ), evaluated at some current value θ = θm, gradient
+is the vector of partial derivatives at that point:
+∇R(θm) = ∂R(θ)
+∂θ
+VVV
+θ=θm.
+(10.26)
+The subscript θ = θm means that after computing the vector of derivatives,
+we evaluate it at the current guess, θm. This gives the direction in θ-space
+in which R(θ) increases most rapidly. The idea of gradient descent is to
+move θ a little in the opposite direction (since we wish to go downhill):
+θm+1 ←θm −ρ∇R(θm).
+(10.27)
+−1.0
+−0.5
+0.0
+0.5
+1.0
+0
+1
+2
+3
+4
+5
+6
+θ
+R(θ)
+θ0
+θ1
+θ2
+θ7
+●
+●
+●
+●
+R(θ0)R(θ1)
+R(θ2)
+R(θ7)

@@ -1,0 +1,154 @@
+542
+Chapter 11 ■Response Surface Methods and Designs
+■TA B L E 1 1 . 2 4
+EVOP Calculation Sheet for Example 11.7, n 2
+Cycle: n 2 
+Phase: 1
+Response: Yield
+Date: 1/11/04
+Calculation of 
+Calculation of Averages
+Standard Deviation
+Operating Conditions
+(1)
+(2)
+(3)
+(4)
+(5)
+(i) Previous cycle sum
+84.5
+84.2
+84.9
+84.5
+84.3
+Previous sum S 
+(ii) Previous cycle average
+84.5
+84.2
+84.9
+84.5
+84.3
+Previous average S 
+(iii) New observations
+84.9
+84.6
+85.9
+83.5
+84.0
+New S range f5,n 0.60
+(iv) Differences [(ii) (iii)]
+0.4
+0.4
+1.0
+1.0
+0.3
+Range of (iv) 2.0
+(v) New sums [(i) (iii)]
+169.4
+168.8
+170.8
+168.0
+168.3
+New sum S 0.60
+(vi) New average  
+n]
+84.70
+84.40
+85.40
+84.00
+84.15
+New average S 
+Calculation of Effects
+Calculation of Error Limits
+Temperature effect 
+For new average 
+Pressure effect 
+For new effects 
+T P interaction effect 
+Change-in-mean effect 
+For change in mean 1.78
+n
+S 0.76
+
+1
+5(y2 y3 y4 y5 4y1) 0.17
+
+1
+2(y2 y3 y4 y5) 0.83
+2
+n
+S 0.85
+
+1
+2(y3 y5 y2 y4) 0.58
+
+2
+n
+S 0.85
+
+1
+2(y3 y4 y2 y5) 0.43
+New sum S
+n 1
+0.60
+[yi (v)
+■TA B L E 1 1 . 2 5
+EVOP Calculation Sheet for Example 11.7, n 3
+Cycle: n 1 
+Phase: 1
+Response: Yield
+Date: 1/11/04
+Calculation of 
+Calculation of Averages
+Standard Deviation
+Operating Conditions
+(1)
+(2)
+(3)
+(4)
+(5)
+(i) Previous cycle sum
+169.4
+168.8
+170.8
+168.0
+168.3
+Previous sum S 0.60
+(ii) Previous cycle average
+84.70
+84.40
+85.40
+84.00
+84.15
+Previous average S 0.60
+(iii) New observations
+85.0
+84.0
+86.6
+84.9
+85.2
+New S range f5,n 0.56
+(iv) Differences [(ii) (iii)]
+0.30
+0.40
+1.20
+0.90
+1.05
+Range of (iv) 1.60
+(v) New sums [(i) (iii)]
+254.4
+252.8
+257.4
+252.9
+253.5
+New sum S 1.16
+(vi) New average  
+84.80
+84.27
+85.80
+84.30
+84.50
+New average S New sum S
+n 1
+0.58
+[yi (v)n]

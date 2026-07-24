@@ -1,0 +1,52 @@
+20
+2. Statistical Learning
+of homes to inputs such as crime rate, zoning, distance from a river, air
+quality, schools, income level of community, size of houses, and so forth. In
+this case one might be interested in the association between each individ-
+ual input variable and housing price—for instance, how much extra will a
+house be worth if it has a view of the river? This is an inference problem.
+Alternatively, one may simply be interested in predicting the value of a
+home given its characteristics: is this house under- or over-valued? This is
+a prediction problem.
+Depending on whether our ultimate goal is prediction, inference, or a
+combination of the two, different methods for estimating f may be ap-
+propriate. For example, linear models allow for relatively simple and in- linear model
+terpretable inference, but may not yield as accurate predictions as some
+other approaches. In contrast, some of the highly non-linear approaches
+that we discuss in the later chapters of this book can potentially provide
+quite accurate predictions for Y , but this comes at the expense of a less
+interpretable model for which inference is more challenging.
+2.1.2
+How Do We Estimate f?
+Throughout this book, we explore many linear and non-linear approaches
+for estimating f. However, these methods generally share certain charac-
+teristics. We provide an overview of these shared characteristics in this
+section. We will always assume that we have observed a set of n different
+data points. For example in Figure 2.2 we observed n = 30 data points.
+These observations are called the training data because we will use these training
+data
+observations to train, or teach, our method how to estimate f. Let xij
+represent the value of the jth predictor, or input, for observation i, where
+i = 1, 2, . . . , n and j = 1, 2, . . . , p. Correspondingly, let yi represent the
+response variable for the ith observation. Then our training data consist of
+{(x1, y1), (x2, y2), . . . , (xn, yn)} where xi = (xi1, xi2, . . . , xip)T .
+Our goal is to apply a statistical learning method to the training data
+in order to estimate the unknown function f. In other words, we want to
+find a function ˆf such that Y ≈ˆf(X) for any observation (X, Y ). Broadly
+speaking, most statistical learning methods for this task can be character-
+ized as either parametric or non-parametric. We now briefly discuss these parametric
+non-
+parametric
+two types of approaches.
+Parametric Methods
+Parametric methods involve a two-step model-based approach.
+1. First, we make an assumption about the functional form, or shape,
+of f. For example, one very simple assumption is that f is linear in
+X:
+f(X) = β0 + β1X1 + β2X2 + · · · + βpXp.
+(2.4)
+This is a linear model, which will be discussed extensively in Chap-
+ter 3. Once we have assumed that f is linear, the problem of estimat-
+ing f is greatly simplified. Instead of having to estimate an entirely
+arbitrary p-dimensional function f(X), one only needs to estimate
+the p + 1 coefficients β0, β1, . . . , βp.

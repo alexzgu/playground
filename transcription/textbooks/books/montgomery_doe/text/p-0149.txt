@@ -1,0 +1,175 @@
+3.12 Problems
+133
+(a) Do the data indicate that there is a difference in
+results obtained from the three different approaches?
+Use 0.05.
+(b) Analyze the residuals from this experiment and com-
+ment on model adequacy.
+3.16.
+An experiment was run to determine whether four
+specic ring temperatures affect the density of a certain type
+of brick. A completely randomized experiment led to the fol-
+lowing data:
+Temperature
+Density
+100
+21.8
+21.9
+21.7
+21.6
+21.7
+125
+21.7
+21.4
+21.5
+21.4
+150
+21.9
+21.8
+21.8
+21.6
+21.5
+175
+21.9
+21.7
+21.8
+21.4
+(a) Does the ring temperature affect the density of the
+bricks? Use 0.05.
+(b) Is it appropriate to compare the means using the Fisher
+LSD method (for example) in this experiment?
+(c) Analyze the residuals from this experiment. Are the
+analysis of variance assumptions satisfied?
+(d) Construct a graphical display of the treatment as
+described in Section 3.5.3. Does this graph adequately
+summarize the results of the analysis of variance in
+part (a)?
+3.17.
+Rework part (d) of Problem 3.16 using the Tukey
+method. What conclusions can you draw? Explain carefully
+how you modied the technique to account for unequal
+sample sizes.
+3.18.
+A manufacturer of television sets is interested in the
+effect on tube conductivity of four different types of coating
+for color picture tubes. A completely randomized experiment
+is conducted and the following conductivity data are
+obtained:
+Coating Type
+Conductivity
+1
+143
+141
+150
+146
+2
+152
+149
+137
+143
+3
+134
+136
+132
+127
+4
+129
+127
+132
+129
+(a) Is there a difference in conductivity due to coating
+type? Use 0.05.
+(b) Estimate the overall mean and the treatment effects.
+(c) Compute a 95 percent confidence interval estimate
+of the mean of coating type 4. Compute a 99 percent
+confidence interval estimate of the mean difference
+between coating types 1 and 4.
+(d) Test all pairs of means using the Fisher LSD method
+with 0.05.
+(e) Use the graphical method discussed in Section 3.5.3 to
+compare the means. Which coating type produces the
+highest conductivity?
+(f) Assuming that coating type 4 is currently in use, what
+are your recommendations to the manufacturer? We
+wish to minimize conductivity.
+3.19.
+Reconsider the experiment from Problem 3.18.
+Analyze the residuals and draw conclusions about model
+adequacy.
+3.20.
+An article in the ACI Materials Journal (Vol. 84,
+1987, pp. 213–216) describes several experiments investi-
+gating the rodding of concrete to remove entrapped air. 
+A 3-inch 6-inch cylinder was used, and the number of
+times this rod was used is the design variable. The resulting
+compressive strength of the concrete specimen is the
+response. The data are shown in the following table:
+Rodding
+Level
+Compressive Strength
+10
+1530
+1530
+1440
+15
+1610
+1650
+1500
+20
+1560
+1730
+1530
+25
+1500
+1490
+1510
+(a) Is there any difference in compressive strength due to
+the rodding level? Use 0.05.
+(b) Find the P-value for the F statistic in part (a).
+(c) Analyze the residuals from this experiment. What con-
+clusions can you draw about the underlying model
+assumptions?
+(d) Construct a graphical display to compare the treatment
+means as described in Section 3.5.3.
+3.21.
+An article in Environment International (Vol. 18, No. 4,
+1992) describes an experiment in which the amount of radon
+released in showers was investigated. Radon-enriched water
+was used in the experiment, and six different orice diameters
+were tested in shower heads. The data from the experiment are
+shown in the following table:
+Oriﬁce
+Diameter
+Radon Released (%)
+0.37
+80
+83
+83
+85
+0.51
+75
+75
+79
+79
+0.71
+74
+73
+76
+77
+1.02
+67
+72
+74
+74
+1.40
+62
+62
+67
+69
+1.99
+60
+61
+64
+66
+(a) Does the size of the orice affect the mean percentage
+of radon released? Use 0.05.

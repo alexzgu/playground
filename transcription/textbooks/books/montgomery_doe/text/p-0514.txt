@@ -1,0 +1,72 @@
+A popular approach is to formulate and solve the problem as a constrained optimization
+problem. To illustrate using Example 11.2, we might formulate the problem as
+Many numerical techniques can be used to solve this problem. Sometimes these techniques are
+referred to as nonlinear programming methods. The Design-Expert software package solves
+this version of the problem using a direct search procedure. The two solutions found are
+and
+Notice that the rst solution is in the upper (smaller) feasible region of the design space (refer
+to Figure 11.16), whereas the second solution is in the larger region. Both solutions are very
+near to the boundary of the constraints.
+Another useful approach to optimization of multiple responses is to use the simultane-
+ous optimization technique popularized by Derringer and Suich (1980). Their procedure
+makes use of desirability functions. The general approach is to rst convert each response yi
+into an individual desirability function di that varies over the range
+where if the response yi is at its goal or target, then di 1 and if the response is outside an accept-
+able region, di 0. Then the design variables are chosen to maximize the overall desirability
+where there are m responses. The overall desirability will be zero if any of the individual
+responses is undesirable.
+The individual desirability functions are structured as shown in Figure 11.17. If the
+objective or target T for the response y is a maximum value,
+(11.11)
+when the weight r 1, the desirability function is linear. Choosing r 1 places more empha-
+sis on being close to the target value and choosing 0 r 1 makes this less important. If the
+target for the response is a minimum value,
+(11.12)
+The two-sided desirability function shown in Figure 11.17c assumes that the target is located
+between the lower (L) and upper (U) limits and is dened as
+(11.13)
+d 
+0
+
+y L
+T L
+r1
+
+U y
+U T
+r2
+0
+y ! L
+L y T
+T y U
+y # U
+d 
+1
+
+U y
+U T
+r
+0
+y ! T
+T y U
+y # U
+d 
+0
+
+y L
+T L
+r
+1
+y ! L
+L y T
+y # T
+D (d1 ! d2 ! Á ! dm)1/m
+0 di 1
+time 86.6 temp 172.25 yˆ1 79.5
+time 83.5 temp 177.1 yˆ1 79.5
+Max y1
+subject to
+62 y2 68
+y3 3400
+498
+Chapter 11 ■Response Surface Methods and Designs

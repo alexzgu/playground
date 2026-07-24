@@ -1,0 +1,123 @@
+6.3 The 23 Design
+241
+Figure 6.3a presents the three-dimensional response surface plot of yield from this
+model, and Figure 6.3b is the contour plot. Because the model is ﬁrst-order (that is, it contains
+only the main effects), the tted response surface is a plane. From examining the contour plot,
+we see that yield increases as reactant concentration increases and catalyst amount decreases.
+Often, we use a tted surface such as this to nd a direction of potential improvement for a
+process. A formal way to do so, called the method of steepest ascent, will be presented in
+Chapter 11 when we discuss methods for systematically exploring response surfaces.
+6.3
+The 23 Design
+Suppose that three factors, A, B, and C, each at two levels, are of interest. The design is called
+a 23 factorial design, and the eight treatment combinations can now be displayed geometri-
+cally as a cube, as shown in Figure 6.4a. Using the “and ” orthogonal coding to represent
+the low and high levels of the factors, we may list the eight runs in the 23 design as in Figure 6.4b.
+Reactant concentration
+(b) Contour plot
+Catalyst amount
+15.00
+16.67
+18.33
+20.00
+21.67
+23.33
+25.00
+1.000
+1.167
+1.333
+1.500
+1.667
+1.833
+2.000
+23.00
+25.00
+27.00
+29.00
+31.00
+33.00
+34.17
+29.72
+25.28
+20.83
+2.000
+1.800
+1.600
+1.400
+1.200
+1.000 15.00
+17.00
+19.00
+21.00
+23.00
+25.00
+Catalyst amount
+Reactant concentration
+y
+(a) Response surface
+■F I G U R E 6 . 3
+Response surface plot and contour plot of yield from the chemical process experiment
+–
+(1)
+a
+ab
+abc
+ac
+bc
+b
+c
+–
+–
++
++
++
+Low
+High
+Factor A
+High
+High
+Low
+Low
+Factor C
+Factor B
+Run          A
+B
+C
+Factor
+1
+2
+3
+4
+5
+6
+7
+8
+–
+–
+–
+–
++
++
++
++
+–
+–
++
++
+–
+–
++
++
+–
++
+–
++
+–
++
+–
++
+(a) Geometric view
+(b) Design matrix
+■F I G U R E 6 . 4
+The 23 factorial
+design

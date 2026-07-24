@@ -1,0 +1,148 @@
+280
+Chapter 6 ■The 2k Factorial Design
+3.5
+3
+2.5
+2
+1.5
+0.75
+0.25
+Desirability
+0.92862
+Current
+Current
+Lower
+Higher
+No
+Lower
+Annual Fee
+No
+Account
+Opening Fee
+Higher
+initial
+Interest Rate
+Low
+Long-term
+Interest Rate
+Desirability
+Yes
+Low
+High
+Response
+Rate  3.39
+0
+1
+0.75
+0.5
+0.25
+0
+1
+Prediction Profiler
+■TA B L E 6 . 2 3
+JMP Output for Example 6.6
+Response Response Rate
+Summary of Fit
+RSquare
+1
+RSquare Adj
+.
+Root Mean Square Error
+.
+Mean of Response
+2.36375
+Observations (or Sum Wgts)
+16
+Sorted Parameter Estimates
+Term
+Account Opening Fee[No]
+Long-term Interest Rate[Low]
+Annual Fee[Current]
+Annual Fee[Current]*Account Opening Fee[No]
+initial Interest Rate[Current]
+initial Interest Rate[Current]*Long-term Interest Rate[Low]
+Annual Fee[Current]*Long-term Interest Rate[Low]
+Account Opening Fee[No]*initial Interest Rate[Current]*Long-term Interest Rate[Low]
+Account Opening Fee[No]*Long-term Interest Rate[Low]
+Annual Fee[Current]*Account Opening Fee[No]*Long-term Interest Rate[Low]
+Annual Fee[Current]*Account Opening Fee[No]*initial Interest Rate[Current]
+Annual Fee[Current]*Account Opening Fee[No]*initial Interest Rate[Current]*Long-term Interest Rate[Low]
+Account Opening Fee[No]*initial Interest Rate[Current]
+Annual Fee[Current]*initial Interest Rate[Current]*Long-term Interest Rate[Low]
+Annual Fee[Current]*initial Interest Rate[Current]
+No error degrees of freedom, so ordinary tests uncomputable.
+Relative Std Error corresponds to residual standard error of 1.
+Pseudo t-Ratio and p-Value calculated using Lenth PSE 0.07125
+and DFE5
+Relative
+Pseudo
+Pseudo
+Estimate
+Std Error
+t-Ratio
+p-Value
+0.25875
+0.25
+3.63
+0.0150*
+0.24875
+0.25
+3.49
+0.0174*
+0.20375
+0.25
+2.86
+0.0354*
+0.15125
+0.25
+2.12
+0.0872
+0.12625
+0.25
+1.77
+0.1366
+0.07875
+0.25
+1.11
+0.3194
+0.05375
+0.25
+0.75
+0.4846
+0.05375
+0.25
+0.75
+0.4846
+0.05125
+0.25
+0.72
+0.5042
+0.04375
+0.25
+0.61
+0.5661
+0.02625
+0.25
+0.37
+0.7276
+0.02625
+0.25
+0.37
+0.7276
+0.02375
+0.25
+0.33
+0.7524
+0.00375
+0.25
+0.05
+0.9601
+0.00125
+0.25
+0.02
+0.9867
+6.7
+2k Designs are Optimal Designs
+Two-level factorial designs have many interesting and useful properties. In this section, a brief
+description of some of these properties is given. We have remarked in previous sections that
+the model regression coefficients and effect estimates from a 2k design are least squares

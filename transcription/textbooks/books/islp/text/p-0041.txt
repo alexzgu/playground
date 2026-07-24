@@ -1,0 +1,62 @@
+2.2 Assessing Model Accuracy
+31
+0
+20
+40
+60
+80
+100
+2
+4
+6
+8
+10
+12
+X
+Y
+2
+5
+10
+20
+0.0
+0.5
+1.0
+1.5
+2.0
+2.5
+Flexibility
+Mean Squared Error
+FIGURE 2.10.
+Details are as in Figure 2.9, using a different true f that is
+much closer to linear. In this setting, linear regression provides a very good fit to
+the data.
+patterns that the method found in the training data simply don’t exist
+in the test data. Note that regardless of whether or not overfitting has
+occurred, we almost always expect the training MSE to be smaller than
+the test MSE because most statistical learning methods either directly or
+indirectly seek to minimize the training MSE. Overfitting refers specifically
+to the case in which a less flexible model would have yielded a smaller
+test MSE.
+Figure 2.10 provides another example in which the true f is approxi-
+mately linear. Again we observe that the training MSE decreases mono-
+tonically as the model flexibility increases, and that there is a U-shape in
+the test MSE. However, because the truth is close to linear, the test MSE
+only decreases slightly before increasing again, so that the orange least
+squares fit is substantially better than the highly flexible green curve. Fi-
+nally, Figure 2.11 displays an example in which f is highly non-linear. The
+training and test MSE curves still exhibit the same general patterns, but
+now there is a rapid decrease in both curves before the test MSE starts to
+increase slowly.
+In practice, one can usually compute the training MSE with relative
+ease, but estimating the test MSE is considerably more difficult because
+usually no test data are available. As the previous three examples illustrate,
+the flexibility level corresponding to the model with the minimal test MSE
+can vary considerably among data sets. Throughout this book, we discuss a
+variety of approaches that can be used in practice to estimate this minimum
+point. One important method is cross-validation (Chapter 5), which is a cross-
+validation
+method for estimating the test MSE using the training data.
+2.2.2
+The Bias-Variance Trade-Off
+The U-shape observed in the test MSE curves (Figures 2.9–2.11) turns out
+to be the result of two competing properties of statistical learning methods.

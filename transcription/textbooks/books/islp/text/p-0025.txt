@@ -1,0 +1,46 @@
+2
+Statistical Learning
+2.1
+What Is Statistical Learning?
+In order to motivate our study of statistical learning, we begin with a simple
+example. Suppose that we are statistical consultants hired by a client to
+investigate the association between advertising and sales of a particular
+product. The Advertising data set consists of the sales of that product
+in 200 different markets, along with advertising budgets for the product in
+each of those markets for three different media: TV, radio, and newspaper.
+The data are displayed in Figure 2.1. It is not possible for our client to
+directly increase sales of the product. On the other hand, they can control
+the advertising expenditure in each of the three media. Therefore, if we
+determine that there is an association between advertising and sales, then
+we can instruct our client to adjust advertising budgets, thereby indirectly
+increasing sales. In other words, our goal is to develop an accurate model
+that can be used to predict sales on the basis of the three media budgets.
+In this setting, the advertising budgets are input variables while sales input
+variable
+is an output variable. The input variables are typically denoted using the
+output
+variable
+symbol X, with a subscript to distinguish them. So X1 might be the TV
+budget, X2 the radio budget, and X3 the newspaper budget. The inputs
+go by different names, such as predictors, independent variables, features, predictor
+independent
+variable
+feature
+or sometimes just variables. The output variable—in this case, sales—is
+variable
+often called the response or dependent variable, and is typically denoted
+response
+dependent
+variable
+using the symbol Y . Throughout this book, we will use all of these terms
+interchangeably.
+More generally, suppose that we observe a quantitative response Y and p
+different predictors, X1, X2, . . . , Xp. We assume that there is some
+relationship between Y and X = (X1, X2, . . . , Xp), which can be written
+in the very general form
+Y = f(X) + ϵ.
+(2.1)
+© Springer Nature Switzerland AG 2023 
+G. James et al., An Introduction to Statistical Learning, Springer Texts in Statistics, 
+https://doi.org/10.1007/978-3-031-38747-0_2 
+15

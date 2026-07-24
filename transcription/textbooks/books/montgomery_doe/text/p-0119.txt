@@ -1,0 +1,4 @@
+3.6 Sample Computer Output
+103
+■F I G U R E 3 . 1 2
+Design-Expert computer output for Example 3.1

@@ -1,0 +1,66 @@
+230
+CHAPTER 6. JUMP PROCESSES
+Therefore, we only need to show that (6.29) implies (6.31).
+Let ϕ denote the characteristic function of X1, and note that −Ψ(s) =
+−log ϕ(s) ∼ϕ(s) −1 as s →0. By changing variables, we see that if
+s > 0,
+ϕ(s) −1
+=
+∞
+−∞
+[eisx −1] f(x) dx
+=
+2
+∞
+0
+[cos(sx) −1] f(x) dx
+=
+2s−1
+∞
+0
+[cos y −1] f(ys) dy
+=
+2sα
+∞
+0
+[cos y −1] s−(1+α) f(ys) dy
+We claim that
+lim
+s0
+∞
+0
+[cos y −1] s−(1+α) f(ys) dy = cI,
+where
+I =
+∞
+0
+cos y −1
+y1+α
+dy,
+from which (6.31) follows with r = 2cI. To see this, let ϵ = (2−α)6 >
+0 and note that
+
+s1−ϵ
+0
+[cos y −1] s−(1+α) f(ys) dy
+
+≤
+C s−(1+α)
+s1−ϵ
+0
+y2 dy
+≤
+Cs(2−α)2 −→0
+Also, for y ≥s1−ϵ,
+f(ys) = c (ys)−(1+α) [1 + o(1)],
+and hence
+lim
+s0
+∞
+s1−ϵ[cos y −1] s−(1+α) f(ys) dy
+= c lim
+s0
+∞
+s1−ϵ[cos y −1] y−(1+α) dy = cI
+Proposition 6.10.3 only uses stable processes for α ≤2. The next propo-
+sition that shows that there are no nontrivial stable process for α > 2.

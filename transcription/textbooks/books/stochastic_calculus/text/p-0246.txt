@@ -1,0 +1,52 @@
+240
+CHAPTER 7. FRACTIONAL BROWNIAN MOTION
+We assume this is nite for each t. Moreover if s < t, we can write
+Yt −Ys =
+s
+−∞
+[f(r, t) −f(r, s)] dBr +
+t
+s
+f(r, t) dBr
+The right-hand side is the sum of two independent normal random variables:
+the rst is Fs-measurable and the second is independent of Fs. Hence Yt −Ys
+has a normal distribution. More generally, one can check that Yt is a Gaussian
+process whose covariance is given for s < t by
+E [YsYt] =
+s
+−∞
+f(r, s) f(r, t) dr
+If we make the further assumption that f(r, t) = ϕ(t−r) for a one-variable
+function ϕ, then the process Yt is stationary and has the form
+Yt =
+t
+−∞
+ϕ(t −r) dBr
+(7.2)
+Proposition 7.2.1. I
+ϕ(s) = c sH−1
+2,
+Yt (7.2), Xt = Yt −Y0 fBmH. H
+c = cH =
+1
+2H +
+∞
+0
+[(1 + r)H−1
+2 −rH−1
+2]2 dr
+−12
+
+P. By construction, Xt is a Gaussian process with continuous paths.
+Since Yt is stationary, the distribution of Xt −Xs = Yt −Ys is the same as
+that of Xt−s = Yt−s −Y0. In particular, E[(Xt −Xs)2] = E[X2
+t−s]Hence we
+only need to show that E[X2
+t ] = t2H. Note that
+Xt =
+0
+−∞
+[ϕ(t −r) −ϕ(−r)] dBr +
+t
+0
+ϕ(t −r) dBr

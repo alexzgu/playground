@@ -1,0 +1,102 @@
+Substituting the model (Equation 3.1) into this equation, we obtain
+Now when squaring and taking expectation of the quantity within the brackets, we see that
+terms involving 
+and 
+are replaced by 2 and n2, respectively, because E(ij) 0.
+Furthermore, all cross products involving ij have zero expectation. Therefore, after squaring
+and taking expectation, the last equation becomes
+or
+By a similar approach, we may also show that2
+Thus, as we argued heuristically, MSE SSE/(N a) estimates 2, and, if there are no differ-
+ences in treatment means (which implies that i 0), MSTreatments SSTreatments/(a 1) also
+estimates 2. However, note that if treatment means do differ, the expected value of the treat-
+ment mean square is greater than 2.
+It seems clear that a test of the hypothesis of no difference in treatment means can be
+performed by comparing MSTreatments and MSE. We now consider how this comparison may be
+made.
+3.3.2
+Statistical Analysis
+We now investigate how a formal test of the hypothesis of no differences in treatment means
+(H0:1  2 . . . a, or equivalently, H0:1 2 . . .  a 0) can be performed.
+Because we have assumed that the errors ij are normally and independently distributed with
+mean zero and variance 2, the observations yij are normally and independently distributed
+with mean i and variance 2. Thus, SST is a sum of squares in normally distributed
+random variables; consequently, it can be shown that SST /2 is distributed as chi-square with
+N 1 degrees of freedom. Furthermore, we can show that SSE/2 is chi-square with N a
+degrees of freedom and that SSTreatments/2 is chi-square with a 1 degrees of freedom if the
+null hypothesis H0:i 0 is true. However, all three sums of squares are not necessarily
+independent because SSTreatments and SSE add to SST. The following theorem, which is a spe-
+cial form of one attributed to William G. Cochran, is useful in establishing the independence
+of SSE and SSTreatments.
+E(MSTreatments) 2 
+n 
+a
+i1
+2
+i
+a 1
+E(MSE) 2
+E(MSE) 
+1
+N aN2 n 
+a
+i1
+2
+i N2 N2 n 
+a
+i1
+2
+i a2
+2
+i.
+2
+ij
+E(MSE) 
+1
+N a E
+a
+i1 
+n
+j1
+ (i ij)2 1
+n 
+a
+i1
+n
+j1
+i ij
+2
+
+1
+N a E
+a
+i1 
+n
+j1
+y2
+ij 1
+n 
+a
+i1
+y2
+i.
+
+1
+N a E
+a
+i1 
+n
+j1
+y2
+ij 2n 
+a
+i1
+y 2
+i. n 
+a
+i1
+y 2
+i .
+3.3 Analysis of the Fixed Effects Model
+73
+2 Refer to the supplemental text material for Chapter 3.

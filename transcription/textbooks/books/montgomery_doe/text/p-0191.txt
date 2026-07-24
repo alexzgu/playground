@@ -1,0 +1,95 @@
+It is possible to show that the interblock estimators 
+and the intrablock estimators 
+are
+uncorrelated.
+The interblock estimators 
+can differ from the intrablock estimators 
+. For exam-
+ple, the interblock estimators for the BIBD in Example 4.5 are computed as follows:
+Note that the values of 
+nijy.j were used previously on page 169 in computing the adjusted
+treatment totals in the intrablock analysis.
+Now suppose we wish to combine the interblock and intrablock estimators to obtain a
+single, unbiased, minimum variance estimate of each i. It is possible to show that both 
+and
+are unbiased and also that
+and
+We use a linear combination of the two estimators, say
+(4.49)
+to estimate i. For this estimation method, the minimum variance unbiased combined estima-
+tor 
+should have weights 1 u1/(u1 u2) and 2 u2/(u1 u2), where u1 1/V( ) and
+u2 1/V( ). Thus, the optimal weights are inversely proportional to the variances of
+and . This implies that the best combined estimator is
+which can be simplied to
+(4.50)
+Unfortunately, Equation 4.50 cannot be used to estimate the i because the variances 2
+and 
+are unknown. The usual approach is to estimate 2 and 
+from the data and replace
+these parameters in Equation 4.50 by the estimates. The estimate usually taken for 2 is the
+error mean square from the intrablock analysis of variance, or the intrablock error. Thus,
+ˆ 2 MSE
+2
+
+2
+
+*i 
+kQi(2 k2
+) 
+b
+j1
+nijy.j kry..2
+(r )2 a(2 k2
+)
+ i 1, 2, . . . , a
+*i 
+ˆi
+k(a 1)
+a(r ) (2 k2
+) ˜i
+k(a 1)
+a2
+2
+k(a 1)
+a2
+2 k(a 1)
+a(r ) (2 k2
+)
+ i 1, 2, . . . , a
+˜i
+ˆi
+˜i
+ˆi
+*i
+*i 1ˆi 2˜i
+V(˜i) k(a 1)
+a(r ) (2 k2
+) 
+ (interblock)
+V(ˆi) k(a 1)
+a2
+2 
+ (intrablock)
+˜i
+ˆi
+"b
+j1
+˜4 646 (3)(3)(72.50)
+3 2
+6.50
+˜3 652 (3)(3)(72.50)
+3 2
+0.50
+˜2 649 (3)(3)(72.50)
+3 2
+3.50
+˜1 663 (3)(3)(72.50)
+3 2
+10.50
+ˆi
+˜i
+ˆi
+˜i
+4.4 Balanced Incomplete Block Designs
+175

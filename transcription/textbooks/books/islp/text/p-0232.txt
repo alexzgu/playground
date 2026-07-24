@@ -1,0 +1,49 @@
+224
+5. Resampling Methods
+Out[25]: intercept
+2.067840
+poly(horsepower , 2, raw=True)[0]
+0.033019
+poly(horsepower , 2, raw=True)[1]
+0.000120
+dtype: float64
+We compare the results to the standard errors computed using sm.OLS().
+In [26]: M = sm.OLS(Auto['mpg'],
+quad_model.fit_transform(Auto))
+summarize(M.fit())['std err']
+Out[26]: intercept
+1.800
+poly(horsepower , 2, raw=True)[0]
+0.031
+poly(horsepower , 2, raw=True)[1]
+0.000
+Name: std err, dtype: float64
+5.4
+Exercises
+Conceptual
+1. Using basic statistical properties of the variance, as well as single-
+variable calculus, derive (5.6). In other words, prove that α given by
+(5.6) does indeed minimize Var(αX + (1 −α)Y ).
+2. We will now derive the probability that a given observation is part
+of a bootstrap sample. Suppose that we obtain a bootstrap sample
+from a set of n observations.
+(a) What is the probability that the first bootstrap observation is
+not the jth observation from the original sample? Justify your
+answer.
+(b) What is the probability that the second bootstrap observation
+is not the jth observation from the original sample?
+(c) Argue that the probability that the jth observation is not in the
+bootstrap sample is (1 −1/n)n.
+(d) When n = 5, what is the probability that the jth observation is
+in the bootstrap sample?
+(e) When n = 100, what is the probability that the jth observation
+is in the bootstrap sample?
+(f) When n = 10, 000, what is the probability that the jth observa-
+tion is in the bootstrap sample?
+(g) Create a plot that displays, for each integer value of n from 1
+to 100, 000, the probability that the jth observation is in the
+bootstrap sample. Comment on what you observe.
+(h) We will now investigate numerically the probability that a boot-
+strap sample of size n = 100 contains the jth observation. Here
+j = 4. We first create an array store with values that will subse-
+quently be overwritten using the function np.empty(). We then np.empty()

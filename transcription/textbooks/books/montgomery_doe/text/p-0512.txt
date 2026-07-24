@@ -1,0 +1,85 @@
+11.3.4
+Multiple Responses
+Many response surface problems involve the analysis of several responses. For instance, in
+Example 11.2, the experimenter measured three responses. In this example, we optimized the
+process with respect to only the yield response y1.
+Simultaneous consideration of multiple responses involves rst building an appropriate
+response surface model for each response and then trying to nd a set of operating conditions
+that in some sense optimizes all responses or at least keeps them in desired ranges. An
+extensive treatment of the multiple response problem is given in Myers, Montgomery and
+Anderson-Cook (2009).
+We may obtain models for the viscosity and molecular weight responses (y2 and y3,
+respectively) in Example 11.2 as follows:
+In terms of the natural levels of time (1) and temperature (2), these models are
+and
+Figures 11.14 and 11.15 present the contour and response surface plots for these models.
+A relatively straightforward approach to optimizing several responses that works well
+when there are only a few process variables is to overlay the contour plots
+for each
+response. Figure 11.16 shows an overlay plot for the three responses in Example 11.2, with
+contours for which y1 (yield) 78.5, 62 y2 (viscosity) 68, and y3 (molecular weight
+Mn) 3400. If these boundaries represent important conditions that must be met by the
+yˆ3 6308.8 41.0251 35.4732
+2.75 1022
+1 0.267572
+2 5 10212
+yˆ2 9030.74 13.3931 97.7082
+yˆ3 3386.2 205.1x1 177.4x2
+yˆ2 70.00 0.16x2 0.95x2 0.69x2
+1 6.69x2
+2 1.25 x1x2
+496
+Chapter 11 ■Response Surface Methods and Designs
+Time
+(a) The contour plot
+Temperature
+77.93
+80.29
+82.64
+85.00
+87.36
+89.71
+92.07
+167.9
+170.3
+172.6
+175.0
+177.4
+179.7
+182.1
+70.03
+63.75
+57.47
+51.19
+182.1
+179.2
+176.4
+173.6
+170.8
+167.9
+77.93
+80.76
+83.59
+86.41
+89.24
+92.07
+Temperature
+Time
+Viscosity
+(b) The response surface plot
+68.00
+68.00
+65.00
+62.00
+70.00
+65.00
+62.00
+58.00
+60.00
+60.00
+58.00
+56.00
+54.00
+56.00
+■F I G U R E 1 1 . 1 4
+Contour plot and response surface plot of viscosity, Example 11.2

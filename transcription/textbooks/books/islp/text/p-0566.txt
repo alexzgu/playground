@@ -1,0 +1,68 @@
+560
+13. Multiple Testing
+−4
+−2
+0
+2
+4
+0.0
+0.1
+0.2
+0.3
+0.4
+Value of Test Statistic
+Probability Density Function
+T=2.33
+FIGURE 13.1. The density function for the N(0, 1) distribution, with the ver-
+tical line indicating a value of 2.33. 1% of the area under the curve falls to the
+right of the vertical line, so there is only a 2% chance of observing a N(0, 1) value
+that is greater than 2.33 or less than −2.33. Therefore, if a test statistic has a
+N(0, 1) null distribution, then an observed test statistic of T = 2.33 leads to a
+p-value of 0.02.
+T =
+ˆµt −ˆµc
+s
+G
+1
+nt +
+1
+nc
+(13.1)
+where ˆµt =
+1
+nt
+)nt
+i=1 xt
+i, ˆµc =
+1
+nc
+)nc
+i=1 xc
+i, and
+s =
+@
+(nt −1)s2
+t + (nc −1)s2c
+nt + nc −2
+(13.2)
+is an estimator of the pooled standard deviation of the two samples.6 Here,
+s2
+t and s2
+c are unbiased estimators of the variance of the blood pressure in
+the treatment and control groups, respectively. A large (absolute) value of
+T provides evidence against H0 : µt = µc, and hence evidence in support
+of Ha : µt̸ = µc.
+Step 3: Compute the p-Value
+In the previous section, we noted that a large (absolute) value of a two-
+sample t-statistic provides evidence against H0. This begs the question: how
+large is large? In other words, how much evidence against H0 is provided
+by a given value of the test statistic?
+The notion of a p-value provides us with a way to formalize as well as p-value
+answer this question. The p-value is defined as the probability of observing
+a test statistic equal to or more extreme than the observed statistic, under
+the assumption that H0 is in fact true. Therefore, a small p-value provides
+evidence against H0.
+5The t-statistic derives its name from the fact that, under H0, it follows a t-
+distribution.
+6Note that (13.2) assumes that the control and treatment groups have equal variance.
+Without this assumption, (13.2) would take a slightly different form.

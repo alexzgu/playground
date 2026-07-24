@@ -1,0 +1,32 @@
+1.8. EXERCISES
+31
+2. Explain why Mn satises the conditions of the martingale convergence
+theorem.
+3. Let M∞= limn∞Mn. Explain why M∞= 0. (Hint: there are at least
+two ways to show this. One is to consider log Mn and use the law of
+large numbers. Another is to note that with probability one Mn+1Mn
+does not converge.)
+4. Use the optional sampling theorem to determine the probability that
+Mn ever attains a value as large as 64.
+5. Does there exist a C < ∞such that E[M 2
+n] ≤C for all n?
+Exercise 1.10. Let X1, X2, be independent, identically distributed ran-
+dom variables with
+PXj = 1= q,
+PXj = −1= 1 −q
+Let S0 = 0 and for n ≥1, Sn = X1 + X2 + · · · + Xn. Let Yn = eSn.
+1. For which value of q is Yn a martingale?
+2. For the remaining parts of this exercise assume q takes the value from
+part 1. Explain why Yn satises the conditions of the martingale con-
+vergence theorem.
+3. Let Y∞= limn Yn. Explain why Y∞= 0. (Hint: there are at least two
+ways to show this. One is to consider log Yn and use the law of large
+numbers. Another is to note that with probability one Yn+1Yn does
+not converge.)
+4. Use the optional sampling theorem to determine the probability that
+Yn ever attains a value greater than 100.
+5. Does there exist a C < ∞such that E[Y 2
+n ] ≤C for all n?
+Exercise 1.11. This exercise concerns Polya’s urn and has a comput-
+ing/simulation component. Let us start with one red and one green ball
+as in the lecture and let Mn be the fraction of red balls at the nth stage.

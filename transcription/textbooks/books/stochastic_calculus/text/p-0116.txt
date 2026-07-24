@@ -1,0 +1,68 @@
+110
+CHAPTER 3. STOCHASTIC INTEGRATION
+Example 3.4.3. The SDE is
+dXt = At Xt dBt
+X0 = x0
+We claim that the solution is
+Xt = x0 exp
+t
+0
+As dBs −1
+2
+t
+0
+A2
+s ds
+
+
+(3.20)
+To see this, let
+Yt =
+t
+0
+As dBs −1
+2
+t
+0
+A2
+s ds,
+which satises
+dYt = −A2
+t
+2 dt + At dBt,
+d⟨Y ⟩t = A2
+t dt
+If f(x) = x0 ex, then f(x) = f ′(x) = f ′′(x) and
+df(Yt) = f ′(Yt) dYt + 1
+2f ′′(Yt) d⟨Y ⟩t = At Xt dBt
+We can compare (3.20) to the solution to the deterministic exponential equa-
+tion
+f ′(t) = r(t) f(t) dt,
+f(0) = x0,
+which is
+f(t) = x0 exp
+t
+0
+r(s) ds
+
+
+Itˆo’s formula requires that the function f(t, x) be C1 in t and C2 in x. In
+applications, one often has functions that are C2 only for x in an interval of
+the reals. In this case, we can use Itˆo’s formula until the (random) time that
+the process leave the interval.
+Theorem 3.4.3 (Itˆo’s formula III, local form). SXt (3.19)
+a < X0 < b, f(t, x) C1 t C2 x a < x < b. L
+T = inft : Xt = a Xt = b. Tt < T,
+f(t, Xt) = f(0, X0) +
+t
+0
+As ∂xf(s, Xs) dBs
++
+t
+0
+
+∂sf(s, Xs) + Rs ∂xf(s, Xs) + A2
+s
+2 ∂xxf(s, Xs)
+
+ds

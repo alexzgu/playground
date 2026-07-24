@@ -1,0 +1,55 @@
+238
+6. Linear Model Selection and Regularization
+the BIC statistic generally places a heavier penalty on models with many
+variables, and hence results in the selection of smaller models than Cp.
+In Figure 6.2, we see that this is indeed the case for the Credit data set;
+BIC chooses a model that contains only the four predictors income, limit,
+cards, and student. In this case the curves are very flat and so there does
+not appear to be much difference in accuracy between the four-variable and
+six-variable models.
+The adjusted R2 statistic is another popular approach for selecting among
+a set of models that contain different numbers of variables. Recall from
+Chapter 3 that the usual R2 is defined as 1 −RSS/TSS, where TSS =
+)(yi −y)2 is the total sum of squares for the response. Since RSS always
+decreases as more variables are added to the model, the R2 always increases
+as more variables are added. For a least squares model with d variables,
+the adjusted R2 statistic is calculated as
+Adjusted R2 = 1 −RSS/(n −d −1)
+TSS/(n −1)
+.
+(6.4)
+Unlike Cp, AIC, and BIC, for which a small value indicates a model with
+a low test error, a large value of adjusted R2 indicates a model with a
+small test error. Maximizing the adjusted R2 is equivalent to minimizing
+RSS
+n−d−1. While RSS always decreases as the number of variables in the model
+increases,
+RSS
+n−d−1 may increase or decrease, due to the presence of d in the
+denominator.
+The intuition behind the adjusted R2 is that once all of the correct
+variables have been included in the model, adding additional noise variables
+will lead to only a very small decrease in RSS. Since adding noise variables
+leads to an increase in d, such variables will lead to an increase in
+RSS
+n−d−1,
+and consequently a decrease in the adjusted R2. Therefore, in theory, the
+model with the largest adjusted R2 will have only correct variables and
+no noise variables. Unlike the R2 statistic, the adjusted R2 statistic pays
+a price for the inclusion of unnecessary variables in the model. Figure 6.2
+displays the adjusted R2 for the Credit data set. Using this statistic results
+in the selection of a model that contains seven variables, adding own to the
+model selected by Cp and AIC.
+Cp, AIC, and BIC all have rigorous theoretical justifications that are
+beyond the scope of this book. These justifications rely on asymptotic ar-
+guments (scenarios where the sample size n is very large). Despite its pop-
+ularity, and even though it is quite intuitive, the adjusted R2 is not as well
+motivated in statistical theory as AIC, BIC, and Cp. All of these measures
+are simple to use and compute. Here we have presented their formulas in
+the case of a linear model fit using least squares; however, AIC and BIC
+can also be defined for more general types of models.
+Validation and Cross-Validation
+As an alternative to the approaches just discussed, we can directly esti-
+mate the test error using the validation set and cross-validation methods
+discussed in Chapter 5. We can compute the validation set error or the
+cross-validation error for each model under consideration, and then select

@@ -1,0 +1,95 @@
+1.2 Some Typical Applications of Experimental Design
+9
+E X A M P L E 1 . 2
+Optimizing a Process
+In a characterization experiment, we are usually interested
+in determining which process variables affect the response.
+A logical next step is to optimize, that is, to determine the
+region in the important factors that leads to the best possi-
+ble response. For example, if the response is yield, we
+would look for a region of maximum yield, whereas if the
+response is variability in a critical product dimension, we
+would seek a region of minimum variability.
+Suppose that we are interested in improving the yield
+of a chemical process. We know from the results of a char-
+acterization experiment that the two most important
+process variables that influence the yield are operating
+temperature and reaction time. The process currently runs
+at 145°F and 2.1 hours of reaction time, producing yields
+of around 80 percent. Figure 1.9 shows a view of the
+time–temperature region from above. In this graph, the
+lines of constant yield are connected to form response
+contours, and we have shown the contour lines for yields
+of 60, 70, 80, 90, and 95 percent. These contours are pro-
+jections on the time–temperature region of cross sections
+of the yield surface corresponding to the aforementioned
+percent yields. This surface is sometimes called a
+response surface. The true response surface in Figure 1.9
+is unknown to the process personnel, so experimental
+methods will be required to optimize the yield with
+respect to time and temperature.
+E X A M P L E 1 . 1
+Characterizing a Process
+A ow solder machine is used in the manufacturing process
+for printed circuit boards. The machine cleans the boards in
+a ux, preheats the boards, and then moves them along a
+conveyor through a wave of molten solder. This solder
+process makes the electrical and mechanical connections
+for the leaded components on the board.
+The process currently operates around the 1 percent defec-
+tive level. That is, about 1 percent of the solder joints on a
+board are defective and require manual retouching. However,
+because the average printed circuit board contains over 2000
+solder joints, even a 1 percent defective level results in far too
+many solder joints requiring rework. The process engineer
+responsible for this area would like to use a designed experi-
+ment to determine which machine parameters are inuential
+in the occurrence of solder defects and which adjustments
+should be made to those variables to reduce solder defects.
+The ow solder machine has several variables that can
+be controlled. They include
+1. Solder temperature
+2. Preheat temperature
+3. Conveyor speed
+4. Flux type
+5. Flux specic gravity
+6. Solder wave depth
+7. Conveyor angle.
+In addition to these controllable factors, several other factors
+cannot be easily controlled during routine manufacturing,
+although they could be controlled for the purposes of a test.
+They are
+1. Thickness of the printed circuit board
+2. Types of components used on the board
+3. Layout of the components on the board
+4. Operator
+5. Production rate.
+In this situation, engineers are interested in character-
+izing the ow solder machine; that is, they want to deter-
+mine which factors (both controllable and uncontrollable)
+affect the occurrence of defects on the printed circuit
+boards. To accomplish this, they can design an experiment
+that will enable them to estimate the magnitude and direc-
+tion of the factor effects; that is, how much does the
+response variable (defects per unit) change when each fac-
+tor is changed, and does changing the factors together
+produce different results than are obtained from individual
+factor adjustments—that is, do the factors interact?
+Sometimes we call an experiment such as this a screening
+experiment. Typically, screening or characterization exper-
+iments involve using fractional factorial designs, such as in
+the golf example in Figure 1.8.
+The information from this screening or characterization
+experiment will be used to identify the critical process fac-
+tors and to determine the direction of adjustment for these
+factors to reduce further the number of defects per unit. The
+experiment may also provide information about which fac-
+tors should be more carefully controlled during routine man-
+ufacturing to prevent high defect levels and erratic process
+performance. Thus, one result of the experiment could be the
+application of techniques such as control charts to one or
+more process variables (such as solder temperature), in
+addition to control charts on process output. Over time, if the
+process is improved enough, it may be possible to base most
+of the process control plan on controlling process input vari-
+ables instead of control charting the output.

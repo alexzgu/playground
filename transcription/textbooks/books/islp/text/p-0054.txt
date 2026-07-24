@@ -1,0 +1,45 @@
+44
+2. Statistical Learning
+in our call to reshape(), in this case (2, 3). This tuple specifies that we
+would like to create a two-dimensional array with 2 rows and 3 columns.2
+In what follows, the \n character creates a new line.
+In [19]: x = np.array([1, 2, 3, 4, 5, 6])
+print('beginning x:\n', x)
+x_reshape = x.reshape((2, 3))
+print('reshaped x:\n', x_reshape)
+beginning x:
+[1 2 3 4 5 6]
+reshaped x:
+[[1 2 3]
+[4 5 6]]
+The previous output reveals that numpy arrays are specified as a sequence
+of rows. This is called row-major ordering, as opposed to column-major
+ordering.
+Python (and hence numpy) uses 0-based indexing. This means that to
+access the top left element of x_reshape, we type in x_reshape[0,0].
+In [20]: x_reshape[0, 0]
+Out[20]: 1
+Similarly, x_reshape[1,2] yields the element in the second row and the
+third column of x_reshape.
+In [21]: x_reshape[1, 2]
+Out[21]: 6
+Similarly, x[2] yields the third entry of x.
+Now, let’s modify the top left element of x_reshape. To our surprise, we
+discover that the first element of x has been modified as well!
+In [22]: print('x before we modify x_reshape:\n', x)
+print('x_reshape before we modify x_reshape:\n', x_reshape)
+x_reshape[0, 0] = 5
+print('x_reshape after we modify its top left element:\n',
+x_reshape)
+print('x after we modify top left element of x_reshape:\n', x)
+Out[22]: x before we modify x_reshape:
+[1 2 3 4 5 6]
+x_reshape before we modify x_reshape:
+[[1 2 3]
+[4 5 6]]
+x_reshape after we modify its top left element:
+[[5 2 3]
+2Like lists, tuples represent a sequence of objects. Why do we need more than one way
+to create a sequence? There are a few differences between tuples and lists, but perhaps
+the most important is that elements of a tuple cannot be modified, whereas elements of
+a list can be.

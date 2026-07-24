@@ -1,0 +1,351 @@
+6.6 Additional Examples of Unreplicated 2k Designs
+279
+The marketing team used columns A through D of the 24
+factorial test matrix shown in Table 6.22 to create 16 mail
+packages. The /sign combinations in the 11 interaction
+(product) columns are used solely to facilitate the statistical
+analysis of the results. Each of the 16 test combinations was
+mailed to 7500 customers, and 2837 customers responded
+positively to the offers. 
+rates and fees. They want to test changes in both introduc-
+tory and long-term rates, as well as the effects of adding an
+account-opening fee and lowering the annual fee. The fac-
+tors tested in the experiment are as follows:
+Table 6.23 is the JMP output for the screening analysis.
+Lenth’s method with simulated P-values is used to identify
+signicant factors. All four main effects are signicant, and
+one interaction (AB, or Annual Fee Account Opening
+Fee). The prediction proler indicates the settings of the
+four factors that will result in the maximum response rate.
+The lower annual fee, no account opening fee, the lower
+long-term interest rate and either value of the initial interest
+rate produce the best response, 3.39 percent. The optimum
+conditions occur at one of the actual test combinations
+because all four design factors were treated as qualitative.
+With continuous factors, the optimal conditions are usually
+not at one of the experimental runs.
+■TA B L E 6 . 2 2
+The 24 Factorial Design Used in the Credit Card Marketing Experiment, Example 6.6
+Annual- Account-
+Initial interest Long-term 
+(interactions)
+fee
+opening fee
+rate
+interest rate
+Test 
+A
+B
+C
+D
+AB
+AC
+AD
+BC
+BD
+CD ABC ABD ACD BCD ABCD Orders Response 
+cell
+rate
+1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+184
+2.45%
+2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+252
+3.36%
+3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+162
+2.16%
+4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+172
+2.29%
+5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+187
+2.49%
+6
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+254
+3.39%
+7
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+174
+2.32%
+8
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+183
+2.44%
+9
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+138
+1.84%
+10
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+168
+2.24%
+11
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+127
+1.69%
+12
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+140
+1.87%
+13
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+172
+2.29%
+14
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+219
+2.92%
+15
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+153
+2.04%
+16
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+152
+2.03%
+Factor
+() Control
+() New idea
+A: Annual fee
+Current
+Lower
+B: Account-opening fee
+No 
+Yes
+C: Initial interest rate
+Current
+Lower
+D: Long-term interest rate
+Low
+High

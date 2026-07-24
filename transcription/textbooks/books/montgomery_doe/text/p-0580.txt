@@ -1,0 +1,71 @@
+564
+Chapter 12 ■Robust Parameter Design and Process Robustness Studies
+Suppose that the experimenter wants to maintain a mean
+ltration rate of about 75 and minimize the variability
+around this value. Figure 12.9 shows an overlay plot of the
+contours of mean ltration rate and the POE as a function
+of concentration and stirring rate, the signicant control-
+lable variables. To achieve the desired objectives, it will be
+necessary to hold concentration at the high level and stir-
+ring rate very near the middle level.
+28.5315
+22.5032
+16.4748
+10.4465
+4.41816
+1.00
+1.00
+0.50
+0.00
+–0.50
+–1.00
+–1.00
+–0.50
+(b) Response surface plot
+POE (y)
+(a) Contour plot
+0.00
+x4
+x2
+0.50
+1.00
+1.00
+0.50
+0.50
+0.00
+0.00
+–0.50
+–0.50
+–1.00
+–1.00
+x3 = Strirring rate
+x2 = Concentration
+10
+5
+5
+15
+20
+25
+■F I G U R E 1 2 . 8
+Contour plot and response surface of propagation of error for Example 12.1, with x1 
+temperature 0
+1.00
+0.50
+0.00
+–0.50
+–1.00
+–1.00
+–0.50
+0.00
+0.50
+1.00
+x3 = Strirring rate
+x2 = Concentration
+y: 75
+POE(y): 5.5
+POE(y): 5.5
+■F I G U R E 1 2 . 9
+Overlay plot 
+of mean and POE contours for ﬁltration
+rate, Example 12.1, with x1 
+temperature 0

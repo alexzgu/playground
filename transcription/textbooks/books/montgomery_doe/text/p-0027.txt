@@ -1,0 +1,69 @@
+1.3 Basic Principles
+11
+E X A M P L E 1 . 5
+Formulating a Product
+A biochemist is formulating a diagnostic product to detect
+the presence of a certain disease. The product is a mixture
+of biological materials, chemical reagents, and other mate-
+rials that when combined with human blood react to pro-
+vide a diagnostic indication. The type of experiment used
+here is a mixture experiment, because various ingredients
+that are combined to form the diagnostic make up 100 per-
+cent of the mixture composition (on a volume, weight, or
+mole ratio basis), and the response is a function of the mix-
+ture proportions that are present in the product. Mixture
+experiments are a special type of response surface experi-
+ment that we will study in Chapter 11. They are very useful
+in designing biotechnology products, pharmaceuticals,
+foods and beverages, paints and coatings, consumer prod-
+ucts such as detergents, soaps, and other personal care
+products, and a wide variety of other products.
+E X A M P L E 1 . 6
+Designing a Web Page
+A lot of business today is conducted via the World Wide
+Web. Consequently, the design of a business’ web page has
+potentially important economic impact. Suppose that the
+Web site has the following components: (1) a photoash
+image, (2) a main headline, (3) a subheadline, (4) a main
+text copy, (5) a main image on the right side, (6) a back-
+ground design, and (7) a footer. We are interested in nding
+the factors that inuence the click-through rate; that is, the
+number of visitors who click through into the site divided by
+the total number of visitors to the site. Proper selection of
+the important factors can lead to an optimal web page
+design. Suppose that there are four choices for the photo-
+ash image, eight choices for the main headline, six choic-
+es for the subheadline, ve choices for the main text copy,
+four choices for the main image, three choices for the back-
+ground design, and seven choices for the footer. If we use a
+factorial design, web pages for all possible combinations of
+these factor levels must be constructed and tested. This is a
+total of 
+640 web
+pages. Obviously, it is not feasible to design and test this
+many combinations of web pages, so a complete factorial
+experiment cannot be considered. However, a fractional fac-
+torial experiment that uses a small number of the possible
+web page designs would likely be successful. This experi-
+ment would require a fractional factorial where the factors
+have different numbers of levels. We will discuss how to
+construct these designs in Chapter 9.
+4 8 6 5 4 3 7 80,
+Designers frequently use computer models to assist them in carrying out their activities.
+Examples include nite element models for many aspects of structural and mechanical
+design, electrical circuit simulators for integrated circuit design, factory or enterprise-level
+models for scheduling and capacity planning or supply chain management, and computer
+models of complex chemical processes. Statistically designed experiments can be applied to
+these models just as easily and successfully as they can to actual physical systems and will
+result in reduced development lead time and better designs.
+1.3
+Basic Principles
+If an experiment such as the ones described in Examples 1.1 through 1.6 is to be performed
+most efciently, a scientic approach to planning the experiment must be employed.
+Statistical design of experiments refers to the process of planning the experiment so that
+appropriate data will be collected and analyzed by statistical methods, resulting in valid
+and objective conclusions. The statistical approach to experimental design is necessary if we
+wish to draw meaningful conclusions from the data. When the problem involves data that are
+subject to experimental errors, statistical methods are the only objective approach to analysis.
+Thus, there are two aspects to any experimental problem: the design of the experiment and
+the statistical analysis of the data. These two subjects are closely related because the method

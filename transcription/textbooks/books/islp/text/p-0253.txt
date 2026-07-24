@@ -1,0 +1,121 @@
+6.2 Shrinkage Methods
+245
+20
+50
+100
+200
+500
+2000
+5000
+−200
+0
+100
+200
+300
+400
+Standardized Coefficients
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+−300
+−100
+0
+100
+200
+300
+400
+Standardized Coefficients
+Income
+Limit
+Rating
+Student
+λ
+∥ˆβL
+λ ∥1/∥ˆβ∥1
+FIGURE 6.6. The standardized lasso coefficients on the Credit data set are
+shown as a function of λ and ∥ˆβL
+λ ∥1/∥ˆβ∥1.
+As an example, consider the coefficient plots in Figure 6.6, which are gen-
+erated from applying the lasso to the Credit data set. When λ = 0, then
+the lasso simply gives the least squares fit, and when λ becomes sufficiently
+large, the lasso gives the null model in which all coefficient estimates equal
+zero. However, in between these two extremes, the ridge regression and
+lasso models are quite different from each other. Moving from left to right
+in the right-hand panel of Figure 6.6, we observe that at first the lasso re-
+sults in a model that contains only the rating predictor. Then student and
+limit enter the model almost simultaneously, shortly followed by income.
+Eventually, the remaining variables enter the model. Hence, depending on
+the value of λ, the lasso can produce a model involving any number of vari-
+ables. In contrast, ridge regression will always include all of the variables in
+the model, although the magnitude of the coefficient estimates will depend
+on λ.
+Another Formulation for Ridge Regression and the Lasso
+One can show that the lasso and ridge regression coefficient estimates solve
+the problems
+minimize
+β
+
+
+
+
+
+n
+0
+i=1
+
+yi −β0 −
+p
+0
+j=1
+βjxij
+
+
+2
+
+
+
+
+subject to
+p
+0
+j=1
+|βj| ≤s
+(6.8)
+and
+minimize
+β
+
+
+
+
+
+n
+0
+i=1
+
+yi −β0 −
+p
+0
+j=1
+βjxij
+
+
+2
+
+
+
+
+subject to
+p
+0
+j=1
+β2
+j ≤s,
+(6.9)
+respectively. In other words, for every value of λ, there is some s such that
+the Equations (6.7) and (6.8) will give the same lasso coefficient estimates.
+Similarly, for every value of λ there is a corresponding s such that Equa-
+tions (6.5) and (6.9) will give the same ridge regression coefficient estimates.

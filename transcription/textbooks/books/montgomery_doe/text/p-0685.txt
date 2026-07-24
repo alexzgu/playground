@@ -1,0 +1,144 @@
+15.3 The Analysis of Covariance
+669
+■TA B L E 1 5 . 1 6
+Response and Covariate Data for a 23 with 2 Replicates
+A
+B
+C
+x
+y
+1
+1
+1
+4.05
+30.73
+1
+1
+1
+0.36
+9.07
+1
+1
+1
+5.03
+39.72
+1
+1
+1
+1.96
+16.30
+1
+1
+1
+5.38
+26.39
+1
+1
+1
+8.63
+54.58
+1
+1
+1
+4.10
+44.54
+1
+1
+1
+11.44
+66.20
+1
+1
+1
+3.58
+26.46
+1
+1
+1
+1.06
+10.94
+1
+1
+1
+15.53
+103.01
+1
+1
+1
+2.92
+20.44
+1
+1
+1
+2.48
+8.94
+1
+1
+1
+13.64
+73.72
+1
+1
+1
+0.67
+15.89
+1
+1
+1
+5.13
+38.57 
+■TA B L E 1 5 . 1 7
+JMP Analysis of Covariance for the Experiment in Table 15.16, Assuming a Common Slope
+Response Y
+Summary of Fit
+RSquare
+0.971437
+RSquare Adj
+0.938795
+Root Mean Square Error
+9.47287
+Mean of Response
+25.02875
+Observations for (or Sum Wgts)
+16
+Analysis of Variance
+Source
+DF
+Sum of Squares
+Mean Square
+F Ratio
+Model
+8
+21363.834
+2670.48
+29.7595
+Error
+7
+628.147
+89.74
+Prob > F
+C. Total
+15
+21991.981
+<.0001*
+Parameter Estimates
+Term
+Estimate
+Std Error
+t Ratio
+Prob>|t|
+Intercept
+1.015872
+5.454106
+0.19
+0.8575
+X
+4.9245327
+0.928977
+5.30
+0.0011*
+X1
+9.4566966
+2.39091
+3.96
+0.0055*

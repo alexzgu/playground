@@ -1,0 +1,52 @@
+Models for the Data. We will nd it useful to describe the observations from an
+experiment with a model. One way to write this model is
+(3.1)
+where yij is the ijth observation, i is the mean of the ith factor level or treatment, and ij is a
+random error component that incorporates all other sources of variability in the experiment
+including measurement, variability arising from uncontrolled factors, differences between the
+experimental units (such as test material, etc.) to which the treatments are applied, and the
+general background noise in the process (such as variability over time, effects of environmen-
+tal variables, and so forth). It is convenient to think of the errors as having mean zero, so that
+E(yij) i.
+Equation 3.1 is called the means model. An alternative way to write a model for the
+data is to dene
+so that Equation 3.1 becomes
+(3.2)
+In this form of the model, is a parameter common to all treatments called the overall mean,
+and i is a parameter unique to the ith treatment called the ith treatment effect. Equation 3.2
+is usually called the effects model.
+Both the means model and the effects model are linear statistical models; that is, the
+response variable yij is a linear function of the model parameters. Although both forms of the
+model are useful, the effects model is more widely encountered in the experimental design lit-
+erature. It has some intuitive appeal in that is a constant and the treatment effects i repre-
+sent deviations from this constant when the specic treatments are applied.
+Equation 3.2 (or 3.1) is also called the one-way or single-factor analysis of variance
+(ANOVA) model because only one factor is investigated. Furthermore, we will require that
+the experiment be performed in random order so that the environment in which the treatments
+are applied (often called the experimental units) is as uniform as possible. Thus, the exper-
+imental design is a completely randomized design. Our objectives will be to test appropri-
+ate hypotheses about the treatment means and to estimate them. For hypothesis testing, the
+model errors are assumed to be normally and independently distributed random variables with
+mean zero and variance 2. The variance 2 is assumed to be constant for all levels of the fac-
+tor. This implies that the observations
+and that the observations are mutually independent.
+Fixed or Random Factor? The statistical model, Equation 3.2, describes two differ-
+ent situations with respect to the treatment effects. First, the a treatments could have been
+specically chosen by the experimenter. In this situation, we wish to test hypotheses about the
+treatment means, and our conclusions will apply only to the factor levels considered in the
+analysis. The conclusions cannot be extended to similar treatments that were not explicitly
+considered. We may also wish to estimate the model parameters (, i, 2). This is called the
+ﬁxed effects model. Alternatively, the a treatments could be a random sample from a larg-
+er population of treatments. In this situation, we should like to be able to extend the conclu-
+sions (which are based on the sample of treatments) to all treatments in the population,
+yij N(i, 2)
+yij i ij
+i 1, 2, . . . , a
+j 1, 2, . . . , n
+i i, 
+ i 1, 2, . . . , a
+yij i ij
+i 1, 2, . . . , a
+j 1, 2, . . . , n
+3.2 The Analysis of Variance
+69

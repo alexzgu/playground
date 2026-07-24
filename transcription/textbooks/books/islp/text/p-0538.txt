@@ -1,0 +1,31 @@
+532
+12. Unsupervised Learning
+Average Linkage
+Complete Linkage
+Single Linkage
+FIGURE 12.14. Average, complete, and single linkage applied to an example
+data set. Average and complete linkage tend to yield more balanced clusters.
+ample just described. Some items may be purchased more frequently than
+others; for instance, a shopper might buy ten pairs of socks a year, but a
+computer very rarely. High-frequency purchases like socks therefore tend
+to have a much larger effect on the inter-shopper dissimilarities, and hence
+on the clustering ultimately obtained, than rare purchases like computers.
+This may not be desirable. If the variables are scaled to have standard de-
+viation one before the inter-observation dissimilarities are computed, then
+each variable will in effect be given equal importance in the hierarchical
+clustering performed. We might also want to scale the variables to have
+standard deviation one if they are measured on different scales; otherwise,
+the choice of units (e.g. centimeters versus kilometers) for a particular vari-
+able will greatly affect the dissimilarity measure obtained. It should come
+as no surprise that whether or not it is a good decision to scale the variables
+before computing the dissimilarity measure depends on the application at
+hand. An example is shown in Figure 12.16. We note that the issue of
+whether or not to scale the variables before performing clustering applies
+to K-means clustering as well.
+12.4.3
+Practical Issues in Clustering
+Clustering can be a very useful tool for data analysis in the unsupervised
+setting. However, there are a number of issues that arise in performing
+clustering. We describe some of these issues here.
+Small Decisions with Big Consequences
+In order to perform clustering, some decisions must be made.

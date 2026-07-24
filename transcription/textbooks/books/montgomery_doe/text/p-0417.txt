@@ -1,0 +1,147 @@
+9.1 The 3k Factorial Design
+401
+the performance of this lling system. Because the objective is to minimize syrup loss, nozzle
+type 3 would be preferred, as the smallest observed contours (60) appear only on this plot. Filling
+speed near the middle level of 120 rpm and the either low or high pressure levels should be used.
+When constructing contour plots for an experiment that has a mixture of quantitative
+and qualitative factors, it is not unusual to nd that the shapes of the surfaces in the quantita-
+tive factors are very different at each level of the qualitative factors. This is noticeable to some
+degree in Figure 9.5, where the shape of the surface for nozzle type 2 is considerably elon-
+gated in comparison to the surfaces for nozzle types 1 and 3. When this occurs, it implies that
+there are interactions present between the quantitative and qualitative factors, and as a result,
+the optimum operating conditions (and other important conclusions) in terms of the quantita-
+tive factors are very different at each level of the qualitative factors.
+We can easily show the numerical partitioning of the ABC interaction into its four
+orthogonal two-degrees-of-freedom components using the data in Example 9.1. The general
+procedure has been described by Davies (1956) and Cochran and Cox (1957). First, select any
+two of the three factors, say AB, and compute the I and J totals of the AB interaction at each
+level of the third factor C. These calculations are as follows:
+A
+Totals
+C
+B
+1
+2
+3
+I
+J
+100
+60
+41
+74
+198
+222
+10
+120
+105
+123
+122
+106
+79
+140
+25
+24
+15
+155
+158
+100
+185
+175
+203
+331
+238
+15
+120
+20
+99
+54
+255
+440
+140
+134
+154
+245
+377
+285
+100
+9
+28
+85
+59
+144
+20
+120
+70
+126
+113
+74
+40
+140
+67
+51
+58
+206
+155
+The I(AB) and J(AB) totals are now arranged in a two-way table with factor C, and the I and J
+diagonal totals of this new display are computed as follows:
+Totals
+Totals
+C
+I(AB)
+I
+J
+C
+J(AB)
+I
+J
+10
+198
+106
+155
+149
+41
+10
+222
+79
+158
+63
+138
+15
+331
+255
+377
+212
+19
+15
+238
+440
+285
+62
+4
+20
+59
+74
+206
+102
+105
+20
+144
+40
+155
+40
+23
+The I and J diagonal totals computed above are actually the totals representing the quantities
+I[I(AB) C] AB2C2, J[I(AB) C] AB2C, I[J(AB) C] ABC2, and J[J(AB)C] ABC
+or the W, X,Y, and Z components of ABC. The sums of squares are found in the usual way; that is,
+(41)2 (19)2 (105)2
+18
+(165)2
+54
+221.77
+J[I(AB) C] AB2C X(ABC)
+(149)2 (212)2 (102)2
+18
+(165)2
+54
+3804.11
+I[I(AB) C)] AB2C 2 W(ABC)

@@ -1,0 +1,100 @@
+636
+Chapter 14 ■Nested and Split-Plot Designs
+■TA B L E 1 4 . 2 6
+An Abbreviated Analysis of Variance for a Strip-Split-Plot Design
+Source of 
+Sum of
+Degrees of
+Variation
+Squares
+Freedom
+Expected Mean Square
+Replicates (or blocks)
+SSReplicates
+r 1
+A
+SSA
+a 1
+Whole-plot errorA
+(r 1)(a 1)
+B
+SSB
+b 1
+Whole-plot errorB
+(r 1)(b 1)
+AB
+SSAB
+(a 1)(b 1)
+Subplot error
+SSSP
+(r 1)(a 1)(b 1)
+Total
+SST
+rab 1
+2
+
+2
+
+r ()2
+jk
+(a 1)(b 1)
+2
+a2
+
+SSWPB
+2
+a2
+ra 2
+k
+b 1
+2
+b2
+
+SSWPA
+2
+b2
+
+rb 2
+j
+a 1
+2
+ab2
+
+A3B1
+A1B1
+A2B1
+A3
+A1
+A2
+A3B3
+A1B3
+A2B3
+A3B2
+B1
+B3
+B2
+A1B2
+A2B2
+Whole plots
+Strip
+plots
+■F I G U R E 1 4 . 1 1
+One replicate
+(block) of a strip-split-plot design
+relatively small number of degrees of freedom, and the experimenter might consider using
+additional replicates to increase the precision of the test. If there are a replicates, we will have 
+2(r 1) degrees of freedom for whole-plot error. Thus, ve replicates yield 2(5 1) 8
+error degrees of freedom, six replicates yield 2(6 1) 10 error degrees of freedom, seven
+replicates yield 2(7 1) 12 error degrees of freedom, and so on. Consequently, we would
+probably not want to run fewer than four replicates because this would yield only four error
+degrees of freedom. Each additional replicate allows us to gain two degrees of freedom for
+error. If we could afford to run ve replicates, we could increase the precision of the test by
+one-third (from six to eight degrees of freedom). Also, in going from ve to six replicates,
+there is an additional 25 percent gain in precision. If resources permit, the experimenter
+should run ve or six replicates.
+14.5.3
+The Strip-Split-Plot Design
+The strip-split-plot design has had an extensive application in the agricultural sciences, but it
+nds occasional use in industrial experimentation. In the simplest case, we have two factors
+A and B. Factor A is applied to whole plots just as in the standard split-plot design. Then fac-
+tor B is applied to strips (which are really just another set of whole plots) that are orthogonal

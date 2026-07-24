@@ -1,0 +1,114 @@
+11.7 Evolutionary Operation
+541
+made. The effects and interactions for temperature and
+pressure are calculated in the usual manner for a 22 design.
+A second cycle is then run and the yield data entered in
+another EVOP calculation sheet, shown in Table 11.24. At
+the end of the second cycle, the experimental error can be
+estimated and the estimates of the effects compared to
+approximate 95 percent (two standard deviation) limits.
+Note that the range refers to the range of the differences in
+row (iv); thus, the range is 1.0 (1.0) 2.0. Because
+none of the effects in Table 11.24 exceed their error limits,
+the true effect is probably zero, and no changes in operating
+conditions are contemplated.
+The results of a third cycle are shown in Table 11.25.
+The effect of pressure now exceeds its error limit and the
+temperature effect is equal to the error limit. A change in
+operating conditions is now probably justied.
+■TA B L E 1 1 . 2 3
+EVOP Calculation Sheet for Example 11.7, n 1
+Cycle: n 1 
+Phase: 1
+Response: Yield
+Date: 1/11/04
+Calculation of 
+Calculation of Averages
+Standard Deviation
+Operating Conditions
+(1)
+(2)
+(3)
+(4)
+(5)
+(i) Previous cycle sum
+Previous sum S 
+(ii) Previous cycle average
+Previous average S 
+(iii) New observations
+84.5
+84.2
+84.9
+84.5
+84.3
+New S range f5,n 
+(iv) Differences [(ii) (iii)]
+Range of (iv) 
+(v) New sums [(i) (iii)]
+84.5
+84.2
+84.9
+84.5
+84.3
+New sum S 
+(vi) New averages  
+84.5
+84.2
+84.9
+84.5
+84.3
+New average S 
+Calculation of Effects
+Calculation of Error Limits
+Temperature effect 
+For new average
+Pressure effect 
+For new effects 
+T P interaction effect 
+Change-in-mean effect
+For change in mean 1.78
+n
+S 
+
+1
+5( y2 y3 y4 y5 4y1) 0.02
+
+1
+2( y2 y3 y4 y5) 0.15
+2
+n
+S 
+
+1
+2( y3 y5 y2 y4) 0.25
+
+2
+n
+S 
+
+1
+2( y3 y4 y2 y5) 0.45
+New sum S
+n 1
+[ yi (v)n]
+■F I G U R E 1 1 . 4 9
+A 22 design
+for EVOP
+x1 (°F)
+x2 (psi)
+245
+250
+255
+140
+145
+150
+(1)
+84.5
+(5)
+(3)
+(2)
+(4)
+84.9
+84.3
+84.5
+84.2

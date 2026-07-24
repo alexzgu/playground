@@ -1,0 +1,62 @@
+592
+Chapter 13 ■Experiments with Random Factors
+13.6
+Approximate F Tests
+In factorial experiments with three or more factors involving a random or mixed model and
+certain other, more complex designs, there are frequently no exact test statistics for certain
+effects in the models. One possible solution to this dilemma is to assume that certain interac-
+tions are negligible. To illustrate, if we could reasonably assume that all the two-factor inter-
+actions in Example 13.5 are negligible, then we could set 
+, and tests
+for main effects could be conducted.
+Although this seems to be an attractive possibility, we must point out that there must be
+something in the nature of the process—or some strong prior knowledge—for us to assume
+that one or more of the interactions are negligible. In general, this assumption is not easily
+made, nor should it be taken lightly. We should not eliminate certain interactions from the
+model without conclusive evidence that it is appropriate to do so. A procedure advocated by
+some experimenters is to test the interactions rst, then set at zero those interactions found to
+be insignicant, and then assume that these interactions are zero when testing other effects in
+the same experiment. Although sometimes done in practice, this procedure can be dangerous
+because any decision regarding an interaction is subject to both type I and type II errors.
+A variation of this idea is to pool certain mean squares in the analysis of variance to
+obtain an estimate of error with more degrees of freedom. For instance, suppose that in
+Example 13.6 the test statistic F0 MSABC/MSE was not signicant. Thus, H0:
+0 is
+not rejected, and both MSABC and MSE estimate the error variance 2. The experi-
+menter might consider pooling or combining MSABC and MSE according to
+so that E(MSE) 2. Note that MSEhas abc(n 1) (a 1)(b 1)(c 1) degrees of
+freedom, compared to abc(n 1) degrees of freedom for the original MSE.
+The danger of pooling is that one may make a type II error and combine the mean
+square for a factor that really is signicant with error, thus obtaining a new residual mean
+square (MSE) that is too large. This will make other signicant effects more difcult to detect.
+On the contrary, if the original error mean square has a very small number of degrees of free-
+dom (e.g., less than six), the experimenter may have much to gain by pooling because it could
+potentially increase the precision of further tests considerably. A reasonably practical proce-
+dure is as follows. If the original error mean square has six or more degrees of freedom, do
+not pool. If the original error mean square has fewer than six degrees of freedom, pool only
+if the F statistic for the mean square to be pooled is not signicant at a large value of , such
+as 0.25.
+If we cannot assume that certain interactions are negligible and we still need to make
+inferences about those effects for which exact tests do not exist, a procedure attributed to
+Satterthwaite (1946) can be employed. Satterthwaite’s method uses linear combinations of
+mean squares, for example,
+(13.17)
+and
+(13.18)
+where the mean squares in Equations 13.31 and 13.32 are chosen so that E(MS) E(MS)
+is equal to a multiple of the effect (the model parameter or variance component) considered
+in the null hypothesis. Then the test statistic would be
+(13.19)
+F MS
+MS
+MSMSu Á MSv
+MSMSr Á MSs
+MSEabc(n 1)MSE (a 1)(b 1)(c 1)MSABC
+abc(n 1) (a 1)(b 1)(c 1)
+2
+
+2
+0
+2
+2
+

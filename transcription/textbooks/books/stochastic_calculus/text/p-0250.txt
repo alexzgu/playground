@@ -1,0 +1,60 @@
+244
+CHAPTER 8. HARMONIC FUNCTIONS
+P. Without loss of generality, assume x = 0 and f(x) = 0, and write
+MV (ϵ) for MV (0; f, ϵ). Let bj = ∂jf(0), ajk = ∂jkf(0). Taylor’s theorem
+implies that
+f(y) =
+d
+
+j=1
+bj yj + 1
+2
+d
+
+j=1
+ajkyjyk + o(y2),
+y →0,
+where we write y = (y1, , yd). Therefore,
+MV (ϵ) =
+d
+
+j=1
+bj MV (0; yj, ϵ) + 1
+2
+d
+
+j=1
+ajk MV (0; yjyk, ϵ) + o(ϵ2)
+Note that MV (0; yj, ϵ)
+=
+0 since yj is an odd function. Similarly,
+MV (0; yjyk, ϵ) = 0 if j̸ = k. Linearity of the integral implies that
+d
+
+j=1
+MV (0; y2
+j, ϵ) = MV (0;
+d
+
+j=1
+y2
+j, ϵ) = MV (0; ϵ2, ϵ) = ϵ2
+Symmetriy implies that MV (0; y2
+j, ϵ) = MV (0; y2
+k, ϵ), and hence MV (y2
+j, ϵ) =
+ϵd. We therefore have
+MV (ϵ) = 1
+2
+d
+
+j=1
+ajj (ϵ2d) + o(ϵ2) = ϵ2
+2d 2f(0) + o(ϵ2)
+Denition Suppose f is a function dened on an open set D ⊂Rd.
+f is D if f is C2 and 2f(x) = 0 for all x D. f is
+harmonic at x if it is harmonic in a neighborhood of x.
+A function f satises the () on D if for
+every x D and every ϵ > 0 with y : x −y≤ϵ⊂D ,
+f(x) = MV (f; x, ϵ)
+Proposition 8.1.2.

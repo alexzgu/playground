@@ -1,0 +1,47 @@
+198
+4. Classification
+(e) Perform QDA on the training data in order to predict mpg01
+using the variables that seemed most associated with mpg01 in
+(b). What is the test error of the model obtained?
+(f) Perform logistic regression on the training data in order to pre-
+dict mpg01 using the variables that seemed most associated with
+mpg01 in (b). What is the test error of the model obtained?
+(g) Perform naive Bayes on the training data in order to predict
+mpg01 using the variables that seemed most associated with mpg01
+in (b). What is the test error of the model obtained?
+(h) Perform KNN on the training data, with several values of K, in
+order to predict mpg01. Use only the variables that seemed most
+associated with mpg01 in (b). What test errors do you obtain?
+Which value of K seems to perform the best on this data set?
+15. This problem involves writing functions.
+(a) Write a function, Power(), that prints out the result of raising 2
+to the 3rd power. In other words, your function should compute
+23 and print out the results.
+Hint: Recall that x**a raises x to the power a. Use the print()
+function to display the result.
+(b) Create a new function, Power2(), that allows you to pass any
+two numbers, x and a, and prints out the value of x**a. You can
+do this by beginning your function with the line
+def Power2(x, a):
+You should be able to call your function by entering, for instance,
+Power2(3, 8)
+on the command line. This should output the value of 38, namely,
+6, 561.
+(c) Using the Power2() function that you just wrote, compute 103,
+817, and 1313.
+(d) Now create a new function, Power3(), that actually returns the
+result x**a as a Python object, rather than simply printing it
+to the screen. That is, if you store the value x**a in an object
+called result within your function, then you can simply return return
+this result, using the following line:
+return result
+Note that the line above should be the last line in your function,
+and it should be indented 4 spaces.
+(e) Now using the Power3() function, create a plot of f(x) = x2.
+The x-axis should display a range of integers from 1 to 10, and
+the y-axis should display x2. Label the axes appropriately, and
+use an appropriate title for the figure. Consider displaying either
+the x-axis, the y-axis, or both on the log-scale. You can do this
+by using the ax.set_xscale() and ax.set_yscale() methods of .set_xscale()
+.set_yscale()
+the axes you are plotting to.

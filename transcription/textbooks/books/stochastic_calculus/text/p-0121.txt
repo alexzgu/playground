@@ -1,0 +1,122 @@
+3.5. DIFFUSIONS
+115
+Let us now consider (3.21) where the functions m(t, x) and σ(t, x)
+both satisfy (3.23). For ease, choose t0 = 1 and dene recursively
+X0
+t = y0,
+0 ≤t ≤1,
+X(k+1)
+t
+= y0 +
+t
+0
+m(s, X(k)
+s ) ds +
+t
+0
+σ(s, X(k)
+s ) dBs,
+so that
+E
+
+X(k+1)
+t
+−Xk
+t 2
+≤2E
+t
+0
+β X(k)
+s
+−X(k−1)
+s
+ds
+2
++2 E
+t
+0
+[σ(s, X(k)
+s ) −σ(s, X(k−1)
+s
+)] dBs
+2
+
+Using the H¨older inequality on the ds integral we see that for t ≤1,
+E
+t
+0
+β X(k)
+s
+−X(k−1)
+s
+ds
+2
+≤
+E
+
+β2 t
+t
+0
+X(k)
+s
+−X(k−1)
+s
+2 ds
+
+≤
+β2
+t
+0
+E
+
+X(k)
+s
+−X(k−1)
+s
+2
+ds
+The variance rule for the stochastic integral gives
+E
+t
+0
+[σ(s, X(k)
+s ) −σ(s, X(k−1)
+s
+)] dBs
+2
+=
+t
+0
+E
+
+[σ(s, X(k)
+s ) −σ(s, X(k−1)
+s
+)]2
+ds
+≤
+β2
+t
+0
+E
+
+X(k)
+s
+−X(k−1)
+s
+2
+ds
+Combining these estimates, we see that there exists λ < ∞such that
+for all 0 ≤t ≤1 and positive integers k,
+E
+
+X(k+1)
+t
+−Xk
+t 2
+≤λk+1 tk+1
+(k + 1)! 
+We then dene Xt = limk X(k)
+t
+; as before, we do this for dyadic t as an
+L2 limit and extend it to other t by continuity. This gives a solution.

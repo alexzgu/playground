@@ -1,0 +1,62 @@
+100
+Chapter 3 ■Experiments with a Single Factor: The Analysis of Variance
+Note that the overall risk may be considerably inated using this method. Specically,
+as the number of treatments a gets larger, the experimentwise or family type I error rate (the
+ratio of the number of experiments in which at least one type I error is made to the total num-
+ber of experiments) becomes large.
+Which Pairwise Comparison Method Do I Use? Certainly, a logical question at
+this point is, Which one of these procedures should I use? Unfortunately, there is no clear-
+cut answer to this question, and professional statisticians often disagree over the utility of
+the various procedures. Carmer and Swanson (1973) have conducted Monte Carlo simula-
+tion studies of a number of multiple comparison procedures, including others not discussed
+here. They report that the least significant difference method is a very effective test for
+detecting true differences in means if it is applied only after the F test in the ANOVA is sig-
+nificant at 5 percent. However, this method does not contain the experimentwise error rate.
+Because the Tukey method does control the overall error rate, many statisticians prefer to
+use it.
+As indicated above, there are several other multiple comparison procedures. For articles
+describing these methods, see O’Neill and Wetherill (1971), Miller (1977), and Nelson
+(1989). The books by Miller (1991) and Hsu (1996) are also recommended.
+E X A M P L E 3 . 8
+To illustrate the procedure, if we use the data from the
+experiment in Example 3.1, the LSD at 0.05 is
+LSD t.025,16
+2MSE
+n
+2.120
+2(333.70)
+5
+24.49
+Assuming a two-sided alternative, the pair of means i and j would be declared signicant-
+ly different if 
+. The quantity
+(3.40)
+is called the least signiﬁcant difference. If the design is balanced, n1 n2  . . . na n,
+and
+(3.41)
+To use the Fisher LSD procedure, we simply compare the observed difference between
+each pair of averages to the corresponding LSD. If 
+LSD, we conclude that the
+population means i and j differ. The t statistic in Equation 3.39 could also be used.
+yi. yj.
+LSD t/2,Na
+2MSE
+n
+LSD t/2,NaMSE
+1
+ni 1
+nj
+yi. yj.# t/2,NaMSE(1/ni 1/nj)
+Thus, any pair of treatment averages that differ in absolute
+value by more than 24.49 would imply that the correspon-
+ding pair of population means are signicantly different.
+The differences in averages are
+y1. y2. 551.2 587.4 36.2*
+The starred values indicate pairs of means that are signi-
+cantly different. Clearly, all pairs of means differ signi-
+cantly.
+y3. y4. 625.4 707.0 81.6*
+y2. y4. 587.4 707.0 119.6*
+y2. y3. 587.4 625.4 38.0*
+y1. y4. 551.2 707.0 155.8*
+y1. y3. 551.2 625.4 74.2*

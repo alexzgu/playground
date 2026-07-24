@@ -1,0 +1,73 @@
+6.7 2k Designs are Optimal Designs
+283
+we can attain. It turns out that the smallest possible value of the maximum prediction variance
+over the design space is p2/N, where p is the number of model parameters and N is the num-
+ber of runs in the design. The 22 design has N 4 runs and the model has p 4 parameters,
+so the model that we t to the data from this experiment minimizes the maximum prediction
+variance over the design region. A design that has this property is called a G-optimal design.
+In general, 2k designs are G-optimal designs for tting the rst-order model or the rst-order
+model with interaction.
+We can evaluate the prediction variance at any point of interest in the design space. For
+example, when we are at the center of the design where 
+, the prediction variance is
+When 
+and 
+, the prediction variance is
+An alternative to evaluating the prediction variance at a lot of points in the design space
+is to consider the average prediction variance over the design space. One way to calculate
+this average prediction variance is
+where A is the area (in general the volume) of the design space. To compute the average, we are
+integrating the variance function over the design space and dividing by the area of the region.
+Sometimes I is called the integrated variance criterion. Now for a 22 design, the area
+of the design region is 
+, and
+It turns out that this is the smallest possible value of the average prediction variance that
+can be obtained from a four-run design used to t a rst-order model with interaction on this
+design space. A design with this property is called an I-optimal design. In general, 2k designs
+are I-optimal designs for tting the rst-order model or the rst-order model with interaction.
+The JMP software will construct I-optimal designs. This can be very useful in constructing
+designs when response prediction is the goal of the experiment.
+It is also possible to display the prediction variance over the design space graphically.
+Figure 6.36 is output from JMP illustrating three possible displays of the prediction variance
+from a 22 design. The rst graph is the prediction variance proﬁler, which plots the
+unscaled prediction variance
+against the levels of each design factor. The “crosshairs” on the graphs are adjustable, so that
+the unscaled prediction variance can be displayed at any desired combination of the variables
+UPV V[yˆ(x1, x2)]
+2
+42
+9
+1
+4
+1
+1
+1
+1
+21
+4(1 x1
+2 x2
+2 x1
+2x2
+2)dx1dx2
+I 1
+A
+1
+1
+1
+1
+V[yˆ(x1, x2)]dx1dx2
+A 4
+I 1
+A
+1
+1
+1
+1
+V[yˆ(x1, x2)]dx1dx2
+V [yˆ(x1 1, x2 0)] 2
+2
+x2 0
+x1 1
+V [yˆ(x1 0, x2 0)] 2
+4
+x1 x2 0

@@ -1,0 +1,69 @@
+238
+CHAPTER 7. FRACTIONAL BROWNIAN MOTION
+Our nal assumption is that the process is a centered Gaussian process.
+For every t1, , tk, the random vector (Xt1, , Xtk) has a joint normal
+distribution with mean zero.
+We normalize so that Var(X1) = E[X2
+1] = 1 and hence
+Var(Xt) = Var(tH X1) = t2H Var(X1) = t2H
+Denition If H (0, 1), the BH-
+H (fBmH) is the centered (mean zero) Gaussian process Xt with
+continuous paths such that for all s, t,
+E
+
+(Xt −Xs)2
+= t −s2H
+Since
+E
+
+(Xt −Xs)2
+= E
+
+X2
+t
+
++ E
+
+X2
+s
+
+−2E [XsXt] ,
+it follows that
+Cov(Xs, Xt) = E [XsXt] = 1
+2
+
+s2H + t2H −s −t2H
+
+(7.1)
+If H = 12, then fractional Brownian motion is the same as usual Brownian
+motion.
+As in the case of Brownian motion, we must show that such a process
+exists. We will discuss this in the next section, but for now we assume it does
+exist. If s < t, note that
+E [Xs (Xt −Xs)]
+=
+E [Xs Xt] −E
+
+X2
+s
+
+=
+1
+2
+
+t2H −s2H −(t −s)2H
+
+
+
+> 0,
+H > 12
+= 0,
+H = 12
+< 0,
+H < 12
+
+Since Xt+δ −Xt ∼N(0, δ2H), we can write roughly
+Xt+δ −Xt≈δH
+In other words, the H¨older exponent of fBmH is given by the Hurst index H.
+If H > 12, the paths are smootherthan Brownian paths and if H < 12,
+the paths are rougher.

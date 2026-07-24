@@ -1,0 +1,81 @@
+194
+Chapter 5 ■Introduction to Factorial Designs
+Multiple Comparisons. When the ANOVA indicates that row or column means differ,
+it is usually of interest to make comparisons between the individual row or column means to
+discover the specic differences. The multiple comparison methods discussed in Chapter 3
+are useful in this regard.
+We now illustrate the use of Tukey’s test on the battery life data in Example 5.1. Note
+that in this experiment, interaction is significant. When interaction is significant, compar-
+isons between the means of one factor (e.g., A) may be obscured by the AB interaction. One
+approach to this situation is to fix factor B at a specific level and apply Tukey’s test to the
+means of factor A at that level. To illustrate, suppose that in Example 5.1 we are interested
+in detecting differences among the means of the three material types. Because interaction
+is significant, we make this comparison at just one level of temperature, say level 2 (70°F).
+We assume that the best estimate of the error variance is the MSE from the ANOVA table,
+each treatment combination. This graph is shown in Figure
+5.9. The signicant interaction is indicated by the lack of
+parallelism of the lines. In general, longer life is attained at
+low temperature, regardless of material type. Changing
+from low to intermediate temperature, battery life with
+material type 3 may actually increase, whereas it decreases
+■TA B L E 5 . 5
+Analysis of Variance for Battery Life Data
+Source of 
+Sum of 
+Degrees of
+Mean 
+Variation
+Squares
+Freedom
+Square
+F0
+P-Value
+Material types
+10,683.72
+2
+5,341.86
+7.91
+0.0020
+Temperature
+39,118.72
+2
+19,559.36
+28.97
+< 0.0001
+Interaction
+9,613.78
+4
+2,403.44
+3.56
+0.0186
+Error
+18,230.75
+27
+675.21
+Total
+77,646.97
+35
+15
+70
+125
+Temperature (°F)
+Material type 3
+Material type 1
+Material type 2
+0
+175
+150
+125
+100
+75
+50
+25
+Average life yij.
+■F I G U R E 5 . 9
+Material type–temperature plot for
+Example 5.1
+for types 1 and 2. From intermediate to high temperature,
+battery life decreases for material types 2 and 3 and is
+essentially unchanged for type 1. Material type 3 seems to
+give the best results if we want less loss of effective life as
+the temperature changes.

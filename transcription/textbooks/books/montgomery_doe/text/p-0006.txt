@@ -1,0 +1,45 @@
+Additional Important Changes
+I have added a lot of material on optimal designs and their application. The chapter on response
+surfaces (Chapter 11) has several new topics and problems. I have expanded Chapter 12 on
+robust parameter design and process robustness experiments. Chapters 13 and 14 discuss
+experiments involving random effects and some applications of these concepts to nested and
+split-plot designs. The residual maximum likelihood method is now widely available in soft-
+ware and I have emphasized this technique throughout the book. Because there is expanding
+industrial interest in nested and split-plot designs, Chapters 13 and 14 have several new topics.
+Chapter 15 is an overview of important design and analysis topics: nonnormality of the
+response, the Box–Cox method for selecting the form of a transformation, and other alterna-
+tives; unbalanced factorial experiments; the analysis of covariance, including covariates in a
+factorial design, and repeated measures. I have also added new examples and problems from
+various elds, including biochemistry and biotechnology.
+Experimental Design
+Throughout the book I have stressed the importance of experimental design as a tool for engi-
+neers and scientists to use for product design and development as well as process develop-
+ment and improvement. The use of experimental design in developing products that are robust
+to environmental factors and other sources of variability is illustrated. I believe that the use of
+experimental design early in the product cycle can substantially reduce development lead time
+and cost, leading to processes and products that perform better in the eld and have higher
+reliability than those developed using other approaches.
+The book contains more material than can be covered comfortably in one course, and I
+hope that instructors will be able to either vary the content of each course offering or discuss
+some topics in greater depth, depending on class interest. There are problem sets at the end
+of each chapter. These problems vary in scope from computational exercises, designed to
+reinforce the fundamentals, to extensions or elaboration of basic principles.
+Course Suggestions
+My own course focuses extensively on factorial and fractional factorial designs. Consequently,
+I usually cover Chapter 1, Chapter 2 (very quickly), most of Chapter 3, Chapter 4 (excluding
+the material on incomplete blocks and only mentioning Latin squares briey), and I discuss
+Chapters 5 through 8 on factorials and two-level factorial and fractional factorial designs in
+detail. To conclude the course, I introduce response surface methodology (Chapter 11) and give
+an overview of random effects models (Chapter 13) and nested and split-plot designs (Chapter
+14). I always require the students to complete a term project that involves designing, conduct-
+ing, and presenting the results of a statistically designed experiment. I require them to do this
+in teams because this is the way that much industrial experimentation is conducted. They must
+present the results of this project, both orally and in written form.
+The Supplemental Text Material
+For the eighth edition I have prepared supplemental text material for each chapter of the book.
+Often, this supplemental material elaborates on topics that could not be discussed in greater detail
+in the book. I have also presented some subjects that do not appear directly in the book, but an
+introduction to them could prove useful to some students and professional practitioners. Some of
+this material is at a higher mathematical level than the text. I realize that instructors use this book
+Preface
+vii

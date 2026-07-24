@@ -1,0 +1,28 @@
+254
+CHAPTER 8. HARMONIC FUNCTIONS
+The last theorem assumes that the function f is entire, that is, it is
+dened and holomorphic on all of C. Suppose D is , that is, an open,
+connected subset of C, and suppose that f is a nonconstant holomorphic
+function on D. Let Bt be a complex Brownian motion, and let
+τD = inft ≥0 : Bt̸ D
+Then the process Xt as above is dened for t < τD, and the process Yt is
+dened for t < a(τD−) with the processes taking values in f(D).
+Theorem 8.4.2. If D, Xt, Yt
+, Yt, 0 ≤t < a(τD−) B
+.
+One very important case is when f maps D one-to-one onto f(D). Such
+functions are often called . In this case f −1 is a
+conformal transformation from f(D) to D, and
+a(τD−) = inft : Yt̸ f(D)
+In particular, this shows that harmonic measure is a conformal invariant,
+hmD(V ; z) = hmf(D)(f(V ); f(z))
+8.5
+Exercises
+Exercise 8.1. Use (8.6) to prove Theorem 8.1.5.
+Exercise 8.2. Suppose D ⊂C is a domain and ϕ is a harmonic function on
+D (here we are also viewing D as a subset of R2). Let f : D →f(D) be a
+conformal transformation and let
+ψ(w) = ϕ(f −1(w))
+Show that ψ is a harmonic function on f(D) in two dierent ways:
+Do a direct computation to show that 2ψ = 0.
+Use the conformal invariance of harmonic measure and (8.2).

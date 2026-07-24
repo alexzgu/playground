@@ -1,0 +1,53 @@
+how this calibration will be maintained during the experiment. The gauge or meas-
+urement system capability (or measurement error) is also an important factor. If
+gauge capability is inadequate, only relatively large factor effects will be detected
+by the experiment or perhaps additional replication will be required. In some situ-
+ations where gauge capability is poor, the experimenter may decide to measure
+each experimental unit several times and use the average of the repeated measure-
+ments as the observed response. It is usually critically important to identify issues
+related to defining the responses of interest and how they are to be measured before
+conducting the experiment. Sometimes designed experiments are employed to
+study and improve the performance of measurement systems. For an example, see
+Chapter 13.
+3. Choice of factors, levels, and range.
+(As noted in Table 1.1, steps 2 and 3 are often
+done simultaneously or in the reverse order.) When considering the factors that may
+inuence the performance of a process or system, the experimenter usually discov-
+ers that these factors can be classied as either potential design factors or nuisance
+factors. The potential design factors are those factors that the experimenter may wish
+to vary in the experiment. Often we nd that there are a lot of potential design fac-
+tors, and some further classication of them is helpful. Some useful classications
+are design factors, held-constant factors, and allowed-to-vary factors. The design
+factors are the factors actually selected for study in the experiment. Held-constant
+factors are variables that may exert some effect on the response, but for purposes of
+the present experiment these factors are not of interest, so they will be held at a spe-
+cic level. For example, in an etching experiment in the semiconductor industry,
+there may be an effect that is unique to the specic plasma etch tool used in the
+experiment. However, this factor would be very difcult to vary in an experiment, so
+the experimenter may decide to perform all experimental runs on one particular (ide-
+ally “typical”) etcher. Thus, this factor has been held constant. As an example of
+allowed-to-vary factors, the experimental units or the “materials” to which the design
+factors are applied are usually nonhomogeneous, yet we often ignore this unit-to-unit
+variability and rely on randomization to balance out any material or experimental
+unit effect. We often assume that the effects of held-constant factors and allowed-to-
+vary factors are relatively small.
+Nuisance factors, on the other hand, may have large effects that must be
+accounted for, yet we may not be interested in them in the context of the present experi-
+ment. Nuisance factors are often classied as controllable, uncontrollable, or noise
+factors. A controllable nuisance factor is one whose levels may be set by the exper-
+imenter. For example, the experimenter can select different batches of raw material
+or different days of the week when conducting the experiment. The blocking princi-
+ple, discussed in the previous section, is often useful in dealing with controllable nui-
+sance factors. If a nuisance factor is uncontrollable in the experiment, but it can be
+measured, an analysis procedure called the analysis of covariance can often be used
+to compensate for its effect. For example, the relative humidity in the process envi-
+ronment may affect process performance, and if the humidity cannot be controlled,
+it probably can be measured and treated as a covariate. When a factor that varies nat-
+urally and uncontrollably in the process can be controlled for purposes of an experi-
+ment, we often call it a noise factor. In such situations, our objective is usually to nd
+the settings of the controllable design factors that minimize the variability transmit-
+ted from the noise factors. This is sometimes called a process robustness study or a
+robust design problem. Blocking, analysis of covariance, and process robustness
+studies are discussed later in the text.
+16
+Chapter 1 ■Introduction

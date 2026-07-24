@@ -1,0 +1,339 @@
+360
+Chapter 8 ■Two-Level Fractional Factorial Designs
+E X A M P L E 8 . 8
+We will illustrate the analysis of a Plackett–Burman design
+with an example involving 12 factors. The smallest regular
+fractional factorial for 12 factors is a 16-run 2128 fractional
+factorial design. In this design, all 12 main effects are aliased
+with four two-factor interactions and three chains of two-
+factor interactions each containing six two-factor interac-
+tions (refer to Appendix 10, design w). If there are signicant
+two-factor interactions along with the main effects it is very
+possible that additional runs will be required to dealias some
+of these effects.
+Suppose that we decide to use a 20-run Plackett–Burman
+design for this problem. Now this has more runs that the
+smallest regular fraction, but it contains fewer runs than
+would be required by either a full fold-over or a partial fold-
+over of the 16 run regular fraction. This design was created in
+JMP and is shown in Table 8.25, along with the observed
+response data obtained when the experiment was conducted.
+The alias matrix for this design, also produced from JMP is in
+Table 8.26. Note that the coefcients of the aliased two-factor
+interactions are not either 0, 1 or 1 because this is a 
+nonregular design). Hopefully this will provide some exibil-
+ity with which to estimate interactions if necessary.
+Table 8.27 shows the JMP analysis of this design, using
+a forward-stepwise regression procedure to t the model. In
+forward-stepwise regression, variables are entered into the
+model one at a time, beginning with those that appear most
+important, until no variables remain that are reasonable
+candidates for entry. In this analysis, we consider all main
+effects and two-factor interactions as possible variables of
+interest for the model.
+Considering the P-values for the variables in Table 8.27,
+the most important factor is x2, so this factor is entered into
+the model rst. JMP then recalculates the P-values and the
+next variable entered would be x4. Then the x1x4 interaction
+is entered along with the main effect of x1 to preserve the
+hierarchy of the model. This is followed by the x1x4 interac-
+tions. The JMP output for these steps is not shown but is
+summarized at the bottom of Table 8.28. Finally, the last
+variable entered is x5. Table 8.28 summarizes the nal
+model.
+■TA B L E 8 . 2 5
+Plackett–Burman Design for Example 8.8
+Run
+X1
+X2
+X3
+X4
+X5
+X6
+X7
+X8
+X9
+X10
+X11
+X12
+y
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+221.5032
+2
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+213.8037
+3
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+167.5424
+4
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+232.2071
+5
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+186.3883
+6
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+210.6819
+7
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+168.4163
+8
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+180.9365
+9
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+172.5698
+10
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+181.8605
+11
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+202.4022
+12
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+186.0079
+13
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+216.4375
+14
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+192.4121
+15
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+224.4362
+16
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+190.3312
+17
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+228.3411
+18
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+223.6747
+19
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+163.5351
+20
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+236.5124

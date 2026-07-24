@@ -1,0 +1,47 @@
+4
+Classification
+The linear regression model discussed in Chapter 3 assumes that the re-
+sponse variable Y is quantitative. But in many situations, the response
+variable is instead qualitative. For example, eye color is qualitative. Of- qualitative
+ten qualitative variables are referred to as categorical; we will use these
+terms interchangeably. In this chapter, we study approaches for predicting
+qualitative responses, a process that is known as classification. Predicting classification
+a qualitative response for an observation can be referred to as classifying
+that observation, since it involves assigning the observation to a category,
+or class. On the other hand, often the methods used for classification first
+predict the probability that the observation belongs to each of the cate-
+gories of a qualitative variable, as the basis for making the classification.
+In this sense they also behave like regression methods.
+There are many possible classification techniques, or classifiers, that one classifier
+might use to predict a qualitative response. We touched on some of these
+in Sections 2.1.5 and 2.2.3. In this chapter we discuss some widely-used
+classifiers: logistic regression, linear discriminant analysis, quadratic dis- logistic
+regression
+linear
+discriminant
+analysis
+criminant analysis, naive Bayes, and K-nearest neighbors. The discussion
+quadratic
+discriminant
+analysis
+naive Bayes
+K-nearest
+neighbors
+of logistic regression is used as a jumping-off point for a discussion of gen-
+eralized linear models, and in particular, Poisson regression. We discuss
+generalized
+linear
+models
+Poisson
+regression
+more computer-intensive classification methods in later chapters: these in-
+clude generalized additive models (Chapter 7); trees, random forests, and
+boosting (Chapter 8); and support vector machines (Chapter 9).
+4.1
+An Overview of Classification
+Classification problems occur often, perhaps even more so than regression
+problems. Some examples include:
+© Springer Nature Switzerland AG 2023 
+G. James et al., An Introduction to Statistical Learning, Springer Texts in Statistics, 
+https://doi.org/10.1007/978-3-031-38747-0_4 
+135

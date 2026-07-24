@@ -1,0 +1,153 @@
+xiv
+Contents
+11.5.1
+The Hazard Function . . . . . . . . . . . . . . . . .
+476
+11.5.2
+Proportional Hazards . . . . . . . . . . . . . . . . .
+478
+11.5.3
+Example: Brain Cancer Data
+. . . . . . . . . . . .
+482
+11.5.4
+Example: Publication Data
+. . . . . . . . . . . . .
+482
+11.6
+Shrinkage for the Cox Model . . . . . . . . . . . . . . . . .
+484
+11.7
+Additional Topics
+. . . . . . . . . . . . . . . . . . . . . . .
+486
+11.7.1
+Area Under the Curve for Survival Analysis . . . .
+486
+11.7.2
+Choice of Time Scale . . . . . . . . . . . . . . . . .
+487
+11.7.3
+Time-Dependent Covariates . . . . . . . . . . . . .
+488
+11.7.4
+Checking the Proportional Hazards Assumption . .
+488
+11.7.5
+Survival Trees . . . . . . . . . . . . . . . . . . . . .
+488
+11.8
+Lab: Survival Analysis . . . . . . . . . . . . . . . . . . . . .
+489
+11.8.1
+Brain Cancer Data . . . . . . . . . . . . . . . . . .
+489
+11.8.2
+Publication Data . . . . . . . . . . . . . . . . . . .
+493
+11.8.3
+Call Center Data . . . . . . . . . . . . . . . . . . .
+494
+11.9
+Exercises . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+498
+12 Unsupervised Learning
+503
+12.1
+The Challenge of Unsupervised Learning
+. . . . . . . . . .
+503
+12.2
+Principal Components Analysis . . . . . . . . . . . . . . . .
+504
+12.2.1
+What Are Principal Components? . . . . . . . . . .
+505
+12.2.2
+Another Interpretation of Principal Components
+.
+508
+12.2.3
+The Proportion of Variance Explained . . . . . . .
+510
+12.2.4
+More on PCA . . . . . . . . . . . . . . . . . . . . .
+512
+12.2.5
+Other Uses for Principal Components . . . . . . . .
+515
+12.3
+Missing Values and Matrix Completion . . . . . . . . . . .
+515
+12.4
+Clustering Methods . . . . . . . . . . . . . . . . . . . . . .
+520
+12.4.1
+K-Means Clustering
+. . . . . . . . . . . . . . . . .
+521
+12.4.2
+Hierarchical Clustering . . . . . . . . . . . . . . . .
+525
+12.4.3
+Practical Issues in Clustering
+. . . . . . . . . . . .
+532
+12.5
+Lab: Unsupervised Learning
+. . . . . . . . . . . . . . . . .
+535
+12.5.1
+Principal Components Analysis . . . . . . . . . . .
+535
+12.5.2
+Matrix Completion . . . . . . . . . . . . . . . . . .
+539
+12.5.3
+Clustering . . . . . . . . . . . . . . . . . . . . . . .
+542
+12.5.4
+NCI60 Data Example . . . . . . . . . . . . . . . . .
+546
+12.6
+Exercises . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+552
+13 Multiple Testing
+557
+13.1
+A Quick Review of Hypothesis Testing
+. . . . . . . . . . .
+558
+13.1.1
+Testing a Hypothesis . . . . . . . . . . . . . . . . .
+558
+13.1.2
+Type I and Type II Errors . . . . . . . . . . . . . .
+562
+13.2
+The Challenge of Multiple Testing . . . . . . . . . . . . . .
+563
+13.3
+The Family-Wise Error Rate . . . . . . . . . . . . . . . . .
+565
+13.3.1
+What is the Family-Wise Error Rate?
+. . . . . . .
+565
+13.3.2
+Approaches to Control the Family-Wise Error Rate 567
+13.3.3
+Trade-Off Between the FWER and Power
+. . . . .
+572
+13.4
+The False Discovery Rate . . . . . . . . . . . . . . . . . . .
+573
+13.4.1
+Intuition for the False Discovery Rate
+. . . . . . .
+573
+13.4.2
+The Benjamini–Hochberg Procedure
+. . . . . . . .
+575

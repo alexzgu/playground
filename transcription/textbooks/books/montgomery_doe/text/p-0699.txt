@@ -1,0 +1,22 @@
+683
+A p p e n d i x
+I
+Cumulative Standard Normal Distribution
+II
+Percentage Points of the t Distribution
+III
+Percentage Points of the 2 Distribution
+IV
+Percentage Points of the F Distribution
+V
+Operating Characteristic Curves for the Fixed Effects Model Analysis of Variance
+VI
+Operating Characteristic Curves for the Random Effects Model Analysis of Variance
+VII
+Percentage Points of the Studentized Range Statistic
+VIII
+Critical Values for Dunnett’s Test for Comparing Treatments with a Control
+IX
+Coefcients of Orthogonal Polynomials
+X
+Alias Relationships for 2kp Fractional Factorial Designs with k 15 and n 64

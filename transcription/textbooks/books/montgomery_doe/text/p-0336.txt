@@ -1,0 +1,53 @@
+320
+C H A P T E R
+8
+Tw o - L e v e l F r a c t i o n a l
+F a c t o r i a l D e s i g n s
+CHAPTER OUTLINE
+8.1 INTRODUCTION
+8.2 THE ONE-HALF FRACTION OF THE 2k DESIGN
+8.2.1 Denitions and Basic Principles
+8.2.2 Design Resolution
+8.2.3 Construction and Analysis of the One-Half
+Fraction
+8.3 THE ONE-QUARTER FRACTION OF THE 2k
+DESIGN
+8.4 THE GENERAL 2kp FRACTIONAL FACTORIAL
+DESIGN
+8.4.1 Choosing a Design
+8.4.2 Analysis of 2kp Fractional Factorials
+8.4.3 Blocking Fractional Factorials
+8.5 ALIAS STRUCTURES IN FRACTIONAL
+FACTORIALS AND OTHER DESIGNS
+8.6 RESOLUTION III DESIGNS
+8.6.1 Constructing Resolution III Designs
+8.6.2 Fold Over of Resolution III Fractions to Separate
+Aliased Effects
+8.6.3 Plackett–Burman Designs
+8.7 RESOLUTION IV AND V DESIGNS
+8.7.1 Resolution IV Designs
+8.7.2 Sequential Experimentation with Resolution IV
+Designs
+8.7.3 Resolution V Designs
+8.8 SUPERSATURATED DESIGNS
+8.9 SUMMARY
+SUPPLEMENTAL MATERIAL FOR CHAPTER 8
+S8.1 Yates’s Method for the Analysis of Fractional
+Factorials
+S8.2 More About Fold Over and Partial Fold Over of
+Fractional Factorials
+8.1
+Introduction
+As the number of factors in a 2k factorial design increases, the number of runs required for a
+complete replicate of the design rapidly outgrows the resources of most experimenters. For
+example, a complete replicate of the 26 design requires 64 runs. In this design only 6 of the
+63 degrees of freedom correspond to main effects, and only 15 degrees of freedom correspond
+to two-factor interactions. There are only 21 degrees of freedom associated with effects that
+are likely to be of major interest. The remaining 42 degrees of freedom are associated with
+three-factor and higher interactions.
+If the experimenter can reasonably assume that certain high-order interactions are neg-
+ligible, information on the main effects and low-order interactions may be obtained by run-
+ning only a fraction of the complete factorial experiment. These fractional factorial designs
+are among the most widely used types of designs for product and process design, process
+improvement, and industrial/business experimentation.
+The supplemental material is on the textbook website www.wiley.com/college/montgomery.

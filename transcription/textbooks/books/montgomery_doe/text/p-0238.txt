@@ -1,0 +1,119 @@
+222
+Chapter 5 ■Introduction to Factorial Designs
+■TA B L E 5 . 2 2
+Analysis of Variance for Example 5.6
+Sum of 
+Degrees of 
+Mean 
+Source of Variation
+Squares
+Freedom
+Square
+F0
+P-Value
+Ground clutter (G)
+335.58
+2
+167.79
+15.13
+0.0003
+Filter type (F)
+1066.67
+1
+1066.67
+96.19
+0.0001
+GF
+77.08
+2
+38.54
+3.48
+0.0573
+Blocks
+402.17
+3
+134.06
+Error
+166.33
+15
+11.09
+Total
+2047.83
+23
+some evidence of mild interaction between these factors. The
+ANOVA estimate of the variance component for blocks is
+ˆ2
+MSBlocks MSE
+ab
+134.06 11.09
+(3162)
+20.50
+The JMP output for this experiment is shown in 
+Table 5.23. The REML estimate of the variance component
+for blocks is shown in this output, and because this is a 
+balanced design, the REML and ANOVA estimates agree.
+JMP also provides the condence intervals on both variance
+components 
+and 
+.
+2
+
+2
+■TA B L E 5 . 2 3
+JMP Output for Example 5.6
+Whole Model
+Actual by Predicted Plot
+115
+110
+105
+100
+95
+90
+85
+80
+75
+Y Predicted P<.0001
+RSq = 0.92  RMSE = 3.33
+75
+80
+85
+90
+95 100 105 110 115
+Y Actual
+Summary of Fit
+RSquare
+0.917432
+RSquare Adj
+0.894497
+Root Mean Square Error
+3.329998
+Mean of Response
+94.91667
+Observations (or Sum Wgts)
+24
+REML Variance component Estimates
+Var
+Random Effect
+Var Ratio
+Component
+Std Error
+95% Lower
+95% Upper
+Pct of Total
+Operators (Blocks)
+1.8481964
+20.494444
+18.255128
+15.28495
+56.273839
+64.890
+Residual
+11.088889
+4.0490897
+6.0510389
+26.561749
+35.110
+Total
+31.583333
+100.000
+-2 LogLikelihood = 118.73680261

@@ -1,0 +1,85 @@
+factorial and then reorder the runs to minimize the number of times that the hard-to-change factor
+must be changed. Then they run the experiment creating an “inadvertent” split-plot and analyze
+the data as if it were a standard factorial (that is, a completely randomized design or a CRD).
+Suppose that this happened with the experiment in Table 14.16. The experimenters
+made up three batches of pulp in each replicate and then randomized the levels of tempera-
+ture within each batch, resulting in the split-plot design in Table 14.16. The standard factori-
+al analysis of this experiment as a two-factor completely randomized factorial design is
+shown in Table 14.20. Recall that in the correct split-plot analysis both the whole-plot and
+subplot factors and their interaction were signicant. However, in the incorrect analysis the
+interaction is not signicant.
+Generally, in “inadvertent” split-plots we will tend to make too many type I errors for
+the whole-plot factors (concluding that unimportant factors are important) and too many type
+II errors for the subplot factors (failing to identify signicant effects). In our example, we did
+properly identify the pulp preparation methods (the whole-plot factor) as important, but we
+did not identify the signicant interaction, which is a subplot factor.  This emphasizes the
+importance of correctly designing and analyzing experiments involving split-plots.
+The split-plot design has an agricultural heritage, with the whole plots usually being
+large areas of land and the subplots being smaller areas of land within the large areas. For
+example, several varieties of a crop could be planted in different elds (whole plots), one vari-
+ety to a eld. Then each eld could be divided into, say, four subplots, and each subplot could
+be treated with a different type of fertilizer. Here the crop varieties are the main treatments
+and the different fertilizers are the subtreatments.
+Despite its agricultural basis, the split-plot design is useful in many scientic and indus-
+trial experiments. In these experimental settings, it is not unusual to nd that some factors
+require large experimental units whereas other factors require small experimental units, such
+14.4 The Split-Plot Design
+625
+■TA B L E 1 4 . 2 0
+Analysis of the Split-Plot Design in Table 14.16 as a CRD
+Summary of Fit
+RSquare
+0.7748
+RSquare Adj
+0.671583
+Root Mean Square Error
+2.778889
+Mean of Response
+36.02778
+Observations (or Sum Wgts)
+36
+Analysis of Variance
+Source
+DF
+Sum of Squares
+Mean Square
+F Ratio
+Model
+11
+637.63889
+57.9672
+7.5065
+Error
+24
+185.33333
+7.7222
+Prob > F
+C. Total
+35
+822.97222
+<.0001*
+Effect Tests
+Source
+Nparm
+DF
+Sum of Squares
+F Ratio
+Prob > F
+Method
+2
+2
+128.38889
+8.3129
+0.0018*
+Temp
+3
+3
+434.08333
+18.7374
+<.0001
+Temp*Method
+6
+6
+75.16667
+1.6223
+0.1843

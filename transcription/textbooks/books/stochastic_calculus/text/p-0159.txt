@@ -1,0 +1,47 @@
+5.3. GIRSANOV THEOREM
+153
+5.3
+Girsanov theorem
+The Girsanov theorem describes the probability measure one obtains by
+weightingor tiltingthe measure of a Brownian motion by a martin-
+gale. One example was given in the previous section where the martingale
+was
+Mt = emBt−(m2t2),
+(5.6)
+and in the new measure, Bt was a Brownian motion with drift. We will
+generalize this idea here.
+Suppose Mt is a nonnegative martingale satisfying the exponential SDE
+dMt = At Mt dBt,
+M0 = 1,
+(5.7)
+where Bt is a standard Brownian motion. The solution to this equation was
+given in (3.20),
+Mt = eYt
+where
+Yt =
+t
+0
+As dBs −1
+2
+t
+0
+A2
+s ds
+(5.8)
+For many applications it suces to consider the equation (5.7) and not worry
+about the form of the solution (5.8). Solutions to (5.7) are local martingales,
+but as we have seen, they might not be martingales. For now we will 
+that Mt is a martingale. In that case, we can dene a probability measure P∗
+by saying that if V is an Ft-measurable event, then
+P∗(V ) = E [1V Mt] 
+(5.9)
+In other words, if we consider P, P∗as being dened on Ft-measurable events,
+dP∗
+dP = Mt
+If s < t and V is Fs-measurable, then V is also Ft-measurable. Hence, in
+order for the above denition to be consistent, we need that for such V ,
+E [1V Ms] = E [1V Mt] 
+Indeed, this holds by the computation (5.4) which only uses the fact that M
+is a martingale and V is Fs-measurable. We write E∗for expectations with
+respect to P∗. If X is Ft-measurable, then
+E∗[X] = E [X Mt] 

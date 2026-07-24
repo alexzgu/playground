@@ -1,0 +1,51 @@
+10.9 Lab: Deep Learning
+435
+parametrized neural network (many layers, and many hidden units),
+and then fitting all the way to zero training error. However, fitting
+to zero error is not always optimal, and whether it is advisable de-
+pends on the signal-to-noise ratio. For instance, we may use ridge
+regularization to avoid overfitting a neural network, as in (10.31). In
+this case, provided that we use an appropriate choice for the tuning
+parameter λ, we will never interpolate the training data, and thus
+will not see the double descent phenomenon. Nonetheless we can get
+very good test-set performance, likely much better than we would
+have achieved had we interpolated the training data. Early stopping
+during stochastic gradient descent can also serve as a form of regular-
+ization that prevents us from interpolating the training data, while
+still getting very good results on test data.
+To summarize: though double descent can sometimes occur in neural net-
+works, we typically do not want to rely on this behavior. Moreover, it
+is important to remember that the bias-variance trade-off always holds
+(though it is possible that test error as a function of flexibility may not
+exhibit a U-shape, depending on how we have parametrized the notion of
+“flexibility” on the x-axis).
+10.9
+Lab: Deep Learning
+In this section we demonstrate how to fit the examples discussed in the
+text. We use the Python torch package, along with the pytorch_lightning torch
+pytorch_
+lightning
+package which provides utilities to simplify fitting and evaluating mod-
+els. This code can be impressively fast with certain special processors,
+such as Apple’s new M1 chip. The package is well-structured, flexible, and
+will feel comfortable to Python users. A good companion is the site py-
+torch.org/tutorials. Much of our code is adapted from there, as well as the
+pytorch_lightning documentation.23
+We start with several standard imports that we have seen before.
+In [1]: import numpy as np, pandas as pd
+from matplotlib.pyplot import subplots
+from sklearn.linear_model import \
+(LinearRegression ,
+LogisticRegression ,
+Lasso)
+from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import KFold
+from sklearn.pipeline import Pipeline
+from ISLP import load_data
+from ISLP.models import ModelSpec as MS
+from sklearn.model_selection import \
+(train_test_split ,
+GridSearchCV)
+23The precise URLs at the time of writing are https://pytorch.org/tutorials/
+beginner/basics/intro.html and https://pytorch-lightning.readthedocs.io/en/
+latest/.

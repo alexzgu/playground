@@ -1,0 +1,106 @@
+The analysis of variance for the tensile strength data in Table 14.16 is summarized in
+Table 14.18. Because both preparation methods and temperatures are xed and replicates are
+random, the expected mean squares in Table 14.17 apply. The mean square for preparation
+methods is compared to the whole-plot error mean square, and the mean square for tempera-
+tures is compared to the replicate temperature (AC) mean square. Finally, the preparation
+method temperature mean square is tested against the subplot error. Both preparation meth-
+ods and temperature have a signicant effect on strength, and their interaction is signicant.
+Note from Table 14.18 that the subplot error (4.24) is less than the whole-plot error
+(9.07). This is the usual case in split-plot designs because the subplots are generally more
+homogeneous than the whole plots. This results in two different error structures for the
+experiment. Because the subplot treatments are compared with greater precision, it is prefer-
+able to assign the treatment we are most interested in to the subplots, if possible.
+Some authors propose a slightly different statistical model for the split-plot design, say
+(14.16)
+In this model, ()ij is still the whole-plot error, but the replicates B and replicates AB
+interactions have essentially been pooled with ijk to form the subplot error. If we denote the
+variance of the subplot error term ijk by 
+and make the same assumptions as for model
+(Equation 14.15), the expected mean squares become
+Factor
+E(MS)
+i (Replicates)
+j (A)
+()ij
+k (B)
+()jk (AB)
+ijk
+2
+ (subplot error)
+2
+
+r  ()2
+jk
+(a 1)(b 1)
+2
+ra 2
+k
+ab 1
+2
+b2
+  (whole-plot error)
+2
+b2
+
+rb 2
+j
+a 1
+2
+ab2
+
+2
+
+yijk i j ()ij k ()jk ijk 
+i 1, 2, . . . , r
+j 1, 2, . . . , a
+k 1, 2, . . . , b
+■TA B L E 1 4 . 1 8
+Analysis of Variance for the Split-Plot Design Using the Tensile Strength Data from Table 14.14
+Sum of
+Degrees of
+Mean
+Source of Variation
+Squares
+Freedom
+Square
+F0
+P-Value
+Replicates
+77.55
+2
+38.78
+Preparation method (A)
+128.39
+2
+64.20
+7.08
+0.05
+Whole plot error (replicates A)
+36.28
+4
+9.07
+Temperature (B)
+434.08
+3
+144.69
+41.94
+0.01
+Replicates B
+20.67
+6
+3.45
+AB
+75.17
+6
+12.53
+2.96
+0.05
+Subplot error (replicates AB)
+50.83
+12
+4.24
+Total
+822.97
+35
+14.4 The Split-Plot Design
+623

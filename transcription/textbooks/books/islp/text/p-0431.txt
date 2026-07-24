@@ -1,0 +1,51 @@
+424
+10. Deep Learning
+of the same series. Fitting a regression of y on M amounts to fitting the
+model
+ˆvt = ˆβ0 + ˆβ1vt−1 + ˆβ2vt−2 + · · · + ˆβLvt−L,
+(10.22)
+and is called an order-L autoregressive model, or simply AR(L). For the
+NYSE data we can include lagged versions of DJ_return and log_volatility,
+rt and zt, in the predictor matrix M, resulting in 3L + 1 columns. An AR
+model with L = 5 achieves a test R2 of 0.41, slightly inferior to the 0.42
+achieved by the RNN.
+Of course the RNN and AR models are very similar. They both use
+the same response Y and input sequences X of length L = 5 and dimen-
+sion p = 3 in this case. The RNN processes this sequence from left to
+right with the same weights W (for the input layer), while the AR model
+simply treats all L elements of the sequence equally as a vector of L × p
+predictors — a process called flattening in the neural network literature. flattening
+Of course the RNN also includes the hidden layer activations Aℓwhich
+transfer information along the sequence, and introduces additional nonlin-
+earity. From (10.19) with K = 12 hidden units, we see that the RNN has
+13 + 12 × (1 + 3 + 12) = 205 parameters, compared to the 16 for the AR(5)
+model.
+An obvious extension of the AR model is to use the set of lagged predic-
+tors as the input vector to an ordinary feedforward neural network (10.1),
+and hence add more flexibility. This achieved a test R2 = 0.42, slightly
+better than the linear AR, and the same as the RNN.
+All the models can be improved by including the variable day_of_week
+corresponding to the day t of the target vt (which can be learned from the
+calendar dates supplied with the data); trading volume is often higher on
+Mondays and Fridays. Since there are five trading days, this one-hot en-
+codes to five binary variables. The performance of the AR model improved
+to R2 = 0.46 as did the RNN, and the nonlinear AR model improved to
+R2 = 0.47.
+We used the most simple version of the RNN in our examples here.
+Additional experiments with the LSTM extension of the RNN yielded small
+improvements, typically of up to 1% in R2 in these examples.
+We give details of how we fit all three models in Section 10.9.6.
+10.5.3
+Summary of RNNs
+We have illustrated RNNs through two simple use cases, and have only
+scratched the surface.
+There are many variations and enhancements of the simple RNN we
+used for sequence modeling. One approach we did not discuss uses a one-
+dimensional convolutional neural network, treating the sequence of vectors
+(say words, as represented in the embedding space) as an image. The con-
+volution filter slides along the sequence in a one-dimensional fashion, with
+the potential to learn particular phrases or short subsequences relevant to
+the learning task.
+One can also have additional hidden layers in an RNN. For example,
+with two hidden layers, the sequence Aℓis treated as an input sequence to
+the next hidden layer in an obvious fashion.

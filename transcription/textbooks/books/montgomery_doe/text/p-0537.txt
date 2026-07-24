@@ -1,0 +1,81 @@
+Notice that for m factors, there are only 2m1 runs based on m fold-over pairs and an overall
+center point. Each run (excluding the center run) has exactly one factor level at its center point
+and all others levels at the extremes. These designs have the following desirable properties:
+1. The number of required runs is only one more than twice the number of factors.
+Consequently, these are very small designs.
+2. Unlike resolution III designs, main effects are completely independent of two-factor
+interactions. As a result, estimates of main effects are not biased by the presence of
+active two-factor interactions, regardless of whether the interactions are included in
+the model.
+3. Unlike resolution IV designs, two-factor interactions are not completely confounded
+with other two-factor interactions, although they may be correlated.
+4. Unlike resolution III, IV and V designs with added center points, all quadratic effects
+can be estimated in models comprised of any number of linear and quadratic main
+effect terms.
+5. Quadratic effects are orthogonal to main effects and not completely confounded
+(though correlated) with interaction effects.
+6. With six through or more factors, the designs are capable of estimating all possible
+full quadratic models involving three or fewer factors with very high levels of 
+statistical efciency.
+These designs are an excellent compromise between Resolution III fractions for screening
+and small RSM designs. They also admit the possibility of moving directly from screening
+to optimization using the results of a single experiment. Jones and Nachtsheim found these
+designs using an optimization technique they had previously developed for nding minimum
+aliasing designs [see Jones and Nachtsheim (2011a)] Their algorithm minimizes the sum of
+the squares of the elements of the alias matrix subject to a constraint on the D-efciency of
+the resulting design. Figure 11.32 shows these designs for the cases of 4 through 12 factors.
+These designs can also be constructed from conference matrices [see Xiao, Lin and
+Bai (2012)]. A conference matrix C is an n n matrix that has diagonal elements equal to
+zero and all off-diagonal elements equal to 1. They have the property that CC is a mul-
+tiple of the identity matrix. For the n n conference matrix C, CC (n 1)I.
+Conference matrices first arose in connection with a problem in telephony. They were used
+in constructing ideal telephone conference networks from ideal transformers. These networks
+were represented by conference matrices. There are other applications.
+The conference matrix of order 6 is given by:
+The 13-run 6-factor denitive screening design can be found by folding over each row of this
+conference matrix and adding a row of zeros at the bottom. In general, if C is the conference
+matrix of order n the m-factor denitive screening design matrix can be found as follows:
+where 0 denotes the 1 n row vector of zeros and m 2n1.
+D 
+C
+C
+0
+
+0
+1
+1
+1
+1
+1
+1
+0
+1
+1
+1
+1
+1
+1
+0
+1
+1
+1
+1
+1
+1
+0
+1
+1
+1
+1
+1
+1
+0
+1
+1
+1
+1
+1
+1
+0
+11.4 Experimental Designs for Fitting Response Surfaces
+521

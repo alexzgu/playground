@@ -1,0 +1,47 @@
+2.3 Lab: Introduction to Python
+59
+the dataframe Auto_re, that dataframe will be the argument supplied. As
+another example of using a lambda, suppose that we want all cars built after
+1980 that achieve greater than 30 miles per gallon:
+In [94]: Auto_re.loc[lambda df: (df['year'] > 80) & (df['mpg'] > 30),
+['weight', 'origin']
+]
+The symbol & computes an element-wise and operation. As another ex-
+ample, suppose that we want to retrieve all Ford and Datsun cars with
+displacement less than 300. We check whether each name entry contains
+either the string ford or datsun using the str.contains() method of the .str.
+contains()
+index attribute of of the dataframe:
+In [95]: Auto_re.loc[lambda df: (df['displacement'] < 300)
+& (df.index.str.contains('ford')
+| df.index.str.contains('datsun')),
+['weight', 'origin']
+]
+Here, the symbol | computes an element-wise or operation.
+In summary, a powerful set of operations is available to index the rows
+and columns of data frames. For integer based queries, use the iloc[]
+method. For string and Boolean selections, use the loc[] method. For
+functional queries that filter rows, use the loc[] method with a function
+(typically a lambda) in the rows argument.
+2.3.8
+For Loops
+A for loop is a standard tool in many languages that repeatedly evaluates for
+some chunk of code while varying different values inside the code. For
+example, suppose we loop over elements of a list and compute their sum.
+In [96]: total = 0
+for value in [3,2,19]:
+total += value
+print('Total is: {0}'.format(total))
+Total is: 24
+The indented code beneath the line with the for statement is run for each
+value in the sequence specified in the for statement. The loop ends either
+when the cell ends or when code is indented at the same level as the original
+for statement. We see that the final line above which prints the total is
+executed only once after the for loop has terminated. Loops can be nested
+by additional indentation.
+In [97]: total = 0
+for value in [2,3,19]:
+for weight in [3, 2, 1]:
+total += value * weight
+print('Total is: {0}'.format(total))
+Total is: 144

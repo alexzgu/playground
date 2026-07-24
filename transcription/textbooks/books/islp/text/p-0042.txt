@@ -1,0 +1,69 @@
+32
+2. Statistical Learning
+0
+20
+40
+60
+80
+100
+−10
+0
+10
+20
+X
+Y
+2
+5
+10
+20
+0
+5
+10
+15
+20
+Flexibility
+Mean Squared Error
+FIGURE 2.11. Details are as in Figure 2.9, using a different f that is far from
+linear. In this setting, linear regression provides a very poor fit to the data.
+Though the mathematical proof is beyond the scope of this book, it is
+possible to show that the expected test MSE, for a given value x0, can
+always be decomposed into the sum of three fundamental quantities: the
+variance of ˆf(x0), the squared bias of ˆf(x0) and the variance of the error variance
+bias
+terms ϵ. That is,
+E
+1
+y0 −ˆf(x0)
+22
+= Var( ˆf(x0)) + [Bias( ˆf(x0))]2 + Var(ϵ).
+(2.7)
+Here the notation E
+1
+y0 −ˆf(x0)
+22
+defines the expected test MSE at x0, expected
+test MSE
+and refers to the average test MSE that we would obtain if we repeatedly
+estimated f using a large number of training sets, and tested each at x0. The
+overall expected test MSE can be computed by averaging E
+1
+y0 −ˆf(x0)
+22
+over all possible values of x0 in the test set.
+Equation 2.7 tells us that in order to minimize the expected test error,
+we need to select a statistical learning method that simultaneously achieves
+low variance and low bias. Note that variance is inherently a nonnegative
+quantity, and squared bias is also nonnegative. Hence, we see that the
+expected test MSE can never lie below Var(ϵ), the irreducible error from
+(2.3).
+What do we mean by the variance and bias of a statistical learning
+method? Variance refers to the amount by which ˆf would change if we
+estimated it using a different training data set. Since the training data
+are used to fit the statistical learning method, different training data sets
+will result in a different ˆf. But ideally the estimate for f should not vary
+too much between training sets. However, if a method has high variance
+then small changes in the training data can result in large changes in ˆf. In
+general, more flexible statistical methods have higher variance. Consider the
+green and orange curves in Figure 2.9. The flexible green curve is following
+the observations very closely. It has high variance because changing any
+one of these data points may cause the estimate ˆf to change considerably.

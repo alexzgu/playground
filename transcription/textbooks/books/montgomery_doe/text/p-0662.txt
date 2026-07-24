@@ -1,0 +1,56 @@
+646
+Chapter 15 ■Other Design and Analysis Topics
+component (what we have usually called the error term) and a function of the design factors
+(the x’s) and some unknown parameters (the ’s). In a standard normal-theory linear regres-
+sion model, we write
+(15.3)
+where the error term is assumed to have a normal distribution with mean zero and constant
+variance, and the mean of the response variable y is
+(15.4)
+The portion xof Equation (15.4) is called the linear predictor. The generalized linear
+model contains Equation (15.3) as a special case.
+In a GLM, the response variable can have any distribution that is a member of the expo-
+nential family. This family includes the normal, Poisson, binomial, exponential, and gamma
+distributions, so the exponential family is a very rich and exible collection of distributions
+applicable to many experimental situations. Also, the relationship between the response mean 
+and the linear predictor xis determined by a link function.
+(15.5)
+The regression model that represents the mean response is then given by
+(15.6)
+For example, the link function leading to the ordinary linear regression model in Equation 15.3
+is called the identity link because g1(x) x. As another example, the log link
+(15.7)
+produces the model
+(15.8)
+The log link is often used with count data (Poisson response) and with continuous responses
+that have a distribution that has a long tail to the right (the exponential or gamma distribu-
+tion). Another important link function used with binomial data is the logit link
+(15.9)
+This choice of link function leads to the model
+(15.10)
+Many choices of link function are possible, but it must always be monotonic and differen-
+tiable. Also, note that in a generalized linear model, the variance of the response variable does
+not have to be a constant; it can be a function of the mean (and the predictor variables through
+the link function). For example, if the response is Poisson, the variance of the response is
+exactly equal to the mean.
+To use a generalized linear model in practice, the experimenter must specify a response
+distribution and a link function. Then the model tting or parameter estimation is done by the
+method of maximum likelihood, which for the exponential family turns out to be an iterative
+version of weighted least squares. For ordinary linear regression or experimental design mod-
+els with a normal response variable, this reduces to standard least squares. Using an approach
+that is analogous to the analysis of variance for normal-theory data, we can perform inference
+and diagnostic checking for a GLM. Refer to Myers and Montgomery (1997) and Myers,
+Montgomery, Vining and Robinson (2010) for the details and examples. Two software pack-
+ages that support the generalized linear model nicely are SAS (PROC GENMOD) and JMP.
+
+1
+1 ex&
+ln 
+
+1 x&
+ex&
+ln() x&
+E(y) g1(x&)
+g() x&
+E(y) 0 1x1 2x2 Á kxk x&
+y 0 1x1 2x2 Á kxk 

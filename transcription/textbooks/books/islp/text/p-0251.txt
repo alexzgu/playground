@@ -1,0 +1,68 @@
+6.2 Shrinkage Methods
+243
+1e−01
+1e+01
+1e+03
+0
+10
+20
+30
+40
+50
+60
+Mean Squared Error
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+0
+10
+20
+30
+40
+50
+60
+Mean Squared Error
+λ
+∥ˆβR
+λ ∥2/∥ˆβ∥2
+FIGURE 6.5.
+Squared bias (black), variance (green), and test mean squared
+error (purple) for the ridge regression predictions on a simulated data set, as a
+function of λ and ∥ˆβR
+λ ∥2/∥ˆβ∥2. The horizontal dashed lines indicate the minimum
+possible MSE. The purple crosses indicate the ridge regression models for which
+the MSE is smallest.
+of Figure 6.5 displays the variance of the ridge regression predictions as a
+function of λ. At the least squares coefficient estimates, which correspond
+to ridge regression with λ = 0, the variance is high but there is no bias. But
+as λ increases, the shrinkage of the ridge coefficient estimates leads to a
+substantial reduction in the variance of the predictions, at the expense of a
+slight increase in bias. Recall that the test mean squared error (MSE), plot-
+ted in purple, is closely related to the variance plus the squared bias. For
+values of λ up to about 10, the variance decreases rapidly, with very little
+increase in bias, plotted in black. Consequently, the MSE drops consider-
+ably as λ increases from 0 to 10. Beyond this point, the decrease in variance
+due to increasing λ slows, and the shrinkage on the coefficients causes them
+to be significantly underestimated, resulting in a large increase in the bias.
+The minimum MSE is achieved at approximately λ = 30. Interestingly,
+because of its high variance, the MSE associated with the least squares
+fit, when λ = 0, is almost as high as that of the null model for which all
+coefficient estimates are zero, when λ = ∞. However, for an intermediate
+value of λ, the MSE is considerably lower.
+The right-hand panel of Figure 6.5 displays the same curves as the left-
+hand panel, this time plotted against the ℓ2 norm of the ridge regression
+coefficient estimates divided by the ℓ2 norm of the least squares estimates.
+Now as we move from left to right, the fits become more flexible, and so
+the bias decreases and the variance increases.
+In general, in situations where the relationship between the response
+and the predictors is close to linear, the least squares estimates will have
+low bias but may have high variance. This means that a small change in
+the training data can cause a large change in the least squares coefficient
+estimates. In particular, when the number of variables p is almost as large
+as the number of observations n, as in the example in Figure 6.5, the
+least squares estimates will be extremely variable. And if p > n, then the
+least squares estimates do not even have a unique solution, whereas ridge
+regression can still perform well by trading off a small increase in bias for a

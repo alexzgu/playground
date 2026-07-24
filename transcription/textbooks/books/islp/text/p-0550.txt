@@ -1,0 +1,53 @@
+544
+12. Unsupervised Learning
+the return type when using this method, so instances will still be of class
+AgglomerativeClustering. In the following example we use the data from
+the previous lab to plot the hierarchical clustering dendrogram using com-
+plete, single, and average linkage clustering with Euclidean distance as the
+dissimilarity measure. We begin by clustering observations using complete
+linkage.
+In [38]: HClust = AgglomerativeClustering
+hc_comp = HClust(distance_threshold=0,
+n_clusters=None,
+linkage='complete')
+hc_comp.fit(X)
+This computes the entire dendrogram. We could just as easily perform
+hierarchical clustering with average or single linkage instead:
+In [39]: hc_avg = HClust(distance_threshold=0,
+n_clusters=None,
+linkage='average');
+hc_avg.fit(X)
+hc_sing = HClust(distance_threshold=0,
+n_clusters=None,
+linkage='single');
+hc_sing.fit(X);
+To use a precomputed distance matrix, we provide an additional argu-
+ment metric="precomputed". In the code below, the first four lines computes
+the 50 × 50 pairwise-distance matrix.
+In [40]: D = np.zeros((X.shape[0], X.shape[0]));
+for i in range(X.shape[0]):
+x_ = np.multiply.outer(np.ones(X.shape[0]), X[i])
+D[i] = np.sqrt(np.sum((X - x_)**2, 1));
+hc_sing_pre = HClust(distance_threshold=0,
+n_clusters=None,
+metric='precomputed',
+linkage='single')
+hc_sing_pre.fit(D)
+We use dendrogram() from scipy.cluster.hierarchy to plot the dendro- dendrogram()
+gram. However, dendrogram() expects a so-called linkage-matrix representa-
+tion of the clustering, which is not provided by AgglomerativeClustering(),
+but can be computed. The function compute_linkage() in the ISLP.cluster compute_
+linkage()
+ISLP.cluster
+package is provided for this purpose.
+We can now plot the dendrograms. The numbers at the bottom of the
+plot identify each observation. The dendrogram() function has a default
+method to color different branches of the tree that suggests a pre-defined
+cut of the tree at a particular depth. We prefer to overwrite this default by
+setting this threshold to be infinite. Since we want this behavior for many
+dendrograms, we store these values in a dictionary cargs and pass this as
+keyword arguments using the notation **cargs.
+In [41]: cargs = {'color_threshold':-np.inf,
+'above_threshold_color':'black'}
+linkage_comp = compute_linkage(hc_comp)
+fig, ax = plt.subplots(1, 1, figsize=(8, 8))

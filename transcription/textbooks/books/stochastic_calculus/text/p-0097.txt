@@ -1,0 +1,53 @@
+3.2. STOCHASTIC INTEGRAL
+91
+Linearity. Ia, b , 
+t
+0
+(aAs + bCs) dBs = a
+t
+0
+As dBs + b
+t
+0
+Cs dBs
+A, r < t,
+t
+0
+As dBs =
+r
+0
+As dBs +
+t
+r
+As dBs
+Martingale property. T
+Zt =
+t
+0
+As dBs
+Ft.
+Variance rule. Zt 
+Var[Zt] = E
+
+Z2
+t
+
+=
+t
+0
+E[A2
+s] ds
+Continuity. W, t →Zt .
+For xed t, the existence of Zt follows from the estimate (3.3) and the
+completeness of L2. In this case, the convergence is in L2. However,
+there are issues dealing with the fact that there are an uncountable
+number of times. This can be handled similarly to the construction of
+Brownian motion. For convenience, we restrict to 0 ≤t ≤1.
+We rst consider t D and dene Zt, t D as the L2 limit which is
+dened for t D up to a single event of probability zero. Suppose At
+is a simple process with At≤C. Then (Exercise 3.1) one can show
+that
+E[(Zt −Zs)4] ≤4 C4 t −s2
+By Fatou’s lemma, this bound will also hold for the limit process.
+This estimate and an argument rst due to Kolmogorov suce to give
+continuity. We leave the argument as Exercise 3.11.

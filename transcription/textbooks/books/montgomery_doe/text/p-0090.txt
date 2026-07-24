@@ -1,0 +1,64 @@
+74
+Chapter 3 ■Experiments with a Single Factor: The Analysis of Variance
+Because the degrees of freedom for SSTreatments and SSE add to N 1, the total number
+of degrees of freedom, Cochran’s theorem implies that SSTreatments/2 and SSE /2 are independ-
+ently distributed chi-square random variables. Therefore, if the null hypothesis of no differ-
+ence in treatment means is true, the ratio
+(3.7)
+is distributed as F with a 1 and N a degrees of freedom. Equation 3.7 is the test statis-
+tic for the hypothesis of no differences in treatment means.
+From the expected mean squares we see that, in general, MSE is an unbiased estimator of
+2. Also, under the null hypothesis, MSTreatments is an unbiased estimator of 2. However, if the
+null hypothesis is false, the expected value of MSTreatments is greater than 2. Therefore, under the
+alternative hypothesis, the expected value of the numerator of the test statistic (Equation 3.7) is
+greater than the expected value of the denominator, and we should reject H0 on values of the test
+statistic that are too large. This implies an upper-tail, one-tail critical region. Therefore, we
+should reject H0 and conclude that there are differences in the treatment means if
+where F0 is computed from Equation 3.7. Alternatively, we could use the P-value approach
+for decision making. The table of F percentages in the Appendix (Table IV) can be used to
+nd bounds on the P-value.
+The sums of squares may be computed in several ways. One direct approach is to make
+use of the denition
+Use a spreadsheet to compute these three terms for each observation. Then, sum up the
+squares to obtain SST, SSTreatments, and SSE. Another approach is to rewrite and simplify the def-
+initions of SSTreatments and SST in Equation 3.6, which results in
+(3.8)
+(3.9)
+and
+(3.10)
+SSE SST SSTreatments
+SSTreatments 1
+n 
+a
+i1
+y2
+i. y2
+..
+N
+SST 
+a
+i1 
+n
+j1
+y2
+ij y2
+..
+N
+yij y.. (yi. y..) (yij yi.)
+F0 # F,a1,Na
+F0 SSTreatments/(a 1)
+SSE/(N a)
+MSTreatments
+MSE
+THEOREM 3-1
+Cochran’s Theorem
+Let Zi be NID(0, 1) for i 1, 2, . . . , and
+where s v, and Qi has vi degrees of freedom (i 1, 2, . . . , s). Then Q1, Q2, . . . , Qs
+are independent chi-square random variables with v1, v2, . . . , vs degrees of freedom,
+respectively, if and only if
+1 2 Á s
+
+
+i1
+Z 2
+i Q1 Q2 Á Qs

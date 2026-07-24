@@ -1,0 +1,52 @@
+6.3 Dimension Reduction Methods
+261
+20
+30
+40
+50
+60
+5
+10
+15
+20
+25
+30
+Population
+Ad Spending
+FIGURE 6.21.
+For the advertising data, the first PLS direction (solid line)
+and first PCR direction (dotted line) are shown.
+that the directions that best explain the predictors will also be the best
+directions to use for predicting the response. Unsupervised methods are
+discussed further in Chapter 12.
+We now present partial least squares (PLS), a supervised alternative to partial least
+squares
+PCR. Like PCR, PLS is a dimension reduction method, which first identifies
+a new set of features Z1, . . . , ZM that are linear combinations of the original
+features, and then fits a linear model via least squares using these M new
+features. But unlike PCR, PLS identifies these new features in a supervised
+way—that is, it makes use of the response Y in order to identify new
+features that not only approximate the old features well, but also that are
+related to the response. Roughly speaking, the PLS approach attempts to
+find directions that help explain both the response and the predictors.
+We now describe how the first PLS direction is computed. After stan-
+dardizing the p predictors, PLS computes the first direction Z1 by setting
+each φj1 in (6.16) equal to the coefficient from the simple linear regression
+of Y onto Xj. One can show that this coefficient is proportional to the cor-
+relation between Y and Xj. Hence, in computing Z1 = )p
+j=1 φj1Xj, PLS
+places the highest weight on the variables that are most strongly related to
+the response.
+Figure 6.21 displays an example of PLS on a synthetic dataset with Sales
+in each of 100 regions as the response, and two predictors; Population Size
+and Advertising Spending. The solid green line indicates the first PLS di-
+rection, while the dotted line shows the first principal component direction.
+PLS has chosen a direction that has less change in the ad dimension per
+unit change in the pop dimension, relative to PCA. This suggests that pop
+is more highly correlated with the response than is ad. The PLS direction
+does not fit the predictors as closely as does PCA, but it does a better job
+explaining the response.
+To identify the second PLS direction we first adjust each of the variables
+for Z1, by regressing each variable on Z1 and taking residuals. These resid-
+uals can be interpreted as the remaining information that has not been
+explained by the first PLS direction. We then compute Z2 using this or-

@@ -1,0 +1,47 @@
+538
+12. Unsupervised Learning
+ax.arrow(0, 0, pcaUS.components_[i,k], pcaUS.components_[j,k])
+ax.text(pcaUS.components_[i,k],
+pcaUS.components_[j,k],
+USArrests.columns[k])
+Notice that this figure is a reflection of Figure 12.1 through the y-axis.
+Recall that the principal components are only unique up to a sign change,
+so we can reproduce that figure by flipping the signs of the second set of
+scores and loadings. We also increase the length of the arrows to emphasize
+the loadings.
+In [14]: scale_arrow = s_ = 2
+scores[:,1] *= -1
+pcaUS.components_[1] *= -1 # flip the y-axis
+fig, ax = plt.subplots(1, 1, figsize=(8, 8))
+ax.scatter(scores[:,0], scores[:,1])
+ax.set_xlabel('PC%d' % (i+1))
+ax.set_ylabel('PC%d' % (j+1))
+for k in range(pcaUS.components_.shape[1]):
+ax.arrow(0, 0, s_*pcaUS.components_[i,k], s_*pcaUS.components_[
+j,k])
+ax.text(s_*pcaUS.components_[i,k],
+s_*pcaUS.components_[j,k],
+USArrests.columns[k])
+The standard deviations of the principal component scores are as follows:
+In [15]: scores.std(0, ddof=1)
+Out[15]: array([1.5909, 1.0050, 0.6032, 0.4207])
+The variance of each score can be extracted directly from the pcaUS object
+via the explained_variance_ attribute.
+In [16]: pcaUS.explained_variance_
+Out[16]: array([2.5309, 1.01
+, 0.3638, 0.177 ])
+The proportion of variance explained by each principal component (PVE)
+is stored as explained_variance_ratio_:
+In [17]: pcaUS.explained_variance_ratio_
+Out[17]: array([0.6201, 0.2474, 0.0891, 0.0434])
+We see that the first principal component explains 62.0% of the variance
+in the data, the next principal component explains 24.7% of the variance,
+and so forth. We can plot the PVE explained by each component, as well
+as the cumulative PVE. We first plot the proportion of variance explained.
+In [18]: %%capture
+fig, axes = plt.subplots(1, 2, figsize=(15, 6))
+ticks = np.arange(pcaUS.n_components_)+1
+ax = axes[0]
+ax.plot(ticks,
+pcaUS.explained_variance_ratio_ ,
+marker='o')

@@ -1,0 +1,34 @@
+82
+3. Linear Regression
+X1
+X2
+Y
+FIGURE 3.4.
+In a three-dimensional setting, with two predictors and one
+response, the least squares regression line becomes a plane. The plane is chosen
+to minimize the sum of the squared vertical distances between each observation
+(shown in red) and the plane.
+illustrates an example of the least squares fit to a toy data set with p = 2
+predictors.
+Table 3.4 displays the multiple regression coefficient estimates when TV,
+radio, and newspaper advertising budgets are used to predict product sales
+using the Advertising data. We interpret these results as follows: for a given
+amount of TV and newspaper advertising, spending an additional $1,000 on
+radio advertising is associated with approximately 189 units of additional
+sales. Comparing these coefficient estimates to those displayed in Tables 3.1
+and 3.3, we notice that the multiple regression coefficient estimates for
+TV and radio are pretty similar to the simple linear regression coefficient
+estimates. However, while the newspaper regression coefficient estimate in
+Table 3.3 was significantly non-zero, the coefficient estimate for newspaper
+in the multiple regression model is close to zero, and the corresponding p-
+value is no longer significant, with a value around 0.86. This illustrates that
+the simple and multiple regression coefficients can be quite different. This
+difference stems from the fact that in the simple regression case, the slope
+term represents the average increase in product sales associated with a
+$1,000 increase in newspaper advertising, ignoring other predictors such as
+TV and radio. By contrast, in the multiple regression setting, the coefficient
+for newspaper represents the average increase in product sales associated
+with increasing newspaper spending by $1,000 while holding TV and radio
+fixed.
+Does it make sense for the multiple regression to suggest no relationship
+between sales and newspaper while the simple linear regression implies the

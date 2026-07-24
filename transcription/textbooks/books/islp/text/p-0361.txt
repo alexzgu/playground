@@ -1,0 +1,43 @@
+354
+8. Tree-Based Methods
+predictors of mixed types (i.e. qualitative as well as quantitative). We have
+now seen four approaches for fitting an ensemble of trees: bagging, random
+forests, boosting, and BART.
+• In bagging, the trees are grown independently on random samples of
+the observations. Consequently, the trees tend to be quite similar to
+each other. Thus, bagging can get caught in local optima and can fail
+to thoroughly explore the model space.
+• In random forests, the trees are once again grown independently on
+random samples of the observations. However, each split on each tree
+is performed using a random subset of the features, thereby decorre-
+lating the trees, and leading to a more thorough exploration of model
+space relative to bagging.
+• In boosting, we only use the original data, and do not draw any ran-
+dom samples. The trees are grown successively, using a “slow” learn-
+ing approach: each new tree is fit to the signal that is left over from
+the earlier trees, and shrunken down before it is used.
+• In BART, we once again only make use of the original data, and we
+grow the trees successively. However, each tree is perturbed in order
+to avoid local minima and achieve a more thorough exploration of
+the model space.
+8.3
+Lab: Tree-Based Methods
+We import some of our usual libraries at this top level.
+In [1]: import numpy as np
+import pandas as pd
+from matplotlib.pyplot import subplots
+from statsmodels.datasets import get_rdataset
+import sklearn.model_selection as skm
+from ISLP import load_data, confusion_table
+from ISLP.models import ModelSpec as MS
+We also collect the new imports needed for this lab.
+In [2]: from sklearn.tree import (DecisionTreeClassifier as DTC,
+DecisionTreeRegressor as DTR,
+plot_tree,
+export_text)
+from sklearn.metrics import (accuracy_score ,
+log_loss)
+from sklearn.ensemble import \
+(RandomForestRegressor as RF,
+GradientBoostingRegressor as GBR)
+from ISLP.bart import BART

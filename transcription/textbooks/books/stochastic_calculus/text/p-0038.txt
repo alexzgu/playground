@@ -1,0 +1,42 @@
+32
+CHAPTER 1. MARTINGALES IN DISCRETE TIME
+1. Show that the distribution of Mn is uniform on the set
+
+1
+n + 2,
+2
+n + 2, , n + 1
+n + 2
+
+
+(Use mathematical induction, that is, note that it is obviously true for
+n = 0 and show that if it is true for n then it is true for n + 1.)
+2. Write a short program that will simulate this urn. Each time you run
+the program note the fraction of red balls after 600 draws and after 1200
+draws. Compare the two fractions. Then, repeat this twenty times.
+Exercise 1.12. Consider the martingale betting strategy as discussed in
+Section 1.2. Let Wn be the winningsat time n, which for positive n equals
+either 1 or 1 −2n.
+1. Is Wn a square integrable martingale?
+2. If ∆n = Wn −Wn−1 what is E[∆2
+n]?
+3. What is E[W 2
+n]?
+4. What is E(∆2
+n Fn−1)?
+Exercise 1.13. Suppose Sn = X1 + · · · + Xn is simple random walk starting
+at 0. For any K, let
+T = minn : Sn= K
+Explain why for every j,
+PT ≤j + K T > j≥2−K
+Show that there exists c < ∞, α > 0 such that for all j,
+PT > j≤c e−αj
+Conclude that E[T r] < ∞for every r > 0.
+Let Mn = S2
+n −n. Show there exists C < ∞such that for all n,
+E
+
+M 2
+n∧T
+
+≤C

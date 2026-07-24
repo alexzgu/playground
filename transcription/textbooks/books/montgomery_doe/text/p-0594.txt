@@ -1,0 +1,111 @@
+578
+Chapter 13 ■Experiments with Random Factors
+Measurement system capability studies are a very common application of designed
+experiments. These experiments almost always involve random effects. For more information
+about measurement systems experiments and a bibliography, see Burdick, Borror, and
+Montgomery (2003).
+The other method for variance component estimation is the method of maximum
+likelihood, which was introduced in Chapter 3. This method is superior to the method of
+moments approach, because it produces estimators that are approximately normally distri-
+buted and it is easy to obtain their standard errors. Therefore, finding confidence intervals
+on the variance components is straightforward.
+To illustrate how this method applies to an experimental design model with random
+effects, consider a two-factor model where both factors are random and a  b  n  2. The
+model is
+with i 1, 2, j 1, 2, and k 1, 2. The variance of any observation is
+and the covariances are
+i Z i, j Z j
+0
+i Z i, j j
+2
+
+i i, j Z j
+2
+
+ Cov(yijk, yijk) 2
+2
+2
+ i i, j j, k k
+V(yijk) 2
+y 2
+2
+2
+2
+yijk i j ()ij ijk
+■TA B L E 1 3 . 3 
+Analysis of Variance for the Reduced Model, Example 13.1
+Analysis of Variance (Balanced Designs)
+Factor
+Type   Levels   Values
+part
+random
+20
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+operator random
+3
+1
+2
+3
+Analysis of Variance for y
+Source
+DF
+SS
+MS
+F
+P
+part
+19
+1185.425
+62.391
+70.64
+0.000
+operator
+2
+2.617
+1.308
+1.48
+0.232
+Error
+98
+86.550
+0.883
+Total
+119
+1274.592
+Source 
+Variance 
+Error
+Expected Mean Square for Each Term
+component
+term
+(using unrestricted model)
+1 part
+10.2513
+3
+(3) 6(1)
+2 operator
+0.0106
+3
+(3) 40(2)
+3 error
+0.8832
+(3)

@@ -1,0 +1,42 @@
+5.6. MARTINGALE APPROACH TO PRICING
+169
+for then in the measure Q,
+dBt = r(t, St) −m(t, St)
+σ(t, St)
+dt + dWt
+In order for the theorem to hold, we need that Mt is actually a martingale
+and that ˜St as given in (5.25) is a martingale. While one can give general
+conditions when this is true, it is often just as easy to check this in each case.
+If r −mσ is uniformly bounded, these conditions are satised.
+5.6
+Martingale approach to pricing
+We generalize the discussion in the previous section to the pricing of claims
+that are functions of the entire history of the prices of an asset. Suppose St
+denotes the price of an asset satisfying
+dSt = St [mt dt + σt dBt]
+(5.26)
+where Bt is a standard Brownian motion. Let Ft denote the information in
+Bs : 0 ≤s ≤t, and as usual we assume that mt, σt are processes adapted to
+the ltration Ft. We also assume that there is a risk-free bond Rt satisfying
+dRt = rt Rt dt,
+Rt = R0 exp
+t
+0
+rs ds
+
+,
+where rt is also adapted.
+Let T be a xed future time and assume that V is an FT-measurable
+random variable. We call V a (T). The examples we have seen
+are of the form V = F(ST), but other examples are
+V = max
+0≤t≤T St,
+V = 1
+T
+T
+0
+St dt
+We will start with the following denition.
+Denition, rst try If V is a claim at time T, then the (-)
+Vt, 0 ≤t ≤T, of a claim VT is the minimum value of a self-nancing
+portfolio that can be hedged to guarantee that its value at time T is V .

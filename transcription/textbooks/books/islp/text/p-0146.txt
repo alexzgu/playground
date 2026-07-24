@@ -1,0 +1,79 @@
+4.2 Why Not Linear Regression?
+137
+0
+500
+1000
+1500
+2000
+2500
+0
+20000
+40000
+60000
+Balance
+Income
+No
+Yes
+0
+500
+1000
+1500
+2000
+2500
+Default
+Balance
+No
+Yes
+0
+20000
+40000
+60000
+Default
+Income
+FIGURE 4.1. The Default data set. Left: The annual incomes and monthly
+credit card balances of a number of individuals. The individuals who defaulted on
+their credit card payments are shown in orange, and those who did not are shown
+in blue. Center: Boxplots of balance as a function of default status. Right:
+Boxplots of income as a function of default status.
+epileptic seizure. We could consider encoding these values as a quantita-
+tive response variable, Y , as follows:
+Y =
+
+
+
+
+
+1
+if stroke;
+2
+if drug overdose;
+3
+if epileptic seizure.
+Using this coding, least squares could be used to fit a linear regression model
+to predict Y on the basis of a set of predictors X1, . . . , Xp. Unfortunately,
+this coding implies an ordering on the outcomes, putting drug overdose in
+between stroke and epileptic seizure, and insisting that the difference
+between stroke and drug overdose is the same as the difference between
+drug overdose and epileptic seizure. In practice there is no particular
+reason that this needs to be the case. For instance, one could choose an
+equally reasonable coding,
+Y =
+
+
+
+
+
+1
+if epileptic seizure;
+2
+if stroke;
+3
+if drug overdose,
+which would imply a totally different relationship among the three condi-
+tions. Each of these codings would produce fundamentally different linear
+models that would ultimately lead to different sets of predictions on test
+observations.
+If the response variable’s values did take on a natural ordering, such as
+mild, moderate, and severe, and we felt the gap between mild and moderate
+was similar to the gap between moderate and severe, then a 1, 2, 3 coding
+would be reasonable. Unfortunately, in general there is no natural way to

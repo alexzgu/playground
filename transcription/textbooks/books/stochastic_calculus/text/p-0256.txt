@@ -1,0 +1,41 @@
+250
+CHAPTER 8. HARMONIC FUNCTIONS
+One can use the Girsanov theorem (more precisely, a simple generalization
+of the theorem to d-dimensional Brownian motion), to see that
+dBt = h(Bt)
+h(Bt) dt + dWt,
+where Wt is a standard Brownian motion with respect to P∗. The process Bt
+in the new measure P∗is often called the (D) h-associated to the
+positive harmonic function h. It is dened for t < τ.
+As an example, suppose that D is the unit ball, y = (1, 0, , 0) ∂D
+and
+h(x) = ωd−1H1(x, y) = 1 −x2
+x −yd,
+is the Poisson kernel. Then the h-process can be viewed as Brownian motion
+conditioned so that Bτ = y, where τ = τD. This is not precise because the
+conditioning is with respect to a event of probability zero. We claim that the
+P∗-probability that Bτ = y equals one. To see this, assume that B0 = 0 and
+let
+Tn = inft : h(Bt) = n3,
+T ′
+n = inft > Tn : h(Bt) = n
+We claim that P∗Tn < τ= 1. Indeed, if we let τr = inft : Bt= r, then
+we can check directly that
+lim
+r1 P∗h(Bτr) ≥n3= lim
+r1
+
+|x|=1,h(rx)≥n3 h(rx) dσ(x) = 1,
+and hence
+lim
+r1 P∗Tn < τr= 1
+Also, since h(BT ′n) = n−2 h(BTn),
+P∗T ′
+n < τ≤n−2,
+∞
+
+n=1
+P∗T ′
+n < τ< ∞
+Therefore, by the Borel-Canelli lemma, we see that with P∗-probability one
+for all n suciently large h(Bt) ≥n for t ≥Tn.

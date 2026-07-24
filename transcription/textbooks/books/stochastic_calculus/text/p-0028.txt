@@ -1,0 +1,50 @@
+22
+CHAPTER 1. MARTINGALES IN DISCRETE TIME
+given Y0, Y1, , Yn is the same as the conditional distribution given Yn. In
+other words, the only thing about the past and present that is useful for
+predicting the future is the current value of the process.
+We can describe the rule of Polya’s urn by
+PRn+1 = Rn + 1 Fn= 1 −PRn+1 = Rn Fn=
+PRn+1 = Rn + 1 Mn=
+Rn
+n + 2 = Mn
+We claim that Mn is a martingale with respect to Fn. To check this,
+E [Mn+1 Fn]
+=
+E [Mn+1 Mn]
+=
+Mn
+Rn + 1
+n + 3 + [1 −Mn]
+Rn
+n + 3
+=
+Rn(Rn + 1)
+(n + 2)(n + 3) + (n + 2 −Rn)Rn
+(n + 2)(n + 3)
+=
+Rn(n + 3)
+(n + 2)(n + 3) = Mn
+Since E[Mn] = E[Mn] = E[M0] = 12, this martingale satises the condi-
+tions of the martingale convergence theorem. (In fact, the same argument
+shows that every martingale that stays nonnegative satises the conditions.)
+Hence, there exists a random variable M∞such that with probability one,
+lim
+n∞Mn = M∞
+It turns out that the random variable Mn is really random in the sense
+that it has a nontrivial distribution. In Exercise 1.11 you will show that for
+each n, the distribution of Mn is uniform on
+
+1
+n + 2,
+2
+n + 2, , n + 1
+n + 2
+
+,
+and from this it is not hard to see that M∞has a uniform distribution on
+[0, 1]. You will also be asked to simulate this process to see what happens.
+There is a lot of randomness in the rst few draws to see what fraction of
+red balls the urn will settle down to. However, for large n this ratio changes
+very little; for example, the ratio after 2000 draws is very close to the ratio
+after 4000 draws.

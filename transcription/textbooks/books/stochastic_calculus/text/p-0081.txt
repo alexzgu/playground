@@ -1,0 +1,56 @@
+2.10. HEAT EQUATION AND GENERATOR
+75
+We will give another derivation of this equation, and while we are at it we
+will do the multivariate case. Suppose Bt = (B1
+t , , Bd
+t ) is a d-dimensional
+Brownian motion with drift m = (m1, , md) and covariance matrix Γ. We
+assume that the Brownian motion is truly d-dimensional, or, in other words,
+that Γ is a nonsingular matrix. Let pt(x, y) be the transition probability. If
+f : Rd →R is a bounded function, dene Ptf by
+Ptf(x) = Ex [f(Bt)] =
+
+f(y) pt(x, y) dy
+Here x = (x1, , xd), y = (y1, , yd) Rd and dy = dy1 · · · dyd.
+Denition The () of a Markov process Xt is the op-
+erator L on functions dened by
+Lf(x) = lim
+t0
+Ptf(x) −f(x)
+t
+,
+where
+Ptf(x) = Ex [f(Xt)] 
+Theorem 2.10.3. IBt d-Bm =
+(m1, , md) Γ, 
+
+Lf(x) = m · f(x) + 1
+2
+d
+
+j=1
+d
+
+k=1
+Γjk ∂jkf(x)
+I, f 
+ϕ(t, x) = Ptf(x) = Ex[f(Bt)],
+ϕ 
+∂tϕ(t, x) = Lxϕ(t, x),
+t > 0,
+ϕ(0, x) = f(x).
+We will give a quick derivation, assuming f is C2 and t = x = 0. The
+second-order Taylor approximation of f around the origin is
+f(ϵ) = f(0) +
+d
+
+j=1
+bj ϵj + 1
+2
+d
+
+j=1
+d
+
+k=1
+ajk ϵj ϵk + o(ϵ2),

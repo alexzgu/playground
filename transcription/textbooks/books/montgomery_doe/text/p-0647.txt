@@ -1,0 +1,93 @@
+normal probability plots to evaluate the effects. Figure 14.8a
+is a half-normal probability plot of the effect estimates for
+only the whole-plot factors, ignoring the factors in the sub-
+plots. Notice that factors A, B, and the AB interaction have
+large effects. Figure 14.8b is a half-normal probability plot
+of the subplot effects D and E, and the interactions involv-
+ing those factors, DE, AD, AE, BD, BE, CD, and CE. Only
+the main effect of E and the AE interaction are large.
+Figure 14.9a and b are the two-factor interaction plots of
+the intersections AB and AE. The experimenter’s objective is
+91.09
+78.2829
+81.4758
+46.6686
+31.8615
+ Uniformity
+91.09
+78.316
+61.54
+48.785
+31.98
+ Uniformity
+–1.00
+0.50
+0.00
+0.50
+1.00
+(a)
+B = –
+E = –
+E = +
+B = +
+B = gas flow
+E = RF power
+A = electrode gap
+–1.00
+0.50
+0.00
+0.50
+1.00
+(b)
+A = electrode gap
+■F I G U R E 1 4 . 9
+Two-factor interaction graphs for the 251 split-plot experiment in Example
+14.3. (a) AB interaction. (b) AE interaction
+14.5 Other Variations of the Split-Plot Design
+631
+0
+20
+40
+60
+70
+80
+85
+90
+95
+97
+99
+0
+20
+40
+60
+70
+80
+85
+90
+95
+97
+99
+Half-normal % probability
+Half-normal % probability
+B
+E
+AB
+AE
+A
+0.00
+5.03
+10.06
+|Effect|
+(a)
+15.10
+20.13
+0.00
+3.25
+8.50
+|Effect|
+(b)
+9.76
+13.01
+■F I G U R E 1 4 . 8
+Half-normal plots of the effects from the 251 split-plot experiment
+in Example 14.3. (a) Whole-plot effects. (b) Subplot effects

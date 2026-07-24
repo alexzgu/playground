@@ -1,0 +1,49 @@
+296
+7. Moving Beyond Linearity
+7.4.2
+Constraints and Splines
+The top left panel of Figure 7.3 looks wrong because the fitted curve is just
+too flexible. To remedy this problem, we can fit a piecewise polynomial
+under the constraint that the fitted curve must be continuous. In other
+words, there cannot be a jump when age=50. The top right plot in Figure 7.3
+shows the resulting fit. This looks better than the top left plot, but the V-
+shaped join looks unnatural.
+In the lower left plot, we have added two additional constraints: now both
+the first and second derivatives of the piecewise polynomials are continuous derivative
+at age=50. In other words, we are requiring that the piecewise polynomial
+be not only continuous when age=50, but also very smooth. Each constraint
+that we impose on the piecewise cubic polynomials effectively frees up one
+degree of freedom, by reducing the complexity of the resulting piecewise
+polynomial fit. So in the top left plot, we are using eight degrees of free-
+dom, but in the bottom left plot we imposed three constraints (continuity,
+continuity of the first derivative, and continuity of the second derivative)
+and so are left with five degrees of freedom. The curve in the bottom left
+plot is called a cubic spline.3 In general, a cubic spline with K knots uses cubic spline
+a total of 4 + K degrees of freedom.
+In Figure 7.3, the lower right plot is a linear spline, which is continuous linear spline
+at age=50. The general definition of a degree-d spline is that it is a piecewise
+degree-d polynomial, with continuity in derivatives up to degree d −1 at
+each knot. Therefore, a linear spline is obtained by fitting a line in each
+region of the predictor space defined by the knots, requiring continuity at
+each knot.
+In Figure 7.3, there is a single knot at age=50. Of course, we could add
+more knots, and impose continuity at each.
+7.4.3
+The Spline Basis Representation
+The regression splines that we just saw in the previous section may have
+seemed somewhat complex: how can we fit a piecewise degree-d polynomial
+under the constraint that it (and possibly its first d −1 derivatives) be
+continuous? It turns out that we can use the basis model (7.7) to represent
+a regression spline. A cubic spline with K knots can be modeled as
+yi = β0 + β1b1(xi) + β2b2(xi) + · · · + βK+3bK+3(xi) + ϵi,
+(7.9)
+for an appropriate choice of basis functions b1, b2, . . . , bK+3. The model
+(7.9) can then be fit using least squares.
+Just as there were several ways to represent polynomials, there are also
+many equivalent ways to represent cubic splines using different choices of
+basis functions in (7.9). The most direct way to represent a cubic spline
+using (7.9) is to start off with a basis for a cubic polynomial—namely,
+x, x2, and x3—and then add one truncated power basis function per knot. truncated
+power basis
+3Cubic splines are popular because most human eyes cannot detect the discontinuity
+at the knots.

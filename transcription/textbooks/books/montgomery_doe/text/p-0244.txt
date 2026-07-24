@@ -1,0 +1,221 @@
+228
+Chapter 5 ■Introduction to Factorial Designs
+Temperature
+300°C
+350°C
+Operator
+Operator
+Cycle Time
+1
+2
+3
+1
+2
+3
+23
+27
+31
+24
+38
+34
+40
+24
+28
+32
+23
+36
+36
+25
+26
+29
+28
+35
+39
+36
+34
+33
+37
+34
+34
+50
+35
+38
+34
+39
+38
+36
+36
+39
+35
+35
+36
+31
+28
+35
+26
+26
+36
+28
+60
+24
+35
+27
+29
+37
+26
+27
+34
+25
+25
+34
+24
+5.20.
+In Problem 5.3, suppose that we wish to reject the null
+hypothesis with a high probability if the difference in the true
+mean yield at any two pressures is as great as 0.5. If a reason-
+able prior estimate of the standard deviation of yield is 0.1,
+how many replicates should be run?
+5.21.
+The yield of a chemical process is being studied. The
+two factors of interest are temperature and pressure. Three lev-
+els of each factor are selected; however, only nine runs can be
+made in one day. The experimenter runs a complete replicate
+of the design on each day. The data are shown in the following
+table. Analyze the data, assuming that the days are blocks.
+Day 1
+Day 2
+Pressure
+Pressure
+Temperature
+250
+260
+270
+250
+260
+270
+Low
+86.3
+84.0
+85.8
+86.1
+85.2
+87.3
+Medium
+88.5
+87.3
+89.0
+89.4
+89.9
+90.3
+High
+89.1
+90.2
+91.3
+91.7
+93.2
+93.7
+5.22.
+Consider the data in Problem 5.7. Analyze the data,
+assuming that replicates are blocks.
+5.23.
+Consider the data in Problem 5.8. Analyze the data,
+assuming that replicates are blocks.
+5.24.
+An article in the Journal of Testing and Evaluation
+(Vol. 16, no. 2, pp. 508–515) investigated the effects of cyclic
+loading and environmental conditions on fatigue crack growth
+at a constant 22 MPa stress for a particular material. The data
+from this experiment are shown below (the response is crack
+growth rate):
+Environment
+Frequency
+Air
+H2O
+Salt H2O
+2.29
+2.06
+1.90
+10
+2.47
+2.05
+1.93
+2.48
+2.23
+1.75
+2.12
+2.03
+2.06
+2.65
+3.20
+3.10
+1
+2.68
+3.18
+3.24
+2.06
+3.96
+3.98
+2.38
+3.64
+3.24
+2.24
+11.00
+9.96
+0.1
+2.71
+11.00
+10.01
+2.81
+9.06
+9.36
+2.08
+11.30
+10.40
+(a) Analyze the data from this experiment (use 0.05).
+(b) Analyze the residuals.
+(c) Repeat the analyses from parts (a) and (b) using ln (y)
+as the response. Comment on the results.
+5.25.
+An article in the IEEE Transactions on Electron
+Devices (Nov. 1986, pp. 1754) describes a study on polysili-
+con doping. The experiment shown below is a variation of
+their study. The response variable is base current.
+Polysilicon
+Anneal Temperature (°C)
+Doping (ions)
+900
+950
+1000
+1 1020
+4.60
+10.15
+11.01
+4.40
+10.20
+10.58
+2 1020
+3.20
+9.38
+10.81
+3.50
+10.02
+10.60
+(a) Is there evidence (with 0.05) indicating that either
+polysilicon doping level or anneal temperature affects
+base current?
+(b) Prepare graphical displays to assist in interpreting this
+experiment.
+(c) Analyze the residuals and comment on model adequacy.
+(d) Is the model
+supported by this experiment (x1 doping level, x2 
+temperature)? Estimate the parameters in this model
+and plot the response surface.
+5.26.
+An experiment was conducted to study the life (in
+hours) of two different brands of batteries in three different
+devices (radio, camera, and portable DVD player). A com-
+pletely randomized two-factor factorial experiment was con-
+ducted and the following data resulted.
+y 0 1x1 2x2
+22x2
+2 12x1x2 

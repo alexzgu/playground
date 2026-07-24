@@ -1,0 +1,267 @@
+■TA B L E P 8 . 1
+Leaf Spring Experiment
+A
+B
+C
+D
+E
+Free Height
+
+
+
+
+
+7.78
+7.78
+7.81
+
+
+
+
+
+8.15
+8.18
+7.88
+
+
+
+
+
+7.50
+7.56
+7.50
+
+
+
+
+
+7.59
+7.56
+7.75
+
+
+
+
+
+7.54
+8.00
+7.88
+
+
+
+
+
+7.69
+8.09
+8.06
+
+
+
+
+
+7.56
+7.52
+7.44
+
+
+
+
+
+7.56
+7.81
+7.69
+
+
+
+
+
+7.50
+7.25
+7.12
+
+
+
+
+
+7.88
+7.88
+7.44
+
+
+
+
+
+7.50
+7.56
+7.50
+
+
+
+
+
+7.63
+7.75
+7.56
+
+
+
+
+
+7.32
+7.44
+7.44
+
+
+
+
+
+7.56
+7.69
+7.62
+
+
+
+
+
+7.18
+7.18
+7.25
+
+
+
+
+
+7.81
+7.50
+7.59
+(a) Write out the alias structure for this design. What is
+the resolution of this design?
+(b) Analyze the data. What factors inuence the mean free
+height?
+(c) Calculate the range and standard deviation of the free
+height for each run. Is there any indication that any of
+these factors affects variability in the free height?
+(d) Analyze the residuals from this experiment, and com-
+ment on your ndings.
+(e) Is this the best possible design for ve factors in 16 runs?
+Specically, can you nd a fractional design for ve
+factors in 16 runs with a higher resolution than this one?
+8.11.
+An article in Industrial and Engineering Chemistry
+(“More on Planning Experiments to Increase Research
+Efciency,” 1970, pp. 60–65) uses a 252 design to investigate
+the effect of A condensation temperature, B amount of
+material 1, C solvent volume, D condensation time, and
+E amount of material 2 on yield. The results obtained are as
+follows:
+(a) Verify that the design generators used were I ACE
+and I BDE.
+(b) Write down the complete dening relation and the
+aliases for this design.
+(c) Estimate the main effects.
+(d) Prepare an analysis of variance table. Verify that the
+AB and AD interactions are available to use as error.
+(e) Plot the residuals versus the tted values. Also construct
+a normal probability plot of the residuals. Comment on
+the results.
+ab 15.5  bc 16.2  ace 23.4  abcde 18.1
+e 23.2 ad 16.9  cd 23.8 
+ bde 16.8
+8.10 Problems
+377
+8.12.
+Consider the leaf spring experiment in Problem 8.7.
+Suppose that factor E (quench oil temperature) is very difcult
+to control during manufacturing. Where would you set factors
+A, B, C, and D to reduce variability in the free height as much
+as possible regardless of the quench oil temperature used?
+8.13.
+Construct a 272 design by choosing two four-factor
+interactions as the independent generators. Write down the
+complete alias structure for this design. Outline the analysis of
+variance table. What is the resolution of this design?
+8.14.
+Consider the 25 design in Problem 6.24. Suppose that
+only a one-half fraction could be run. Furthermore, two days
+were required to take the 16 observations, and it was neces-
+sary to confound the 251 design in two blocks. Construct the
+design and analyze the data.
+8.15.
+Analyze the data in Problem 6.26 as if it came from a
+design with I ABCD. Project the design into a full fac-
+torial in the subset of the original four factors that appear to
+be signicant.
+8.16.
+Repeat Problem 8.15 using I ABCD. Does the
+use of the alternate fraction change your interpretation of the
+data?
+8.17.
+Project the 
+design in Example 8.1 into two repli-
+cates of a 22 design in the factors A and B. Analyze the data
+and draw conclusions.
+8.18.
+Construct a 
+design. Determine the effects that
+may be estimated if a full fold over of this design is performed.
+8.19.
+Construct a 
+design. Determine the effects that
+may be estimated if a full fold over of this design is per-
+formed.
+8.20.
+Consider the 
+design in Problem 8.18. Determine
+the effects that may be estimated if a single factor fold over of
+this design is run with the signs for factor A reversed.
+8.21.
+Fold over the 
+design in Table 8.19 to produce an
+eight-factor design. Verify that the resulting design is a 
+design. Is this a minimal design?
+8.22.
+Fold over a 
+design to produce a six-factor design.
+Verify that the resulting design is a 
+design. Compare this
+design to the 
+design in Table 8.10.
+8.23.
+An industrial engineer is conducting an experiment
+using a Monte Carlo simulation model of an inventory system.
+The independent variables in her model are the order quantity
+(A), the reorder point (B), the setup cost (C), the backorder
+cost (D), and the carrying cost rate (E). The response variable
+is average annual cost. To conserve computer time, she
+decides to investigate these factors using a 
+design with 
+I ABD and I BCE. The results she obtains are de 95,
+ae 134, b 158, abd 190, cd 92, ac 187, bce 
+155, and abcde 185.
+(a) Verify that the treatment combinations given are cor-
+rect. Estimate the effects, assuming three-factor and
+higher interactions are negligible.
+(b) Suppose that a second fraction is added to the rst, for
+example, ade 136, e 93, ab 187, bd 153,
+252
+III
+262
+IV
+262
+IV
+252
+III
+284
+IV
+274
+III
+263
+III
+263
+III
+252
+III
+241
+IV
+241
+IV

@@ -1,0 +1,79 @@
+92
+CHAPTER 3. STOCHASTIC INTEGRATION
+Let A(n)
+t
+be a sequence of simple processes and let Z(n)
+t
+, Zt denote the
+corresponding stochastic integrals. Let
+∥A(n) −A∥2 = E
+
+(Z(n)
+1
+−Z1)2
+=
+1
+0
+E
+
+(A(n)
+t
+−At)2
+dt,
+and let
+Qn = max
+0≤t≤1 Z(n)
+t
+−Zt
+If we view Z(n), Z as random variables taking values in C[0, 1], the set
+of continuous functions on [0, 1] with the supremum norm, then Qn
+is the distance between Z(n) and Z. The next proposition establishes
+convergence with probability one in this space.
+Proposition 3.2.4. If
+∞
+
+n=1
+∥A(n) −A∥2 < ∞,
+(3.5)
+then with probability one, Qn →0.
+Proof. By the Borel-Cantelli lemma, it suces to show that for every
+ϵ > 0,
+∞
+
+n=1
+PQn > ϵ< ∞
+Continuity of Z(n)
+t
+and Zt implies that
+PQn > ϵ= lim
+m∞P
+
+max
+t∈Dm Z(n)
+t
+−Zt> ϵ
+
+
+For xed m, the process Mt = Z(n)
+t
+−Zt, t Dm, is a discrete time
+martingale and Corollary 1.7.2 implies that
+P
+
+max
+t∈Dm Mt> ϵ
+
+≤E[M 2
+1 ]
+ϵ2
+
+Therefore,
+PQn > ϵ≤E[M 2
+1 ]
+ϵ2
+= ϵ−2 ∥A(n) −At∥2
+Let us emphasize the order of quantiers in the proposition. Given a
+sequence A(n) of approximating simple processes satisfying (3.5), we
+get convergence with probability one. It is not true that with prob-
+ability one, we get convergence for every sequence. See an analogous
+discussion in Section 2.8 about the quadratic variation.

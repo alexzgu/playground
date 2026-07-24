@@ -1,0 +1,54 @@
+28
+CHAPTER 1. MARTINGALES IN DISCRETE TIME
+Proof. Let T denote the smallest integer k such that Yk ≥a. Then
+Y n ≥a=
+n
+k=0
+Ak,
+Ak = T = k
+Note that Ak is Fk-measurable. Since Yn is a submartingale,
+E [Yn1Ak] = E [E(Yn Fk) 1Ak] ≥E [Yk 1Ak] 
+By summing over k, we see that
+E [Yn] ≥E
+
+Yn 1Y n ≥a
+
+=
+n
+
+k=0
+E [Yn 1Ak]
+≥
+n
+
+k=0
+E [Yk 1Ak] = E
+
+YT 1Y n ≥a
+
+≥a PY n ≥a
+Corollary 1.7.2. If Mn is a square integrable martingale with respect
+to Fnand
+M n = max M0, , Mn,
+then for every a > 0,
+P
+
+M n ≥a
+
+≤a−2 E
+
+M 2
+n
+
+
+Proof. In Exercise 1.15, it is shown that M 2
+n is a submartingale, and
+we can use the previous theorem.
+1.8
+Exercises
+Exercise 1.1. Suppose we roll two dice, a red and a green one, and let X
+be the value on the red die and Y the value on the green die. Let Z = XY .
+1. Let W = E(Z X). What are the possible values for W? Give the
+distribution of W.
+2. Do the same exercise for U = E(X Z).
+3. Do the same exercise for V = E(Y X, Z)

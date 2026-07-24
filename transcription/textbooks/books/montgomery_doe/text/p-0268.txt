@@ -1,0 +1,66 @@
+252
+Chapter 6 ■The 2k Factorial Design
+The standard error of an effect is easy to nd. If we assume that there are n replicates
+at each of the 2k runs in the design, and if yi1, yi2, . . . , yin are the observations at the ith run,
+then
+is an estimate of the variance at the ith run. The 2k variance estimates can be combined to give
+an overall variance estimate:
+(6.19)
+This is also the variance estimate given by the error mean square in the analysis of variance.
+The variance of each effect estimate is
+Each contrast is a linear combination of 2k treatment totals, and each total consists of n obser-
+vations. Therefore,
+and the variance of an effect is
+The estimated standard error would be found by replacing 2 by its estimate S2 and taking the
+square root of this last expression:
+(6.20)
+Notice that the standard error of an effect is twice the standard error of an estimated
+regression coefcient in the regression model for the 2k design (see the Design-Expert com-
+puter output for Example 6.1). It would be possible to test the signicance of any effect by
+comparing the effect estimates to its standard error:
+This is a t statistic with N  p degrees of freedom.
+The 100(1 ) percent condence intervals on the effects are computed from Effect
+t/2,Npse(Effect), where the degrees of freedom on t are just the error or residual degrees
+of freedom (N p  total number of runs number of model parameters).
+To illustrate this method, consider the plasma etching experiment in Example 6.1. The
+mean square error for the full model is MSE  2252.56. Therefore, the standard error of each
+effect is (using S2  MSE)
+se(Effect) 
+2S
+n2k 22252.56
+2(23)
+23.73
+t0 
+Effect
+se(Effect)
+se(Effect) 
+2S
+n2k
+V(Effect) 
+1
+(n2k1)2 n2k2 
+1
+n2k2 2
+V(Contrast) n2k2
+
+1
+(n2k1)2 V(Contrast)
+V(Effect) V
+Contrast
+n2k1 
+S 2 
+1
+2k(n 1) 
+2k
+i1 
+n
+j1
+ (yij yi)2
+S 2
+i 
+1
+n 1 
+n
+j1
+ (yij yi)2 
+ i 1, 2, . . . , 2k

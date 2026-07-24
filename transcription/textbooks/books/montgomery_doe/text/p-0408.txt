@@ -1,0 +1,346 @@
+392
+Chapter 8 ■Two-Level Fractional Factorial Designs
+F duration of the diffuse cycle. The experiment is shown
+in Table P8.16.
+■TA B L E P 8 . 1 6
+The Heat Treating Experiment
+Standard 
+Run
+Order
+Order
+A
+B
+C
+D
+E
+F Pitch
+1
+5
+
+
+
+
+
+
+74
+2
+7
+
+
+
+
+
+
+190
+3
+8
+
+
+
+
+
+
+133
+4
+2
+
+
+
+
+
+
+127
+5
+10
+
+
+
+
+
+
+115
+6
+12
+
+
+
+
+
+
+101
+7
+16
+
+
+
+
+
+
+54
+8
+1
+
+
+
+
+
+
+144
+9
+6
+
+
+
+
+
+
+121
+10
+9
+
+
+
+
+
+
+188
+11
+14
+
+
+
+
+
+
+135
+12
+13
+
+
+
+
+
+
+170
+13
+11
+
+
+
+
+
+
+126
+14
+3
+
+
+
+
+
+
+175
+15
+15
+
+
+
+
+
+
+126
+16
+4
+
+
+
+
+
+
+193
+(a) Estimate the factor effects and plot them on a normal
+probability plot. Select a tentative model.
+(b) Perform appropriate statistical tests on the model.
+(c) Analyze the residuals and comment on model adequacy.
+(d) Interpret the results of this experiment. Assume 
+that a layer thickness of between 140 and 160 is
+desirable.
+8.54.
+An article by L. B. Hare (“In the Soup: A Case Study
+to Identify Contributors to Filling Variability,” Journal of
+Quality Technology, Vol. 20, pp. 36–43) describes a factorial
+experiment used to study the lling variability of dry soup
+mix packages. The factors are A number of mixing ports
+through which the vegetable oil was added (1, 2), B tem-
+perature surrounding the mixer (cooled, ambient), C mix-
+ing time (60, 80 sec), D batch weight (1500, 2000 lb), and
+E number of days of delay between mixing and packaging
+(1, 7). Between 125 and 150 packages of soup were sampled
+over an 8-hour period for each run in the design, and the
+standard deviation of package weight was used as the
+response variable. The design and resulting data are shown in
+Table P8.17.
+■TA B L E P 8 . 1 7
+The Soup Experiment
+A
+B
+C
+D
+E
+y
+Std. 
+Mixer 
+Batch
+Std. 
+Order
+Ports
+Temp. Time
+Weight
+Delay
+Dev
+1
+
+
+
+
+
+1.13
+2
+
+
+
+
+
+1.25
+3
+
+
+
+
+
+0.97
+4
+
+
+
+
+
+1.7
+5
+
+
+
+
+
+1.47
+6
+
+
+
+
+
+1.28
+7
+
+
+
+
+
+1.18
+8
+
+
+
+
+
+0.98
+9
+
+
+
+
+
+0.78
+10
+
+
+
+
+
+1.36
+11
+
+
+
+
+
+1.85
+12
+
+
+
+
+
+0.62
+13
+
+
+
+
+
+1.09
+14
+
+
+
+
+
+1.1
+15
+
+
+
+
+
+0.76
+16
+
+
+
+
+
+2.1
+(a) What is the generator for this design?
+(b) What is the resolution of this design?
+(c) Estimate the factor effects. Which effects are large?
+(d) Does a residual analysis indicate any problems with
+the underlying assumptions?
+(e) Draw conclusions about this lling process.
+8.55.
+Consider the 
+design.
+(a) Suppose that the design had been folded over by
+changing the signs in column B instead of column A.
+What changes would have resulted in the effects that
+can be estimated from the combined design?
+(b) Suppose that the design had been folded over by
+changing the signs in column E instead of column A.
+What changes would have resulted in the effects that
+can be estimated from the combined design?
+8.56.
+Consider the 
+design. Suppose that a fold over of
+this design is run by changing the signs in column A.
+Determine the alias relationships in the combined design.
+8.57.
+Reconsider the 
+design in Problem 8.56.
+(a) Suppose that a fold over of this design is run by chang-
+ing the signs in column B. Determine the alias rela-
+tionships in the combined design.
+273
+IV
+273
+IV
+262
+IV

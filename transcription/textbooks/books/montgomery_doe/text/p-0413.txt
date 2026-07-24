@@ -1,0 +1,51 @@
+9.1 The 3k Factorial Design
+397
+In general, the sum of squares computed from square (a) is called the AB component
+of interaction, and the sum of squares computed from square (b) is called the AB2 compo-
+nent of interaction. The components AB and AB2 each have two degrees of freedom. This
+terminology is used because if we denote the levels (0, 1, 2) for A and B by x1 and x2, respec-
+tively, then we nd that the letters occupy cells according to the following pattern:
+Square (a)
+Square (b)
+Q: x1 x2 0 (mod 3)
+Q: x1 2x2 0 (mod 3)
+R: x1 x2 1 (mod 3)
+S: x1 2x2 1 (mod 3)
+S: x1 x2 2 (mod 3)
+R: x1 2x2 2 (mod 3)
+For example, in square (b), note that the middle cell corresponds to x1 1 and x2 1; thus,
+x1 2x2 1 (2)(1) 3 0 (mod 3), and Q would occupy the middle cell. When considering
+expressions of the form ApBq, we establish the convention that the only exponent allowed on
+the rst letter is 1. If the rst letter exponent is not 1, the entire expression is squared and the
+exponents are reduced modulus 3. For example, A2B is the same as AB2 because
+The AB and AB2 components of the AB interaction have no actual meaning and are usu-
+ally not displayed in the analysis of variance table. However, this rather arbitrary partitioning
+of the AB interaction into two orthogonal two-degree-of-freedom components is very useful
+in constructing more complex designs. Also, there is no connection between the AB and AB2
+components of interaction and the sums of squares for ABLL, ABLQ, ABQL, and ABQQ.
+The AB and AB2 components of interaction may be computed another way. Consider the
+treatment combination totals in either square in Figure 9.3. If we add the data by diagonals
+downward from left to right, we obtain the totals 3 4 1 0, 3 10 1 6, and 
+5 11 2 18. The sum of squares between these totals is 28.00 (AB2). Similarly, the diag-
+onal totals downward from right to left are 5 4 1 8, 3 2 1 2, and 3 
+11 10 18. The sum of squares between these totals is 33.34 (AB). Yates called these com-
+ponents of interaction as the I and J components of interaction, respectively. We use both
+notations interchangeably; that is,
+For more information about decomposing the sums of squares in three-level designs, refer to
+the supplemental material for this chapter.
+9.1.3
+The 33 Design
+Now suppose there are three factors (A, B, and C) under study and that each factor is at three
+levels arranged in a factorial experiment. This is a 33 factorial design, and the experimental
+layout and treatment combination notation are shown in Figure 9.2. The 27 treatment combi-
+nations have 26 degrees of freedom. Each main effect has two degrees of freedom, each two-
+factor interaction has four degrees of freedom, and the three-factor interaction has eight
+degrees of freedom. If there are n replicates, there are n33 1 total degrees of freedom and
+33(n 1) degrees of freedom for error.
+The sums of squares may be calculated using the standard methods for factorial
+designs. In addition, if the factors are quantitative, the main effects may be partitioned into
+linear and quadratic components, each with a single degree of freedom. The two-factor inter-
+actions may be decomposed into linear linear, linear quadratic, quadratic linear, and
+J(AB) AB
+I(AB) AB2
+A2B (A2B)2 A4B2 AB2

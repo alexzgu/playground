@@ -1,0 +1,49 @@
+11.3 The Kaplan–Meier Survival Curve
+473
+and in the study just before dk; these are the at risk patients. The set of
+patients that are at risk at a given time are referred to as the risk set.
+risk set
+By the law of total probability,3
+Pr(T > dk) = Pr(T > dk|T > dk−1) Pr(T > dk−1)
++ Pr(T > dk|T ≤dk−1) Pr(T ≤dk−1).
+The fact that dk−1 < dk implies that Pr(T > dk|T ≤dk−1) = 0 (it is
+impossible for a patient to survive past time dk if he or she did not survive
+until an earlier time dk−1). Therefore,
+S(dk) = Pr(T > dk) = Pr(T > dk|T > dk−1) Pr(T > dk−1).
+Plugging in (11.2) again, we see that
+S(dk) = Pr(T > dk|T > dk−1)S(dk−1).
+This implies that
+S(dk) = Pr(T > dk|T > dk−1) × · · · × Pr(T > d2|T > d1) Pr(T > d1).
+We now must simply plug in estimates of each of the terms on the right-
+hand side of the previous equation. It is natural to use the estimator
+6
+Pr(T > dj|T > dj−1) = (rj −qj)/rj,
+which is the fraction of the risk set at time dj who survived past time dj.
+This leads to the Kaplan–Meier estimator of the survival curve:
+Kaplan–
+Meier
+estimator
+WS(dk) =
+k
+E
+j=1
+*rj −qj
+rj
++
+.
+(11.3)
+For times t between dk and dk+1, we set WS(t) = WS(dk). Consequently, the
+Kaplan–Meier survival curve has a step-like shape.
+The Kaplan–Meier survival curve for the BrainCancer data is displayed
+in Figure 11.2. Each point in the solid step-like curve shows the estimated
+probability of surviving past the time indicated on the horizontal axis. The
+estimated probability of survival past 20 months is 71%, which is quite a
+bit higher than the naive estimates of 55% and 68% presented earlier.
+The sequential construction of the Kaplan–Meier estimator — starting
+at time zero and mapping out the observed events as they unfold in time —
+is fundamental to many of the key techniques in survival analysis. These
+include the log-rank test of Section 11.4, and Cox’s proportional hazard
+model of Section 11.5.2.
+3The law of total probability states that for any two events A and B, Pr(A) =
+Pr(A|B) Pr(B) + Pr(A|Bc) Pr(Bc), where Bc is the complement of the event B, i.e. it
+is the event that B does not hold.

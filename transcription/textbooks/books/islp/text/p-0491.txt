@@ -1,0 +1,52 @@
+11.6 Shrinkage for the Cox Model
+485
+0
+20
+40
+60
+80
+100
+120
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+Months
+Probability of Not Being Published
+Negative Result
+Positive Result
+FIGURE 11.6. For the Publication data, we display survival curves for time
+until publication, stratified by whether or not the study produced a positive result,
+after adjusting for all other covariates.
+sufficiently large value of λ, using a lasso penalty will give some coefficients
+that are exactly equal to zero.
+We now apply the lasso-penalized Cox model to the Publication data, de-
+scribed in Section 11.5.4. We first randomly split the 244 trials into equally-
+sized training and test sets. The cross-validation results from the training
+set are shown in Figure 11.7. The “partial likelihood deviance”, shown on
+the y-axis, is twice the cross-validated negative log partial likelihood; it
+plays the role of the cross-validation error.15 Note the “U-shape” of the
+partial likelihood deviance: just as we saw in previous chapters, the cross-
+validation error is minimized for an intermediate level of model complexity.
+Specifically, this occurs when just two predictors, budget and impact, have
+non-zero estimated coefficients.
+Now, how do we apply this model to the test set? This brings up an
+important conceptual point: in essence, there is no simple way to compare
+predicted survival times and true survival times on the test set. The first
+problem is that some of the observations are censored, and so the true sur-
+vival times for those observations are unobserved. The second issue arises
+from the fact that in the Cox model, rather than predicting a single sur-
+vival time given a covariate vector x, we instead estimate an entire survival
+curve, S(t|x), as a function of t.
+Therefore, to assess the model fit, we must take a different approach,
+which involves stratifying the observations using the coefficient estimates.
+In particular, for each test observation, we compute the “risk” score
+budgeti · ˆβbudget + impacti · ˆβimpact,
+where ˆβbudget and ˆβimpact are the coefficient estimates for these two features
+from the training set. We then use these risk scores to categorize the obser-
+vations based on their “risk”. For instance, the high risk group consists of
+the observations for which budgeti · ˆβbudget + impacti · ˆβimpact is largest; by
+15Cross-validation for the Cox model is more involved than for linear or logistic re-
+gression, because the objective function is not a sum over the observations.

@@ -1,0 +1,31 @@
+Preface
+Statistical learning refers to a set of tools for making sense of complex
+datasets. In recent years, we have seen a staggering increase in the scale and
+scope of data collection across virtually all areas of science and industry.
+As a result, statistical learning has become a critical toolkit for anyone who
+wishes to understand data — and as more and more of today’s jobs involve
+data, this means that statistical learning is fast becoming a critical toolkit
+for everyone.
+One of the first books on statistical learning — The Elements of Statisti-
+cal Learning (ESL, by Hastie, Tibshirani, and Friedman) — was published
+in 2001, with a second edition in 2009. ESL has become a popular text not
+only in statistics but also in related fields. One of the reasons for ESL’s
+popularity is its relatively accessible style. But ESL is best-suited for indi-
+viduals with advanced training in the mathematical sciences.
+An Introduction to Statistical Learning, With Applications in R (ISLR)
+— first published in 2013, with a second edition in 2021 — arose from
+the clear need for a broader and less technical treatment of the key topics
+in statistical learning. In addition to a review of linear regression, ISLR
+covers many of today’s most important statistical and machine learning
+approaches, including resampling, sparse methods for classification and re-
+gression, generalized additive models, tree-based methods, support vector
+machines, deep learning, survival analysis, clustering, and multiple testing.
+Since it was published in 2013, ISLR has become a mainstay of un-
+dergraduate and graduate classrooms worldwide, as well as an important
+reference book for data scientists. One of the keys to its success has been
+that, beginning with Chapter 2, each chapter contains an R lab illustrating
+how to implement the statistical learning methods seen in that chapter,
+providing the reader with valuable hands-on experience.
+However, in recent years Python has become an increasingly popular lan-
+guage for data science, and there has been increasing demand for a Python-
+vii

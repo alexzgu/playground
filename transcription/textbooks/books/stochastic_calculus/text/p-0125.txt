@@ -1,0 +1,85 @@
+3.7. SEVERAL BROWNIAN MOTIONS
+119
+Sf(t, x), t ≥0, x Rn, C1 t C2 
+x = (x1, , xn). T, Xt = (X1
+t , , Xn
+t ),
+df(t, Xt) = ˙f(t, Xt) dt + f(t, Xt) · dXt
++1
+2
+n
+
+j=1
+n
+
+k=1
+∂jkf(t, Xt) d⟨Xj, Xk⟩t
+I,
+f(t, Xt) −f(0, X0) =
+d
+
+i=1
+t
+0
+n
+
+k=1
+∂kf(s, Xs) Ai,k
+s
+
+dBi
+s
++
+t
+0
+
+˙f(s, Xs) +
+n
+
+k=1
+∂kf(s, Xs) Hk
+s
+
++
+
+1
+2
+d
+
+i=1
+n
+
+j=1
+n
+
+k=1
+∂jkf(s, Xs) Ai,j
+s Ai,k
+s
+
+dt
+If f(t, x) is C2 only in an open subset U ⊂Rn, we can give a local form
+of this theorem as in Theorem 3.4.3 to see that the conclusion holds until
+the rst time that Xt leaves U. Since it comes up often, we state a particular
+case of this theorem. The Lof a function f : Rd →R is dened by
+2f(x) =
+d
+
+j=1
+∂jjf(x)
+Other standard notations for 2 are ∆and · . In the statement below
+the gradient and the Laplacian 2 are taken with respect to the x variable
+only.
+Theorem 3.7.2. SBt = (B1
+t , , Bd
+t ) B
+Rd. Tf : [0, ∞) × Rd C1 t C2 x Rd, 
+df(t, Bt) = f(t, Bt) · dBt +
+
+˙f(t, Bt) + 1
+2 2f(t, Bt)
+
+dt
+A function f is if 2f = 0. There is a close relationship between
+Brownian motion, martingales, and harmonic functions that we discuss in
+Chapter 8.

@@ -1,0 +1,134 @@
+This approach is nice because some calculators are designed to accumulate the sum of entered
+numbers in one register and the sum of the squares of those numbers in another, so each num-
+ber only has to be entered once. In practice, we use computer software to do this.
+The test procedure is summarized in Table 3.3. This is called an analysis of variance
+(or ANOVA) table.
+3.3 Analysis of the Fixed Effects Model
+75
+■TA B L E 3 . 3
+The Analysis of Variance Table for the Single-Factor, Fixed Effects Model
+Sum of
+Degrees of
+Mean
+Source of Variation
+Squares
+Freedom
+Square
+F0
+SSTreatments
+Between treatments
+
+a 1
+MSTreatments
+F0 
+Error (within treatments)
+SSE SST SSTreatments
+N a
+MSE
+Total
+SST 
+N1
+
+a
+i1 
+n
+j1
+(yij y.. )2
+MSTreatments
+MSE
+n 
+a
+i1
+ ( yi. y..)2
+E X A M P L E 3 . 1
+The Plasma Etching Experiment
+To illustrate the analysis of variance, return to the rst exam-
+ple discussed in Section 3.1. Recall that the engineer is
+interested in determining if the RF power setting affects the
+etch rate, and she has run a completely randomized experi-
+ment with four levels of RF power and ve replicates. For
+convenience, we repeat here the data from Table 3.1:
+We will use the analysis of variance to test H0:1 
+2 3 4 against the alternative H1: some means are
+different. The sums of squares required are computed using
+Equations 3.8, 3.9, and 3.10 as follows:
+Observed Etch Rate (A/min)
+RF Power 
+Totals
+Averages
+(W)
+1
+2
+3
+4
+5
+yi.
+160
+575
+542
+530
+539
+570
+2756
+551.2
+180
+565
+593
+590
+579
+610
+2937
+587.4
+200
+600
+651
+610
+637
+629
+3127
+625.4
+220
+725
+700
+715
+685
+710
+3535
+707.0
+y.. 12,355
+y.. 617.75
+yi.
+66,870.55
+1
+5 [(2756)2 Á (3535)2] (12,355)2
+20
+SSTreatments 1
+n 
+4
+i1
+y2
+i. y2
+..
+N
+72,209.75
+(575)2 (542)2 Á (710)2 (12,355)2
+20
+SST 
+4
+i1 
+5
+j1
+y2
+ij y2
+..
+N
+Usually, these calculations would be performed on a
+computer, using a software package with the capability to
+analyze data from designed experiments.
+The ANOVA is summarized in Table 3.4. Note that the
+RF power or between-treatment mean square (22,290.18)
+is many times larger than the within-treatment or error
+mean square (333.70). This indicates that it is unlikely
+that the treatment means are equal. More formally, we
+72,209.75 66,870.55 5339.20
+SSE SST SSTreatments

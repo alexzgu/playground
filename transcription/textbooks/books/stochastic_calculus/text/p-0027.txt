@@ -1,0 +1,41 @@
+1.4. MARTINGALE CONVERGENCE THEOREM
+21
+In particular with probability one, U∞< ∞, and hence there are
+only a nite number of uctuations. We now allow a, b to run over all
+rational numbers to see that with probability one,
+lim inf
+n∞Mn = lim sup
+n∞Mn
+Therefore, the limit
+M∞= lim
+n∞Mn
+exists. We have not yet ruled out the possibility that M∞is ±∞, but
+it is not dicult to see that if this occurred with positive probability,
+then E[Mn] would not be uniformly bounded.
+To illustrate the martingale convergence theorem, we will consider an-
+other example of a martingale called P’. Suppose we have an urn
+with red and green balls. At time n = 0, we start with one red ball and one
+green ball. At each positive integer time we choose a ball at random from
+the urn (with each ball equally likely to be chosen), look at the color of the
+ball, and then put the ball back in with another ball of the same color. Let
+Rn, Gn denote the number of red and green balls in the urn after the draw
+at time n so that
+R0 = G0 = 1,
+Rn + Gn = n + 2,
+and let
+Mn =
+Rn
+Rn + Gn
+=
+Rn
+n + 2
+be the fraction of red balls at this time. Let Fn denote the information in
+the data M1, , Mn, which one can check is the same as the information in
+R1, R2, , Rn. Note that the probability that a red ball is chosen at time
+n depends only on the number (or fraction) of red balls in the urn before
+choosing. It does not depend on what order the red and green balls were put
+in. This is an example of the M. This concept will appear a
+number of times for us, so let us dene it.
+Denition A discrete time process Y0, Y1, Y2, is called Mif for each
+n, the conditional distribution of
+Yn+1, Yn+2, 

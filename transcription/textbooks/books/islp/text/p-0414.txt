@@ -1,0 +1,52 @@
+10.3 Convolutional Neural Networks
+407
+FIGURE 10.6. Schematic showing how a convolutional neural network classifies
+an image of a tiger. The network takes in the image and identifies local features.
+It then combines the local features in order to create compound features, which in
+this example include eyes and ears. These compound features are used to output
+the label “tiger”.
+axes are spatial (both are 32-dimensional), and the third is the channel channel
+axis,5 representing the three colors. There is a designated training set of
+50,000 images, and a test set of 10,000.
+A special family of convolutional neural networks (CNNs) has evolved for convolutional
+neural
+networks
+classifying images such as these, and has shown spectacular success on a
+wide range of problems. CNNs mimic to some degree how humans classify
+images, by recognizing specific features or patterns anywhere in the image
+that distinguish each particular object class. In this section we give a brief
+overview of how they work.
+Figure 10.6 illustrates the idea behind a convolutional neural network on
+a cartoon image of a tiger.6
+The network first identifies low-level features in the input image, such
+as small edges, patches of color, and the like. These low-level features are
+then combined to form higher-level features, such as parts of ears, eyes,
+and so on. Eventually, the presence or absence of these higher-level features
+contributes to the probability of any given output class.
+How does a convolutional neural network build up this hierarchy? It com-
+bines two specialized types of hidden layers, called convolution layers and
+pooling layers. Convolution layers search for instances of small patterns in
+the image, whereas pooling layers downsample these to select a prominent
+subset. In order to achieve state-of-the-art results, contemporary neural-
+network architectures make use of many convolution and pooling layers.
+We describe convolution and pooling layers next.
+10.3.1
+Convolution Layers
+A convolution layer is made up of a large number of convolution filters, each convolution
+layer
+convolution
+filter
+5The term channel is taken from the signal-processing literature. Each channel is a
+distinct source of information.
+6
+Thanks
+to
+Elena
+Tuzhilina
+for
+producing
+the
+diagram
+and
+https://www.
+cartooning4kids.com/ for permission to use the cartoon tiger.

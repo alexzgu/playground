@@ -1,0 +1,62 @@
+516
+12. Unsupervised Learning
+informative, and the approach described here for handling missing data is
+not suitable.
+Sometimes data is missing by necessity. For example, if we form a matrix
+of the ratings (on a scale from 1 to 5) that n customers have given to the
+entire Netflix catalog of p movies, then most of the matrix will be missing,
+since no customer will have seen and rated more than a tiny fraction of the
+catalog. If we can impute the missing values well, then we will have an idea
+of what each customer will think of movies they have not yet seen. Hence
+matrix completion can be used to power recommender systems.
+recommender
+systems
+Principal Components with Missing Values
+In Section 12.2.2, we showed that the first M principal component score
+and loading vectors provide the “best” approximation to the data matrix
+X, in the sense of (12.6). Suppose that some of the observations xij are
+missing. We now show how one can both impute the missing values and
+solve the principal component problem at the same time. We return to a
+modified form of the optimization problem (12.6),
+minimize
+A∈Rn×M,B∈Rp×M
+
+
+
+0
+(i,j)∈O
+>
+xij −
+M
+0
+m=1
+aimbjm
+?2
+
+,
+(12.12)
+where O is the set of all observed pairs of indices (i, j), a subset of the
+possible n × p pairs.
+Once we solve this problem:
+• we can estimate a missing observation xij using ˆxij = )M
+m=1 ˆaimˆbjm,
+where ˆaim and ˆbjm are the (i, m) and (j, m) elements, respectively,
+of the matrices ˆA and ˆB that solve (12.12); and
+• we can (approximately) recover the M principal component scores
+and loadings, as we did when the data were complete.
+It turns out that solving (12.12) exactly is difficult, unlike in the case of
+complete data: the eigen decomposition no longer applies. But the sim-
+ple iterative approach in Algorithm 12.1, which is demonstrated in Sec-
+tion 12.5.2, typically provides a good solution.56
+We illustrate Algorithm 12.1 on the USArrests data. There are p = 4
+variables and n = 50 observations (states). We first standardized the data
+so each variable has mean zero and standard deviation one. We then ran-
+domly selected 20 of the 50 states, and then for each of these we randomly
+set one of the four variables to be missing. Thus, 10% of the elements of the
+data matrix were missing. We applied Algorithm 12.1 with M = 1 principal
+component. Figure 12.5 shows that the recovery of the missing elements
+5This algorithm is referred to as “Hard-Impute” in Mazumder, Hastie, and Tibshi-
+rani (2010) “Spectral regularization algorithms for learning large incomplete matrices”,
+published in Journal of Machine Learning Research, pages 2287–2322.
+6Each iteration of Step 2 of this algorithm decreases the objective (12.14). However,
+the algorithm is not guaranteed to achieve the global optimum of (12.12).

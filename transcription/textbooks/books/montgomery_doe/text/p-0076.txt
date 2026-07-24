@@ -1,0 +1,143 @@
+60
+Chapter 2 ■Simple Comparative Experiments
+2.10.
+A computer program has produced the following out-
+put for a hypothesis-testing problem:
+Difference in sample means:  11.5
+Degrees of freedom: 24
+Standard error of the difference in sample means: ?
+Test statistic:  t0 = -1.88
+P-value: 0.0723
+(a) What is the missing value for the standard error?
+(b) Is this a two-sided or a one-sided test?
+(c) If 0.05, what are your conclusions?
+(d) Find a 95% two-sided CI on the difference in means.
+2.11.
+Suppose that we are testing H0 : 0 versus 
+H1 : 0 with a sample size of n 15. Calculate bounds
+on the P-value for the following observed values of the test
+statistic:
+(a) t0 2.35 (b) t0 3.55 (c) t0 2.00 (d) t0 1.55
+2.12.
+Suppose that we are testing H0 : 0 versus 
+H1 :   0 with a sample size of n 10. Calculate bounds
+on the P-value for the following observed values of the test
+statistic:
+(a) t0 2.48 (b) t0 3.95 (c) t0 2.69
+(d) t0 1.88
+(e) t0 1.25
+2.13.
+Consider the computer output shown below.
+One-Sample T: Y
+Test of mu 91 vs. not 91
+Variable
+N
+Mean
+Std. Dev. SE Mean
+95% CI
+T
+P
+Y
+25 92.5805
+?
+0.4673
+(91.6160, ?) 3.38 0.002
+(a) Fill in the missing values in the output. Can the null
+hypothesis be rejected at the 0.05 level? Why?
+(b) Is this a one-sided or a two-sided test?
+(c) If the hypotheses had been H0 : 90 versus 
+H1:   90 would you reject the null hypothesis at the
+0.05 level?
+(d) Use the output and the t table to nd a 99 percent two-
+sided CI on the mean.
+(e) What is the P-value if the alternative hypothesis is 
+H1 :  91?
+2.14. Consider the computer output shown below.
+One-Sample T: Y
+Test of mu 25 vs 25
+95% Lower 
+Variable
+N
+Mean
+Std. Dev. SE Mean
+Bound
+T
+P
+Y
+12
+25.6818
+?
+0.3360
+?
+?
+0.034
+(a) How many degrees of freedom are there on the t-test
+statistic?
+(b) Fill in the missing information.
+2.15. Consider the computer output shown below.
+Two-Sample T-Test and Cl: Y1, Y2
+Two-sample T for Y1 vs Y2
+N
+Mean
+Std. Dev.
+SE Mean
+Y1
+20
+50.19
+1.71
+0.38
+Y2
+20
+52.52
+2.48
+0.55
+Difference mu (X1) mu (X2)
+Estimate for difference: 2.33341
+95% CI for difference: (3.69547, 0.97135)
+T-Test of difference 0 (vs not ) : T-Value 3.47 
+P-Value 0.001 DF 38
+Both use Pooled Std. Dev. 2.1277
+(a) Can the null hypothesis be rejected at the 0.05 level?
+Why?
+(b) Is this a one-sided or a two-sided test?
+(c) If the hypotheses had been H0 : 1 2 2 versus 
+H1 : 1 2  2 would you reject the null hypothesis
+at the 0.05 level?
+(d) If the hypotheses had been H0 : 1 2 2 versus 
+H1 : 1 2 2 would you reject the null hypothesis
+at the 0.05 level? Can you answer this question with-
+out doing any additional calculations? Why?
+(e) Use the output and the t table to nd a 95 percent
+upper condence bound on the difference in means.
+(f) What is the P-value if the hypotheses are  H0 : 1 
+2 2 versus H1: 1 2  2?
+2.16.
+The breaking strength of a ber is required to be at
+least 150 psi. Past experience has indicated that the standard
+deviation of breaking strength is 3 psi. A random sample
+of four specimens is tested, and the results are y1 145, y2 
+153, y3 150, and y4 147.
+(a) State the hypotheses that you think should be tested in
+this experiment.
+(b) Test these hypotheses using 0.05. What are your
+conclusions?
+(c) Find the P-value for the test in part (b).
+(d) Construct a 95 percent condence interval on the mean
+breaking strength.
+2.17.
+The viscosity of a liquid detergent is supposed to
+average 800 centistokes at 25°C. A random sample of 16
+batches of detergent is collected, and the average viscosity is
+812. Suppose we know that the standard deviation of viscosity
+is 25 centistokes.
+(a) State the hypotheses that should be tested.
+(b) Test these hypotheses using 0.05. What are your
+conclusions?
+(c) What is the P-value for the test?
+(d) Find a 95 percent condence interval on the mean.
+2.18.
+The diameters of steel shafts produced by a certain
+manufacturing process should have a mean diameter of 0.255
+inches. The diameter is known to have a standard deviation of
+ = 0.0001 inch. A random sample of 10 shafts has an aver-
+age diameter of 0.2545 inch.

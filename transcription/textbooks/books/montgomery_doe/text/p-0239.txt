@@ -1,0 +1,79 @@
+5.6 Blocking in a Factorial Design
+223
+Covariance Matrix of
+Variance Component Estimates
+Operators
+Random Effect
+(Blocks)
+Residual
+Operators (Blocks)
+333.24972
+2.732521
+Residual
+2.732521
+16.395128
+Fixed Effect Tests
+Source
+Nparm
+DF
+DFDen
+F Ratio
+Prob > F
+Clutter
+2
+2
+15
+15.1315
+0.0003*
+Filter Type
+1
+1
+15
+96.1924
+<.0001*
+Clutter*Filter Type
+2
+2
+15
+3.4757
+0.0575
+Residual by Predicted Plot
+10
+5
+0
+-5
+-10
+Y Predicted
+75
+80
+85
+90
+95 100 105 110 115
+Y Residual
+In the case of two randomization restrictions, each with p levels, if the number of treat-
+ment combinations in a k-factor factorial design exactly equals the number of restriction lev-
+els, that is, if p ab . . . m, then the factorial design may be run in a p p Latin square. For
+example, consider a modication of the radar target detection experiment of Example 5.6.
+The factors in this experiment are lter type (two levels) and ground clutter (three levels),
+and operators are considered as blocks. Suppose now that because of the setup time required,
+only six runs can be made per day. Thus, days become a second randomization restriction,
+resulting in the 6 6 Latin square design, as shown in Table 5.24. In this table we have used
+the lowercase letters fi and gj to represent the ith and jth levels of lter type and ground clut-
+ter, respectively. That is, f1g2 represents lter type 1 and medium ground clutter. Note that
+now six operators are required, rather than four as in the original experiment, so the number
+of treatment combinations in the 3 2 factorial design exactly equals the number of restric-
+tion levels. Furthermore, in this design, each operator would be used only once on each day.
+The Latin letters A, B, C, D, E, and F represent the 3 2 6 factorial treatment combina-
+tions as follows: A f1g1, B f1g2, C f1g3, D f2g1, E f2g2, and F f2g3.
+The ve degrees of freedom between the six Latin letters correspond to the main effects
+of lter type (one degree of freedom), ground clutter (two degrees of freedom), and their
+interaction (two degrees of freedom). The linear statistical model for this design is
+(5.38)
+yijkl i j k ()jk l ijkl 
+ 
+i 1, 2, . . . , 6
+j 1, 2, 3
+ 
+k 1, 2
+ 
+l 1, 2, . . . , 6

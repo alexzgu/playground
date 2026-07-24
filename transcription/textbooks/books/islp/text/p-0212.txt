@@ -1,0 +1,74 @@
+204
+5. Resampling Methods
+2
+4
+6
+8
+10
+16
+18
+20
+22
+24
+26
+28
+Degree of Polynomial
+Mean Squared Error
+2
+4
+6
+8
+10
+16
+18
+20
+22
+24
+26
+28
+Degree of Polynomial
+Mean Squared Error
+FIGURE 5.2.
+The validation set approach was used on the Auto data set in
+order to estimate the test error that results from predicting mpg using polynomial
+functions of horsepower. Left: Validation error estimates for a single split into
+training and validation data sets. Right: The validation method was repeated ten
+times, each time using a different random split of the observations into a training
+set and a validation set. This illustrates the variability in the estimated test MSE
+that results from this approach.
+validation set error rate may tend to overestimate the test error rate
+for the model fit on the entire data set.
+In the coming subsections, we will present cross-validation, a refinement of
+the validation set approach that addresses these two issues.
+5.1.2
+Leave-One-Out Cross-Validation
+Leave-one-out cross-validation (LOOCV) is closely related to the validation leave-one-
+out
+cross-
+validation
+set approach of Section 5.1.1, but it attempts to address that method’s
+drawbacks.
+Like the validation set approach, LOOCV involves splitting the set of
+observations into two parts. However, instead of creating two subsets of
+comparable size, a single observation (x1, y1) is used for the validation
+set, and the remaining observations {(x2, y2), . . . , (xn, yn)} make up the
+training set. The statistical learning method is fit on the n −1 training
+observations, and a prediction ˆy1 is made for the excluded observation,
+using its value x1. Since (x1, y1) was not used in the fitting process, MSE1 =
+(y1 −ˆy1)2 provides an approximately unbiased estimate for the test error.
+But even though MSE1 is unbiased for the test error, it is a poor estimate
+because it is highly variable, since it is based upon a single observation
+(x1, y1).
+We can repeat the procedure by selecting (x2, y2) for the validation
+data, training the statistical learning procedure on the n −1 observations
+{(x1, y1), (x3, y3), . . . , (xn, yn)}, and computing MSE2 = (y2−ˆy2)2. Repeat-
+ing this approach n times produces n squared errors, MSE1, . . . , MSEn.
+The LOOCV estimate for the test MSE is the average of these n test error
+estimates:
+CV(n) = 1
+n
+n
+0
+i=1
+MSEi.
+(5.1)

@@ -1,0 +1,137 @@
+10.3 Estimation of the Parameters in Linear Regression Models
+453
+It is easy to see that the matrix form of the normal equations is identical to the scalar
+form. Writing out Equation 10.12 in detail, we obtain
+If the indicated matrix multiplication is performed, the scalar form of the normal equations
+(i.e., Equation 10.10) will result. In this form it is easy to see that XX is a ( p p) symmet-
+ric matrix and Xy is a ( p 1) column vector. Note the special structure of the XX matrix.
+The diagonal elements of XX are the sums of squares of the elements in the columns of X,
+and the off-diagonal elements are the sums of cross products of the elements in the columns
+of X. Furthermore, note that the elements of Xy are the sums of cross products of the
+columns of X and the observations {yi}.
+The tted regression model is
+(10.14)
+In scalar notation, the tted model is
+The difference between the actual observation yi and the corresponding tted value 
+is the
+residual, say ei yi 
+. The (n 1) vector of residuals is denoted by
+(10.15)
+Estimating 2. It is also usually necessary to estimate 2. To develop an estimator of
+this parameter, consider the sum of squares of the residuals, say
+Substituting e y 
+y X
+, we have
+Because XX
+Xy, this last equation becomes
+(10.16)
+Equation 10.16 is called the error or residual sum of squares, and it has n p degrees of
+freedom associated with it. It can be shown that
+so an unbiased estimator of 2 is given by
+(10.17)
+ˆ 2 
+SSE
+n p
+E(SSE) 2(n p)
+SSE yy &ˆXy
+&ˆ
+yy 2&ˆXy &ˆXX&ˆ
+yy &ˆXy yX&ˆ &ˆXX&ˆ
+SSE (y X&ˆ)(y X&ˆ)
+&ˆ
+yˆ
+SSE 
+n
+i1
+ (yi yˆi)2 
+n
+i1
+e2
+i ee
+e y yˆ
+yˆi
+yˆi
+yˆi ˆ
+0 
+k
+j1
+ˆ
+j xij 
+ i 1, 2, . . . , n
+yˆ X&ˆ
+
+n
+
+n
+i1
+xi1
+o
+
+n
+i1
+xik
+
+n
+i1
+xi1
+
+n
+i1
+x2
+i1
+o
+
+n
+i1
+xikxi1
+
+n
+i1
+xi2
+
+n
+i1
+xi1xi2
+o
+
+n
+i1
+xikxi2
+Á
+Á
+Á
+
+n
+i1
+xik
+
+n
+i1
+xi1xik
+o
+
+n
+i1
+x2
+ik
+ˆ
+0
+ˆ
+1
+o
+ˆ
+k
+
+
+n
+i1
+yi
+
+n
+i1
+xi1yi
+o
+
+n
+i1
+xikyi

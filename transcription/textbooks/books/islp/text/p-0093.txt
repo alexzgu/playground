@@ -1,0 +1,42 @@
+84
+3. Linear Regression
+1. Is at least one of the predictors X1, X2, . . . , Xp useful in predicting
+the response?
+2. Do all the predictors help to explain Y , or is only a subset of the
+predictors useful?
+3. How well does the model fit the data?
+4. Given a set of predictor values, what response value should we predict,
+and how accurate is our prediction?
+We now address each of these questions in turn.
+One: Is There a Relationship Between the Response and Predictors?
+Recall that in the simple linear regression setting, in order to determine
+whether there is a relationship between the response and the predictor we
+can simply check whether β1 = 0. In the multiple regression setting with p
+predictors, we need to ask whether all of the regression coefficients are zero,
+i.e. whether β1 = β2 = · · · = βp = 0. As in the simple linear regression
+setting, we use a hypothesis test to answer this question. We test the null
+hypothesis,
+H0 : β1 = β2 = · · · = βp = 0
+versus the alternative
+Ha : at least one βj is non-zero.
+This hypothesis test is performed by computing the F-statistic,
+F-statistic
+F = (TSS −RSS)/p
+RSS/(n −p −1),
+(3.23)
+where, as with simple linear regression, TSS = )(yi −¯y)2 and RSS =
+)(yi −ˆyi)2. If the linear model assumptions are correct, one can show that
+E{RSS/(n −p −1)} = σ2
+and that, provided H0 is true,
+E{(TSS −RSS)/p} = σ2.
+Hence, when there is no relationship between the response and predictors,
+one would expect the F-statistic to take on a value close to 1. On the other
+hand, if Ha is true, then E{(TSS −RSS)/p} > σ2, so we expect F to be
+greater than 1.
+The F-statistic for the multiple linear regression model obtained by re-
+gressing sales onto radio, TV, and newspaper is shown in Table 3.6. In this
+example the F-statistic is 570. Since this is far larger than 1, it provides
+compelling evidence against the null hypothesis H0. In other words, the
+large F-statistic suggests that at least one of the advertising media must
+be related to sales. However, what if the F-statistic had been closer to
+1? How large does the F-statistic need to be before we can reject H0 and

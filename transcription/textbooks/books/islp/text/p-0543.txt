@@ -1,0 +1,53 @@
+12.5 Lab: Unsupervised Learning
+537
+This scaling can be done via the StandardScaler() transform imported
+above. We first fit the scaler, which computes the necessary means and
+standard deviations and then apply it to our data using the transform
+method. As before, we combine these steps using the fit_transform()
+method.
+In [7]: scaler = StandardScaler(with_std=True,
+with_mean=True)
+USArrests_scaled = scaler.fit_transform(USArrests)
+Having scaled the data, we can then perform principal components analysis
+using the PCA() transform from the sklearn.decomposition package.
+PCA()
+In [8]: pcaUS = PCA()
+(By default, the PCA() transform centers the variables to have mean zero
+though it does not scale them.) The transform pcaUS can be used to find
+the PCA scores returned by fit(). Once the fit method has been called,
+the pcaUS object also contains a number of useful quantities.
+In [9]: pcaUS.fit(USArrests_scaled)
+After fitting, the mean_ attribute corresponds to the means of the vari-
+ables. In this case, since we centered and scaled the data with scaler() the
+means will all be 0.
+In [10]: pcaUS.mean_
+Out[10]: array([-0.,
+0., -0.,
+0.])
+The scores can be computed using the transform() method of pcaUS after
+it has been fit.
+In [11]: scores = pcaUS.transform(USArrests_scaled)
+We will plot these scores a bit further down. The components_ attribute
+provides the principal component loadings: each row of pcaUS.components_
+contains the corresponding principal component loading vector.
+In [12]: pcaUS.components_
+Out[12]: array([[ 0.53589947,
+0.58318363,
+0.27819087,
+0.54343209],
+[ 0.41818087,
+0.1879856 , -0.87280619, -0.16731864],
+[-0.34123273, -0.26814843, -0.37801579,
+0.81777791],
+[ 0.6492278 , -0.74340748,
+0.13387773,
+0.08902432]])
+The biplot is a common visualization method used with PCA. It is not
+built in as a standard part of sklearn, though there are python packages
+that do produce such plots. Here we make a simple biplot manually.
+In [13]: i, j = 0, 1 # which components
+fig, ax = plt.subplots(1, 1, figsize=(8, 8))
+ax.scatter(scores[:,0], scores[:,1])
+ax.set_xlabel('PC%d' % (i+1))
+ax.set_ylabel('PC%d' % (j+1))
+for k in range(pcaUS.components_.shape[1]):

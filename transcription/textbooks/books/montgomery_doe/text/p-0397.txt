@@ -1,0 +1,336 @@
+Harry decided to use a 
+design with 16 runs. The wine was
+tastetested by a panel of experts on March 8, 1986. Each
+expert ranked the 16 samples of wine tasted, with rank 1 being
+the best. The design and the taste-test panel results are shown
+in Table P8.6.
+(a) What are the alias relationships in the design selected
+by Harry?
+(b) Use the average ranks 
+as a response variable.
+Analyze the data and draw conclusions. You will nd
+it helpful to examine a normal probability plot of the
+effect estimates.
+(c) Use the standard deviation of the ranks (or some
+appropriate transformation such as log s) as a res-
+ponse variable. What conclusions can you draw about
+the effects of the eight variables on variability in wine
+quality?
+(d) After looking at the results, Harry decides that one of
+the panel members (DCM) knows more about beer
+than he does about wine, so they decide to delete his
+(y)
+284
+IV
+8.10 Problems
+381
+ranking. What effect would this have on the results and
+conclusions from parts (b) and (c)?
+(e) Suppose that just before the start of the experiment,
+Harry and Judy discovered that the eight new barrels
+they ordered from France for use in the experiment
+would not arrive in time, and all 16 runs would have to
+be made with old barrels. If Harry just drops column C
+from their design, what does this do to the alias rela-
+tionships? Does he need to start over and construct a
+new design?
+(f) Harry knows from experience that some treatment com-
+binations are unlikely to produce good results. For exam-
+ple, the run with all eight variables at the high level gen-
+erally results in a poorly rated wine. This was conrmed
+in the March 8, 1986 taste test. He wants to set up a new
+design for their 1986 Pinot Noir using these same eight
+variables, but he does not want to make the run with all
+eight factors at the high level. What design would you
+suggest?
+■TA B L E P 8 . 6
+Design and Results for Wine Tasting Experiment
+Variable
+Panel Rankings
+Summary
+Run
+A
+B
+C
+D
+E
+F
+G
+H
+HPN
+JPN
+CAL
+DCM
+RGB
+s
+1
+
+
+
+
+
+
+
+
+12
+6
+13
+10
+7
+9.6
+3.05
+2
+
+
+
+
+
+
+
+
+10
+7
+14
+14
+9
+10.8
+3.11
+3
+
+
+
+
+
+
+
+
+14
+13
+10
+11
+15
+12.6
+2.07
+4
+
+
+
+
+
+
+
+
+9
+9
+7
+9
+12
+9.2
+1.79
+5
+
+
+
+
+
+
+
+
+8
+8
+11
+8
+10
+9.0
+1.41
+6
+
+
+
+
+
+
+
+
+16
+12
+15
+16
+16
+15.0
+1.73
+7
+
+
+
+
+
+
+
+
+6
+5
+6
+5
+3
+5.0
+1.22
+8
+
+
+
+
+
+
+
+
+15
+16
+16
+15
+14
+15.2
+0.84
+9
+
+
+
+
+
+
+
+
+1
+2
+3
+3
+2
+2.2
+0.84
+10
+
+
+
+
+
+
+
+
+7
+11
+4
+7
+6
+7.0
+2.55
+11
+
+
+
+
+
+
+
+
+13
+3
+8
+12
+8
+8.8
+3.96
+12
+
+
+
+
+
+
+
+
+3
+1
+5
+1
+4
+2.8
+1.79
+13
+
+
+
+
+
+
+
+
+2
+10
+2
+4
+5
+4.6
+3.29
+14
+
+
+
+
+
+
+
+
+4
+4
+1
+2
+1
+2.4
+1.52
+15
+
+
+
+
+
+
+
+
+5
+15
+9
+6
+11
+9.2
+4.02
+16
+
+
+
+
+
+
+
+
+11
+14
+12
+13
+13
+12.6
+1.14 
+y
+8.31.
+Consider the isatin yield data from the experiment
+described in Problem 6.38. The original experiment was a 24
+full factorial. Suppose that the original experimenters could
+only afford eight runs. Set up the 241 fractional factorial
+design with I ABCD and select the responses for the runs
+from the full factorial data in Example 6.38. Analyze the data
+and draw conclusions. Compare your ndings with those from
+the full factorial in Example 6.38.
+8.32.
+Consider the 25 factorial in Problem 6.39. Suppose that
+the experimenters could only afford 16 runs. Set up the 251 frac-
+tional factorial design with I ABCDE and select the responses
+for the runs from the full factorial data in Example 6.39.

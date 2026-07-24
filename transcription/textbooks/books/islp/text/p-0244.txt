@@ -1,0 +1,61 @@
+236
+6. Linear Model Selection and Regularization
+predictors. To apply these methods, we need a way to determine which of
+these models is best. As we discussed in Section 6.1.1, the model containing
+all of the predictors will always have the smallest RSS and the largest R2,
+since these quantities are related to the training error. Instead, we wish to
+choose a model with a low test error. As is evident here, and as we show
+in Chapter 2, the training error can be a poor estimate of the test error.
+Therefore, RSS and R2 are not suitable for selecting the best model among
+a collection of models with different numbers of predictors.
+In order to select the best model with respect to test error, we need to
+estimate this test error. There are two common approaches:
+1. We can indirectly estimate test error by making an adjustment to the
+training error to account for the bias due to overfitting.
+2. We can directly estimate the test error, using either a validation set
+approach or a cross-validation approach, as discussed in Chapter 5.
+We consider both of these approaches below.
+Cp, AIC, BIC, and Adjusted R2
+We show in Chapter 2 that the training set MSE is generally an under-
+estimate of the test MSE. (Recall that MSE = RSS/n.) This is because
+when we fit a model to the training data using least squares, we specifi-
+cally estimate the regression coefficients such that the training RSS (but
+not the test RSS) is as small as possible. In particular, the training error
+will decrease as more variables are included in the model, but the test error
+may not. Therefore, training set RSS and training set R2 cannot be used
+to select from among a set of models with different numbers of variables.
+However, a number of techniques for adjusting the training error for the
+model size are available. These approaches can be used to select among a set
+of models with different numbers of variables. We now consider four such
+approaches: Cp, Akaike information criterion (AIC), Bayesian information Cp
+Akaike
+information
+criterion
+criterion (BIC), and adjusted R2. Figure 6.2 displays Cp, BIC, and adjusted
+Bayesian
+information
+criterion
+adjusted R2
+R2 for the best model of each size produced by best subset selection on the
+Credit data set.
+For a fitted least squares model containing d predictors, the Cp estimate
+of test MSE is computed using the equation
+Cp = 1
+n
+'
+RSS + 2dˆσ2(
+,
+(6.2)
+where ˆσ2 is an estimate of the variance of the error ϵ associated with each
+response measurement in (6.1).4 Typically ˆσ2 is estimated using the full
+model containing all predictors. Essentially, the Cp statistic adds a penalty
+of 2dˆσ2 to the training RSS in order to adjust for the fact that the training
+error tends to underestimate the test error. Clearly, the penalty increases as
+the number of predictors in the model increases; this is intended to adjust
+4Mallow’s Cp is sometimes defined as C′
+p = RSS/ˆσ2 + 2d −n. This is equivalent to
+the definition given above in the sense that Cp = 1
+n ˆσ2(C′
+p + n), and so the model with
+smallest Cp also has smallest C′
+p.

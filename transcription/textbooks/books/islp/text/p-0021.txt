@@ -1,0 +1,110 @@
+10
+1. Introduction
+while
+xT
+i =
+'xi1
+xi2
+· · ·
+xip
+(
+.
+We use yi to denote the ith observation of the variable on which we
+wish to make predictions, such as wage. Hence, we write the set of all n
+observations in vector form as
+y =
+
+
+
+
+
+y1
+y2
+...
+yn
+
+
+
+
+.
+Then our observed data consists of {(x1, y1), (x2, y2), . . . , (xn, yn)}, where
+each xi is a vector of length p. (If p = 1, then xi is simply a scalar.)
+In this text, a vector of length n will always be denoted in lower case
+bold; e.g.
+a =
+
+
+
+
+
+a1
+a2
+...
+an
+
+
+
+
+.
+However, vectors that are not of length n (such as feature vectors of length
+p, as in (1.1)) will be denoted in lower case normal font, e.g. a. Scalars will
+also be denoted in lower case normal font, e.g. a. In the rare cases in which
+these two uses for lower case normal font lead to ambiguity, we will clarify
+which use is intended. Matrices will be denoted using bold capitals, such
+as A. Random variables will be denoted using capital normal font, e.g. A,
+regardless of their dimensions.
+Occasionally we will want to indicate the dimension of a particular object.
+To indicate that an object is a scalar, we will use the notation a ∈R. To
+indicate that it is a vector of length k, we will use a ∈Rk (or a ∈Rn if
+it is of length n). We will indicate that an object is an r × s matrix using
+A ∈Rr×s.
+We have avoided using matrix algebra whenever possible. However, in
+a few instances it becomes too cumbersome to avoid it entirely. In these
+rare instances it is important to understand the concept of multiplying
+two matrices. Suppose that A ∈Rr×d and B ∈Rd×s. Then the product
+of A and B is denoted AB. The (i, j)th element of AB is computed by
+multiplying each element of the ith row of A by the corresponding element
+of the jth column of B. That is, (AB)ij = )d
+k=1 aikbkj. As an example,
+consider
+A =
+*1
+2
+3
+4
++
+and
+B =
+*5
+6
+7
+8
++
+.
+Then
+AB =
+*1
+2
+3
+4
++ *5
+6
+7
+8
++
+=
+*1 × 5 + 2 × 7
+1 × 6 + 2 × 8
+3 × 5 + 4 × 7
+3 × 6 + 4 × 8
++
+=
+*19
+22
+43
+50
++
+.
+Note that this operation produces an r × s matrix. It is only possible to
+compute AB if the number of columns of A is the same as the number of
+rows of B.

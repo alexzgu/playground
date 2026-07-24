@@ -1,0 +1,98 @@
+602
+Index
+multivariate normal, 150
+naive Bayes, 135, 158–161, 164–
+167
+namespace, 116
+natural spline, 297, 298, 301, 317
+NCI60 data set, 4, 5, 12, 546, 548–
+550
+negative binomial, 173
+negative predictive value, 155, 156
+neural network, 5, 399
+node
+internal, 333
+purity, 337–339
+terminal, 333
+noise, 21, 252
+non-linear, 2, 11, 289–329
+decision boundary, 377–382
+kernel, 377–382
+non-parametric, 20, 22–23, 111–
+115, 193
+normal (Gaussian) distribution, 146,
+147, 150, 172, 476, 561
+notebook, 40
+null, 152
+distribution, 561, 578
+hypothesis, 76, 559
+model, 87, 231, 245
+null rate, 186
+NYSE data set, 12, 422–424, 466,
+467
+Occam’s razor, 426
+odds, 140, 145, 195
+OJ data set, 12, 365, 398
+one-hot encoding, 92, 126, 403
+one-standard-error rule, 240
+one-versus-all, 384
+one-versus-one, 384
+one-versus-rest, 384
+optimal separating hyperplane, 370
+optimism of training error, 30
+ordered categorical variable, 315
+orthogonal, 257, 506
+basis, 125
+out-of-bag, 345
+outlier, 103–104
+output variable, 15
+over-parametrized, 465
+overdispersion, 172
+overfitting, 21, 23, 25, 30–31, 88,
+152, 233, 371
+p-value, 77, 82, 560–562, 578–579
+adjusted, 586
+package, 42
+parameter, 71
+parametric, 20–22, 111–115
+partial least squares, 254, 260–262,
+282
+partial likelihood, 480
+path algorithm, 249
+permutation, 578
+permutation approach, 577–582
+perpendicular, 257
+Poisson distribution, 169, 172
+Poisson regression, 135, 167–173
+polynomial
+kernel, 380, 382
+regression, 98–99, 289–292, 294–
+295
+pooling, 410
+population regression line, 73
+Portfolio data set, 12
+positive predictive value, 155, 156
+posterior
+distribution, 251
+mode, 251
+probability, 147
+power, 108, 155, 563
+precision, 155
+prediction, 17
+interval, 90, 110
+predictor, 15
+principal components, 505
+analysis, 11, 254–260, 504–515
+loading vector, 505, 506
+missing values, 515–520
+proportion of variance explained,
+510–515, 547
+regression, 11, 254–260, 280–
+282, 504, 515
+score vector, 506
+scree plot, 514–515
+prior
+distribution, 251
+probability, 146
+probability density function, 477,
+478

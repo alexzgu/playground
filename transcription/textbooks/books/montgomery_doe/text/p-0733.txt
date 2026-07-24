@@ -1,0 +1,68 @@
+X
+Alias Relationships for 2kp Fractional Factorial Designs with k 15 and n 64 (Continued)
+Designs with 14 Factors
+(y) 21410; 1/1024 fraction of
+Resolution III
+14 factors in 16 runs
+Design Generators
+E ABC
+F ABD
+G ACD
+H BCD
+J ABCD
+K AB
+L AC
+M AD
+N BC
+O BD
+Aliases
+A HJ BK CL DM EN FO
+B GJ AK EL FM CN DO
+C FJ EK AL GM BN HO
+D EJ FK GL AM HN BO
+E DJ CK BL HM AN GO
+F CJ DK HL BM GN AO
+G BJ HK DL CM FN EO
+H AJ GK FL EM DN CO
+J DE CF BG AH MN LO
+K AB CE DF GH LN MO
+L AC BE DG FH KN JO
+M AD BF CG EH JN KO
+N BC AE FG DH KL JM
+O BD AF EG CH JL KM
+AG EF CD BH JK LM NO
+2 blocks of 8: AG EF CD BH JK LM NO
+Designs with 15 Factors
+(z)  21511; 1/2048 fraction of
+Resolution III
+5 factors in 16 runs
+Design Generators
+E ABC
+F ABD
+G ACD
+H BCD
+J ABCD
+K AB
+L AC
+M AD
+N BC
+O BD
+P CD
+Aliases
+A HJ BK CL DM EN FO GP
+B GJ AK EL FM CN DO HP
+C FJ EK AL GM BN HO DP
+D EJ FK GL AM HN BO CP
+E DJ CK BL HM AN GO FP
+F CJ DK HL BM GN AO EP
+G BJ HK DL CM FN EO AP
+H AJ GK FL EM DN CO BP
+J DE CF BG AH MN LO KP
+K AB CE DF GH LN MO JP
+L AC BE DG FH KN JO MP
+M AD BF CG EH JN KO LP
+N BC AE FG DH KL JM OP
+O BD AF EG CH JL KM NP
+P CD EF AG BH JK LM NO
+Appendix
+717

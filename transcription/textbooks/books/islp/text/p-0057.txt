@@ -1,0 +1,57 @@
+2.3 Lab: Introduction to Python
+47
+random number generating methods found in np.random. Hence, to generate
+normal data we use rng.normal().
+In [32]: rng = np.random.default_rng(1303)
+print(rng.normal(scale=5, size=2))
+rng2 = np.random.default_rng(1303)
+print(rng2.normal(scale=5, size=2))
+Out[32]: [4.09
+-1.07 ]
+[4.09
+-1.07 ]
+Throughout the labs in this book, we use np.random.default_rng() when-
+ever we perform calculations involving random quantities within numpy. In
+principle, this should enable the reader to exactly reproduce the stated
+results. However, as new versions of numpy become available, it is possible
+that some small discrepancies may occur between the output in the labs
+and the output from numpy.
+The np.mean(), np.var(), and np.std() functions can be used to compute np.mean()
+np.var()
+np.std()
+the mean, variance, and standard deviation of arrays. These functions are
+also available as methods on the arrays.
+In [33]: rng = np.random.default_rng(3)
+y = rng.standard_normal(10)
+np.mean(y), y.mean()
+Out[33]: (-0.11, -0.11)
+In [34]: np.var(y), y.var(), np.mean((y - y.mean())**2)
+Out[34]: (2.72, 2.72, 2.72)
+Notice that by default np.var() divides by the sample size n rather than
+n −1; see the ddof argument in np.var?.
+In [35]: np.sqrt(np.var(y)), np.std(y)
+Out[35]: (1.65, 1.65)
+The np.mean(), np.var(), and np.std() functions can also be applied to the
+rows and columns of a matrix. To see this, we construct a 10 × 3 matrix of
+N(0, 1) random variables, and consider computing its row sums.
+In [36]: X = rng.standard_normal((10, 3))
+X
+Out[36]: array([[ 0.23, -0.35, -0.28],
+[-0.67, -1.06, -0.39],
+[ 0.48, -0.24,
+0.96],
+[-0.2 ,
+0.02,
+1.55],
+[ 0.55, -0.51, -0.18],
+[ 0.54,
+1.94, -0.27],
+[-0.24,
+1.
+, -0.89],
+[-0.29,
+0.88,
+0.58],
+[ 0.09,
+0.67, -2.83],
+[ 1.02, -0.96, -1.67]])

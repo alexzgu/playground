@@ -1,0 +1,61 @@
+26
+2. Statistical Learning
+0
+2
+4
+6
+8
+10
+12
+2
+4
+6
+8
+10
+12
+0
+2
+4
+6
+2
+4
+6
+8
+X1
+X1
+X2
+X2
+FIGURE 2.8.
+A clustering data set involving three groups. Each group is
+shown using a different colored symbol. Left: The three groups are well-separated.
+In this setting, a clustering approach should successfully identify the three groups.
+Right: There is some overlap among the groups. Now the clustering task is more
+challenging.
+distinct groups of potential customers. Identifying such groups can be of
+interest because it might be that the groups differ with respect to some
+property of interest, such as spending habits.
+Figure 2.8 provides a simple illustration of the clustering problem. We
+have plotted 150 observations with measurements on two variables, X1
+and X2. Each observation corresponds to one of three distinct groups. For
+illustrative purposes, we have plotted the members of each group using
+different colors and symbols. However, in practice the group memberships
+are unknown, and the goal is to determine the group to which each obser-
+vation belongs. In the left-hand panel of Figure 2.8, this is a relatively easy
+task because the groups are well-separated. By contrast, the right-hand
+panel illustrates a more challenging setting in which there is some overlap
+between the groups. A clustering method could not be expected to assign
+all of the overlapping points to their correct group (blue, green, or orange).
+In the examples shown in Figure 2.8, there are only two variables, and
+so one can simply visually inspect the scatterplots of the observations in
+order to identify clusters. However, in practice, we often encounter data
+sets that contain many more than two variables. In this case, we cannot
+easily plot the observations. For instance, if there are p variables in our
+data set, then p(p −1)/2 distinct scatterplots can be made, and visual
+inspection is simply not a viable way to identify clusters. For this reason,
+automated clustering methods are important. We discuss clustering and
+other unsupervised learning approaches in Chapter 12.
+Many problems fall naturally into the supervised or unsupervised learn-
+ing paradigms. However, sometimes the question of whether an analysis
+should be considered supervised or unsupervised is less clear-cut. For in-
+stance, suppose that we have a set of n observations. For m of the observa-
+tions, where m < n, we have both predictor measurements and a response

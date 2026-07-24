@@ -1,0 +1,41 @@
+304
+C H A P T E R
+7
+B l o c k i n g a n d
+C o n f o u n d i n g i n t h e
+2 k F a c t o r i a l D e s i g n
+CHAPTER OUTLINE
+7.1 INTRODUCTION
+7.2 BLOCKING A REPLICATED 2k FACTORIAL
+DESIGN
+7.3 CONFOUNDING IN THE 2k FACTORIAL 
+DESIGN
+7.4 CONFOUNDING THE 2k FACTORIAL DESIGN IN
+TWO BLOCKS
+7.5 ANOTHER ILLUSTRATION OF WHY BLOCKING
+IS IMPORTANT
+7.1
+Introduction
+In many situations it is impossible to perform all of the runs in a 2k factorial experiment under
+homogeneous conditions. For example, a single batch of raw material might not be large
+enough to make all of the required runs. In other cases, it might be desirable to deliberately
+vary the experimental conditions to ensure that the treatments are equally effective (i.e.,
+robust) across many situations that are likely to be encountered in practice. For example, a
+chemical engineer may run a pilot plant experiment with several batches of raw material
+because he knows that different raw material batches of different quality grades are likely to
+be used in the actual full-scale process.
+The design technique used in these situations is blocking. Chapter 4 was an introduc-
+tion to the blocking principle, and you may nd it helpful to read the introductory material
+in that chapter again. We also discussed blocking general factorial experiments in Chapter 5.
+In this chapter, we will build on the concepts introduced in Chapter 4, focusing on some spe-
+cial techniques for blocking in the 2k factorial design.
+7.6 CONFOUNDING THE 2k FACTORIAL DESIGN IN
+FOUR BLOCKS
+7.7 CONFOUNDING THE 2k FACTORIAL DESIGN IN 2p
+BLOCKS
+7.8 PARTIAL CONFOUNDING
+SUPPLEMENTAL MATERIAL FOR CHAPTER 7
+S7.1 The Error Term in a Blocked Design
+S7.2 The Prediction Equation for a Blocked Design
+S7.3 Run Order Is Important
+The supplemental material is on the textbook website www.wiley.com/college/montgomery.

@@ -1,0 +1,46 @@
+218
+CHAPTER 6. JUMP PROCESSES
+Theorem 6.8.2. (L´-K) IX -
+, m, σ, µC, µY T6.8.1
+
+ΨX(s) = ims −σ2
+2 s2 +
+
+|x|>1
+[eisx −1] dµC(x)
++
+
+|x|≤1
+[eisx −1 −isx] dµY (x)
+We show how to prove this theorem and then prove another theorem
+which is a key step in the proof of Theorem 6.8.1.
+Here we will show that if X has an innitely divisible distribution,
+then the characteristic function of X can be written as ϕ(s) = eΨ(s)
+where
+Ψ(s) = ims −σ2s
+2
++
+
+[eisx −1 −isx1x≤1] µ(dx),
+where m R, σ2 ≥0, and µ is a measure on R with µ0= 0 and
+
+x2
+1 + x2 µ(dx) < ∞
+We x X and allow all constants to depend on the distribution of X.
+Let s0 be such that ϕ(s) −1≤12,
+s ≤s0.
+Since X is innitely divisible we can write
+X = Y1,n + · · · + Yn,n,
+where Y1,n, , Yn,n are i.i.d. We write µn for the distribution of Y1n
+and νn = nµn. We let ˜Yj,n = Yj,n 1Yj,n≤1and let
+˜mn = E[ ˜Yj,n],
+˜σ2
+n = Var[ ˜Yj,n]
+Let ϕn(s) = eΨn(s) denote the characteristic function of Y1,n and note
+that ϕ(s) = ϕn(s)n. It suces to nd m, σ2, µ and a subsequence nj
+such that for s≤s0,
+lim
+j∞nj Ψnj(s) = ims−σ2s
+2 +
+
+[eisx−1−isx1x≤1] µ(dx)(6.25)

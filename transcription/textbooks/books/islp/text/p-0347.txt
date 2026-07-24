@@ -1,0 +1,84 @@
+340
+8. Tree-Based Methods
+|
+Thal:a
+Ca < 0.5
+MaxHR < 161.5
+RestBP < 157
+Chol < 244
+MaxHR < 156
+MaxHR < 145.5
+ChestPain:bc
+Chol < 244
+Sex < 0.5
+Ca < 0.5
+Slope < 1.5
+Age < 52
+Thal:b
+ChestPain:a
+Oldpeak < 1.1
+RestECG < 1
+No
+Yes
+No
+No
+Yes
+No
+No
+No
+No
+Yes
+Yes
+No
+No
+No
+Yes
+Yes
+Yes
+Yes
+5
+10
+15
+0.0
+0.1
+0.2
+0.3
+0.4
+0.5
+0.6
+Tree Size
+Error
+Training
+Cross−Validation
+Test
+|
+Thal:a
+Ca < 0.5
+MaxHR < 161.5
+ChestPain:bc
+Ca < 0.5
+No
+No
+No
+Yes
+Yes
+Yes
+FIGURE 8.6. Heart data. Top: The unpruned tree. Bottom Left: Cross-valida-
+tion error, training, and test error, for different sizes of the pruned tree. Bottom
+Right: The pruned tree corresponding to the minimal cross-validation error.
+and ChestPain, are qualitative. Therefore, a split on one of these variables
+amounts to assigning some of the qualitative values to one branch and
+assigning the remaining to the other branch. In Figure 8.6, some of the in-
+ternal nodes correspond to splitting qualitative variables. For instance, the
+top internal node corresponds to splitting Thal. The text Thal:a indicates
+that the left-hand branch coming out of that node consists of observations
+with the first value of the Thal variable (normal), and the right-hand node
+consists of the remaining observations (fixed or reversible defects). The text
+ChestPain:bc two splits down the tree on the left indicates that the left-hand
+branch coming out of that node consists of observations with the second
+and third values of the ChestPain variable, where the possible values are
+typical angina, atypical angina, non-anginal pain, and asymptomatic.
+Figure 8.6 has a surprising characteristic: some of the splits yield two
+terminal nodes that have the same predicted value. For instance, consider
+the split RestECG<1 near the bottom right of the unpruned tree. Regardless
+of the value of RestECG, a response value of Yes is predicted for those ob-

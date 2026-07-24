@@ -1,0 +1,47 @@
+156CHAPTER 5. CHANGE OF MEASURE AND GIRSANOV THEOREM
+Theorem 5.3.2 (Girsanov Theorem, local martingale form). SMt =
+eYt (5.7)–(5.8), 
+Tn = inft : Mt + At= n,
+T = T∞= lim
+n∞Tn
+LP∗. I
+Wt = Bt −
+t
+0
+As ds,
+0 ≤t < T,
+P∗, Wt, t < T B-
+. I,
+dBt = At dt + dWt,
+t < T,
+W P∗-B. I-
+, Ms, 0 ≤s ≤t, :
+P∗T > t= 1,
+E[Mt] = 1,
+E
+
+exp
+⟨Y ⟩t
+2
+
+< ∞
+(5.10)
+It is not always easy to see whether or not the local martingale in (5.7)
+will be a martingale. However, if any one of the three conditions at the end of
+the theorem hold, then it is a martingale. The rst condition uses P∗, the new
+measure, while the expectation E in the other two conditions is with respect
+to the original measure. The relation (5.10) is called the N.
+Even if Mt is not a martingale, since
+Mt = lim
+n∞Mt∧Tn,
+Fatou’s lemma implies that
+E [Mt] = E
+
+lim
+n∞Mt∧Tn
+
+≤lim
+n∞E[Mt∧Tn] = E[M0] = 1
+An extension of this argument shows that nonnegative local martingales are
+supermartingales, that is, if s < t,
+E[Mt Fs] ≤Ms

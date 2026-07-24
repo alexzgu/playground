@@ -1,0 +1,74 @@
+9.2 Confounding in the 3k Factorial Design
+403
+9.2.1
+The 3k Factorial Design in Three Blocks
+Suppose that we wish to confound the 3k design in three incomplete blocks. These three blocks
+have two degrees of freedom among them; thus, there must be two degrees of freedom confounded
+with blocks. Recall that in the 3k factorial series each main effect has two degrees of freedom.
+Furthermore, every two-factor interaction has four degrees of freedom and can be decomposed
+into two components of interaction (e.g., AB and AB2), each with two degrees of freedom; every
+three-factor interaction has eight degrees of freedom and can be decomposed into four compo-
+nents of interaction (e.g., ABC, ABC2, AB2C, and AB2C2), each with two degrees of freedom; and
+so on. Therefore, it is convenient to confound a component of interaction with blocks.
+The general procedure is to construct a deﬁning contrast
+(9.2)
+where i represents the exponent on the ith factor in the effect to be confounded and xi is the
+level of the ith factor in a particular treatment combination. For the 3k series, we have i 0,
+1, or 2 with the rst nonzero i being unity, and xi 0 (low level), 1 (intermediate level), or
+2 (high level). The treatment combinations in the 3k design are assigned to blocks based on
+the value of L (mod 3). Because L (mod 3) can take on only the values 0, 1, or 2, three blocks
+are uniquely dened. The treatment combinations satisfying L0 (mod 3) constitute the
+principal block. This block will always contain the treatment combination 00 . . . 0.
+For example, suppose we wish to construct a 32 factorial design in three blocks. Either
+component of the AB interaction, AB or AB2, may be confounded with blocks. Arbitrarily
+choosing AB2, we obtain the dening contrast
+The value of L (mod 3) of each treatment combination may be found as follows:
+The blocks are shown in Figure 9.6.
+The elements in the principal block form a group with respect to addition modulus 3.
+Referring to Figure 9.6, we see that 11 11 22 and 11 22 00. Treatment combinations
+ 20 L 1(2) 2(0) 2 2 (mod 3)
+10 L 1(1) 2(0) 1 1 (mod 3) 22 L 1(2) 2(2) 6 0 (mod 3)
+02 L 1(0) 2(2) 4 1 (mod 3) 12 L 1(1) 2(2) 5 2 (mod 3)
+01 L 1(0) 2(1) 2 2 (mod 3) 21 L 1(2) 2(1) 4 1 (mod 3)
+00 L 1(0) 2(0) 0 0 (mod 3) 11 L 1(1) 2(1) 3 0 (mod 3)
+L x1 2x2
+L 1x 2x2 Á kxk
+Factor A
+Factor B
+0
+1
+2
+0
+1
+2
+00
+11
+22
+Block 1
+10
+21
+02
+Block 2
+01
+12
+20
+= Block 1
+= Block 2
+= Block 3
+Block 3
+(a) Assignment of the treatment
+combinations to blocks
+(b) Geometric view
+01
+11
+21
+02
+12
+22
+00
+10
+20
+■F I G U R E 9 . 6
+The 32 design in three
+blocks with AB2 con-
+founded

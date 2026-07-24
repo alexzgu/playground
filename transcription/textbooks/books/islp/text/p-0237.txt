@@ -1,0 +1,35 @@
+6
+Linear Model Selection
+and Regularization
+In the regression setting, the standard linear model
+Y = β0 + β1X1 + · · · + βpXp + ϵ
+(6.1)
+is commonly used to describe the relationship between a response Y and
+a set of variables X1, X2, . . . , Xp. We have seen in Chapter 3 that one
+typically fits this model using least squares.
+In the chapters that follow, we consider some approaches for extending
+the linear model framework. In Chapter 7 we generalize (6.1) in order to
+accommodate non-linear, but still additive, relationships, while in Chap-
+ters 8 and 10 we consider even more general non-linear models. However,
+the linear model has distinct advantages in terms of inference and, on real-
+world problems, is often surprisingly competitive in relation to non-linear
+methods. Hence, before moving to the non-linear world, we discuss in this
+chapter some ways in which the simple linear model can be improved, by re-
+placing plain least squares fitting with some alternative fitting procedures.
+Why might we want to use another fitting procedure instead of least
+squares? As we will see, alternative fitting procedures can yield better pre-
+diction accuracy and model interpretability.
+• Prediction Accuracy: Provided that the true relationship between the
+response and the predictors is approximately linear, the least squares
+estimates will have low bias. If n ≫p—that is, if n, the number of
+observations, is much larger than p, the number of variables—then the
+least squares estimates tend to also have low variance, and hence will
+perform well on test observations. However, if n is not much larger
+than p, then there can be a lot of variability in the least squares fit,
+resulting in overfitting and consequently poor predictions on future
+observations not used in model training. And if p > n, then there is no
+longer a unique least squares coefficient estimate: there are infinitely
+© Springer Nature Switzerland AG 2023 
+G. James et al., An Introduction to Statistical Learning, Springer Texts in Statistics, 
+https://doi.org/10.1007/978-3-031-38747-0_6 
+229

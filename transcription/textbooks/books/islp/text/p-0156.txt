@@ -1,0 +1,84 @@
+4.4 Generative Models for Classification
+147
+Pr(Y = k|X = x) =
+πkfk(x)
+)K
+l=1 πlfl(x)
+.
+(4.15)
+In accordance with our earlier notation, we will use the abbreviation pk(x) =
+Pr(Y = k|X = x); this is the posterior probability that an observation posterior
+X = x belongs to the kth class. That is, it is the probability that the
+observation belongs to the kth class, given the predictor value for that
+observation.
+Equation 4.15 suggests that instead of directly computing the posterior
+probability pk(x) as in Section 4.3.1, we can simply plug in estimates of πk
+and fk(x) into (4.15). In general, estimating πk is easy if we have a random
+sample from the population: we simply compute the fraction of the training
+observations that belong to the kth class. However, estimating the density
+function fk(x) is much more challenging. As we will see, to estimate fk(x),
+we will typically have to make some simplifying assumptions.
+We know from Chapter 2 that the Bayes classifier, which classifies an
+observation x to the class for which pk(x) is largest, has the lowest possible
+error rate out of all classifiers. (Of course, this is only true if all of the
+terms in (4.15) are correctly specified.) Therefore, if we can find a way to
+estimate fk(x), then we can plug it into (4.15) in order to approximate the
+Bayes classifier.
+In the following sections, we discuss three classifiers that use different
+estimates of fk(x) in (4.15) to approximate the Bayes classifier: linear dis-
+criminant analysis, quadratic discriminant analysis, and naive Bayes.
+4.4.1
+Linear Discriminant Analysis for p = 1
+For now, assume that p = 1—that is, we have only one predictor. We would
+like to obtain an estimate for fk(x) that we can plug into (4.15) in order to
+estimate pk(x). We will then classify an observation to the class for which
+pk(x) is greatest. To estimate fk(x), we will first make some assumptions
+about its form.
+In particular, we assume that fk(x) is normal or Gaussian. In the one- normal
+Gaussian
+dimensional setting, the normal density takes the form
+fk(x) =
+1
+√
+2πσk
+exp
+*
+−1
+2σ2
+k
+(x −µk)2
++
+,
+(4.16)
+where µk and σ2
+k are the mean and variance parameters for the kth class.
+For now, let us further assume that σ2
+1 = · · · = σ2
+K: that is, there is a shared
+variance term across all K classes, which for simplicity we can denote by
+σ2. Plugging (4.16) into (4.15), we find that
+pk(x) =
+πk
+1
+√
+2πσ exp
+'
+−
+1
+2σ2 (x −µk)2(
+)K
+l=1 πl
+1
+√
+2πσ exp
+'
+−
+1
+2σ2 (x −µl)2(.
+(4.17)
+(Note that in (4.17), πk denotes the prior probability that an observation
+belongs to the kth class, not to be confused with π ≈3.14159, the math-
+ematical constant.) The Bayes classifier2 involves assigning an observation
+2Recall that the Bayes classifier assigns an observation to the class for which pk(x)
+is largest. This is different from Bayes’ theorem in (4.15), which allows us to manipulate
+conditional distributions.

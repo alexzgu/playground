@@ -1,0 +1,52 @@
+13.6 Lab: Multiple Testing
+583
+0
+500
+1000
+1500
+2000
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+Number of Rejections
+False Discovery Rate
+FIGURE 13.9. For j = 1, . . . , m = 2,308, we tested the null hypothesis that for
+the jth gene in the Khan dataset, the mean expression in Burkitt’s lymphoma equals
+the mean expression in rhabdomyosarcoma. For each value of k from 1 to 2,308, the
+y-axis displays the estimated FDR associated with rejecting the null hypotheses
+corresponding to the k smallest p-values. The orange dashed curve shows the
+FDR obtained using the Benjamini–Hochberg procedure, whereas the blue solid
+curve shows the FDR obtained using the re-sampling approach of Algorithm 13.4,
+with B = 10,000. There is very little difference between the two FDR estimates.
+According to either estimate, rejecting the null hypothesis for the 500 genes with
+the smallest p-values corresponds to an FDR of around 17.7%.
+13.6
+Lab: Multiple Testing
+We include our usual imports seen in earlier labs.
+In [1]: import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import statsmodels.api as sm
+from ISLP import load_data
+We also collect the new imports needed for this lab.
+In [2]: from scipy.stats import \
+(ttest_1samp ,
+ttest_rel,
+ttest_ind,
+t as t_dbn)
+from statsmodels.stats.multicomp import \
+pairwise_tukeyhsd
+from statsmodels.stats.multitest import \
+multipletests as mult_test
+13.6.1
+Review of Hypothesis Tests
+We begin by performing some one-sample t-tests. First we create 100 vari-
+ables, each consisting of 10 observations. The first 50 variables have mean
+0.5 and variance 1, while the others have mean 0 and variance 1.
+In [3]: rng = np.random.default_rng(12)
+X = rng.standard_normal((10, 100))
+true_mean = np.array([0.5]*50 + [0]*50)
+X += true_mean[None,:]

@@ -1,0 +1,73 @@
+58
+2. Statistical Learning
+In [87]: rows = ['amc rebel sst', 'ford torino']
+Auto_re.loc[rows]
+Out[87]:
+mpg
+cylinders
+displacement horsepower
+...
+name
+amc rebel sst
+16.0
+8
+304.0
+150.0
+...
+ford torino
+17.0
+8
+302.0
+140.0
+...
+As an alternative to using the index name, we could retrieve the 4th and
+5th rows of Auto using the iloc[] method:
+.iloc[]
+In [88]: Auto_re.iloc[[3,4]]
+We can also use it to retrieve the 1st, 3rd and and 4th columns of Auto_re:
+In [89]: Auto_re.iloc[:,[0,2,3]]
+We can extract the 4th and 5th rows, as well as the 1st, 3rd and 4th
+columns, using a single call to iloc[]:
+In [90]: Auto_re.iloc[[3,4],[0,2,3]]
+Out[90]:
+mpg
+displacement
+horsepower
+name
+amc rebel sst
+16.0
+304.0
+150.0
+ford torino
+17.0
+302.0
+140.0
+Index entries need not be unique: there are several cars in the data frame
+named ford galaxie 500.
+In [91]: Auto_re.loc['ford galaxie 500', ['mpg', 'origin']]
+Out[91]:
+mpg
+origin
+name
+ford galaxie 500
+15.0
+1
+ford galaxie 500
+14.0
+1
+ford galaxie 500
+14.0
+1
+More on Selecting Rows and Columns
+Suppose now that we want to create a data frame consisting of the weight
+and origin of the subset of cars with year greater than 80 — i.e. those
+built after 1980. To do this, we first create a Boolean array that indexes
+the rows. The loc[] method allows for Boolean entries as well as strings:
+In [92]: idx_80 = Auto_re['year'] > 80
+Auto_re.loc[idx_80, ['weight', 'origin']]
+To do this more concisely, we can use an anonymous function called a
+lambda:
+lambda
+In [93]: Auto_re.loc[lambda df: df['year'] > 80, ['weight', 'origin']]
+The lambda call creates a function that takes a single argument, here df,
+and returns df['year']>80. Since it is created inside the loc[] method for

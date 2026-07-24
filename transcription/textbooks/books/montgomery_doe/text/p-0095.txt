@@ -1,0 +1,74 @@
+3.3 Analysis of the Fixed Effects Model
+79
+E X A M P L E 3 . 3
+Using the data in Example 3.1, we may nd the estimates
+of the overall mean and the treatment effects as 
+
+12,355/20 617.75 and
+A 95 percent condence interval on the mean of
+treatment 4 (220W of RF power) is computed from
+Equation 3.12 as
+4ˆ y4. y.. 707.00 617.75 89.25
+3ˆ y3. y.. 625.40 617.75 7.65
+2ˆ y2. y.. 587.40 617.75 30.35
+1ˆ y1. y.. 551.20 617.75 66.55
+ˆ
+or
+Thus, the desired 95 percent condence interval is
+689.68  4 724.32.
+707.00 17.32 4 707.00 17.32
+Simultaneous Confidence Intervals. The confidence interval expressions given
+in Equations 3.12 and 3.13 are one-at-a-time confidence intervals. That is, the confidence
+level 1 applies to only one particular estimate. However, in many problems, the exper-
+imenter may wish to calculate several confidence intervals, one for each of a number of
+means or differences between means. If there are r such 100(1 ) percent confidence
+intervals of interest, the probability that the r intervals will simultaneously be correct is at
+least 1 r. The probability ris often called the experimentwise error rate or overall
+confidence coefficient. The number of intervals r does not have to be large before the set of
+confidence intervals becomes relatively uninformative. For example, if there are r 5
+intervals and 0.05 (a typical choice), the simultaneous confidence level for the set of
+five confidence intervals is at least 0.75, and if r 10 and 0.05, the simultaneous con-
+fidence level is at least 0.50.
+One approach to ensuring that the simultaneous condence level is not too small is to
+replace /2 in the one-at-a-time condence interval Equations 3.12 and 3.13 with /(2r). This
+is called the Bonferroni method, and it allows the experimenter to construct a set of r simul-
+taneous condence intervals on treatment means or differences in treatment means for which
+the overall condence level is at least 100(1 ) percent. When r is not too large, this is a
+very nice method that leads to reasonably short condence intervals. For more information,
+refer to the supplemental text material for Chapter 3.
+3.3.4
+Unbalanced Data
+In some single-factor experiments, the number of observations taken within each treatment
+may be different. We then say that the design is unbalanced. The analysis of variance
+described above may still be used, but slight modications must be made in the sum of
+squares formulas. Let ni observations be taken under treatment i (i 1, 2, . . . , a) and N 
+ni. The manual computational formulas for SST and SSTreatments become
+(3.14)
+and
+(3.15)
+No other changes are required in the analysis of variance.
+SSTreatments 
+a
+i1
+y2
+i.
+ni y2
+..
+N
+SST 
+a
+i1 
+ni
+j1
+y2
+ij y2
+..
+N
+"a
+i1
+707.00 2.120
+333.70
+5
+4 707.00 2.120
+333.70
+5

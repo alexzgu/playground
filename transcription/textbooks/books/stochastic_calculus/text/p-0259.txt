@@ -1,0 +1,55 @@
+8.4. COMPLEX BROWNIAN MOTION
+253
+Suppose f : C →C is a nonconstant holomorphic (complex dierentiable)
+function. We will consider Xt = f(Bt). Near any point z with f ′(z)̸ = 0, the
+function looks like f(w) = f(z)+f ′(z) (w −z). Multiplication by f ′(z) is the
+same as a dilation by f ′(z)and a rotation by arg f ′(z). A rotation of a stan-
+dard two-dimensional Brownian motion gives a standard two-dimensional
+Brownian motion and a dilation gives a Brownian motion with a dierent
+variance. This leads us to believe that Xt is a time-change of standard Brow-
+nian motion.
+Let us make this more precise. Let
+a(t) =
+t
+0
+f ′(Bs)2 ds
+We consider the time-change in which it takes time a(t) to traverse f (B[0, t]).
+Equivalently, in time t one has traversed f (B[0, a−1(t)]).
+Theorem 8.4.1. LYt = Xa−1(t). TYt B
+.
+P. Write f = u + iv, Xt = Ut + iVt, Yt = ˆUt + i ˆVtThe Cauchy-Riemann
+equations imply that ∂xu = ∂yv, ∂yu = −∂xv and
+2u = ∂x∂xu + ∂y∂yu = ∂x∂yv + ∂y(−∂xv) = 0
+Similarly 2v = 0. Since Ut = u(B1
+t , B2
+t ) , Vt = v(B1
+t , B2
+t ), then Itˆo’s formula
+(see Theorem 3.7.2) gives
+dUt = u(Bt) · dBt = ∂xu(Bt) dB1
+t + ∂yu(Bt) dB2
+t 
+dVt = v(Bt) · dBt
+=
+∂xv(Bt) dB1
+t + ∂yv(Bt) dB2
+t
+=
+−∂yu(Bt) dB1
+t + ∂xu(Bt) dB2
+t 
+Note that
+d⟨U⟩t
+=
+
+[∂xu(Bt)]2 + [∂yu(Bt)]2
+dt
+=
+
+[∂xu(Bt)]2 + [−∂xv(Bt)]2
+dt = f ′(Bt)2 dt,
+d⟨V ⟩t = f ′(Bt)2 dt,
+d⟨U, V ⟩t = 0
+Therefore, ˆUt, ˆVt are martingales with quadratic variation t and hence are
+standard Brownian motions. Since ⟨U, V ⟩t = 0, we also have ⟨ˆU, ˆV ⟩t = 0,
+and hence ˆUt, ˆVt are independent.

@@ -1,0 +1,78 @@
+138
+CHAPTER 4. MORE STOCHASTIC CALCULUS
+for which it is immediate that
+E [X(t + ∆t) −X(t) Ft]
+= E [X(t + ∆t) −X(t) X(t)] = m(t, Xt) ∆t
+(4.8)
+This method has the disadvantage that we do not stay on a lattice of points.
+Another approach is to always make the jumps ±σ
+√
+∆t but to change the
+probabilities based on the drift. In particular, we let
+PX(t + ∆t) −X(t) = σ
+√
+∆t X(t)= 1
+2
+
+1 + m(t, Xt)
+σ
+√
+∆t
+
+,
+PX(t + ∆t) −X(t) = −σ
+√
+∆t X(t)= 1
+2
+
+1 −m(t, Xt)
+σ
+√
+∆t
+
+
+The probabilities are chosen so that (4.8) holds for this scheme as well. These
+two binomial methods illustrate the two main ways to incorporate a drift term
+(in other words, to turn a fair game into an unfair game):
+Choose an increment with mean zero and then add a small amount to
+it.
+Change the probabilities of the increment so that it does not have mean
+zero.
+Example 4.4.1. We will use the latter rule to sample from Brownian motion
+with constant drift m̸ = 0 and σ2 = 1. Our procedure for simulating uses
+PX(t + ∆t) −X(t) = ±
+√
+∆t X(t)= 1
+2
+
+1 ± m
+√
+∆t
+
+
+(4.9)
+Suppose that ∆t = 1N for some large integer N, and let us consider the
+distribution of X(1). There are 2N possible paths that the discrete process
+can take which can be represented by
+ω = (a1, a2, , aN)
+where aj = +1 or −1 depending on whether that step goes up or down. Let
+J = J(ω) denote the number of +1’s, and dene r by J = (N2) + r
+√
+N.
+Note that the position at time 1 is
+X(1)
+=
+√
+∆t [a1 + · · · + aN]
+=
+J
+√
+∆t −(N −J)
+√
+∆t
+=
+2r
+√
+N
+√
+∆t = 2r

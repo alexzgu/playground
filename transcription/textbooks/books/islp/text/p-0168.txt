@@ -1,0 +1,60 @@
+4.4 Generative Models for Classification
+159
+pretty decent results, especially in settings where n is not large enough rela-
+tive to p for us to effectively estimate the joint distribution of the predictors
+within each class. In fact, since estimating a joint distribution requires such
+a huge amount of data, naive Bayes is a good choice in a wide range of set-
+tings. Essentially, the naive Bayes assumption introduces some bias, but
+reduces variance, leading to a classifier that works quite well in practice as
+a result of the bias-variance trade-off.
+Once we have made the naive Bayes assumption, we can plug (4.29) into
+(4.15) to obtain an expression for the posterior probability,
+Pr(Y = k|X = x) =
+πk × fk1(x1) × fk2(x2) × · · · × fkp(xp)
+)K
+l=1 πl × fl1(x1) × fl2(x2) × · · · × flp(xp)
+(4.30)
+for k = 1, . . . , K.
+To estimate the one-dimensional density function fkj using training data
+x1j, . . . , xnj, we have a few options.
+• If Xj is quantitative, then we can assume that Xj|Y = k ∼N(µjk, σ2
+jk).
+In other words, we assume that within each class, the jth predictor is
+drawn from a (univariate) normal distribution. While this may sound
+a bit like QDA, there is one key difference, in that here we are assum-
+ing that the predictors are independent; this amounts to QDA with
+an additional assumption that the class-specific covariance matrix is
+diagonal.
+• If Xj is quantitative, then another option is to use a non-parametric
+estimate for fkj. A very simple way to do this is by making a his-
+togram for the observations of the jth predictor within each class.
+Then we can estimate fkj(xj) as the fraction of the training obser-
+vations in the kth class that belong to the same histogram bin as
+xj. Alternatively, we can use a kernel density estimator, which is kernel
+density
+estimator
+essentially a smoothed version of a histogram.
+• If Xj is qualitative, then we can simply count the proportion of train-
+ing observations for the jth predictor corresponding to each class. For
+instance, suppose that Xj ∈{1, 2, 3}, and we have 100 observations
+in the kth class. Suppose that the jth predictor takes on values of 1,
+2, and 3 in 32, 55, and 13 of those observations, respectively. Then
+we can estimate fkj as
+ˆfkj(xj) =
+
+
+
+
+
+0.32
+if xj = 1
+0.55
+if xj = 2
+0.13
+if xj = 3.
+We now consider the naive Bayes classifier in a toy example with p = 3
+predictors and K = 2 classes. The first two predictors are quantitative,
+and the third predictor is qualitative with three levels. Suppose further
+that ˆπ1 = ˆπ2 = 0.5. The estimated density functions ˆfkj for k = 1, 2
+and j = 1, 2, 3 are displayed in Figure 4.10. Now suppose that we wish
+to classify a new observation, x∗= (0.4, 1.5, 1)T . It turns out that in this

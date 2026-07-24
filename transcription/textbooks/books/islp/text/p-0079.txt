@@ -1,0 +1,47 @@
+70
+3. Linear Regression
+2. How strong is the relationship between advertising budget and sales?
+Assuming that there is a relationship between advertising and sales,
+we would like to know the strength of this relationship. Does knowl-
+edge of the advertising budget provide a lot of information about
+product sales?
+3. Which media are associated with sales?
+Are all three media—TV, radio, and newspaper—associated with
+sales, or are just one or two of the media associated? To answer this
+question, we must find a way to separate out the individual contribu-
+tion of each medium to sales when we have spent money on all three
+media.
+4. How large is the association between each medium and sales?
+For every dollar spent on advertising in a particular medium, by
+what amount will sales increase? How accurately can we predict this
+amount of increase?
+5. How accurately can we predict future sales?
+For any given level of television, radio, or newspaper advertising, what
+is our prediction for sales, and what is the accuracy of this prediction?
+6. Is the relationship linear?
+If there is approximately a straight-line relationship between advertis-
+ing expenditure in the various media and sales, then linear regression
+is an appropriate tool. If not, then it may still be possible to trans-
+form the predictor or the response so that linear regression can be
+used.
+7. Is there synergy among the advertising media?
+Perhaps spending $50,000 on television advertising and $50,000 on ra-
+dio advertising is associated with higher sales than allocating $100,000
+to either television or radio individually. In marketing, this is known
+as a synergy effect, while in statistics it is called an interaction effect. synergy
+interaction
+It turns out that linear regression can be used to answer each of these
+questions. We will first discuss all of these questions in a general context,
+and then return to them in this specific context in Section 3.4.
+3.1
+Simple Linear Regression
+Simple linear regression lives up to its name: it is a very straightforward simple linear
+regression
+approach for predicting a quantitative response Y on the basis of a sin-
+gle predictor variable X. It assumes that there is approximately a linear
+relationship between X and Y . Mathematically, we can write this linear
+relationship as
+Y ≈β0 + β1X.
+(3.1)
+You might read “≈” as “is approximately modeled as”. We will sometimes
+describe (3.1) by saying that we are regressing Y on X (or Y onto X).

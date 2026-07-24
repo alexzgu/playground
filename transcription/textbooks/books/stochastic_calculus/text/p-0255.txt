@@ -1,0 +1,37 @@
+8.2. h-PROCESSES
+249
+The reader may note that we did not need the probabilistic interpreta-
+tion of the solution in order to verify that (8.6) solves the Dirichlet problem.
+Indeed, the solution using the Poisson kernel was discovered before the re-
+lationship with Brownian motion. An important corollary of this explicit
+solution is the following theorem; we leave the verication as Exercise 8.1.
+The key part of the theorem is the fact that the same constant C works for
+all harmonic functions.
+Theorem 8.1.5.
+1. Fn, C = C(d, n) < ∞
+f D ⊂Rd, x D, y : x−y<
+r⊂D, j1, , jn 1, , d
+∂xj1 · · · ∂xjnf(x)
+≤C r−n
+sup
+|y−x|<r
+f(y)
+2. (H) F0 < u < 1, C = C(d, u) <
+∞f D ⊂Rd,
+x D, y : x −y< r⊂D, x −z≤ur,
+C−1 f(x) ≤f(z) ≤C f(x)
+8.2
+h-processes
+Suppose h is a positive harmonic function on an open set D ⊂Rd, and let
+Bt be a standard Brownian motion starting at x D. Let τ = τD be the
+rst time t with Bt̸ D. Then Mt = h(Bt) is a positive local martingale for
+t < τ satisfying
+dMt = h(Bt)
+h(Bt) Mt dBt,
+t < τ
+Let τn be the minimum of τ and the rst time t with h(Bt) ≥n. Then Mt∧τn
+is a continuous bounded martingale.
+We can use the Girsanov theorem to consider the measure obtained by
+weighting by the local martingale Mt. To be more precise, if V is an event
+that depends only on Bt, 0 ≤t ≤τn, then
+P∗(V ) = h(x)−1 E∗[Mτn 1V ] 

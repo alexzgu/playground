@@ -1,0 +1,65 @@
+Because the sample standard deviations are reasonably similar, it is not unreasonable to con-
+clude that the population standard deviations (or variances) are equal. Therefore, we can use
+Equation 2.24 to test the hypotheses
+Furthermore, n1 n2 2 10 10 2 18, and if we choose 0.05, then we would
+reject H0:1 2 if the numerical value of the test statistic t0 t0.025,18 2.101, or if t0 
+t0.025,18  2.101. These boundaries of the critical region are shown on the reference distri-
+bution (t with 18 degrees of freedom) in Figure 2.10.
+Using Equation 2.25 we nd that
+and the test statistic is
+Because t0  2.20 t0.025,18 2.101, we would reject H0 and conclude that the mean
+tension bond strengths of the two formulations of Portland cement mortar are different. This
+is a potentially important engineering nding. The change in mortar formulation had the
+desired effect of reducing the cure time, but there is evidence that the change also affected
+the tension bond strength. One can conclude that the modied formulation reduces the bond
+strength (just because we conducted a two-sided test, this does not preclude drawing a one-
+sided conclusion when the null hypothesis is rejected). If the reduction in mean bond
+0.28
+0.127 2.20
+t0 
+y1 y2
+Sp
+1
+n1 1
+n2
+16.76 17.04
+0.284
+1
+10 1
+10
+Sp 0.284
+9(0.100) 9(0.061)
+10 10 2
+0.081
+S2
+p (n1 1)S2
+1 (n2 1)S2
+2
+n1 n2 2
+H11 Z 2
+H01 2
+2.4 Inferences About the Differences in Means, Randomized Designs
+39
+t0
+Probability density
+–6
+–4
+–2
+0
+2
+4
+6
+0
+0.1
+0.2
+0.3
+0.4
+Critical
+region
+Critical
+region
+–2.101
+2.101
+■F I G U R E 2 . 1 0
+The t distribution with 18 degrees of freedom 
+with the critical region t0.025,18 2.101

@@ -1,0 +1,89 @@
+11.4 Experimental Designs for Fitting Response Surfaces
+505
+that the standard deviation of predicted response is reasonably uniform over a relatively large
+portion of the design space.
+Other Designs. Many other response surface designs are occasionally useful in prac-
+tice. For two variables, we could use designs consisting of points that are equally spaced on
+a circle and that form regular polygons. Because the design points are equidistant from the
+origin, these arrangements are often called equiradial designs.
+For k 2, a rotatable equiradial design is obtained by combining n2 5 points equally
+spaced on a circle with n1 1 points at the center of the circle. Particularly useful designs for
+k 2 are the pentagon and the hexagon. These designs are shown in Figure 11.25. The small
+composite design is another alternative. The small composite design consists of a fractional
+factorial in the cube of resolution III* (main effects aliased with two-factor interactions and no
+two-factor interactions aliased with each other) and the usual axial and center runs. While the
+small composite design may be of interest when it is important to reduce the number of runs
+these design do not enjoy good prediction variance properties relative to those of the CCD.
+A small composite design for k 3 factors is shown in Table 11.9. This design uses the
+standard one-half fraction of the 23 in the cube because it meets the resolution III* criteria.
+■TA B L E 1 1 . 9
+A Small Composite Design for k 3 Factors
+Standard Order
+x1
+x2
+x3
+1
+1.00
+1.00
+1.00
+2
+1.00
+1.00
+1.00
+3
+1.00
+1.00
+1.00
+4
+1.00
+1.00
+1.00
+5
+1.73
+0.00
+0.00
+6
+1.73
+0.00
+0.00
+7
+0.00
+1.73
+0.00
+8
+0.00
+1.73
+0.00
+9
+0.00
+0.00
+1.73
+10
+0.00
+0.00
+1.73
+11
+0.00
+0.00
+0.00
+12
+0.00
+0.00
+0.00
+13
+0.00
+0.00
+0.00
+14
+0.00
+0.00
+0.00
+(a)
+x2
+x1
+(a)
+x2
+x1
+■F I G U R E 1 1 . 2 5
+Equiradial designs
+for two variables. (a) Hexagon, (b) Pentagon

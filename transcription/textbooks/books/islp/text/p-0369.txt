@@ -1,0 +1,44 @@
+362
+8. Tree-Based Methods
+ax.plot(plot_idx,
+test_error,
+'r',
+label='Test')
+ax.legend();
+We now use the boosted model to predict medv on the test set:
+In [31]: y_hat_boost = boost_boston.predict(X_test);
+np.mean((y_test - y_hat_boost)**2)
+Out[31]: 14.48
+The test MSE obtained is 14.48, similar to the test MSE for bagging. If we
+want to, we can perform boosting with a different value of the shrinkage
+parameter λ in (8.10). The default value is 0.001, but this is easily modified.
+Here we take λ = 0.2.
+In [32]: boost_boston = GBR(n_estimators=5000,
+learning_rate=0.2,
+max_depth=3,
+random_state=0)
+boost_boston.fit(X_train,
+y_train)
+y_hat_boost = boost_boston.predict(X_test);
+np.mean((y_test - y_hat_boost)**2)
+Out[32]: 14.50
+In this case, using λ = 0.2 leads to a almost the same test MSE as when
+using λ = 0.001.
+8.3.5
+Bayesian Additive Regression Trees
+In this section we demonstrate a Python implementation of BART found in
+the ISLP.bart package. We fit a model to the Boston housing data set. This
+BART() estimator is designed for quantitative outcome variables, though BART()
+other implementations are available for fitting logistic and probit models
+to categorical outcomes.
+In [33]: bart_boston = BART(random_state=0, burnin=5, ndraw=15)
+bart_boston.fit(X_train, y_train)
+Out[33]: BART(burnin=5, ndraw=15, random_state=0)
+On this data set, with this split into test and training, we see that the
+test error of BART is similar to that of random forest.
+In [34]: yhat_test = bart_boston.predict(X_test.astype(np.float32))
+np.mean((y_test - yhat_test)**2)
+Out[34]: 20.92
+We can check how many times each variable appeared in the collection
+of trees. This gives a summary similar to the variable importance plot for
+boosting and random forests.

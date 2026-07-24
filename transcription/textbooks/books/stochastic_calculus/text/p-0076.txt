@@ -1,0 +1,43 @@
+70
+CHAPTER 2. BROWNIAN MOTION
+The right-hand side of (2.8) is a little more complicated. Since such limits
+are fundamental in our study, let us give two ways to compute the limit. One
+way is to write the right-hand side as
+1
+2∆x
+pt(x + ∆x) −pt(x)
+∆x
+−pt(x) −pt(x −∆x)
+∆x
+
+
+Waving our hands, we say this is about
+1
+2
+∂xpt(x) −∂xpt(x −∆x)
+∆x
+,
+and now we have a dierence quotient for the rst derivatives in which case
+the limit should be
+1
+2 ∂xxpt(x)
+Another, essentially equivalent, method to evaluate the limit is to write
+f(x) = pt(x) and expand in a Taylor series about x,
+f(x + ϵ) = f(x) + f ′(x) ϵ + 1
+2 f ′′(x) ϵ2 + o(ϵ2),
+where o(ϵ2) denotes a term such that
+lim
+ϵ0
+o(ϵ2)
+ϵ2
+= 0
+Then we see that
+f(x + ϵ) + f(x −ϵ) −2f(x) = f ′′(x) ϵ2 + o(ϵ2),
+and hence the limit of the right-hand side of (2.8) is ∂xxpt(x)2. We have
+derived the 
+∂tpt(x) = 1
+2 ∂xx pt(x)
+While we have been a bit sketchy on details, one could start with this equation
+and note that pt as dened in (2.6) satises this. This is the solution given that
+B0 = 0, that is, when the initial densityp0(x) is the delta function at 0.
+(The delta function, written δ(·) is the probability density of the probability

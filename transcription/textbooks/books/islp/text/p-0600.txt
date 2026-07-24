@@ -1,0 +1,56 @@
+594
+13. Multiple Testing
+2. Suppose that we test m hypotheses, and control the Type I error for
+each hypothesis at level α. Assume that all m p-values are indepen-
+dent, and that all null hypotheses are true.
+(a) Let the random variable Aj equal 1 if the jth null hypothesis is
+rejected, and 0 otherwise. What is the distribution of Aj?
+(b) What is the distribution of )m
+j=1 Aj?
+(c) What is the standard deviation of the number of Type I errors
+that we will make?
+3. Suppose we test m null hypotheses, and control the Type I error for
+the jth null hypothesis at level αj, for j = 1, . . . , m. Argue that the
+family-wise error rate is no greater than )m
+j=1 αj.
+Null Hypothesis
+p-value
+H01
+0.0011
+H02
+0.031
+H03
+0.017
+H04
+0.32
+H05
+0.11
+H06
+0.90
+H07
+0.07
+H08
+0.006
+H09
+0.004
+H10
+0.0009
+TABLE 13.4. p-values for Exercise 4.
+4. Suppose we test m = 10 hypotheses, and obtain the p-values shown
+in Table 13.4.
+(a) Suppose that we wish to control the Type I error for each null
+hypothesis at level α = 0.05. Which null hypotheses will we
+reject?
+(b) Now suppose that we wish to control the FWER at level α =
+0.05. Which null hypotheses will we reject? Justify your answer.
+(c) Now suppose that we wish to control the FDR at level q = 0.05.
+Which null hypotheses will we reject? Justify your answer.
+(d) Now suppose that we wish to control the FDR at level q = 0.2.
+Which null hypotheses will we reject? Justify your answer.
+(e) Of the null hypotheses rejected at FDR level q = 0.2, approxi-
+mately how many are false positives? Justify your answer.
+5. For this problem, you will make up p-values that lead to a certain
+number of rejections using the Bonferroni and Holm procedures.
+(a) Give an example of five p-values (i.e. five numbers between 0 and
+1 which, for the purpose of this problem, we will interpret as p-
+values) for which both Bonferroni’s method and Holm’s method

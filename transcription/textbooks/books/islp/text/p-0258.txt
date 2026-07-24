@@ -1,0 +1,76 @@
+250
+6. Linear Model Selection and Regularization
+−1.5
+−0.5
+0.0
+0.5
+1.0
+1.5
+−1.5
+−0.5
+0.5
+1.5
+Coefficient Estimate
+Ridge
+Least Squares
+−1.5
+−0.5
+0.0
+0.5
+1.0
+1.5
+−1.5
+−0.5
+0.5
+1.5
+Coefficient Estimate
+Lasso
+Least Squares
+yj
+yj
+FIGURE 6.10. The ridge regression and lasso coefficient estimates for a simple
+setting with n = p and X a diagonal matrix with 1’s on the diagonal. Left: The
+ridge regression coefficient estimates are shrunken proportionally towards zero,
+relative to the least squares estimates. Right: The lasso coefficient estimates are
+soft-thresholded towards zero.
+is minimized. One can show that in this setting, the ridge regression esti-
+mates take the form
+ˆβR
+j = yj/(1 + λ),
+(6.14)
+and the lasso estimates take the form
+ˆβL
+j =
+
+
+
+
+
+yj −λ/2
+if yj > λ/2;
+yj + λ/2
+if yj < −λ/2;
+0
+if |yj| ≤λ/2.
+(6.15)
+Figure 6.10 displays the situation. We can see that ridge regression and
+the lasso perform two very different types of shrinkage. In ridge regression,
+each least squares coefficient estimate is shrunken by the same proportion.
+In contrast, the lasso shrinks each least squares coefficient towards zero by
+a constant amount, λ/2; the least squares coefficients that are less than
+λ/2 in absolute value are shrunken entirely to zero. The type of shrink-
+age performed by the lasso in this simple setting (6.15) is known as soft-
+thresholding. The fact that some lasso coefficients are shrunken entirely to soft-
+thresholding
+zero explains why the lasso performs feature selection.
+In the case of a more general data matrix X, the story is a little more
+complicated than what is depicted in Figure 6.10, but the main ideas still
+hold approximately: ridge regression more or less shrinks every dimension
+of the data by the same proportion, whereas the lasso more or less shrinks
+all coefficients toward zero by a similar amount, and sufficiently small co-
+efficients are shrunken all the way to zero.
+Bayesian Interpretation of Ridge Regression and the Lasso
+We now show that one can view ridge regression and the lasso through
+a Bayesian lens. A Bayesian viewpoint for regression assumes that the
+coefficient vector β has some prior distribution, say p(β), where β =
+(β0, β1, . . . , βp)T . The likelihood of the data can be written as f(Y |X, β),

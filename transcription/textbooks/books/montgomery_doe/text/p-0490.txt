@@ -1,0 +1,99 @@
+474
+Chapter 10 ■Fitting Regression Models
+We may give a general development of this partitioning in the context of a regression
+model. Suppose that we have ni observations on the response at the ith level of the regressors
+xi, i 1, 2, . . . , m. Let yij denote the jth observation on the response at xi, i 1, 2, . . . , m
+and j 1, 2, . . . , ni. There are n 
+ni total observations. We may write the (ij)th resid-
+ual as
+(10.56)
+where 
+is the average of the ni observations at xi. Squaring both sides of Equation 10.56 and
+summing over i and j yields
+(10.57)
+The left-hand side of Equation 10.57 is the usual residual sum of squares. The two com-
+ponents on the right-hand side measure pure error and lack of t. We see that the pure error
+sum of squares
+(10.58)
+is obtained by computing the corrected sum of squares of the repeat observations at each level
+of x and then pooling over the m levels of x. If the assumption of constant variance is satis-
+ed, this is a model-independent measure of pure error because only the variability of the
+y’s at each xi level is used to compute SSPE. Because there are ni 1 degrees of freedom for
+pure error at each level xi, the total number of degrees of freedom associated with the pure
+error sum of squares is
+(10.59)
+The sum of squares for lack of t
+(10.60)
+is a weighted sum of squared deviations between the mean response 
+at each xi level and the
+corresponding tted value. If the tted values 
+are close to the corresponding average
+responses , then there is a strong indication that the regression function is linear. If the 
+deviate greatly from the , then it is likely that the regression function is not linear. There are
+m p degrees of freedom associated with SSLOF because there are m levels of x, and p degrees
+of freedom are lost because p parameters must be estimated for the model. Computationally
+we usually obtain SSLOF by subtracting SSPE from SSE.
+The test statistic for lack of t is
+(10.61)
+The expected value of MSPE is 2, and the expected value of MSLOF is
+(10.62)
+If the true regression function is linear, then E(yi) 0 
+jxij, and the second term of
+Equation 10.62 is zero, resulting in E(MSLOF) 2. However, if the true regression function
+is not linear, then E(yi) 0 
+jxij, and E(MSLOF) 2. Furthermore, if the true regres-
+sion function is linear, then the statistic F0 follows the Fmp,nm distribution. Therefore, to test
+k
+j1
+k
+j1
+E(MSLOF) 2 
+
+m
+i1
+niE(yi) 0 
+k
+j1
+j xij
+2
+m 2
+F0 SSLOF/(m p)
+SSPE/(n m) MSLOF
+MSPE
+yi
+yˆi
+yi
+yˆi
+yi
+SSLOF 
+m
+i1
+ni(yi yˆi)2
+
+m
+i1
+ (ni 1) n m
+SSPE 
+m
+i1 
+ni
+j1
+ (yij yi)2
+
+m
+i1 
+ni
+j1
+ (yij yˆi)2 
+m
+i1 
+ni
+j1
+ (yij yi)2 
+m
+i1
+ni(yi yˆi)2
+yi
+yij yˆi (yij yi) (yi yˆi)
+m
+i1

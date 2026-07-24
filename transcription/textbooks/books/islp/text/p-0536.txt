@@ -1,0 +1,53 @@
+530
+12. Unsupervised Learning
+Linkage
+Description
+Complete
+Maximal intercluster dissimilarity. Compute all pairwise
+dissimilarities between the observations in cluster A and the
+observations in cluster B, and record the largest of these dis-
+similarities.
+Single
+Minimal intercluster dissimilarity. Compute all pairwise dis-
+similarities between the observations in cluster A and the
+observations in cluster B, and record the smallest of these
+dissimilarities. Single linkage can result in extended, trailing
+clusters in which single observations are fused one-at-a-time.
+Average
+Mean intercluster dissimilarity. Compute all pairwise dis-
+similarities between the observations in cluster A and the
+observations in cluster B, and record the average of these
+dissimilarities.
+Centroid
+Dissimilarity between the centroid for cluster A (a mean
+vector of length p) and the centroid for cluster B. Centroid
+linkage can result in undesirable inversions.
+TABLE 12.3. A summary of the four most commonly-used types of linkage in
+hierarchical clustering.
+of the hierarchical clustering algorithm will depend on the type of linkage
+used, as well as on the choice of dissimilarity measure. Hence, the resulting
+dendrogram typically depends quite strongly on the type of linkage used,
+as is shown in Figure 12.14.
+Choice of Dissimilarity Measure
+Thus far, the examples in this chapter have used Euclidean distance as the
+dissimilarity measure. But sometimes other dissimilarity measures might
+be preferred. For example, correlation-based distance considers two obser-
+vations to be similar if their features are highly correlated, even though the
+observed values may be far apart in terms of Euclidean distance. This is
+an unusual use of correlation, which is normally computed between vari-
+ables; here it is computed between the observation profiles for each pair
+of observations. Figure 12.15 illustrates the difference between Euclidean
+and correlation-based distance. Correlation-based distance focuses on the
+shapes of observation profiles rather than their magnitudes.
+The choice of dissimilarity measure is very important, as it has a strong
+effect on the resulting dendrogram. In general, careful attention should be
+paid to the type of data being clustered and the scientific question at hand.
+These considerations should determine what type of dissimilarity measure
+is used for hierarchical clustering.
+For instance, consider an online retailer interested in clustering shoppers
+based on their past shopping histories. The goal is to identify subgroups
+of similar shoppers, so that shoppers within each subgroup can be shown
+items and advertisements that are particularly likely to interest them. Sup-
+pose the data takes the form of a matrix where the rows are the shoppers
+and the columns are the items available for purchase; the elements of the
+data matrix indicate the number of times a given shopper has purchased a

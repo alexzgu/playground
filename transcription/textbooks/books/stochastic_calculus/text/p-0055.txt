@@ -1,0 +1,37 @@
+2.5. CONSTRUCTION OF BROWNIAN MOTION
+49
+Using this we see that
+PJn ≥C √n 2−n2≤2n PY ≥C √n
+We will show below that if C > √2 log 2, then
+∞
+
+n=1
+2n PY ≥C √n< ∞
+(2.3)
+The Borel-Cantelli lemma then implies that with probability one, the
+event Jn ≥2−n2nhappens for only nitely many values of n. In
+particular,
+lim
+n∞2n2 n−1 Jn = 0,
+which implies (2.2). To get our estimate, we will need the following
+lemma which is a form of the reection principlefor Brownian mo-
+tion.
+Lemma 2.5.2. For every a ≥4,
+PY > a≤4 PB1 ≥a≤e−a22
+To prove this lemma, let
+Yn = max Bq: q Dn
+Then
+PY > a= lim
+n∞PYn > a,
+and hence it suces to prove the inequality for each n. Fix n and let
+Ak be the event that
+Bk2−n> a,
+Bj2−n≤a, j = 1, , k −1
+Then the event Yn > acan be written as a disjoint union
+Yn > a=
+2n
+
+k=1
+Ak
+The important observation is that if Bk2−n> a, then with probability
+at least 12, we have B1> a. Indeed, if Bk2−n and B1 −Bk2−n

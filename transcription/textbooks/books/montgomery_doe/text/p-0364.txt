@@ -1,0 +1,133 @@
+348
+Chapter 8 ■Two-Level Fractional Factorial Designs
+Effect estimates
+–0.40
+–0.30
+–0.20
+–0.10
+0.10
+0.20
+0.30
+0
+1
+5
+10
+20
+30
+50
+70
+90
+95
+99
+A
+B
+AD
+80
+Normal probability, (1 – Pj) × 100
+Pj × 100
+1
+5
+10
+20
+30
+50
+70
+80
+90
+95
+99
+■F I G U R E 8 . 1 9
+Normal
+probability plot of the effect estimates
+for Example 8.6
+■TA B L E 8 . 1 8
+Analysis of Variance for Example 8.6
+Source of
+Sum of
+Degrees of
+Mean
+Variation
+Squares
+Freedom
+Square
+F0
+P-Value
+A
+0.6740
+1
+0.6740
+39.42
+0.0001
+B
+0.3217
+1
+0.3217
+18.81
+0.0002
+D
+0.0935
+1
+0.0935
+5.47
+0.0280
+AD
+1.1197
+1
+1.1197
+65.48
+0.0001
+Blocks
+0.0201
+3
+0.0067
+Error
+0.4099
+24
+0.0171
+Total
+2.6389
+31
+Residuals
+–0.25
+0.25
+0
+1
+5
+10
+20
+30
+50
+70
+90
+95
+99
+80
+Normal probability, (1 – Pj) × 100
+Pj × 100
+1
+5
+10
+20
+30
+50
+70
+80
+90
+95
+99
+Low
+High
+Log standard deviation × 103
+0.75
+1.825
+D+
+D–
+D+
+D–
+x-axis shift (A)
+■F I G U R E 8 . 2 0
+Normal probability plot of
+the residuals for Example 8.6
+■F I G U R E 8 . 2 1
+Plot of AD interaction
+for Example 8.6

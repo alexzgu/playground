@@ -1,0 +1,92 @@
+3.3 Analysis of the Fixed Effects Model
+77
+E X A M P L E 3 . 2
+Coding the Observations
+The ANOVA calculations may often be made more easily
+or accurately by coding the observations. For example,
+consider the plasma etching data in Example 3.1. Suppose
+we subtract 600 from each observation. The coded data
+are shown in Table 3.5. It is easy to verify that
+and
+SSE 5339.20
+(355)2
+20
+66,870.55
+SSTreatments (244)2 (63)2 (127)2 (535)2
+5
+(110)2 (355)2
+20
+72,209.75
+SST (25)2 (58)2 Á
+Comparing these sums of squares to those obtained in
+Example 3.1, we see that subtracting a constant from the
+original data does not change the sums of squares.
+Now suppose that we multiply each observation in
+Example 3.1 by 2. It is easy to verify that the sums of
+squares for the transformed data are SST 288,839.00,
+SSTreatments 267,482.20, and SSE 21,356.80. These
+sums of squares appear to differ considerably from those
+obtained in Example 3.1. However, if they are divided
+by 4 (i.e., 22), the results are identical. For example,
+for the treatment sum of squares 267,482.20/4 
+66,870.55. Also, for the coded data, the F ratio is F 
+(267,482.20/3)/(21,356.80/16) 66.80, which is identi-
+cal to the F ratio for the original data. Thus, the ANOVAs
+are equivalent.
+Randomization Tests and Analysis of Variance. In our development of the ANOVA
+F test, we have used the assumption that the random errors ij are normally and independently
+distributed random variables. The F test can also be justied as an approximation to a random-
+ization test. To illustrate this, suppose that we have ve observations on each of two treatments
+and that we wish to test the equality of treatment means. The data would look like this:
+Treatment 1
+Treatment 2
+y11
+y21
+y12
+y22
+y13
+y23
+y14
+y24
+y15
+y25
+■TA B L E 3 . 5
+Coded Etch Rate Data for Example 3.2
+Observations
+RF Power 
+Totals 
+(W)
+1
+2
+3
+4
+5
+yi.
+160
+25
+58
+70
+61
+30
+244
+180
+35
+7
+10
+21
+10
+63
+200
+0
+51
+10
+37
+29
+127
+220
+125
+100
+115
+85
+110
+535 

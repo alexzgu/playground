@@ -1,0 +1,73 @@
+7.8 Lab: Non-Linear Modeling
+311
+Throughout most of this lab, our response is Wage['wage'], which we
+have stored as y above. As in Section 3.6.6, we will use the poly() function
+to create a model matrix that will fit a 4th degree polynomial in age.
+In [4]: poly_age = MS([poly('age', degree=4)]).fit(Wage)
+M = sm.OLS(y, poly_age.transform(Wage)).fit()
+summarize(M)
+Out[4]:
+coef
+std err
+t
+P>|t|
+intercept
+111.7036
+0.729
+153.283
+0.000
+poly(age, degree=4)[0]
+447.0679
+39.915
+11.201
+0.000
+poly(age, degree=4)[1] -478.3158
+39.915
+-11.983
+0.000
+poly(age, degree=4)[2]
+125.5217
+39.915
+3.145
+0.002
+poly(age, degree=4)[3]
+-77.9112
+39.915
+-1.952
+0.051
+This polynomial is constructed using the function poly(), which cre-
+ates a special transformer Poly() (using sklearn terminology for feature transformer
+transformations such as PCA() seen in Section 6.5.3) which allows for easy
+evaluation of the polynomial at new data points. Here poly() is referred
+to as a helper function, and sets up the transformation; Poly() is the ac- helper
+tual workhorse that computes the transformation. See also the discussion
+of transformations on page 118.
+In the code above, the first line executes the fit() method using the
+dataframe Wage. This recomputes and stores as attributes any parameters
+needed by Poly() on the training data, and these will be used on all sub-
+sequent evaluations of the transform() method. For example, it is used on
+the second line, as well as in the plotting function developed below.
+We now create a grid of values for age at which we want predictions.
+In [5]: age_grid = np.linspace(age.min(),
+age.max(),
+100)
+age_df = pd.DataFrame({'age': age_grid})
+Finally, we wish to plot the data and add the fit from the fourth-degree
+polynomial. As we will make several similar plots below, we first write a
+function to create all the ingredients and produce the plot. Our function
+takes in a model specification (here a basis specified by a transform), as
+well as a grid of age values. The function produces a fitted curve as well
+as 95% confidence bands. By using an argument for basis we can produce
+and plot the results with several different transforms, such as the splines
+we will see shortly.
+In [6]: def plot_wage_fit(age_df,
+basis,
+title):
+X = basis.transform(Wage)
+Xnew = basis.transform(age_df)
+M = sm.OLS(y, X).fit()
+preds = M.get_prediction(Xnew)
+bands = preds.conf_int(alpha=0.05)
+fig, ax = subplots(figsize=(8,8))
+ax.scatter(age,
+y,

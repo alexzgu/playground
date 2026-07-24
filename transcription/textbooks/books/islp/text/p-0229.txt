@@ -1,0 +1,47 @@
+5.3 Lab: Cross-Validation and the Bootstrap
+221
+Out[16]: 0.5758
+Next we randomly select 100 observations from range(100), with replace-
+ment. This is equivalent to constructing a new bootstrap data set and
+recomputing ˆα based on the new data set.
+In [17]: rng = np.random.default_rng(0)
+alpha_func(Portfolio,
+rng.choice(100,
+100,
+replace=True))
+Out[17]: 0.6074
+This process can be generalized to create a simple function boot_SE() for
+computing the bootstrap standard error for arbitrary functions that take
+only a data frame as an argument.
+In [18]: def boot_SE(func,
+D,
+n=None,
+B=1000,
+seed=0):
+rng = np.random.default_rng(seed)
+first_, second_ = 0, 0
+n = n or D.shape[0]
+for _ in range(B):
+idx = rng.choice(D.index,
+n,
+replace=True)
+value = func(D, idx)
+first_ += value
+second_ += value**2
+return np.sqrt(second_ / B - (first_ / B)**2)
+Notice the use of _ as a loop variable in for _ in range(B). This is often
+used if the value of the counter is unimportant and simply makes sure the
+loop is executed B times.
+Let’s use our function to evaluate the accuracy of our estimate of α using
+B = 1,000 bootstrap replications.
+In [19]: alpha_SE = boot_SE(alpha_func,
+Portfolio,
+B=1000,
+seed=0)
+alpha_SE
+Out[19]: 0.0912
+The final output shows that the bootstrap estimate for SE(ˆα) is 0.0912.
+Estimating the Accuracy of a Linear Regression Model
+The bootstrap approach can be used to assess the variability of the coef-
+ficient estimates and predictions from a statistical learning method. Here
+we use the bootstrap approach in order to assess the variability of the

@@ -1,0 +1,51 @@
+are still useful, but Taguchi’s principal contribution was the recognition that experimental
+design and other statistical tools could be applied to the problem in many cases.
+An important aspect of Taguchi’s approach was his notion that certain types of variables
+cause variability in the important system response variables. We refer to these types of vari-
+ables as noise variables or uncontrollable variables. We have discussed this concept
+before—for example, see Figure 1.1. These noise factors are often functions of environmental
+conditions such as temperature or relative humidity. They may be properties of raw materials
+that vary from batch to batch or over time in the process. They may be process variables that are
+difcult to control or to keep at specied targets. In some cases, they may involve the way the
+consumer handles or uses the product. Noise variables may often be controlled at the research
+or development level, but they cannot be controlled at the production or product use level. An
+integral part of the RPD problem is identifying the controllable variables and the noise variables
+that affect process or product performance and then nding the settings for the controllable vari-
+ables that minimize the variability transmitted from the noise variables.
+As an illustration of controllable and noise variables, consider a product developer who
+is formulating a cake mix. The developer must specify the ingredients and composition of the
+cake mix, including the amounts of our, sugar, dry milk, hydrogenated oils, corn starch, and
+avorings. These variables can be controlled reasonably easily when the cake mix is manu-
+factured. When the consumer bakes the cake, water and eggs are added, the mixture of wet
+and dry ingredients is blended into cake batter, and the cake is baked in an oven at a speci-
+ed temperature for a specied time. The product formulator cannot control exactly how
+much water is added to the dry cake mix, how well the wet and dry ingredients are blended, or
+the exact baking time or oven temperature. Target values for these variables can be and usually
+are specied, but they are really noise variables, as there will be variation (perhaps considerable
+variation) in the levels of these factors that are used by different customers. Therefore, the product
+formulator has a robust design problem. The objective is to formulate a cake mix that will
+perform well and meet or exceed customer expectations regardless of the variability transmitted
+into the nal cake by the noise variables.
+12.2
+Crossed Array Designs
+The original Taguchi methodology for the RPD problem revolved around the use of a statis-
+tical design for the controllable variables and another statistical design for the noise variables.
+Then these two designs were “crossed”; that is, every treatment combination in the design for
+the controllable variables was run in combination with every treatment combination in the
+noise variable design. This type of experimental design was called a crossed array design.
+We will illustrate the crossed array design approach using the leaf spring experiment
+originally introduced as Problem 8.10. In this experiment, ve factors were studied to deter-
+mine their effect on the free height of a leaf spring used in an automotive application. There
+were ve factors in the experiment; A furnace temperature, B heating time, C transfer
+time, D hold down time, and E quench oil temperature. This was originally an RPD
+problem, and quench oil temperature was the noise variable. The data from this experiment
+are shown in Table 12.1. The design for the controllable factors is a 241 fractional factorial
+design with generator D ABC. This is called the inner array design. The design for the sin-
+gle noise factor is a 21 design, and it is called the outer array design. Notice how each run
+in the outer array is performed for all eight treatment combinations in the inner array, produc-
+ing the crossed array structure. In the leaf spring experiment, each of the 16 distinct design
+points was replicated three times, resulting in 48 observations on free height.
+An important point about the crossed array design is that it provides information about
+interactions between controllable factors and noise factors. These interactions are crucial to the
+556
+Chapter 12 ■Robust Parameter Design and Process Robustness Studies

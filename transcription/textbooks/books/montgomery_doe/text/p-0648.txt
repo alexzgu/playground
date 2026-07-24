@@ -1,0 +1,80 @@
+632
+Chapter 14 ■Nested and Split-Plot Designs
+■TA B L E 1 4 . 2 4
+Default Design from JMP for the Plasma Etching Experiment
+Whole-Plot Factors
+Subplot Factors
+Whole plots
+A
+B
+C
+D
+E
+1
+
+
+
+
+
+
+
+
+
+
+
+2
+
+
+
+
+
+
+
+
+
+
+
+3
+
+
+
+
+
+
+
+
+
+
+
+to minimize the uniformity response, so Figure 14.9a sug-
+gests that either level of factor A electrode gap will be
+effective as long as B gas ow is at the low level.
+However, if B is at the high level, then A must be at the low
+level to achieve low uniformity. Figure 14.9b indicates that
+controlling E RF power at the low level is effective in
+reducing uniformity, particularly if A is at the high level.
+However, if E is at the high level, A must be at the low level.
+Therefore, the results of this screening experiment indicate
+that three of the ve original factors signicantly impact
+etch uniformity. Furthermore, the treatment combination A
+high, B low, and E low or A low, B high, and E high will
+produce low levels of the uniformity response.
+The design in Example 14.3 can be constructed as a D-optimal design using JMP, by speci-
+fying A, B, and C to be hard-to-change factors and D and E to be easy-to-change factors, and
+requiring eight whole plots and 16 runs. The default design that JMP recommends for this
+problem is a 32-run design with eight whole plots and four subplots per whole plot. This
+design is a full factorial and because of the additional runs, it allows the estimation of both
+the whole-plot and the subplot error terms. The default design is shown in Table 14.24. Note
+that both designs require eight whole plots, as they have exactly the same number of changes
+in the hard-to-change factors. So there may be little practical difference in the resources
+required to run the two designs.
+14.5.2
+The Split-Split-Plot Design
+The concept of split-plot designs can be extended to situations in which randomization
+restrictions may occur at any number of levels within the experiment. If there are two levels
+of randomization restrictions, the layout is called a split-split-plot design. The following
+example illustrates such a design.
+Optimal design tools are an important and useful way to construct split-plot designs.
+Optimal design tools using the coordinate exchange algorithm are very efcient and available
+in JMP. An alternate construction tool using integer programming has been developed by
+Capehart, Keha, Kulahci and Montgomery (2011).

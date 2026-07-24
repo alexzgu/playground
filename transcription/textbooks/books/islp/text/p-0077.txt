@@ -1,0 +1,37 @@
+2.4 Exercises
+67
+(d) Now remove the 10th through 85th observations. What is the
+range, mean, and standard deviation of each predictor in the
+subset of the data that remains?
+(e) Using the full data set, investigate the predictors graphically,
+using scatterplots or other tools of your choice. Create some plots
+highlighting the relationships among the predictors. Comment
+on your findings.
+(f) Suppose that we wish to predict gas mileage (mpg) on the basis
+of the other variables. Do your plots suggest that any of the
+other variables might be useful in predicting mpg? Justify your
+answer.
+10. This exercise involves the Boston housing data set.
+(a) To begin, load in the Boston data set, which is part of the ISLP
+library.
+(b) How many rows are in this data set? How many columns? What
+do the rows and columns represent?
+(c) Make some pairwise scatterplots of the predictors (columns) in
+this data set. Describe your findings.
+(d) Are any of the predictors associated with per capita crime rate?
+If so, explain the relationship.
+(e) Do any of the suburbs of Boston appear to have particularly
+high crime rates? Tax rates? Pupil-teacher ratios? Comment on
+the range of each predictor.
+(f) How many of the suburbs in this data set bound the Charles
+river?
+(g) What is the median pupil-teacher ratio among the towns in this
+data set?
+(h) Which suburb of Boston has lowest median value of owner-
+occupied homes? What are the values of the other predictors
+for that suburb, and how do those values compare to the overall
+ranges for those predictors? Comment on your findings.
+(i) In this data set, how many of the suburbs average more than
+seven rooms per dwelling? More than eight rooms per dwelling?
+Comment on the suburbs that average more than eight rooms
+per dwelling.

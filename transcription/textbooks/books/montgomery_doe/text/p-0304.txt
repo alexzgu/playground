@@ -1,0 +1,96 @@
+288
+Chapter 6 ■The 2k Factorial Design
+In Example 6.6, we concluded that there was no indication of quadratic effects; that is,
+a rst-order model in A, C, D, along with the AC, and AD interaction is appropriate. However,
+there will be situations where the quadratic terms 
+will be required. To illustrate for the
+case of k 2 design factors, suppose that the curvature test is signicant so that we will now
+have to assume a second-order model such as
+Unfortunately, we cannot estimate the unknown parameters (the ’s) in this model because
+there are six parameters to estimate and the 22 design and center points in Figure 6.38 have
+only ve independent runs.
+A simple and highly effective solution to this problem is to augment the 2k design with
+four axial runs, as shown in Figure 6.39a for the case of k 2. The resulting design, called a
+central composite design, can now be used to t the second-order model. Figure 6.39b shows
+a central composite design for k 3 factors. This design has 14  nC runs (usually 
+and is a very efcient design for tting the 10-parameter second-order model in k 3 factors.
+3 nC 5)
+y 0 1x1 2x2 12x1x2 11x2
+1 22x2
+2 
+(x2
+i)
+■F I G U R E 6 . 3 9
+Central composite designs
+■TA B L E 6 . 2 4
+(Continued)
+ANOVA for the Reduced Model
+Source of 
+Sum of 
+Mean
+Variation
+Squares
+DF
+Square
+F
+Prob F
+Model
+5535.81
+5
+1107.16
+59.02
+0.000
+A
+1870.56
+1
+1870.56
+99.71
+0.000
+C
+390.06
+1
+390.06
+20.79
+0.0005
+D
+855.56
+1
+855.56
+45.61
+0.000
+AC
+1314.06
+1
+1314.06
+70.05
+0.000
+AD
+1105.56
+1
+1105.56
+58.93
+0.000
+Pure quadratic 
+curvature
+1.51
+1
+1.51
+0.081
+0.7809
+Residual
+243.87
+13
+18.76
+Lack of ﬁt
+195.12
+10
+19.51
+1.20
+0.4942
+Pure error
+48.75
+3
+16.25
+Cor total
+5781.20
+19 

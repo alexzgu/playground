@@ -1,0 +1,72 @@
+196
+CHAPTER 6. JUMP PROCESSES
+and hence
+E[Xt −tm Fs] = Xs −sm
+This shows that Mt is a martingale and
+E[M 2
+t ] = E[(Xt −tm)2] = Var[Xt] = t σ2
+We call Mt = Xt −mt the P(-
+CPP) associated to Xt. It is a L´evy process. If L denotes the gen-
+erator for Xt, then Mt has generator
+LMf(x)
+=
+Lf(x) −mf ′(x)
+=
+∞
+−∞
+[f(x + y) −f(x) −y f ′(x)] dµ(y)
+(6.6)
+The quadratic variation of the CPP is dened as before
+⟨X⟩t = lim
+n∞
+
+j≤tn
+
+X
+j
+n
+
+−X
+j −1
+n
+2
+
+Note that the terms in the sum are zero unless there is a jump in the time
+interval [(j −1)n, jn]. Hence we see that
+⟨X⟩t =
+
+s≤t
+[Xs −Xs−]2
+Unlike the case of Brownian motion, for xed t the random variable ⟨X⟩t is
+not constant. We can similarly nd the quadratic variation of the martingale
+Mt = Xt −mt. By expanding the square, we see that this it is the limit as
+n →∞of three sums
+
+j≤tn
+
+X
+j
+n
+
+−X
+j −1
+n
+2
++2m
+n
+
+j≤tn
+
+X
+j
+n
+
+−X
+j −1
+n
+
++
+
+j≤tn
+m2
+n2 

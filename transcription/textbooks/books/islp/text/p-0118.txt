@@ -1,0 +1,46 @@
+3.4 The Marketing Plan
+109
+In the Credit data, a regression of balance on age, rating, and limit
+indicates that the predictors have VIF values of 1.01, 160.67, and 160.59.
+As we suspected, there is considerable collinearity in the data!
+When faced with the problem of collinearity, there are two simple solu-
+tions. The first is to drop one of the problematic variables from the regres-
+sion. This can usually be done without much compromise to the regression
+fit, since the presence of collinearity implies that the information that this
+variable provides about the response is redundant in the presence of the
+other variables. For instance, if we regress balance onto age and limit,
+without the rating predictor, then the resulting VIF values are close to
+the minimum possible value of 1, and the R2 drops from 0.754 to 0.75.
+So dropping rating from the set of predictors has effectively solved the
+collinearity problem without compromising the fit. The second solution is
+to combine the collinear variables together into a single predictor. For in-
+stance, we might take the average of standardized versions of limit and
+rating in order to create a new variable that measures credit worthiness.
+3.4
+The Marketing Plan
+We now briefly return to the seven questions about the Advertising data
+that we set out to answer at the beginning of this chapter.
+1. Is there a relationship between sales and advertising budget?
+This question can be answered by fitting a multiple regression model
+of sales onto TV, radio, and newspaper, as in (3.20), and testing the
+hypothesis H0 : βTV = βradio = βnewspaper = 0. In Section 3.2.2,
+we showed that the F-statistic can be used to determine whether
+or not we should reject this null hypothesis. In this case the p-value
+corresponding to the F-statistic in Table 3.6 is very low, indicating
+clear evidence of a relationship between advertising and sales.
+2. How strong is the relationship?
+We discussed two measures of model accuracy in Section 3.1.3. First,
+the RSE estimates the standard deviation of the response from the
+population regression line. For the Advertising data, the RSE is 1.69
+units while the mean value for the response is 14.022, indicating a
+percentage error of roughly 12 %. Second, the R2 statistic records
+the percentage of variability in the response that is explained by
+the predictors. The predictors explain almost 90 % of the variance in
+sales. The RSE and R2 statistics are displayed in Table 3.6.
+3. Which media are associated with sales?
+To answer this question, we can examine the p-values associated with
+each predictor’s t-statistic (Section 3.1.2). In the multiple linear re-
+gression displayed in Table 3.4, the p-values for TV and radio are low,
+but the p-value for newspaper is not. This suggests that only TV and
+radio are related to sales. In Chapter 6 we explore this question in
+greater detail.

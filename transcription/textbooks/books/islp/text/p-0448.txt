@@ -1,0 +1,49 @@
+10.9 Lab: Deep Learning
+441
+recognized by torch using TensorDataset().
+Tensor
+Dataset()
+In [21]: X_train_t = torch.tensor(X_train.astype(np.float32))
+Y_train_t = torch.tensor(Y_train.astype(np.float32))
+hit_train = TensorDataset(X_train_t, Y_train_t)
+We do the same for the test data.
+In [22]: X_test_t = torch.tensor(X_test.astype(np.float32))
+Y_test_t = torch.tensor(Y_test.astype(np.float32))
+hit_test = TensorDataset(X_test_t, Y_test_t)
+Finally, this dataset is passed to a DataLoader() which ultimately passes
+data into our network. While this may seem like a lot of overhead, this
+structure is helpful for more complex tasks where data may live on different
+machines, or where data must be passed to a GPU. We provide a helper
+function SimpleDataModule() in ISLP to make this task easier for standard SimpleData
+Module()
+usage. One of its arguments is num_workers, which indicates how many
+processes we will use for loading the data. For small data like Hitters
+this will have little effect, but it does provide an advantage for the MNIST
+and CIFAR100 examples below. The torch package will inspect the process
+running and determine a maximum number of workers.25 We’ve included a
+function rec_num_workers() to compute this so we know how many workers
+might be reasonable (here the max was 16).
+In [23]: max_num_workers = rec_num_workers()
+The general training setup in pytorch_lightning involves training, vali-
+dation and test data. These are each represented by different data loaders.
+During each epoch, we run a training step to learn the model and a vali-
+dation step to track the error. The test data is typically used at the end of
+training to evaluate the model.
+In this case, as we had split only into test and training, we’ll use the
+test data as validation data with the argument validation=hit_test. The
+validation argument can be a float between 0 and 1, an integer, or a
+Dataset. If a float (respectively, integer), it is interpreted as a percentage
+(respectively number) of the training observations to be used for validation.
+If it is a Dataset, it is passed directly to a data loader.
+In [24]: hit_dm = SimpleDataModule(hit_train,
+hit_test,
+batch_size=32,
+num_workers=min(4, max_num_workers),
+validation=hit_test)
+Next we must provide a pytorch_lightning module that controls the
+steps performed during the training process. We provide methods for our
+SimpleModule() that simply record the value of the loss function and any
+additional metrics at the end of each epoch. These operations are controlled
+by the methods SimpleModule.[training/test/validation]_step(), though
+we will not be modifying these in our examples.
+25This depends on the computing hardware and the number of cores available.

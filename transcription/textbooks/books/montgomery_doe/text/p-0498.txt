@@ -1,0 +1,94 @@
+482
+Chapter 11 ■Response Surface Methods and Designs
+The engineer decides that the region of exploration for tting the rst-order model should be (30, 40) minutes of reac-
+tion time and (150, 160) Fahrenheit. To simplify the calculations, the independent variables will be coded to the usual (1, 1)
+interval. Thus, if 1 denotes the natural variable time and 2 denotes the natural variable temperature, then the coded
+variables are
+The experimental design is shown in Table 11.1. Note that the design used to collect these data is a 22 factorial augmented
+by ve center points. Replicates at the center are used to estimate the experimental error and to allow for checking the
+adequacy of the rst-order model. Also, the design is centered about the current operating conditions for the process.
+A rst-order model may be t to these data by least squares. Employing the methods for two-level designs, we obtain
+the following model in the coded variables:
+Before exploring along the path of steepest ascent, the adequacy of the rst-order model should be investigated. The 22
+design with center points allows the experimenter to
+1. Obtain an estimate of error.
+2. Check for interactions (cross-product terms) in the model.
+3. Check for quadratic effects (curvature).
+The replicates at the center can be used to calculate an estimate of error as follows:
+The rst-order model assumes that the variables x1 and x2 have an additive effect on the response. Interaction between the
+variables would be represented by the coefcient 12 of a cross-product term x1x2 added to the model. The least squares
+estimate of this coefcient is just one-half the interaction effect calculated as in an ordinary 22 factorial  design, or
+The single-degree-of-freedom sum of squares for interaction is
+SSInteraction (0.1)2
+4
+0.0025
+ˆ 12 
+1
+4 [(1 39.3) (1 41.5) (1 40.0) (1 40.9)] 
+1
+4 (0.1) 0.025
+ˆ 2 (40.3)2 (40.5)2 (40.7)2 (40.2)2 (40.6)2 (202.3)2/5
+4
+0.0430
+yˆ 40.44 0.775x1 0.325x2
+x1 1 35
+5
+ and x2 2 155
+5
+■TA B L E 1 1 . 1
+Process Data for Fitting the First-Order Model
+Natural
+Coded 
+Variables
+Variables
+Response
+1
+2
+x1
+x2
+y
+30
+150
+1
+1
+39.3
+30
+160
+1
+1
+40.0
+40
+150
+1
+1
+40.9
+40
+160
+1
+1
+41.5
+35
+155
+0
+0
+40.3
+35
+155
+0
+0
+40.5
+35
+155
+0
+0
+40.7
+35
+155
+0
+0
+40.2
+35
+155
+0
+0
+40.6

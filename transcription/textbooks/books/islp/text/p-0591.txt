@@ -1,0 +1,58 @@
+13.6 Lab: Multiple Testing
+585
+In [7]: true_mean = np.array([1]*50 + [0]*50)
+X = rng.standard_normal((10, 100))
+X += true_mean[None,:]
+for i in range(100):
+p_values[i] = ttest_1samp(X[:,i], 0).pvalue
+decision = pd.cut(p_values,
+[0, 0.05, 1],
+labels=['Reject H0',
+'Do not reject H0'])
+truth = pd.Categorical(true_mean == 0,
+categories=[True, False],
+ordered=True)
+pd.crosstab(decision,
+truth,
+rownames=['Decision'],
+colnames=['H0'])
+Out[7]:
+H0
+True
+False
+Decision
+Reject H0
+2
+40
+Do not reject H0
+48
+10
+13.6.2
+Family-Wise Error Rate
+Recall from (13.5) that if the null hypothesis is true for each of m inde-
+pendent hypothesis tests, then the FWER is equal to 1 −(1 −α)m. We
+can use this expression to compute the FWER for m = 1, . . . , 500 and
+α = 0.05, 0.01, and 0.001. We plot the FWER for these values of α in order
+to reproduce Figure 13.2.
+In [8]: m = np.linspace(1, 501)
+fig, ax = plt.subplots()
+[ax.plot(m,
+1 - (1 - alpha)**m,
+label=r'$\alpha=%s$' % str(alpha))
+for alpha in [0.05, 0.01, 0.001]]
+ax.set_xscale('log')
+ax.set_xlabel('Number of Hypotheses')
+ax.set_ylabel('Family-Wise Error Rate')
+ax.legend()
+ax.axhline(0.05, c='k', ls='--');
+As discussed previously, even for moderate values of m such as 50, the
+FWER exceeds 0.05 unless α is set to a very low value, such as 0.001. Of
+course, the problem with setting α to such a low value is that we are likely
+to make a number of Type II errors: in other words, our power is very low.
+We now conduct a one-sample t-test for each of the first five managers
+in the Fund dataset, in order to test the null hypothesis that the jth fund
+manager’s mean return equals zero, H0,j : µj = 0.
+In [9]: Fund = load_data('Fund')
+fund_mini = Fund.iloc[:,:5]
+fund_mini_pvals = np.empty(5)
+for i in range(5):

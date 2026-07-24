@@ -1,0 +1,67 @@
+or
+Because condition 2 is also satised in block 2, this design blocks orthogonally.
+In general, the central composite design can always be constructed to block orthogonally
+in two blocks, with the rst block consisting of nF factorial points plus nCF center points and
+the second block consisting of nA 2k axial points plus nCA center points. The rst condition
+for orthogonal blocking will always hold regardless of the value used for in the design. For
+the second condition to hold,
+(11.17)
+The left-hand side of Equation 11.17 is 22/nF, and after substituting in this quantity, we may
+solve the equation for the value of that will result in orthogonal blocking as
+(11.18)
+This value of does not, in general, result in a rotatable or spherical design. If the
+design is also required to be rotatable, then (nF)1/4 and
+(11.19)
+It is not always possible to nd a design that exactly satises Equation 11.19. For example if
+k 3, nF 8, and nA 6, Equation 11.19 reduces to
+It is impossible to nd values of nCA and nCF that exactly satisfy this last equation. However,
+note that if nCF 3 and nCA 2, then the right-hand side is
+so the design nearly blocks orthogonally. In practice, one could relax somewhat the require-
+ment of either rotatability or orthogonal blocking without any major loss of information.
+The central composite design is very versatile in its ability to accommodate blocking. If k
+is large enough, the factorial portion of the design can be divided into two or more blocks. (The
+number of factorial blocks must be a power of 2, with the axial portion forming a single block.)
+Table 11.11 presents several useful blocking arrangements for the central composite design.
+There are two important points about the analysis of variance when the response surface
+design has been run in blocks. The rst concerns the use of center points to calculate an estimate
+of pure error. Only center points that are run in the same block can be considered to be replicates,
+so the pure error term can only be calculated within each block. If the variability is consistent
+across blocks, then these pure error estimates could be pooled. The second point concerns the
+block effect. If the design blocks orthogonally in m blocks, the sum of squares for blocks is
+(11.20)
+SSBlocks 
+m
+b1
+B2
+b
+nb G2
+N
+48 8(2)
+16 2(3) 2.91
+ 2.83 48 8nCA
+16 2nCF
+ (8)1/2 8(6 nCA)
+2(8 nCF)
+(nF)1/2 nF(nA nCA)
+2(nF nCF)
+
+nF(nA nCA)
+2(nF nCF)
+1/2
+
+n2
+u
+x2
+iu
+
+n1
+u
+x2
+iu
+nA nCA
+nF nCF
+4
+8 6
+12
+510
+Chapter 11 ■Response Surface Methods and Designs

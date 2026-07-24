@@ -1,0 +1,114 @@
+340
+Chapter 8 ■Two-Level Fractional Factorial Designs
+Fi
+–0.4
+0.1
+0.6
+1.1
+1.6
+2.1
+2.6
+.01
+1
+5
+20
+50
+95
+C
+99.9
+99
+80
+Normal probability, (1 – Pj) × 100
+Pj × 100
+.01
+1
+5
+20
+50
+80
+95
+99
+99.9
+*
+–
+–
+–
++
++
++
+B, Screw speed
+C, Holding
+time
+A, Mold temperature
+y = 10.0
+R = 10    
+–
+y = 56.0
+R = 8
+–
+y = 11.0
+  R = 2
+–
+y = 10.0
+  R = 12      
+–
+y = 33.0
+R = 2
+–
+y = 60.0
+R = 0
+–
+y = 31.5
+  R = 11      
+–
+y = 7.0
+  R = 2
+–
+■F I G U R E 8 . 1 6
+Normal probability plot of
+the dispersion effects 
+for Example 8.4
+F*i
+■F I G U R E 8 . 1 7
+Average
+shrinkage and range of shrinkage in
+factors A, B, and C for Example 8.4
+8.4
+The General 2kp Fractional Factorial Design
+8.4.1
+Choosing a Design
+A 2k fractional factorial design containing 2kp runs is called a 1/2p fraction of the 2k design
+or, more simply, a 2kp fractional factorial design. These designs require the selection of p
+independent generators. The dening relation for the design consists of the p generators ini-
+tially chosen and their 2p p 1 generalized interactions. In this section, we discuss the
+construction and analysis of these designs.
+The alias structure may be found by multiplying each effect column by the dening
+relation. Care should be exercised in choosing the generators so that effects of potential inter-
+est are not aliased with each other. Each effect has 2p 1 aliases. For moderately large val-
+ues of k, we usually assume higher order interactions (say, third- or fourth-order and higher)
+to be negligible, and this greatly simplies the alias structure.
+It is important to select the p generators for a 2kp fractional factorial design in such a
+way that we obtain the best possible alias relationships. A reasonable criterion is to select 
+the generators such that the resulting 2kp design has the highest possible resolution. To
+illustrate, consider the 
+design in Table 8.9, where we used the generators E ABC and
+F BCD, thereby producing a design of resolution IV. This is the maximum resolution
+design. If we had selected E ABC and F ABCD, the complete dening relation would
+have been I ABCE ABCDF DEF, and the design would be of resolution III. Clearly,
+this is an inferior choice because it needlessly sacrices information about interactions.
+Sometimes resolution alone is insufcient to distinguish between designs. For example,
+consider the three 
+designs in Table 8.13. All of these designs are of resolution IV, but they
+have rather different alias structures (we have assumed that three-factor and higher interac-
+tions are negligible) with respect to the two-factor interactions. Clearly, design A has more
+extensive aliasing and design C the least, so design C would be the best choice for a 
+.
+The three word lengths in design A are all 4; that is, the word length pattern is {4, 4,
+4}. For design B it is {4, 4, 6}, and for design C it is {4, 5, 5}. Notice that the dening rela-
+tion for design C has only one four-letter word, whereas the other designs have two or three.
+272
+IV
+272
+IV
+262
+IV

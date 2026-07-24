@@ -1,0 +1,46 @@
+542
+12. Unsupervised Learning
+Iteration: 1, MSS:0.395, Rel.Err 5.99e-01
+Iteration: 2, MSS:0.382, Rel.Err 1.33e-02
+Iteration: 3, MSS:0.381, Rel.Err 1.44e-03
+Iteration: 4, MSS:0.381, Rel.Err 1.79e-04
+Iteration: 5, MSS:0.381, Rel.Err 2.58e-05
+Iteration: 6, MSS:0.381, Rel.Err 4.22e-06
+Iteration: 7, MSS:0.381, Rel.Err 7.65e-07
+Iteration: 8, MSS:0.381, Rel.Err 1.48e-07
+Iteration: 9, MSS:0.381, Rel.Err 2.95e-08
+We see that after eight iterations, the relative error has fallen below
+thresh = 1e-7, and so the algorithm terminates. When this happens, the
+mean squared error of the non-missing elements equals 0.381.
+Finally, we compute the correlation between the 20 imputed values and
+the actual values:
+In [31]: np.corrcoef(Xapp[ismiss], X[ismiss])[0,1]
+Out[31]: 0.711
+In this lab, we implemented Algorithm 12.1 ourselves for didactic pur-
+poses. However, a reader who wishes to apply matrix completion to their
+data might look to more specialized Python implementations.
+12.5.3
+Clustering
+K-Means Clustering
+The estimator sklearn.cluster.KMeans() performs K-means clustering in Kmeans()
+Python. We begin with a simple simulated example in which there truly are
+two clusters in the data: the first 25 observations have a mean shift relative
+to the next 25 observations.
+In [32]: np.random.seed(0);
+X = np.random.standard_normal((50,2));
+X[:25,0] += 3;
+X[:25,1] -= 4;
+We now perform K-means clustering with K = 2.
+In [33]: kmeans = KMeans(n_clusters=2,
+random_state=2,
+n_init=20).fit(X)
+We specify random_state to make the results reproducible. The cluster as-
+signments of the 50 observations are contained in kmeans.labels_.
+In [34]: kmeans.labels_
+Out[34]: array([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], dtype=int32)
+The K-means clustering perfectly separated the observations into two clus-
+ters even though we did not supply any group information to KMeans(). We
+can plot the data, with each observation colored according to its cluster
+assignment.

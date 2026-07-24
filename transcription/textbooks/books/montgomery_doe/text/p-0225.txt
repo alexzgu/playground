@@ -1,0 +1,171 @@
+5.4 The General Factorial Design
+209
+and the sums of squares for the main effects are calculated
+from Equations 5.28, 5.29, and 5.30 as
+and
+To calculate the sums of squares for the two-factor inter-
+actions, we must nd the two-way cell totals. For example,
+to nd the carbonation–pressure or AB interaction, we need
+the totals for the A B cells {yij..} shown in Table 5.13.
+Using Equation 5.31, we nd the sums of squares as
+The carbonation–speed or AC interaction uses the A C
+cell totals {yi.k.} shown in Table 5.13 and Equation 5.32:
+The pressure–speed or BC interaction is found from the B 
+C cell totals {y.jk.} shown in Table 5.13 and Equation 5.33:
+ 1.042
+45.375 22.042
+1
+6 [(6)2 (15)2 (20)2 (34)2] (75)2
+24
+SSBC 1
+an 
+b
+j1 
+c
+k1
+y2
+.jk. y2
+....
+abcn SSB SSC
+ 0.583
+(75)2
+24
+ 252.750 22.042
+1
+4 [(5)2 (1)2 (6)2 (14)2 (25)2 (34)2]
+SSAC 1
+bn 
+a
+i1 
+c
+k1
+y2
+i.k. y2
+....
+abcn SSA SSC
+ 5.250
+(75)2
+24
+252.750 45.375
+1
+4 [(5)2 (1)2 (4)2 (16)2 (22)2 (37)2]
+SSAB 1
+cn 
+a
+i1 
+b
+j1
+y2
+ij.. y2
+....
+abcn SSA SSB
+
+1
+12 [(26)2 (49)2] (75)2
+24
+22.042
+SSSpeed 
+1
+abn 
+c
+k1
+y2
+..k. y2
+....
+abcn
+
+1
+12 [(21)2 (54)2] (75)2
+24
+45.375
+SSPressure 
+1
+acn 
+b
+j1
+y2
+.j.. y2
+....
+abcn
+(75)2
+24
+252.750
+1
+8 [(4)2 (20)2 (59)2]
+SSCarbonation 
+1
+bcn 
+a
+i1
+y2
+i... y2
+....
+abcn
+The three-factor interaction sum of squares is found
+from the A B C cell totals {yijk.}, which are circled in
+Table 5.13. From Equation 5.34a, we nd
+Finally, noting that
+we have
+The ANOVA is summarized in Table 5.14. We see that
+the percentage of carbonation, operating pressure, and line
+speed signicantly affect the ll volume. The carbonation-
+pressure interaction F ratio has a P-value of 0.0558, indi-
+cating some interaction between these factors.
+The next step should be an analysis of the residuals from
+this experiment. We leave this as an exercise for the reader but
+point out that a normal probability plot of the residuals and the
+other usual diagnostics do not indicate any major concerns.
+To assist in the practical interpretation of this experiment,
+Figure 5.16 presents plots of the three main effects and the AB
+(carbonation–pressure) interaction. The main effect plots are
+just graphs of the marginal response averages at the levels of
+the three factors. Notice that all three variables have positive
+main effects; that is, increasing the variable moves the aver-
+age deviation from the ll target upward. The interaction
+between carbonation and pressure is fairly small, as shown by
+the similar shape of the two curves in Figure 5.16d.
+Because the company wants the average deviation from
+the ll target to be close to zero, the engineer decides to rec-
+ommend the low level of operating pressure (25 psi) and the
+high level of line speed (250 bpm, which will maximize the
+production rate). Figure 5.17 plots the average observed
+deviation from the target ll height at the three different car-
+bonation levels for this set of operating conditions. Now the
+carbonation level cannot presently be perfectly controlled in
+the manufacturing process, and the normal distribution
+shown with the solid curve in Figure 5.17 approximates 
+8.500
+336.625 328.125
+SSE SST SSSubtotals(ABC)
+SSSubtotals(ABC) 1
+n 
+a
+i1 
+b
+j1 
+c
+k1
+y2
+ijk. y2
+....
+abcn 328.125
+1.083
+5.250 0.583 1.042
+(75)2
+24
+252.750 45.375 22.042
+1
+2 [(4)2 (1)2 (1)2 Á (16)2 (21)2]
+SSAB SSAC SSBC
+SSABC 1
+n 
+a
+i1 
+b
+j1 
+c
+k1
+y2
+ijk. y2
+....
+abcn SSA SSB SSC

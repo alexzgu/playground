@@ -1,0 +1,46 @@
+8.2 Bagging, Random Forests, Boosting, and Bayesian Additive Regression Trees
+345
+use a value of B sufficiently large that the error has settled down. Using
+B = 100 is sufficient to achieve good performance in this example.
+Out-of-Bag Error Estimation
+It turns out that there is a very straightforward way to estimate the test
+error of a bagged model, without the need to perform cross-validation or
+the validation set approach. Recall that the key to bagging is that trees are
+repeatedly fit to bootstrapped subsets of the observations. One can show
+that on average, each bagged tree makes use of around two-thirds of the
+observations.3 The remaining one-third of the observations not used to fit a
+given bagged tree are referred to as the out-of-bag (OOB) observations. We out-of-bag
+can predict the response for the ith observation using each of the trees in
+which that observation was OOB. This will yield around B/3 predictions
+for the ith observation. In order to obtain a single prediction for the ith
+observation, we can average these predicted responses (if regression is the
+goal) or can take a majority vote (if classification is the goal). This leads
+to a single OOB prediction for the ith observation. An OOB prediction
+can be obtained in this way for each of the n observations, from which the
+overall OOB MSE (for a regression problem) or classification error (for a
+classification problem) can be computed. The resulting OOB error is a valid
+estimate of the test error for the bagged model, since the response for each
+observation is predicted using only the trees that were not fit using that
+observation. Figure 8.8 displays the OOB error on the Heart data. It can
+be shown that with B sufficiently large, OOB error is virtually equivalent
+to leave-one-out cross-validation error. The OOB approach for estimating
+the test error is particularly convenient when performing bagging on large
+data sets for which cross-validation would be computationally onerous.
+Variable Importance Measures
+As we have discussed, bagging typically results in improved accuracy over
+prediction using a single tree. Unfortunately, however, it can be difficult to
+interpret the resulting model. Recall that one of the advantages of decision
+trees is the attractive and easily interpreted diagram that results, such as
+the one displayed in Figure 8.1. However, when we bag a large number of
+trees, it is no longer possible to represent the resulting statistical learning
+procedure using a single tree, and it is no longer clear which variables
+are most important to the procedure. Thus, bagging improves prediction
+accuracy at the expense of interpretability.
+Although the collection of bagged trees is much more difficult to interpret
+than a single tree, one can obtain an overall summary of the importance of
+each predictor using the RSS (for bagging regression trees) or the Gini index
+(for bagging classification trees). In the case of bagging regression trees, we
+can record the total amount that the RSS (8.1) is decreased due to splits
+over a given predictor, averaged over all B trees. A large value indicates
+an important predictor. Similarly, in the context of bagging classification
+3This relates to Exercise 2 of Chapter 5.

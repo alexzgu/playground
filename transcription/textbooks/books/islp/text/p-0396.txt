@@ -1,0 +1,68 @@
+9.6 Lab: Support Vector Machines
+389
+In [11]: X_test = rng.standard_normal((20, 2))
+y_test = np.array([-1]*10+[1]*10)
+X_test[y_test==1] += 1
+Now we predict the class labels of these test observations. Here we use the
+best model selected by cross-validation in order to make the predictions.
+In [12]: best_ = grid.best_estimator_
+y_test_hat = best_.predict(X_test)
+confusion_table(y_test_hat , y_test)
+Out[12]:
+Truth
+-1
+1
+Predicted
+-1
+8
+4
+1
+2
+6
+Thus, with this value of C, 70% of the test observations are correctly clas-
+sified. What if we had instead used C=0.001?
+In [13]: svm_ = SVC(C=0.001,
+kernel='linear').fit(X, y)
+y_test_hat = svm_.predict(X_test)
+confusion_table(y_test_hat , y_test)
+Out[13]:
+Truth
+-1
+1
+Predicted
+-1
+2
+0
+1
+8
+10
+In this case 60% of test observations are correctly classified.
+We now consider a situation in which the two classes are linearly sepa-
+rable. Then we can find an optimal separating hyperplane using the SVC()
+estimator. We first further separate the two classes in our simulated data
+so that they are linearly separable:
+In [14]: X[y==1] += 1.9;
+fig, ax = subplots(figsize=(8,8))
+ax.scatter(X[:,0], X[:,1], c=y, cmap=cm.coolwarm);
+Now the observations are just barely linearly separable.
+In [15]: svm_ = SVC(C=1e5, kernel='linear').fit(X, y)
+y_hat = svm_.predict(X)
+confusion_table(y_hat, y)
+Out[15]:
+Truth
+-1
+1
+Predicted
+-1
+25
+0
+1
+0
+25
+We fit the support vector classifier and plot the resulting hyperplane, using
+a very large value of C so that no observations are misclassified.
+In [16]: fig, ax = subplots(figsize=(8,8))
+plot_svm(X,
+y,
+svm_,
+ax=ax)

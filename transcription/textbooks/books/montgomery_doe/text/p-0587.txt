@@ -1,0 +1,352 @@
+12.6 Problems
+571
+Notice that we have used the notation system of 0, 1, and 2 to
+represent the low, medium, and high levels for the factors. We
+have also used a “geometric notation” of 1, 0, and 1. Each
+run in the design is replicated twice.
+(a) Verify that the second-order model
+is a reasonable model for this experiment. Sketch the
+CO concentration contours in the x1, x2 space.
+(b) Now suppose that instead of only two factors, we had
+used four factors in a 342 fractional factorial design
+and obtained exactly the same data as in part (a). The
+design would be as follows:
+Design
+Obser-
+A
+B
+C
+D
+x1
+x2
+x3
+x4
+vations y
+0
+0
+0
+0
+1
+1
+1
+1
+66
+62
+1
+0
+1
+1
+0
+1
+0
+0
+78
+81
+2
+0
+2
+2
+1
+1
+1
+1
+90
+94
+0
+1
+2
+1
+1
+0
+1
+0
+72
+67
+1
+1
+0
+2
+0
+0
+1
+1
+80
+81
+2
+1
+1
+0
+1
+0
+0
+1
+75
+78
+0
+2
+1
+2
+1
+1
+0
+1
+68
+66
+1
+2
+2
+0
+0
+1
+1
+1
+66
+69
+2
+2
+0
+1
+1
+1
+1
+0
+60
+58
+Calculate the marginal averages of the CO response at
+each level of the four factors A, B, C, and D. Construct
+plots of these marginal averages and interpret the
+results. Do factors C and D appear to have strong
+effects? Do these factors really have any effect on CO
+emission? Why is their apparent effect strong?
+(c) The design in part (b) allows the model
+to be tted. Suppose that the true model is
+Show that if 
+represents the least squares estimate of
+the coefcients in the tted model, then
+E(ˆ
+22) 22 (13 14 34)/2
+E(ˆ
+11) 11 (23 24)/2
+E(ˆ
+4) 4 (12 23)/2
+E(ˆ
+3) 3 (12 24)/2
+E(ˆ
+2) 2 (13 14 34)/2
+E(ˆ
+1) 1 (23 24)/2
+E(ˆ
+0) 0 13 14 34
+ˆ
+i
+
+i!j
+ijxixj 
+y 0 
+4
+i1
+ixi 
+4
+i1
+ijx2
+i
+y 0 
+4
+i1
+ixi 
+4
+i1
+ix 2
+i 
+ 4.5x 2
+1 4.0x 2
+2 9.0x1x2
+yˆ 78.5 4.5x1 7.0x2
+Does this help explain the strong effects for factors C
+and D observed graphically in part (b)?
+12.11. An experiment has been run in a process that applies
+a coating material to a wafer. Each run in the experiment pro-
+duced a wafer, and the coating thickness was measured sever-
+al times at different locations on the wafer. Then the mean y1
+and the standard deviation y2 of the thickness measurement
+were obtained. The data [adapted from Box and Draper
+(2007)] are shown in the Table P12.1:
+■TA B L E P 1 2 . 1
+The Coating Experiment in Problem 12.11
+Mean 
+Std. 
+Run
+Speed
+Pressure
+Distance
+y1
+Dev. y2
+1
+1
+1
+1
+24.0
+12.5
+2
+0
+1
+1
+120.3
+8.4
+3
+1
+1
+1
+213.7
+42.8
+4
+1
+0
+1
+86.0
+3.5
+5
+0
+0
+1
+136.6
+80.4
+6
+1
+0
+1
+340.7
+16.2
+7
+1
+1
+1
+112.3
+27.6
+8
+0
+1
+1
+256.3
+4.6
+9
+1
+1
+1
+271.7
+23.6
+10
+1
+1
+0
+81.0
+0.0
+11
+0
+1
+0
+101.7
+17.7
+12
+1
+1
+0
+357.0
+32.9
+13
+1
+0
+0
+171.3
+15.0
+14
+0
+0
+0
+372.0
+0.0
+15
+1
+0
+0
+501.7
+92.5
+16
+1
+1
+0
+264.0
+63.5
+17
+0
+1
+0
+427.0
+88.6
+18
+1
+1
+0
+730.7
+21.1
+19
+1
+1
+1
+220.7
+133.8
+20
+0
+1
+1
+239.7
+23.5
+21
+1
+1
+1
+422.0
+18.5
+22
+1
+0
+1
+199.0
+29.4
+23
+0
+0
+1
+485.3
+44.7
+24
+1
+0
+1
+673.7
+158.2
+25
+1
+1
+1
+176.7
+55.5
+26
+0
+1
+1
+501.0
+138.9
+27
+1
+1
+1
+1010.0
+142.4
+(a) What type of design did the experimenters use? Is this
+a good choice of design for tting a quadratic model?
+(b) Build models of both responses.
+E(ˆ
+44) 44 (12 23)/2 13
+E(ˆ
+33) 33 (24 12)/2 14

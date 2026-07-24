@@ -1,0 +1,60 @@
+variance over the design space, say
+where R is the design region and A is the volume of the region. Note that this is a more gen-
+eral form of the I-criterion discussed in Chapter 6. The I criterion is also sometimes called the
+IV or Q criterion. JMP can construct I-optimal designs.
+Generally, we think of the D criteria as the most appropriate for rst-oder designs, as
+they are associated with parameter estimation, which is very important in screening situations
+where rst-order model are most often used. The G and I criteria are prediction-oriented cri-
+teria, so they would be most likely used for second-order models, as second-order models are
+often used for optimization, and good prediction properties are essential for optimization. The
+I criteria is much easier to implement than G, and is available in several software packages.
+One of the design construction methods is based on a point exchange algorithm. In the
+simplest form of this algorithm, a grid of candidate points is selected by the experimenter, and
+an initial design is selected (perhaps by random) from this set of points. Then the algorithm
+exchanges points that are in the grid but not in the design with points currently in the design
+in an effort to improve the selected optimality criterion. Because not every possible design is
+explicitly evaluated, there is no guarantee that an optimal design has been found, but the
+exchange procedure usually ensures that a design that is “close” to optimal results. The proce-
+dure is also sensitive to the grid of candidate points that have been specied. Some implemen-
+tations repeat the design construction process several times, starting from different initial
+designs, to increase the likelihood that a nal design that is very near the optimal will result.
+Another way to construct optimal design is with a coordinate exchange algorithm.
+This method searches over each coordinate of every point in the initial design recursively until
+no improvement in the optimality criterion is found. The procedure is usually repeated sever-
+al times with each cycle starting with a randomly generated initial design. Coordinate
+exchange is usually much more efcient than point exchange and is the standard method in
+many software packages.
+To illustrate some of these ideas, consider the adhesive experiment discussed previously
+that led to the irregular experimental region in Figure 11.28. Suppose that the response of
+interest is pull-off force and that we wish to t a second-order model to this response. In
+Figure 11.29a, we show a central composite design with four center points (12 runs total)
+inscribed inside this region. This is not a rotatable design, but it is the largest CCD that we
+can t inside the design space. For this design, (XX)1 1.852 E-2 and the trace of
+(XX)1 is 6.375. Also shown in Figure 11.29a are the contours of constant standard deviation
+of the predicted response, calculated assuming that 1. Figure 11.29b shows the correspon-
+ding response surface plot.
+Figure 11.30a and Table 11.12 show a 12-run D-optimal design for this problem, gen-
+erated with the Design-Expert software package. For this design, |(XX)1| 2.153 E-4.
+Notice that the D-criterion is considerably better for this design than for the inscribed CCD.
+The relative efciency of the inscribed CCD to the D-optimal design is
+That is, the inscribed CCD is only 47.6 percent as efcient as the D-optimal design. This
+implies that the CCD would have to be replicated 1/0.476 2.1 times (or approximately
+twice) to have the same precision of estimation for the regression coefcients as achieved
+with the D-optimal design. The trace of (XX)1 is 2.516 for the D-optimal design, indicating
+that the sum of the variances of the regression coefcients is considerably smaller for this
+De 
+(X2 X2)1
+(X1 X1)1
+1/p
+
+0.0002153
+0.01852 
+1/6
+0.476
+
+
+I 1
+A
+RV[ˆy(x)]dx
+514
+Chapter 11 ■Response Surface Methods and Designs

@@ -1,0 +1,49 @@
+8.2 Bagging, Random Forests, Boosting, and Bayesian Additive Regression Trees
+347
+Hence the predictions from the bagged trees will be highly correlated. Un-
+fortunately, averaging many highly correlated quantities does not lead to
+as large of a reduction in variance as averaging many uncorrelated quan-
+tities. In particular, this means that bagging will not lead to a substantial
+reduction in variance over a single tree in this setting.
+Random forests overcome this problem by forcing each split to consider
+only a subset of the predictors. Therefore, on average (p −m)/p of the
+splits will not even consider the strong predictor, and so other predictors
+will have more of a chance. We can think of this process as decorrelating
+the trees, thereby making the average of the resulting trees less variable
+and hence more reliable.
+The main difference between bagging and random forests is the choice
+of predictor subset size m. For instance, if a random forest is built using
+m = p, then this amounts simply to bagging. On the Heart data, random
+forests using m = √p leads to a reduction in both test error and OOB error
+over bagging (Figure 8.8).
+Using a small value of m in building a random forest will typically be
+helpful when we have a large number of correlated predictors. We applied
+random forests to a high-dimensional biological data set consisting of ex-
+pression measurements of 4,718 genes measured on tissue samples from 349
+patients. There are around 20,000 genes in humans, and individual genes
+have different levels of activity, or expression, in particular cells, tissues,
+and biological conditions. In this data set, each of the patient samples has
+a qualitative label with 15 different levels: either normal or 1 of 14 different
+types of cancer. Our goal was to use random forests to predict cancer type
+based on the 500 genes that have the largest variance in the training set.
+We randomly divided the observations into a training and a test set, and
+applied random forests to the training set for three different values of the
+number of splitting variables m. The results are shown in Figure 8.10. The
+error rate of a single tree is 45.7 %, and the null rate is 75.4 %.4 We see that
+using 400 trees is sufficient to give good performance, and that the choice
+m = √p gave a small improvement in test error over bagging (m = p) in
+this example. As with bagging, random forests will not overfit if we increase
+B, so in practice we use a value of B sufficiently large for the error rate to
+have settled down.
+8.2.3
+Boosting
+We now discuss boosting, yet another approach for improving the predic- boosting
+tions resulting from a decision tree. Like bagging, boosting is a general
+approach that can be applied to many statistical learning methods for re-
+gression or classification. Here we restrict our discussion of boosting to the
+context of decision trees.
+Recall that bagging involves creating multiple copies of the original train-
+ing data set using the bootstrap, fitting a separate decision tree to each
+copy, and then combining all of the trees in order to create a single predic-
+4The null rate results from simply classifying each observation to the dominant class
+overall, which is in this case the normal class.

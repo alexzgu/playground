@@ -1,0 +1,50 @@
+358
+8. Tree-Based Methods
+cv=kfold,
+scoring='accuracy')
+grid.fit(X_train, High_train)
+grid.best_score_
+Out[14]: 0.685
+Let’s take a look at the pruned true.
+In [15]: ax = subplots(figsize=(12, 12))[1]
+best_ = grid.best_estimator_
+plot_tree(best_,
+feature_names=feature_names ,
+ax=ax);
+This is quite a bushy tree. We could count the leaves, or query best_ instead.
+In [16]: best_.tree_.n_leaves
+Out[16]: 30
+The tree with 30 terminal nodes results in the lowest cross-validation error
+rate, with an accuracy of 68.5%. How well does this pruned tree perform
+on the test data set? Once again, we apply the predict() function.
+In [17]: print(accuracy_score(High_test,
+best_.predict(X_test)))
+confusion = confusion_table(best_.predict(X_test),
+High_test)
+confusion
+Out[17]: 0.72
+Truth
+No
+Yes
+Predicted
+No
+108
+61
+Yes
+10
+21
+Now 72.0% of the test observations are correctly classified, which is
+slightly worse than the error for the full tree (with 35 leaves). So cross-
+validation has not helped us much here; it only pruned off 5 leaves, at
+a cost of a slightly worse error. These results would change if we were to
+change the random number seeds above; even though cross-validation gives
+an unbiased approach to model selection, it does have variance.
+8.3.2
+Fitting Regression Trees
+Here we fit a regression tree to the Boston data set. The steps are similar
+to those for classification trees.
+In [18]: Boston = load_data("Boston")
+model = MS(Boston.columns.drop('medv'), intercept=False)
+D = model.fit_transform(Boston)
+feature_names = list(D.columns)
+X = np.asarray(D)

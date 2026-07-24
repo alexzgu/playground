@@ -1,0 +1,31 @@
+Chapter 5
+Change of measure and
+Girsanov theorem
+5.1
+Absolutely continuous measures
+In order to state the Girsanov theorem in the next section, we will need
+to discuss absolute continuity and singularity of measures. For measures on
+discrete (countable) spaces, this is an elementary idea, but it is more subtle
+for uncountable spaces. We assume that we have a probability space (Ω, F)
+where Ωis the space of outcomes (sometimes called the ) and
+F is the collection of events. An event is a subset of Ω, and we assume that
+the set of events forms a σ-algebra (see Section 1.1). A () is
+a function µ : F →[0, ∞] such that µ(∅) = 0 and if A1, A2, are disjoint,
+µ
+∞
+
+n=1
+An
+
+=
+∞
+
+n=1
+µ(An)
+The measure µ is a () if µ(Ω) = 1.
+Denition Suppose µ, ν are measures on (Ω, F).
+ν is with respect to µ, written ν ≪µ, if for every
+E F, if µ(E) = 0, then ν(E) = 0.
+µ and ν are or measures if
+ν ≪µ and µ ≪ν.
+145

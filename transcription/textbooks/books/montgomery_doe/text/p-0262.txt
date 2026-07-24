@@ -1,0 +1,115 @@
+246
+Chapter 6 ■The 2k Factorial Design
+1
+8 [17] 2.125
+1617 2138 1589]
+1
+8 [1154 1319 1234 1277 2089
+BC 1
+4n [(1) a b ab c ac bc abc]
+1
+8 [1229] 153.625
+1617 2138 1589]
+1
+8 [1154 1319 1234 1277 2089
+AC 1
+4n [(1) a b ab c ac bc abc]
+1
+8 [199] 24.875
+1589 2138 1617 2089]
+1
+8 [1277 1319 1234 1154
+AB 1
+4n [ab a b (1) abc bc ac c]
+1
+8 [2449] 306.125
+1319 1234 1277]
+1
+8 [2089 1617 2138 1589 1154
+C 1
+4n [c ac bc abc (1) a b ab]
+1
+8 [59] 7.375
+1319 2089 1617]
+1
+8 [1234 1277 2138 1589 1154
+B 1
+4n [b ab bc abc (1) a c ac]
+and
+The largest effects are for power (C  306.125), gap 
+(A 101.625), and the power–gap interaction (AC 
+153.625).
+The sums of squares are calculated from Equation 6.18
+as follows:
+and
+The total sum of squares is SST  531,420.9375 and by
+subtraction SSE  18,020.50. Table 6.5 summarizes the
+effect estimates and sums of squares. The column labeled
+“percent contribution” measures the percentage contribu-
+tion of each model term relative to the total sum of squares.
+The percentage contribution is often a rough but effective
+guide to the relative importance of each model term. Note
+that the main effect of C (Power) really dominates this
+process, accounting for over 70 percent of the total variabil-
+ity, whereas the main effect of A (Gap) and the AC interac-
+tion account for about 8 and 18 percent, respectively.
+The ANOVA in Table 6.6 may be used to conrm the
+magnitude of these effects. We note from Table 6.6 that the
+main effects of Gap and Power are highly signicant (both
+have very small P-values). The AC interaction is also highly
+signicant; thus, there is a strong interaction between Gap
+and Power.
+SSABC (45)2
+16
+126.5625
+SSBC (17)2
+16
+18.0625
+SSAC (1229)2
+16
+94,402.5625
+SSAB (199)2
+16
+2475.0625
+SSC (2449)2
+16
+374,850.0625
+SSB (59)2
+16
+217.5625
+SSA (813)2
+16
+41,310.5625
+1
+8 [45] 5.625
+1234 1319 1154]
+1
+8 [1589 2138 1617 2089 1277
+ABC 1
+4n [abc bc ac c ab b a (1)]
+Power (C)
+Gap (A)
+C2 F6 Flow
+325 w 
+c = 2089 
+bc = 2138 
+ac = 1617 
+b = 1234 
+(1) = 1154 
+ab = 1277 
+a = 1319 
+abc = 1589 
+275 w 
+0.80 cm 
+1.20 cm 
+125 sccm 
+200 sccm 
+–
+–
+–
++
++
++
+■F I G U R E 6 . 6
+The 23 design for the plasma
+etch experiment for Example 6.1

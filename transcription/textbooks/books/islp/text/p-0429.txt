@@ -1,0 +1,68 @@
+422
+10. Deep Learning
+0
+5
+10
+15
+20
+25
+30
+35
+0.0
+0.4
+0.8
+Lag
+Autocorrelation Function
+FIGURE 10.15. The autocorrelation function for log_volume. We see that
+nearby values are fairly strongly correlated, with correlations above 0.2 as far as
+20 days apart.
+each other. To be clear, consider pairs of observations (vt, vt−ℓ), a lag of ℓlag
+days apart. If we take all such pairs in the vt series and compute their corre-
+lation coefficient, this gives the autocorrelation at lag ℓ. Figure 10.15 shows
+the autocorrelation function for all lags up to 37, and we see considerable
+correlation.
+Another interesting characteristic of this forecasting problem is that the
+response variable vt — log_volume — is also a predictor! In particular, we
+will use the past values of log_volume to predict values in the future.
+RNN forecaster
+We wish to predict a value vt from past values vt−1, vt−2, . . ., and also to
+make use of past values of the other series rt−1, rt−2, . . . and zt−1, zt−2, . . ..
+Although our combined data is quite a long series with 6,051 trading
+days, the structure of the problem is different from the previous document-
+classification example.
+• We only have one series of data, not 25,000.
+• We have an entire series of targets vt, and the inputs include past
+values of this series.
+How do we represent this problem in terms of the structure displayed in
+Figure 10.12? The idea is to extract many short mini-series of input se-
+quences X = {X1, X2, . . . , XL} with a predefined length L (called the lag lag
+in this context), and a corresponding target Y . They have the form
+X1 =
+
+
+vt−L
+rt−L
+zt−L
+
+, X2 =
+
+
+vt−L+1
+rt−L+1
+zt−L+1
+
+, · · · , XL =
+
+
+vt−1
+rt−1
+zt−1
+
+, and Y = vt.
+(10.20)
+So here the target Y is the value of log_volume vt at a single timepoint t,
+and the input sequence X is the series of 3-vectors {Xℓ}L
+1 each consisting
+of the three measurements log_volume, DJ_return and log_volatility from
+day t −L, t −L + 1, up to t −1. Each value of t makes a separate (X, Y )
+pair, for t running from L + 1 to T. For the NYSE data we will use the past

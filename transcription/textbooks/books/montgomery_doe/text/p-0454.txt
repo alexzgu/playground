@@ -1,0 +1,197 @@
+438
+Chapter 9 ■Additional Design and Analysis Topics for Factorial and Fractional Factorial Designs
+These minimum-run resolution IV designs are additional examples of nonregular frac-
+tional factorial designs. Design-Expert contains a selection of these designs for 5 k 50
+factors. Similar design can be created using the “custom designer” feature in JMP. Generally,
+these will be nonregular designs and there is no guarantee that they will be orthogonal. Like
+the no-confounding designs, these designs can be very useful alternatives to the standard 
+fractional factorial designs in screening problems where main effects are of primary interest
+but two-factor interactions cannot be completely ignored. If two-factor interactions prove to
+be important, in many cases these interactions can be estimated by using stepwise regression
+methods. In other cases follow-on experimentation will be necessary to determine which
+interaction effects are important.
+Small resolution V designs can be constructed similarly. Table 9.39 contains a nonreg-
+ular two-level fraction for k 6 factors and N 22 runs. Since the two-factor interaction
+model has 22 parameters, this is a minimum-run design. This design supports estimation of
+all main effect and two-factor interactions, just as the 
+will, but with 10 fewer runs.
+However, the design in Table 9.39 is not orthogonal, and this impacts the precision of estima-
+tion for effects and regression coefcients. The standard error of the regression model coef-
+cients ranges from 0.26to 0.29, while in the 
+, the corresponding standard errors are
+0.18.
+As a nal example, Table 9.40 presents a nonregular two-level fraction for k 8 fac-
+tors in N 38 runs. This design supports estimation of all main effect and two-factor inter-
+actions, just as the 
+will, but with 26 fewer runs. However, the nonorthogonality of the
+282
+V
+261
+VI
+261
+VI
+2kp
+IV
+■TA B L E 9 . 3 9
+A Resolution V Two-Level Fraction in k 6 Factors
+Run
+A
+B
+C
+D
+E
+F
+1
+
+
+
+
+
+
+2
+
+
+
+
+
+
+3
+
+
+
+
+
+
+4
+
+
+
+
+
+
+5
+
+
+
+
+
+
+6
+
+
+
+
+
+
+7
+
+
+
+
+
+
+8
+
+
+
+
+
+
+9
+
+
+
+
+
+
+10
+
+
+
+
+
+
+11
+
+
+
+
+
+
+12
+
+
+
+
+
+
+13
+
+
+
+
+
+
+14
+
+
+
+
+
+
+15
+
+
+
+
+
+
+16
+
+
+
+
+
+
+17
+
+
+
+
+
+
+18
+
+
+
+
+
+
+19
+
+
+
+
+
+
+20
+
+
+
+
+
+
+21
+
+
+
+
+
+
+22
+
+
+
+
+
+

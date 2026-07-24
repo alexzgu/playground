@@ -1,0 +1,339 @@
+(a) Estimate the factor effects. Plot the effect estimates on
+a normal probability plot and select a tentative model.
+(b) Fit the model identied in part (a) and analyze the
+residuals. Is there any indication of model inadequacy?
+(c) Repeat the analysis from parts (a) and (b) using ln (y)
+as the response variable. Is there an indication that the
+transformation has been useful?
+(d) Fit a model in terms of the coded variables that can be
+used to predict the resistivity.
+6.37.
+Continuation of Problem 6.36. Suppose that the
+experimenter had also run four center points along with the 16
+runs in Problem 6.36. The resistivity measurements at the cen-
+ter points are 8.15, 7.63, 8.95, and 6.48. Analyze the experi-
+ment again incorporating the center points. What conclusions
+can you draw now?
+6.38.
+The book by Davies (Design and Analysis of Industrial
+Experiments) describes an experiment to study the yield of
+isatin. The factors studied and their levels are as follows:
+Factor
+Low ()
+High ()
+A: Acid strength (%)
+87
+93
+B: Reaction time (min)
+15
+30
+C: Amount of acid (mL)
+35
+45
+D: Reaction temperature (C)
+60
+70
+The data from the 24 factorial is shown in Table P6.11.  
+(a) Fit a main-effects-only model to the data from this
+experiment. Are any of the main effects signicant?  
+(b) Analyze the residuals. Are there any indications of
+model inadequacy or violation of the assumptions?
+(c) Find an equation for predicting the yield of isatin over
+the design space. Express the equation in both coded
+and engineering units.
+(d) Is there any indication that adding interactions to the
+model would improve the results that you have
+obtained?
+■TA B L E P 6 . 1 1
+The 24 Factorial Experiment in Problem 6.38
+A
+B
+C
+D
+Yield
+1
+1
+1
+1
+6.08
+1
+1
+1
+1
+6.04
+1
+1
+1
+1
+6.53
+1
+1
+1
+1
+6.43
+1
+1
+1
+1
+6.31
+1
+1
+1
+1
+6.09
+1
+1
+1
+1
+6.12
+1
+1
+1
+1
+6.36
+1
+1
+1
+1
+6.79
+1
+1
+1
+1
+6.68
+1
+1
+1
+1
+6.73
+1
+1
+1
+1
+6.08
+1
+1
+1
+1
+6.77
+1
+1
+1
+1
+6.38
+1
+1
+1
+1
+6.49
+1
+1
+1
+1
+6.23
+6.39.
+An article in Quality and Reliability Engineering
+International (2010, Vol. 26, pp. 223–233) presents a 25 fac-
+torial design. The experiment is shown in Table P6.12.
+■TA B L E P 6 . 1 2
+The 25 Design in Problem 6.39
+A
+B
+C
+D
+E
+y
+1.00
+1.00
+1.00
+1.00
+1.00
+8.11
+1.00
+1.00
+1.00
+1.00
+1.00
+5.56
+1.00
+1.00
+1.00
+1.00
+1.00
+5.77
+1.00
+1.00
+1.00
+1.00
+1.00
+5.82
+1.00
+1.00
+1.00
+1.00
+1.00
+9.17
+1.00
+1.00
+1.00
+1.00
+1.00
+7.8
+1.00
+1.00
+1.00
+1.00
+1.00
+3.23
+1.00
+1.00
+1.00
+1.00
+1.00
+5.69
+1.00
+1.00
+1.00
+1.00
+1.00
+8.82
+1.00
+1.00
+1.00
+1.00
+1.00
+14.23
+1.00
+1.00
+1.00
+1.00
+1.00
+9.2
+1.00
+1.00
+1.00
+1.00
+1.00
+8.94
+1.00
+1.00
+1.00
+1.00
+1.00
+8.68
+1.00
+1.00
+1.00
+1.00
+1.00
+11.49
+1.00
+1.00
+1.00
+1.00
+1.00
+6.25
+1.00
+1.00
+1.00
+1.00
+1.00
+9.12
+1.00
+1.00
+1.00
+1.00
+1.00
+7.93
+1.00
+1.00
+1.00
+1.00
+1.00
+5
+1.00
+1.00
+1.00
+1.00
+1.00
+7.47
+1.00
+1.00
+1.00
+1.00
+1.00
+12
+1.00
+1.00
+1.00
+1.00
+1.00
+9.86
+1.00
+1.00
+1.00
+1.00
+1.00
+3.65
+1.00
+1.00
+1.00
+1.00
+1.00
+6.4
+1.00
+1.00
+1.00
+1.00
+1.00
+11.61
+1.00
+1.00
+1.00
+1.00
+1.00
+12.43
+1.00
+1.00
+1.00
+1.00
+1.00
+17.55
+1.00
+1.00
+1.00
+1.00
+1.00
+8.87
+1.00
+1.00
+1.00
+1.00
+1.00
+25.38
+1.00
+1.00
+1.00
+1.00
+1.00
+13.06
+1.00
+1.00
+1.00
+1.00
+1.00
+18.85
+1.00
+1.00
+1.00
+1.00
+1.00
+11.78
+1.00
+1.00
+1.00
+1.00
+1.00
+26.05
+6.10 Problems
+301

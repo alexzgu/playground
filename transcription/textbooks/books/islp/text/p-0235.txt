@@ -1,0 +1,42 @@
+5.4 Exercises
+227
+i. Fit a logistic regression model using all but the ith obser-
+vation to predict Direction using Lag1 and Lag2.
+ii. Compute the posterior probability of the market moving up
+for the ith observation.
+iii. Use the posterior probability for the ith observation in order
+to predict whether or not the market moves up.
+iv. Determine whether or not an error was made in predicting
+the direction for the ith observation. If an error was made,
+then indicate this as a 1, and otherwise indicate it as a 0.
+(e) Take the average of the n numbers obtained in (d)iv in order to
+obtain the LOOCV estimate for the test error. Comment on the
+results.
+8. We will now perform cross-validation on a simulated data set.
+(a) Generate a simulated data set as follows:
+rng = np.random.default_rng(1)
+x = rng.normal(size=100)
+y = x - 2 * x**2 + rng.normal(size=100)
+In this data set, what is n and what is p? Write out the model
+used to generate the data in equation form.
+(b) Create a scatterplot of X against Y . Comment on what you find.
+(c) Set a random seed, and then compute the LOOCV errors that
+result from fitting the following four models using least squares:
+i. Y = β0 + β1X + ϵ
+ii. Y = β0 + β1X + β2X2 + ϵ
+iii. Y = β0 + β1X + β2X2 + β3X3 + ϵ
+iv. Y = β0 + β1X + β2X2 + β3X3 + β4X4 + ϵ.
+Note you may find it helpful to use the data.frame() function
+to create a single data set containing both X and Y .
+(d) Repeat (c) using another random seed, and report your results.
+Are your results the same as what you got in (c)? Why?
+(e) Which of the models in (c) had the smallest LOOCV error? Is
+this what you expected? Explain your answer.
+(f) Comment on the statistical significance of the coefficient esti-
+mates that results from fitting each of the models in (c) using
+least squares. Do these results agree with the conclusions drawn
+based on the cross-validation results?
+9. We will now consider the Boston housing data set, from the ISLP
+library.
+(a) Based on this data set, provide an estimate for the population
+mean of medv. Call this estimate ˆµ.

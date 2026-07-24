@@ -1,0 +1,49 @@
+1. Introduction
+7
+In teaching these topics over the years, we have discovered that they are
+of interest to master’s and PhD students in fields as disparate as business
+administration, biology, and computer science, as well as to quantitatively-
+oriented upper-division undergraduates. It is important for this diverse
+group to be able to understand the models, intuitions, and strengths and
+weaknesses of the various approaches. But for this audience, many of the
+technical details behind statistical learning methods, such as optimiza-
+tion algorithms and theoretical properties, are not of primary interest.
+We believe that these students do not need a deep understanding of these
+aspects in order to become informed users of the various methodologies, and
+in order to contribute to their chosen fields through the use of statistical
+learning tools.
+ISL is based on the following four premises.
+1. Many statistical learning methods are relevant and useful in a wide
+range of academic and non-academic disciplines, beyond just the sta-
+tistical sciences. We believe that many contemporary statistical learn-
+ing procedures should, and will, become as widely available and used
+as is currently the case for classical methods such as linear regres-
+sion. As a result, rather than attempting to consider every possible
+approach (an impossible task), we have concentrated on presenting
+the methods that we believe are most widely applicable.
+2. Statistical learning should not be viewed as a series of black boxes. No
+single approach will perform well in all possible applications. With-
+out understanding all of the cogs inside the box, or the interaction
+between those cogs, it is impossible to select the best box. Hence, we
+have attempted to carefully describe the model, intuition, assump-
+tions, and trade-offs behind each of the methods that we consider.
+3. While it is important to know what job is performed by each cog, it is
+not necessary to have the skills to construct the machine inside the
+box! Thus, we have minimized discussion of technical details related
+to fitting procedures and theoretical properties. We assume that the
+reader is comfortable with basic mathematical concepts, but we do
+not assume a graduate degree in the mathematical sciences. For in-
+stance, we have almost completely avoided the use of matrix algebra,
+and it is possible to understand the entire book without a detailed
+knowledge of matrices and vectors.
+4. We presume that the reader is interested in applying statistical learn-
+ing methods to real-world problems. In order to facilitate this, as well
+as to motivate the techniques discussed, we have devoted a section
+within each chapter to computer labs. In each lab, we walk the reader
+through a realistic application of the methods considered in that chap-
+ter. When we have taught this material in our courses, we have al-
+located roughly one-third of classroom time to working through the
+labs, and we have found them to be extremely useful. Many of the
+less computationally-oriented students who were initially intimidated
+by the labs got the hang of things over the course of the quarter or
+semester. This book originally appeared (2013, second edition 2021)

@@ -1,0 +1,286 @@
+11.32.
+Table P11.9 shows a six-variable RSM design from
+Jones and Nachtsheim (2011b). Analyze the response data from
+this experiment.
+■TA B L E P 1 1 . 9  
+The Design for Problem 11.31
+Run (i)
+xi.1
+xi.2
+xi.3
+xi.4
+xi.5
+xi.6
+yi
+1
+0
+1
+1
+1
+1
+1
+21.04
+2
+0
+1
+1
+1
+1
+1
+10.48
+3
+1
+0
+1
+1
+1
+1
+17.89
+4
+1
+0
+1
+1
+1
+1
+10.07
+5
+1
+1
+0
+1
+1
+1
+7.74
+6
+1
+1
+0
+1
+1
+1
+21.01
+7
+1
+1
+1
+0
+1
+1
+16.53
+8
+1
+1
+1
+0
+1
+1
+20.38
+9
+1
+1
+1
+1
+0
+1
+8.62
+10
+1
+1
+1
+1
+0
+1
+7.80
+11
+1
+1
+1
+1
+1
+0
+23.56
+12
+1
+1
+1
+1
+1
+0
+15.24
+13
+0
+0
+0
+0
+0
+0
+19.91
+11.33.
+An article in Quality Progress (“For Starbucks, It’s
+in the Bag,” March 2011, pp. 18–23) describes using a cen-
+tral composite design to improve the packaging of one-pound
+coffee. The objective is to produce an airtight seal that is easy
+to open without damaging the top of the coffee bag. The
+experimenters studied three factors–x1 plastic viscosity
+(300–400 centipoise), x2 clamp pressure (170–190 psi),
+and x3 plate gap (3, 3 mm) and two responses–y1 
+tear and y2 leakage. The design is shown in Table P11.10.
+The tear response was measure on a scale from 0 to 9 (good
+to bad) and leakage was proportion failing. Each run used a
+sample of 20 bags for response measurement.
+(a) Build a second-order model for the tear response.
+(b) Build a second-order model for the leakage response.
+(c) Analyze the residuals for both models. Do transforma-
+tions seem necessary for either response? If so, ret
+the models in the transformed metric.
+(d) Construct response surface plots and contour plots for
+both responses. Provide interpretations for the tted
+surfaces.
+(e) What conditions would you recommend for process
+operation to minimize leakage and keep tear below 0.75?
+550
+Chapter 11 ■Response Surface Methods and Designs
+■TA B L E P 1 1 . 1 0
+The Coffee Bag Experiment in Problem 11.32
+Run
+Viscosity Pressure
+Plate gap Tear
+Leakage
+Center
+350
+180
+0
+0
+0.15
+Axial
+350
+170
+0
+0
+0.5
+Factorial
+319
+186
+1.8
+0.45
+0.15
+Factorial 
+380
+174
+1.8
+0.85
+0.05
+Center 
+350
+180
+0
+0.35
+0.15
+Axial
+300
+180
+0
+0.3
+0.45
+Axial
+400
+180
+0
+0.7
+0.25
+Axial 
+350
+190
+0
+1.9
+0
+Center
+350
+180
+0
+0.25
+0.05
+Factorial
+319
+186
+1.8
+0.1
+0.35
+Factorial
+380
+186
+1.8
+0.15
+0.4
+Axial
+350
+180
+3
+3.9
+0
+Factorial 
+380
+174
+1.8
+0
+0.45
+Center
+350
+180
+0
+0.55
+0.2
+Axial
+350
+180
+3
+0
+1
+Factorial 
+319
+174
+1.8
+0.05
+0.2
+Factorial
+319
+174
+1.8
+0.4
+0.25
+Factorial
+380
+186
+1.8
+4.3
+0.05
+Center
+350
+180
+0
+0
+0
+11.34.
+Box and Liu (1999) describe an experiment ying
+paper helicopters where the objective is to maximize ight
+time. They used the central composite design shown in Table
+P11.11. Each run involved a single helicopter made to the fol-
+lowing specications: x1 wing area (in2), 1 11.80 and
+1 13.00; x2 wing-length to width ratio, 1 2.25 and
+1 2.78; x3 base width (in), 1 1.00 and 1 1.50;
+and x4 base length (in), 1 1.50 and 1 2.50. Each
+helicopter was own four times and the average ight time
+and the standard deviation of ight time was recorded.
+(a) Fit a second-order model to the average ight time
+response.
+(b) Fit a second-order model to the standard deviation of
+ight time response.
+(c) Analyze the residuals for both models from parts (a)
+and (b). Are transformations on the response(s) neces-
+sary? If so, t the appropriate models.
+(d) What design would you recommend to maximize the
+ight time?
+(e) What design would you recommend to maximize the
+ight time while simultaneously minimizing the stan-
+dard deviation of ight time?

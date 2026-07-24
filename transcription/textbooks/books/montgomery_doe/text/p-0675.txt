@@ -1,0 +1,105 @@
+has a(n 1) 1 degrees of freedom instead of a(n 1) degrees of freedom because an addi-
+tional parameter (the slope ) is tted to the data.
+Manual computations are usually displayed in an analysis of covariance table such as
+Table 15.12. This layout is employed because it conveniently summarizes all the required
+sums of squares and cross products as well as the sums of squares for testing hypotheses
+about treatment effects. In addition to testing the hypothesis that there are no differences in
+the treatment effects, we frequently nd it useful in interpreting the data to present the adjust-
+ed treatment means. These adjusted means are computed according to
+(15.31)
+where
+Exy/Exx. This adjusted treatment mean is the least squares estimator of i, i 1,
+2, . . . , a, in the model (Equation 15.15). The standard error of any adjusted treatment mean is
+(15.32)
+Finally, we recall that the regression coefcient in the model (Equation 15.15) has been
+assumed to be nonzero. We may test the hypothesis H0: 0 by using the test statistic
+(15.33)
+which under the null hypothesis is distributed as F1,a(n1)1. Thus, we reject H0: 0 if F0 
+F,1,a(n1)1.
+F0 
+(Exy)2/Exx
+MSE
+Sadjyi. MSE
+1
+n (xi. x..)2
+Exx 
+1/2
+ˆ
+Adjusted yi. yi. ˆ(xi. x..) 
+ i 1, 2, . . . , a
+15.3 The Analysis of Covariance
+659
+■TA B L E 1 5 . 1 2
+Analysis of Covariance for a Single-Factor Experiment with One Covariate
+Sums of Squares
+Adjusted for Regression
+Source of 
+Degrees of
+and Products
+Degrees of
+Variation
+Freedom
+x
+xy
+y
+y
+Freedom
+Mean Square
+Treatments
+a 1
+Txx
+Txy
+Tyy
+Error
+a(n 1)
+Exx
+Exy
+Eyy
+SSE Eyy (Exy)2/Exx
+a(n 1) 1
+Total
+an 1
+Sxx
+Sxy
+Syy
+Syy (Sxy)2/Sxx
+an 2
+Adjusted Treatments
+a 1
+SSE SSE
+a 1
+SSE SSE
+SSE
+MSE 
+SSE
+a(n 1) 1
+■TA B L E 1 5 . 1 1
+Analysis of Covariance as an “Adjusted” Analysis of Variance
+Source of
+Degrees of
+Variation
+Sum of Squares
+Freedom
+Mean Square
+F0
+Regression
+(Sxy)2/Sxx
+1
+Treatments
+SSE Syy 
+a 1
+(Sxy)2/Sxx [Eyy (Exy)2/Exx]
+Error
+SSE Eyy (Exy)2/Exx
+a(n 1) 1
+Total
+Syy
+an 1
+MSE 
+SSE
+a(n 1) 1
+(SSE SSE)/(a 1)
+MSE
+SSE SSE
+a 1
+SSE

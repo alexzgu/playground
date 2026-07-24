@@ -1,0 +1,85 @@
+662
+Chapter 15 ■Other Design and Analysis Topics
+Comparing the adjusted treatment means with the unadjusted treatment means (the ), we note that the adjusted means are
+much closer together, another indication that the covariance analysis was necessary.
+A basic assumption in the analysis of covariance is that the treatments do not inuence the covariate x because the tech-
+nique removes the effect of variations in the 
+. However, if the variability in the 
+is due in part to the treatments, then
+analysis of covariance removes part of the treatment effect. Thus, we must be reasonably sure that the treatments do not
+affect the values xij. In some experiments this may be obvious from the nature of the covariate, whereas in others it may be
+more doubtful. In our example, there may be a difference in ber diameter (xij) between the three machines. In such cases,
+Cochran and Cox (1957) suggest that an analysis of variance on the xij values may be helpful in determining the validity of
+this assumption. For our problem, this procedure yields
+which is less than F0.10,2,12 2.81, so there is no reason to believe that machines produce bers of different diameters.
+F0 
+66.13/2
+195.60/12 33.07
+16.30 2.03
+xi.
+xi.
+yi.
+Diagnostic checking of the covariance model is based on residual analysis. For the
+covariance model, the residuals are
+where the tted values are
+Thus,
+(15.34)
+To illustrate the use of Equation 15.34, the residual for the rst observation from the
+rst machine in Example 15.5 is
+A complete listing of observations, tted values, and residuals is given in the following table:
+Observed Value, yij
+Fitted Value,
+Residual, eij yij 
+36
+36.4392
+0.4392
+41
+41.2092
+0.2092
+39
+40.2552
+1.2552
+42
+41.2092
+0.7908
+49
+47.8871
+1.1129
+40
+39.3840
+0.6160
+48
+45.1079
+2.8921
+39
+39.3840
+0.3840
+45
+47.0159
+2.0159
+44
+45.1079
+1.1079
+35
+35.8092
+0.8092
+37
+37.7171
+0.7171
+42
+40.5791
+1.4209
+34
+35.8092
+1.8092
+32
+30.0852
+1.9148
+yˆij
+yˆij
+ 36 36.4392 0.4392
+e11 y11 y1. ˆ(x11 x1.) 36 41.4 (0.9540)(20 25.2)
+eij yij yi. ˆ(xij xi.)
+ˆ(xij x..) yi. ˆ(xij xi.)
+yˆij ˆ ˆi ˆ(xij x..) y.. [yi. y.. ˆ(xi. x..)]
+eij yij yˆij

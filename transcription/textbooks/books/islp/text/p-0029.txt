@@ -1,0 +1,47 @@
+2.1 What Is Statistical Learning?
+19
+• Which predictors are associated with the response? It is often the case
+that only a small fraction of the available predictors are substantially
+associated with Y . Identifying the few important predictors among a
+large set of possible variables can be extremely useful, depending on
+the application.
+• What is the relationship between the response and each predictor?
+Some predictors may have a positive relationship with Y , in the sense
+that larger values of the predictor are associated with larger values of
+Y . Other predictors may have the opposite relationship. Depending
+on the complexity of f, the relationship between the response and a
+given predictor may also depend on the values of the other predictors.
+• Can the relationship between Y and each predictor be adequately sum-
+marized using a linear equation, or is the relationship more compli-
+cated? Historically, most methods for estimating f have taken a linear
+form. In some situations, such an assumption is reasonable or even de-
+sirable. But often the true relationship is more complicated, in which
+case a linear model may not provide an accurate representation of
+the relationship between the input and output variables.
+In this book, we will see a number of examples that fall into the prediction
+setting, the inference setting, or a combination of the two.
+For instance, consider a company that is interested in conducting a
+direct-marketing campaign. The goal is to identify individuals who are
+likely to respond positively to a mailing, based on observations of demo-
+graphic variables measured on each individual. In this case, the demo-
+graphic variables serve as predictors, and response to the marketing cam-
+paign (either positive or negative) serves as the outcome. The company is
+not interested in obtaining a deep understanding of the relationships be-
+tween each individual predictor and the response; instead, the company
+simply wants to accurately predict the response using the predictors. This
+is an example of modeling for prediction.
+In contrast, consider the Advertising data illustrated in Figure 2.1. One
+may be interested in answering questions such as:
+– Which media are associated with sales?
+– Which media generate the biggest boost in sales? or
+– How large of an increase in sales is associated with a given increase
+in TV advertising?
+This situation falls into the inference paradigm. Another example involves
+modeling the brand of a product that a customer might purchase based on
+variables such as price, store location, discount levels, competition price,
+and so forth. In this situation one might really be most interested in the
+association between each variable and the probability of purchase. For in-
+stance, to what extent is the product’s price associated with sales? This is
+an example of modeling for inference.
+Finally, some modeling could be conducted both for prediction and in-
+ference. For example, in a real estate setting, one may seek to relate values

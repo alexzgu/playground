@@ -1,0 +1,79 @@
+3.2 Multiple Linear Regression
+83
+Coefficient
+Std. error
+t-statistic
+p-value
+Intercept
+2.939
+0.3119
+9.42
+< 0.0001
+TV
+0.046
+0.0014
+32.81
+< 0.0001
+radio
+0.189
+0.0086
+21.89
+< 0.0001
+newspaper
+−0.001
+0.0059
+−0.18
+0.8599
+TABLE 3.4. For the Advertising data, least squares coefficient estimates of the
+multiple linear regression of number of units sold on TV, radio, and newspaper
+advertising budgets.
+TV
+radio
+newspaper
+sales
+TV
+1.0000
+0.0548
+0.0567
+0.7822
+radio
+1.0000
+0.3541
+0.5762
+newspaper
+1.0000
+0.2283
+sales
+1.0000
+TABLE 3.5. Correlation matrix for TV, radio, newspaper, and sales for the
+Advertising data.
+opposite? In fact it does. Consider the correlation matrix for the three
+predictor variables and response variable, displayed in Table 3.5. Notice
+that the correlation between radio and newspaper is 0.35. This indicates
+that markets with high newspaper advertising tend to also have high ra-
+dio advertising. Now suppose that the multiple regression is correct and
+newspaper advertising is not associated with sales, but radio advertising
+is associated with sales. Then in markets where we spend more on radio
+our sales will tend to be higher, and as our correlation matrix shows, we
+also tend to spend more on newspaper advertising in those same mar-
+kets. Hence, in a simple linear regression which only examines sales versus
+newspaper, we will observe that higher values of newspaper tend to be as-
+sociated with higher values of sales, even though newspaper advertising is
+not directly associated with sales. So newspaper advertising is a surrogate
+for radio advertising; newspaper gets “credit” for the association between
+radio on sales.
+This slightly counterintuitive result is very common in many real life
+situations. Consider an absurd example to illustrate the point. Running
+a regression of shark attacks versus ice cream sales for data collected at
+a given beach community over a period of time would show a positive
+relationship, similar to that seen between sales and newspaper. Of course
+no one has (yet) suggested that ice creams should be banned at beaches
+to reduce shark attacks. In reality, higher temperatures cause more people
+to visit the beach, which in turn results in more ice cream sales and more
+shark attacks. A multiple regression of shark attacks onto ice cream sales
+and temperature reveals that, as intuition implies, ice cream sales is no
+longer a significant predictor after adjusting for temperature.
+3.2.2
+Some Important Questions
+When we perform multiple linear regression, we usually are interested in
+answering a few important questions.

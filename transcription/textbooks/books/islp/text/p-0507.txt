@@ -1,0 +1,63 @@
+11.9 Exercises
+501
+(b) Sketch the Kaplan-Meier survival curve corresponding to this
+data set. (You do not need to use any software to do this — you
+can sketch it by hand using the results obtained in (a).)
+(c) Based on the survival curve estimated in (b), what is the proba-
+bility that the event occurs within 200 days? What is the prob-
+ability that the event does not occur within 310 days?
+(d) Write out an expression for the estimated survival curve from
+(b).
+7. In this problem, we will derive (11.5) and (11.6), which are needed
+for the construction of the log-rank test statistic (11.8). Recall the
+notation in Table 11.1.
+(a) Assume that there is no difference between the survival functions
+of the two groups. Then we can think of q1k as the number of
+failures if we draw r1k observations, without replacement, from
+a risk set of rk observations that contains a total of qk failures.
+Argue that q1k follows a hypergeometric distribution. Write the hyper-
+geometric
+distribution
+parameters of this distribution in terms of r1k, rk, and qk.
+(b) Given your previous answer, and the properties of the hyper-
+geometric distribution, what are the mean and variance of q1k?
+Compare your answer to (11.5) and (11.6).
+8. Recall that the survival function S(t), the hazard function h(t), and
+the density function f(t) are defined in (11.2), (11.9), and (11.11),
+respectively. Furthermore, define F(t) = 1 −S(t). Show that the
+following relationships hold:
+f(t)
+=
+dF(t)/dt
+S(t)
+=
+exp
+*
+−
+L t
+0
+h(u)du
++
+.
+9. In this exercise, we will explore the consequences of assuming that
+the survival times follow an exponential distribution.
+(a) Suppose that a survival time follows an Exp(λ) distribution,
+so that its density function is f(t) = λ exp(−λt). Using the
+relationships provided in Exercise 8, show that S(t) = exp(−λt).
+(b) Now suppose that each of n independent survival times follows
+an Exp(λ) distribution. Write out an expression for the likeli-
+hood function (11.13).
+(c) Show that the maximum likelihood estimator for λ is
+ˆλ =
+n
+0
+i=1
+δi/
+n
+0
+i=1
+yi.
+(d) Use your answer to (c) to derive an estimator of the mean sur-
+vival time.
+Hint: For (d), recall that the mean of an Exp(λ) random variable is
+1/λ.

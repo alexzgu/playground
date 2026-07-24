@@ -1,0 +1,102 @@
+624
+Chapter 14 ■Nested and Split-Plot Designs
+Notice that now both the subplot treatment (B) and the AB interaction are tested against the
+subplot error mean square. If one is reasonably comfortable with the assumption that the
+interactions of replicates B and replicates AB interactions are negligible, then this alter-
+native model is entirely satisfactory.
+Because there are two variance components in the split-plot design, REML can be used
+to estimate them. JMP implements the REML method for the split-plot design using the model
+in Equation 14.16. Table 14.19 is the JMP output for the split-plot design in Table 14.16. The
+advantage of the REML method is that explicit estimates of the whole-plot and subplot variance
+components are provided along with standard errors and approximate condence intervals. 
+Sometimes experimenters do not recognize the very specic structure of split-plot
+designs. They know that there is one (or perhaps more) hard-to-change factor involved in the
+experiment but they do not design the experiment as a split-plot. They set up a standard
+■TA B L E 1 4 . 1 9
+JMP Output for the Split-Plot Design in Table 14.16
+Response Strength
+Summary of Fit
+RSquare
+0.903675
+RSquare Adj
+0.859526
+Root Mean Square Error
+1.993043
+Mean of Response
+36.02778
+Observations (or Sum Wgts)
+36
+REML Variance Component Estimates
+Random Effect
+Var Ratio
+Var Component
+Std Error
+95% Lower
+95% Upper
+Pct of Total
+Whole Plots
+0.6232517
+2.4756944
+3.2753747
+3.94404
+8.8954289
+32.059
+Subplots
+0.3208042
+1.2743056
+1.6370817
+1.934375
+4.4829857
+16.502
+Residual
+3.9722222
+1.3240741
+2.2679421
+8.6869402
+51.439
+Total
+7.7222222
+100.000
+2 LogLikelihood  139.36226272
+Covariance Matrix of Variance Component Estimates
+Random Effect
+Whole Plots
+Subplots
+Residual
+Whole Plots
+10.72808
+0.856821
+9.84e-14
+Subplots
+0.856821
+2.6800365
+0.438293
+Residual
+9.84e-14
+-0.438293
+1.7531722
+Fixed Effect Tests
+Source
+Nparm
+DF
+DFDen
+F Ratio
+Prob > F
+Method
+2
+2
+4
+7.0781
+0.0485*
+Temp
+3
+3
+18
+36.4266
+<.0001*
+Temp*Method
+6
+6
+18
+3.1538
+0.0271*

@@ -1,0 +1,32 @@
+8
+Tree-Based Methods
+In this chapter, we describe tree-based methods for regression and classifi-
+cation. These involve stratifying or segmenting the predictor space into a
+number of simple regions. In order to make a prediction for a given ob-
+servation, we typically use the mean or the mode response value for the
+training observations in the region to which it belongs. Since the set of
+splitting rules used to segment the predictor space can be summarized in
+a tree, these types of approaches are known as decision tree methods.
+decision tree
+Tree-based methods are simple and useful for interpretation. However,
+they typically are not competitive with the best supervised learning ap-
+proaches, such as those seen in Chapters 6 and 7, in terms of prediction
+accuracy. Hence in this chapter we also introduce bagging, random forests,
+boosting, and Bayesian additive regression trees. Each of these approaches
+involves producing multiple trees which are then combined to yield a single
+consensus prediction. We will see that combining a large number of trees
+can often result in dramatic improvements in prediction accuracy, at the
+expense of some loss in interpretation.
+8.1
+The Basics of Decision Trees
+Decision trees can be applied to both regression and classification problems.
+We first consider regression problems, and then move on to classification.
+8.1.1
+Regression Trees
+In order to motivate regression trees, we begin with a simple example.
+regression
+tree
+© Springer Nature Switzerland AG 2023 
+G. James et al., An Introduction to Statistical Learning, Springer Texts in Statistics, 
+https://doi.org/10.1007/978-3-031-38747-0_8 
+331

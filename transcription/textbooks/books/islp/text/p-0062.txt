@@ -1,0 +1,40 @@
+52
+2. Statistical Learning
+In [57]: A[1,2]
+Out[57]: 6
+The first number after the open-bracket symbol [ refers to the row, and
+the second number refers to the column.
+Indexing Rows, Columns, and Submatrices
+To select multiple rows at a time, we can pass in a list specifying our
+selection. For instance, [1,3] will retrieve the second and fourth rows:
+In [58]: A[[1,3]]
+Out[58]: array([[ 4,
+5,
+6,
+7],
+[12, 13, 14, 15]])
+To select the first and third columns, we pass in [0,2] as the second ar-
+gument in the square brackets. In this case we need to supply the first
+argument : which selects all rows.
+In [59]: A[:,[0,2]]
+Out[59]: array([[ 0,
+2],
+[ 4,
+6],
+[ 8, 10],
+[12, 14]])
+Now, suppose that we want to select the submatrix made up of the second
+and fourth rows as well as the first and third columns. This is where index-
+ing gets slightly tricky. It is natural to try to use lists to retrieve the rows
+and columns:
+In [60]: A[[1,3],[0,2]]
+Out[60]: array([ 4, 14])
+Oops — what happened? We got a one-dimensional array of length two
+identical to
+In [61]: np.array([A[1,0],A[3,2]])
+Out[61]: array([ 4, 14])
+Similarly, the following code fails to extract the submatrix comprised of
+the second and fourth rows and the first, third, and fourth columns:
+In [62]: A[[1,3],[0,2,3]]
+IndexError: shape mismatch: indexing arrays could not be broadcast
+together with shapes (2,) (3,)

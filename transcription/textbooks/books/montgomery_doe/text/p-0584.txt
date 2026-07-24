@@ -1,0 +1,190 @@
+30 runs. This design will accommodate any combination of controllable and noise variables
+totaling seven and allow all seven main effects and all two-factor interactions between these
+factors to be estimated.
+Sometimes a design with fewer runs can be employed. For example, suppose that there
+are three controllable variables (A, B, and C) and four noise variables (D, E, F, and G). It is
+only necessary to estimate the main effects and two-factor interactions of the controllable
+variables (six parameters), the main effects of the noise variables (four parameters), and 
+the interactions between the controllable and noise variables (12 parameters). Including the
+intercept, only 23 parameters must be estimated. Often very nice designs for these problems
+can be constructed using either the D or I-optimality criterion.
+Table 12.5 is a D-optimal design with 23 runs for this situation. In this design, there are
+no two-factor interactions involving the controllable factors aliased with each other or with
+two-factor interactions involving control and noise variables. However, these main effects and
+two-factor interactions are aliased with the two-factor interactions involving the noise factors,
+so the usefulness of this design depends on the assumption that two-factor interactions involv-
+ing only the noise factors are negligible.
+When it is of interest to t a complete second-order model in the controllable variables,
+the CCD is a logical basis for selecting the experimental design. The CCD can be modied
+568
+Chapter 12 ■Robust Parameter Design and Process Robustness Studies
+■TA B L E 1 2 . 5
+A D-Optimal Design with 23 Runs for Three Controllable and Four Noise Variables
+A
+B
+C
+D
+E
+F
+G
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

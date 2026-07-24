@@ -1,0 +1,72 @@
+222
+CHAPTER 6. JUMP PROCESSES
+
+
+|x|≤a
+[eisx −1 −isx1x≤1] νn(dx) + s2
+2
+
+|x|≤a
+x2 νn(x)
+
+≤
+c
+
+|x|≤a
+x3νn(dx)
+≤
+c a
+
+|x|≤a
+x2νn(dx)
+≤
+ca
+Also, as j →∞, again using µ±a, ±1= 0,
+
+|x|≤a
+x2 νnj(x)
+=
+
+|x|≤1
+x2 νnj(x) −
+
+a<|x|≤1
+x2 νnj(x)
+=
+o(1) + ˜σ2 −
+
+a<|x|≤1
+x2µ(dx)
+By taking a →0 at an appropriate rate, we see that
+lim
+j∞
+
+[eisx −1 −isx1x≤1] νnj(dx)
+= −s2
+2
+
+˜σ2 −
+
+x2 1x≤1] µ(dx)
+
++
+
+[eisx −1 −isx1x≤1] ν(dx)
+Theorem 6.8.4. Suppose Xt is a L´evy process with continuous paths.
+Then Xt is a Brownian motion.
+Proof. All we need to show is that X1 has a normal distribution. Let
+Xj,n = Xjn −X(j−1)n,
+Mn = max Xj,n: j = 1, , n
+Continuity of the paths implies that Mn →0 and hence for every
+a > 0, PMn < a→1. Independence of the increments implies that
+PMn < a
+=
+
+1 −PX1n≥a
+n
+≤
+exp
+
+−nPX1n≥a
+
+

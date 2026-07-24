@@ -1,0 +1,84 @@
+112
+Chapter 3 ■Experiments with a Single Factor: The Analysis of Variance
+manufacturing processes, and process improvement. In the last 15 years, designed experi-
+ments have begun to be widely used outside of this traditional environment. These applications
+are in nancial services, telecommunications, health care, e-commerce, legal services, market-
+ing, logistics and transporation, and many of the nonmanufacturing components of manufac-
+turing businesses. These types of businesses are sometimes referred to as the real economy. It
+has been estimated that manufacturing accounts for only about 20 percent of the total US
+economy, so applications of experimental design in the real economy are of growing impor-
+tance. In this section, we present an example of a designed experiment in marketing.
+A soft drink distributor knows that end-aisle displays are an effective way to increase
+sales of the product. However, there are several ways to design these displays: by varying the
+text displayed, the colors used, and the visual images. The marketing group has designed
+three new end-aisle displays and wants to test their effectiveness. They have identied 15
+stores of similar size and type to participate in the study. Each store will test one of the dis-
+plays for a period of one month. The displays are assigned at random to the stores, and each
+display is tested in ve stores. The response variable is the percentage increase in sales activ-
+ity over the typical sales for that store when the end-aisle display is not in use. The data from
+this experiment are shown in Table 3.13.
+Table 3.14 shows the analysis of the end-asile display experiment. This analysis was con-
+ducted using JMP. The P-value for the model F statistic in the ANOVA indicates that there is a 
+difference in the mean percentage increase in sales between the three display types. In this appli-
+cation, we had JMP use the Fisher LSD procedure to compare the pairs of treatment means (JMP
+labels these as the least squares means). The results of this comparison are presented as condence
+intervals on the difference in pairs of means. For pairs of means where the condence interval
+includes zero, we would not declare that pair of means are different. The JMP output indicates that
+display designs 1 and 2 are similar in that they result in the same mean increase in sales, but that
+Percent
+Residual
+99
+95
+90
+80
+70
+60
+50
+40
+30
+20
+10
+5
+1
+-10
+-5
+0
+5
+■F I G U R E 3 . 1 6 Normal probability plot of the residu-
+als from the chocolate consumption experiment
+5.0
+2.5
+0.0
+-2.5
+-5.0
+-7.5
+-10.0
+Fitted Value
+Residual
+100     102     104     106     108     110     112     114     116     118
+■F I G U R E 3 . 1 7 Plot of residuals versus the 
+predicted values from the chocolate consumption 
+experiment
+■TA B L E 3 . 1 3
+The End-Aisle Display Experimental Design
+Display
+Design
+Sample Observations, Percent Increase in Sales
+1
+5.43
+5.71
+6.22
+6.01
+5.29
+2
+6.24
+6.71
+5.98
+5.66
+6.60
+3
+8.79
+9.20
+7.90
+8.15
+7.55

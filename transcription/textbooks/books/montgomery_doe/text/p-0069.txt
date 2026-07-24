@@ -1,0 +1,73 @@
+2.5
+Inferences About the Differences in Means,
+Paired Comparison Designs
+2.5.1
+The Paired Comparison Problem
+In some simple comparative experiments, we can greatly improve the precision by making
+comparisons within matched pairs of experimental material. For example, consider a hardness
+testing machine that presses a rod with a pointed tip into a metal specimen with a known force.
+By measuring the depth of the depression caused by the tip, the hardness of the specimen is
+determined. Two different tips are available for this machine, and although the precision
+(variability) of the measurements made by the two tips seems to be the same, it is suspected
+that one tip produces different mean hardness readings than the other.
+An experiment could be performed as follows. A number of metal specimens (e.g., 20)
+could be randomly selected. Half of these specimens could be tested by tip 1 and the other
+half by tip 2. The exact assignment of specimens to tips would be randomly determined.
+Because this is a completely randomized design, the average hardness of the two samples
+could be compared using the t-test described in Section 2.4.
+A little reection will reveal a serious disadvantage in the completely randomized
+design for this problem. Suppose the metal specimens were cut from different bar stock that
+were produced in different heats or that were not exactly homogeneous in some other way that
+might affect the hardness. This lack of homogeneity between specimens will contribute to the
+variability of the hardness measurements and will tend to inate the experimental error, thus
+making a true difference between tips harder to detect.
+To protect against this possibility, consider an alternative experimental design. Assume
+that each specimen is large enough so that two hardness determinations may be made on it.
+This alternative design would consist of dividing each specimen into two parts, then randomly
+assigning one tip to one-half of each specimen and the other tip to the remaining half. The
+order in which the tips are tested for a particular specimen would also be randomly selected.
+The experiment, when performed according to this design with 10 specimens, produced the
+(coded) data shown in Table 2.6.
+We may write a statistical model that describes the data from this experiment as
+(2.39)
+yij i j ij
+i 1, 2
+j 1, 2, . . . , 10
+2.5 Inferences About the Differences in Means, Paired Comparison Designs
+53
+■T A B L E
+2 . 6
+Data for the Hardness Testing Experiment
+Specimen
+Tip 1
+Tip 2
+1
+7
+6
+2
+3
+3
+3
+3
+5
+4
+4
+3
+5
+8
+8
+6
+3
+2
+7
+2
+4
+8
+9
+9
+9
+5
+4
+10
+4
+5 

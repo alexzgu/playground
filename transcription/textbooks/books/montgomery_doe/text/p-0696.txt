@@ -1,0 +1,242 @@
+680
+Chapter 15 ■Other Design and Analysis Topics
+15.9.
+Problem 12.10 suggests using ln (s2) as the response
+[refer to part (b)]. Does the Box–Cox method indicate that a
+transformation is appropriate?
+15.10. Myers, Montgomery, Vining and Robinson (2010)
+describe an experiment to study spermatozoa survival. The
+design factors are the amount of sodium citrate, the amount of
+glycerol, and equilibrium time, each at two levels. The
+response variable is the number of spermatozoa that survive
+out of 50 that were tested at each set of conditions. The data
+are shown in the following table:
+Sodium 
+Equilibrium 
+Number
+Citrate
+Glycerol
+Time
+Survived
+
+
+
+34
+
+
+
+20
+
+
+
+8
+
+
+
+21
+
+
+
+30
+
+
+
+20
+
+
+
+10
+
+
+
+25
+Analyze the data from this experiment with logistic 
+regression.
+15.11. A soft drink distributor is studying the effectiveness
+of delivery methods. Three different types of hand trucks have
+been developed, and an experiment is performed in the com-
+pany’s methods engineering laboratory. The variable of inter-
+est is the delivery time in minutes (y); however, delivery time
+is also strongly related to the case volume delivered (x). Each
+hand truck is used four times and the data that follow are
+obtained. Analyze these data and draw appropriate conclu-
+sions. Use 0.05.
+Hand Truck Type
+1
+2
+3
+y
+x
+y
+x
+y
+x
+27
+24
+25
+26
+40
+38
+44
+40
+35
+32
+22
+26
+33
+35
+46
+42
+53
+50
+41
+40
+26
+25
+18
+20
+15.12. Compute the adjusted treatment means and the stan-
+dard errors of the adjusted treatment means for the data in
+Problem 15.11.
+15.13. The sums of squares and products for a single-factor
+analysis of covariance follow. Complete the analysis and draw
+appropriate conclusions. Use 0.05.
+Sums of Squares 
+Source of
+Degrees of
+and Products
+Variation
+Freedom
+x
+xy
+y
+Treatment
+3
+1500
+1000
+650
+Error
+12
+6000
+1200
+550
+Total
+15
+7500
+2200
+1200
+15.14. Find the standard errors of the adjusted treatment
+means in Example 15.5.
+15.15. Four different formulations of an industrial glue are
+being tested. The tensile strength of the glue when it is applied
+to join parts is also related to the application thickness. Five
+observations on strength (y) in pounds and thickness (x) in
+0.01 inches are obtained for each formulation. The data are
+shown in the following table. Analyze these data and draw
+appropriate conclusions.
+Glue Formulation
+1
+2
+3
+4
+y
+x
+y
+x
+y
+x
+y
+x
+46.5
+13
+48.7
+12
+46.3
+15
+44.7
+16
+45.9
+14
+49.0
+10
+47.1
+14
+43.0
+15
+49.8
+12
+50.1
+11
+48.9
+11
+51.0
+10
+46.1
+12
+48.5
+12
+48.2
+11
+48.1
+12
+44.3
+14
+45.2
+14
+50.3
+10
+48.6
+11
+15.16. Compute the adjusted treatment means and their stan-
+dard errors using the data in Problem 15.15.
+15.17. An engineer is studying the effect of cutting speed on
+the rate of metal removal in a machining operation. However,
+the rate of metal removal is also related to the hardness of the
+test specimen. Five observations are taken at each cutting
+speed. The amount of metal removed (y) and the hardness of
+the specimen (x) are shown in the following table. Analyze the
+data using an analysis of covariance. Use 0.05.
+Cutting Speed (rpm)
+1000
+1200
+1400
+y
+x
+y
+x
+y
+x
+68
+120
+112
+165
+118
+175
+90
+140
+94
+140
+82
+132
+98
+150
+65
+120
+73
+124
+77
+125
+74
+125
+92
+141
+88
+136
+85
+133
+80
+130
+15.18. Show that in a single-factor analysis of covariance
+with a single covariate a 100(1 ) percent condence inter-
+val on the ith adjusted treatment mean is
+yi. ˆ(xi. x..) t/2,a(n1)1

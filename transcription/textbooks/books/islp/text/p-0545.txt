@@ -1,0 +1,55 @@
+12.5 Lab: Unsupervised Learning
+539
+ax.set_xlabel('Principal Component');
+ax.set_ylabel('Proportion of Variance Explained')
+ax.set_ylim([0,1])
+ax.set_xticks(ticks)
+Notice the use of %%capture, which suppresses the displaying of the partially
+completed figure.
+In [19]: ax = axes[1]
+ax.plot(ticks,
+pcaUS.explained_variance_ratio_.cumsum(),
+marker='o')
+ax.set_xlabel('Principal Component')
+ax.set_ylabel('Cumulative Proportion of Variance Explained')
+ax.set_ylim([0, 1])
+ax.set_xticks(ticks)
+fig
+The result is similar to that shown in Figure 12.3. Note that the method
+cumsum() computes the cumulative sum of the elements of a numeric vector. cumsum()
+For instance:
+In [20]: a = np.array([1,2,8,-3])
+np.cumsum(a)
+Out[20]: array([ 1,
+3, 11,
+8])
+12.5.2
+Matrix Completion
+We now re-create the analysis carried out on the USArrests data in Sec-
+tion 12.3.
+We saw in Section 12.2.2 that solving the optimization problem (12.6) on
+a centered data matrix X is equivalent to computing the first M principal
+components of the data. We use our scaled and centered USArrests data as
+X below. The singular value decomposition (SVD) is a general algorithm singular
+value de-
+composition
+svd()
+for solving (12.6).
+In [21]: X = USArrests_scaled
+U, D, V = np.linalg.svd(X, full_matrices=False)
+U.shape, D.shape, V.shape
+Out[21]: ((50, 4), (4,), (4, 4))
+The np.linalg.svd() function returns three components, U, D and V. The np.linalg.
+svd()
+matrix V is equivalent to the loading matrix from principal components (up
+to an unimportant sign flip). Using the full_matrices=False option ensures
+that for a tall matrix the shape of U is the same as the shape of X.
+In [22]: V
+Out[22]: array([[-0.53589947, -0.58318363, -0.27819087, -0.54343209],
+[ 0.41818087,
+0.1879856 , -0.87280619, -0.16731864],
+[-0.34123273, -0.26814843, -0.37801579,
+0.81777791],
+[ 0.6492278 , -0.74340748,
+0.13387773,
+0.08902432]])

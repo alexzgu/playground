@@ -1,0 +1,62 @@
+144
+4. Classification
+500
+1000
+1500
+2000
+0.0
+0.2
+0.4
+0.6
+0.8
+Credit Card Balance
+Default Rate
+No
+Yes
+0
+500
+1000
+1500
+2000
+2500
+Student Status
+Credit Card Balance
+FIGURE 4.3. Confounding in the Default data. Left: Default rates are shown
+for students (orange) and non-students (blue). The solid lines display default rate
+as a function of balance, while the horizontal broken lines display the overall
+default rates. Right: Boxplots of balance for students (orange) and non-students
+(blue) are shown.
+balance is available. However, that student is less risky than a non-student
+with the same credit card balance!
+This simple example illustrates the dangers and subtleties associated
+with performing regressions involving only a single predictor when other
+predictors may also be relevant. As in the linear regression setting, the
+results obtained using one predictor may be quite different from those ob-
+tained using multiple predictors, especially when there is correlation among
+the predictors. In general, the phenomenon seen in Figure 4.3 is known as
+confounding.
+confounding
+By substituting estimates for the regression coefficients from Table 4.3
+into (4.7), we can make predictions. For example, a student with a credit
+card balance of $1, 500 and an income of $40, 000 has an estimated proba-
+bility of default of
+ˆp(X) =
+e−10.869+0.00574×1,500+0.003×40−0.6468×1
+1 + e−10.869+0.00574×1,500+0.003×40−0.6468×1 = 0.058.
+(4.8)
+A non-student with the same balance and income has an estimated prob-
+ability of default of
+ˆp(X) =
+e−10.869+0.00574×1,500+0.003×40−0.6468×0
+1 + e−10.869+0.00574×1,500+0.003×40−0.6468×0 = 0.105.
+(4.9)
+(Here we multiply the income coefficient estimate from Table 4.3 by 40,
+rather than by 40,000, because in that table the model was fit with income
+measured in units of $1, 000.)
+4.3.5
+Multinomial Logistic Regression
+We sometimes wish to classify a response variable that has more than two
+classes. For example, in Section 4.2 we had three categories of medical con-
+dition in the emergency room: stroke, drug overdose, epileptic seizure.
+However, the logistic regression approach that we have seen in this section
+only allows for K = 2 classes for the response variable.

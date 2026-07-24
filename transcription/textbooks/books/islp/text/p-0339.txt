@@ -1,0 +1,41 @@
+332
+8. Tree-Based Methods
+|
+Years < 4.5
+Hits < 117.5
+5.11
+6.00
+6.74
+FIGURE 8.1. For the Hitters data, a regression tree for predicting the log
+salary of a baseball player, based on the number of years that he has played in
+the major leagues and the number of hits that he made in the previous year. At a
+given internal node, the label (of the form Xj < tk) indicates the left-hand branch
+emanating from that split, and the right-hand branch corresponds to Xj ≥tk.
+For instance, the split at the top of the tree results in two large branches. The
+left-hand branch corresponds to Years<4.5, and the right-hand branch corresponds
+to Years>=4.5. The tree has two internal nodes and three terminal nodes, or
+leaves. The number in each leaf is the mean of the response for the observations
+that fall there.
+Predicting Baseball Players’ Salaries Using Regression Trees
+We use the Hitters data set to predict a baseball player’s Salary based on
+Years (the number of years that he has played in the major leagues) and
+Hits (the number of hits that he made in the previous year). We first remove
+observations that are missing Salary values, and log-transform Salary so
+that its distribution has more of a typical bell-shape. (Recall that Salary
+is measured in thousands of dollars.)
+Figure 8.1 shows a regression tree fit to this data. It consists of a series
+of splitting rules, starting at the top of the tree. The top split assigns
+observations having Years<4.5 to the left branch.1 The predicted salary
+for these players is given by the mean response value for the players in
+the data set with Years<4.5. For such players, the mean log salary is 5.107,
+and so we make a prediction of e5.107 thousands of dollars, i.e. $165,174, for
+these players. Players with Years>=4.5 are assigned to the right branch, and
+then that group is further subdivided by Hits. Overall, the tree stratifies
+or segments the players into three regions of predictor space: players who
+have played for four or fewer years, players who have played for five or more
+years and who made fewer than 118 hits last year, and players who have
+played for five or more years and who made at least 118 hits last year. These
+three regions can be written as R1 ={X | Years<4.5}, R2 ={X | Years>=4.5,
+Hits<117.5}, and R3 ={X | Years>=4.5, Hits>=117.5}. Figure 8.2 illustrates
+1Both Years and Hits are integers in these data; the function used to fit this tree
+labels the splits at the midpoint between two adjacent values.

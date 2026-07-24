@@ -1,0 +1,103 @@
+216
+Chapter 5 ■Introduction to Factorial Designs
+doesn’t look like a very good t to the data; the value of R2
+is only 0.465 (compared to R2 0.895 in the categorical
+variable ANOVA) and the only signicant factor is the lin-
+ear term in speed for which the P-value is 0.0731. Notice
+that the mean square for error in the second-order model t
+is 5.5278, considerably larger than it was in the classical
+categorical variable ANOVA of Table 5.17. The JMP output
+in Table 5.18 shows the prediction proﬁler, a graphical
+display showing the response variable life as a function of
+each design factor, angle and speed. The prediction proler
+is very useful for optimization. Here it has been set to the
+levels of angle and speed that result in maximum predicted
+life.
+Part of the reason for the relatively poor t of the sec-
+ond-order model is that only one of the four degrees of free-
+dom for interaction are accounted for in this model. In addi-
+tion to the term 12x1x2, there are three other terms that
+could be t to completely account for the four degrees of
+freedom for interaction, namely 
+, and
+.
+1122x2
+1x2
+2
+112x2
+1x2, 122x1x2
+2
+■TA B L E 5 . 1 8
+JMP Output for the Second-Order Model, Example 5.5
+Summary of Fit
+RSquare
+0.465054
+RSquare Adj
+0.242159
+Root Mean Square Error
+2.351123
+Mean of Response
+1.333333
+Observations (or Sum Wgts)
+18
+Analysis of Variance
+Source
+DF
+Sum of Squares
+Mean Square
+F Ratio
+Model
+5
+57.66667
+11.5333
+2.0864
+Error
+12
+66.33333
+5.5278
+Prob F
+C. Total
+17
+124.00000
+0.1377
+Parameter Estimates
+Term
+Estimate
+Std. Error
+t Ratio
+Prob | t|
+Intercept
+8 
+5.048683
+1.58
+0.1390
+Angle
+0.1666667
+0.135742
+1.23
+0.2431
+Speed
+0.0533333
+0.027148
+1.96
+0.0731
+6
+4
+2
+0
+–2
+–4
+–3
+–2
+–1
+0
+1
+Tool life predicted
+Tool life actual
+P = 0.1377 RSq = 0.47
+RMSE = 2.3511
+2
+3
+4
+5
+6

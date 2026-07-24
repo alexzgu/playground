@@ -1,0 +1,59 @@
+3.1 Simple Linear Regression
+71
+For example, X may represent TV advertising and Y may represent sales.
+Then we can regress sales onto TV by fitting the model
+sales ≈β0 + β1 × TV.
+In Equation 3.1, β0 and β1 are two unknown constants that represent
+the intercept and slope terms in the linear model. Together, β0 and β1 are intercept
+slope
+known as the model coefficients or parameters.
+Once we have used our
+coefficient
+parameter
+training data to produce estimates ˆβ0 and ˆβ1 for the model coefficients, we
+can predict future sales on the basis of a particular value of TV advertising
+by computing
+ˆy = ˆβ0 + ˆβ1x,
+(3.2)
+where ˆy indicates a prediction of Y on the basis of X = x. Here we use a
+hat symbol, ˆ , to denote the estimated value for an unknown parameter
+or coefficient, or to denote the predicted value of the response.
+3.1.1
+Estimating the Coefficients
+In practice, β0 and β1 are unknown. So before we can use (3.1) to make
+predictions, we must use data to estimate the coefficients. Let
+(x1, y1), (x2, y2), . . . , (xn, yn)
+represent n observation pairs, each of which consists of a measurement of
+X and a measurement of Y . In the Advertising example, this data set con-
+sists of the TV advertising budget and product sales in n = 200 different
+markets. (Recall that the data are displayed in Figure 2.1.) Our goal is to
+obtain coefficient estimates ˆβ0 and ˆβ1 such that the linear model (3.1) fits
+the available data well—that is, so that yi ≈ˆβ0 + ˆβ1xi for i = 1, . . . , n. In
+other words, we want to find an intercept ˆβ0 and a slope ˆβ1 such that the
+resulting line is as close as possible to the n = 200 data points. There are
+a number of ways of measuring closeness. However, by far the most com-
+mon approach involves minimizing the least squares criterion, and we take least squares
+that approach in this chapter. Alternative approaches will be considered in
+Chapter 6.
+Let ˆyi = ˆβ0 + ˆβ1xi be the prediction for Y based on the ith value of X.
+Then ei = yi −ˆyi represents the ith residual—this is the difference between residual
+the ith observed response value and the ith response value that is predicted
+by our linear model. We define the residual sum of squares (RSS) as
+residual sum
+of squares
+RSS = e2
+1 + e2
+2 + · · · + e2
+n,
+or equivalently as
+RSS = (y1 −ˆβ0 −ˆβ1x1)2 +(y2 −ˆβ0 −ˆβ1x2)2 +· · ·+(yn −ˆβ0 −ˆβ1xn)2. (3.3)
+The least squares approach chooses ˆβ0 and ˆβ1 to minimize the RSS. Using
+some calculus, one can show that the minimizers are
+ˆβ1 =
+)n
+i=1(xi −¯x)(yi −¯y)
+)n
+i=1(xi −¯x)2
+,
+ˆβ0 = ¯y −ˆβ1¯x,
+(3.4)

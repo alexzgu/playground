@@ -1,0 +1,48 @@
+348
+8. Tree-Based Methods
+0
+100
+200
+300
+400
+500
+0.2
+0.3
+0.4
+0.5
+Number of Trees
+Test Classification Error
+m=p
+m=p/2
+m= p
+FIGURE 8.10. Results from random forests for the 15-class gene expression
+data set with p = 500 predictors. The test error is displayed as a function of
+the number of trees. Each colored line corresponds to a different value of m, the
+number of predictors available for splitting at each interior tree node. Random
+forests (m < p) lead to a slight improvement over bagging (m = p). A single
+classification tree has an error rate of 45.7 %.
+tive model. Notably, each tree is built on a bootstrap data set, independent
+of the other trees. Boosting works in a similar way, except that the trees are
+grown sequentially: each tree is grown using information from previously
+grown trees. Boosting does not involve bootstrap sampling; instead each
+tree is fit on a modified version of the original data set.
+Consider first the regression setting. Like bagging, boosting involves com-
+bining a large number of decision trees, ˆf 1, . . . , ˆf B. Boosting is described
+in Algorithm 8.2.
+What is the idea behind this procedure? Unlike fitting a single large deci-
+sion tree to the data, which amounts to fitting the data hard and potentially
+overfitting, the boosting approach instead learns slowly. Given the current
+model, we fit a decision tree to the residuals from the model. That is, we
+fit a tree using the current residuals, rather than the outcome Y , as the re-
+sponse. We then add this new decision tree into the fitted function in order
+to update the residuals. Each of these trees can be rather small, with just
+a few terminal nodes, determined by the parameter d in the algorithm. By
+fitting small trees to the residuals, we slowly improve ˆf in areas where it
+does not perform well. The shrinkage parameter λ slows the process down
+even further, allowing more and different shaped trees to attack the resid-
+uals. In general, statistical learning approaches that learn slowly tend to
+perform well. Note that in boosting, unlike in bagging, the construction of
+each tree depends strongly on the trees that have already been grown.
+We have just described the process of boosting regression trees. Boosting
+classification trees proceeds in a similar but slightly more complex way, and
+the details are omitted here.

@@ -1,0 +1,61 @@
+9.1 Maximal Margin Classifier
+369
+−1.5
+−1.0
+−0.5
+0.0
+0.5
+1.0
+1.5
+−1.5
+−1.0
+−0.5
+0.0
+0.5
+1.0
+1.5
+X1
+X2
+FIGURE 9.1. The hyperplane 1 + 2X1 + 3X2 = 0 is shown. The blue region is
+the set of points for which 1 + 2X1 + 3X2 > 0, and the purple region is the set of
+points for which 1 + 2X1 + 3X2 < 0.
+test observation, a p-vector of observed features x∗=
+'x∗
+1
+. . .
+x∗
+p
+(T . Our
+goal is to develop a classifier based on the training data that will correctly
+classify the test observation using its feature measurements. We have seen
+a number of approaches for this task, such as linear discriminant analysis
+and logistic regression in Chapter 4, and classification trees, bagging, and
+boosting in Chapter 8. We will now see a new approach that is based upon
+the concept of a separating hyperplane.
+separating
+hyperplane
+Suppose that it is possible to construct a hyperplane that separates the
+training observations perfectly according to their class labels. Examples
+of three such separating hyperplanes are shown in the left-hand panel of
+Figure 9.2. We can label the observations from the blue class as yi = 1 and
+those from the purple class as yi = −1. Then a separating hyperplane has
+the property that
+β0 + β1xi1 + β2xi2 + · · · + βpxip > 0 if yi = 1,
+(9.6)
+and
+β0 + β1xi1 + β2xi2 + · · · + βpxip < 0 if yi = −1.
+(9.7)
+Equivalently, a separating hyperplane has the property that
+yi(β0 + β1xi1 + β2xi2 + · · · + βpxip) > 0
+(9.8)
+for all i = 1, . . . , n.
+If a separating hyperplane exists, we can use it to construct a very natural
+classifier: a test observation is assigned a class depending on which side of
+the hyperplane it is located. The right-hand panel of Figure 9.2 shows
+an example of such a classifier. That is, we classify the test observation x∗
+based on the sign of f(x∗) = β0+β1x∗
+1+β2x∗
+2+· · ·+βpx∗
+p. If f(x∗) is positive,
+then we assign the test observation to class 1, and if f(x∗) is negative, then
+we assign it to class −1. We can also make use of the magnitude of f(x∗). If

@@ -1,0 +1,83 @@
+582
+Chapter 13 ■Experiments with Random Factors
+with reference distribution Fb1,ab(n1). Finally, for testing the interaction hypothesis H0:
+
+0, we would use
+which has reference distribution F(a1)(b1),ab(n1).
+In the mixed model, it is possible to estimate the xed factor effects as
+(13.10)
+The variance components 
+, and 2 may be estimated using the analysis of variance
+method. Eliminating the rst Equation from Equations 13.9 leaves three equations in three
+unknowns, whose solutions are
+(13.11)
+and
+This general approach can be used to estimate the variance components in any mixed model.
+After eliminating the mean squares containing xed factors, there will always be a set of
+equations remaining that can be solved for the variance components.
+In mixed models the experimenter may be interested in testing hypotheses or construct-
+ing condence intervals about individual treatment means for the xed factor. In using such
+procedures, care must be exercised to use the proper standard error of the treatment mean. The
+standard error of the xed effect treatment mean is
+Notice that this is just the standard error that we would use if this was a xed effects model,
+except that MSE has been replaced by the mean square used for hypothesis testing.
+
+Mean square for testing the fixed effect
+Number of observations in each treatment mean
+1/2
+
+MSAB
+bn
+ˆ 2 MSE
+ˆ 2
+MSAB MSE
+n
+ˆ 2
+MSB MSE
+an
+2
+, 2
+
+ˆi yi.. y...
+i 1, 2, . . . , a
+ˆ y...
+F0 MSAB
+MSE
+2
+
+E X A M P L E 1 3 . 2
+The Measurement Systems Capability Experiment
+Revisited
+Reconsider the gauge R&R experiment described in
+Example 13.1. Suppose now that only three operators use
+this gauge, so the operators are a xed factor. However,
+because the parts are chosen at random, the experiment now
+involves a mixed model.
+The ANOVA for the mixed model is shown in 
+Table 13.4. The computations were performed using the
+Balanced ANOVA routine in Minitab. We specied that the
+restricted model be used in the Minitab analysis. Minitab
+also generated the expected mean squares for this model.
+In the Minitab output, the quantity Q[2] indicates a quad-
+ratic expression involving the xed factor effect operator.
+That is, Q[2] 
+/(b 1). The conclusions are simi-
+lar to Example 13.1. The variance components may be
+estimated from Equation (13.11) as
+ˆ 2 MSE 0.99
+0.71 0.99
+2
+0.14
+ˆ 2
+Partsoperators 
+MSPartsoperators MSE
+n
+ˆ 2
+Parts MSParts MSE
+an
+62.39 0.99
+(3)(2)
+10.23
+"b
+j12
+j

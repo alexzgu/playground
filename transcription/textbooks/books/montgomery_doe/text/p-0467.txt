@@ -1,0 +1,100 @@
+10.3 Estimation of the Parameters in Linear Regression Models
+451
+If we let x3 
+, x4 
+, x5 x1x2, 3 11, 4 22, and 5 12, then this
+becomes
+(10.6)
+which is a linear regression model. We have also seen this model in examples earlier in the
+text. In general, any regression model that is linear in the parameters (the ’s) is a linear
+regression model, regardless of the shape of the response surface that it generates.
+In this chapter we will summarize methods for estimating the parameters in multiple
+linear regression models. This is often called model ﬁtting. We have used some of these
+results in previous chapters, but here we give the developments. We will also discuss meth-
+ods for testing hypotheses and constructing condence intervals for these models as well as
+for checking the adequacy of the model t. Our focus is primarily on those aspects of regres-
+sion analysis useful in designed experiments. For more complete presentations of regression,
+refer to Montgomery, Peck, and Vining (2006) and Myers (1990).
+10.3
+Estimation of the Parameters in Linear Regression Models
+The method of least squares is typically used to estimate the regression coefcients in a mul-
+tiple linear regression model. Suppose that n  k observations on the response variable are
+available, say y1, y2, . . . , yn. Along with each observed response yi, we will have an observa-
+tion on each regressor variable and let xij denote the ith observation or level of variable xj. The
+data will appear as in Table 10.1. We assume that the error term in the model has E() 0
+and V() 2 and that the {i} are uncorrelated random variables.
+We may write the model equation (Equation 10.2) in terms of the observations in
+Table 10.1 as
+(10.7)
+The method of least squares chooses the ’s in Equation 10.7 so that the sum of the squares
+of the errors, i, is minimized. The least squares function is
+(10.8)
+The function L is to be minimized with respect to 0, 1, . . . , k. The least squares estima-
+tors, say 
+, must satisfy
+(10.9a)
+L
+0
+ˆ
+0, ˆ
+1, . . . , ˆ
+k
+2 
+n
+i1yi ˆ
+0 
+k
+j1
+ˆ
+j xij0
+ˆ
+0, ˆ
+1, . . . , ˆ
+k
+L 
+n
+i1
+2
+i 
+n
+i1yi 0 
+k
+j1
+j xij
+2
+0 
+k
+j1
+j xij i i 1, 2, . . . , n
+yi 0 1xi1 2xi2 Á k xik i
+y 0 1x1 2x2 3x3 4x4 5x5 
+x2
+2
+x2
+1
+■TA B L E 1 0 . 1
+Data for Multiple Linear Regression
+y
+x1
+x2
+...
+xk
+y1
+x11
+x12
+...
+x1k
+y2
+x21
+x22
+...
+x2k
+yn
+xn1
+xn2
+...
+xnk
+o
+o
+o
+o

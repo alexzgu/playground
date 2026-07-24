@@ -1,0 +1,195 @@
+4.5 Problems
+177
+4.5
+Problems
+4.1.
+The ANOVA from a randomized complete block
+experiment output is shown below.
+Source
+DF
+SS
+MS
+F
+P
+Treatment
+4
+1010.56
+?
+29.84
+?
+Block
+?
+?
+64.765
+?
+?
+Error
+20
+169.33
+?
+Total
+29
+1503.71
+(a) Fill in the blanks. You may give bounds on the P-value.
+(b) How many blocks were used in this experiment?
+(c) What conclusions can you draw?
+4.2.
+Consider the single-factor completely randomized sin-
+gle factor experiment shown in Problem 3.4. Suppose that this
+experiment had been conducted in a randomized complete
+block design, and that the sum of squares for blocks was 80.00.
+Modify the ANOVA for this experiment to show the correct
+analysis for the randomized complete block experiment.
+4.3.
+A chemist wishes to test the effect of four chemical
+agents on the strength of a particular type of cloth. Because
+there might be variability from one bolt to another, the
+chemist decides to use a randomized block design, with the
+bolts of cloth considered as blocks. She selects ve bolts and
+applies all four chemicals in random order to each bolt. The
+resulting tensile strengths follow. Analyze the data from this
+experiment (use 0.05) and draw appropriate conclusions.
+Bolt
+Chemical
+1
+2
+3
+4
+5
+1
+73
+68
+74
+71
+67
+2
+73
+67
+75
+72
+70
+3
+75
+68
+78
+73
+68
+4
+73
+71
+75
+75
+69
+4.4.
+Three different washing solutions are being compared
+to study their effectiveness in retarding bacteria growth in 
+5-gallon milk containers. The analysis is done in a laboratory,
+and only three trials can be run on any day. Because days could
+represent a potential source of variability, the experimenter
+decides to use a randomized block design. Observations are
+taken for four days, and the data are shown here. Analyze the
+data from this experiment (use 0.05) and draw conclusions.
+Days
+Solution
+1
+2
+3
+4
+1
+13
+22
+18
+39
+2
+16
+24
+17
+44
+3
+5
+4
+1
+22
+4.5.
+Plot the mean tensile strengths observed for each
+chemical type in Problem 4.3 and compare them to an appro-
+priately scaled t distribution. What conclusions would you
+draw from this display?
+4.6.
+Plot the average bacteria counts for each solution in
+Problem 4.4 and compare them to a scaled t distribution. What
+conclusions can you draw?
+4.7.
+Consider the hardness testing experiment described in
+Section 4.1. Suppose that the experiment was conducted as
+described and that the following Rockwell C-scale data
+(coded by subtracting 40 units) obtained:
+Coupon
+Tip
+1
+2
+3
+4
+1
+9.3
+9.4
+9.6
+10.0
+2
+9.4
+9.3
+9.8
+9.9
+3
+9.2
+9.4
+9.5
+9.7
+4
+9.7
+9.6
+10.0
+10.2
+(a) Analyze the data from this experiment.
+(b) Use the Fisher LSD method to make comparisons
+among the four tips to determine specically which
+tips differ in mean hardness readings.
+(c) Analyze the residuals from this experiment.
+4.8.
+A consumer products company relies on direct mail
+marketing pieces as a major component of its advertising
+campaigns. The company has three different designs for a
+new brochure and wants to evaluate their effectiveness, as
+there are substantial differences in costs between the three
+designs. The company decides to test the three designs by
+mailing 5000 samples of each to potential customers in four
+different regions of the country. Since there are known
+regional differences in the customer base, regions are consid-
+ered as blocks. The number of responses to each mailing is as
+follows.
+Region
+Design
+NE
+NW
+SE
+SW
+1 
+250
+350
+219
+375
+2 
+400
+525
+390
+580
+3 
+275
+340
+200
+310
+(a) Analyze the data from this experiment.
+(b) Use the Fisher LSD method to make comparisons
+among the three designs to determine specically
+which designs differ in the mean response rate.
+(c) Analyze the residuals from this experiment.

@@ -1,0 +1,56 @@
+We have indicated that if all the factors in a factorial experiment are xed, test statistic
+construction is straightforward. The statistic for testing any main effect or interaction is
+always formed by dividing the mean square for the main effect or interaction by the mean
+square error. However, if the factorial experiment involves one or more random factors, the
+test statistic construction is not always done this way. We must examine the expected mean
+squares to determine the correct tests. We defer a complete discussion of experiments with
+random factors until Chapter 13.
+5.5
+Fitting Response Curves and Surfaces
+The ANOVA always treats all of the factors in the experiment as if they were qualitative or cat-
+egorical. However, many experiments involve at least one quantitative factor. It can be useful
+to t a response curve to the levels of a quantitative factor so that the experimenter has an
+equation that relates the response to the factor. This equation might be used for interpolation,
+that is, for predicting the response at factor levels between those actually used in the experi-
+ment. When at least two factors are quantitative, we can t a response surface for predicting
+y at various combinations of the design factors. In general, linear regression methods are used
+to t these models to the experimental data. We illustrated this procedure in Section 3.5.1 for
+an experiment with a single factor. We now present two examples involving factorial experi-
+ments. In both examples, we will use a computer software package to generate the regression
+models. For more information about regression analysis, refer to Chapter 10 and the supple-
+mental text material for this chapter.
+5.5 Fitting Response Curves and Surfaces
+211
+E X A M P L E 5 . 4
+Consider the battery life experiment described in Exa-
+mple 5.1. The factor temperature is quantitative, and the
+material type is qualitative. Furthermore, there are three
+levels of temperature. Consequently, we can compute a
+linear and a quadratic temperature effect to study how
+temperature affects the battery life. Table 5.15 presents
+condensed output from Design-Expert for this experiment
+and assumes that temperature is quantitative and material
+type is qualitative.
+The ANOVA in Table 5.15 shows that the “model”
+source of variability has been subdivided into several
+components. The components “A” and “A2” represent the
+10
+12
+14
+Percent carbonation (A)
+Distribution of
+percent carbonation
+Improved distribution of
+percent carbonation 
+Average fill height deviation at
+high speed and low pressure
+–2
+0
+2
+4
+6
+8
+■F I G U R E 5 . 1 7
+Average ﬁll height deviation at high speed
+and low pressure for different carbonation
+levels

@@ -1,0 +1,40 @@
+1.8. EXERCISES
+29
+Exercise 1.2. Suppose we roll two dice, a red and a green one, and let X
+be the value on the red die and Y the value on the green die. Let Z = XY .
+1. Find E[(X + 2Y )2 X].
+2. Find E[(X + 2Y )2 X, Z].
+3. Find E[X + 2Y Z].
+4. Let W = E[Z X]. What are the possible values for W? Give the
+distribution of W.
+Exercise 1.3. Suppose X1, X2, are independent random variables with
+PXj = 2= 1 −PXj = −1= 1
+3
+Let Sn = X1 + · · · + Xn and let Fn denote the information in X1, , Xn.
+1. Find E[Sn], E[S2
+n], E[S3
+n].
+2. If m < n, nd
+E[Sn Fm], E[S2
+n Fm], E[S3
+n Fm]
+3. If m < n, nd E[Xm Sn].
+Exercise 1.4. Repeat Exercise 1.3 assuming that
+PXj = 3= PXj = −1= 1
+2
+Exercise 1.5. Suppose X1, X2, are independent random variables with
+PXj = 1= PXj = −1= 1
+2
+Let Sn = X1 + · · · + Xn. Find
+E
+
+sin Sn S2
+n
+
+
+Exercise 1.6. In this exercise, we consider simple, nonsymmetric random
+walk. Suppose 12 < q < 1 and X1, X2, are independent random variables
+with
+PXj = 1= 1 −PXj = −1= q
+Let S0 = 0 and Sn = X1 +· · ·+Xn. Let Fn denote the information contained
+in X1, , Xn.

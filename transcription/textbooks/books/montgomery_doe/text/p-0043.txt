@@ -1,0 +1,52 @@
+2.2
+Basic Statistical Concepts
+Each of the observations in the Portland cement experiment described above would be called
+a run. Notice that the individual runs differ, so there is uctuation, or noise, in the observed
+bond strengths. This noise is usually called experimental error or simply error. It is a sta-
+tistical error, meaning that it arises from variation that is uncontrolled and generally
+unavoidable. The presence of error or noise implies that the response variable, tension bond
+strength, is a random variable. A random variable may be either discrete or continuous. If
+the set of all possible values of the random variable is either nite or countably innite, then
+the random variable is discrete, whereas if the set of all possible values of the random variable
+is an interval, then the random variable is continuous.
+Graphical Description of Variability. We often use simple graphical methods to
+assist in analyzing the data from an experiment. The dot diagram, illustrated in Figure 2.1, is
+a very useful device for displaying a small body of data (say up to about 20 observations). The
+dot diagram enables the experimenter to see quickly the general location or central tendency
+of the observations and their spread or variability. For example, in the Portland cement tension
+bond experiment, the dot diagram reveals that the two formulations may differ in mean strength
+but that both formulations produce about the same variability in strength.
+If the data are fairly numerous, the dots in a dot diagram become difcult to distinguish
+and a histogram may be preferable. Figure 2.2 presents a histogram for 200 observations on the
+metal recovery, or yield, from a smelting process. The histogram shows the central tendency,
+spread, and general shape of the distribution of the data. Recall that a histogram is constructed
+by dividing the horizontal axis into bins (usually of equal length) and drawing a rectangle over
+the jth bin with the area of the rectangle proportional to nj, the number of observations that fall
+in that bin. The histogram is a large-sample tool. When the sample size is small the shape of the
+histogram can be very sensitive to the number of bins, the width of the bins, and the starting
+value for the rst bin. Histograms should not be used with fewer than 75–100 observations.
+The box plot (or box-and-whisker plot) is a very useful way to display data. A box
+plot displays the minimum, the maximum, the lower and upper quartiles (the 25th percentile
+and the 75th percentile, respectively), and the median (the 50th percentile) on a rectangular
+box aligned either horizontally or vertically. The box extends from the lower quartile to the
+2.2 Basic Statistical Concepts
+27
+60
+10
+20
+30
+0.05
+0.00
+0.10
+0.15
+65
+70
+75
+Metal recovery (yield)
+Frequency
+Relative frequency
+80
+85
+■F I G U R E 2 . 2
+Histogram for 200 observations on metal recovery (yield) from 
+a smelting process

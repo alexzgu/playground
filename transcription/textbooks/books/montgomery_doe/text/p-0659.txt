@@ -1,0 +1,63 @@
+15.1
+Nonnormal Responses and Transformations
+15.1.1
+Selecting a Transformation: The Box–Cox Method
+In Section 3.4.3, we discussed the problem of nonconstant variance in the response variable
+y from a designed experiment and noted that this is a departure from the standard analysis of
+variance assumptions. This inequality of variance problem occurs relatively often in practice,
+often in conjunction with a nonnormal response variable. Examples would include a count of
+defects or particles, proportion data such as yield or fraction defective, or a response variable
+that follows some skewed distribution (one “tail” of the response distribution is longer than
+the other). We introduced transformation of the response variable as an appropriate method
+for stabilizing the variance of the response. Two methods for selecting the form of the trans-
+formation were discussed—an empirical graphical technique and essentially trial and error in
+which the experimenter simply tries one or more transformations, selecting the one that pro-
+duces the most satisfactory or pleasing plot of residuals versus the tted response.
+Generally, transformations are used for three purposes: stabilizing response variance,
+making the distribution of the response variable closer to the normal distribution, and improv-
+ing the t of the model to the data. This last objective could include model simplication, say
+by eliminating interaction terms. Sometimes a transformation will be reasonably effective in
+simultaneously accomplishing more than one of these objectives.
+We have noted that the power family of transformations y* yis very useful, where
+is the parameter of the transformation to be determined (e.g., 
+means use the square
+root of the original response). Box and Cox (1964) have shown how the transformation
+parameter may be estimated simultaneously with the other model parameters (overall mean
+and treatment effects). The theory underlying their method uses the method of maximum like-
+lihood. The actual computational procedure consists of performing, for various values of , a
+standard analysis of variance on
+(15.1)
+where
+ln1[(1/n) ln y] is the geometric mean of the observations. The maximum like-
+lihood estimate of is the value for which the error sum of squares, say SSE(), is a mini-
+mum. This value of is usually found by plotting a graph of SSE() versus and then read-
+ing the value of that minimizes SSE() from the graph. Usually between 10 and 20 values
+of are sufcient for estimating the optimum value. A second iteration using a ner mesh of
+values can be performed if a more accurate estimate of is necessary.
+Notice that we cannot select the value of by directly comparing the error sums of
+squares from analysis of variance on ybecause for each value of , the error sum of squares
+is measured on a different scale. Furthermore, a problem arises in y when 0, namely, as
+approaches zero, yapproaches unity. That is, when 0, all the response values are a con-
+stant. The component (y1)/of Equation 15.1 alleviates this problem because as tends
+to zero, (y1)/goes to a limit of ln y. The divisor component 
+1 in Equation 15.1
+rescales the responses so that the error sums of squares are directly comparable.
+In using the Box–Cox method, we recommend that the experimenter use simple choic-
+es for because the practical difference between 0.5 and 0.58 is likely to be small,
+but the square root transformation (0.5) is much easier to interpret. Obviously, values of
+close to unity would suggest that no transformation is necessary.
+Once a value of is selected by the Box–Cox method, the experimenter can analyze
+the data using yas the response unless of course 0, in which case he can use ln y. It is
+perfectly acceptable to use y() as the actual response, although the model parameter estimates
+y˙
+y˙
+y() 
+y 1
+y˙ 1
+y˙ ln y
+ Z 0
+ 0
+1
+2
+15.1 Nonnormal Responses and Transformations
+643

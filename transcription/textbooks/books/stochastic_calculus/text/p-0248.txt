@@ -1,0 +1,50 @@
+242
+CHAPTER 7. FRACTIONAL BROWNIAN MOTION
+This decomposition Γ = AAT is sometimes called the C-
+. We will now show that it exists by giving an algorithm for nding the
+matrix. We start by setting
+a11 =
+
+Γ11
+Suppose we have found the rst k −1 rows of A. This is a lower triangular
+(k −1) × (k −1) matrix. Suppose j < k. Then,
+Γjk = E [YjYk] =
+j
+
+i=1
+aji aki
+The coecients ajk for j = 1, , k −1 can be found by solving these k −1
+linear equation in k −1 unknowns (one uses the fact that Γ is nonnegatve
+denite to show there is a unique solution), and then one sets
+akk =
+
+
+
+Γkk −
+k−1
+
+i=1
+a2
+ki
+We see that this decomposition is unique if we impose the condition akk ≥0.
+¿From a practical perspective, these computations are done with com-
+puter packages. Note that one only needs to compute the coecients ajk
+once and store them. Then multiple simulations can be done using (7.3).
+The Cholesky decomposition can be derived from the Gram-Schmidt
+process. Consider the Hilbert space of mean-zero L2 random vari-
+ables and let Hn denote the nite dimensonal subspace spanned by
+Y1, , Yn. Let Pn denote the projection onto Hn which is the same
+as the conditional expectation,
+PnX = E[X Y1, , Yn]
+Then we dene
+Zn =
+Yn −Pn−1Yn
+∥Yn −Pn−1Yn∥2
+
+Since Hn is also the subspace spanned by Z1, , Zn, we can write
+Pn−1Yn =
+n−1
+
+j=1
+ajn Zj,
+for unique scalars ajn, and we set ann = ∥Yn −Pn−1Yn∥2

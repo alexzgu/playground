@@ -1,0 +1,70 @@
+Figure 11.16, whereas the second solution is in the smaller region. Figure 11.18 shows a
+response and contour plot of the overall desirability function D.
+11.4
+Experimental Designs for Fitting Response Surfaces
+Fitting and analyzing response surfaces is greatly facilitated by the proper choice of an exper-
+imental design. In this section, we discuss some aspects of selecting appropriate designs for
+tting response surfaces.
+When selecting a response surface design, some of the features of a desirable design are
+as follows:
+1. Provides a reasonable distribution of data points (and hence information) through-
+out the region of interest
+2. Allows model adequacy, including lack of t, to be investigated
+3. Allows experiments to be performed in blocks
+4. Allows designs of higher order to be built up sequentially
+5. Provides an internal estimate of error
+6. Provides precise estimates of the model coefcients
+7. Provides a good prole of the prediction variance throughout the experimental
+region
+8. Provides reasonable robustness against outliers or missing values
+9. Does not require a large number of runs
+10. Does not require too many levels of the independent variables
+11. Ensures simplicity of calculation of the model parameters
+These features are sometimes conicting, so judgment must often be applied in design selec-
+tion. For more information on the choice of a response surface design, refer to Khuri and Cornell
+(1996), Myers, Montgomery and Anderson-Cook (2009), and Box and Draper (2007).
+500
+Chapter 11 ■Response Surface Methods and Designs
+Desirability
+Temperature
+0.820
+0.615
+0.410
+0.205
+0.000
+180.00
+180.00
+177.50
+175.00
+172.50
+170.00
+80.00
+82.50
+(b) Contour plot
+(a) Response surface
+85.00
+Time
+Time
+Temperature
+87.50
+90.00
+90.00
+177.50
+87.50
+175.00
+85.00
+172.50
+82.50
+170.00
+80.00
+0.684
+0.273
+0.410 0.547
+0.273
+0.137
+0.410
+0.547
+0.137
+■F I G U R E 1 1 . 1 8
+Desirability function response surface and contour plot for the problem in 
+Example 11.2

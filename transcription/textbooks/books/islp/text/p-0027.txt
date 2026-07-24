@@ -1,0 +1,52 @@
+2.1 What Is Statistical Learning?
+17
+output variable is in general unknown. In this situation one must estimate
+f based on the observed points. Since Income is a simulated data set, f is
+known and is shown by the blue curve in the right-hand panel of Figure 2.2.
+The vertical lines represent the error terms ϵ. We note that some of the
+30 observations lie above the blue curve and some lie below it; overall, the
+errors have approximately mean zero.
+In general, the function f may involve more than one input variable.
+In Figure 2.3 we plot income as a function of years of education and
+seniority. Here f is a two-dimensional surface that must be estimated
+based on the observed data.
+In essence, statistical learning refers to a set of approaches for estimating
+f. In this chapter we outline some of the key theoretical concepts that arise
+in estimating f, as well as tools for evaluating the estimates obtained.
+2.1.1
+Why Estimate f?
+There are two main reasons that we may wish to estimate f: prediction
+and inference. We discuss each in turn.
+Prediction
+In many situations, a set of inputs X are readily available, but the output
+Y cannot be easily obtained. In this setting, since the error term averages
+to zero, we can predict Y using
+ˆY = ˆf(X),
+(2.2)
+where ˆf represents our estimate for f, and ˆY represents the resulting pre-
+diction for Y . In this setting, ˆf is often treated as a black box, in the sense
+that one is not typically concerned with the exact form of ˆf, provided that
+it yields accurate predictions for Y .
+As an example, suppose that X1, . . . , Xp are characteristics of a patient’s
+blood sample that can be easily measured in a lab, and Y is a variable
+encoding the patient’s risk for a severe adverse reaction to a particular
+drug. It is natural to seek to predict Y using X, since we can then avoid
+giving the drug in question to patients who are at high risk of an adverse
+reaction—that is, patients for whom the estimate of Y is high.
+The accuracy of ˆY as a prediction for Y depends on two quantities,
+which we will call the reducible error and the irreducible error. In general, reducible
+error
+irreducible
+error
+ˆf will not be a perfect estimate for f, and this inaccuracy will introduce
+some error. This error is reducible because we can potentially improve the
+accuracy of ˆf by using the most appropriate statistical learning technique to
+estimate f. However, even if it were possible to form a perfect estimate for
+f, so that our estimated response took the form ˆY = f(X), our prediction
+would still have some error in it! This is because Y is also a function of
+ϵ, which, by definition, cannot be predicted using X. Therefore, variability
+associated with ϵ also affects the accuracy of our predictions. This is known
+as the irreducible error, because no matter how well we estimate f, we
+cannot reduce the error introduced by ϵ.
+Why is the irreducible error larger than zero? The quantity ϵ may con-
+tain unmeasured variables that are useful in predicting Y : since we don’t

@@ -1,0 +1,48 @@
+8.1 The Basics of Decision Trees
+333
+Years
+Hits
+1
+117.5
+238
+1
+4.5
+24
+R1
+R3
+R2
+FIGURE 8.2. The three-region partition for the Hitters data set from the
+regression tree illustrated in Figure 8.1.
+the regions as a function of Years and Hits. The predicted salaries for these
+three groups are $1,000×e5.107 =$165,174, $1,000×e5.999 =$402,834, and
+$1,000×e6.740 =$845,346 respectively.
+In keeping with the tree analogy, the regions R1, R2, and R3 are known as
+terminal nodes or leaves of the tree. As is the case for Figure 8.1, decision terminal
+node
+leaf
+trees are typically drawn upside down, in the sense that the leaves are at
+the bottom of the tree. The points along the tree where the predictor space
+is split are referred to as internal nodes.
+In Figure 8.1, the two internal internal
+node
+nodes are indicated by the text Years<4.5 and Hits<117.5. We refer to the
+segments of the trees that connect the nodes as branches.
+branch
+We might interpret the regression tree displayed in Figure 8.1 as follows:
+Years is the most important factor in determining Salary, and players with
+less experience earn lower salaries than more experienced players. Given
+that a player is less experienced, the number of hits that he made in the
+previous year seems to play little role in his salary. But among players who
+have been in the major leagues for five or more years, the number of hits
+made in the previous year does affect salary, and players who made more
+hits last year tend to have higher salaries. The regression tree shown in
+Figure 8.1 is likely an over-simplification of the true relationship between
+Hits, Years, and Salary. However, it has advantages over other types of
+regression models (such as those seen in Chapters 3 and 6): it is easier to
+interpret, and has a nice graphical representation.
+Prediction via Stratification of the Feature Space
+We now discuss the process of building a regression tree. Roughly speaking,
+there are two steps.
+1. We divide the predictor space — that is, the set of possible values
+for X1, X2, . . . , Xp — into J distinct and non-overlapping regions,
+R1, R2, . . . , RJ.

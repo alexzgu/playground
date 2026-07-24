@@ -1,0 +1,94 @@
+Thus,
+Suppose we choose 0.05. Now to make a decision, we would compute t0 and reject H0 if
+t0t0.025,9 2.262.
+The computed value of the paired t-test statistic is
+and because t00.26 t0.025,9 2.262, we cannot reject the hypothesis H0 : d 0. That
+is, there is no evidence to indicate that the two tips produce different hardness readings.
+Figure 2.15 shows the t0 distribution with 9 degrees of freedom, the reference distribution for
+this test, with the value of t0 shown relative to the critical region.
+Table 2.7 shows the computer output from the Minitab paired t-test procedure for this
+problem. Notice that the P-value for this test is P 0.80, implying that we cannot reject the
+null hypothesis at any reasonable level of signicance.
+t0 
+d
+Sd/n
+
+0.10
+1.20/10
+0.26
+Sd 
+n
+j1
+d 2
+j 1
+n
+n
+j1
+dj
+2
+n 1
+
+1/2
+
+13 
+1
+10(1)2
+10 1 
+1/2
+1.20
+d 1
+n 
+n
+j1
+dj 1
+10 (1) 0.10
+2.5 Inferences About the Differences in Means, Paired Comparison Designs
+55
+■T A B L E
+2 . 7
+Minitab Paired t-Test Results for the Hardness Testing Example
+Paired T for Tip 1Tip 2
+N
+Mean
+Std. Dev.
+SE Mean
+Tip 1
+10
+4.800
+2.394
+0.757
+Tip 2
+10
+4.900
+2.234
+0.706
+Difference
+10
+0.100
+1.197
+0.379
+95% CI for mean difference: (0.956, 0.756)
+t-Test of mean difference 0 (vs not 0):
+T-Value 0.26 P-Value 0.798
+■F I G U R E 2 . 1 5
+The reference distribution (t with 9 degrees
+of freedom) for the hardness testing problem
+t0
+t0 = –0.26
+Probability density
+–6
+–4
+–2
+0
+2
+4
+6
+0
+0.1
+0.2
+0.3
+0.4
+Critical
+region
+Critical
+region

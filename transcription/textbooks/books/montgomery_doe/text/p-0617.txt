@@ -1,0 +1,163 @@
+13.8
+Problems
+13.8 Problems
+601
+E X A M P L E 1 3 . 8
+To illustrate the modied large-sample method, reconsider the three-factor mixed model in Example 13.6. We will nd an
+approximate 95 percent lower condence interval on 
+. Recall that the point estimate of 
+is
+Therefore, in the notation of Equation 13.29, c1 c2  , and
+From Equation 13.30
+So an approximate 95 percent lower condence limit on 
+is
+This result is consistent with the results of the exact F test for this effect.
+L ˆ 2
+VL 31.36 316.02 13.58
+2
+
+316.02
+(0.524)2(1/6)2(202.00)2 (1.3)2(1/6)2(13.84)2 (0.054)(1/6)(1/6)(202.00)(13.84)
+VL G 2
+1c2
+1MS 2
+AB H 2
+2c2
+2MS 2
+ABC G12c1c2MSABMSABC
+G*1t  0
+(3.00 1)2 (0.524)2(3.00)2 (1.3)2
+3.00
+0.054
+G12 
+(F0.05,6,12 1)2 (G1)2F2
+0.05,6,12 (H2)2
+F0.05,6,12
+H2 
+1
+F0.95,12,
+1 
+1
+0.435 1 1.30
+G1  1 
+1
+F0.05,6,
+1 1
+2.1 0.524
+1
+6
+ˆ 2
+MSAB MSABC
+cn
+202.00 13.84
+(3)(2)
+31.359
+2
+
+2
+
+13.1.
+An experiment was performed to investigate the capa-
+bility of a measurement system. Ten parts were randomly
+selected, and two randomly selected operators measured each
+part three times. The tests were made in random order, and the
+data are shown in Table P13.1.
+■TA B L E P 1 3 . 1
+Measurement Systems Data for Problem 13.1
+Operator 1 
+Operator 2 
+Measurements
+Measurements
+Part No.
+1
+2
+3
+1
+2
+3
+1
+50
+49
+50
+50
+48
+51
+2
+52
+52
+51
+51
+51
+51
+3
+53
+50
+50
+54
+52
+51
+4
+49
+51
+50
+48
+50
+51
+5
+48
+49
+48
+48
+49
+48
+6
+52
+50
+50
+52
+50
+50
+7
+51
+51
+51
+51
+50
+50
+8
+52
+50
+49
+53
+48
+50
+9
+50
+51
+50
+51
+48
+49
+10
+47
+46
+49
+46
+47
+48
+(a) Analyze the data from this experiment.
+(b) Estimate the variance components using the ANOVA
+method.
+13.2.
+An article by Hoof and Berman (“Statistical Analysis
+of Power Module Thermal Test Equipment Performance,”
+IEEE 
+Transactions 
+on 
+Components,
+Hybrids,
+and
+Manufacturing Technology Vol. 11, pp. 516–520, 1988)
+describes an experiment conducted to investigate the capabil-
+ity of measurements in thermal impedance (C°/w 100)
+on a power module for an induction motor starter. There are

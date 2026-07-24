@@ -1,0 +1,84 @@
+X
+Alias Relationships for 2kp Fractional Factorial Designs with k 15 and n 64 (Continued)
+Designs with 10 Factors (Continued)
+(t) 2104; 1/16 fraction of
+Resolution IV
+10 factors in 64 runs
+Design Generators
+G BCDF
+H ACDF
+J ABDE
+K ABCE
+Dening relation:
+I BCDFG ACDFH ABGH ABDEJ ACEFGJ BCEFHJ DEGHJ ABCEK
+ADEFGK BDEFHK CEGHK CDJK BFGJK AFHJK ABCDGHJK
+Aliases
+A BGH
+AD CFH BEJ
+BK ACE FGJ
+B AGH
+AE BDJ BCK
+CD BFG AFH JK
+C DJK
+AF CDH HJK
+CE ABK GHK
+D CJK
+AG BH
+CF BDG ADH
+E 
+AH CDF BG FJK
+CG BDF EHK
+F 
+AJ BDE FHK
+CH ADF EGK
+G ABH
+AK BCE FHJ
+CJ DK
+H ABG
+BC DFG AEK
+CK ABE EGH DJ
+J CDK
+BD CFG AEJ
+DE ABJ GHJ
+K CDJ
+BE ADJ ACK
+DF BCG ACH
+AB GH DEJ CEK
+BF CDG GJK
+DG BCF EHJ
+AC DFH BEK
+BJ ADE FGK
+DH ACF EGJ
+EF 
+GJ DEH BFK
+AEG BEH CFJ DFK
+EG DHJ CHK
+GK CEH BFJ
+AEH BEG
+EH DGJ CGK
+HJ DEG AFK
+AFG BFH CEJ DEK
+EJ ABD DGH
+HK CEG AFJ
+AGJ CEF BHJ
+EK ABC CGH
+ABF FGH
+AGK DEF BHK
+FG BCD BJK
+ACG BCH EFJ
+BCJ EFH BDK
+FH ACD AJK
+ACJ EFG ADK
+BEF CHJ DHK
+FJ BGK AHK
+ADG BDH EFK
+CDE EJK
+FK BGJ AHJ
+AEF CGJ DGK
+CFK DFJ
+2 blocks of 32: AGJ CEF BHJ
+4 blocks of 16: AGJ CEF BHJ
+AGK DEF BHK
+CD BFG AFH JK
+Appendix
+713

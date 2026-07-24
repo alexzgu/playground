@@ -1,0 +1,228 @@
+548
+Chapter 11 ■Response Surface Methods and Designs
+■TA B L E P 1 1 . 7
+The CCD for Problem 11.14
+x1
+x2
+s2
+1
+1
+360.6
+6.689
+1
+1
+445.2
+14.230
+1
+1
+412.1
+7.088
+1
+1
+601.7
+8.586
+1.414
+0
+518.0
+13.130
+1.414
+0
+411.4
+6.644
+0
+1.414
+497.6
+7.649
+0
+1.414
+397.6
+11.740
+0
+0
+530.6
+7.836
+0
+0
+495.4
+9.306
+0
+0
+510.2
+7.956
+0
+0
+487.3
+9.127
+(d) Suppose you want the mean thickness to be in the
+interval 450 25. Find a set of operating conditions
+that achieves this objective and simultaneously mini-
+mizes the variance.
+(e) Discuss the variance minimization aspects of part (d).
+Have you minimized the total process variance?
+11.15.
+Verify that an orthogonal rst-order design is also
+rst-order rotatable.
+11.16.
+Show that augmenting a 2k design with nC center
+points does not affect the estimates of the i (i 1, 2, . . . , k)
+but that the estimate of the intercept 0 is the average of all 2k
+nc observations.
+11.17.
+The rotatable central composite design. It can be
+shown that a second-order design is rotatable if 
+0,
+if a or b (or both) are odd, and if 
+. Show
+that for the central composite design these conditions lead to
+(nF)1/4 for rotatability, where nF is the number of points in
+the factorial portion.
+11.18.
+Verify that the central composite design shown in
+Table P11.8 blocks orthogonally:
+x2
+iux2
+ju
+x4
+iu 3"n
+u1
+"n
+u1
+xa
+iuxb
+ju
+"n
+u1
+y
+■TA B L E P 1 1 . 8
+A CCD in Three Blocks
+Block 1
+Block 2
+x1
+x2
+x3
+x1
+x2
+x3
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+Block 3
+x1
+x2
+x3
+1.633
+0
+0
+1.633
+0
+0
+0
+1.633
+0
+0
+1.633
+0
+0
+0
+1.633
+0
+0
+1.633
+0
+0
+0
+0
+0
+0
+11.19.
+Blocking in the central composite design. Consider a
+central composite design for k 4 variables in two blocks. Can
+a rotatable design always be found that blocks orthogonally?
+11.20.
+How could a hexagon design be run in two orthogonal
+blocks?
+11.21.
+Yield during the rst four cycles of a chemical process
+is shown in the following table. The variables are percentage of
+concentration (x1) at levels 30, 31, and 32 and temperature (x2)
+at 140, 142, and 144°F. Analyze by EVOP methods.
+Conditions
+Cycle
+(1)
+(2)
+(3)
+(4)
+(5)
+1
+60.7
+59.8
+60.2
+64.2
+57.5
+2
+59.1
+62.8
+62.5
+64.6
+58.3
+3
+56.6
+59.1
+59.0
+62.3
+61.1
+4
+60.5
+59.8
+64.5
+61.0
+60.1
+11.22.
+Suppose that we approximate a response surface
+with a model of order d1, such as y X1&1  , when the true
+surface is described by a model of order d2 d1; that is, E(y)
+X1&1 X1&2.
+(a) Show that the regression coefcients are biased, that
+is, E
+&1 A&2, where A 
+. A
+is usually called the alias matrix.
+(b) If d1 1 and d2 2, and a full 2k is used to t the model,
+use the result in part (a) to determine the alias structure.
+(c) If d1 1, d2 2, and k 3, nd the alias structure
+assuming that a 231 design is used to t the model.
+(X1 X1)1X1 X2
+(&ˆ 1)

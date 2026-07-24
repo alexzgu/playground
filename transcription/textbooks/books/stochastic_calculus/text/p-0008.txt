@@ -1,0 +1,19 @@
+2
+CONTENTS
+– Rigorous derivations of consequences.
+– Derivations that are plausible but are not mathematically rigor-
+ous.
+– Approximations of the mathematical model which lead to
+tractable calculations.
+– Numerical calculations on a computer.
+– For models that include randomness, MCus-
+ing a (pseudo) random number generator.
+If the mathematical analysis is successful it will make predictions about
+the real world. These are then checked.
+If the predictions are bad, there are two possible reasons:
+– The mathematical analysis was faulty.
+– The model does not suciently reect reality.
+The user of mathematics does not always need to know the details of
+the mathematical analysis, but it is critical to understand the 
+in the model. No matter how precise or sophisticated the analysis is, if the
+assumptions are bad, one cannot expect a good answer.

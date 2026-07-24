@@ -1,0 +1,109 @@
+The program will also compare all pairs of treatment means using the pairwise multiple com-
+parison procedures discussed in Chapter 3.
+15.3.3
+Development by the General Regression 
+Signiﬁcance Test
+It is possible to develop formally the ANCOVA procedure for testing H0: i 0 in the covari-
+ance model
+(15.35)
+using the general regression signicance test. Consider estimating the parameters in the
+model (Equation 15.15) by least squares. The least squares function is
+(15.36)
+L 
+a
+i1 
+n
+j1
+ [yij i (xij x..)]2
+yij i (xij x..) ij 
+i 1, 2, . . . , a
+j 1, 2, . . . , n
+15.3 The Analysis of Covariance
+665
+■TA B L E 1 5 . 1 5
+Minitab Output (Analysis of Covariance) for Example 15.5
+General Linear Model
+Factor
+Type
+Levels
+Values
+Machine
+fixed
+3
+1 2 3
+Analysis of Variance for Strength, using Adjusted SS for Tests
+Source
+DF
+Seq SS
+Adj SS
+Adj MS
+F
+P
+Diameter
+1
+305.13
+178.01
+178.01
+69.97
+0.000
+Machine
+2
+13.28
+13.28
+6.64
+2.61
+0.118
+Error
+11
+27.99
+27.99
+2.54
+Total
+14
+346.40
+Term
+Coef
+Std. Dev.
+T
+P
+Constant
+17.177
+2.783
+6.17
+0.000
+Diameter
+0.9540
+0.1140
+8.36
+0.000
+Machine
+1
+0.1824
+0.5950
+0.31
+0.765
+2
+1.2192
+0.6201
+1.97
+0.075
+Means for Covariates
+Covariate
+Mean
+Std. Dev.
+Diameter
+24.13
+4.324
+Least Squares Means for Strength
+Machine
+Mean
+Std. Dev.
+1
+40.38
+0.7236
+2
+41.42
+0.7444
+3
+38.80
+0.7879 

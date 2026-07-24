@@ -1,0 +1,142 @@
+11.4 Experimental Designs for Fitting Response Surfaces
+517
+of constant prediction standard deviation for this design visually look at least as good as those for
+the D-optimal design, particularly at the center of the region. This points out the necessity of
+design evaluation; that is, carefully examine the properties of a computer-generated design
+before you decide to use it.
+E X A M P L E 1 1 . 3
+As an illustration of the different designs that can be construct-
+ed using both the D and I optimality criteria, suppose that we
+want to t a second-order model in four factors on a cubic
+region. The standard design for this problem would be a face-
+centered cube, a design with 24 factorial and axial runs plus 2
+or 3 center points, or a total of 26 or 27 runs. The second-order
+model in k 4 factors has 15 parameters, so a minimal design
+must have 15 runs. Suppose that we want to employ a design
+with 16 runs. Since there is not a standard design available
+with 16 runs, we will consider using an optimal design.
+Table 11.13 is the output from the JMP custom design tool
+for this problem, where a D-optimal design has been
+■TA B L E 1 1 . 1 3
+The D-Optimal Design
+Design Matrix
+Run
+X1
+X2
+X3
+X4
+1
+1
+1
+1
+1
+2
+1
+1
+1
+1
+3
+1
+1
+1
+1
+4
+1
+1
+1
+1
+5
+1
+1
+1
+1
+6
+0
+0
+0
+1
+7
+0
+0
+1
+0
+8
+0
+1
+1
+1
+9
+1
+1
+1
+1
+10
+1
+1
+1
+1
+11
+0
+1
+1
+1
+12
+0
+1
+1
+1
+13
+0
+1
+1
+1
+14
+1
+1
+0
+0
+15
+1
+0
+1
+1
+16
+1
+1
+1
+1
+Prediction Variance Profile
+Variance
+1.806364
+3
+2
+1
+0
+1
+X1
+–1
+X2
+–1
+X3
+–0.10959
+X4
+–1
+–1
+1
+–0.5
+0.5
+0
+–1
+1
+–0.5
+0.5
+0
+–1
+1
+–0.5
+0.5
+0
+1
+–0.5
+0.5
+0

@@ -1,0 +1,83 @@
+15.3 The Analysis of Covariance
+661
+The sum of squares for testing H0: 1 2 3 0 is
+with a 1 3 1 2 degrees of freedom. These calculations are summarized in Table 15.13.
+To test the hypothesis that machines differ in the breaking strength of ber produced, that is, H0: i 0, we compute the
+test statistic from Equation 15.30 as
+Comparing this to F0.10,2,11 2.86, we find that the null hypothesis cannot be rejected. The P-value of this test 
+statistic is 0.1181. Thus, there is no strong evidence that the fibers produced by the three machines differ in breaking
+strength.
+The estimate of the regression coefcient is computed from Equation 15.26 as
+We may test the hypothesis H0: 0 by using Equation 15.33. The test statistic is
+and because F0.01,1,11 9.65, we reject the hypothesis that 0. Therefore, there is a linear relationship between breaking
+strength and diameter, and the adjustment provided by the analysis of covariance was necessary.
+The adjusted treatment means may be computed from Equation 15.31. These adjusted means are
+and
+36.00 (0.9540)(21.20 24.13) 38.80
+ Adjusted y3. y3. ˆ(x3. x..)
+43.20 (0.9540)(26.00 24.13) 41.42
+Adjusted y2. y2. ˆ(x2. x..)
+41.40 (0.9540)(25.20 24.13) 40.38
+Adjusted y1. y1. ˆ(x1. x..)
+F0 
+(Exy)2/Exx
+MSE
+(186.60)2/195.60
+2.54
+70.08
+ˆ 
+Exy
+Exx
+186.60
+195.60 0.9540
+13.28/2
+27.99/11 6.64
+2.54 2.61
+F0 (SSE SSE)/(a 1)
+SSE/[a(n 1) 1]
+13.28
+SSE SSE 41.27 27.99
+■TA B L E 1 5 . 1 3
+Analysis of Covariance for the Breaking Strength Data
+Sums of Squares and Products
+Adjusted for Regression
+Source of
+Degrees of
+Degrees of
+Mean
+Variation
+Freedom
+x
+xy
+y
+y
+Freedom
+Square
+F0
+P-Value
+Machines
+2
+66.13
+96.00
+140.40
+Error
+12
+195.60
+186.60
+206.00
+27.99
+11
+2.54
+Total
+14
+261.73
+282.60
+346.40
+41.27
+13
+Adjusted Machines
+13.28
+2
+6.64
+2.61
+0.1181 

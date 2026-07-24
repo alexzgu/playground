@@ -1,0 +1,53 @@
+590
+13. Multiple Testing
+We now reproduce the middle panel of Figure 13.6.
+In [22]: fig, ax = plt.subplots()
+ax.scatter(np.arange(0, sorted_.shape[0]) + 1,
+sorted_, s=10)
+ax.set_yscale('log')
+ax.set_xscale('log')
+ax.set_ylabel('P-Value')
+ax.set_xlabel('Index')
+ax.scatter(sorted_set_+1, sorted_[sorted_set_], c='r', s=20)
+ax.axline((0, 0), (1,q/m), c='k', ls='--', linewidth=3);
+13.6.4
+A Re-Sampling Approach
+Here, we implement the re-sampling approach to hypothesis testing using
+the Khan dataset, which we investigated in Section 13.5. First, we merge
+the training and testing data, which results in observations on 83 patients
+for 2,308 genes.
+In [23]: Khan = load_data('Khan')
+D = pd.concat([Khan['xtrain'], Khan['xtest']])
+D['Y'] = pd.concat([Khan['ytrain'], Khan['ytest']])
+D['Y'].value_counts()
+Out[23]: 2
+29
+4
+25
+3
+18
+1
+11
+Name: Y, dtype: int64
+There are four classes of cancer. For each gene, we compare the mean ex-
+pression in the second class (rhabdomyosarcoma) to the mean expression in
+the fourth class (Burkitt’s lymphoma). Performing a standard two-sample
+t-test using ttest_ind() from scipy.stats on the 11th gene produces a ttest_ind()
+test-statistic of -2.09 and an associated p-value of 0.0412, suggesting mod-
+est evidence of a difference in mean expression levels between the two cancer
+types.
+In [24]: D2 = D[lambda df:df['Y'] == 2]
+D4 = D[lambda df:df['Y'] == 4]
+gene_11 = 'G0011'
+observedT, pvalue = ttest_ind(D2[gene_11],
+D4[gene_11],
+equal_var=True)
+observedT, pvalue
+Out[24]: (-2.094, 0.041)
+However, this p-value relies on the assumption that under the null hy-
+pothesis of no difference between the two groups, the test statistic follows
+a t-distribution with 29 + 25 −2 = 52 degrees of freedom. Instead of us-
+ing this theoretical null distribution, we can randomly split the 54 patients
+into two groups of 29 and 25, and compute a new test statistic. Under the
+null hypothesis of no difference between the groups, this new test statis-
+tic should have the same distribution as our original one. Repeating this

@@ -1,0 +1,130 @@
+1. Introduction
+9
+In general, we will let xij represent the value of the jth variable for the
+ith observation, where i = 1, 2, . . . , n and j = 1, 2, . . . , p. Throughout this
+book, i will be used to index the samples or observations (from 1 to n) and
+j will be used to index the variables (from 1 to p). We let X denote an
+n × p matrix whose (i, j)th element is xij. That is,
+X =
+
+
+
+
+
+x11
+x12
+. . .
+x1p
+x21
+x22
+. . .
+x2p
+...
+...
+...
+...
+xn1
+xn2
+. . .
+xnp
+
+
+
+
+.
+For readers who are unfamiliar with matrices, it is useful to visualize X as
+a spreadsheet of numbers with n rows and p columns.
+At times we will be interested in the rows of X, which we write as
+x1, x2, . . . , xn. Here xi is a vector of length p, containing the p variable
+measurements for the ith observation. That is,
+xi =
+
+
+
+
+
+xi1
+xi2
+...
+xip
+
+
+
+
+.
+(1.1)
+(Vectors are by default represented as columns.) For example, for the Wage
+data, xi is a vector of length 11, consisting of year, age, race, and other
+values for the ith individual. At other times we will instead be interested
+in the columns of X, which we write as x1, x2, . . . , xp. Each is a vector of
+length n. That is,
+xj =
+
+
+
+
+
+x1j
+x2j
+...
+xnj
+
+
+
+
+.
+For example, for the Wage data, x1 contains the n = 3,000 values for year.
+Using this notation, the matrix X can be written as
+X =
+'x1
+x2
+· · ·
+xp
+(
+,
+or
+X =
+
+
+
+
+
+xT
+1
+xT
+2
+...
+xT
+n
+
+
+
+
+.
+The T notation denotes the transpose of a matrix or vector. So, for example,
+XT =
+
+
+
+
+
+x11
+x21
+. . .
+xn1
+x12
+x22
+. . .
+xn2
+...
+...
+...
+x1p
+x2p
+. . .
+xnp
+
+
+
+
+,

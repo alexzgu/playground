@@ -1,0 +1,275 @@
+(a) Consider only the molecular weight response. Plot the
+effect estimates on a normal probability scale. What
+effects appear important?
+(b) Use an analysis of variance to conrm the results from
+part (a). Is there indication of curvature?
+(c) Write down a regression model to predict molecular
+weight as a function of the important variables.
+(d) Analyze the residuals and comment on model adequacy.
+(e) Repeat parts (a)–(d) using the viscosity response.
+6.32.
+Continuation of Problem 6.31. Use the regression
+models for molecular weight and viscosity to answer the fol-
+lowing questions.
+(a) Construct a response surface contour plot for molecu-
+lar weight. In what direction would you adjust the
+process variables to increase molecular weight?
+(b) Construct a response surface contour plot for viscosi-
+ty. In what direction would you adjust the process vari-
+ables to decrease viscosity?
+(c) What operating conditions would you recommend if it
+was necessary to produce a product with molecular
+weight between 2400 and 2500 and the lowest possi-
+ble viscosity?
+6.33.
+Consider the single replicate of the 24 design in
+Example 6.2. Suppose that we ran five points at the center 
+(0, 0, 0, 0) and observed the responses 93, 95, 91, 89, and
+96. Test for curvature in this experiment. Interpret the
+results.
+6.34.
+A missing value in a 2k factorial. It is not unusual to
+nd that one of the observations in a 2k design is missing due
+to faulty measuring equipment, a spoiled test, or some other
+reason. If the design is replicated n times (n  1), some of the
+techniques discussed in Chapter 5 can be employed. However,
+for an unreplicated factorial (n  1) some other method must
+be used. One logical approach is to estimate the missing value
+with a number that makes the highest order interaction con-
+trast zero. Apply this technique to the experiment in Example
+6.2 assuming that run ab is missing. Compare the results with
+the results of Example 6.2.
+6.35.
+An engineer has performed an experiment to study
+the effect of four factors on the surface roughness of a
+machined part. The factors (and their levels) are A  tool
+angle (12, 15°), B  cutting uid viscosity (300, 400), C 
+feed rate (10 and 15 in./min), and D  cutting uid cooler
+used (no, yes). The data from this experiment (with the factors
+coded to the usual 1, 1 levels) are shown in Table P6.9.
+(a) Estimate the factor effects. Plot the effect estimates
+on a normal probability plot and select a tentative
+model.
+(b) Fit the model identied in part (a) and analyze the
+residuals. Is there any indication of model inadequacy?
+(c) Repeat the analysis from parts (a) and (b) using 1/y as
+the response variable. Is there an indication that the
+transformation has been useful?
+(d) Fit a model in terms of the coded variables that can be
+used to predict the surface roughness. Convert this pre-
+diction equation into a model in the natural variables.
+■TA B L E P 6 . 9
+The Surface Roughness Experiment from Problem 6.35
+Surface
+Run
+A
+B
+C
+D
+Roughness
+1
+
+
+
+
+0.00340
+2
+
+
+
+
+0.00362
+3
+
+
+
+
+0.00301
+4
+
+
+
+
+0.00182
+5
+
+
+
+
+0.00280
+6
+
+
+
+
+0.00290
+7
+
+
+
+
+0.00252
+8
+
+
+
+
+0.00160
+9
+
+
+
+
+0.00336
+10
+
+
+
+
+0.00344
+11
+
+
+
+
+0.00308
+12
+
+
+
+
+0.00184
+13
+
+
+
+
+0.00269
+14
+
+
+
+
+0.00284
+15
+
+
+
+
+0.00253
+16
+
+
+
+
+0.00163
+6.36.
+Resistivity on a silicon wafer is influenced by sever-
+al factors. The results of a 24 factorial experiment performed
+during a critical processing step is shown in Table P6.10.
+■TA B L E P 6 . 1 0
+The Resistivity Experiment from Problem 6.36
+Run
+A
+B
+C
+D
+Resistivity
+1
+
+
+
+
+1.92
+2
+
+
+
+
+11.28
+3
+
+
+
+
+1.09
+4
+
+
+
+
+5.75
+5
+
+
+
+
+2.13
+6
+
+
+
+
+9.53
+7
+
+
+
+
+1.03
+8
+
+
+
+
+5.35
+9
+
+
+
+
+1.60
+10
+
+
+
+
+11.73
+11
+
+
+
+
+1.16
+12
+
+
+
+
+4.68
+13
+
+
+
+
+2.16
+14
+
+
+
+
+9.11
+15
+
+
+
+
+1.07
+16
+
+
+
+
+5.30
+300
+Chapter 6 ■The 2k Factorial Design

@@ -1,0 +1,53 @@
+associated with them. Now every treatment combination will yield a particular pair of values
+of L1 (mod 2) and L2 (mod 2), that is, either (L1, L2) (0, 0), (0, 1), (1, 0), or (1, 1). Treatment
+combinations yielding the same values of (L1, L2) are assigned to the same block. In our
+example we nd
+These treatment combinations would be assigned to different blocks. The complete design is
+as shown in Figure 7.6.
+With a little reflection we realize that another effect in addition to ADE and BCE
+must be confounded with blocks. Because there are four blocks with three degrees of
+freedom between them, and because ADE and BCE have only one degree of freedom
+each, clearly an additional effect with one degree of freedom must be confounded. This
+effect is the generalized interaction of ADE and BCE, which is defined as the product
+of ADE and BCE modulus 2. Thus, in our example the generalized interaction
+(ADE)(BCE) ABCDE2 ABCD is also confounded with blocks. It is easy to verify
+this by referring to a table of plus and minus signs for the 25 design, such as in Davies
+(1956). Inspection of such a table reveals that the treatment combinations are assigned to
+the blocks as follows:
+Treatment Combinations in
+Sign on ADE
+Sign on BCE
+Sign on ABCD
+Block 1
+
+
+
+Block 2
+
+
+
+Block 3
+
+
+
+Block 4
+
+
+
+Notice that the product of signs of any two effects for a particular block (e.g., ADE and BCE)
+yields the sign of the other effect for that block (in this case, ABCD). Thus, ADE, BCE, and
+ABCD are all confounded with blocks.
+The group-theoretic properties of the principal block mentioned in Section 7.4 still
+hold. For example, we see that the product of two treatment combinations in the principal
+block yields another element of the principal block. That is,
+ad ! bc abcd and abe ! bde ab2de2 ad
+L1 1, L2 1 for e, ade, bce, abcde, ab, bd, ac, cd
+L1 0, L2 1 for b, abd, c, acd, ae, de abce, bcde
+L1 1, L2 0 for a, d, abc, bcd, be, abde, ce, acde
+L1 0, L2 0 for (1), ad, bc, abcd, abe, ace, cde, bde
+314
+Chapter 7 ■Blocking and Confounding in the 2k Factorial Design
+■F I G U R E 7 . 6
+The 25 design in 
+four blocks with ADE, BCE, and ABCD
+confounded

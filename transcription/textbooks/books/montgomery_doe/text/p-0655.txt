@@ -1,0 +1,188 @@
+14.14. Suppose that in Problem 14.13 a large number of
+power settings could have been used and that the two selected
+for the experiment were chosen randomly. Obtain the expect-
+ed mean squares for this situation assuming the restricted
+form of the mixed model and modify the previous analysis
+appropriately.
+14.15. Reanalyze the experiment in Problem 14.14 assuming
+the unrestricted form of the mixed model. You may use a com-
+puter software package to do this. Comment on any differ-
+ences between the restricted and unrestricted model analysis
+and conclusions.
+14.16. A structural engineer is studying the strength of
+aluminum alloy purchased from three vendors. Each vendor
+submits the alloy in standard-sized bars of 1.0, 1.5, or 2.0
+inches. The processing of different sizes of bar stock from
+a common ingot involves different forging techniques, and
+so this factor may be important. Furthermore, the bar stock
+is forged from ingots made in different heats. Each vendor
+submits two test specimens of each size bar stock from
+three heats. The resulting strength data is shown in Table
+P14.2. Analyze the data, assuming that vendors and bar size
+are fixed and heats are random. Use the restricted form of
+the mixed model.
+■TA B L E P 1 4 . 2
+Strength Data in Problem P14.16
+Vendor 1
+Vendor 2
+Heat
+1
+2
+3
+1
+2
+3
+Bar size:
+1 in.
+1.230
+1.346
+1.235
+1.301
+1.346
+1.315
+1.259
+1.400
+1.206
+1.263
+1.392
+1.320
+1.316
+1.329
+1.250
+1.274
+1.384
+1.346
+1.300
+1.362
+1.239
+1.268
+1.375
+1.357
+2 in.
+1.287
+1.346
+1.273
+1.247
+1.362
+1.336
+1.292
+1.382
+1.215
+1.215
+1.328
+1.342
+Vendor 3
+Heat
+1
+2
+3
+Bar size:
+1 in.
+1.247
+1.275
+1.324
+1.296
+1.268
+1.315
+1.273
+1.260
+1.392
+1.264
+1.265
+1.364
+2 in.
+1.301
+1.280
+1.319
+1.262
+1.271
+1.323
+14.17. Rework Problem 14.16 using the unrestricted form
+of the mixed model. You may use a computer software
+1
+1
+2 in. 
+1
+1
+2 in. 
+package to do this. Comment on any differences 
+between the restricted and unrestricted model analysis and
+conclusions.
+14.18. Suppose that in Problem 14.16 the bar stock may be
+purchased in many sizes and that the three sizes actually used
+in the experiment were selected randomly. Obtain the expect-
+ed mean squares for this situation and modify the previous
+analysis appropriately. Use the restricted form of the mixed
+model.
+14.19. Steel is normalized by heating above the critical
+temperature, soaking, and then air cooling. This process
+increases the strength of the steel, refines the grain, and
+homogenizes the structure. An experiment is performed to
+determine the effect of temperature and heat treatment time
+on the strength of normalized steel. Two temperatures and
+three times are selected. The experiment is performed by
+heating the oven to a randomly selected temperature and
+inserting three specimens. After 10 minutes one specimen is
+removed, after 20 minutes the second is removed, and after
+30 minutes the final specimen is removed. Then the temper-
+ature is changed to the other level and the process is repeat-
+ed. Four shifts are required to collect the data, which are
+shown below. Analyze the data and draw conclusions,
+assuming both factors are fixed.
+Temperature (°F)
+Shift
+Time (min)
+1500
+1600
+10
+63
+89
+1
+20
+54
+91
+30
+61
+62
+10
+50
+80
+2
+20
+52
+72
+30
+59
+69
+10
+48
+73
+3
+20
+74
+81
+30
+71
+69
+10
+54
+88
+4
+20
+48
+92
+30
+59
+64
+14.20. An experiment is designed to study pigment disper-
+sion in paint. Four different mixes of a particular pigment
+are studied. The procedure consists of preparing a particu-
+lar mix and then applying that mix to a panel by three
+application methods (brushing, spraying, and rolling). The
+response measured is the percentage reflectance of pig-
+ment. Three days are required to run the experiment, and
+the data obtained follow. Analyze the data and draw con-
+clusions, assuming that mixes and application methods are
+fixed.
+14.6 Problems
+639

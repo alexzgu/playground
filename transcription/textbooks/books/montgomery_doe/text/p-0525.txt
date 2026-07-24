@@ -1,0 +1,103 @@
+11.4 Experimental Designs for Fitting Response Surfaces
+509
+As an example of applying these conditions, consider a rotatable central composite
+design in k 2 variables with N 12 runs. We may write the levels of x1 and x2 for this
+design in the design matrix
+Notice that the design has been arranged in two blocks, with the rst block consisting of the
+factorial portion of the design plus two center points and the second block consisting of 
+the axial points plus two additional center points. It is clear that condition 1 is met; that is,
+both blocks are rst-order orthogonal designs. To investigate condition two, consider rst
+block 1 and note that
+Therefore,
+or
+Thus, condition 2 is satised in block 1. For block 2, we have
+Therefore,
+
+n2
+u1
+x2
+iu
+
+N
+u1
+x2
+iu
+n2
+N
+
+n2
+u1
+x2
+1u 
+n2
+u1
+x2
+2u 4 
+ and 
+ n2 6
+4
+8 6
+12
+
+n1
+u1
+x2
+iu
+
+n
+u1
+x2
+iu
+n1
+N
+
+N
+u1
+x2
+1u 
+N
+u1
+x2
+2u 8 
+ and 
+ n1 6
+
+n1
+u1
+x2
+1u 
+n1
+u1
+x2
+2u 4
+D 
+  x1
+1
+  1
+1
+  1
+  0
+  0
+  1.414
+1.414
+  0
+  0
+  0
+  0
+  x2
+1
+1
+  1
+  1
+  0
+  0
+  0
+  0
+  1.414
+1.414
+  0
+  0
+
+ Block 1
+
+ Block 2

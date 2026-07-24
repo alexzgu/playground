@@ -1,0 +1,82 @@
+6.2 The 22 Design
+237
+and
+(6.7)
+as the sums of squares for A, B, and AB. Notice how simple these equations are. We can com-
+pute sums of squares by only squaring one number.
+Using the experiment in Figure 6.1, we may nd the sums of squares from Equations
+6.5, 6.6, and 6.7 as
+(6.8)
+and
+The total sum of squares is found in the usual way, that is,
+(6.9)
+In general, SST has 4n 1 degrees of freedom. The error sum of squares, with 4(n 1)
+degrees of freedom, is usually computed by subtraction as
+(6.10)
+For the experiment in Figure 6.1, we obtain
+and
+using SSA, SSB, and SSAB from Equations 6.8. The complete ANOVA is summarized in Table 6.1.
+On the basis of the P-values, we conclude that the main effects are statistically signicant and
+that there is no interaction between these factors. This conrms our initial interpretation of
+the data based on the magnitudes of the factor effects.
+It is often convenient to write down the treatment combinations in the order (1), a, b,
+ab. This is referred to as standard order (or Yates’s order, for Frank Yates who was one of
+Fisher coworkers and who made many important contributions to designing and analyzing
+experiments). Using this standard order, we see that the contrast coefcients used in estimat-
+ing the effects are
+Effects
+(1)
+a
+b
+ab
+A
+1
+1
+1
+1
+B
+1
+1
+1
+1
+AB
+1
+1
+1
+1
+31.34
+323.00 208.33 75.00 8.33
+SSE SST SSA SSB SSAB
+9398.00 9075.00 323.00
+SST 
+2
+i1 
+2
+j1 
+3
+k1
+y2
+ijk y2
+...
+4(3)
+SSE SST SSA SSB SSAB
+SST 
+2
+i1 
+2
+j1 
+n
+k1
+y2
+ijk y2
+...
+4n
+SSAB (10)2
+4(3) 8.33
+SSB ( 30)2
+4(3)
+75.00
+SSA (50)2
+4(3) 208.33
+SSAB [ab (1) a b]2
+4n

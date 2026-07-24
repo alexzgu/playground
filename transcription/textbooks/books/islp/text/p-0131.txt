@@ -1,0 +1,63 @@
+122
+3. Linear Regression
+ax.scatter(results.fittedvalues , results.resid)
+ax.set_xlabel('Fitted value')
+ax.set_ylabel('Residual')
+ax.axhline(0, c='k', ls='--');
+We add a horizontal line at 0 for reference using the ax.axhline() method, .axhline()
+indicating it should be black (c='k') and have a dashed linestyle (ls='--').
+On the basis of the residual plot (not shown), there is some evidence
+of non-linearity. Leverage statistics can be computed for any number of
+predictors using the hat_matrix_diag attribute of the value returned by the
+get_influence() method.
+In [24]: infl = results.get_influence()
+ax = subplots(figsize=(8,8))[1]
+ax.scatter(np.arange(X.shape[0]), infl.hat_matrix_diag)
+ax.set_xlabel('Index')
+ax.set_ylabel('Leverage')
+np.argmax(infl.hat_matrix_diag)
+Out[24]: 374
+The np.argmax() function identifies the index of the largest element of an np.argmax()
+array, optionally computed over an axis of the array. In this case, we maxi-
+mized over the entire array to determine which observation has the largest
+leverage statistic.
+3.6.3
+Multiple Linear Regression
+In order to fit a multiple linear regression model using least squares, we
+again use the ModelSpec() transform to construct the required model matrix
+and response. The arguments to ModelSpec() can be quite general, but in
+this case a list of column names suffice. We consider a fit here with the two
+variables lstat and age.
+In [25]: X = MS(['lstat', 'age']).fit_transform(Boston)
+model1 = sm.OLS(y, X)
+results1 = model1.fit()
+summarize(results1)
+Out[25]:
+coef
+std err
+t
+P>|t|
+intercept
+33.2228
+0.731
+45.458
+0.000
+lstat
+-1.0321
+0.048
+-21.416
+0.000
+age
+0.0345
+0.012
+2.826
+0.005
+Notice how we have compacted the first line into a succinct expression
+describing the construction of X.
+The Boston data set contains 12 variables, and so it would be cumbersome
+to have to type all of these in order to perform a regression using all of the
+predictors. Instead, we can use the following short-hand:
+.columns.
+drop()
+In [26]: terms = Boston.columns.drop('medv')
+terms

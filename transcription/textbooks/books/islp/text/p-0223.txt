@@ -1,0 +1,105 @@
+5.3 Lab: Cross-Validation and the Bootstrap
+215
+2.8 
+5.3 
+3 
+1.1 
+2.1 
+2 
+2.4 
+4.3 
+1 
+Y 
+X 
+Obs 
+2.8 
+5.3 
+3 
+2.4 
+4.3 
+1 
+2.8 
+5.3 
+3 
+Y 
+X 
+Obs 
+2.4 
+4.3 
+1 
+2.8 
+5.3 
+3 
+1.1 
+2.1 
+2 
+Y 
+X 
+Obs 
+2.4 
+4.3 
+1 
+1.1 
+2.1 
+2 
+1.1 
+2.1 
+2 
+Y 
+X 
+Obs 
+Original Data (Z) 
+1
+*
+Z
+2
+*
+Z
+Z *B
+1
+*ˆ
+2
+*ˆ
+ˆ*B
+!!
+!!
+!!
+!!
+!
+!!
+!!
+!!
+!!
+!!
+!!
+!!
+!!
+FIGURE 5.11.
+A graphical illustration of the bootstrap approach on a small
+sample containing n = 3 observations. Each bootstrap data set contains n obser-
+vations, sampled with replacement from the original data set. Each bootstrap data
+set is used to obtain an estimate of α.
+5.3
+Lab: Cross-Validation and the Bootstrap
+In this lab, we explore the resampling techniques covered in this chap-
+ter. Some of the commands in this lab may take a while to run on your
+computer.
+We again begin by placing most of our imports at this top level.
+In [1]: import numpy as np
+import statsmodels.api as sm
+from ISLP import load_data
+from ISLP.models import (ModelSpec as MS,
+summarize,
+poly)
+from sklearn.model_selection import train_test_split
+There are several new imports needed for this lab.
+In [2]: from functools import partial
+from sklearn.model_selection import \
+(cross_validate ,
+KFold,
+ShuffleSplit)
+from sklearn.base import clone
+from ISLP.models import sklearn_sm
+
+
+

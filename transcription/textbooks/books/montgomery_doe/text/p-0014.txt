@@ -1,0 +1,118 @@
+9.4
+Factorials with Mixed Levels
+412
+9.4.1
+Factors at Two and Three Levels
+412
+9.4.2
+Factors at Two and Four Levels
+414
+9.5
+Nonregular Fractional Factorial Designs
+415
+9.5.1 Nonregular Fractional Factorial Designs for 6, 7, and 8 Factors in 16 Runs
+418
+9.5.2 Nonregular Fractional Factorial Designs for 9 Through 14 Factors in 16 Runs
+425
+9.5.3 Analysis of Nonregular Fractional Factorial Designs
+427
+9.6
+Constructing Factorial and Fractional Factorial Designs Using 
+an Optimal Design Tool
+431
+9.6.1
+Design Optimality Criteria
+433
+9.6.2
+Examples of Optimal Designs
+433
+9.6.3
+Extensions of the Optimal Design Approach
+443
+9.7
+Problems
+444
+10
+Fitting Regression Models
+449
+10.1 Introduction
+449
+10.2 Linear Regression Models
+450
+10.3 Estimation of the Parameters in Linear Regression Models
+451
+10.4 Hypothesis Testing in Multiple Regression
+462
+10.4.1
+Test for Signicance of Regression
+462
+10.4.2
+Tests on Individual Regression Coefcients and Groups of Coefcients
+464
+10.5 Condence Intervals in Multiple Regression
+467
+10.5.1
+Condence Intervals on the Individual Regression Coefcients
+467
+10.5.2
+Condence Interval on the Mean Response
+468
+10.6 Prediction of New Response Observations
+468
+10.7 Regression Model Diagnostics
+470
+10.7.1
+Scaled Residuals and PRESS
+470
+10.7.2
+Inuence Diagnostics
+472
+10.8 Testing for Lack of Fit
+473
+10.9 Problems
+475
+11
+Response Surface Methods and Designs
+478
+11.1 Introduction to Response Surface Methodology
+478
+11.2 The Method of Steepest Ascent
+480
+11.3 Analysis of a Second-Order Response Surface
+486
+11.3.1
+Location of the Stationary Point
+486
+11.3.2
+Characterizing the Response Surface
+488
+11.3.3
+Ridge Systems
+495
+11.3.4
+Multiple Responses
+496
+11.4 Experimental Designs for Fitting Response Surfaces
+500
+11.4.1
+Designs for Fitting the First-Order Model
+501
+11.4.2
+Designs for Fitting the Second-Order Model
+501
+11.4.3
+Blocking in Response Surface Designs
+507
+11.4.4
+Optimal Designs for Response Surfaces
+511
+11.5 Experiments with Computer Models
+523
+11.6 Mixture Experiments
+530
+11.7 Evolutionary Operation
+540
+11.8 Problems
+544
+Contents
+xv

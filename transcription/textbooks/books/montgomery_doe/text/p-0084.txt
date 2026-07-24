@@ -1,0 +1,89 @@
+68
+Chapter 3 ■Experiments with a Single Factor: The Analysis of Variance
+is no strong evidence to suggest that the variability in etch rate around the average depends on the
+power setting. On the basis of this simple graphical analysis, we strongly suspect that (1) RF power
+setting affects the etch rate and (2) higher power settings result in increased etch rate.
+Suppose that we wish to be more objective in our analysis of the data. Specically,
+suppose that we wish to test for differences between the mean etch rates at all a 4 levels
+of RF power. Thus, we are interested in testing the equality of all four means. It might seem
+that this problem could be solved by performing a t-test for all six possible pairs of means.
+However, this is not the best solution to this problem. First of all, performing all six pairwise
+t-tests is inefcient. It takes a lot of effort. Second, conducting all these pairwise compar-
+isons inates the type I error. Suppose that all four means are equal, so if we select 0.05,
+the probability of reaching the correct decision on any single comparison is 0.95. However,
+the probability of reaching the correct conclusion on all six comparisons is considerably less
+than 0.95, so the type I error is inated.
+The appropriate procedure for testing the equality of several means is the analysis of
+variance. However, the analysis of variance has a much wider application than the problem
+above. It is probably the most useful technique in the eld of statistical inference.
+3.2
+The Analysis of Variance
+Suppose we have a treatments or different levels of a single factor that we wish to compare.
+The observed response from each of the a treatments is a random variable. The data would appear
+as in Table 3.2. An entry in Table 3.2 (e.g., yij) represents the jth observation taken under factor
+level or treatment i. There will be, in general, n observations under the ith treatment. Notice that
+Table 3.2 is the general case of the data from the plasma etching experiment in Table 3.1.
+750
+700
+650
+600
+550
+160
+180
+200
+Power (w)
+(a) Comparative box plot
+220
+Etch rate (A/min)
+750
+700
+650
+600
+550
+160
+180
+200
+Power (w)
+(b) Scatter diagram
+220
+Etch rate (A/min)
+■F I G U R E 3 . 2
+Box plots and scatter diagram of the etch rate data
+■TA B L E 3 . 2
+Typical Data for a Single-Factor Experiment
+Treatment
+(Level)
+Observations
+Totals
+Averages
+1
+y11
+y12
+. . .
+y1n
+y1.
+2
+y21
+y22
+. . .
+y2n
+y2.
+. . .
+. . .
+a
+ya1
+ya2
+. . .
+yan
+y..
+y..
+ya.
+ya.
+o
+o
+o
+o
+o
+o
+y2.
+y1.

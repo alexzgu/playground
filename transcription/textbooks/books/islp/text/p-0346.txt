@@ -1,0 +1,55 @@
+8.1 The Basics of Decision Trees
+339
+2
+4
+6
+8
+10
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+Tree Size
+Mean Squared Error
+Training
+Cross−Validation
+Test
+FIGURE 8.5.
+Regression tree analysis for the Hitters data. The training,
+cross-validation, and test MSE are shown as a function of the number of terminal
+nodes in the pruned tree. Standard error bands are displayed. The minimum
+cross-validation error occurs at a tree size of three.
+node purity—a small value indicates that a node contains predominantly
+observations from a single class.
+An alternative to the Gini index is entropy, given by
+entropy
+D = −
+K
+0
+k=1
+ˆpmk log ˆpmk.
+(8.7)
+Since 0 ≤ˆpmk ≤1, it follows that 0 ≤−ˆpmk log ˆpmk. One can show that
+the entropy will take on a value near zero if the ˆpmk’s are all near zero or
+near one. Therefore, like the Gini index, the entropy will take on a small
+value if the mth node is pure. In fact, it turns out that the Gini index and
+the entropy are quite similar numerically.
+When building a classification tree, either the Gini index or the entropy
+are typically used to evaluate the quality of a particular split, since these
+two approaches are more sensitive to node purity than is the classification
+error rate. Any of these three approaches might be used when pruning the
+tree, but the classification error rate is preferable if prediction accuracy of
+the final pruned tree is the goal.
+Figure 8.6 shows an example on the Heart data set. These data con-
+tain a binary outcome HD for 303 patients who presented with chest pain.
+An outcome value of Yes indicates the presence of heart disease based on
+an angiographic test, while No means no heart disease. There are 13 predic-
+tors including Age, Sex, Chol (a cholesterol measurement), and other heart
+and lung function measurements. Cross-validation results in a tree with six
+terminal nodes.
+In our discussion thus far, we have assumed that the predictor vari-
+ables take on continuous values. However, decision trees can be constructed
+even in the presence of qualitative predictor variables. For instance, in the
+Heart data, some of the predictors, such as Sex, Thal (Thallium stress test),

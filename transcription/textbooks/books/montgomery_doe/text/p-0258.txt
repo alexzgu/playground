@@ -1,0 +1,114 @@
+242
+Chapter 6 ■The 2k Factorial Design
+This is sometimes called the design matrix. Extending the label notation discussed in Section 6.2,
+we write the treatment combinations in standard order as (1), a, b, ab, c, ac, bc, and abc.
+Remember that these symbols also represent the total of all n observations taken at that par-
+ticular treatment combination.
+Three different notations are widely used for the runs in the 2k design. The rst is the
+and notation, often called the geometric coding (or the orthogonal coding or the effects
+coding). The second is the use of lowercase letter labels to identify the treatment combinations.
+The nal notation uses 1 and 0 to denote high and low factor levels, respectively, instead of 
+and . These different notations are illustrated below for the 23 design:
+Run
+A
+B
+C
+Labels
+A
+B
+C
+1
+
+
+
+(1)
+0
+0
+0
+2
+
+
+
+a
+1
+0
+0
+3
+
+
+
+b
+0
+1
+0
+4
+
+
+
+ab
+1
+1
+0
+5
+
+
+
+c
+0
+0
+1
+6
+
+
+
+ac
+1
+0
+1
+7
+
+
+
+bc
+0
+1
+1
+8
+
+
+
+abc
+1
+1
+1
+There are seven degrees of freedom between the eight treatment combinations in the 23
+design. Three degrees of freedom are associated with the main effects of A, B, and C. Four
+degrees of freedom are associated with interactions; one each with AB, AC, and BC and one
+with ABC.
+Consider estimating the main effects. First, consider estimating the main effect A. The
+effect of A when B and C are at the low level is [a (1)]/n. Similarly, the effect of A when B
+is at the high level and C is at the low level is [ab b]/n. The effect of A when C is at the
+high level and B is at the low level is [ac c]/n. Finally, the effect of A when both B and C
+are at the high level is [abc bc]/n. Thus, the average effect of A is just the average of these
+four, or
+(6.11)
+This equation can also be developed as a contrast between the four treatment combina-
+tions in the right face of the cube in Figure 6.5a (where A is at the high level) and the four in
+the left face (where A is at the low level). That is, the A effect is just the average of the four
+runs where A is at the high level (
+) minus the average of the four runs where A is at the low
+level (
+), or
+This equation can be rearranged as
+which is identical to Equation 6.11.
+A 1
+4n [a ab ac abc (1) b c bc]
+a ab ac abc
+4n
+(1) b c bc
+4n
+A yAyA
+yA
+yA
+A 1
+4n [a (1) ab b ac c abc bc]

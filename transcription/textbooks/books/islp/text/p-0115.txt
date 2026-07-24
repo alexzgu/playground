@@ -1,0 +1,59 @@
+106
+3. Linear Regression
+2000
+4000
+6000
+8000
+12000
+30
+40
+50
+60
+70
+80
+Limit
+Age
+2000
+4000
+6000
+8000
+12000
+200
+400
+600
+800
+Limit
+Rating
+FIGURE 3.14. Scatterplots of the observations from the Credit data set. Left:
+A plot of age versus limit. These two variables are not collinear. Right: A plot
+of rating versus limit. There is high collinearity.
+It is clear from this equation that hi increases with the distance of xi from ¯x.
+There is a simple extension of hi to the case of multiple predictors, though
+we do not provide the formula here. The leverage statistic hi is always
+between 1/n and 1, and the average leverage for all the observations is
+always equal to (p + 1)/n. So if a given observation has a leverage statistic
+that greatly exceeds (p+1)/n, then we may suspect that the corresponding
+point has high leverage.
+The right-hand panel of Figure 3.13 provides a plot of the studentized
+residuals versus hi for the data in the left-hand panel of Figure 3.13. Ob-
+servation 41 stands out as having a very high leverage statistic as well as a
+high studentized residual. In other words, it is an outlier as well as a high
+leverage observation. This is a particularly dangerous combination! This
+plot also reveals the reason that observation 20 had relatively little effect
+on the least squares fit in Figure 3.12: it has low leverage.
+6. Collinearity
+Collinearity refers to the situation in which two or more predictor variables collinearity
+are closely related to one another. The concept of collinearity is illustrated
+in Figure 3.14 using the Credit data set. In the left-hand panel of Fig-
+ure 3.14, the two predictors limit and age appear to have no obvious rela-
+tionship. In contrast, in the right-hand panel of Figure 3.14, the predictors
+limit and rating are very highly correlated with each other, and we say
+that they are collinear. The presence of collinearity can pose problems in
+the regression context, since it can be difficult to separate out the indi-
+vidual effects of collinear variables on the response. In other words, since
+limit and rating tend to increase or decrease together, it can be difficult to
+determine how each one separately is associated with the response, balance.
+Figure 3.15 illustrates some of the difficulties that can result from collinear-
+ity. The left-hand panel of Figure 3.15 is a contour plot of the RSS (3.22)
+associated with different possible coefficient estimates for the regression
+of balance on limit and age. Each ellipse represents a set of coefficients

@@ -1,0 +1,159 @@
+6.7 2k Designs are Optimal Designs
+281
+estimates. This is discussed in the supplemental text material for this chapter and presented
+in more detail in Chapter 10, but it is useful to give a proof of this here.
+Consider a very simple case the 22 design with one replicate. This is a four-run design,
+with treatment combinations (1), a, b, and ab. The design is shown geometrically in Figure 6.1.
+The model we t to the data from this design is
+where x1 and x2 are the main effects of the two factors on the 1 scale and x1x2 is the two-
+factor interaction. We can write out each one of the four runs in this design in terms of this
+model as follows:
+It is much easier if we write these four equations in matrix form:
+The least squares estimates of the model parameters are the values of the ’s that minimize
+the sum of the squares of the model errors,
+. The least squares estimates are
+where the prime ( ) denotes a transpose and (XX)1 is the inverse of XX. We will prove this
+result later in Chapter 10. For the 22 design, the quantities XX and Xy are
+and
+The XX matrix is diagonal because the 22 design is orthogonal. The least squares estimates
+are as follows:
+
+4
+0
+0
+0
+0
+4
+0
+0
+0
+0
+4
+0
+0
+0
+0
+4
+1
+
+(1) a b ab
+(1) a b ab
+(1)a b ab
+(1)a b ab
+&ˆ (XX)1Xy
+Xy 
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+(1)
+a
+b
+ab
+
+(1) a b ab
+(1) a b ab
+(1) a b ab
+(1) a b ab
+XX 
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+
+4
+0
+0
+0
+0
+4
+0
+0
+0
+0
+4
+0
+0
+0
+0
+4
+
+&ˆ (XX)1Xy
+i, i 1, 2, 3, 4
+y X& , where y 
+(1)
+a
+b
+ab
+, X 
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+, & 
+0
+1
+2
+12
+, and 
+1
+2
+3
+4
+ab 0 1(1) 2(1) 12(1)(1) 4
+b 0 1(1) 2(1) 2(1)(1) 3
+a 0 1(1) 2(1) 12(1)(1) 2
+ (1) 0 1(1) 2(1) 12(1)(1) 1
+y 0 1x1 2x2 12x1x2 

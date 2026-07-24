@@ -1,0 +1,88 @@
+The residuals are plotted versus the tted values 
+in Figure 15.4, versus the covariate xij in
+Figure 15.5 and versus the machines in Figure 15.6. A normal probability plot of the residu-
+als is shown in Figure 15.7. These plots do not reveal any major departures from the assump-
+tions, so we conclude that the covariance model (Equation 15.15) is appropriate for the break-
+ing strength data.
+It is interesting to note what would have happened in this experiment if an analysis of
+covariance had not been performed, that is, if the breaking strength data (y) had been analyzed
+as a completely randomized single-factor experiment in which the covariate x was ignored.
+The analysis of variance of the breaking strength data is shown in Table 15.14. We immedi-
+ately notice that the error estimate is much longer in the CRD analysis (17.17 versus 2.54).
+This is a reection of the effectiveness of analysis of covariance in reducing error variability.
+We would also conclude, based on the CRD analysis, that machines differ signicantly in the
+strength of ber produced. This is exactly opposite the conclusion reached by the covariance
+analysis. If we suspected that the machines differed signicantly in their effect on ber
+yˆij
+15.3 The Analysis of Covariance
+663
++4
++2
+0
+–2
+–4
+30
+35
+25
+eij
+yij
+40
+45
+50
+‹
+4
+2
+0
+–2
+–4
+10
+20
+0
+eij
+xij
+30
+40
+50
+■F I G U R E 1 5 . 4
+Plot of residuals versus 
+ﬁtted values for Example 15.5
+4
+2
+0
+–2
+–4
+1
+2
+Machine
+0
+eij
+3
+■F I G U R E 1 5 . 6
+Plot of residuals
+versus machine
+99
+95
+90
+80
+70
+60
+50
+Normal probability × 100
+40
+30
+20
+10
+5
+1
+–4
+–2
+0
+Residuals, eij
+2
+4
+■F I G U R E 1 5 . 7
+Normal probability plot of residuals
+from Example 15.5
+■F I G U R E 1 5 . 5
+Plot of residuals versus
+ﬁber diameter x for Example 15.5

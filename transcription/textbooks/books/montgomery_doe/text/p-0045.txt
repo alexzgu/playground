@@ -1,0 +1,72 @@
+the curve f(y) associated with a given interval that represents probability. The properties of
+probability distributions may be summarized quantitatively as follows:
+Mean, Variance, and Expected Values. The mean, , of a probability distribution
+is a measure of its central tendency or location. Mathematically, we dene the mean as
+(2.1)
+We may also express the mean in terms of the expected value or the long-run average value
+of the random variable y as
+(2.2)
+where E denotes the expected value operator.
+The variability or dispersion of a probability distribution can be measured by the vari-
+ance, dened as
+(2.3)
+Note that the variance can be expressed entirely in terms of expectation because
+(2.4)
+Finally, the variance is used so extensively that it is convenient to dene a variance opera-
+tor V such that
+(2.5)
+The concepts of expected value and variance are used extensively throughout this book,
+and it may be helpful to review several elementary results concerning these operators. If y is
+a random variable with mean and variance 2 and c is a constant, then
+1. E(c) c
+2. E(y) 
+V(y) E[(y )2] 2
+2 E[(y )2]
+2 
+
+
+
+ (y )2f(y) dy
+
+all y
+ (y )2p(y)
+ y continuous
+ y discrete
+E(y) 
+
+
+
+yf(y) dy
+
+all y
+yp(y)
+ y continuous
+ y discrete
+
+
+
+
+yf(y) dy
+
+all y
+yp(y)
+ y continuous
+ y discrete
+
+
+
+f(y) dy 1
+P(a y b) 
+b
+a
+f(y) dy
+y continuous:         0 f(y)
+
+all values
+of yj
+p(yj) 1
+P(y yj) p(yj)   all values of yj
+y discrete: 
+ 0 p(yj) 1             all values of yj
+2.2 Basic Statistical Concepts
+29

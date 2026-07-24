@@ -1,0 +1,77 @@
+248
+Chapter 6 ■The 2k Factorial Design
+Computer Solution. Many statistics software packages are available that will set up
+and analyze two-level factorial designs. The output from one of these computer programs,
+Design-Expert, is shown in Table 6.7. In the upper part of the table, an ANOVA for the full
+model is presented. The format of this presentation is somewhat different from the ANOVA
+results given in Table 6.6. Notice that the rst line of the ANOVA is an overall summary for
+the full model (all main effects and interactions), and the model sum of squares is
+Thus the statistic
+is testing the hypotheses
+Because F0 is large, we would conclude that at least one variable has a nonzero effect. Then
+each individual factorial effect is tested for signicance using the F statistic. These results
+agree with Table 6.6.
+Below the full model ANOVA in Table 6.7, several R2 statistics are presented. The ordi-
+nary R2 is
+and it measures the proportion of total variability explained by the model. A potential prob-
+lem with this statistic is that it always increases as factors are added to the model, even if these
+factors are not signicant. The adjusted R2 statistic, dened as
+R2
+Adj 1 
+SSE/dfE
+SSTotal/dfTotal
+1 
+18,020.50/8
+5.314  105/15
+0.9364
+R2 SSModel
+SSTotal
+5.134  105
+5.314  105 0.9661
+H1at least one 0
+H01 2 3 12 13 23 123 0
+F0 MSModel
+MSE
+73,342.92
+2252.56 32.56
+SSModel SSA SSB SSC SSAB SSAC SSBC SSABC 5.134  105
+1.20
+1.20
+1.10
+1.10
+1.00
+1.00
+0.90
+0.90
+0.80
+0.80
+275.00
+275.00
+287.50
+287.50
+300.00
+300.00
+312.50
+312.50
+325.00
+325.00
+1056.75
+941.813
+826.875
+711.938
+597
+C: Power
+C: Power
+A: Gap
+A: Gap
+Etch rate
+Etch rate
+980.125
+903.5
+826.875
+750.25
+673.625
+(a) The response surface
+(b) The contour plot
+■F I G U R E 6 . 7
+Response surface and contour plot of etch rate for Example 6.1

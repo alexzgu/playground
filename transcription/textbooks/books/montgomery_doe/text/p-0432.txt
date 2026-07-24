@@ -1,0 +1,60 @@
+To resolve this ambiguity requires additional runs. In Chapter 8 we illustrated the use of both a
+fold-over and a partial fold-over strategy to resolve the aliasing. We also saw an example of a res-
+olution III 27-4fractional factorial in an eye focus time experiment where fold-over was required
+to identify a large two-factor interaction effect.
+While strong two-factor interactions may be less likely than strong main effects, there
+are likely to be many more interactions than main effects in screening situations. As a
+result, the likelihood of at least one significant interaction effect is quite high. There is often
+substantial reluctance to commit additional time and material to a study with unclear
+results. Consequently, experimenters often want to avoid the need for a follow-up study. In
+this section we show how specific choices of nonregular two-level fractional factorial
+designs can be used in experiments with between 6 and 14 factors and potentially avoid
+subsequent experimentation when two-factor interactions are active. Section 9.5.1 presents
+designs for 6, 7, and 8 factors in 16 runs. These designs have no complete confounding of
+pairs of two-factor interactions. These designs are excellent alternatives for the regular min-
+imum aberration resolution IV fractional factorials. In Section 9.5.2 we present nonregular
+designs for between 9 and 14 factors in 16 runs that have no complete aliasing of main
+effects and two-factor interactions. These designs are alternative to the regular minimum
+aberration resolution III fractional factorials. We also present metrics to evaluate these frac-
+tional factorial designs, show how the recommended nonregular 16-run designs were
+obtained, and discuss analysis methods.
+Screening designs are primarily concerned with the discovery of active factors. This
+factor activity generally expresses itself through a main effect or a factor’s involvement in a
+two-factor interaction. Consider the model
+(9.7)
+where X contains columns for the intercept, main effects and all two-factor interactions,
+is
+the vector of model parameters, and 
+is the usual vector of NID(0,
+) random errors.
+Consider the case of six factors in 16 runs and a model with all main effects and two-factor
+interactions. For this situation the X matrix has more columns than rows. Thus, it is not of full
+rank and the usual least squares estimate for 
+does not exist because the matrix XX is sin-
+gular. With respect to this model, every 16 run design is supersaturated. Booth and Cox
+(1962) introduced the E(s2) criterion as a diagnostic measure for comparing supersaturated
+designs, where 
+and k is the number of columns in X.
+Minimizing the E(s2) criterion is equivalent to minimizing the sum of squared off-
+diagonal elements of the correlation matrix of X. Removing the constant column from X, the
+correlation matrix of the regular resolution IV 16-run six-factor design is 21 21 with one
+row and column for each of the six main effects and 15 two-factor interactions. Figure 9.10
+shows the cell plot of the correlation matrix for the principal fraction of this design. In
+Figure 9.10 we note that the correlation is zero between all main effects and two-factor inter-
+actions (because the design is resolution IV) and that the correlation is 1 between every
+two-factor interaction and at least one other two-factor interaction. These two-factor interac-
+tions are completely confounded. If another member of the same design family had been
+used, at least one of the generators would gave been used with a negative sign in design con-
+struction and some of the entries of the correlation matrix would have been 1. There still
+would be complete confounding of two-factor interactions in the design.
+Jones and Montgomery (2010) introduced the cell plot of the correlation matrix as a
+useful graphical way to show the aliasing relationships in fractional factorials and to compare
+nonregular designs to their regular fractional factorial counterparts. In Figure 9.10 it is a display
+E(s2) i!j(Xi'Xj)2/(k(k-1))
+
+2
+
+
+y X 
+416
+Chapter 9 ■Additional Design and Analysis Topics for Factorial and Fractional Factorial Designs

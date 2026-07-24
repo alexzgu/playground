@@ -1,0 +1,110 @@
+88
+CHAPTER 3. STOCHASTIC INTEGRATION
+Since E(Zs Fs) = Zs, we see that
+E(Zt Fs) = Zs +
+j−1
+
+i=k
+E
+
+Yi [Bti+1 −Bti] Fs
+
+
+For k ≤i ≤j −1, we have ti ≥s and hence
+E
+
+Yi [Bti+1 −Bti] Fs
+
+= E
+
+E
+
+Yi [Bti+1 −Bti] Fti
+
+Fs
+
+
+Since Yi is Fti-measurable and Bti+1 −Bti is independent of Fti,
+E
+
+Yi [Bti+1 −Bti] Fti
+
+= Yi E
+
+Bti+1 −Bti Fti
+
+= Yi E[Bti+1 −Bti] = 0
+This gives (3.2).
+We will prove the variance rule for t = tj in which case
+Z2
+t =
+j−1
+
+i=0
+j−1
+
+k=0
+Yi [Bti+1 −Bti]Yk [Btk+1 −Btk]
+If i < k,
+E
+
+Yi [Bti+1 −Bti]Yk [Btk+1 −Btk]
+
+= E
+
+E
+
+Yi [Bti+1 −Bti]Yk [Btk+1 −Btk] Ftk
+
+
+The random variables Yi, Yk, Bti+1 −Bti are all Ftk-measurable while Btk+1 −
+Btk is independent of Ftk, and hence
+E
+
+Yi [Bti+1 −Bti]Yk [Btk+1 −Btk] Ftk
+
+=
+Yi [Bti+1 −Bti]Yk E
+
+Btk+1 −Btk Ftk
+
+=
+Yi [Bti+1 −Bti]Yk E
+
+Btk+1 −Btk
+
+= 0
+Arguing similarly for i > k, we see that
+E[Z2
+t ] =
+j−1
+
+i=0
+E
+
+Y 2
+i (Bti+1 −Bti)2
+
+(We have just reproduced the argument showing orthogonality of martingale
+increments.) Since Y 2
+i is Fti-measurable and (Bti+1 −Bti)2 is independent of
+Fti, we get
+E
+
+Y 2
+i (Bti+1 −Bti)2 Fti
+
+=
+Y 2
+i E
+
+(Bti+1 −Bti)2 Fti
+
+=
+Y 2
+i E
+
+(Bti+1 −Bti)2
+=
+Y 2
+i (ti+1 −ti),

@@ -1,0 +1,120 @@
+4.1.3
+Some Other Aspects of the Randomized Complete Block Design
+150
+4.1.4
+Estimating Model Parameters and the General Regression 
+Signicance Test
+155
+4.2
+The Latin Square Design
+158
+4.3
+The Graeco-Latin Square Design
+165
+4.4
+Balanced Incomplete Block Designs
+168
+4.4.1
+Statistical Analysis of the BIBD
+168
+4.4.2
+Least Squares Estimation of the Parameters
+172
+4.4.3
+Recovery of Interblock Information in the BIBD
+174
+4.5
+Problems
+177
+5
+Introduction to Factorial Designs
+183
+5.1
+Basic Denitions and Principles
+183
+5.2
+The Advantage of Factorials
+186
+5.3
+The Two-Factor Factorial Design
+187
+5.3.1
+An Example
+187
+5.3.2
+Statistical Analysis of the Fixed Effects Model
+189
+5.3.3
+Model Adequacy Checking
+198
+5.3.4
+Estimating the Model Parameters
+198
+5.3.5
+Choice of Sample Size
+201
+5.3.6
+The Assumption of No Interaction in a Two-Factor Model
+202
+5.3.7
+One Observation per Cell
+203
+5.4
+The General Factorial Design
+206
+5.5
+Fitting Response Curves and Surfaces
+211
+5.6
+Blocking in a Factorial Design
+219
+5.7
+Problems
+225
+6
+The 2k Factorial Design
+233
+6.1
+Introduction
+233
+6.2
+The 22 Design
+234
+6.3
+The 23 Design
+241
+6.4
+The General 2k Design
+253
+6.5
+A Single Replicate of the 2k Design
+255
+6.6
+Additional Examples of Unreplicated 2k Design
+268
+6.7
+2k Designs are Optimal Designs
+280
+6.8
+The Addition of Center Points to the 2k Design
+285
+6.9
+Why We Work with Coded Design Variables
+290
+6.10 Problems
+292
+7
+Blocking and Confounding in the 2k
+Factorial Design
+304
+7.1
+Introduction
+304
+7.2
+Blocking a Replicated 2k Factorial Design
+305
+7.3
+Confounding in the 2k Factorial Design
+306
+Contents
+xiii

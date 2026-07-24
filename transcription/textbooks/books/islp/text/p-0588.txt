@@ -1,0 +1,63 @@
+582
+13. Multiple Testing
+Algorithm 13.4 Plug-In FDR for a Two-Sample T-Test
+1. Select a threshold c, where c > 0.
+2. For j = 1, . . . , m:
+(a) Compute T (j), the two-sample t-statistic (13.11) for the null
+hypothesis H0j on the basis of the original data, x(j)
+1 , . . . , x(j)
+nX
+and y(j)
+1 , . . . , y(j)
+nY .
+(b) For b = 1, . . . , B, where B is a large number (e.g. B = 10,000):
+i. Permute the nX +nY observations at random. Call the first
+nX observations x∗(j)
+1
+, . . . , x∗(j)
+nX , and call the remaining ob-
+servations y∗(j)
+1
+, . . . , y∗(j)
+nY .
+ii. Compute (13.11) on the permuted data x∗(j)
+1
+, . . . , x∗(j)
+nX and
+y∗(j)
+1
+, . . . , y∗(j)
+nY , and call the result T (j),∗b.
+3. Compute R = )m
+j=1 1(|T (j)|≥c).
+4. Compute WV =
+!B
+b=1
+!m
+j=1 1(|T (j),∗b|≥c)
+B
+.
+5. The estimated FDR associated with the threshold c is WV /R.
+approximated the null distribution via a re-sampling approach. We saw that
+using the re-sampling approach gave us substantially different results from
+using the theoretical p-value approach in Figure 13.8, but not in Figure 13.7.
+In general, there are two settings in which a re-sampling approach is
+particularly useful:
+1. Perhaps no theoretical null distribution is available. This may be the
+case if you are testing an unusual null hypothesis H0, or using an
+unsual test statistic T.
+2. Perhaps a theoretical null distribution is available, but the assump-
+tions required for its validity do not hold. For instance, the two-
+sample t-statistic in (13.11) follows a tnX+nY −2 distribution only if
+the observations are normally distributed. Furthermore, it follows a
+N(0, 1) distribution only if nX and nY are quite large. If the data are
+non-normal and nX and nY are small, then p-values that make use
+of the theoretical null distribution will not be valid (i.e. they will not
+properly control the Type I error).
+In general, if you can come up with a way to re-sample or permute
+your observations in order to generate data that follow the null distribu-
+tion, then you can compute p-values or estimate the FDR using variants
+of Algorithms 13.3 and 13.4. In many real-world settings, this provides a
+powerful tool for hypothesis testing when no out-of-box hypothesis tests are
+available, or when the key assumptions underlying those out-of-box tests
+are violated.

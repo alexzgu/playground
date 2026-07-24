@@ -1,0 +1,44 @@
+42
+CHAPTER 2. BROWNIAN MOTION
+If (X1, X2) have a mean-zero joint normal density, and E(X1X2) = 0,
+then X1, X2 are independent random variables. To see this let σ2
+j =
+E[X2
+j ]. Then the covariance matrix of (X1, X2) is the diagonal matrix
+with diagonal entries σ2
+j. If (Z1, Z2) are independent N(0, 1) random
+variables and Y1 = σ1Z1, Y2 = σ2Z2, then by our denition (Y1, Y2)
+are joint normal with the same covariance matrix. Since the covariance
+matrix determines the distribution, X1, X2 must be independent,
+It is a special property about joint normal random variables that orthog-
+onality implies independence. In our construction of Brownian motion, we
+will use a particular case, that we state as a lemma.
+Proposition 2.2.1. SX, Y N(0, 1) 
+
+Z = X + Y
+√
+2
+,
+W = X −Y
+√
+2
+
+TZ W N(0, 1) .
+P. By denition (Z, W) has a joint normal distribution and Z, W clearly
+have mean 0. Using E[X2] = E[Y 2] = 1 and E[XY ] = 0, we get
+E[Z2] = 1,
+E[W 2] = 1,
+E[ZW] = 0
+Hence the covariance matrix for (Z, W) is the identity matrix and this is the
+covariance matrix for independent N(0, 1) random variables.
+2.3
+Limits of random walks
+Brownian motion can be viewed as the limit of random walk as the time and
+space increments tend to zero. It is necessary to be careful about how the
+limit is taken. Suppose X1, X2, are independent random variables with
+PXj = 1= PXj = −1= 12 and let
+Sn = X1 + · · · + Xn
+be the corresponding random walk. Here we have chosen time increment
+∆t = 1 and space increment ∆x = 1. Suppose we choose ∆t = 1N where
+N is a large integer. Hence, we view the process at times
+∆t, 2∆t, 3∆t, · · · ,

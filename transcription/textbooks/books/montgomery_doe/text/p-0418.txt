@@ -1,0 +1,55 @@
+Although this is an orthogonal partitioning of SSABC, we point out again that it is not custom-
+arily displayed in the analysis of variance table. In subsequent sections, we discuss the occa-
+sional need for the computation of one or more of these components.
+9.1.4
+The General 3k Design
+The concepts utilized in the 32 and 33 designs can be readily extended to the case of k factors,
+each at three levels, that is, to a 3k factorial design. The usual digital notation is employed for
+the treatment combinations, so 0120 represents a treatment combination in a 34 design with
+A and D at the low levels, B at the intermediate level, and C at the high level. There are 3k
+treatment combinations, with 3k 1 degrees of freedom between them. These treatment com-
+binations allow sums of squares to be determined for k main effects, each with two degrees
+of freedom; ( ) two-factor interactions, each with four degrees of freedom; . . . ; and one 
+k-factor interaction with 2k degrees of freedom. In general, an h-factor interaction has 2h
+degrees of freedom. If there are n replicates, there are n3k 1 total degrees of freedom and
+3k(n 1) degrees of freedom for error.
+Sums of squares for effects and interactions are computed by the usual methods for fac-
+torial designs. Typically, three-factor and higher interactions are not broken down any further.
+However, any h-factor interaction has 2h1 orthogonal two-degrees-of-freedom components. For
+example, the four-factor interaction ABCD has 241 8 orthogonal two-degrees-of-freedom
+components, denoted by ABCD2, ABC2D, AB2CD, ABCD, ABC2D2, AB2C2D, AB2CD2, and
+AB2C2D2. In writing these components, note that the only exponent allowed on the rst letter
+is 1. If the exponent on the rst letter is not 1, then the entire expression must be squared and
+the exponents reduced modulus 3. To demonstrate this, consider
+These interaction components have no physical interpretation, but they are useful in
+constructing more complex designs.
+The size of the design increases rapidly with k. For example, a 33 design has 27 treat-
+ment combinations per replication, a 34 design has 81, a 35 design has 243, and so on.
+Therefore, only a single replicate of the 3k design is frequently considered, and higher order
+interactions are combined to provide an estimate of error. As an illustration, if three-factor and
+higher interactions are negligible, then a single replicate of the 33 design provides 8 degrees of
+freedom for error, and a single replicate of the 34 design provides 48 degrees of freedom for
+error. These are still large designs for k 3 factors and, consequently, not too useful.
+9.2
+Confounding in the 3k Factorial Design
+Even when a single replicate of the 3k design is considered, the design requires so many runs
+that it is unlikely that all 3k runs can be made under uniform conditions. Thus, confounding
+in blocks is often necessary. The 3k design may be confounded in 3p incomplete blocks, where
+p k. Thus, these designs may be confounded in three blocks, nine blocks, and so on.
+A2BCD (A2BCD)2 A4B2C 2D2 AB2C 2D2
+k
+2
+(138)2 (4)2 (23)2
+18
+(165)2
+54
+584.11
+J[J(AB) C] ABC Z(ABC)
+(63)2 (62)2 (40)2
+18
+(165)2
+54
+18.77
+J[J(AB) C] ABC 2 Y(ABC)
+402
+Chapter 9 ■Additional Design and Analysis Topics for Factorial and Fractional Factorial Designs

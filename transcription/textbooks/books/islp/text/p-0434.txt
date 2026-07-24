@@ -1,0 +1,74 @@
+10.7 Fitting a Neural Network
+427
+perform as well, they are likely to be easier to fit and understand, and po-
+tentially less fragile than the more complex approaches. Wherever possible,
+it makes sense to try the simpler models as well, and then make a choice
+based on the performance/complexity tradeoff.
+Typically we expect deep learning to be an attractive choice when the
+sample size of the training set is extremely large, and when interpretability
+of the model is not a high priority.
+10.7
+Fitting a Neural Network
+Fitting neural networks is somewhat complex, and we give a brief overview
+here. The ideas generalize to much more complex networks. Readers who
+find this material challenging can safely skip it. Fortunately, as we see in
+the lab at the end of this chapter, good software is available to fit neural
+network models in a relatively automated way, without worrying about the
+technical details of the model-fitting procedure.
+We start with the simple network depicted in Figure 10.1 in Section 10.1.
+In model (10.1) the parameters are β = (β0, β1, . . . , βK), as well as each of
+the wk = (wk0, wk1, . . . , wkp), k = 1, . . . , K. Given observations (xi, yi), i =
+1, . . . , n, we could fit the model by solving a nonlinear least squares problem
+minimize
+{wk}K
+1 , β
+1
+2
+n
+0
+i=1
+(yi −f(xi))2,
+(10.23)
+where
+f(xi) = β0 +
+K
+0
+k=1
+βkg
+1
+wk0 +
+p
+0
+j=1
+wkjxij
+2
+.
+(10.24)
+The objective in (10.23) looks simple enough, but because of the nested
+arrangement of the parameters and the symmetry of the hidden units, it is
+not straightforward to minimize. The problem is nonconvex in the param-
+eters, and hence there are multiple solutions. As an example, Figure 10.17
+shows a simple nonconvex function of a single variable θ; there are two
+solutions: one is a local minimum and the other is a global minimum. Fur- local
+minimum
+global
+minimum
+thermore, (10.1) is the very simplest of neural networks; in this chapter we
+have presented much more complex ones where these problems are com-
+pounded. To overcome some of these issues and to protect from overfitting,
+two general strategies are employed when fitting neural networks.
+• Slow Learning: the model is fit in a somewhat slow iterative fash-
+ion, using gradient descent. The fitting process is then stopped when gradient
+descent
+overfitting is detected.
+• Regularization: penalties are imposed on the parameters, usually lasso
+or ridge as discussed in Section 6.2.
+Suppose we represent all the parameters in one long vector θ. Then we
+can rewrite the objective in (10.23) as
+R(θ) = 1
+2
+n
+0
+i=1
+(yi −fθ(xi))2,
+(10.25)

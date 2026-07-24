@@ -1,0 +1,67 @@
+36
+CHAPTER 2. BROWNIAN MOTION
+This amazing theorem states that no matter what distribution we choose
+for the Xj, then as long as the distribution has a nite variance, the scaled
+random variables approach a normal distribution. This is what is referred to
+in physics literature as a result and in the mathematics literature
+as an . The assumption that the random variables are
+identically distributed can be relaxed somewhat. We will not go into details
+here, but whenever a quantity can be written as a sum of independent (or
+at least not too dependent) increments, 
+, then the limiting distribution is normal. This is why it is often
+reasonable to assume normal distributions in nature.
+To see a complete proof of Theorem 2.1.1, consult any book on
+measure-theoretic probability. We will sketch part of the proof which
+shows how the normal distribution arises. Without loss of general-
+ity, we can assume that µ = 0, σ2 = 1 for otherwise we consider
+Yj = (Xj −µ)σ. Let ϕ(t) = E[eitXj] denote the characteristic func-
+tion of the increments. Then, ϕ can be expanded near the origin,
+ϕ(t)
+=
+1 + i E [Xj] t + (i)2
+2
+E
+
+X2
+j
+
+t2 + o(t2)
+=
+1 −t2
+2 + o(t2),
+where o(t2) denotes a function such that o(t2)t2 →0 as t →0. Using
+the independence of the Xj, we see that the characteristic function of
+Zn is
+ϕZn(t) = ϕ(t√n)n =
+
+1 −t2
+2n + o
+t2
+n
+n
+−→e−t22
+The right-hand side is the characteristic function of a standard normal
+random variable.
+When one considers sums of independent random variables where a few
+terms contribute the bulk of the sum, then one does not expect to get normal
+limits. The prototypical example of a nonnormal limit is the Poisson distri-
+bution. Suppose λ > 0 and X(n)
+1 , X(n)
+2 , , X(n)
+n
+are independent random
+variables each with
+P
+
+X(n)
+j
+= 1
+
+= 1 −P
+
+X(n)
+j
+= 0
+
+= λ
+n

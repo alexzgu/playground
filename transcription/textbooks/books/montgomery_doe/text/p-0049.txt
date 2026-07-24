@@ -1,0 +1,50 @@
+Because sample runs that differ as a result of experimental error often are well
+described by the normal distribution, the normal plays a central role in the analysis of data
+from designed experiments. Many important sampling distributions may also be dened in
+terms of normal random variables. We often use the notation y ~ N(, 2) to denote that y is
+distributed normally with mean and variance 2.
+An important special case of the normal distribution is the standard normal distribu-
+tion; that is, 0 and 2 1. We see that if y ~ N(, 2), the random variable
+(2.13)
+follows the standard normal distribution, denoted z ~ N(0, 1). The operation demonstrated in
+Equation 2.13 is often called standardizing the normal random variable y. The cumulative
+standard normal distribution is given in Table I of the Appendix.
+Many statistical techniques assume that the random variable is normally distributed.
+The central limit theorem is often a justication of approximate normality.
+z y 
+
+2.3 Sampling and Sampling Distributions
+33
+μ
+σ 2
+■F I G U R E 2 . 5
+The normal distribution
+THEOREM 2-1
+The Central Limit Theorem
+If y1, y2, . . . , yn is a sequence of n independent and identically distributed random vari-
+ables with E(yi) and V(yi) 2 (both nite) and x y1 y2  
+yn, then the
+limiting form of the distribution of
+as n
+, is the standard normal distribution.
+
+l
+zn x n
+n2
+Á
+This result states essentially that the sum of n independent and identically distributed
+random variables is approximately normally distributed. In many cases, this approximation is
+good for very small n, say n 10, whereas in other cases large n is required, say n 100.
+Frequently, we think of the error in an experiment as arising in an additive manner from sev-
+eral independent sources; consequently, the normal distribution becomes a plausible model
+for the combined experimental error.
+An important sampling distribution that can be dened in terms of normal random vari-
+ables is the chi-square or
+2 distribution. If z1, z2, . . . , zk are normally and independently
+distributed random variables with mean 0 and variance 1, abbreviated NID(0, 1), then the ran-
+dom variable
+x z2
+1 z2
+2 Á z2
+k
+

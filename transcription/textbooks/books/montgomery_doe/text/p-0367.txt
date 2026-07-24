@@ -1,0 +1,125 @@
+of the factors in &2. While this is a very simple example, the method is very general and can
+be applied to much more complex designs.
+8.6
+Resolution III Designs
+8.6.1
+Constructing Resolution III Designs
+As indicated earlier, the sequential use of fractional factorial designs is very useful, often
+leading to great economy and efciency in experimentation. This application of fractional
+factorials occurs frequently in situations of pure factor screening; that is, there are relatively
+many factors but only a few of them are expected to be important. Resolution III designs can
+be very useful in these situations.
+It is possible to construct resolution III designs for investigating up to k N 1
+factors in only N runs, where N is a multiple of 4. These designs are frequently useful in
+industrial experimentation. Designs in which N is a power of 2 can be constructed by the
+methods presented earlier in this chapter, and these are presented first. Of particular
+importance are designs requiring 4 runs for up to 3 factors, 8 runs for up to 7 factors, and
+16 runs for up to 15 factors. If k N 1, the fractional factorial design is said to be
+saturated.
+A design for analyzing up to three factors in four runs is the 
+design, presented in
+Section 8.2. Another very useful saturated fractional factorial is a design for studying seven
+factors in eight runs, that is, the 
+design. This design is a one-sixteenth fraction of the 27.
+It may be constructed by rst writing down as the basic design the plus and minus levels for
+a full 23 design in A, B, and C and then associating the levels of four additional factors with
+the interactions of the original three as follows: D AB, E AC, F BC, and G ABC.
+Thus, the generators for this design are I ABD, I ACE, I BCF, and I ABCG. The
+design is shown in Table 8.19.
+The complete dening relation for this design is obtained by multiplying the four gen-
+erators ABD, ACE, BCF, and ABCG together two at a time, three at a time, and four at a time,
+yielding
+ABEF BEG AFG DEF ADEG CEFG BDFG ABCDEFG
+I ABD ACE BCF ABCG BCDE ACDF CDG
+274
+III
+231
+III
+8.6 Resolution III Designs
+351
+■TA B L E 8 . 1 9
+The 
+Design with the Generators I ABD, I ACE, I BCF, and I ABCG
+Basic Design
+Run
+A
+B
+C
+D AB
+E AC
+F BC
+G ABC
+1
+
+
+
+
+
+
+
+def
+2
+
+
+
+
+
+
+
+afg
+3
+
+
+
+
+
+
+
+beg
+4
+
+
+
+
+
+
+
+abd
+5
+
+
+
+
+
+
+
+cdg
+6
+
+
+
+
+
+
+
+ace
+7
+
+
+
+
+
+
+
+bcf
+8
+
+
+
+
+
+
+
+abcdefg
+274
+III

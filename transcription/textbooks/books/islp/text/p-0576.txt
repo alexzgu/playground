@@ -1,0 +1,73 @@
+570
+13. Multiple Testing
+2
+4
+6
+8
+10
+1e−05
+1e−04
+1e−03
+1e−02
+1e−01
+Ordering of p−values
+p−values (log scale)
+2
+4
+6
+8
+10
+1e−07
+1e−05
+1e−03
+1e−01
+Ordering of p−values
+p−values (log scale)
+2
+4
+6
+8
+10
+1e−05
+1e−04
+1e−03
+1e−02
+1e−01
+Ordering of p−values
+p−values (log scale)
+FIGURE 13.3. Each panel displays, for a separate simulation, the sorted
+p-values for tests of m = 10 null hypotheses. The p-values corresponding to
+the m0 = 2 true null hypotheses are displayed in black, and the rest are in red.
+When controlling the FWER at level 0.05, the Bonferroni procedure rejects all
+null hypotheses that fall below the black line, and the Holm procedure rejects all
+null hypotheses that fall below the blue line. The region between the blue and black
+lines indicates null hypotheses that are rejected using the Holm procedure but not
+using the Bonferroni procedure. In the center panel, the Holm procedure rejects
+one more null hypothesis than the Bonferroni procedure. In the right-hand panel,
+it rejects five more null hypotheses.
+make no assumptions about the nature of the null hypotheses, the type
+of test statistic used, or the (in)dependence of the p-values. However, in
+certain very specific settings, we can achieve higher power by controlling
+the FWER using approaches that are more tailored to the task at hand.
+Tukey’s method and Scheffé’s method provide two such examples.
+Table 13.3 indicates that for the Fund dataset, Managers One and Two
+have the greatest difference in their sample mean returns. This finding
+might motivate us to test the null hypothesis H0 : µ1 = µ2, where µj is the
+(population) mean return for the jth fund manager. A two-sample t-test
+(13.1) for H0 yields a p-value of 0.0349, suggesting modest evidence against
+H0. However, this p-value is misleading, since we decided to compare the
+average returns of Managers One and Two only after having examined the
+returns for all five managers; this essentially amounts to having performed
+m = 5 × (5 −1)/2 = 10 hypothesis tests, and selecting the one with the
+smallest p-value. This suggests that in order to control the FWER at level
+0.05, we should make a Bonferroni correction for m = 10 hypothesis tests,
+and therefore should only reject a null hypothesis for which the p-value
+is below 0.005. If we do this, then we will be unable to reject the null
+hypothesis that Managers One and Two have identical performance.
+However, in this setting, a Bonferroni correction is actually a bit too
+stringent, since it fails to consider the fact that the m = 10 hypothesis
+tests are all somewhat related: for instance, Managers Two and Five have
+similar mean returns, as do Managers Two and Four; this guarantees that
+the mean returns of Managers Four and Five are similar. Stated another
+way, the m p-values for the m pairwise comparisons are not independent.
+Therefore, it should be possible to control the FWER in a way that is

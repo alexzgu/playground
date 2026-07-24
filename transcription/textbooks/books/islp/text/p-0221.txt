@@ -1,0 +1,91 @@
+5.2 The Bootstrap
+213
+−2
+−1
+0
+1
+2
+−2
+−1
+0
+1
+2
+X
+Y
+−2
+−1
+0
+1
+2
+−2
+−1
+0
+1
+2
+X
+Y
+−3
+−2
+−1
+0
+1
+2
+−3
+−2
+−1
+0
+1
+2
+X
+Y
+−2
+−1
+0
+1
+2
+3
+−3
+−2
+−1
+0
+1
+2
+X
+Y
+FIGURE 5.9.
+Each panel displays 100 simulated returns for investments
+X and Y . From left to right and top to bottom, the resulting estimates for α
+are 0.576, 0.532, 0.657, and 0.651.
+The mean over all 1,000 estimates for α is
+¯α =
+1
+1000
+1000
+0
+r=1
+ˆαr = 0.5996,
+very close to α = 0.6, and the standard deviation of the estimates is
+:
+;
+;
+<
+1
+1000 −1
+1000
+0
+r=1
+(ˆαr −¯α)2 = 0.083.
+This gives us a very good idea of the accuracy of ˆα: SE(ˆα) ≈0.083. So
+roughly speaking, for a random sample from the population, we would
+expect ˆα to differ from α by approximately 0.08, on average.
+In practice, however, the procedure for estimating SE(ˆα) outlined above
+cannot be applied, because for real data we cannot generate new samples
+from the original population. However, the bootstrap approach allows us
+to use a computer to emulate the process of obtaining new sample sets,
+so that we can estimate the variability of ˆα without generating additional
+samples. Rather than repeatedly obtaining independent data sets from the
+population, we instead obtain distinct data sets by repeatedly sampling
+observations from the original data set.
+This approach is illustrated in Figure 5.11 on a simple data set, which
+we call Z, that contains only n = 3 observations. We randomly select n
+observations from the data set in order to produce a bootstrap data set,

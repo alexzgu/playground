@@ -1,0 +1,59 @@
+486
+11. Survival Analysis and Censored Data
+2e−04
+5e−04
+1e−03
+2e−03
+5e−03
+1e−02
+2e−02
+5e−02
+1e−01
+2e−01
+9.0
+9.1
+9.2
+9.3
+9.4
+9.5
+9.6
+9.7
+Partial Likelihood Deviance
+∥ˆβL
+λ ∥1
+!
+| ˆβ∥1
+FIGURE 11.7. For the Publication data described in Section 11.5.4, cross-val-
+idation results for the lasso-penalized Cox model are shown. The y-axis displays
+the partial likelihood deviance, which plays the role of the cross-validation error.
+The x-axis displays the ℓ1 norm (that is, the sum of the absolute values) of the
+coefficients of the lasso-penalized Cox model with tuning parameter λ, divided by
+the ℓ1 norm of the coefficients of the unpenalized Cox model. The dashed line
+indicates the minimum cross-validation error.
+(11.14), we see that these are the observations for which the instantaneous
+probability of being published at any moment in time is largest. In other
+words, the high risk group consists of the trials that are likely to be pub-
+lished sooner. On the Publication data, we stratify the observations into
+tertiles of low, medium, and high risk. The resulting survival curves for
+each of the three strata are displayed in Figure 11.8. We see that there is
+clear separation between the three strata, and that the strata are correctly
+ordered in terms of low, medium, and high risk of publication.
+11.7
+Additional Topics
+11.7.1
+Area Under the Curve for Survival Analysis
+In Chapter 4, we introduced the area under the ROC curve — often referred
+to as the “AUC” — as a way to quantify the performance of a two-class clas-
+sifier. Define the score for the ith observation to be the classifier’s estimate
+of Pr(Y = 1|X = xi). It turns out that if we consider all pairs consisting of
+one observation in Class 1 and one observation in Class 2, then the AUC
+is the fraction of pairs for which the score for the observation in Class 1
+exceeds the score for the observation in Class 2.
+This suggests a way to generalize the notion of AUC to survival anal-
+ysis. We calculate an estimated risk score, ˆηi = ˆβ1xi1 + · · · + ˆβpxip, for
+i = 1, . . . , n, using the Cox model coefficients. If ˆηi′ > ˆηi, then the model
+predicts that the i′th observation has a larger hazard than the ith obser-
+vation, and thus that the survival time ti will be greater than ti′. Thus, it
+is tempting to try to generalize AUC by computing the proportion of ob-
+servations for which ti > ti′ and ˆηi′ > ˆηi. However, things are not quite so
+easy, because recall that we do not observe t1, . . . , tn; instead, we observe

@@ -1,0 +1,153 @@
+12.2 Principal Components Analysis
+511
+principal component. The total variance present in a data set (assuming
+that the variables have been centered to have mean zero) is defined as
+p
+0
+j=1
+Var(Xj) =
+p
+0
+j=1
+1
+n
+n
+0
+i=1
+x2
+ij,
+(12.8)
+and the variance explained by the mth principal component is
+1
+n
+n
+0
+i=1
+z2
+im = 1
+n
+n
+0
+i=1
+
+
+p
+0
+j=1
+φjmxij
+
+
+2
+.
+(12.9)
+Therefore, the PVE of the mth principal component is given by
+)n
+i=1 z2
+im
+)p
+j=1
+)n
+i=1 x2
+ij
+=
+)n
+i=1
+1)p
+j=1 φjmxij
+22
+)p
+j=1
+)n
+i=1 x2
+ij
+.
+(12.10)
+The PVE of each principal component is a positive quantity. In order to
+compute the cumulative PVE of the first M principal components, we can
+simply sum (12.10) over each of the first M PVEs. In total, there are
+min(n −1, p) principal components, and their PVEs sum to one.
+In Section 12.2.2, we showed that the first M principal component load-
+ing and score vectors can be interpreted as the best M-dimensional approx-
+imation to the data, in terms of residual sum of squares. It turns out that
+the variance of the data can be decomposed into the variance of the first M
+principal components plus the mean squared error of this M-dimensional
+approximation, as follows:
+p
+'
+j=1
+1
+n
+n
+'
+i=1
+x2
+ij
+(
+)*
++
+Var. of data
+=
+M
+'
+m=1
+1
+n
+n
+'
+i=1
+z2
+im
+(
+)*
++
+Var. of first M PCs
++ 1
+n
+p
+'
+j=1
+n
+'
+i=1
+,
+xij −
+M
+'
+m=1
+zimφjm
+-2
+(
+)*
++
+MSE of M-dimensional approximation
+(12.11)
+The three terms in this decomposition are discussed in (12.8), (12.9), and
+(12.7), respectively. Since the first term is fixed, we see that by maximizing
+the variance of the first M principal components, we minimize the mean
+squared error of the M-dimensional approximation, and vice versa. This ex-
+plains why principal components can be equivalently viewed as minimizing
+the approximation error (as in Section 12.2.2) or maximizing the variance
+(as in Section 12.2.1).
+Moreover, we can use (12.11) to see that the PVE defined in (12.10)
+equals
+1 −
+)p
+j=1
+)n
+i=1
+1
+xij −)M
+m=1 zimφjm
+22
+)p
+j=1
+)n
+i=1 x2
+ij
+= 1 −RSS
+TSS,
+where TSS represents the total sum of squared elements of X, and RSS
+represents the residual sum of squares of the M-dimensional approxima-
+tion given by the principal components. Recalling the definition of R2 from
+(3.17), this means that we can interpret the PVE as the R2 of the approx-
+imation for X given by the first M principal components.

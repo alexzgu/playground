@@ -1,0 +1,92 @@
+where
+That is, b is a (k 1) vector of the rst-order regression coefcients and B is a (k k) sym-
+metric matrix whose main diagonal elements are the pure quadratic coefcients 
+and
+whose off-diagonal elements are one-half the mixed quadratic coefcients (
+, i j). The
+derivative of with respect to the elements of the vector x equated to 0 is
+(11.6)
+The stationary point is the solution to Equation 11.6, or
+(11.7)
+Furthermore, by substituting Equation 11.7 into Equation 11.5, we can nd the predicted
+response at the stationary point as
+(11.8)
+11.3.2
+Characterizing the Response Surface
+Once we have found the stationary point, it is usually necessary to characterize the response
+surface in the immediate vicinity of this point. By characterize, we mean determining whether
+the stationary point is a point of maximum or minimum response or a saddle point. We also
+usually want to study the relative sensitivity of the response to the variables x1, x2, . . . , xk.
+yˆs ˆ 0 
+1
+2 xsb
+xs 
+1
+2 B1b
+yˆ
+x b 2Bx 0
+yˆ
+ˆ ij
+(ˆ ii)
+x 
+x1
+x2
+o
+xk
+ b 
+ˆ1ˆ2
+o
+ˆk
+ and B 
+ˆ11, ˆ12/2, . . ., ˆ1k/2
+ˆ22, . . . , ˆ2k/2
+∞
+sym.           
+ˆkk
+ 
+488
+Chapter 11 ■Response Surface Methods and Designs
+x1
+x2
+y
+x2
+x1
+132
+108
+84
+60
+36
+1.00
+1.00
+0.50
+0.00
+–0.50
+–1.00
+–1.00
+–0.50
+(b) Contour plot
+(a) Response surface
+0.00
+0.50
+1.00
+1.00
+0.50
+0.50
+0.00
+0.00
+–0.50
+–0.50
+–1.00
+–1.00
+52
+68
+84
+100
+52
+68
+84
+100
+116
+›
+■F I G U R E 1 1 . 8
+Response surface and contour plot illustrating a saddle point (or minimax)

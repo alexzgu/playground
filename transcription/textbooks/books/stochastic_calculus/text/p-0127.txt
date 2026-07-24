@@ -1,0 +1,41 @@
+3.8. EXERCISES
+121
+Exercise 3.4. Show that if Bt is a standard Brownian motion, At is a simple
+process, and
+Zt =
+t
+0
+As dBs,
+then
+Mt = Z2
+t −⟨Z⟩t
+is a martingale.
+Exercise 3.5. Suppose that two assets Xt, Yt follow the SDEs
+dXt = Xt [µ1 dt + σ1 dBt],
+dYt = Yt [µ2 dt + σ2 dBt],
+where Bt is a standard Brownian motion. Suppose also that X0 = Y0 = 1.
+1. Let Zt = XtYt. Give the SDE satised by Zt; in other words write an
+expression for dZt in terms of Zt, µ1, µ2, σ1, σ1.
+2. Does there exist a function f : R →R such that f(Xt) = Bt for all t?
+3. Does there exist a function g : R →R such that g(Zt) = Bt for all t?
+Exercise 3.6. Suppose Bt is a standard Brownian motion and Xt satises
+dXt = X2
+t dt + Xt dBt
+For each of the following nd At, Ct such that
+d⟨Y ⟩t = At dt,
+d⟨Y, X⟩t = Ct dt
+1. Yt = Bt.
+2. Yt = X3
+t .
+3.
+Yt = exp
+t
+0
+(X2
+s + 1) ds
+
+
+Exercise 3.7. Consider the geometric SDE
+dXt = Xt[ −2 dt + 2 dBt]
+Use the stochastic Euler’s method to do Monte Carlo simulations for Xt, 0 ≤
+t ≤2 assuming X0 = 1. Use ∆t = 01.

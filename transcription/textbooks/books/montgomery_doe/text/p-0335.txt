@@ -1,0 +1,125 @@
+7.9
+Problems
+319
+7.9
+Problems
+7.1.
+Consider the experiment described in Problem 6.1.
+Analyze this experiment assuming that each replicate repre-
+sents a block of a single production shift.
+7.2.
+Consider the experiment described in Problem 6.5.
+Analyze this experiment assuming that each one of the four
+replicates represents a block.
+7.3.
+Consider the alloy cracking experiment described in
+Problem 6.15. Suppose that only 16 runs could be made on a
+single day, so each replicate was treated as a block. Analyze
+the experiment and draw conclusions.
+7.4.
+Consider the data from the rst replicate of Problem
+6.1. Suppose that these observations could not all be run using
+the same bar stock. Set up a design to run these observations
+in two blocks of four observations each with ABC confounded.
+Analyze the data.
+7.5.
+Consider the data from the rst replicate of Problem
+6.7. Construct a design with two blocks of eight observations
+each with ABCD confounded. Analyze the data.
+7.6.
+Repeat Problem 7.5 assuming that four blocks are
+required. Confound ABD and ABC (and consequently CD)
+with blocks.
+7.7.
+Using the data from the 25 design in Problem 6.26,
+construct and analyze a design in two blocks with ABCDE
+confounded with blocks.
+7.8.
+Repeat Problem 7.7 assuming that four blocks are
+necessary. Suggest a reasonable confounding scheme.
+7.9.
+Consider the data from the 25 design in Problem 6.26.
+Suppose that it was necessary to run this design in four blocks
+with ACDE and BCD (and consequently ABE) confounded.
+Analyze the data from this design.
+7.10.
+Consider the ll height deviation experiment in Problem
+6.18. Suppose that each replicate was run on a separate day.
+Analyze the data assuming that days are blocks.
+7.11.
+Consider the fill height deviation experiment in
+Problem 6.20. Suppose that only four runs could be made on
+each shift. Set up a design with ABC confounded in replicate
+1 and AC confounded in replicate 2. Analyze the data and
+comment on your ndings.
+7.12.
+Consider the potting experiment in Problem 6.21.
+Analyze the data considering each replicate as a block.
+7.13.
+Using the data from the 24 design in Problem 6.22,
+construct and analyze a design in two blocks with ABCD con-
+founded with blocks.
+7.14.
+Consider the direct mail experiment in Problem 
+6.24. Suppose that each group of customers is in a different
+part of the country. Suggest an appropriate analysis for the
+experiment.
+7.15.
+Consider the isatin yield experiment in Problem 6.38.
+Set up the 24 experiment in this problem in two blocks with
+ABCD confounded. Analyze the data from this design. Is the
+block effect large?
+7.16.
+The experiment in Problem 6.39 is a 25 factorial.
+Suppose that this design had been run in four blocks of eight
+runs each.
+(a) Recommend a blocking scheme and set up the design.
+(b) Analyze the data from this blocked design. Is blocking
+important?
+7.17.
+Repeat Problem 6.16 using a design in two blocks.
+7.18.
+The design in Problem 6.40 is a 24 factorial. Set up
+this experiment in two blocks with ABCD confounded.
+Analyze the data from this design. Is the block effect large?
+7.19.
+The design in Problem 6.42 is a 23 factorial replicated
+twice. Suppose that each replicate was a block. Analyze all of
+the responses from this blocked design. Are the results com-
+parable to those from Problem 6.42? Is the block effect large?
+7.20.
+Design an experiment for confounding a 26 factorial
+in four blocks. Suggest an appropriate confounding scheme,
+different from the one shown in Table 7.8.
+7.21.
+Consider the 26 design in eight blocks of eight runs
+each with ABCD, ACE, and ABEF as the independent effects
+chosen to be confounded with blocks. Generate the design.
+Find the other effects confounded with blocks.
+7.22.
+Consider the 22 design in two blocks with AB con-
+founded. Prove algebraically that SSAB SSBlocks.
+7.23.
+Consider the data in Example 7.2. Suppose that all the
+observations in block 2 are increased by 20. Analyze the data
+that would result. Estimate the block effect. Can you explain
+its magnitude? Do blocks now appear to be an important fac-
+tor? Are any other effect estimates impacted by the change
+you made to the data?
+7.24.
+Suppose that in Problem 6.1 we had confounded ABC
+in replicate I, AB in replicate II, and BC in replicate III.
+Calculate the factor effect estimates. Construct the analysis of
+variance table.
+7.25.
+Repeat the analysis of Problem 6.1 assuming that
+ABC was confounded with blocks in each replicate.
+7.26.
+Suppose that in Problem 6.7 ABCD was confounded
+in replicate I and ABC was confounded in replicate II.
+Perform the statistical analysis of this design.
+7.27.
+Construct a 23 design with ABC confounded in the
+rst two replicates and BC confounded in the third. Outline
+the analysis of variance and comment on the information
+obtained.

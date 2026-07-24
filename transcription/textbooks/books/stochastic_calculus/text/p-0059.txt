@@ -1,0 +1,75 @@
+2.6. UNDERSTANDING BROWNIAN MOTION
+53
+Hence, we could nd a positive integer M < ∞such that for all
+suciently large integers n, there exists k ≤n such that Yk,n ≤Mn,
+where Yk,n is
+max
+B
+k + 1
+n
+
+−B
+k
+n
+,
+B
+k + 2
+n
+
+−B
+k + 1
+n
+,
+B
+k + 3
+n
+
+−B
+k + 2
+n
+
+
+
+Let Yn = minYk,n : k = 0, 1, , n −1and let AM be the event that
+for all n suciently large, Yn ≤Mn. For each positive integer M,
+PYk,n ≤Mn
+=
+[PB(1n)≤Mn]3
+=
+
+Pn−12 B1≤Mn
+3
+=
+
+|x|≤M√n
+1
+√
+2πe−y22 dy
+3
+≤
+2M
+√n
+1
+√
+2π
+3
+≤M 3
+n32 ,
+and hence,
+PYn ≤Mn≤
+n−1
+
+k=0
+PYk,n ≤Mn≤M 3
+n12 −→0
+This shows that P(AM) = 0 for each M, and hence
+P
+∞
+
+M=1
+AM
+
+= 0
+But our rst remark shows that the event that Bt is dierentiable at
+some point is contained in MAM.
+Theorem 2.6.2 is a restatement of (2.2).

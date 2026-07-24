@@ -1,0 +1,56 @@
+178
+4. Classification
+We recall that the logistic regression model had very underwhelming p-
+values associated with all of the predictors, and that the smallest p-value,
+though not very small, corresponded to Lag1. Perhaps by removing the
+variables that appear not to be helpful in predicting Direction, we can
+obtain a more effective model. After all, using predictors that have no
+relationship with the response tends to cause a deterioration in the test
+error rate (since such predictors cause an increase in variance without a
+corresponding decrease in bias), and so removing such predictors may in
+turn yield an improvement. Below we refit the logistic regression using just
+Lag1 and Lag2, which seemed to have the highest predictive power in the
+original logistic regression model.
+In [19]: model = MS(['Lag1', 'Lag2']).fit(Smarket)
+X = model.transform(Smarket)
+X_train, X_test = X.loc[train], X.loc[∼train]
+glm_train = sm.GLM(y_train,
+X_train,
+family=sm.families.Binomial())
+results = glm_train.fit()
+probs = results.predict(exog=X_test)
+labels = np.array(['Down']*252)
+labels[probs >0.5] = 'Up'
+confusion_table(labels, L_test)
+Out[19]:
+Truth
+Down
+Up
+Predicted
+Down
+35
+35
+Up
+76
+106
+Let’s evaluate the overall accuracy as well as the accuracy within the
+days when logistic regression predicts an increase.
+In [20]: (35+106)/252,106/(106+76)
+Out[20]: (0.5595, 0.5824)
+Now the results appear to be a little better: 56% of the daily movements
+have been correctly predicted. It is worth noting that in this case, a much
+simpler strategy of predicting that the market will increase every day will
+also be correct 56% of the time! Hence, in terms of overall error rate, the
+logistic regression method is no better than the naive approach. However,
+the confusion matrix shows that on days when logistic regression predicts
+an increase in the market, it has a 58% accuracy rate. This suggests a
+possible trading strategy of buying on days when the model predicts an in-
+creasing market, and avoiding trades on days when a decrease is predicted.
+Of course one would need to investigate more carefully whether this small
+improvement was real or just due to random chance.
+Suppose that we want to predict the returns associated with particular
+values of Lag1 and Lag2. In particular, we want to predict Direction on a
+day when Lag1 and Lag2 equal 1.2 and 1.1, respectively, and on a day when
+they equal 1.5 and −0.8. We do this using the predict() function.
+In [21]: newdata = pd.DataFrame({'Lag1':[1.2, 1.5],
+'Lag2':[1.1, -0.8]});

@@ -1,0 +1,49 @@
+262
+6. Linear Model Selection and Regularization
+thogonalized data in exactly the same fashion as Z1 was computed based
+on the original data. This iterative approach can be repeated M times to
+identify multiple PLS components Z1, . . . , ZM. Finally, at the end of this
+procedure, we use least squares to fit a linear model to predict Y using
+Z1, . . . , ZM in exactly the same fashion as for PCR.
+As with PCR, the number M of partial least squares directions used in
+PLS is a tuning parameter that is typically chosen by cross-validation. We
+generally standardize the predictors and response before performing PLS.
+PLS is popular in the field of chemometrics, where many variables arise
+from digitized spectrometry signals. In practice it often performs no better
+than ridge regression or PCR. While the supervised dimension reduction
+of PLS can reduce bias, it also has the potential to increase variance, so
+that the overall benefit of PLS relative to PCR is a wash.
+6.4
+Considerations in High Dimensions
+6.4.1
+High-Dimensional Data
+Most traditional statistical techniques for regression and classification are
+intended for the low-dimensional setting in which n, the number of ob- low-
+dimensional
+servations, is much greater than p, the number of features. This is due in
+part to the fact that throughout most of the field’s history, the bulk of sci-
+entific problems requiring the use of statistics have been low-dimensional.
+For instance, consider the task of developing a model to predict a patient’s
+blood pressure on the basis of his or her age, sex, and body mass index
+(BMI). There are three predictors, or four if an intercept is included in the
+model, and perhaps several thousand patients for whom blood pressure
+and age, sex, and BMI are available. Hence n ≫p, and so the problem is
+low-dimensional. (By dimension here we are referring to the size of p.)
+In the past 20 years, new technologies have changed the way that data
+are collected in fields as diverse as finance, marketing, and medicine. It is
+now commonplace to collect an almost unlimited number of feature mea-
+surements (p very large). While p can be extremely large, the number of
+observations n is often limited due to cost, sample availability, or other
+considerations. Two examples are as follows:
+1. Rather than predicting blood pressure on the basis of just age, sex,
+and BMI, one might also collect measurements for half a million sin-
+gle nucleotide polymorphisms (SNPs; these are individual DNA mu-
+tations that are relatively common in the population) for inclusion in
+the predictive model. Then n ≈200 and p ≈500,000.
+2. A marketing analyst interested in understanding people’s online shop-
+ping patterns could treat as features all of the search terms entered
+by users of a search engine. This is sometimes known as the “bag-of-
+words” model. The same researcher might have access to the search
+histories of only a few hundred or a few thousand search engine users
+who have consented to share their information with the researcher.
+For a given user, each of the p search terms is scored present (0) or

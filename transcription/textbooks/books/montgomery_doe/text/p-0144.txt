@@ -1,0 +1,77 @@
+128
+Chapter 3 ■Experiments with a Single Factor: The Analysis of Variance
+which has a degrees of freedom because there are a linearly independent normal equations.
+The error sum of squares is, from Equation 3.66,
+and has N a degrees of freedom.
+To nd the sum of squares resulting from the treatment effects (the {i}), we consider
+a reduced model; that is, the model to be restricted to the null hypothesis (i 0 for all i).
+The reduced model is yij ij. There is only one normal equation for this model:
+and the estimator of is 
+. Thus, the reduction in the sum of squares that results from
+tting the reduced model containing only is
+Because there is only one normal equation for this reduced model, R() has one degree of
+freedom. The sum of squares due to the {i}, given that is already in the model, is the dif-
+ference between R(, ) and R(), which is
+with a 1 degrees of freedom, which we recognize from Equation 3.9 as SSTreatments. Making the
+usual normality assumption, we obtain appropriate statistic for testing H0:1 2  
+a 0
+which is distributed as Fa1, Na under the null hypothesis. This is, of course, the test statistic
+for the single-factor analysis of variance.
+3.11
+Nonparametric Methods in the Analysis of Variance
+3.11.1
+The Kruskal–Wallis Test
+In situations where the normality assumption is unjustied, the experimenter may wish to use
+an alternative procedure to the F test analysis of variance that does not depend on this assump-
+tion. Such a procedure has been developed by Kruskal and Wallis (1952). The Kruskal–Wallis
+test is used to test the null hypothesis that the a treatments are identical against the alternative
+hypothesis that some of the treatments generate observations that are larger than others. Because
+the procedure is designed to be sensitive for testing differences in means, it is sometimes con-
+venient to think of the Kruskal–Wallis test as a test for equality of treatment means. The
+Kruskal–Wallis test is a nonparametric alternative to the usual analysis of variance.
+To perform a Kruskal–Wallis test, rst rank the observations yij in ascending order and
+replace each observation by its rank, say Rij, with the smallest observation having rank 1. In
+F0 
+R()(/(a 1)
+
+a
+i1 
+n
+j1
+y2
+ij R(, )/(N a)
+Á
+1
+n 
+a
+i1
+y2
+i. y2
+..
+N
+R(Full Model) R(Reduced Model)
+R() R(, ) R()
+R() (y..)(y..) y2
+..
+N
+ˆ y..
+Nˆ y..
+
+a
+i1 
+n
+j1
+y2
+ij 
+a
+i1
+y2
+i.
+n
+SSE 
+a
+i1 
+n
+j1
+y2
+ij R(, )

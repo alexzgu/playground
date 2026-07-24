@@ -1,0 +1,74 @@
+658
+Chapter 15 ■Other Design and Analysis Topics
+(15.24)
+(15.25)
+Note that, in general, S T E, where the symbols S, T, and E are used to denote sums of
+squares and cross products for total, treatments, and error, respectively. The sums of squares
+for x and y must be nonnegative; however, the sums of cross products (xy) may be negative.
+We now show how the analysis of covariance adjusts the response variable for the effect
+of the covariate. Consider the full model (Equation 15.15). The least squares estimators of ,
+i, and are 
+, and
+(15.26)
+The error sum of squares in this model is
+(15.27)
+with a(n 1) 1 degrees of freedom. The experimental error variance is estimated by
+Now suppose that there is no treatment effect. The model (Equation 15.15) would then be
+(15.28)
+and it can be shown that the least squares estimators of and are 
+and 
+.
+The sum of squares for error in this reduced model is
+(15.29)
+with an  2 degrees of freedom. In Equation 15.29, the quantity (Sxy)2/Sxx is the reduction in
+the sum of squares of y obtained through the linear regression of y on x. Furthermore, note
+that SSE is smaller than 
+[because the model (Equation 15.15) contains additional param-
+eters {i}] and that the quantity 
+SSE is a reduction in sum of squares due to the {i}.
+Therefore, the difference between 
+and SSE, that is,
+SSE, provides a sum of squares
+with a 1 degrees of freedom for testing the hypothesis of no treatment effects.
+Consequently, to test H0: i 0, compute
+(15.30)
+which, if the null hypothesis is true, is distributed as Fa1,a(n1)1. Thus, we reject H0: i 0
+if F0 F,a1,a(n1)1. The P-value approach could also be used.
+It is instructive to examine the display in Table 15.11. In this table we have presented
+the analysis of covariance as an “adjusted” analysis of variance. In the source of variation col-
+umn, the total variability is measured by Syy with an 1 degrees of freedom. The source of
+variation “regression” has the sum of squares (Sxy)2/Sxx with one degree of freedom. If there
+were no concomitant variable, we would have Sxy Sxx Exy Exx 0. Then the sum of
+squares for error would be simply Eyy and the sum of squares for treatments would be Syy 
+Eyy Tyy. However, because of the presence of the concomitant variable, we must “adjust” Syy
+and Eyy for the regression of y on x as shown in Table 15.11. The adjusted error sum of squares
+F0 (SSE SSE)/(a 1)
+SSE/[a(n 1) 1]
+SSE
+SSE
+SSE
+SSE
+SSE Syy (Sxy)2/Sxx
+ˆ Sxy/Sxx
+ˆ y..
+yij (xij x..) ij
+MSE 
+SSE
+a(n 1) 1
+SSE Eyy (Exy)2/Exx
+ˆ 
+Exy
+Exx
+ˆ y.., ˆi yi. y.. ˆ(xi. x..)
+Exy 
+a
+i1 
+n
+j1
+ (xij xi.)(yij yi.) Sxy Txy
+Exx 
+a
+i1 
+n
+j1
+ (xij xi.)2 Sxx Txx

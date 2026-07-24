@@ -1,0 +1,56 @@
+158
+4. Classification
+4.4.4
+Naive Bayes
+In previous sections, we used Bayes’ theorem (4.15) to develop the LDA
+and QDA classifiers. Here, we use Bayes’ theorem to motivate the popular
+naive Bayes classifier.
+naive Bayes
+Recall that Bayes’ theorem (4.15) provides an expression for the pos-
+terior probability pk(x) = Pr(Y = k|X = x) in terms of π1, . . . , πK and
+f1(x), . . . , fK(x). To use (4.15) in practice, we need estimates for π1, . . . , πK
+and f1(x), . . . , fK(x). As we saw in previous sections, estimating the prior
+probabilities π1, . . . , πK is typically straightforward: for instance, we can
+estimate ˆπk as the proportion of training observations belonging to the kth
+class, for k = 1, . . . , K.
+However, estimating f1(x), . . . , fK(x) is more subtle. Recall that fk(x)
+is the p-dimensional density function for an observation in the kth class,
+for k = 1, . . . , K. In general, estimating a p-dimensional density function is
+challenging. In LDA, we make a very strong assumption that greatly sim-
+plifies the task: we assume that fk is the density function for a multivariate
+normal random variable with class-specific mean µk, and shared covariance
+matrix Σ. By contrast, in QDA, we assume that fk is the density function
+for a multivariate normal random variable with class-specific mean µk, and
+class-specific covariance matrix Σk. By making these very strong assump-
+tions, we are able to replace the very challenging problem of estimating K
+p-dimensional density functions with the much simpler problem of estimat-
+ing K p-dimensional mean vectors and one (in the case of LDA) or K (in
+the case of QDA) (p × p)-dimensional covariance matrices.
+The naive Bayes classifier takes a different tack for estimating f1(x), . . . ,
+fK(x). Instead of assuming that these functions belong to a particular
+family of distributions (e.g. multivariate normal), we instead make a single
+assumption:
+Within the kth class, the p predictors are independent.
+Stated mathematically, this assumption means that for k = 1, . . . , K,
+fk(x) = fk1(x1) × fk2(x2) × · · · × fkp(xp),
+(4.29)
+where fkj is the density function of the jth predictor among observations
+in the kth class.
+Why is this assumption so powerful? Essentially, estimating a p-dimen-
+sional density function is challenging because we must consider not only
+the marginal distribution of each predictor — that is, the distribution of marginal
+distribution
+each predictor on its own — but also the joint distribution of the predictors
+joint
+distribution
+— that is, the association between the different predictors. In the case of
+a multivariate normal distribution, the association between the different
+predictors is summarized by the off-diagonal elements of the covariance
+matrix. However, in general, this association can be very hard to charac-
+terize, and exceedingly challenging to estimate. But by assuming that the
+p covariates are independent within each class, we completely eliminate the
+need to worry about the association between the p predictors, because we
+have simply assumed that there is no association between the predictors!
+Do we really believe the naive Bayes assumption that the p covariates
+are independent within each class? In most settings, we do not. But even
+though this modeling assumption is made for convenience, it often leads to

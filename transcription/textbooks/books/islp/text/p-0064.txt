@@ -1,0 +1,50 @@
+54
+2. Statistical Learning
+Out[67]: array([False,
+True, False,
+True])
+Note that the elements of keep_rows, when viewed as integers, are the same
+as the values of np.array([0,1,0,1]). Below, we use == to verify their equal-
+ity. When applied to two arrays, the == operation is applied elementwise.
+In [68]: np.all(keep_rows == np.array([0,1,0,1]))
+Out[68]: True
+(Here, the function np.all() has checked whether all entries of an array np.all()
+are True. A similar function, np.any(), can be used to check whether any np.any()
+entries of an array are True.)
+However, even though np.array([0,1,0,1]) and keep_rows are equal ac-
+cording to ==, they index different sets of rows! The former retrieves the
+first, second, first, and second rows of A.
+In [69]: A[np.array([0,1,0,1])]
+Out[69]: array([[0, 1, 2, 3],
+[4, 5, 6, 7],
+[0, 1, 2, 3],
+[4, 5, 6, 7]])
+By contrast, keep_rows retrieves only the second and fourth rows of A —
+i.e. the rows for which the Boolean equals TRUE.
+In [70]: A[keep_rows]
+Out[70]: array([[ 4,
+5,
+6,
+7],
+[12, 13, 14, 15]])
+This example shows that Booleans and integers are treated differently by
+numpy.
+We again make use of the np.ix_() function to create a mesh containing
+the second and fourth rows, and the first, third, and fourth columns. This
+time, we apply the function to Booleans, rather than lists.
+In [71]: keep_cols = np.zeros(A.shape[1], bool)
+keep_cols[[0, 2, 3]] = True
+idx_bool = np.ix_(keep_rows, keep_cols)
+A[idx_bool]
+Out[71]: array([[ 4,
+6, 7],
+[12, 14, 15]])
+We can also mix a list with an array of Booleans in the arguments to
+np.ix_():
+In [72]: idx_mixed = np.ix_([1,3], keep_cols)
+A[idx_mixed]
+Out[72]: array([[ 4,
+6, 7],
+[12, 14, 15]])
+For more details on indexing in numpy, readers are referred to the numpy
+tutorial mentioned earlier.

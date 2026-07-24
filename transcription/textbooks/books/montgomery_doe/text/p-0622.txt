@@ -1,0 +1,143 @@
+606
+Chapter 14 ■Nested and Split-Plot Designs
+to factor B under the levels of A, and a sum of squares due to error. Symbolically, we may
+write Equation 14.3 as
+(14.4)
+There are abn 1 degrees of freedom for SST, a 1 degrees of freedom for SSA, a(b 1)
+degrees of freedom for SSB(A), and ab(n  1) degrees of freedom for error. Note that abn 1 
+(a 1) a(b 1) ab(n 1). If the errors are NID(0, 2), we may divide each sum of
+squares on the right of Equation 14.4 by its degrees of freedom to obtain independently
+distributed mean squares such that the ratio of any two mean squares is distributed as F.
+The appropriate statistics for testing the effects of factors A and B depend on whether
+A and B are ﬁxed or random. If factors A and B are xed, we assume that 
+i 0 and
+j(i) 0 (i 1, 2, . . . , a). That is, the A treatment effects sum to zero, and the B treat-
+ment effects sum to zero within each level of A. Alternatively, if A and B are random, we
+assume that i is NID(0,
+) and j(i) is NID(0,
+). Mixed models with A xed and B random
+are also widely encountered. The expected mean squares can be determined by a straightfor-
+ward application of the rules in Chapter 13. Table 14.1 gives the expected mean squares for
+these situations.
+Table 14.1 indicates that if the levels of A and B are xed, H0: i 0 is tested by
+MSA/MSE and H0: j(i) 0 is tested by MSB(A)/MSE. If A is a xed factor and B is random, then
+H0: i 0 is tested by MSA/MSB(A) and H0:
+0 is tested by MSB(A)/MSE. Finally, if both 
+A and B are random factors, we test H0:
+0 by MSA/MSB(A) and H0:
+0 by MSB(A)/MSE.
+The test procedure is summarized in an analysis of variance table as shown in Table 14.2.
+Computing formulas for the sums of squares may be obtained by expanding the quantities in
+Equation 14.3 and simplifying. They are
+(14.5)
+(14.6)
+(14.7)
+(14.8)
+We see that Equation 14.6 for SSB(A) can be written as
+SSB(A) 
+a
+i1
+1
+n 
+b
+j1
+y2
+ij. y2
+i..
+bn
+SST 
+a
+i1 
+b
+j1 
+n
+k1
+y2
+ijk y2
+...
+abn
+SSE 
+a
+i1 
+b
+j1 
+n
+k1
+y2
+ijk 1
+n 
+a
+i1 
+b
+j1
+y2
+ij.
+SSB(A) 1
+n 
+a
+i1 
+b
+j1
+y2
+ij. 1
+bn 
+a
+i1
+y2
+i..
+SSA 1
+bn 
+a
+i1
+y2
+i.. y2
+...
+abn
+2
+
+2
+
+2
+
+2
+
+2
+
+"b
+j1
+"a
+i1
+SST SSA SSB(A) SSE
+■TA B L E 1 4 . 1
+Expected Mean Squares in the Two-Stage Nested Design
+A Fixed
+A Fixed
+A Random
+E(MS)
+B Fixed
+B Random
+B Random
+E(MSA)
+E(MSB(A))
+E(MSE )
+2
+2
+2
+2 n2
+
+2 n2
+
+2 
+n2
+j(i)
+a(b 1)
+2 n2
+bn2
+
+2 n2
+bn 2
+i
+a 1
+2 bn 2
+i
+a 1

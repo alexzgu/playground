@@ -1,0 +1,43 @@
+139
+C H A P T E R 4
+R a n d o m i z e d B l o c k s ,
+L a t i n S q u a r e s , a n d
+R e l a t e d D e s i g n s
+4.1
+The Randomized Complete Block Design
+In any experiment, variability arising from a nuisance factor can affect the results. Generally,
+we dene a nuisance factor as a design factor that probably has an effect on the response,
+but we are not interested in that effect. Sometimes a nuisance factor is unknown and uncon-
+trolled; that is, we don’t know that the factor exists, and it may even be changing levels while
+we are conducting the experiment. Randomization is the design technique used to guard
+against such a “lurking” nuisance factor. In other cases, the nuisance factor is known but
+uncontrollable. If we can at least observe the value that the nuisance factor takes on at each
+run of the experiment, we can compensate for it in the statistical analysis by using the analy-
+sis of covariance, a technique we will discuss in Chapter 14. When the nuisance source of
+variability is known and controllable, a design technique called blocking can be used to sys-
+tematically eliminate its effect on the statistical comparisons among treatments. Blocking is
+an extremely important design technique used extensively in industrial experimentation and
+is the subject of this chapter.
+To illustrate the general idea, reconsider the hardness testing experiment rst described in
+Section 2.5.1. Suppose now that we wish to determine whether or not four different tips produce
+different readings on a hardness testing machine. An experiment such as this might be part of a
+CHAPTER OUTLINE
+4.1 THE RANDOMIZED COMPLETE BLOCK DESIGN
+4.1.1 Statistical Analysis of the RCBD
+4.1.2 Model Adequacy Checking
+4.1.3 Some Other Aspects of the Randomized Complete
+Block Design
+4.1.4 Estimating Model Parameters and the General
+Regression Signicance Test
+4.2 THE LATIN SQUARE DESIGN
+4.3 THE GRAECO-LATIN SQUARE DESIGN
+The supplemental material is on the textbook website www.wiley.com/college/montgomery.
+4.4 BALANCED INCOMPLETE BLOCK DESIGNS
+4.4.1 Statistical Analysis of the BIBD
+4.4.2 Least Squares Estimation of the Parameters
+4.4.3 Recovery of Interblock Information in the BIBD
+SUPPLEMENTAL MATERIAL FOR CHAPTER 4
+S4.1 Relative Efciency of the RCBD
+S4.2 Partially Balanced Incomplete Block Designs
+S4.3 Youden Squares
+S4.4 Lattice Designs

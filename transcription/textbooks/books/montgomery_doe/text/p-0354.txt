@@ -1,0 +1,119 @@
+338
+Chapter 8 ■Two-Level Fractional Factorial Designs
+Figure 8.14 presents the normal probability plot of the
+residuals. This plot appears satisfactory. The plots of
+residuals versus each factor were then constructed. One of
+these plots, that for residuals versus factor C (holding
+time), is shown in Figure 8.15. The plot reveals that there
+is much less scatter in the residuals at the low holding
+time than at the high holding time. These residuals were
+obtained in the usual way from a model for predicted
+shrinkage:
+where x1, x2, and x1x2 are coded variables that correspond to
+the factors A and B and the AB interaction. The residuals are
+then
+The regression model used to produce the residuals
+essentially removes the location effects of A, B, and AB
+from the data; the residuals therefore contain information
+about unexplained variability. Figure 8.15 indicates that
+there is a pattern in the variability and that the variabili-
+ty in the shrinkage of parts may be smaller when the
+holding time is at the low level. (Please recall that we
+observed in Chapter 6 that residuals only convey infor-
+mation about dispersion effects when the location or
+mean model is correct.)
+This is further amplied by the analysis of residuals
+shown in Table 8.12. In this table, the residuals are arranged
+at the low () and high () levels of each factor, and the
+standard deviations of the residuals at the low and high
+levels of each factor have been calculated. Note that the
+standard deviation of the residuals with C at the low level
+e y yˆ
+27.3125 6.9375x1 17.8125x2 5.9375x1x2
+yˆ ˆ
+0 ˆ
+1x1 ˆ
+2x2 ˆ
+12x1x2
+[S(C) 1.63] is considerably smaller than the standard
+deviation of the residuals with C at the high level 
+[S(C) 5.70].
+The bottom line of Table 8.12 presents the statistic
+Recall that if the variances of the residuals at the high 
+() and low () levels of factor i are equal, then this ratio
+is approximately normally distributed with mean zero, and
+it can be used to judge the difference in the response vari-
+ability at the two levels of factor i. Because the ratio 
+is
+relatively large, we would conclude that the apparent dis-
+persion or variability effect observed in Figure 8.15 is
+real. Thus, setting the holding time at its low level would
+contribute to reducing the variability in shrinkage from part
+to part during a production run. Figure 8.16 presents a nor-
+mal probability plot of the 
+values in Table 8.12; this also
+indicates that factor C has a large dispersion effect.
+Figure 8.17 shows the data from this experiment pro-
+jected onto a cube in the factors A, B, and C. The average
+observed shrinkage and the range of observed shrinkage are
+shown at each corner of the cube. From inspection of this
+gure, we see that running the process with the screw speed
+(B) at the low level is the key to reducing average parts
+shrinkage. If B is low, virtually any combination of temper-
+ature (A) and holding time (C) will result in low values of
+average parts shrinkage. However, from examining the
+ranges of the shrinkage values at each corner of the cube, it
+is immediately clear that setting the holding time (C) at 
+the low level is the only reasonable choice if we wish to
+keep the part-to-part variability in shrinkage low during a
+production run.
+F*i
+F*C
+F*i ln S2(i)
+S2(i)
+Residuals
+–6
+–3
+0
+3
+6
+1
+5
+10
+20
+30
+50
+70
+90
+95
+99
+80
+Normal probability, (1 – Pj) × 100
+Pj × 100
+1
+5
+10
+20
+30
+50
+70
+80
+90
+95
+99
+Holding time (C)
+Low
+High
+Residuals
+–2
+–4
+0
+2
+6
+4
+■F I G U R E 8 . 1 4
+Normal probability plot of
+residuals for Example 8.4
+■F I G U R E 8 . 1 5
+Residuals versus
+holding time (C) for Example 8.4

@@ -1,0 +1,79 @@
+11.8 Lab: Survival Analysis
+495
+Center = rng.choice(['A', 'B', 'C'],
+N,
+replace=True)
+Time = rng.choice(['Morn.', 'After.', 'Even.'],
+N,
+replace=True)
+D = pd.DataFrame({'Operators': Operators,
+'Center': pd.Categorical(Center),
+'Time': pd.Categorical(Time)})
+We then build a model matrix (omitting the intercept)
+In [22]: model = MS(['Operators',
+'Center',
+'Time'],
+intercept=False)
+X = model.fit_transform(D)
+It is worthwhile to take a peek at the model matrix X, so that we can be
+sure that we understand how the variables have been coded. By default,
+the levels of categorical variables are sorted and, as usual, the first column
+of the one-hot encoding of the variable is dropped.
+In [23]: X[:5]
+Out[23]:
+Operators
+Center[B]
+Center[C]
+Time[Even.]
+Time[Morn.]
+0
+13
+0.0
+1.0
+0.0
+0.0
+1
+15
+0.0
+0.0
+1.0
+0.0
+2
+7
+1.0
+0.0
+0.0
+1.0
+3
+7
+0.0
+1.0
+0.0
+1.0
+4
+13
+0.0
+1.0
+1.0
+0.0
+Next, we specify the coefficients and the hazard function.
+In [24]: true_beta = np.array([0.04, -0.3, 0, 0.2, -0.2])
+true_linpred = X.dot(true_beta)
+hazard = lambda t: 1e-5 * t
+Here, we have set the coefficient associated with Operators to equal 0.04;
+in other words, each additional operator leads to a e0.04 = 1.041-fold in-
+crease in the “risk” that the call will be answered, given the Center and
+Time covariates. This makes sense: the greater the number of operators at
+hand, the shorter the wait time! The coefficient associated with Center ==
+B is −0.3, and Center == A is treated as the baseline. This means that the
+risk of a call being answered at Center B is 0.74 times the risk that it will
+be answered at Center A; in other words, the wait times are a bit longer
+at Center B.
+Recall from Section 2.3.7 the use of lambda for creating short functions
+on the fly. We use the function sim_time() from the ISLP.survival pack- sim_time()
+age. This function uses the relationship between the survival function and
+cumulative hazard S(t) = exp(−H(t)) and the specific form of the cumu-
+lative hazard function in the Cox model to simulate data based on values
+of the linear predictor true_linpred and the cumulative hazard. We need
+to provide the cumulative hazard function, which we do here.
+In [25]: cum_hazard = lambda t: 1e-5 * t**2 / 2

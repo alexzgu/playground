@@ -1,0 +1,185 @@
+226
+Chapter 5 ■Introduction to Factorial Designs
+(a) Is there any indication that either factor inuences
+brightness? Use 0.05.
+(b) Do the two factors interact? Use 0.05.
+(c) Analyze the residuals from this experiment.
+5.7.
+Johnson and Leone (Statistics and Experimental
+Design in Engineering and the Physical Sciences, Wiley,
+1977) describe an experiment to investigate warping of
+copper plates. The two factors studied were the temperature
+and the copper content of the plates. The response variable
+was a measure of the amount of warping. The data were as
+follows:
+Copper Content (%)
+Temperature (°C)
+40
+60
+80
+100
+50
+17, 20
+16, 21
+24, 22
+28, 27
+75
+12, 9
+18, 13
+17, 12
+27, 31
+100
+16, 12
+18, 21
+25, 23
+30, 23
+125
+21, 17
+23, 21
+23, 22
+29, 31
+(a) Is there any indication that either factor affects the
+amount of warping? Is there any interaction between
+the factors? Use 0.05.
+(b) Analyze the residuals from this experiment.
+(c) Plot the average warping at each level of copper con-
+tent and compare them to an appropriately scaled t dis-
+tribution. Describe the differences in the effects of the
+different levels of copper content on warping. If low
+warping is desirable, what level of copper content
+would you specify?
+(d) Suppose that temperature cannot be easily controlled
+in the environment in which the copper plates are to be
+used. Does this change your answer for part (c)?
+5.8.
+The factors that inuence the breaking strength of a
+synthetic ber are being studied. Four production machines
+and three operators are chosen and a factorial experiment is
+run using ber from the same production batch. The results
+are as follows:
+Machine
+Operator 
+1
+2
+3
+4
+1
+109
+110
+108
+110
+110
+115
+109
+108
+2
+110
+110
+111
+114
+112
+111
+109
+112
+3
+116
+112
+114
+120
+114
+115
+119
+117
+(a) Analyze the data and draw conclusions. Use 0.05.
+(b) Prepare appropriate residual plots and comment on the
+model’s adequacy.
+5.9.
+A mechanical engineer is studying the thrust force
+developed by a drill press. He suspects that the drilling speed
+and the feed rate of the material are the most important fac-
+tors. He selects four feed rates and uses a high and low drill
+speed chosen to represent the extreme operating conditions.
+He obtains the following results. Analyze the data and draw
+conclusions. Use 0.05.
+Feed Rate
+Drill Speed
+0.015
+0.030
+0.045
+0.060
+125
+2.70
+2.45
+2.60
+2.75
+2.78
+2.49
+2.72
+2.86
+200
+2.83
+2.85
+2.86
+2.94
+2.86
+2.80
+2.87
+2.88
+5.10.
+An experiment is conducted to study the inuence of
+operating temperature and three types of faceplate glass in the
+light output of an oscilloscope tube. The following data are
+collected:
+Temperature
+Glass Type
+100
+125
+150
+580
+1090
+1392
+1
+568
+1087
+1380
+570
+1085
+1386
+550
+1070
+1328
+2
+530
+1035
+1312
+579
+1000
+1299
+546
+1045
+867
+3
+575
+1053
+904
+599
+1066
+889
+(a) Use 0.05 in the analysis. Is there a significant
+interaction effect? Does glass type or temperature
+affect the response? What conclusions can you
+draw?
+(b) Fit an appropriate model relating light output to glass
+type and temperature.
+(c) Analyze the residuals from this experiment.
+Comment on the adequacy of the models you have
+considered.
+5.11.
+Consider the experiment in Problem 5.3. Fit an
+appropriate model to the response data. Use this model to
+provide guidance concerning operating conditions for the
+process.
+5.12.
+Use Tukey’s test to determine which levels of the
+pressure factor are signicantly different for the data in
+Problem 5.3.

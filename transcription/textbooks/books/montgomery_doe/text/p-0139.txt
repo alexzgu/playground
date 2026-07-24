@@ -1,0 +1,90 @@
+So, at 95 percent condence the mean strength of the fabric produced by the looms in
+this facility is between 92.78 and 98.10. This is a relatively wide condence interval because
+a small number of looms were sampled and there is a large difference between looms as
+reected by the large portion of total variability that is accounted for by the differences
+between looms.
+Maximum Likelihood Estimation of the Variance Components. Earlier in this
+section we presented the  analysis of variance method of variance component estimation.
+This method is relatively straightforward to apply and makes use of familiar quantities—
+the mean squares in the analysis of variance table. However, the method has some disad-
+vantages. As we pointed out previously, it is a method of moments estimator, a technique
+that mathematical statisticians generally do not prefer to use for parameter estimation
+because it often results in parameter estimates that do not have good statistical properties.
+One obvious problem is that it does not always lead to an easy way to construct confidence
+intervals on the variance components of interest. For example, in the single-factor random
+model there is not a simple way to construct confidence intervals on 
+, which is certainly
+a parameter of primary interest to the experimenter. The preferred parameter estimation
+technique is called the method of maximum likelihood. The implementation of this
+method can be somewhat involved, particularly for an experimental design model, but it has
+been incorporated in some modern computer software packages that support designed
+experiments, including JMP.
+A complete presentation of the method of maximum likelihood is beyond the scope of
+this book, but the general idea can be illustrated very easily. Suppose that x is a random vari-
+able with probability distribution f(x, ), where is an unknown parameter. Let x1, x2, . . . , xn
+be a random sample of n observations. The joint probability distribution of the sample is
+. The likelihood function is just this joint probability distribution with the sample
+observations consider xed and the parameter 
+unknown. Note that the likelihood function,
+say
+is now a function of only the unknown parameter . The maximum likelihood estimator of is
+the value of 
+that maximizes the likelihood function L(x1, x2, ..., xn; ). To illustrate how this
+applies to an experimental design model with random effects, let y be the an
+1 vector of obser-
+vations for a single-factor random effects model with a treatments and n replicates and let 
+be
+the an
+an covariance matrix of the observations. Refer to Section 3.9.1 where we developed
+this covariance matrix for the special case where 
+and 
+. The likelihood function is 
+where
+an is the total number of observations, jN is an 
+vector of 1s, and 
+is the
+overall mean in the model. The maximum likelihood estimates of the parameters 
+and
+are the values of these quantities that maximize the likelihood function.
+Maximum likelihood estimators (MLEs) have some very useful properties. For large sam-
+ples, they are unbiased, and they have a normal distribution. Furthermore, the inverse of the matrix
+of second derivatives of the likelihood function (multiplied by 1) is the covariance matrix of the
+MLEs. This makes it relatively easy to obtain approximate condence intervals on the MLEs.
+The standard variant of maximum likelihood estimation that is used for estimating vari-
+ance components is known as the residual maximum likelihood (REML) method. It is pop-
+ular because it produces unbiased estimators and like all MLEs, it is easy to nd CIs. The basic
+2
+, 2
+,
+
+N 1
+N 
+L(x11, x12,..., xa,n; , 2
+, 2) 
+1
+(2)N/21/2 exp1
+2 (y jN)1(y jN)
+n 2
+a 3
+
+
+
+
+
+
+
+L(x1, x2,..., xn; ) 
+n
+i1
+f (xi, )
+
+
+n
+i1
+f (xi, )
+
+
+2
+
+3.9 The Random Effects Model
+123

@@ -1,0 +1,67 @@
+3.1 Simple Linear Regression
+75
+estimated from a separate data set, is pretty close to the true population
+regression line.
+We continue the analogy with the estimation of the population mean
+µ of a random variable Y . A natural question is as follows: how accurate
+is the sample mean ˆµ as an estimate of µ? We have established that the
+average of ˆµ’s over many data sets will be very close to µ, but that a
+single estimate ˆµ may be a substantial underestimate or overestimate of µ.
+How far off will that single estimate of ˆµ be? In general, we answer this
+question by computing the standard error of ˆµ, written as SE(ˆµ). We have standard
+error
+the well-known formula
+Var(ˆµ) = SE(ˆµ)2 = σ2
+n ,
+(3.7)
+where σ is the standard deviation of each of the realizations yi of Y .2
+Roughly speaking, the standard error tells us the average amount that this
+estimate ˆµ differs from the actual value of µ. Equation 3.7 also tells us how
+this deviation shrinks with n—the more observations we have, the smaller
+the standard error of ˆµ. In a similar vein, we can wonder how close ˆβ0
+and ˆβ1 are to the true values β0 and β1. To compute the standard errors
+associated with ˆβ0 and ˆβ1, we use the following formulas:
+SE(ˆβ0)
+2 = σ2
+3 1
+n +
+¯x2
+)n
+i=1(xi −¯x)2
+4
+,
+SE(ˆβ1)
+2 =
+σ2
+)n
+i=1(xi −¯x)2 , (3.8)
+where σ2 = Var(ϵ). For these formulas to be strictly valid, we need to
+assume that the errors ϵi for each observation have common variance σ2 and
+are uncorrelated. This is clearly not true in Figure 3.1, but the formula still
+turns out to be a good approximation. Notice in the formula that SE(ˆβ1) is
+smaller when the xi are more spread out; intuitively we have more leverage
+to estimate a slope when this is the case. We also see that SE(ˆβ0) would be
+the same as SE(ˆµ) if ¯x were zero (in which case ˆβ0 would be equal to ¯y). In
+general, σ2 is not known, but can be estimated from the data. This estimate
+of σ is known as the residual standard error, and is given by the formula residual
+standard
+error
+RSE =
+5
+RSS/(n −2). Strictly speaking, when σ2 is estimated from the
+data we should write 6
+SE(ˆβ1) to indicate that an estimate has been made,
+but for simplicity of notation we will drop this extra “hat”.
+Standard errors can be used to compute confidence intervals. A 95 % confidence
+interval
+confidence interval is defined as a range of values such that with 95 %
+probability, the range will contain the true unknown value of the param-
+eter. The range is defined in terms of lower and upper limits computed
+from the sample of data. A 95% confidence interval has the following prop-
+erty: if we take repeated samples and construct the confidence interval for
+each sample, 95% of the intervals will contain the true unknown value of
+the parameter. For linear regression, the 95 % confidence interval for β1
+approximately takes the form
+ˆβ1 ± 2 · SE(ˆβ1).
+(3.9)
+2This formula holds provided that the n observations are uncorrelated.

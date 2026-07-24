@@ -1,0 +1,68 @@
+224
+CHAPTER 6. JUMP PROCESSES
+(This estimate uses (6.27) which in turn uses the fact that the paths
+are continuous.) Using these estimates, we see that for xed s,
+ϕn(s) = 1 + ims
+n
+−σ2s2
+2n + o
+1
+n
+
+,
+where the o(·) term depend on s. This implies that
+lim
+n∞ϕn(s)n
+=
+lim
+n∞
+
+1 + ims
+n
+−σ2s2
+2n + o
+1
+n
+n
+=
+exp
+
+ims −σ2s2
+2
+
+
+6.9
+Integration with respect to L´evy pro-
+cesses
+Suppose Xt is a L´evy process which by Theorem 6.8.1 we can write as
+Xt = m t + σ Bt + Ct + Yt
+We will dene the integral
+t
+0
+As Xs
+by
+m
+t
+0
+As ds + σ
+t
+0
+As dBs +
+t
+0
+As dCs +
+t
+0
+As dYs
+The rst integral is a Riemann integral, the second is an Itˆo integral as
+in Chapter 3, the third integral was dened in Section 6.4, and this leaves
+us only the fourth integral to dene. As we saw in Section (6.4), the third
+integral does not have the properties we want unless we assume that At is
+left continuous. The same problems exists for the fourth integral so we will
+restrict to such processes.
+Assume that Yt is a process with L´evy measure µ satisfying (6.18)–(6.20).
+Then Yt is a square integrable martingale with E[Yt] = σ2 t (this is not the
+same σ as in the previous paragraph). This will allow us to dene
+t
+0
+As dYs

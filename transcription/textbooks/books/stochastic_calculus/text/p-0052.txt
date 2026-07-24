@@ -1,0 +1,39 @@
+46
+CHAPTER 2. BROWNIAN MOTION
+where Ax denotes the event Z = x. The events Ax are disjoint, each with
+probability zero, but it is not the case that
+P
+
+x∈R
+Ax
+
+=
+
+x∈R
+P(Ax) = 0
+In constructing Brownian motion, we use the fact that if g : [0, ∞) →R
+is a function and we know the value of g on a countable, dense
+set, such as the 
+k
+2n : k = 0, 1, ; n = 0, 1, 
+
+,
+then we know the value at every t. Indeed, we need only nd a sequence of
+dyadic rationals tn that converge to t, and let
+g(t) = lim
+tnt g(tn)
+This is ne if we know the function g is continuous. Our strategy for
+constructing Brownian motion will be:
+First dene the process Bt when t is a dyadic rational.
+Prove that with probability one, the function t →Bt is continuous on
+the dyadics (this is the hardest step, and we need some care in the
+denition of continuity).
+Extend Bt to other t by continuity.
+The next section shows that one can construct a Brownian motion. The
+reader can skip this section and just have faith that such a process exists.
+2.5
+Construction of Brownian motion
+We will show how to construct Brownian motion. For ease, we will
+consider Bt, 0 ≤t ≤1. Once we know how to construct this, we can
+take a countable collection of such processes and connect them ap-
+propriately to get Bt, 0 ≤t < ∞We start with a probability space

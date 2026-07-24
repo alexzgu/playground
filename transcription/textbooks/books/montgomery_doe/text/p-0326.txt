@@ -1,0 +1,103 @@
+310
+Chapter 7 ■Blocking and Confounding in the 2k Factorial Design
+■TA B L E 7 . 5
+Analysis of Variance for Four Replicates
+of a 23 Design with ABC Confounded
+Degrees of
+Source of Variation
+Freedom
+Replicates
+3
+Blocks (ABC)
+1
+Error for ABC (replicates blocks)
+3
+A
+1
+B
+1
+C
+1
+AB
+1
+AC
+1
+BC
+1
+Error (or replicates effects)
+18
+Total
+31
+E X A M P L E 7 . 2
+Consider the situation described in Example 6.2. Recall that
+four factors—temperature (A), pressure (B), concentration
+of formaldehyde (C), and stirring rate (D)—are studied in a
+pilot plant to determine their effect on product ltration rate.
+We will use this experiment to illustrate the ideas of block-
+ing and confounding in an unreplicated design. We will
+make two modications to the original experiment. First,
+suppose that the 24 16 treatment combinations cannot all
+be run using one batch of raw material. The experimenter
+can run eight treatment combinations from a single batch of
+material, so a 24 design confounded in two blocks seems
+appropriate. It is logical to confound the highest order inter-
+action ABCD with blocks. The dening contrast is
+and it is easy to verify that the design is as shown in Figure
+7.4. Alternatively, one may examine Table 6.11 and observe
+that the treatment combinations that are  in the ABCD
+column are assigned to block 1 and those that are  in
+ABCD column are in block 2.
+The second modication that we will make is to intro-
+duce a block effect so that the utility of blocking can be
+demonstrated. Suppose that when we select the two batches
+of raw material required to run the experiment, one of them
+is of much poorer quality and, as a result, all responses will
+be 20 units lower in this material batch than in the other. The
+L x1 x2 x3 x4
+D
+C
+B
+A
+–
++
+= Runs in block 1
+= Runs in block 2
+Block 1
+= 25
+(1)
+= 45
+ab
+= 40
+ac
+= 60
+bc
+= 80
+ad
+= 25
+bd
+= 55
+cd
+= 76
+abcd
+= 71
+a
+= 48
+b
+= 68
+c
+= 43
+d
+= 65
+abc
+= 70
+bcd
+= 86
+acd
+= 104
+abd
+Block 2
+(a) Geometric view
+(b) Assignment of the 16 runs
+to two blocks
+■F I G U R E 7 . 4
+The 24 design in two blocks for Example 7.2

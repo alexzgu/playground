@@ -1,0 +1,51 @@
+172
+4. Classification
+• Mean-variance relationship: As mentioned earlier, under the Poisson
+model, λ = E(Y ) = Var(Y ). Thus, by modeling bike usage with a
+Poisson regression, we implicitly assume that mean bike usage in a
+given hour equals the variance of bike usage during that hour. By
+contrast, under a linear regression model, the variance of bike usage
+always takes on a constant value. Recall from Figure 4.14 that in the
+Bikeshare data, when biking conditions are favorable, both the mean
+and the variance in bike usage are much higher than when conditions
+are unfavorable. Thus, the Poisson regression model is able to handle
+the mean-variance relationship seen in the Bikeshare data in a way
+that the linear regression model is not.5
+overdispersion
+• nonnegative fitted values: There are no negative predictions using the
+Poisson regression model. This is because the Poisson model itself
+only allows for nonnegative values; see (4.35). By contrast, when we
+fit a linear regression model to the Bikeshare data set, almost 10% of
+the predictions were negative.
+4.6.3
+Generalized Linear Models in Greater Generality
+We have now discussed three types of regression models: linear, logistic and
+Poisson. These approaches share some common characteristics:
+1. Each approach uses predictors X1, . . . , Xp to predict a response Y .
+We assume that, conditional on X1, . . . , Xp, Y belongs to a certain
+family of distributions. For linear regression, we typically assume that
+Y follows a Gaussian or normal distribution. For logistic regression,
+we assume that Y follows a Bernoulli distribution. Finally, for Poisson
+regression, we assume that Y follows a Poisson distribution.
+2. Each approach models the mean of Y as a function of the predictors.
+In linear regression, the mean of Y takes the form
+E(Y |X1, . . . , Xp) = β0 + β1X1 + · · · + βpXp,
+(4.39)
+i.e. it is a linear function of the predictors. For logistic regression, the
+mean instead takes the form
+E(Y |X1, . . . , Xp)
+=
+Pr(Y = 1|X1, . . . , Xp)
+=
+eβ0+β1X1+···+βpXp
+1 + eβ0+β1X1+···+βpXp ,
+(4.40)
+while for Poisson regression it takes the form
+E(Y |X1, . . . , Xp) = λ(X1, . . . , Xp) = eβ0+β1X1+···+βpXp.
+(4.41)
+Equations (4.39)–(4.41) can be expressed using a link function, η, which link function
+5In fact, the variance in the Bikeshare data appears to be much higher than the
+mean, a situation referred to as overdispersion. This causes the Z-values to be inflated
+in Table 4.11. A more careful analysis should account for this overdispersion to obtain
+more accurate Z-values, and there are a variety of methods for doing this. But they are
+beyond the scope of this book.

@@ -1,0 +1,163 @@
+452
+Chapter 10 ■Fitting Regression Models
+and
+(10.9b)
+Simplifying Equation 10.9, we obtain
+(10.10)
+These equations are called the least squares normal equations. Note that there are p k 1
+normal equations, one for each of the unknown regression coefcients. The solution to the nor-
+mal equations will be the least squares estimators of the regression coefcients 
+.
+It is simpler to solve the normal equations if they are expressed in matrix notation. We
+now give a matrix development of the normal equations that parallels the development of
+Equation 10.10. The model in terms of the observations, Equation 10.7, may be written in
+matrix notation as
+where
+In general, y is an (n 1) vector of the observations, X is an (n p) matrix of the levels
+of the independent variables, & is a ( p 1) vector of the regression coefficients, and is
+an (n 1) vector of random errors.
+We wish to nd the vector of least squares estimators,
+that minimizes
+Note that L may be expressed as
+(10.11)
+because &Xy is a (1 1) matrix, or a scalar, and its transpose (&Xy)yX& is the same
+scalar. The least squares estimators must satisfy
+which simplies to
+(10.12)
+Equation 10.12 is the matrix form of the least squares normal equations. It is identical to
+Equation 10.10. To solve the normal equations, multiply both sides of Equation 10.12 by the
+inverse of XX. Thus, the least squares estimator of & is
+(10.13)
+&ˆ (XX)1Xy
+XX&ˆ Xy
+L
+&
+ˆ
+2Xy 2XX&ˆ 0
+yy 2&Xy &XX&
+L yy &Xy yX& &XX&
+L 
+n
+i1
+2
+i (y X&)(y X&)
+&ˆ,
+& 
+0
+1
+o
+k
+, and  
+1
+2
+o
+n
+X 
+1
+1
+o
+1
+x11
+x21
+o
+xn1
+x12
+x22
+o
+xn2
+Á
+Á
+Á
+x1k
+x2k
+o
+xnk
+,
+y 
+y1
+y2
+o
+yn
+,
+y X& 
+ˆ
+0, ˆ
+1, . . . , ˆ
+k
+ˆ
+0 
+n
+i1
+xik ˆ
+1 
+n
+i1
+xikxi1 ˆ
+2 
+n
+i1
+xik xi2 Á ˆ
+k 
+n
+i1
+x2
+ik 
+n
+i1
+xikyi
+ˆ
+0 
+n
+i1
+xi1 ˆ
+1 
+n
+i1
+x2
+i1 ˆ
+2 
+n
+i1
+xi1xi2 Á ˆ
+k 
+n
+i1
+xi1xik 
+n
+i1
+xi1yi
+nˆ
+0 ˆ
+1 
+n
+i1
+xi1 ˆ
+2 
+n
+i1
+xi2 Á ˆ
+k 
+n
+i1
+xik 
+n
+i1
+yi
+L
+j
+ˆ
+0, ˆ
+1, . . . , ˆ
+k
+2 
+n
+i1yi ˆ
+0 
+k
+j1
+ˆ
+jxijxij 0 j 1, 2, . . . , k
+o
+o
+o
+o

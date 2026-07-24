@@ -1,0 +1,214 @@
+Replicate II
+Per-
+End
+manent
+Aisle
+Cooler
+Plastic
+3.36
+4.19
+5.23
+1
+28-mm glass
+3.52
+4.26
+4.85
+38-mm glass
+3.68
+4.37
+5.58
+Plastic
+4.40
+4.70
+5.88
+2
+28-mm glass
+4.44
+4.65
+6.20
+38-mm glass
+4.39
+4.75
+6.38
+Plastic
+3.65
+4.08
+4.49
+3
+28-mm glass
+4.04
+4.08
+4.59
+38-mm glass
+3.88
+4.48
+4.90
+9.4.
+A medical researcher is studying the effect of lido-
+caine on the enzyme level in the heart muscle of beagle dogs.
+Three different commercial brands of lidocaine (A), three
+dosage levels (B), and three dogs (C) are used in the experiment,
+and two replicates of a 33 factorial design are run. The observed
+enzyme levels follow. Analyze the data from this experiment.
+Replicate I
+Dog
+Lidocaine 
+Dosage 
+Brand
+Strength
+1
+2
+3
+1
+96
+84
+85
+1
+2
+94
+99
+98
+3
+101
+106
+98
+1
+85
+84
+86
+2
+2
+95
+98
+97
+3
+108
+114
+109
+1
+84
+83
+81
+3
+2
+95
+97
+93
+3
+105
+100
+106
+Replicate II
+Dog
+1
+2
+3
+1
+84
+85
+86
+1
+2
+95
+97
+90
+3
+105
+104
+103
+1
+80
+82
+84
+2
+2
+93
+99
+95
+3
+110
+102
+100
+1
+83
+80
+79
+3
+2
+92
+96
+93
+3
+102
+111
+108
+9.7 Problems
+445
+9.5.
+Compute the I and J components of the two-factor
+interactions for Problem 9.4.
+9.6.
+An experiment is run in a chemical process using a 32
+factorial design. The design factors are temperature and pressure,
+and the response variable is yield. The data that result from this
+experiment are as follows.
+Pressure, psig
+Temper-
+ature, °C
+100
+120
+140
+80
+47.58, 48.77
+64.97, 69.22
+80.92, 72.60
+90
+51.86, 82.43
+88.47, 84.23
+93.95, 88.54
+100
+71.18, 92.77
+96.57, 88.72
+76.58, 83.04
+(a) Analyze the data from this experiment by conducting an
+analysis of variance. What conclusions can you draw?
+(b) Graphically analyze the residuals. Are there any
+concerns about underlying assumptions or model
+adequacy?
+(c) Verify that if we let the low, medium, and high levels
+of both factors in this design take on the levels 1, 0,
+and 1, then a least squares t to a second-order
+model for yield is
+(d) Conrm that the model in part (c) can be written in
+terms of the natural variables temperature (T) and
+pressure (P) as
+(e) Construct a contour plot for yield as a function of pres-
+sure and temperature. Based on examination of this
+plot, where would you recommend running this
+process?
+9.7.(a) Confound a 33 design in three blocks using the ABC2
+component of the three-factor interaction. Compare
+your results with the design in Figure 9.7.
+(b) Confound a 33 design in three blocks using the AB2C
+component of the three-factor interaction. Compare
+your results with the design in Figure 9.7.
+(c) Confound a 33 design in three blocks using the ABC
+component of the three-factor interaction. Compare
+your results with the design in Figure 9.7.
+(d) After looking at the designs in parts (a), (b), and (c)
+and Figure 9.7, what conclusions can you draw?
+9.8.
+Confound a 34 design in three blocks using the
+AB2CD component of the four-factor interaction.
+9.9.
+Consider the data from the rst replicate of Problem
+9.3. Assuming that not all 27 observations could be run on
+the same day, set up a design for conducting the experiment
+over three days with AB2C confounded with blocks. Analyze
+the data.
+ 0.072T 2  0.0196P 2  0.0384TP
+yˆ 1335.63 18.56T 8.59P
+7.17x 2
+1 7.84x 2
+2 7.69x1x2
+yˆ 86.81 10.4x1 8.42x2

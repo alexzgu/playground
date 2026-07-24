@@ -1,0 +1,47 @@
+9.3
+Fractional Replication of the 3k Factorial Design
+The concept of fractional replication can be extended to the 3k factorial designs. Because a
+complete replicate of the 3k design can require a rather large number of runs even for moderate
+values of k, fractional replication of these designs is of interest. As we shall see, however,
+some of these designs have complex alias structures.
+9.3.1
+The One-Third Fraction of the 3k Factorial Design
+The largest fraction of the 3k design is a one-third fraction containing 3k1 runs. Consequently,
+we refer to this as a 3k1 fractional factorial design. To construct a 3k1 fractional factorial
+design, select a two-degrees-of-freedom component of interaction (generally, the highest
+order interaction) and partition the full 3k design into three blocks. Each of the three resulting
+blocks is a 3k1 fractional design, and any one of the blocks may be selected for use. If
+is the component of interaction used to dene the blocks, then I 
+is called the deﬁning relation of the fractional factorial design. Each main
+effect or component of interaction estimated from the 3k1 design has two aliases, which may
+be found by multiplying the effect by both I and I2 modulus 3.
+As an example, consider a one-third fraction of the 33 design. We may select any com-
+ponent of the ABC interaction to construct the design, that is, ABC, AB2C, ABC2, or AB2C2.
+Thus, there are actually 12 different one-third fractions of the 33 design dened by
+where 1 or 2 and u 0, 1, or 2. Suppose we select the component of AB2C2. Each frac-
+tion of the resulting 331 design will contain exactly 32 9 treatment combinations that must
+satisfy
+where u 0, 1, or 2. It is easy to verify that the three one-third fractions are as shown in
+Figure 9.9.
+If any one of the 331 designs in Figure 9.9 is run, the resulting alias structure is
+Consequently, the four effects that are actually estimated from the eight degrees of free-
+dom in the design are A BC ABC, B AC2 ABC2, C AB2 AB2C, and AB AC 
+BC2. This design would be of practical value only if all the interactions were small relative to
+the main effects. Because the main effects are aliased with two-factor interactions, this is a
+resolution III design. Notice how complex the alias relationships are in this design. Each main
+effect is aliased with a component of interaction. If, for example, the two-factor interaction
+BC is large, this will potentially distort the estimate of the main effect of A and make the
+AB AB(AB2C 2)2 A3B5C 4 BC 2
+AB AB(AB2C 2) A2B3C 2 AC
+C C(AB2C 2)2 A2B4C 5 AB2C
+C C(AB2C 2) AB2C 3 AB2
+B B(AB2C 2)2 A2B5C 4 ABC 2
+B B(AB2C 2) AB3C 2 AC 2
+A A(AB2C 2)2 A3B4C 4 BC
+A A(AB2C 2) A2B2C 2 ABC
+x1 2x2 2x3 u (mod 3)
+x1 2x2 3x3 u (mod 3)
+AB2C3 Á Kk
+AB2C3 Á Kk
+408
+Chapter 9 ■Additional Design and Analysis Topics for Factorial and Fractional Factorial Designs

@@ -1,0 +1,112 @@
+Here the interaction variance component is not included, because while B is included in AB,
+A is a xed effect. Please note that these expected mean squares agree with those given pre-
+viously for the two-factor mixed model in Equation 13.9.
+Rule 6 can be easily modied to give expected mean squares for the unrestricted form of
+the mixed model. Simply include the term for the effect in question, plus all the terms that contain
+this effect as long as there is at least one random factor. To illustrate, consider the unrestricted form
+of the two-factor mixed model. The expected mean square for the two-factor interaction term is
+(Please recall the difference in notation for model components between the restricted and
+unrestricted models.) For the main effect of A, the xed factor, the expected mean square is
+and for the main effect of the random factor B, the expected mean square would be
+Note that these are the expected mean squares given previously in Equation 13.12 for the
+unrestricted mixed model.
+E(MSB) 2 n2
+an2
+
+E(MSA) 2 n2
+
+bn 
+a
+i1
+2
+i
+a 1
+E(MSAB) 2 n2
+
+13.5 Rules for Expected Mean Squares
+591
+E X A M P L E 1 3 . 5
+Consider a three-factor factorial experiment with a levels
+of factor A, b levels of factor B, c levels of factor C, and n
+replicates. The analysis of this design, assuming that all
+the factors are xed effects, is given in Section 5.4. We
+now determine the expected mean squares assuming that
+all the factors are random. The appropriate statistical
+model is
+Using the rules previously described, the expected mean
+squares are shown in Table 13.8.
+()ik ()jk ()ijk ijkl
+yijkl i j k ()ij
+We notice, by examining the expected mean squares in
+Table 13.8, that if A, B, and C are all random factors, then
+no exact test exists for the main effects. That is, if we wish
+to test the hypothesis 
+0, we cannot form a ratio of two
+expected mean squares such that the only term in the
+numerator that is not in the denominator is 
+. The
+same phenomenon occurs for the main effects of B and C.
+Notice that proper tests do exist for the two- and three-
+factor interactions. However, it is likely that tests on the
+main effects are of central importance to the experimenter.
+Therefore, how should the main effects be tested? This
+problem is considered in the next section.
+bcn2
+
+2
+
+■TA B L E 1 3 . 8
+Expected Mean Squares for the Three-Factor Random Effects Model
+Model Term 
+Factor
+Expected Mean Squares
+i
+A, main effect
+2 
+j
+B, main effect
+2 
+k
+C, main effect
+2 
+()ij
+AB, two-factor interaction
+2 
+()ik
+AC, two-factor interaction
+2 
+()jk
+BC, two-factor interaction
+2 
+()ijk
+ABC, three-factor interaction
+2 
+ijkl
+Error
+2
+n2
+
+n2
+an2
+
+n2
+bn2
+
+n2
+cn2
+
+bn2
+an2
+n2
+abn2
+
+cn2
+an2
+n2
+acn2
+
+cn2
+bn2
+n2
+bcn2
+

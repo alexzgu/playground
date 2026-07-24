@@ -1,0 +1,100 @@
+114
+Chapter 3 ■Experiments with a Single Factor: The Analysis of Variance
+■T A B L E 3 . 1 4
+(Continued)
+Least Squares Means Table
+Level
+Least Sq Mean
+Std Error
+Mean
+1
+5.7320000
+0.22914479
+5.73200
+2
+6.2380000
+0.22914479
+6.23800
+3
+8.3180000
+0.22914479
+8.31800
+LSMeans Differences Student’s t
+a 0.050 t 2.17881
+LSMean[i] By LSMean [i]
+Level
+Least Sq Mean
+3
+A
+8.3180000
+2
+B
+6.2380000
+1
+B
+5.7320000
+Levels not connected by same letter are signicantly different.
+3.8.3
+Discovering Dispersion Effects
+We have focused on using the analysis of variance and related methods to determine which
+factor levels result in differences among treatment or factor level means. It is customary to
+refer to these effects as location effects. If there was inequality of variance at the different
+factor levels, we used transformations to stabilize the variance to improve our inference on
+the location effects. In some problems, however, we are interested in discovering whether the
+different factor levels affect variability; that is, we are interested in discovering potential dis-
+persion effects. This will occur whenever the standard deviation, variance, or some other
+measure of variability is used as a response variable.
+To illustrate these ideas, consider the data in Table 3.15, which resulted from a designed
+experiment in an aluminum smelter. Aluminum is produced by combining alumina with other
+ingredients in a reaction cell and applying heat by passing electric current through the cell.
+Alumina is added continuously to the cell to maintain the proper ratio of alumina to other ingre-
+dients. Four different ratio control algorithms were investigated in this experiment. The response
+variables studied were related to cell voltage. Specically, a sensor scans cell voltage several
+times each second, producing thousands of voltage measurements during each run of the exper-
+iment. The process engineers decided to use the average voltage and the standard deviation of
+Mean[i]-Mean [i]
+1
+2
+3
+Std Err Dif
+Lower CL Dif
+Upper CL Dif
+1
+0
+0.506
+2.586
+0
+0.32406
+0.32406
+0
+1.2121
+3.2921
+0
+0.20007
+1.8799
+2
+0.506
+0
+2.08
+0.32406
+0
+0.32406
+0.2001
+0
+2.7861
+1.21207
+0
+1.3739
+3
+2.586
+2.08
+0
+0.32406
+0.32406
+0
+1.87993
+1.37393
+0
+3.29207
+2.78607
+0

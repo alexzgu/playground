@@ -1,0 +1,62 @@
+2.8. QUADRATIC VARIATION
+65
+Computing as above, we see that
+E[Q(t; Π)] =
+n
+
+j=1
+(tj −tj−1) = t,
+Var[Q(t; Π)]
+=
+n
+
+j=1
+Var
+
+[B(tj) −B(tj−1)]2
+=
+2
+n
+
+j=1
+(tj −tj−1)2
+≤
+2∥Π∥
+n
+
+j=1
+(tj −tj−1) = 2∥Π∥t
+Theorem 2.8.2. Suppose B is a standard Brownian motion, t > 0,
+and Πn is a sequence of partitions of the form
+0 = t0,n < t1,n < · · · < tln,n = t,
+with ∥Πn∥→0. Then Q(t; Πn) →t in probability. Moreover, if
+∞
+
+n=1
+∥Πn∥< ∞,
+(2.5)
+then with probability one Q(t; Πn) →t.
+Proof. Using Chebyshev’s inequality, we see that for each integer k,
+P
+
+Q(t; Πn) −t> 1
+k
+
+≤Var[Q(t; Πn)]
+(1k)2
+≤2k2∥Πn∥t,
+and the right-hand side goes to zero as n →∞. This gives convergence
+in probability. If (2.5) holds as well, then
+∞
+
+n=1
+P
+
+Q(t; Πn) −t> 1
+k
+
+< ∞,
+and hence by the Borel-Cantelli lemma, with probability one, for all
+n suciently large,
+Q(t; Πn) −t≤1
+k

@@ -1,0 +1,121 @@
+244
+Chapter 6 ■The 2k Factorial Design
+Because the AB interaction is one-half of this difference,
+(6.14)
+We could write Equation 6.14 as follows:
+In this form, the AB interaction is easily seen to be the difference in averages between runs
+on two diagonal planes in the cube in Figure 6.5b. Using similar logic and referring to Figure
+6.5b, we nd that the AC and BC interactions are
+(6.15)
+and
+(6.16)
+The ABC interaction is dened as the average difference between the AB interaction at
+the two different levels of C. Thus,
+(6.17)
+As before, we can think of the ABC interaction as the difference in two averages. If the runs
+in the two averages are isolated, they dene the vertices of the two tetrahedra that comprise
+the cube in Figure 6.5c.
+In Equations 6.11 through 6.17, the quantities in brackets are contrasts in the treatment
+combinations. A table of plus and minus signs can be developed from the contrasts, which is
+shown in Table 6.3. Signs for the main effects are determined by associating a plus with the
+high level and a minus with the low level. Once the signs for the main effects have been estab-
+lished, the signs for the remaining columns can be obtained by multiplying the appropriate
+1
+4n [abc bc ac c ab b a (1)]
+ABC 1
+4n{[abc bc] [ac c] [ab b] [a (1)]}
+BC 1
+4n [(1) a b ab c ac bc abc]
+AC 1
+4n [(1) a b ab c ac bc abc]
+AB abc ab c (1)
+4n
+bc b ac a
+4n
+AB [abc bc ab b ac c a (1)]
+4n
+■TA B L E 6 . 3
+Algebraic Signs for Calculating Effects in the 23 Design
+Factorial Effect
+Treatment
+Combination
+I
+A
+B
+AB
+C
+AC
+BC
+ABC
+(1)
+
+
+
+
+
+
+
+
+a
+
+
+
+
+
+
+
+
+b
+
+
+
+
+
+
+
+
+ab
+
+
+
+
+
+
+
+
+c
+
+
+
+
+
+
+
+
+ac
+
+
+
+
+
+
+
+
+bc
+
+
+
+
+
+
+
+
+abc
+
+
+
+
+
+
+
+

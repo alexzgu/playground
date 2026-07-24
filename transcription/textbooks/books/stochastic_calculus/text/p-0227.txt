@@ -1,0 +1,51 @@
+6.8. THE L´EVY-KHINCHIN CHARACTERIZATION
+221
+By taking a subsubsequence if necessary we can also conclude that
+there exists ˜m, ˜σ2 such that
+lim
+j∞nj ˜mnj = ˜m,
+lim
+j∞nj σ2
+nj = ˜σ2
+We will assume that µ−1, 1= 0. If this is not the case, nd b with
+µ−b, b= 0 and do the proof similarly dening ˜Y1,n = Y1,n 1˜Y1,n≤
+bWe will establish (6.25) with this µ, m = ˜m and
+σ2 = ˜σ2 −
+
+|x|≤1
+x2 µ(dx)
+For the remainder we x s with s≤s0 and allow constants to depend
+on s. We note that
+ϕn(s) −1≤cn,
+and hence
+ϕ(s) = [1 + ϕn(s) −1]n = exp n(ϕn(s) −1)[1 + O(n−1)],
+Ψ(s) + O(n−1)
+=
+n [ϕn(s) −1]
+=
+
+[eisx −1] νn(dx)
+=
+isn ˜mn +
+
+[eisx −1 −isx1x≤1] νn(dx)
+lim
+j∞
+
+|x|>a
+[eisx −1 −isxgϵ(x)] νnj(dx) =
+
+|x|>a
+[eisx −1 −isxgϵ] µ(dx)
+Using µ−a, a−1, 1= 0 (to handle the discontinuity of the integrand
+at x = ±a, ±1), we can see that
+lim
+j∞
+
+|x|>a
+[eisx −1 −isx1x≤1] νnj(dx)
+=
+
+|x|>a
+[eisx −1 −isx1x≤1] µ(dx)
+Also,

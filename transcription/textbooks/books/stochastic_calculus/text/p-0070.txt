@@ -1,0 +1,86 @@
+64
+CHAPTER 2. BROWNIAN MOTION
+The calculation above shows that the quadratic variation of a standard
+Brownian motion is the constant process ⟨B⟩t = t. Suppose Wt is a Brownian
+motion with drift m and variance σ2. Then we can write Wt = σBt+mt where
+Bt is a standard Brownian motion. Fix t and write
+
+W
+j
+n
+
+−W
+j −1
+n
+2
+= σ2 
+B
+j
+n
+
+−B
+j −1
+n
+2
++2σm
+n
+
+B
+j
+n
+
+−B
+j −1
+n
+
++
+m2
+n2 ,
+where in each case the sum is over j ≤tn. As n →∞,
+σ2 
+B
+j
+n
+
+−B
+j −1
+n
+2
+−→σ2 ⟨B⟩t = σ2 t,
+2σm
+n
+
+B
+j
+n
+
+−B
+j −1
+n
+
+∼2σm
+n
+Bt −→0,
+m2
+n2 ∼tnm2
+n2
+−→0
+We have established the following.
+Theorem 2.8.1. IWt Bm σ2,
+⟨W⟩t = σ2 t
+The important facts are that the quadratic variation is not random and
+that it depends on the variance but not on the mean. It may seem silly at
+this point to give a name and notation to a quantity which is almost trivial
+for Brownian motion, but in the next chapter we will deal with processes for
+which the quadratic variation is not just a linear function of time.
+If 0 = t0 < t1 < · · · < tn = t, we call the times a partition of [0, t]. We
+will write Π for partitions and write
+∥Π∥=
+max
+j=1,,ntj −tj−1
+For any partition of [0, t], we dene
+Q(t; Π) =
+n
+
+j=1
+[B(tj) −B(tj−1)]2 

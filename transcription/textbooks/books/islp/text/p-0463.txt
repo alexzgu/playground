@@ -1,0 +1,48 @@
+456
+10. Deep Learning
+We’ll use a two-layer model for our first model.
+In [72]: class IMDBModel(nn.Module):
+def __init__(self, input_size):
+super(IMDBModel, self).__init__()
+self.dense1 = nn.Linear(input_size, 16)
+self.activation = nn.ReLU()
+self.dense2 = nn.Linear(16, 16)
+self.output = nn.Linear(16, 1)
+def forward(self, x):
+val = x
+for _map in [self.dense1,
+self.activation,
+self.dense2,
+self.activation,
+self.output]:
+val = _map(val)
+return torch.flatten(val)
+We now instantiate our model and look at a summary (not shown).
+In [73]: imdb_model = IMDBModel(imdb_test.tensors[0].size()[1])
+summary(imdb_model,
+input_size=imdb_test.tensors[0].size(),
+col_names=['input_size',
+'output_size',
+'num_params'])
+We’ll again use a smaller learning rate for these data, hence we pass an
+optimizer to the SimpleModule. Since the reviews are classified into positive
+or negative sentiment, we use SimpleModule.binary_classification().28
+In [74]: imdb_optimizer = RMSprop(imdb_model.parameters(), lr=0.001)
+imdb_module = SimpleModule.binary_classification(
+imdb_model ,
+optimizer=imdb_optimizer)
+Having loaded the datasets into a data module and created a SimpleModule,
+the remaining steps are familiar.
+In [75]: imdb_logger = CSVLogger('logs', name='IMDB')
+imdb_trainer = Trainer(deterministic=True,
+max_epochs=30,
+logger=imdb_logger ,
+callbacks=[ErrorTracker()])
+imdb_trainer.fit(imdb_module ,
+datamodule=imdb_dm)
+Evaluating the test error yields roughly 86% accuracy.
+In [76]: test_results = imdb_trainer.test(imdb_module , datamodule=imdb_dm)
+test_results
+28Our use of binary_classification() instead of classification() is due to
+some subtlety in how torchmetrics.Accuracy() works, as well as the data type of
+the targets.

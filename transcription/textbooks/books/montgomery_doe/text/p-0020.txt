@@ -1,0 +1,61 @@
+that they have no practical value. Engineers, scientists, and business analysts, often must make
+these types of decisions about some of the factors they are considering in real experiments.
+Now, let’s consider how factors 1 through 4 could be experimentally tested to determine
+their effect on my golf score. Suppose that a maximum of eight rounds of golf can be played
+over the course of the experiment. One approach would be to select an arbitrary combination
+of these factors, test them, and see what happens. For example, suppose the oversized driver,
+balata ball, golf cart, and water combination is selected, and the resulting score is 87. During
+the round, however, I noticed several wayward shots with the big driver (long is not always
+good in golf), and, as a result, I decide to play another round with the regular-sized driver,
+holding the other factors at the same levels used previously. This approach could be contin-
+ued almost indenitely, switching the levels of one or two (or perhaps several) factors for the
+next test, based on the outcome of the current test. This strategy of experimentation, which
+we call the best-guess approach, is frequently used in practice by engineers and scientists. It
+often works reasonably well, too, because the experimenters often have a great deal of tech-
+nical or theoretical knowledge of the system they are studying, as well as considerable prac-
+tical experience. The best-guess approach has at least two disadvantages. First, suppose the
+initial best-guess does not produce the desired results. Now the experimenter has to take
+another guess at the correct combination of factor levels. This could continue for a long time,
+without any guarantee of success. Second, suppose the initial best-guess produces an accept-
+able result. Now the experimenter is tempted to stop testing, although there is no guarantee
+that the best solution has been found.
+Another strategy of experimentation that is used extensively in practice is the one-
+factor-at-a-time (OFAT) approach. The OFAT method consists of selecting a starting point,
+or baseline set of levels, for each factor, and then successively varying each factor over its
+range with the other factors held constant at the baseline level. After all tests are performed,
+a series of graphs are usually constructed showing how the response variable is affected by
+varying each factor with all other factors held constant. Figure 1.2 shows a set of these graphs
+for the golf experiment, using the oversized driver, balata ball, walking, and drinking water
+levels of the four factors as the baseline. The interpretation of this graph is straightforward;
+for example, because the slope of the mode of travel curve is negative, we would conclude
+that riding improves the score. Using these one-factor-at-a-time graphs, we would select the
+optimal combination to be the regular-sized driver, riding, and drinking water. The type of
+golf ball seems unimportant.
+The major disadvantage of the OFAT strategy is that it fails to consider any possible
+interaction between the factors. An interaction is the failure of one factor to produce the same
+effect on the response at different levels of another factor. Figure 1.3 shows an interaction
+between the type of driver and the beverage factors for the golf experiment. Notice that if I use
+the regular-sized driver, the type of beverage consumed has virtually no effect on the score, but
+if I use the oversized driver, much better results are obtained by drinking water instead of beer.
+Interactions between factors are very common, and if they occur, the one-factor-at-a-time strat-
+egy will usually produce poor results. Many people do not recognize this, and, consequently,
+4
+Chapter 1 ■Introduction
+Driver
+Score
+O
+R
+Ball
+Score
+B
+T
+Mode of travel
+Score
+W
+R
+Beverage
+Score
+W
+SE
+■F I G U R E 1 . 2
+Results of the one-factor-at-a-time strategy for the golf experiment

@@ -1,0 +1,99 @@
+The statistical model for a Latin square is
+(4.27)
+where yijk is the observation in the ith row and kth column for the jth treatment, is the over-
+all mean, i is the ith row effect, j is the jth treatment effect, k is the kth column effect, and
+ijk is the random error. Note that this is an effects model. The model is completely additive;
+that is, there is no interaction between rows, columns, and treatments. Because there is only
+one observation in each cell, only two of the three subscripts i, j, and k are needed to denote
+a particular observation. For example, referring to the rocket propellant problem in Table 4.8,
+if i 2 and k 3, we automatically nd j 4 (formulation D), and if i 1 and j 3 (for-
+mulation C), we nd k 3. This is a consequence of each treatment appearing exactly once
+in each row and column.
+The analysis of variance consists of partitioning the total sum of squares of the N p2
+observations into components for rows, columns, treatments, and error, for example,
+(4.28)
+with respective degrees of freedom
+Under the usual assumption that ijk is NID (0, 2), each sum of squares on the right-hand side
+of Equation 4.28 is, upon division by 2, an independently distributed chi-square random vari-
+able. The appropriate statistic for testing for no differences in treatment means is
+which is distributed as Fp1,(p2)(p1) under the null hypothesis. We may also test for no row effect
+and no column effect by forming the ratio of MSRows or MSColumns to MSE. However, because the
+rows and columns represent restrictions on randomization, these tests may not be appropriate.
+The computational procedure for the ANOVA in terms of treatment, row, and column
+totals is shown in Table 4.10. From the computational formulas for the sums of squares, we
+see that the analysis is a simple extension of the RCBD, with the sum of squares resulting
+from rows obtained from the row totals.
+F0 MSTreatments
+MSE
+p2 1 p 1 p 1 p 1 (p 2)(p 1)
+SST SSRows SSColumns SSTreatments SSE
+yijk i j k ijk
+i 1, 2, . . . , p
+j 1, 2, . . . , p
+k 1, 2, . . . , p
+160
+Chapter 4 ■Randomized Blocks, Latin Squares, and Related Designs
+■T A B L E 4 . 1 0
+Analysis of Variance for the Latin Square Design
+Source of
+Sum of
+Degrees of
+Mean
+Variation
+Squares
+Freedom
+Square
+F0
+Treatments
+p 1
+Rows
+p 1
+Columns
+p 1
+Error
+SSE (by subtraction)
+(p 2)( p 1)
+Total
+p2 1
+SST 
+i 
+j 
+k
+y2
+ijk y2
+...
+N
+SSE
+(p 2)(p 1)
+SSColumns
+p 1
+SSColumns 1
+p
+p
+k1
+y2
+..k y2
+...
+N
+SSRows
+p 1
+SSRows 1
+p
+p
+i1
+y2
+i.. y2
+...
+N
+F0 MSTreatments
+MSE
+SSTreatments
+p 1
+SSTreatments 1
+p 
+p
+j1
+y2
+.j. y2
+..
+N

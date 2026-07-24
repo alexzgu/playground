@@ -1,0 +1,59 @@
+98
+3. Linear Regression
+0
+50
+100
+150
+200
+600
+1000
+1400
+Income
+Balance
+0
+50
+100
+150
+200
+600
+1000
+1400
+Income
+Balance
+student
+non−student
+FIGURE 3.7. For the Credit data, the least squares lines are shown for pre-
+diction of balance from income for students and non-students. Left: The model
+(3.34) was fit. There is no interaction between income and student. Right: The
+model (3.35) was fit. There is an interaction term between income and student.
+shows the estimated relationships between income and balance for students
+and non-students in the model (3.35). We note that the slope for students
+is lower than the slope for non-students. This suggests that increases in
+income are associated with smaller increases in credit card balance among
+students as compared to non-students.
+Non-linear Relationships
+As discussed previously, the linear regression model (3.19) assumes a linear
+relationship between the response and predictors. But in some cases, the
+true relationship between the response and the predictors may be non-
+linear. Here we present a very simple way to directly extend the linear model
+to accommodate non-linear relationships, using polynomial regression. In polynomial
+regression
+later chapters, we will present more complex approaches for performing
+non-linear fits in more general settings.
+Consider Figure 3.8, in which the mpg (gas mileage in miles per gallon)
+versus horsepower is shown for a number of cars in the Auto data set. The
+orange line represents the linear regression fit. There is a pronounced rela-
+tionship between mpg and horsepower, but it seems clear that this relation-
+ship is in fact non-linear: the data suggest a curved relationship. A simple
+approach for incorporating non-linear associations in a linear model is to
+include transformed versions of the predictors. For example, the points in
+Figure 3.8 seem to have a quadratic shape, suggesting that a model of the quadratic
+form
+mpg = β0 + β1 × horsepower + β2 × horsepower2 + ϵ
+(3.36)
+may provide a better fit. Equation 3.36 involves predicting mpg using a
+non-linear function of horsepower. But it is still a linear model! That is,
+(3.36) is simply a multiple linear regression model with X1 = horsepower
+and X2 = horsepower2. So we can use standard linear regression software to
+estimate β0, β1, and β2 in order to produce a non-linear fit. The blue curve
+in Figure 3.8 shows the resulting quadratic fit to the data. The quadratic

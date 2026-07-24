@@ -1,0 +1,81 @@
+11.5 Regression Models With a Survival Response
+479
+0.5
+1.0
+1.5
+2.0
+−3
+−2
+−1
+0
+Time
+Log Hazard
+0.5
+1.0
+1.5
+2.0
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+Time
+Survival Probability
+0.5
+1.0
+1.5
+2.0
+−4
+−2
+0
+1
+2
+Time
+Log Hazard
+0.5
+1.0
+1.5
+2.0
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+Time
+Survival Probability
+FIGURE 11.4. Top: In a simple example with p = 1 and a binary covariate
+xi ∈{0, 1}, the log hazard and the survival function under the model (11.14)
+are shown (green for xi = 0 and black for xi = 1). Because of the proportional
+hazards assumption (11.14), the log hazard functions differ by a constant, and the
+survival functions do not cross. Bottom: Again we have a single binary covariate
+xi ∈{0, 1}. However, the proportional hazards assumption (11.14) does not hold.
+The log hazard functions cross, as do the survival functions.
+h0(t) times the factor exp
+1)p
+j=1 xijβj
+2
+. The quantity exp
+1)p
+j=1 xijβj
+2
+is called the relative risk for the feature vector xi = (xi1, . . . , xip)T , relative
+to that for the feature vector xi = (0, . . . , 0)T .
+What does it mean that the baseline hazard function h0(t) in (11.14) is
+unspecified? Basically, we make no assumptions about its functional form.
+We allow the instantaneous probability of death at time t, given that one
+has survived at least until time t, to take any form. This means that the
+hazard function is very flexible and can model a wide range of relationships
+between the covariates and survival time. Our only assumption is that a
+one-unit increase in xij corresponds to an increase in h(t|xi) by a factor of
+exp(βj).
+An illustration of the proportional hazards assumption (11.14) is given in
+Figure 11.4, in a simple setting with a single binary covariate xi ∈{0, 1} (so
+that p = 1). In the top row, the proportional hazards assumption (11.14)
+holds. Thus, the hazard functions of the two groups are a constant multiple
+of each other, so that on the log scale, the gap between them is constant.
+Furthermore, the survival curves never cross, and in fact the gap between
+the survival curves tends to (initially) increase over time. By contrast, in
+the bottom row, (11.14) does not hold. We see that the log hazard functions
+for the two groups cross, as do the survival curves.

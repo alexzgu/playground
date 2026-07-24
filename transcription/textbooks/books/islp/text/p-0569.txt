@@ -1,0 +1,51 @@
+13.2 The Challenge of Multiple Testing
+563
+Table 13.1 summarizes the possible scenarios associated with testing the
+null hypothesis H0.10 Once the hypothesis test is performed, the row of the
+table is known (based on whether or not we have rejected H0); however, it
+is impossible for us to know which column we are in. If we reject H0 when
+H0 is false (i.e., when Ha is true), or if we do not reject H0 when it is true,
+then we arrived at the correct result. However, if we erroneously reject H0
+when H0 is in fact true, then we have committed a Type I error. The Type I Type I error
+error rate is defined as the probability of making a Type I error given that Type I error
+rate
+H0 holds, i.e., the probability of incorrectly rejecting H0. Alternatively, if
+we do not reject H0 when H0 is in fact false, then we have committed a
+Type II error. The power of the hypothesis test is defined as the probability Type II
+error
+power
+of not making a Type II error given that Ha holds, i.e., the probability of
+correctly rejecting H0.
+Ideally we would like both the Type I and Type II error rates to be small.
+But in practice, this is hard to achieve! There typically is a trade-off: we
+can make the Type I error small by only rejecting H0 if we are quite sure
+that it doesn’t hold; however, this will result in an increase in the Type II
+error. Alternatively, we can make the Type II error small by rejecting H0
+in the presence of even modest evidence that it does not hold, but this will
+cause the Type I error to be large. In practice, we typically view Type I
+errors as more “serious” than Type II errors, because the former involves
+declaring a scientific finding that is not correct. Hence, when we perform
+hypothesis testing, we typically require a low Type I error rate — e.g.,
+at most α = 0.05 — while trying to make the Type II error small (or,
+equivalently, the power large).
+It turns out that there is a direct correspondence between the p-value
+threshold that causes us to reject H0, and the Type I error rate. By only
+rejecting H0 when the p-value is below α, we ensure that the Type I error
+rate will be less than or equal to α.
+13.2
+The Challenge of Multiple Testing
+In the previous section, we saw that rejecting H0 if the p-value is below
+(say) 0.01 provides us with a simple way to control the Type I error for H0
+at level 0.01: if H0 is true, then there is no more than a 1% probability that
+we will reject it. But now suppose that we wish to test m null hypotheses,
+H01, . . . , H0m. Will it do to simply reject all null hypotheses for which the
+corresponding p-value falls below (say) 0.01? Stated another way, if we
+reject all null hypotheses for which the p-value falls below 0.01, then how
+many Type I errors should we expect to make?
+As a first step towards answering this question, consider a stockbroker
+who wishes to drum up new clients by convincing them of her trading
+10There are parallels between Table 13.1 and Table 4.6, which has to do with the
+output of a binary classifier. In particular, recall from Table 4.6 that a false positive
+results from predicting a positive (non-null) label when the true label is in fact negative
+(null). This is closely related to a Type I error, which results from rejecting the null
+hypothesis when in fact the null hypothesis holds.

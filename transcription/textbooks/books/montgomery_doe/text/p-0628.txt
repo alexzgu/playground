@@ -1,0 +1,67 @@
+and
+(14.12)
+Many applications of nested designs involve a mixed model, with the main factor (A) xed
+and the nested factor (B) random. This is the case for the problem described in Example 14.1,
+where suppliers (factor A) are xed, and batches of raw material (factor B) are random. The
+effects of the suppliers may be estimated by
+To estimate the variance components 2 and 
+, we eliminate the line in the analysis of vari-
+ance table pertaining to suppliers and apply the analysis of variance estimation method to the
+next two lines. This yields
+and
+These results are also shown in the lower portion of the Minitab output in Table 14.6. From
+the analysis in Example 14.1, we know that the i does not differ signicantly from zero,
+whereas the variance component 
+is greater than zero.
+To illustrate the REML method for a nested design, reconsider the experiment in
+Example 14.1 with suppliers xed and batches random. The REML output from JMP is
+shown in Table 14.7. The REML estimates of the variance components agree with the
+ANOVA estimates, but the REML procedure provides condence intervals. The xed effects
+test on suppliers indicates that there is no signicant difference in mean purity among the
+three suppliers. The 95 percent condence interval on batches within suppliers has a lower
+bound that is just less than zero, but the batches within suppliers variance component
+accounts for about 40 percent of the total variability so there is some evidence that batches
+within suppliers exhibit some meaningful variability.
+14.1.4
+Staggered Nested Designs
+A potential problem in the application of nested designs is that sometimes to get a reasonable
+number of degrees of freedom at the highest level, we can end up with many degrees of free-
+dom (perhaps too many) at lower stages. To illustrate, suppose that we are investigating
+potential differences in chemical analysis among different lots of material. We plan to take
+ve samples per lot, and each sample will be measured twice. If we want to estimate a vari-
+ance component for lots, then 10 lots would not be an unreasonable choice. This results in 9
+degrees of freedom for lots, 40 degrees of freedom for samples, and 50 degrees of freedom
+for measurements.
+One way to avoid this is to use a particular type of unbalanced nested design called a
+staggered nested design. An example of a staggered nested design is shown in Figure 14.4.
+Notice that only two samples are taken from each lot; one of the samples is measured twice,
+whereas the other sample is measured once. If there are a lots, then there will be a 1
+degrees of freedom for lots (or, in general, the upper stage), and all lower stages will have
+2
+
+ˆ 2
+MSB(A) MSE
+n
+7.77 2.64
+3
+1.71
+ˆ 2 MSE 2.64
+2
+
+ˆ3 y3.. y... 14
+12 13
+36 29
+36
+ˆ2 y2.. y... 4
+12 13
+36 1
+36
+ˆ1 y1.. y... 5
+12 13
+36 28
+36
+ˆ 2
+MSA MSB(A)
+bn
+612
+Chapter 14 ■Nested and Split-Plot Designs

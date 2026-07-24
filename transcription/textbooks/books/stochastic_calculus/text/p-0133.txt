@@ -1,0 +1,54 @@
+4.1. MARTINGALES AND LOCAL MARTINGALES
+127
+Denition A continuous process Mt adapted to the ltration Ftis called
+a on [0, T) if there exists an increasing sequence of stopping
+times
+τ1 ≤τ2 ≤τ3 ≤· · ·
+such that with probability one
+lim
+j∞τj = T,
+and for each j,
+M (j)
+t
+= Mt∧τj,
+is a martingale.
+In the case of the stochastic integral
+Zt =
+t
+0
+As dBs,
+we let τjbe the stopping times,
+τj = inf
+
+t : ⟨Z⟩t =
+t
+0
+A2
+s ds = j
+
+
+Then for each j, M (j)
+t
+is a square integrable martingale. Therefore, Zt is a
+local martingale on [0, T) where
+T = inf
+
+t :
+t
+0
+A2
+s ds = ∞
+
+
+The stochastic integral Zt is not dened after time T. Note that if s →As is
+continuous for all s [0, ∞), then T = ∞.
+More generally, suppose that
+dXt = Rt dt + At dBt
+If Rt̸ = 0, then Xt is not a martingale. In other words, if Xt is to be a
+martingale we need Rt ≡0. However, as we have just shown, it is possible for
+Rt ≡0 but Xt to not be a martingale. It is a local martingale in this case. In
+an abuse of terminology, it is standard to refer to At dBt as the martingale
+partof dXt even though one should say the local martingale part.
+For continuous martingales, we have the optional sampling theorem which
+states under certain circumstances that one cannot beat a fair game. The next
+theorem includes two versions which are the most useful for applications.

@@ -1,0 +1,37 @@
+160CHAPTER 5. CHANGE OF MEASURE AND GIRSANOV THEOREM
+Since this holds for every Fs-measurable event V , we have E(Mt 
+Fs) ≤Ms with probability one. Also, if V = E(Mt Fs) < Msand
+P(V ) > 0, then
+E[Mt] = E [1V Mt] + E [1V c Mt] < E [1V Ms] + E [1V c Ms] = E[Ms]
+Conversely, if E[Mt] = E[M0] for all t, then Mt must be a martingale.
+(We emphasize that we are using the fact that Mt ≥0.)
+To prove the Girsanov theorem, let us rst consider the case when
+there exists K < ∞such that with probability one At≤K and
+Mt ≤K. By Theorem 4.5.2, we need only show that in the measure
+P∗, Wt is a continuous martingale with quadratic variation ⟨W⟩t =
+t. Continuity and the quadratic variation calculation are immediate
+(since they hold with probability one in the measure P), so all we need
+to show is that Wt is a P∗-martingale, that is, if s < t, then
+EP∗(Wt Fs) = Ws
+In other words, if V is Fs-measurable, we need to show that
+E∗[1V Ws] = E∗[1V Wt] ,
+which by denition means
+E [1V Ws Ms] = E [1V Wt Mt] 
+In other words, we need to show that Zt = Wt Mt is a martingale with
+respect to P. Since
+dWt = −At dt + dBt,
+dMt = At Mt dBt,
+the product rule gives
+dZt = Wt dMt + Mt dWt + d⟨W, M⟩t = (At Wt + 1) Mt dBt,
+which shows that Zt is a local martingale. Also, since Wt≤Bt+tK
+we see that
+t
+0
+E[(As Ws + 1)2 M 2
+s ] ds < ∞,
+and hence Zt is a square-integrable martingale.
+For more general At, Mt we use localization with the stopping times
+Tn as above. Note that
+E[Mt] ≥lim
+n∞E [Mt 1Tn > t] = lim
+n∞P∗Tn > t= P∗T > t,

@@ -1,0 +1,108 @@
+■TA B L E 1 5 . 1 7 (Continued)
+X2
+16.128277
+2.395946
+6.73
+0.0003*
+X3
+2.4287693
+2.536347
+0.96
+0.3702
+X1*X2
+15.59941
+2.448939
+6.37
+0.0004*
+X1*X3
+0.419306
+3.72135
+0.11
+0.9135
+X2*X3
+0.863837
+2.824779
+0.31
+0.7686
+X1*X2*X3
+1.469927
+2.4156
+0.61
+0.5621
+Sorted Parameter Estimates
+Term
+Estimate
+Std Error
+t Ratio
+Prob>|t|
+X2
+16.128277
+2.395946
+6.73
+0.0003*
+X1*X2
+15.59941
+2.448939
+6.37
+0.0004*
+x
+4.9245327
+0.928977
+5.30
+0.0011*
+X1
+9.4566966
+2.39091
+3.96
+0.0055*
+X3
+2.4287693
+2.536347
+0.96
+0.3702
+X1*X2*X3
+1.469927
+2.4156
+0.61
+0.5621
+X2*X3
+0.863837
+2.824779
+0.31
+0.7686
+X1*X3
+0.419306
+3.72135
+0.11
+0.9135
+670
+Chapter 15 ■Other Design and Analysis Topics
+main effect C is shown in Table 15.18. This reduced model provides an even smaller MSE than
+does the full model with the covariate in Table 15.17.
+Finally, we could consider a third course of action, assuming certain interaction terms
+are negligible. We consider the full model that allows for different slopes between treatments
+and treatment by covariate interaction. We assume that the three-factor interactions (both ABC
+and ABCx) are not signicant and use their associated degrees of freedom to estimate error in
+the most general effects model that can be t. This is often a practical assumption. Three-
+factor and higher interactions are usually negligible in most experimental settings. We used
+JMP for the analysis, and the results are shown in Table 15.19. The type III sums of squares
+are the adjusted sums of squares that we require.
+With a near-saturated model, the estimate of error will be fairly imprecise. Even with
+only a few terms being individually signicant at the 0.05 level, the overall sense is that
+this model is better than the two previous scenarios (based on R2 and the mean square for
+error). Because the treatment effects aspect of the model is of more interest, we sequentially
+remove terms from the covariate portion of the model to add degrees of freedom to the esti-
+mate of error. If we sequentially remove the ACx term followed by BCx, the MSE decreases  and
+several terms are insignicant. The nal model is shown in Table 15.20 after sequentially
+removing Cx, AC, and BC.
+This example emphasizes the need to have degrees of freedom available to estimate
+experimental error in order to increase the precision of the hypothesis tests associated with
+the individual terms in the model. This process should be done sequentially to avoid eliminat-
+ing signicant terms masked by a poor estimate of error.
+Reviewing the results obtained from the three approaches, we note that each method
+successively improves the model t in this example. If there is a strong reason to believe that
+the covariate does not interact with the factors, it may be best to make that assumption at the
+outset of the analysis. This choice may also be dictated by software. Although experimental
+design software packages may only be able to model covariates that do not interact with
+treatments, the analyst may have a reasonable chance of identifying the major factors inu-
+encing the process, even if there is some covariate by treatment interaction. We also note that

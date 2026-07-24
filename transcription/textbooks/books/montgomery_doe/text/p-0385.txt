@@ -1,0 +1,80 @@
+C volume of resist applied, D spin time, E resist viscosity, and F exhaust rate. The
+alias relationships for this design are given in Table 8.8. The half-normal probability plot of
+the effects is shown in Figure 8.25. Notice that the largest main effects are A, B, C, and E, and
+since these effects are aliased with three-factor or higher interactions, it is logical to assume
+that these are real effects. However, the effect estimate for the AB CE alias chain is also
+large. Unless other process knowledge or engineering information is available, we do not
+know whether this is AB, CE, or both of the interaction effects.
+The fold-over design is constructed by setting up a new 
+fractional factorial design
+and changing the signs on factor A. The complete design following the addition of the fold-over
+runs is shown (in standard order) in Table 8.32. Notice that the runs have been assigned to two
+blocks; the runs from the initial 
+design in Table 8.32 are in block 1, and the fold-over runs
+are in block 2. The effects that are estimated from the combined set of runs are (ignoring inter-
+actions involving three or more factors)
+ [AD] AD 
+ 
+  [EF] EF
+ [AC] AC 
+ 
+  [DE] DE
+ [AB] AB 
+ 
+  [CE] CE
+ [F] F 
+ 
+ 
+ [BF] BF CD
+ [E] E 
+ 
+ 
+ [BE] BE
+ [D] D 
+ 
+ 
+ [BD] BD CF
+ [C] C 
+ 
+ 
+ [BC] BC DF
+ [B] B 
+ 
+ 
+ [AF] AF
+ [A] A 
+ 
+ 
+ [AE] AE
+262
+IV
+262
+IV
+8.7 Resolution IV and V Designs
+369
+05
+10
+20
+30
+50
+70
+80
+90
+0.00
+38.20
+76.41
+|Effect|
+114.61
+152.81
+95
+99
+Half-normal % probability
+C
+AB
+B
+A
+E
+■F I G U R E 8 . 2 5
+Half-normal
+plot of effects for the initial spin
+coater experiment in Table 8.31

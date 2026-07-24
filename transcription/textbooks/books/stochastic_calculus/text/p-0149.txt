@@ -1,0 +1,32 @@
+4.6. EXERCISES
+143
+4.6
+Exercises
+Exercise 4.1. A process Xt satises the Ornstein-Uhlenbeck SDE if
+dXt = mXt dt + dBt,
+where m R and Bt is a standard Brownian motion. Suppose that X0 = 1,
+R > 1 and T = TR is the rst time that Xt = R or Xt = 0.
+1. Find a function F with F(0) = 0 and F(x) > 0 for x > 0 such that
+F(Xt∧T) is a martingale. (You may leave your answer in terms of a
+denite integral.)
+2. Find the probability that XT = R. You can write the answer in terms
+of the function F.
+3. For what values of m is it true that
+lim
+R∞PXT = R= 0 ?
+Exercise 4.2. Suppose Bt is a standard Brownian motion and Xt satises
+the SDE
+dXt = a cot(Xt) dt + dBt,
+X0 = x0 (0, π2),
+where a R. For ϵ > 0, let
+Tϵ = mint : sin(Xt) = sin ϵ,
+T = T0+ = min t : Xt 0, π= mint : sin(Xt) = 0,
+We will only consider the process Xt for t ≤T. Let
+τ = mint : Xt = π2
+1. Find a function F(x) that is positive for 0 < x < π2 with F(π2) = 0
+and such that Mt = F(Xt∧T) is a local martingale for t < T. (It suces
+to write F in the form
+F(x) =
+π2
+x
+g(y) dy,

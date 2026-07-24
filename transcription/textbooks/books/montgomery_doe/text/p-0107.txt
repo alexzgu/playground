@@ -1,0 +1,75 @@
+3.5.3
+Graphical Comparisons of Means
+It is very easy to develop a graphical procedure for the comparison of means following an
+analysis of variance. Suppose that the factor of interest has a levels and that 
+are
+the treatment averages. If we know , any treatment average would have a standard deviation
+/
+. Consequently, if all factor level means are identical, the observed sample means 
+would behave as if they were a set of observations drawn at random from a normal distribu-
+tion with mean 
+and standard deviation /
+. Visualize a normal distribution capable of
+being slid along an axis below which the 
+are plotted. If the treatment means are
+all equal, there should be some position for this distribution that makes it obvious that the 
+values were drawn from the same distribution. If this is not the case, the 
+values that appear
+not to have been drawn from this distribution are associated with factor levels that produce
+different mean responses.
+The only flaw in this logic is that is unknown. Box, Hunter, and Hunter (2005)
+point out that we can replace with 
+from the analysis of variance and use a t dis-
+tribution with a scale factor 
+instead of the normal. Such an arrangement for the
+etch rate data of Example 3.1 is shown in Figure 3.11. Focus on the t distribution shown
+as a solid line curve in the middle of the display.
+To sketch the t distribution in Figure 3.11, simply multiply the abscissa t value by the
+scale factor
+and plot this against the ordinate of t at that point. Because the t distribution looks much like
+the normal, except that it is a little atter near the center and has longer tails, this sketch is
+usually easily constructed by eye. If you wish to be more precise, there is a table of abscissa
+t values and the corresponding ordinates in Box, Hunter, and Hunter (2005). The distribution
+can have an arbitrary origin, although it is usually best to choose one in the region of the .
+values to be compared. In Figure 3.11, the origin is 615 A/min.
+Now visualize sliding the t distribution in Figure 3.11 along the horizontal axis as indi-
+cated by the dashed lines and examine the four means plotted in the gure. Notice that there
+is no location for the distribution such that all four averages could be thought of as typical,
+randomly selected observations from the distribution. This implies that all four means are not
+equal; thus, the gure is a graphical display of the ANOVA results. Furthermore, the gure
+indicates that all four levels of power (160, 180, 200, 220 W) produce mean etch rates that
+differ from each other. In other words, 1 2 3 4.
+This simple procedure is a rough but effective technique for many multiple comparison
+problems. However, there are more formal methods. We now give a brief discussion of some
+of these procedures.
+yi
+MSE/n 330.70/5 8.13
+MSE/n
+MSE
+yi.
+yi.
+y1., y2., . . . , ya.
+n
+y..
+yi.
+n
+y1., y2., . . . , ya.
+3.5 Practical Interpretation of Results
+91
+■F I G U R E 3 . 1 1
+Etch rate averages from Example 3.1 in relation to a t distribution
+with scale factor 
+
+8.13
+330.70/5
+MSE/n
+500
+550
+160
+180
+200
+220
+600
+650
+700
+750

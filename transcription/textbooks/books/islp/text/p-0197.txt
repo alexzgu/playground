@@ -1,0 +1,56 @@
+188
+4. Classification
+Unlike the statsmodels package, sklearn focuses less on inference and
+more on classification. Hence, the summary methods seen in statsmodels
+and our simplified version seen with summarize are not generally available
+for the classifiers in sklearn.
+In [61]: logit = LogisticRegression(C=1e10, solver='liblinear')
+logit.fit(X_train, y_train)
+logit_pred = logit.predict_proba(X_test)
+logit_labels = np.where(logit_pred[:,1] > 5, 'Yes', 'No')
+confusion_table(logit_labels , y_test)
+Out[61]:
+Truth
+No
+Yes
+Predicted
+No
+933
+67
+Yes
+0
+0
+We used the argument solver='liblinear' above to avoid a warning with
+the default solver which would indicate that the algorithm does not con-
+verge.
+If we use 0.5 as the predicted probability cut-off for the classifier, then
+we have a problem: none of the test observations are predicted to purchase
+insurance. However, we are not required to use a cut-off of 0.5. If we instead
+predict a purchase any time the predicted probability of purchase exceeds
+0.25, we get much better results: we predict that 29 people will purchase
+insurance, and we are correct for about 31% of these people. This is almost
+five times better than random guessing!
+In [62]: logit_labels = np.where(logit_pred[:,1]>0.25, 'Yes', 'No')
+confusion_table(logit_labels , y_test)
+Out[62]:
+Truth
+No
+Yes
+Predicted
+No
+913
+58
+Yes
+20
+9
+In [63]: 9/(20+9)
+Out[63]: 0.310
+4.7.7
+Linear and Poisson Regression on the Bikeshare Data
+Here we fit linear and Poisson regression models to the Bikeshare data, as
+described in Section 4.6. The response bikers measures the number of bike
+rentals per hour in Washington, DC in the period 2010–2012.
+In [64]: Bike = load_data('Bikeshare')
+Let’s have a peek at the dimensions and names of the variables in this
+dataframe.
+In [65]: Bike.shape, Bike.columns

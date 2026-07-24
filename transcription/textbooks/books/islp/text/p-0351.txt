@@ -1,0 +1,49 @@
+344
+8. Tree-Based Methods
+0
+50
+100
+150
+200
+250
+300
+0.10
+0.15
+0.20
+0.25
+0.30
+Number of Trees
+Error
+Test: Bagging
+Test: RandomForest
+OOB: Bagging
+OOB: RandomForest
+FIGURE 8.8. Bagging and random forest results for the Heart data. The test
+error (black and orange) is shown as a function of B, the number of bootstrapped
+training sets used. Random forests were applied with m = √p. The dashed line
+indicates the test error resulting from a single classification tree. The green and
+blue traces show the OOB error, which in this case is — by chance — considerably
+lower.
+This is called bagging.
+While bagging can improve predictions for many regression methods,
+it is particularly useful for decision trees. To apply bagging to regression
+trees, we simply construct B regression trees using B bootstrapped training
+sets, and average the resulting predictions. These trees are grown deep,
+and are not pruned. Hence each individual tree has high variance, but
+low bias. Averaging these B trees reduces the variance. Bagging has been
+demonstrated to give impressive improvements in accuracy by combining
+together hundreds or even thousands of trees into a single procedure.
+Thus far, we have described the bagging procedure in the regression
+context, to predict a quantitative outcome Y . How can bagging be extended
+to a classification problem where Y is qualitative? In that situation, there
+are a few possible approaches, but the simplest is as follows. For a given test
+observation, we can record the class predicted by each of the B trees, and
+take a majority vote: the overall prediction is the most commonly occurring majority
+vote
+class among the B predictions.
+Figure 8.8 shows the results from bagging trees on the Heart data. The
+test error rate is shown as a function of B, the number of trees constructed
+using bootstrapped training data sets. We see that the bagging test error
+rate is slightly lower in this case than the test error rate obtained from a
+single tree. The number of trees B is not a critical parameter with bagging;
+using a very large value of B will not lead to overfitting. In practice we

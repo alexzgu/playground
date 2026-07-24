@@ -1,0 +1,92 @@
+644
+Chapter 15 ■Other Design and Analysis Topics
+will have a scale difference and origin shift in comparison to the results obtained using y
+(or ln y).
+An approximate 100(1 ) percent condence interval for can be found by computing
+(15.2)
+where is the number of degrees of freedom, and plotting a line parallel to the axis at height
+SS* on the graph of SSE() versus . Then, by locating the points on the axis where SS* cuts
+the curve SSE(), we can read condence limits on directly from the graph. If this con-
+dence interval includes the value 1, this implies (as noted above) that the data do not sup-
+port the need for transformation.
+SS* SSE()1 
+t 2
+/2,
+
+E X A M P L E 1 5 . 1
+We will illustrate the Box–Cox procedure using the peak
+discharge data originally presented in Example 3.5. Recall
+that this is a single-factor experiment (see Table 3.7 for the
+original data). Using Equation 15.1, we computed values of
+SSE() for various values of :
+
+SSE()
+1.00
+7922.11
+0.50
+687.10
+0.25
+232.52
+0.00
+91.96
+0.25
+46.99
+0.50
+35.42
+0.75
+40.61
+1.00
+62.08
+1.25
+109.82
+1.50
+208.12
+A graph of values close to the minimum is shown in Figure
+15.1, from which it is seen that   0.52 gives a minimum
+value of approximately SSE() 35.00. An approximate 95
+percent condence interval on is found by calculating the
+quantity SS* from Equation 15.2 as follows:
+ 42.61
+ 35.00 1 (2.086)2
+20 
+SS* SSE()1 
+t2
+0.025,20
+20 
+By plotting SS* on the graph in Figure 15.1 and reading the
+points on the scale where this line intersects the curve, we
+obtain lower and upper condence limits on of 0.27
+and 0.77. Because these condence limits do not
+include the value 1, use of a transformation is indicated,
+and the square root transformation (0.50) actually used
+is easily justied.
+110
+100
+90
+80
+70
+60
+50
+40
+30
+20
+10
+0
+ssE(λ)
+ss*
+λ– = 0.27
+λ+ = 0.77
+λ
+0.00
+0.25
+0.50
+0.75
+1.00
+1.25
+■F I G U R E 1 5 . 1
+Plot of SSE(%) versus for 
+Example 15.1 
+Some computer programs include the Box–Cox procedure for selecting a power family
+transformation. Figure 15.2 presents the output from this procedure as implemented in Design-
+Expert for the peak discharge data. The results agree closely with the manual calculations sum-
+marized in Example 15.1. Notice that the vertical scale of the graph in Figure 15.2 is ln[SSE()].

@@ -1,0 +1,72 @@
+10.7 Regression Model Diagnostics
+471
+Thus, the variance of the ith residual is
+(10.46)
+where hii is the ith diagonal element of H. Because 0 hii 1, using the residual mean square
+MSE to estimate the variance of the residuals actually overestimates V(ei). Furthermore,
+because hii is a measure of the location of the ith point in x-space, the variance of ei depends
+on where the point xi lies. Generally, residuals near the center of the x space have larger vari-
+ance than do residuals at more remote locations. Violations of model assumptions are more
+likely at remote points, and these violations may be hard to detect from inspection of ei
+(or di) because their residuals will usually be smaller.
+We recommend taking this inequality of variance into account when scaling the resid-
+uals. We suggest plotting the studentized residuals:
+(10.47)
+with
+MSE instead of ei (or di). The studentized residuals have constant variance V(ri) 1
+regardless of the location of xi when the form of the model is correct. In many situations the
+variance of the residuals stabilizes, particularly for large data sets. In these cases, there may be
+little difference between the standardized and studentized residuals. Thus standardized and stu-
+dentized residuals often convey equivalent information. However, because any point with a
+large residual and a large hii is potentially highly inuential on the least squares t, examina-
+tion of the studentized residuals is generally recommended. Table 10.3 displays the hat diago-
+nals hii and the studentized residuals for the viscosity regression model in Example 10.1.
+PRESS Residuals. The prediction error sum of squares (PRESS) provides a useful
+residual scaling. To calculate PRESS, we select an observation—for example, i. We t the
+regression model to the remaining n 1 observations and use this equation to predict the
+withheld observation yi. Denoting this predicted value 
+, we may nd the prediction error
+for point i as e(i) yi 
+. The prediction error is often called the ith PRESS residual. This
+procedure is repeated for each observation i 1, 2, . . . , n, producing a set of n PRESS resid-
+uals e(1), e(2), . . . , e(n). Then the PRESS statistic is dened as the sum of squares of the n
+PRESS residuals as in
+(10.48)
+Thus PRESS uses each possible subset of n 1 observations as an estimation data set, and
+every observation in turn is used to form a prediction data set.
+It would initially seem that calculating PRESS requires tting n different regressions.
+However, it is possible to calculate PRESS from the results of a single least squares t to all
+n observations. It turns out that the ith PRESS residual is
+(10.49)
+Thus because PRESS is just the sum of the squares of the PRESS residuals, a simple comput-
+ing formula is
+(10.50)
+From Equation 10.49, it is easy to see that the PRESS residual is just the ordinary residual
+weighted according to the diagonal elements of the hat matrix hii. Data points for which hii are
+large will have large PRESS residuals. These observations will generally be high inﬂuence
+PRESS 
+n
+i1
+ei
+1 hii
+2
+e(i) 
+ei
+1 hii
+PRESS 
+n
+i1
+e2
+(i) 
+n
+i1
+ [yi yˆ(i)]2
+yˆ(i)
+yˆ(i)
+ˆ 2
+ri 
+ei
+ˆ 2(1 hii)
+ 
+ i 1, 2, . . . , n
+V(ei) 2(1 hii)

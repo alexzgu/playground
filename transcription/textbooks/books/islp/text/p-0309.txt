@@ -1,0 +1,61 @@
+7.5 Smoothing Splines
+301
+of a function at t, and the second derivative corresponds to the amount by
+which the slope is changing. Hence, broadly speaking, the second derivative
+of a function is a measure of its roughness: it is large in absolute value if
+g(t) is very wiggly near t, and it is close to zero otherwise. (The second
+derivative of a straight line is zero; note that a line is perfectly smooth.)
+The
+M
+notation is an integral, which we can think of as a summation over
+the range of t. In other words,
+M
+g′′(t)2dt is simply a measure of the total
+change in the function g′(t), over its entire range. If g is very smooth, then
+g′(t) will be close to constant and
+M
+g′′(t)2dt will take on a small value.
+Conversely, if g is jumpy and variable then g′(t) will vary significantly and
+M
+g′′(t)2dt will take on a large value. Therefore, in (7.11), λ
+M
+g′′(t)2dt en-
+courages g to be smooth. The larger the value of λ, the smoother g will be.
+When λ = 0, then the penalty term in (7.11) has no effect, and so the
+function g will be very jumpy and will exactly interpolate the training
+observations. When λ →∞, g will be perfectly smooth—it will just be
+a straight line that passes as closely as possible to the training points.
+In fact, in this case, g will be the linear least squares line, since the loss
+function in (7.11) amounts to minimizing the residual sum of squares. For
+an intermediate value of λ, g will approximate the training observations
+but will be somewhat smooth. We see that λ controls the bias-variance
+trade-off of the smoothing spline.
+The function g(x) that minimizes (7.11) can be shown to have some spe-
+cial properties: it is a piecewise cubic polynomial with knots at the unique
+values of x1, . . . , xn, and continuous first and second derivatives at each
+knot. Furthermore, it is linear in the region outside of the extreme knots.
+In other words, the function g(x) that minimizes (7.11) is a natural cubic
+spline with knots at x1, . . . , xn! However, it is not the same natural cubic
+spline that one would get if one applied the basis function approach de-
+scribed in Section 7.4.3 with knots at x1, . . . , xn—rather, it is a shrunken
+version of such a natural cubic spline, where the value of the tuning pa-
+rameter λ in (7.11) controls the level of shrinkage.
+7.5.2
+Choosing the Smoothing Parameter λ
+We have seen that a smoothing spline is simply a natural cubic spline
+with knots at every unique value of xi. It might seem that a smoothing
+spline will have far too many degrees of freedom, since a knot at each data
+point allows a great deal of flexibility. But the tuning parameter λ controls
+the roughness of the smoothing spline, and hence the effective degrees of
+freedom. It is possible to show that as λ increases from 0 to ∞, the effective effective
+degrees of
+freedom
+degrees of freedom, which we write dfλ, decrease from n to 2.
+In the context of smoothing splines, why do we discuss effective degrees
+of freedom instead of degrees of freedom? Usually degrees of freedom refer
+to the number of free parameters, such as the number of coefficients fit in a
+polynomial or cubic spline. Although a smoothing spline has n parameters
+and hence n nominal degrees of freedom, these n parameters are heavily
+constrained or shrunk down. Hence dfλ is a measure of the flexibility of the
+smoothing spline—the higher it is, the more flexible (and the lower-bias but
+higher-variance) the smoothing spline. The definition of effective degrees of

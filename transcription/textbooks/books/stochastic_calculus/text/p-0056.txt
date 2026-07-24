@@ -1,0 +1,62 @@
+50
+CHAPTER 2. BROWNIAN MOTION
+have the same sign, which happens with probability 12, then B1≥
+Bk2−n. Therefore,
+P [Ak B1> a] ≥1
+2 P(Ak),
+and hence
+PB1> a
+=
+2n
+
+k=1
+P [Ak B1> a]
+≥
+1
+2
+2n
+
+k=1
+P [Ak]
+=
+1
+2 PYn > a
+Here we use the fact that the events Ak are disjoint. Therefore, since
+B1 has a N(0, 1) distribution,
+PYn > a≤2 PB1> a= 4 PB1 > a=
+4
+√
+2π
+∞
+a
+e−x22 dx
+To estimate the integral for a ≥4, we write
+4
+√
+2π
+∞
+a
+e−x22 dx
+≤
+2
+∞
+a
+e−ax2 dx
+=
+4
+a e−a22 ≤e−a22
+This proves Lemma 2.5.2. If we apply the estimate with a = C √n,
+then we see that for large n,
+PY > C √n≤e−C2n2 = 2−nβ,
+β =
+C2
+2 log 2
+In particular, if β > 1, then (2.3) holds and this gives (2.2) with
+probability one.
+The hard work is nished, with the proposition, we can now dene Bt
+for t [0, 1] by
+Bt = lim
+tn∞Btn
+where tn →t, tn D. One needs to check that this satises the con-
+ditions for a Brownian motion. This is relatively straightforward and
+we omit it.

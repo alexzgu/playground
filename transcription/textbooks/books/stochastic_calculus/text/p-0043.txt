@@ -1,0 +1,66 @@
+2.1. LIMITS OF SUMS OF INDEPENDENT VARIABLES
+37
+Let
+Yn = X(n)
+1
++ · · · + X(n)
+n ,
+and note that for each n, E[Yn] = λ. Recall that a random variable Y has a
+Pλ if for each nonnegative integer k,
+PY = k= e−λ λk
+k! 
+Theorem 2.1.2 (Convergence to the Poisson distribution). An →∞,
+Yn Pλ. M
+, k,
+lim
+n∞P Yn = k= e−λ λk
+k! 
+P. For each n, Yn has a binomial distribution with parameters n and
+λn, and hence
+lim
+n∞P Yn = k
+=
+lim
+n∞
+n
+k
+λ
+n
+k 
+1 −λ
+n
+n−k
+=
+λk
+k! lim
+n∞
+n(n −1) · · · (n −k + 1)
+nk
+
+1 −λ
+n
+−k 
+1 −λ
+n
+n
+Since we are xing k and letting n →∞, one can see that
+lim
+n∞
+n(n −1) · · · (n −k + 1)
+nk
+
+1 −λ
+n
+−k
+= 1,
+and in calculus one learns the limit
+lim
+n∞
+
+1 −λ
+n
+n
+= e−λ
+We will be taking limits of processes as the time increment goes to zero.
+The kind of limit we expect will depend on the assumptions. When we take
+limits of random walks with nite variance, then we are in the regime of the

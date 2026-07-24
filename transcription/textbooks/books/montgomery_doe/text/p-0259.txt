@@ -1,0 +1,65 @@
+6.3 The 23 Design
+243
+In a similar manner, the effect of B is the difference in averages between the four treat-
+ment combinations in the front face of the cube and the four in the back. This yields
+(6.12)
+The effect of C is the difference in averages between the four treatment combinations in the
+top face of the cube and the four in the bottom, that is,
+(6.13)
+The two-factor interaction effects may be computed easily. A measure of the AB inter-
+action is the difference between the average A effects at the two levels of B. By convention,
+one-half of this difference is called the AB interaction. Symbolically,
+B
+Average A Effect
+High ()
+Low ()
+Difference
+[abc bc ab b ac c a (1)]
+2n
+{(ac c) [a (1)]}
+2n
+[(abc bc) (ab b)]
+2n
+1
+4n [c ac bc abc (1) a b ab]
+C yCyC
+1
+4n [b ab bc abc (1) a c ac]
+B yByB
+■F I G U R E 6 . 5
+Geometric presenta-
+tion of contrasts
+corresponding to the
+main effects and
+interactions in the 
+23 design
+A
+B
+(a) Main effects
+C
+–
++
+–
++
+–
++
+AB
+B
+C
+A
+(b) Two-factor interaction
+(c) Three-factor interaction
+= + runs
+= – runs
+BC
++
++
+–
+–
+AC
++
++
+–
+–
+ABC
+–

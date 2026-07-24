@@ -1,0 +1,75 @@
+3.3 Other Considerations in the Regression Model
+103
+10
+15
+20
+25
+30
+−10
+−5
+0
+5
+10
+15
+Fitted values
+Residuals
+Response Y
+998
+975
+845
+2.4
+2.6
+2.8
+3.0
+3.2
+3.4
+−0.8
+−0.6
+−0.4
+−0.2
+0.0
+0.2
+0.4
+Fitted values
+Residuals
+Response log(Y)
+437
+671
+605
+FIGURE 3.11. Residual plots. In each plot, the red line is a smooth fit to the
+residuals, intended to make it easier to identify a trend. The blue lines track the
+outer quantiles of the residuals, and emphasize patterns. Left: The funnel shape
+indicates heteroscedasticity. Right: The response has been log transformed, and
+there is now no evidence of heteroscedasticity.
+3. Non-constant Variance of Error Terms
+Another important assumption of the linear regression model is that the
+error terms have a constant variance, Var(ϵi) = σ2. The standard errors,
+confidence intervals, and hypothesis tests associated with the linear model
+rely upon this assumption.
+Unfortunately, it is often the case that the variances of the error terms are
+non-constant. For instance, the variances of the error terms may increase
+with the value of the response. One can identify non-constant variances in
+the errors, or heteroscedasticity, from the presence of a funnel shape in hetero-
+scedasticity
+the residual plot. An example is shown in the left-hand panel of Figure 3.11,
+in which the magnitude of the residuals tends to increase with the fitted
+values. When faced with this problem, one possible solution is to trans-
+form the response Y using a concave function such as log Y or
+√
+Y . Such
+a transformation results in a greater amount of shrinkage of the larger re-
+sponses, leading to a reduction in heteroscedasticity. The right-hand panel
+of Figure 3.11 displays the residual plot after transforming the response
+using log Y . The residuals now appear to have constant variance, though
+there is some evidence of a slight non-linear relationship in the data.
+Sometimes we have a good idea of the variance of each response. For
+example, the ith response could be an average of ni raw observations. If
+each of these raw observations is uncorrelated with variance σ2, then their
+average has variance σ2
+i = σ2/ni. In this case a simple remedy is to fit our
+model by weighted least squares, with weights proportional to the inverse weighted
+least squares
+variances—i.e. wi = ni in this case. Most linear regression software allows
+for observation weights.
+4. Outliers
+An outlier is a point for which yi is far from the value predicted by the outlier

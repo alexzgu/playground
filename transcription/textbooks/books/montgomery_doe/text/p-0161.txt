@@ -1,0 +1,139 @@
+4.1 The Randomized Complete Block Design
+145
+To perform the analysis of variance, we need the follow-
+ing sums of squares:
+(514.6)2] (2155.1)2
+24
+178.17
+1
+6 [(556.9)2 (550.1)2 (533.5)2
+SSTreatments 1
+b 
+4
+i1
+y2
+i. y2
+..
+N
+193,999.31 (2155.1)2
+24
+480.31
+SST 
+4
+i1 
+6
+j1
+y2
+ij y2
+..
+N
+The ANOVA is shown in Table 4.4. Using 0.05, the
+critical value of F is F0.05, 3,15 3.29. Because 8.11 3.29,
+we conclude that extrusion pressure affects the mean yield.
+The P-value for the test is also quite small. Also, the resin
+batches (blocks) seem to differ signicantly, because the
+mean square for blocks is large relative to error.
+480.31 178.17 192.25 109.89
+SSE SST SSTreatments SSBlocks
+(2155.1)2
+24
+192.25
+1
+4 [(350.8)2 (359.0)2 Á (377.8)2]
+SSBlocks 1
+a 
+6
+j1
+y2
+.j y2
+..
+N
+■T A B L E 4 . 3
+Randomized Complete Block Design for the Vascular Graft Experiment
+Batch of Resin (Block)
+Extrusion
+Treatment
+Pressure (PSI)
+1
+2
+3
+4
+5
+6
+Total
+8500
+90.3
+89.2
+98.2
+93.9
+87.4
+97.9
+556.9
+8700
+92.5
+89.5
+90.6
+94.7
+87.0
+95.8
+550.1
+8900
+85.5
+90.8
+89.6
+86.2
+88.0
+93.4
+533.5
+9100
+82.5
+89.5
+85.6
+87.4
+78.9
+90.7
+514.6
+Block Totals
+350.8
+359.0
+364.0
+362.2
+341.3
+377.8
+y.. 2155.1
+It is interesting to observe the results we would have obtained from this experiment had
+we not been aware of randomized block designs. Suppose that this experiment had been run
+as a completely randomized design, and (by chance) the same design resulted as in Table 4.3.
+The incorrect analysis of these data as a completely randomized single-factor design is shown
+in Table 4.5.
+Because the P-value is less than 0.05, we would still reject the null hypothesis and con-
+clude that extrusion pressure signicantly affects the mean yield. However, note that the mean
+■T A B L E 4 . 4
+Analysis of Variance for the Vascular Graft Experiment
+Source of
+Sum of
+Degrees of
+Mean
+Variation
+Squares
+Freedom
+Square
+F0
+P-Value
+Treatments (extrusion pressure)
+178.17
+3
+59.39
+8.11
+0.0019
+Blocks (batches)
+192.25
+5
+38.45
+Error
+109.89
+15
+7.33
+Total
+480.31
+23

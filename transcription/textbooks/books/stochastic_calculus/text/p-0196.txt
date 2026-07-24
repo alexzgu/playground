@@ -1,0 +1,36 @@
+190
+CHAPTER 6. JUMP PROCESSES
+The random variable Xt+s −Xs has a Poisson distribution with mean
+λt, that is,
+PXt+s −Xs = k= e−λt (λt)k
+k! 
+One way to derive this is to write a system of dierential equations for the
+functions
+qk(t) = PXt = k
+In the small time interval [t, t + ∆t], the chance that there is more than one
+jump is o(∆t) and the chance there is exactly one jump is λ∆t + o(∆t).
+Therefore, up to errors that are o(∆t),
+PXt+∆t = k= PXt = k −1(λ∆t) + PXt = k[1 −λ ∆t] 
+This gives
+qk(t + ∆t) −qk(t) = λ ∆t [qk−1(t) −qk(t)] + o(∆t),
+or
+dqk(t)
+dt
+= λ [qk−1(t) −qk(t)]
+If we assume X0 = 0, we also have the initial conditions q0(0) = 1 and
+qk(0) = 0 for k > 0. We can solve this system of equations recursively, and
+this yields the solutions
+qk(t) = e−λt (λt)k
+k! 
+(Although it takes some good guesswork to start with the equations and nd
+qk(t), it is easy to verify that qk(t) as given above satises the equations.)
+When studying innitely divisible distributions, it will be useful to con-
+sider characteristic functions, and for notational ease, we will take logarithms.
+Since the characteristic function is complex-valued, we take a little care in
+dening the logarithm.
+Denition If X is a random variable, then its 
+Ψ(s) = ΨX(s) is dened to be the continuous function satisfying
+E[eisX] = eΨ(s),
+Ψ(0) = 0
+If Xt is a L´evy process, then the characteristic exponent of the process is the
+characteristic exponent of X1 −X0.

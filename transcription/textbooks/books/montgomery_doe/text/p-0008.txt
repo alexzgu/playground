@@ -1,0 +1,43 @@
+Acknowledgments
+I express my appreciation to the many students, instructors, and colleagues who have used the six
+earlier editions of this book and who have made helpful suggestions for its revision. The contri-
+butions of
+Dr. Raymond H. Myers,
+Dr. G. Geoffrey Vining,
+Dr. Brad Jones,
+Dr. Christine Anderson-Cook, Dr. Connie M. Borror, Dr. Scott Kowalski, Dr. Dennis Lin,
+Dr. John Ramberg, Dr. Joseph Pignatiello, Dr. Lloyd S. Nelson, Dr. Andre Khuri, Dr. Peter
+Nelson, Dr. John A. Cornell, Dr. Saeed Maghsoodlo, Dr. Don Holcomb, Dr. George C. Runger,
+Dr. Bert Keats, Dr. Dwayne Rollier, Dr. Norma Hubele, Dr. Murat Kulahci, Dr. Cynthia Lowry,
+Dr. Russell G. Heikes, Dr. Harrison M. Wadsworth, Dr. William W. Hines, Dr. Arvind Shah,
+Dr. Jane Ammons, Dr. Diane Schaub, Mr. Mark Anderson, Mr. Pat Whitcomb, Dr. Pat Spagon,
+and Dr. William DuMouche were particularly valuable. My current and former Department
+Chairs, Dr. Ron Askin and Dr. Gary Hogg, have provided an intellectually stimulating environ-
+ment in which to work.
+The contributions of the professional practitioners with whom I have worked have been
+invaluable. It is impossible to mention everyone, but some of the major contributors include
+Dr. Dan McCarville of Mindspeed Corporation, Dr. Lisa Custer of the George Group; 
+Dr. Richard Post of Intel; Mr. Tom Bingham, Mr. Dick Vaughn, Dr. Julian Anderson,
+Mr. Richard Alkire, and Mr. Chase Neilson of the Boeing Company; Mr. Mike Goza, Mr. Don
+Walton, Ms. Karen Madison, Mr. Jeff Stevens, and Mr. Bob Kohm of Alcoa; Dr. Jay Gardiner,
+Mr. John Butora, Mr. Dana Lesher, Mr. Lolly Marwah, Mr. Leon Mason of IBM; Dr. Paul
+Tobias of IBM and Sematech; Ms. Elizabeth A. Peck of The Coca-Cola Company; Dr. Sadri
+Khalessi and Mr. Franz Wagner of Signetics; Mr. Robert V. Baxley of Monsanto Chemicals;
+Mr. Harry Peterson-Nedry and Dr. Russell Boyles of Precision Castparts Corporation; 
+Mr. Bill New and Mr. Randy Schmid of Allied-Signal Aerospace; Mr. John M. Fluke, Jr. of
+the John Fluke Manufacturing Company; Mr. Larry Newton and Mr. Kip Howlett of Georgia-
+Pacic; and Dr. Ernesto Ramos of BBN Software Products Corporation.
+I am indebted to Professor E. S. Pearson and the Biometrika Trustees, John Wiley &
+Sons, Prentice Hall, The American Statistical Association, The Institute of Mathematical
+Statistics, and the editors of Biometrics for permission to use copyrighted material. Dr. Lisa
+Custer and Dr. Dan McCorville did an excellent job of preparing the solutions that appear in
+the Instructor’s Solutions Manual, and Dr. Cheryl Jennings and Dr. Sarah Streett provided
+effective and very helpful proofreading assistance. I am grateful to NASA, the Ofce of
+Naval Research, the National Science Foundation, the member companies of the
+NSF/Industry/University Cooperative Research Center in Quality and Reliability Engineering
+at Arizona State University, and the IBM Corporation for supporting much of my research
+in engineering statistics and experimental design.
+DOUGLAS C. MONTGOMERY
+TEMPE, ARIZONA
+Preface
+ix

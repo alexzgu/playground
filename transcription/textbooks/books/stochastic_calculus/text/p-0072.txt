@@ -1,0 +1,52 @@
+66
+CHAPTER 2. BROWNIAN MOTION
+It is important to note the order of the quantiers in this theorem.
+Let t = 1. The theorem states that for every sequence Πnsatisfying
+(2.5), Q(1; Πn) →1. The event of measure zero on which convergence
+does not hold depends on the sequence of partitions. Because there are
+an uncountable number of such sequences we cannot conclude from the
+theorem that with probability one, for all sequences Πnsatisfying
+(2.5), that Q(1; Πn) →1. In fact, the latter statement is false. Let us
+give an example. Let us start with the dyadic partition Πn of [0, 1]
+with 2n intervals of length 2−n. We will now subdivide some, but not
+all, of these intervals into two equal pieces. Suppose [s, t] is one of
+these intervals and let r denote the midpoint. We will subdivide [s, t]
+into [s, r] and [r, t] if
+(Br −Bs)2 + (Bt −Bs)2 > (Bt −Bs)2,
+and we will retain the interval [s, t] otherwise. This denes a parti-
+tion ˜Πn with ∥˜Πn∥≤∥Πn∥. It has been chosen so that Q(1; ˜Πn) ≥
+Q(1; Πn), and one can show (see Exercise 2.5) that
+lim
+n∞Q(1; ˜Πn) = E
+
+maxB2
+12 + (B1 −B12)2, B2
+1
+
+> 1
+This does not contradict the theorem because the partitions ˜Πn de-
+pend on the realization of the Brownian motion.
+Sometimes it is convenient to x a sequence of partitions, say parti-
+tions with dyadic intervals. Let
+Qn(t) =
+
+j<t2n
+
+B
+j + 1
+2n
+
+−B
+j
+2n
+2
+
+Since the dyadic rationals are countable, the theorem implies that with
+probability one for every dyadic rational t, Qn(t) →t. However, since
+t →Qn(t) is increasing, we can conclude that with probability one,
+for every t0, Qn(t) →t.
+2.9
+Multidimensional Brownian motion
+In nance one is often interested in considering the value of many assets at
+the same time. Multidimensional Brownian motion Bt is random continu-
+ous motion in d-dimensional space. It can be viewed as d one-dimensional

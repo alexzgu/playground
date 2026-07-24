@@ -1,0 +1,40 @@
+11.5 Regression Models With a Survival Response
+481
+to particular null hypotheses (e.g. H0 : βj = 0), as well as confidence
+intervals associated with the coefficients.
+Connection With The Log-Rank Test
+Suppose we have just a single predictor (p = 1), which we assume to be
+binary, i.e. xi ∈{0, 1}. In order to determine whether there is a difference
+between the survival times of the observations in the group {i : xi = 0}
+and those in the group {i : xi = 1}, we can consider taking two possible
+approaches:
+Approach #1: Fit a Cox proportional hazards model, and test the
+null hypothesis H0 : β = 0. (Since p = 1, β is a scalar.)
+Approach #2: Perform a log-rank test to compare the two groups, as
+in Section 11.4.
+Which one should we prefer?
+In fact, there is a close relationship between these two approaches. In
+particular, when taking Approach #1, there are a number of possible ways
+to test H0. One way is known as a score test. It turns out that in the case of
+a single binary covariate, the score test for H0 : β = 0 in Cox’s proportional
+hazards model is exactly equal to the log-rank test. In other words, it does
+not matter whether we take Approach #1 or Approach #2!
+Additional Details
+The discussion of Cox’s proportional hazards model glossed over a few
+subtleties:
+• There is no intercept in (11.14) nor in the equations that follow,
+because an intercept can be absorbed into the baseline hazard h0(t).
+• We have assumed that there are no tied failure times. In the case
+of ties, the exact form of the partial likelihood (11.16) is a bit more
+complicated, and a number of computational approximations must
+be used.
+• (11.16) is known as the partial likelihood because it is not exactly a
+likelihood. That is, it does not correspond exactly to the probability
+of the data under the assumption (11.14). However, it is a very good
+approximation.
+• We have focused only on estimation of the coefficients β = (β1, . . . , βp)T .
+However, at times we may also wish to estimate the baseline hazard
+h0(t), for instance so that we can estimate the survival curve S(t|x) for
+an individual with feature vector x. The details are beyond the scope
+of this book. Estimation of h0(t) is implemented in the lifelines
+package in Python, which we will see in Section 11.8.

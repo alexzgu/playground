@@ -1,0 +1,48 @@
+6.5 Lab: Linear Models and Regularization Methods
+277
+Alternatively, we can use 5-fold cross-validation.
+In [33]: grid = skm.GridSearchCV(pipe,
+param_grid,
+cv=kfold,
+scoring='neg_mean_squared_error')
+grid.fit(X, Y)
+grid.best_params_['ridge__alpha']
+grid.best_estimator_
+Recall we set up the kfold object for 5-fold cross-validation on page 271.
+We now plot the cross-validated MSE as a function of −log(λ), which has
+shrinkage decreasing from left to right.
+In [34]: ridge_fig, ax = subplots(figsize=(8,8))
+ax.errorbar(-np.log(lambdas),
+-grid.cv_results_['mean_test_score'],
+yerr=grid.cv_results_['std_test_score'] / np.sqrt(K))
+ax.set_ylim([50000,250000])
+ax.set_xlabel('$-\log(\lambda)$', fontsize=20)
+ax.set_ylabel('Cross-validated MSE', fontsize=20);
+One can cross-validate different metrics to choose a parameter. The de-
+fault metric for skl.ElasticNet() is test R2. Let’s compare R2 to MSE for
+cross-validation here.
+In [35]: grid_r2 = skm.GridSearchCV(pipe,
+param_grid ,
+cv=kfold)
+grid_r2.fit(X, Y)
+Finally, let’s plot the results for cross-validated R2.
+In [36]: r2_fig, ax = subplots(figsize=(8,8))
+ax.errorbar(-np.log(lambdas),
+grid_r2.cv_results_['mean_test_score'],
+yerr=grid_r2.cv_results_['std_test_score'] / np.sqrt(K)
+)
+ax.set_xlabel('$-\log(\lambda)$', fontsize=20)
+ax.set_ylabel('Cross-validated $R^2$', fontsize=20);
+Fast Cross-Validation for Solution Paths
+The ridge, lasso, and elastic net can be efficiently fit along a sequence of
+λ values, creating what is known as a solution path or regularization path.
+Hence there is specialized code to fit such paths, and to choose a suitable
+value of λ using cross-validation. Even with identical splits the results will
+not agree exactly with our grid above because the standardization of each
+feature in grid is carried out on each fold, while in pipeCV below it is carried
+out only once. Nevertheless, the results are similar as the normalization is
+relatively stable across folds.
+In [37]: ridgeCV = skl.ElasticNetCV(alphas=lambdas,
+l1_ratio=0,
+cv=kfold)
+pipeCV = Pipeline(steps=[('scaler', scaler),

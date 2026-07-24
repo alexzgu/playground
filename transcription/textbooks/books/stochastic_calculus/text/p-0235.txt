@@ -1,0 +1,45 @@
+6.10. SYMMETRIC STABLE PROCESS
+229
+The easiest way to check this is to compute the characteristic function of gt
+and obtain e−|s|.
+Symmetric stable distribution arise as limit distributions for sums of sym-
+metric random variables with heavy tails. The next proposition gives one
+version.
+Proposition 6.10.3. Sα, c > 0 X1, X2, ,
+f 
+f(x) = f(−x) 
+f(x) ∼
+c
+x1+α,
+x →∞,
+(6.29)
+∼.
+I0 < α < 2, 
+Zn = X1 + · · · + Xn
+n1α
+,
+(6.30)
+Zn α-.
+Iα > 2, 
+Zn = X1 + · · · + Xn
+√n
+,
+Zn .
+Iα = 2, 
+Zn = X1 + · · · + Xn
+√n log n
+,
+Zn .
+If α > 2, then Var[Xj] < ∞, and hence the result is a restatement of the
+central limit theorem.
+We will prove the proposition for 0 < α < 2. Our rst observation
+is that if X1, X2, are independent, identically distributed random
+variables whose characteristic exponent Ψ satises
+Ψ(s) = −r sα + o(sα),
+s →0,
+(6.31)
+then Zn as dened in (6.30) converges to an α-stable distribution. This
+follows since for each s,
+lim
+n∞ΨZn(s) = lim
+n∞n Ψ(sn1α) = −r sα

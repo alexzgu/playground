@@ -1,0 +1,105 @@
+slightly near the center of the design region for the D-optimal design. Figure 11.31a also shows
+the contours of constant standard deviation of prediction for this modiﬁed D-optimal design,
+and Figure 11.31b shows the response surface plot. The D-criterion for this design is
+|(XX)1| 3.71 E-4, and the relative efciency is
+That is, this design is almost as efcient as the D-optimal design. The trace of (XX)1 is 2.448
+for this design, a slightly smaller value than was obtained for the D-optimal design. The contours
+De 
+(X2 X2)1
+(X1 X1)1
+1/p
+
+0.0002153
+0.000371
+1/6
+0.91
+516
+Chapter 11 ■Response Surface Methods and Designs
+■TA B L E 1 1 . 1 2
+A D-Optimal Design for the Constrained Region in Figure 11.26
+Standard Order
+x1
+x2
+1
+0.50
+1.00
+2
+1.00
+0.00
+3
+0.08
+0.08
+4
+1.00
+1.00
+5
+1.00
+1.00
+6
+0.00
+1.00
+7
+1.00
+0.25
+8
+0.25
+1.00
+9
+1.00
+0.50
+10
+1.00
+0.00
+11
+0.00
+1.00
+12
+0.08
+0.08
+1.035
+0.886
+0.736
+0.587
+0.437
+1.00
+1.00
+0.50
+0.00
+–0.50
+–1.00
+–1.00
+–0.50
+(b) The response surface plot
+0.00
+x1
+x1
+x2
+x2
+0.50
+1.00
+1.00
+0.50
+0.50
+0.00
+0.00
+–0.50
+–0.50
+–1.00
+–1.00
+4
+(a) The design and contours of constant
+V [y(x)]/σ2
+0.645
+0.712
+0.500
+0.578
+0.712
+0.780
+0.712
+0.645
+0.780
+›
+  V [y(x)]/σ2
+›
+■F I G U R E 1 1 . 3 1
+A modiﬁed D-optimal design for the constrained design region in Figure 11.28

@@ -1,0 +1,46 @@
+satisfactorily. In terms of the coded variables, this leads to a constraint on the
+design variables, say
+where x1 represents the application amount of adhesive and x2 represents the temper-
+ature. Furthermore, if the temperature is too high and too much adhesive is applied,
+the parts will be either damaged by heat stress or an inadequate bond will result. Thus,
+there is another constraint on the factor levels
+Figure 11.28 shows the experimental region that results from applying these constraints.
+Notice that the constraints effectively remove two corners of the square, producing an
+irregular experimental region (sometimes these irregular regions are called “dented
+cans”). There is no standard response surface design that will exactly t into this region.
+2. A nonstandard model.
+Usually an experimenter elects a rst- or second-order
+response surface model, realizing that this empirical model is an approximation to
+the true underlying mechanism. However, sometimes the experimenter may have
+some special knowledge or insight about the process being studied that may suggest
+a nonstandard model. For example, the model
+may be of interest. The experimenter would be interested in obtaining an efcient
+design for tting this reduced quartic model. As another illustration, sometimes we
+encounter response surface problems where some of the design factors are categorical
+variables. There are no standard response surface designs for this situation [refer to
+Myers, Montgomery and Anderson-Cook (2009) for a discussion of categorical vari-
+ables in response surface problems].
+112x2
+1x2 1112x3
+1x2 
+y 0 1x1 2x2 12x1x2 11x2
+1 22x2
+2
+x1 x2 1
+1.5 x1 x2
+512
+Chapter 11 ■Response Surface Methods and Designs
+x2
+x1
+0.5
+0
+–0.5
+–1.0
+1.0
+–1.0
+–0.5
+0.5
+1.0
+0
+■F I G U R E 1 1 . 2 8
+A constrained design region in two variables

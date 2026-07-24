@@ -1,0 +1,144 @@
+5.3 The Two-Factor Factorial Design
+193
+Using Equations 5.6 through 5.10, the sums of squares are
+computed as follows:
+(3799)2
+36
+39,118.72
+
+1
+(3)(4) [(1738)2 (1291)2 (770)2]
+SSTemperature 
+1
+an 
+b
+j1
+y2
+.j. y2
+...
+abn
+(3799)2
+36
+10,683.72
+
+1
+(3)(4) [(998)2 (1300)2 (1501)2]
+SSMaterial 
+1
+bn 
+a
+i1
+y2
+i.. y2
+...
+abn
+(60)2 (3799)2
+36
+77,646.97
+ (130)2 (155)2 (74)2 Á
+SST 
+a
+i1 
+b
+j1 
+n
+k1
+y2
+ijk y2
+...
+abn
+■TA B L E 5 . 4
+Life Data (in hours) for the Battery Design Experiment
+Material
+Temperature (°F)
+Type
+15
+70
+125
+yi..
+130
+155
+34
+40
+20
+70
+1
+74
+180
+539
+80
+75
+229
+82
+58
+230
+998
+150
+188
+136
+122
+25
+70
+2
+159
+126
+623
+106
+115
+479
+58
+45
+198
+1300
+138
+110
+174
+120
+96
+104
+3
+168
+160
+576
+150
+139
+583
+82
+60
+342
+1501
+1738
+1291
+770
+3799 y...
+y.j.
+and
+The ANOVA is shown in Table 5.5. Because F0.05,4,27 
+2.73, we conclude that there is a signicant interaction
+between material types and temperature. Furthermore,
+F0.05,2,27 3.35, so the main effects of material type and
+temperature are also signicant. Table 5.5 also shows the P-
+values for the test statistics.
+To assist in interpreting the results of this experiment, it
+is helpful to construct a graph of the average responses at
+9613.78 18,230.75
+77,646.97 10,683.72 39,118.72
+SSE SST SSMaterial SSTemperature SSInteraction
+ 
+39,118.72 9613.78
+(3799)2
+36
+10,683.72
+1
+4 [(539)2 (229)2 Á (342)2]
+SSTemperature
+SSInteraction 1
+n 
+a
+i1 
+b
+j1
+y2
+ij. y2
+...
+abn SSMaterial

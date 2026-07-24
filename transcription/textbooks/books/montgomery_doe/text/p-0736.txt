@@ -1,0 +1,111 @@
+Box, G. E. P. (1992–1993). “Sequential Experimentation and
+Sequential Assembly of Designs.” Quality Engineering,
+Vol. 5, No. 2, pp. 321–330.
+Box, G. E. P. (1999). “Statistics as a Catalyst to Learning by
+Scientic Method Part II—A Discussion” (with Discussion).
+Journal of Quality Technology, Vol. 31, pp. 16–29.
+Box, G. E. P., and D. W. Behnken (1960). “Some New Three
+Level Designs for the Study of Quantitative Variables.”
+Technometrics, Vol. 2, pp. 455–476.
+Box, G. E. P., S. Bisgaard, and C. A. Fung (1988). “An
+Explanation and Critique of Taguchi’s Contributions to
+Quality Engineering.” Quality and Reliability Engineering
+International, Vol. 4, pp. 123–131.
+Box, G. E. P., and D. R. Cox (1964). “An Analysis of
+Transformations.” Journal of the Royal Statistical Society
+B, Vol. 26, pp. 211–243.
+Box, G. E. P., and N. R. Draper (1969). Evolutionary
+Operation. Wiley, New York.
+Box, G. E. P., and N. R. Draper (2007). Response Surfaces,
+Mixtures, and Ridge Analysis, Wiley, New York.
+Box, G. E. P., and J. S. Hunter (1957). “Multifactor Experimental
+Designs for Exploring Response Surfaces.” Annals of
+Mathematical Statistics, Vol. 28, pp. 195–242.
+Box, G. E. P., and J. S. Hunter (1961a). “The 2kp Fractional
+Factorial Designs, Part I.” Technometrics,Vol. 3, pp. 311–352.
+Box, G. E. P., and J. S. Hunter (1961b). “The 2kp Fractional
+Factorial Designs, Part II.” Technometrics,Vol. 3, pp. 449–458.
+Box, G. E. P., W. G. Hunter, and J. S. Hunter (2005). Statistics
+for Experimenters. 2nd Edition Wiley, New York.
+Box, G. E. P., and P. Y. T. Liu (1999). “Statistics as a Catalyst
+to Learning by Scientic Method Part I—An Example.”
+Journal of Quality Technology, Vol. 31, pp. 1–15.
+Box, G. E. P., and R. D. Meyer (1986). “An Analysis of
+Unreplicated Fractional Factorials.” Technometrics, Vol.
+28, pp. 11–18.
+Box, G. E. P., and K. G. Wilson (1951). “On the Experimental
+Attainment of Optimum Conditions.” Journal of the Royal
+Statistical Society, B, Vol. 13, pp. 1–45.
+Box, J. F. (1978). R. A. Fisher: The Life of a Scientist. Wiley,
+New York.
+Burdick, R. K., C. M. Borror, and D. C. Montgomery. (2003).
+“A Review of Methods for Measurement Systems
+Capability Analysis.” Journal of Quality Technology, Vol.
+35, No. 4, pp. 342–354.
+Burdick, R. K., and F. A. Graybill (1992). Conﬁdence Intervals
+on Variance Components. Dekker, New York.
+Bursztyn, D., and D. Steinberg (2006). “Comparison of Designs
+for Computer Experiments.” Journal of Statistical
+Planning and Inference, Vol. 136, pp. 1103–1119.
+Byrne, D. M., and S. Taguchi (1987). “The Taguchi Approach to
+Parameter Design.” Quality Progress, December, pp. 19–26.
+Capehart, S. R., A. Keha, M. Kulahci, and D. C. Montgomery
+(2011). “Designing Fractional Factorial Split-Plot
+Experiments using Integer Programming.” International
+Journal of Experimental Design and Process Optimisation,
+Vol. 2, pp. 34–47.
+Carmer, S. G., and M. R. Swanson (1973). “Evaluation of Ten
+Pairwise Multiple Comparison Procedures by Monte Carlo
+Methods.” Journal of the American Statistical Association,
+Vol. 68, No. 314, pp. 66–74.
+Chaloner, K., and K. Larntz (1989). “Optimal Bayesian
+Designs Applied to Logistic Regression Experiments.”
+Journal of Statistical Planning and Inference, Vol. 21,
+pp. 191–208.
+Cochran, W. G. (1947). “Some Consequences when the
+Assumptions for the Analysis of Variance Are Not
+Satised.” Biometrics, Vol. 3, pp. 22–38.
+Cochran, W. G. (1957). “Analysis of Covariance: Its Nature and
+Uses.” Biometrics, Vol. 13, No. 3, pp. 261–281.
+Cochran, W. G., and G. M. Cox (1957). Experimental Designs.
+2nd edition. Wiley, New York.
+Coleman, D. E., and D. C. Montgomery (1993). “A Systematic
+Approach to Planning for a Designed Industrial Experiment”
+(with Discussion). Technometrics, Vol. 35, pp. 1–27.
+Connor, W. S., and M. Zelen (1959). Fractional Factorial
+Experimental Designs for Factors at Three Levels. Applied
+Mathematics Series, National Bureau of Standards,
+Washington, DC No. 54.
+Conover, W. J. (1980). Practical Nonparametric Statistics. 2nd
+edition. Wiley, New York.
+Conover, W. J., and R. L. Iman (1976). “On Some Alternative
+Procedures Using Ranks for the Analysis of Experimental
+Designs.” Communications in Statistics, Vol. A5, pp.
+1349–1368.
+Conover, W. J., and R. L. Iman (1981). “Rank Transformations
+as a Bridge Between Parametric and Nonparametric
+Statistics” (with Discussion). The American Statistician,
+Vol. 35, pp. 124–133.
+Conover, W. J., M. E. Johnson, and M. M. Johnson (1981). “A
+Comparative Study of Tests for Homogeneity of Variances,
+with Applications to the Outer Continental Shelf Bidding
+Data.” Technometrics, Vol. 23, pp. 351–361.
+Cook, D. R. (1977). “Detection of Inuential Observations in
+Linear Regression.” Technometrics, Vol. 19, pp. 15–18.
+Cook, D. R. (1979). “Influential Observations in Linear
+Regression.”
+Journal of the American Statistical
+Association, Vol. 74, pp. 169–174.
+Cornell, J. A. (2002). Experiments with Mixtures: Designs,
+Models, and the Analysis of Mixture Data. 3rd edition.
+Wiley, New York.
+Corneld, J., and J. W. Tukey (1956). “Average Value of Mean
+Squares in Factorials,” Annals of Mathematical Statistics,
+Vol. 27, pp. 907–949.
+Daniel, C. (1959). “Use of Half-Normal Plots in Interpreting
+Factorial Two Level Experiments.” Technometrics, Vol. 1,
+pp. 311–342.
+Daniel, C. (1976). Applications of Statistics to Industrial
+Experimentation. Wiley, New York.
+720
+Bibliography

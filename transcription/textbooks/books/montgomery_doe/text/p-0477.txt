@@ -1,0 +1,152 @@
+10.3 Estimation of the Parameters in Linear Regression Models
+461
+E X A M P L E 1 0 . 5
+De-aliasing Interactions in a Fractional Factorial
+We observed in Chapter 8 that it is possible to de-alias
+interactions in a fractional factorial design by a process
+called fold over. For a resolution III design, a full fold over
+is constructed by running a second fraction in which the
+signs are reversed from those in the original fraction. Then
+the combined design can be used to de-alias all main effects
+from the two-factor interactions.
+A difculty with a full fold over is that it requires a sec-
+ond group of runs of identical size as the original design. It
+is usually possible to de-alias certain interactions of inter-
+est by augmenting the original design with fewer runs than
+required in a full fold over. The partial fold-over technique
+was used to solve this problem. Regression methods are an
+easy way to see how the partial fold-over technique works
+and, in some cases, nd even more efcient fold-over
+designs.
+To illustrate, suppose that we have run a 
+design.
+Table 8.3 shows the principal fraction of this design, in
+which I ABCD. Suppose that after the data from the rst
+eight trials were observed, the largest effects were A, B, C,
+D (we ignore the three-factor interactions that are aliased
+with these main effects) and the AB CD alias chain. The
+other two alias chains can be ignored, but clearly either AB,
+CD, or both two-factor interactions are large. To nd out
+which interactions are important, we could, of course, run
+the alternate fraction, which would require another eight
+trials. Then all 16 runs could be used to estimate the main
+effects and the two-factor interactions. An alternative
+241
+IV
+would be to use a partial fold over involving four additional
+runs.
+It is possible to de-alias AB and CD in fewer than four
+additional trials. Suppose that we wish to t the model
+where x1, x2, x3, and x4 are the coded variables representing
+A, B, C, and D. Using the design in Table 8.3, the X matrix
+for this model is
+where we have written the variables above the columns 
+to facilitate understanding. Notice that the x1x2 column is
+identical to the x3x4 column (as anticipated, because AB or
+x1x2 is aliased with CD or x3x4), implying a linear depend-
+ency in the columns of X. Therefore, we cannot estimate
+both 12 and 34 in the model. However, suppose that we
+add a single run x1 1, x2 1, x3 1, and x4 1
+X 
+1
+1
+1
+1
+1
+1
+1
+1
+x1
+1
+1
+1
+1
+1
+1
+1
+1
+x2
+1
+1
+1
+1
+1
+1
+1
+1
+x3
+1
+1
+1
+1
+1
+1
+1
+1
+x4
+1
+1
+1
+1
+1
+1
+1
+1
+x1x2
+1
+1
+1
+1
+1
+1
+1
+1
+x3x4
+1
+1
+1
+1
+1
+1
+1
+1
+34x3x4 
+y 0 1x1 2x2 3x3 4x4 12x1x2
+Then
+&ˆ (XX)1Xy
+
+50.49391
+5.40996
+10.16316
+1.07245
+2.33542  103
+4.20766  103
+0.11753
+4.37851  103
+2.59833  103
+1.88490  103
+4.37851  103
+0.10845
+
+612
+ 77.55
+100.7
+19.144
+
+8.37447  102
+6.09871  103
+2.33542  103
+2.59833  103
+6.09871  103
+0.12289
+4.20766  103
+1.88490  103
+The tted regression model, with the coefcients reported
+to two decimal places, is
+Comparing this to the original model in Example 10.2, where
+the factor levels were exactly those specied by the design,
+yˆ 50.49 5.41x1 10.16x2 1.07x3
+we note very little difference. The practical interpretation of
+the results of this experiment would not be seriously affected
+by the inability of the experimenter to achieve the desired
+factor levels exactly.

@@ -1,0 +1,51 @@
+290
+7. Moving Beyond Linearity
+constrained so that they join smoothly at the region boundaries, or
+knots. Provided that the interval is divided into enough regions, this
+can produce an extremely flexible fit.
+• Smoothing splines are similar to regression splines, but arise in a
+slightly different situation. Smoothing splines result from minimizing
+a residual sum of squares criterion subject to a smoothness penalty.
+• Local regression is similar to splines, but differs in an important way.
+The regions are allowed to overlap, and indeed they do so in a very
+smooth way.
+• Generalized additive models allow us to extend the methods above to
+deal with multiple predictors.
+In Sections 7.1–7.6, we present a number of approaches for modeling the
+relationship between a response Y and a single predictor X in a flexible
+way. In Section 7.7, we show that these approaches can be seamlessly in-
+tegrated in order to model a response Y as a function of several predictors
+X1, . . . , Xp.
+7.1
+Polynomial Regression
+Historically, the standard way to extend linear regression to settings in
+which the relationship between the predictors and the response is non-
+linear has been to replace the standard linear model
+yi = β0 + β1xi + ϵi
+with a polynomial function
+yi = β0 + β1xi + β2x2
+i + β3x3
+i + · · · + βdxd
+i + ϵi,
+(7.1)
+where ϵi is the error term. This approach is known as polynomial regression, polynomial
+regression
+and in fact we saw an example of this method in Section 3.3.2. For large
+enough degree d, a polynomial regression allows us to produce an extremely
+non-linear curve. Notice that the coefficients in (7.1) can be easily estimated
+using least squares linear regression because this is just a standard linear
+model with predictors xi, x2
+i , x3
+i , . . . , xd
+i . Generally speaking, it is unusual
+to use d greater than 3 or 4 because for large values of d, the polynomial
+curve can become overly flexible and can take on some very strange shapes.
+This is especially true near the boundary of the X variable.
+The left-hand panel in Figure 7.1 is a plot of wage against age for the
+Wage data set, which contains income and demographic information for
+males who reside in the central Atlantic region of the United States. We
+see the results of fitting a degree-4 polynomial using least squares (solid
+blue curve). Even though this is a linear regression model like any other,
+the individual coefficients are not of particular interest. Instead, we look at
+the entire fitted function across a grid of 63 values for age from 18 to 80 in
+order to understand the relationship between age and wage.

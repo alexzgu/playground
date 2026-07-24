@@ -1,0 +1,68 @@
+264
+Chapter 6 ■The 2k Factorial Design
+that Lenth’s method results in values of ME and SME that  are too conservative and have lit-
+tle power to detect signicant effects. Simulation methods can be used to calibrate his proce-
+dure. Larntz and Whitcomb (1998) suggest replacing the original ME and SME multipliers
+with adjusted multipliers as follows:
+Number of Contrasts
+7
+15
+31
+Original ME
+3.764
+2.571
+2.218
+Adjusted ME
+2.295
+2.140
+2.082
+Original SME
+9.008
+5.219
+4.218
+Adjusted SME
+4.891
+4.163
+4.030
+These are in close agreement with the results in Ye and Hamada (2000).
+The JMP software package implements Lenth’s method as part of the screening plat-
+form analysis procedure for two-level designs. In their implementation, P-values for each fac-
+tor and interaction are computed from a “real-time” simulation. This simulation assumes that
+none of the factors in the experiment are signicant and calculates the observed value of the
+Lenth statistic 10,000 times for this null model. Then P-values are obtained by determining
+where the observed Lenth statistics fall relative to the tails of these simulation-based refer-
+ence distributions. These P-values can be used as guidance in selecting factors for the model.
+Table 6.14 shows the JMP output from the screening analysis platform for the resin ltration
+rate experiment in Example 6.2. Notice that in addition to the Lenth statistics, the JMP out-
+put includes a half-normal plot of the effects and a “Pareto” chart of the effect (contrast) mag-
+nitudes. When the factors are entered into the model, the Lenth procedure would recommend
+including the same factors in the model that we identied previously.
+The nal JMP output for the tted model is shown in Table 6.15. The Prediction Proﬁler
+at the bottom of the table has been set to the levels of the factors than maximize ltration rate.
+These are the same settings that we determined earlier by looking at the contour plots.
+In general, the Lenth method is a clever and very useful procedure. However, we rec-
+ommend using it as a supplement to the usual normal probability plot of effects, not as a
+replacement for it.
+Bisgaard (1998–1999) has provided a nice graphical technique, called a conditional
+inference chart, to assist in interpreting the normal probability plot. The purpose of the graph
+is to help the experimenter in judging signicant effects. This would be relatively easy if the
+standard deviation were known, or if it could be estimated from the data. In unreplicated
+designs, there is no internal estimate of , so the conditional inference chart is designed to
+help the experimenter evaluate effect magnitude for a range of standard deviation values.
+Bisgaard bases the graph on the result that the standard error of an effect in a two-level design
+with N runs (for an unreplicated factorial, N  2k) is
+where is the standard deviation of an individual observation. Then 2 times the standard
+error of an effect is
+Once the effects are estimated, plot a graph as shown in Figure 6.16, with the effect estimates plot-
+ted along the vertical or y-axis. In this gure, we have used the effect estimates from Example 6.2.
+The horizontal, or x-axis, of Figure 6.16 is a standard deviation () scale. The two lines are at
+y 4
+N
+ 
+ and 
+ y 4
+N
+4
+N
+2
+N

@@ -1,0 +1,60 @@
+322
+Chapter 8 ■Two-Level Fractional Factorial Designs
+fraction. Usually we will refer to a generator such as ABC as a word. Furthermore, the iden-
+tity column I is also always plus, so we call
+the deﬁning relation for our design. In general, the dening relation for a fractional factorial
+will always be the set of all columns that are equal to the identity column I.
+The treatment combinations in the 231 design yield three degrees of freedom that we
+may use to estimate the main effects. Referring to Table 8.1, we note that the linear combina-
+tions of the observations used to estimate the main effects of A, B, and C are
+Where the notation [A], [B], and [C] is used to indicate the linear combinations associated
+with the main effects. It is also easy to verify that the linear combinations of the observations
+used to estimate the two-factor interactions are
+Thus, [A] [BC], [B] [AC], and [C] [AB]; consequently, it is impossible to differentiate
+between A and BC, B and AC, and C and AB. In fact, when we estimate A, B, and C we are really
+estimating A BC, B AC, and C AB. Two or more effects that have this property are called
+aliases. In our example, A and BC are aliases, B and AC are aliases, and C and AB are aliases.
+We indicate this by the notation [A] : A BC, [B] : B AC, and [C] : C AB.
+The alias structure for this design may be easily determined by using the dening rela-
+tion I ABC. Multiplying any column (or effect) by the dening relation yields the aliases
+for that column (or effect). In our example, this yields as the alias of A
+or, because the square of any column is just the identity I,
+Similarly, we nd the aliases of B and C as
+B AB2C AC
+B ! I B ! ABC
+A BC
+A ! I A ! ABC A2BC
+ [AB] 
+1
+2 (a b c abc)
+ [AC] 
+1
+2 (a b c abc)
+ [BC] 
+1
+2 (a b c abc)
+ [C] 
+1
+2 (a b c abc)
+ [B] 
+1
+2 (a b c abc)
+ [A] 
+1
+2 (a b c abc)
+I ABC
+(a) The principal fraction, I = +ABC
+(1)
+(b) The alternate fraction, I = –ABC
+abc
+c
+b
+a
+B
+C
+A
+ab
+bc
+ac
+■F I G U R E 8 . 1
+The two one-half fractions of the 23 design
