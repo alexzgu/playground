@@ -1,0 +1,48 @@
+174
+6. THE HAUNTED DAG & THE CAUSAL TERROR
+even when coded completely correctly. Nature does not owe us easy inference, even when
+the model is correct.
+In general, there’s no guarantee that the available data contain much information about
+a parameter of interest. When that’s true, your Bayesian machine will return a posterior
+distribution very similar to the prior. Comparing the posterior to the prior can therefore
+be a good idea, a way of seeing how much information the model extracted from the data.
+When the posterior and prior are similar, it doesn’t mean the calculations are wrong—you
+got the right answer to the question you asked. But it might lead you to ask a better question.
+Rethinking: Identification guaranteed; comprehension up to you. Technically speaking, identifia-
+bility is not a concern for Bayesian models. The reason is that as long as the posterior distribution is
+proper—which just means that it integrates to 1—then all of the parameters are identified. But this
+technical fact doesn’t also mean that you can make sense of the posterior distribution. So it’s probably
+better to speak of weakly identified parameters in a Bayesian context. There will be several examples
+as the book progresses.
+Overthinking: Simulating collinearity. The code to produce Figure ?? involves writing a function
+that generates correlated predictors, fits a model, and returns the standard deviation of the posterior
+distribution for the slope relating perc.fat to kcal.per.g. Then the code repeatedly calls this
+function, with different degrees of correlation as input, and collects the results.
+R code
+6.12
+library(rethinking)
+data(milk)
+d <- milk
+sim.coll <- function( r=0.9 ) {
+d$x <- rnorm( nrow(d) , mean=r*d$perc.fat ,
+sd=sqrt( (1-r^2)*var(d$perc.fat) ) )
+m <- lm( kcal.per.g ~ perc.fat + x , data=d )
+sqrt( diag( vcov(m) ) )[2] # stddev of parameter
+}
+rep.sim.coll <- function( r=0.9 , n=100 ) {
+stddev <- replicate( n , sim.coll(r) )
+mean(stddev)
+}
+r.seq <- seq(from=0,to=0.99,by=0.01)
+stddev <- sapply( r.seq , function(z) rep.sim.coll(r=z,n=100) )
+plot( stddev ~ r.seq , type="l" , col=rangi2, lwd=2 , xlab="correlation" )
+So for each correlation value in r.seq, the code generates 100 regressions and returns the average
+standard deviation from them. This code uses implicit flat priors, which are bad priors. So it does
+exaggerate the effect of collinear variables. When you use informative priors, the inflation in standard
+deviation can be much slower.
+6.2. Post-treatment bias
+It is routine to worry about mistaken inferences that arise from omitting predictor vari-
+ables. Such mistakes are often called omitted variable bias, and the examples from the
+previous chapter illustrate it. It is much less routine to worry about mistaken inferences aris-
+ing from including variables that are consequences of other variables. We’ll call this post-
+treatment bias.87 Being aware of post-treatment bias is important in all types of studies.

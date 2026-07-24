@@ -1,0 +1,47 @@
+374
+11. GOD SPIKED THE INTEGERS
+Distances are similarly positive real values, and both kinds of measurements are displace-
+ments and can be modeled in very similar ways. The simplest distribution for displacements
+is the exponential distribution, which is the maximum entropy distribution when all
+we know about the values is their average displacement. So if our goal is just to estimate the
+average rate of events, it’s the most conservative choice. The gamma distribution is also
+commonly used. Gamma is maximum entropy for fixed mean value and fixed mean mag-
+nitude (logarithm). See the Overthinking box further down for some generative models of
+these distributions. There are lots of other options, as well, all of which allow for the rate of
+events to vary with time. We’ll start with the exponential, to keep things easy.
+One reason to keep the outcome distribution simple is that the tricky bit with survival
+models is not the probability distribution we assign to the durations. Instead the tricky bit
+is dealing with censoring. Censoring occurs when the event of interest does not occur in
+the window of observation. This can happen most simply because observation ends before
+the event occurred. For example, there are cats still waiting in the animal shelter. Many of
+them will eventually be adopted. Another way censoring occurs is when some other event
+happens that makes the event of interest impossible. For example, a cat could die of old age
+while waiting to be adopted.
+We can’t just toss out the censored individuals. Imagine a cohort of 100 cats who start
+waiting for adoption at the same time. After one month, half of them have been adopted.
+Now what is the rate of adoption? You can’t compute it using only the cats who have been
+adopted. You need to also account for the cats who haven’t yet been adopted. The cats who
+haven’t been adopted yet, but eventually will be adopted, clearly have longer waiting times
+than the cats who have already been adopted. So the average rate among those who are
+already adopted is biased upwards—it is confounded by conditioning on adoption.
+It isn’t hard to include censored observations, but it does require a new type of model that
+we haven’t seen yet in this book. The key idea is that the same distribution assumption for the
+outcomes tells us both the probability of any observed duration that end in the event as well
+as the probability that we would wait the observed duration without seeing the event. This
+is an admittedly odd kind of creature. It might help to start out with a generative model—a
+simulation—and try to build intuition for the statistical model. Then we’ll analyze an actual
+sample of cat adoptions.
+Overthinking: Generative models for exponential and gamma distributions. Like all maximum
+entropy distributions, the exponential and gamma distributions arise from a class of generative pro-
+cesses that preserve only some of the information about the underlying mechanics. You can simulate
+an exponential by imagining a machine with N parts. Each of these parts has an equal chance of
+breaking on any given day. If any part breaks, the whole machine stops working. What is the proba-
+bility that the machine stops working after x days? Let’s compare a machine with 2 parts to a machine
+with 5 parts:
+R code
+11.64
+x2 <- replicate( 1e5 , min(runif( 2 , 1 , 100 )) )
+x5 <- replicate( 1e5 , min(runif( 5 , 1 , 100 )) )
+If you plot the densities of the x2 and x5 values, you’ll see the black and blue densities in the left plot
+below. As the number of parts increases, the density converges to an exponential. You don’t need
+very many. By N = 5, the blue density below, it is almost exactly exponential.

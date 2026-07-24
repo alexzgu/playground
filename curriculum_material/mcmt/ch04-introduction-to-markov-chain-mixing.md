@@ -147,9 +147,7 @@ $$\|\mu - \nu\|_{\mathrm{TV}} \leq \inf \left\{ \mathbf{P}\{X \neq Y\} \, : \, (
 
 ### PDF page 67 (book page 51)
 
-*[Figure: a histogram-style plot showing two overlapping step-function distributions $\mu$ and $\nu$. The region where $\mu$ exceeds $\nu$ is labeled **I** (left), the region where $\nu$ exceeds $\mu$ is labeled **II** (right), and the overlap region beneath both is labeled **III** (bottom center). $\mu$ is labeled on the left, $\nu$ on the right.]*
-
-FIGURE 4.2. Since each of regions I and II has area $\|\mu - \nu\|_{\mathrm{TV}}$ and $\mu$ and $\nu$ are probability measures, region III has area $1 - \|\mu - \nu\|_{\mathrm{TV}}$.
+**FIGURE 4.2.** Since each of regions I and II has area $\|\mu - \nu\|_{\mathrm{TV}}$ and $\mu$ and $\nu$ are probability measures, region III has area $1 - \|\mu - \nu\|_{\mathrm{TV}}$. *[Figure: a histogram-style plot showing two overlapping step-function distributions $\mu$ and $\nu$. The region where $\mu$ exceeds $\nu$ is labeled **I** (left), the region where $\nu$ exceeds $\mu$ is labeled **II** (right), and the overlap region beneath both is labeled **III** (bottom center). $\mu$ is labeled on the left, $\nu$ on the right.]*
 
 It will suffice to construct a coupling for which $\mathbf{P}\{X \neq Y\}$ is exactly equal to $\|\mu - \nu\|_{\mathrm{TV}}$. We will do so by forcing $X$ and $Y$ to be equal as often as they possibly can be. Consider Figure 4.2. Region III, bounded by $\mu(x) \wedge \nu(x) = \min\{\mu(x), \nu(x)\}$, can be seen as the overlap between the two distributions. Informally, our coupling proceeds by choosing a point in the union of regions I and III, and setting $X$ to be the $x$-coordinate of this point. If the point is in III, we set $Y = X$ and if it is in I, then we choose independently a point at random from region II, and set $Y$ to be the $x$-coordinate of the newly selected point. In the second scenario, $X \neq Y$, since the two regions are disjoint.
 

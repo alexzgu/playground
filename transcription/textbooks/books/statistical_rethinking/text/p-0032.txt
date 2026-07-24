@@ -1,0 +1,46 @@
+16
+1. THE GOLEM OF PRAGUE
+In practice, many researchers simply trust their black-box software and interpret multilevel
+regression exactly like single-level regression. In time, this will change. There was a time
+in applied statistics when even ordinary multiple regression was considered cutting edge,
+something for only experts to fiddle with. Instead, scientists used many simple procedures,
+like t-tests. Now, almost everyone uses multivariate tools. The same will eventually be true
+of multilevel models. Scholarly culture and curriculum still have some catching up to do.
+Rethinking: Multilevel election forecasting. One of the older applications of multilevel modeling is
+to forecast the outcomes of democratic elections. In the early 1960s, John Tukey (1915–2000) began
+working for the National Broadcasting Company (NBC) in the United States, developing real-time
+election prediction models that could exploit diverse types of data: polls, past elections, partial results,
+and complete results from related districts. The models used a multilevel framework similar to the
+models presented in Chapters 13 and 14. Tukey developed and used such models for NBC through
+1978.32 Contemporary election prediction and poll aggregation remains an active topic for multilevel
+modeling.33
+1.3.4. Graphical causal models. When the wind blows, branches sway. If you are human,
+you immediately interpret this statement as causal: The wind makes the branches move. But
+all we see is a statistical association. From the data alone, it could also be that the branches
+swaying makes the wind. That conclusion seems foolish, because you know trees do not
+sway their own branches. A statistical model is an amazing association engine. It makes
+it possible to detect associations between causes and their effects. But a statistical model
+is never sufficient for inferring cause, because the statistical model makes no distinction
+between the wind causing the branches to sway and the branches causing the wind to blow.
+Facts outside the data are needed to decide which explanation is correct.
+Cross-validation and information criteria try to guess predictive accuracy. When I in-
+troduced them above, I described overfitting as the primary paradox in prediction. Now we
+turn to a secondary paradox in prediction: Models that are causally incorrect can make better
+predictions than those that are causally correct. As a result, focusing on prediction can system-
+atically mislead us. And while you may have heard that randomized controlled experiments
+allow causal inference, these risks entail in randomized experiments as well. No one is safe.
+I will call this the identification problem and carefully distinguish it from the prob-
+lem of raw prediction. Consider two different meanings of “prediction.” The simplest applies
+when we are external observers simply trying to guess what will happen next. In that case,
+tools like cross validation are very useful. But these tools will happily recommend models
+that contain confounding variables and suggest incorrect causal relationships. Why? Con-
+founded relationships are real associations, and they can improve prediction. After all, if
+you look outside and see branches swaying, it really does predict wind. Successful predic-
+tion does not require correct causal identification. In fact, as you’ll see later in the book,
+predictions may actually improve when we use a model that is casually misleading.
+But what happens when we intervene in the world? Now everything changes. Now we
+must consider a second meaning of “prediction”: What will happen when we intervene in the
+world. Suppose we recruit many people to climb into the trees and sway the branches. Will it
+make wind? Not much. Often the point of statistical modeling is to produce understanding
+that leads to generalization and application. In that case, we need more than just good predic-
+tions, in the absence of intervention. We also need an accurate causal understanding. But

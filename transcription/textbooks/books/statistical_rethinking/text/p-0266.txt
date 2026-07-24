@@ -1,0 +1,70 @@
+250
+8. CONDITIONAL MANATEES
+with index variables, because it is easier to read than adding a second level of subscript, αcidi.
+We can build this index ourselves:
+R code
+8.7
+# make variable to index Africa (1) or not (2)
+dd$cid <- ifelse( dd$cont_africa==1 , 1 , 2 )
+Using this approach, instead of the conventional approach of adding another term with the
+0/1 indicator variable, doesn’t force us to say that the mean for Africa is inherently less certain
+than the mean for all other continents. We can just reuse the same prior as before. After all,
+whatever Africa’s average log GDP, it is surely within plus-or-minus 0.2 of 1. But keep in
+mind that this is structurally the same model you’d get in the conventional approach. It is
+just much easier this way to assign sensible priors.
+To define the model in quap, we need to add brackets in the linear model and the prior:
+R code
+8.8
+m8.2 <- quap(
+alist(
+log_gdp_std ~ dnorm( mu , sigma ) ,
+mu <- a[cid] + b*( rugged_std - 0.215 ) ,
+a[cid] ~ dnorm( 1 , 0.1 ) ,
+b ~ dnorm( 0 , 0.3 ) ,
+sigma ~ dexp( 1 )
+) , data=dd )
+Now to compare these models, using WAIC:
+R code
+8.9
+compare( m8.1 , m8.2 )
+WAIC pWAIC dWAIC weight
+SE
+dSE
+m8.2 -252.3
+4.3
+0.0
+1 15.3
+NA
+m8.1 -188.7
+2.7
+63.5
+0 13.3 15.15
+m8.2 gets all the model weight. And while the standard error of the difference in WAIC is 15,
+the difference itself is 64. So the continent variable seems to be picking up some important
+association in the sample. The precis output gives a good hint. Note that we need to use
+depth=2 to display the vector parameter a. With only two parameters in a, it wouldn’t be
+bad to display it by default. But often a vector like this has hundreds of values, and you don’t
+want to see each one in a table.
+R code
+8.10
+precis( m8.2 , depth=2 )
+mean
+sd
+5.5% 94.5%
+a[1]
+0.88 0.02
+0.85
+0.91
+a[2]
+1.05 0.01
+1.03
+1.07
+b
+-0.05 0.05 -0.12
+0.03
+sigma
+0.11 0.01
+0.10
+0.12
+The parameter a[1] is the intercept for African nations. It seems reliably lower than a[2].
+The posterior contrast between the two intercepts is:

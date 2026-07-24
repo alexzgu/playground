@@ -1,0 +1,45 @@
+362
+11. GOD SPIKED THE INTEGERS
+P_seq <- seq( from=-5 , to=3 , length.out=ns )
+# 1.53 is sd of log(population)
+# 9 is mean of log(population)
+pop_seq <- exp( P_seq*1.53 + 9 )
+lambda <- link( m11.10 , data=data.frame( P=P_seq , cid=1 ) )
+lmu <- apply( lambda , 2 , mean )
+lci <- apply( lambda , 2 , PI )
+lines( pop_seq , lmu , lty=2 , lwd=1.5 )
+shade( lci , pop_seq , xpd=TRUE )
+lambda <- link( m11.10 , data=data.frame( P=P_seq , cid=2 ) )
+lmu <- apply( lambda , 2 , mean )
+lci <- apply( lambda , 2 , PI )
+lines( pop_seq , lmu , lty=1 , lwd=1.5 )
+shade( lci , pop_seq , xpd=TRUE )
+Hawaii (k = 1.01), Tonga (k = 0.69), Tap (k = 0.6), and the Trobriand Islands (k = 0.56)
+are highly influential points. Most are not too influential, but Hawaii is very influential.
+You can see why in the figure: It has extreme population size and the most tools. This is
+most obvious on the natural scale. This doesn’t mean Hawaii is some “outlier” that should
+be dropped from the data. But it does mean that strongly Hawaii influences the posterior
+distribution. In the problems at the end of the chapter, I’ll ask you do drop Hawaii and see
+what changes. For now, let’s do something much more interesting.
+Look at the posterior predictions in Figure 11.9. Notice that the trend for societies with
+high contact (solid) is higher than the trend for societies with low contact (dashed) with
+population size is low, but then the model allows it to actually be smaller. The means cross
+one another at high population sizes. Of course the model is actually saying it has no idea
+where the trend for high contact societies goes at high population sizes, because there are no
+high population size societies with high contact. There is only low-contact Hawaii. But it is
+still a silly pattern that we know shouldn’t happen. A counter-factual Hawaii with the same
+population size but high contact should theoretically have at least as many tools as the real
+Hawaii. It shouldn’t have fewer.
+The model can produce this silly pattern, because it lets the intercept be a free parameter.
+Why is this bad? Because it means there is no guarantee that the trend for λ will pass through
+the origin where total tools equals zero and the population size equals zero. When there are
+zero people, there are also zero tools! As population increases, tools increase. So we get the
+intercept for free, if we stop and think.
+Let’s stop and think. Instead of the conventional GLM above, we could use the predic-
+tions of an actual model of the relationship between population size and tool kit complexity.
+By “actual model,” I mean a model constructed specifically from scientific knowledge and hy-
+pothetical causal effects. The downside of this is that it will feel less like statistics—suddenly
+domain-specific skills are relevant. The upside is that it will feel more like science.
+What we want is a dynamic model of the cultural evolution of tools. Tools aren’t created
+all at once. Instead they develop over time. Innovation processes at them to a population.
+Processes of loss remove them. These forces balance to produce tool kits of different sizes.

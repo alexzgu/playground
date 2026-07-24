@@ -1,0 +1,53 @@
+12.3. ORDERED CATEGORICAL OUTCOMES
+401
+as a predictor variable changes value, the entire vector changes. This kind of thing can be
+visualized in several different ways.
+One common and useful way is to use the horizontal axis for a predictor variable and the
+vertical axis for cumulative probability. Then you can plot a curve for each response value,
+as it changes across values of the predictor variable. After plotting a curve for each response
+value, you’ll end up mapping the distribution of responses, as it changes across values of the
+predictor variable.
+So let’s do that. First, let’s make an empty plot:
+R code
+12.26
+plot( NULL , type="n" , xlab="intention" , ylab="probability" ,
+xlim=c(0,1) , ylim=c(0,1) , xaxp=c(0,1,1) , yaxp=c(0,1,2) )
+Now we’ll set up a data list that contains the different combinations of predictor values. Then
+we pass it to link to get phi samples for each combination: Now loop over the first 100
+samples in post and plot their predictions, across values of intention:
+R code
+12.27
+kA <- 0
+# value for action
+kC <- 0
+# value for contact
+kI <- 0:1
+# values of intention to calculate over
+pdat <- data.frame(A=kA,C=kC,I=kI)
+phi <- link( m12.5 , data=pdat )$phi
+Finally loopover the first 50 samples in and plot their predictions, acrossvaluesof intention.
+The trick here is to use pordlogit to compute the cumulative probability for each possible
+outcome value, from 1 to 7, using the samples in phi and the cutpoints.
+R code
+12.28
+post <- extract.samples( m12.5 )
+for ( s in 1:50 ) {
+pk <- pordlogit( 1:6 , phi[s,] , post$cutpoints[s,] )
+for ( i in 1:6 ) lines( kI , pk[,i] , col=grau(0.1) )
+}
+By modifying the above code to change the values in kA and kC, you can make a triptych
+(page 257) for model m12.5. The results are shown in the top row of Figure 12.6, with a
+little extra decoration, to show the raw data as points on the margins. In each plot, the black
+lines indicate the boundaries between response values, numbered 1 through 7, bottom to
+top. The thickness of the lines corresponds to the variation in predictions due to variation
+in samples from the posterior. Since there is so much data in this example, the path of the
+predicted boundaries is quite certain. The horizontal axis represents values of intention,
+either zero or one. The change in height of each boundary going from left to right in each
+plot indicates the predicted impact of changing a story from non-intention to intention. Fi-
+nally, each plot sets the other two predictor variables, action and contact, to either zero
+or one. In the upper-left, both are set to zero. This plot shows the predicted effect of taking a
+story with no-action, no-contact, and no-intention and adding intention to it. In the upper-
+right, action is now set to one. This plot shows the predicted impact of taking a story with
+action and no-intention (action and contact never go together in this experiment, recall) and
+adding intention. This upper-right plot demonstrates the interaction between action and
+intention. Finally, in the lower-left, contact is set to one. This plot shows the predicted

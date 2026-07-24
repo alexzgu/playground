@@ -1,0 +1,40 @@
+12.6. PRACTICE
+409
+This model seems to think that education is much more weakly associated with rating. This
+is possibly because the effect isn’t actually linear. Different levels have different incremental
+associations.
+This example has been fine for teaching how to build ordered predictors. But from a
+causal perspective, a lurking concern must be whether the association with education is
+spurious. Education is highly correlated with age, because age causes (for lack of a better
+word) the completion of levels of education. So there is plausibly a backdoor from educa-
+tion through age to rating. In the problems at the end of the chapter, I’ll ask you to draw the
+DAG that this implies and investigate it with some new modeling.
+12.5. Summary
+This chapter introduced several new types of regression, all of which are generalizations
+of generalized linear models (GLMs). Ordered logistic models are useful for categorical
+outcomes with a strict ordering. They are built by attaching a cumulative link function to
+a categorical outcome distribution. Zero-inflated models mix together two different out-
+come distributions, allowing us to model outcomes with an excess of zeros. Models for over-
+dispersion, such as beta-binomial and gamma-Poisson, draw the expected value of each ob-
+servation from a distribution that changes shape as a function of a linear model. The next
+chapter further generalizes these model types by introducing multilevel models.
+12.6. Practice
+Easy.
+12E1. What is the difference between an ordered categorical variable and an unordered one? Define
+and then give an example of each.
+12E2. What kind of link function does an ordered logistic regression employ? How does it differ
+from an ordinary logit link?
+12E3. When count data are zero-inflated, using a model that ignores zero-inflation will tend to in-
+duce which kind of inferential error?
+12E4. Over-dispersion is common in count data. Give an example of a natural process that might
+produce over-dispersed counts. Can you also give an example of a process that might produce under-
+dispersed counts?
+Medium.
+12M1. At a certain university, employees are annually rated from 1 to 4 on their productivity, with
+1 being least productive and 4 most productive. In a certain department at this certain university
+in a certain year, the numbers of employees receiving each rating were (from 1 to 4): 12, 36, 7, 41.
+Compute the log cumulative odds of each rating.
+12M2. Make a version of Figure 12.5 for the employee ratings data given just above.
+12M3. Can you modify the derivation of the zero-inflated Poisson distribution (ZIPoisson) from
+the chapter to construct a zero-inflated binomial distribution?
+Hard.

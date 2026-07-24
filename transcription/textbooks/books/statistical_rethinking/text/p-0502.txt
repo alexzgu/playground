@@ -1,0 +1,88 @@
+486
+14. ADVENTURES IN COVARIANCE
+k[4]
+0.34 0.26 -0.04
+0.74
+593 1.01
+k[5]
+0.07 0.25 -0.32
+0.46
+590 1.01
+k[6]
+-0.39 0.27 -0.84
+0.00
+789 1.00
+k[7]
+0.13 0.25 -0.26
+0.53
+606 1.01
+k[8]
+-0.22 0.26 -0.64
+0.16
+726 1.01
+k[9]
+0.26 0.25 -0.11
+0.64
+668 1.01
+k[10] -0.18 0.35 -0.75
+0.35
+868 1.01
+g
+0.60 0.56
+0.08
+1.68
+1536 1.00
+b
+0.28 0.08
+0.15
+0.41
+1107 1.00
+a
+1.41 1.08
+0.24
+3.39
+1811 1.00
+etasq
+0.20 0.20
+0.03
+0.56
+863 1.00
+rhosq
+1.31 1.60
+0.08
+4.41
+1931 1.00
+First, note that the coefficient for log population, bp, is very much as it was before we added
+all this Gaussian process stuff. This suggests that it’s hard to explain all of the association
+between tool counts and population as a side effect of geographic contact. Second, those g
+parameters are the Gaussian process varying intercepts for each society. Like a and bp, they
+are on the log-count scale, so they are hard to interpret raw.
+In order to understand the parameters that describe the covariance with distance, rhosq
+and etasq, we’ll want to plot the function they imply. Actually the joint posterior distribu-
+tion of these two parameters defines a posterior distribution of covariance functions. We can
+get a sense of this distribution of functions—I know, this is rather meta—by plotting a bunch
+of them. Here we’ll sample 100 from the posterior and display them along with the posterior
+median. Why use the median? Because the densities for rhosq and etasq are skewed. You
+can detect this in the precis output above: the mean for rhosq isn’t even inside the 89%
+HPDI. So the median is a better measure of the center of mass than the mean. But as always,
+it is the entire distribution that matters. No single point within it is special.
+R code
+14.41
+post <- extract.samples(m14.8)
+# plot the posterior median covariance function
+plot( NULL , xlab="distance (thousand km)" , ylab="covariance" ,
+xlim=c(0,10) , ylim=c(0,2) )
+# compute posterior mean covariance
+x_seq <- seq( from=0 , to=10 , length.out=100 )
+pmcov <- sapply( x_seq , function(x) post$etasq*exp(-post$rhosq*x^2) )
+pmcov_mu <- apply( pmcov , 2 , mean )
+lines( x_seq , pmcov_mu , lwd=2 )
+# plot 60 functions sampled from posterior
+for ( i in 1:50 )
+curve( post$etasq[i]*exp(-post$rhosq[i]*x^2) , add=TRUE ,
+col=col.alpha("black",0.3) )
+Figure 14.11 shows the result. Each combination of values for ρ2 and η2 produces a relation-
+ship between covariance and distance. The posterior median function, shown by the thick
+curve, represents a center of plausibility. But the other curves show that there’s a lot of un-
+certainty about the spatial covariance. Curves that peak at twice the posterior median peak,
+around 0.2, are commonplace. And curves that peak at half the median are very common,

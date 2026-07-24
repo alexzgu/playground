@@ -1,0 +1,38 @@
+10 Big Entropy and the Generalized Linear Model
+Most readers of this book will share the experience of fighting with tangled electrical
+cords. Whether behind a desk or stuffed in a box, cords and cables tend toward tying them-
+selves in knots. Why is this? There is of course real physics at work. But at a descriptive level,
+the reason is entropy: There are vastly more ways for cords to end up in a knot than for them
+to remain untied.153 So if I were to carefully lay a dozen cords in a box and then seal the box
+and shake it, we should bet that at least some of the cords will be tangled together when I
+again open the box. We don’t need to know anything about the physics of cords or knots.
+We just have to bet on entropy. Events that can happen vastly more ways are more likely.
+Exploiting entropy is not going to untie your cords. But it will help you solve some prob-
+lems in choosing distributions. Statistical models force many choices upon us. Some of these
+choices are distributions that represent uncertainty. We must choose, for each parameter,
+a prior distribution. And we must choose a likelihood function, which serves as a distribu-
+tion of data. There are conventional choices, such as wide Gaussian priors and the Gaussian
+likelihood of linear regression. These conventional choices work unreasonably well in many
+circumstances. But very often the conventional choices are not the best choices. Inference
+can be more powerful when we use all of the information, and doing so usually requires
+going beyond convention.
+To go beyond convention, it helps to have some principles to guide choice. When an
+engineer wants to make an unconventional bridge, engineering principles help guide choice.
+When a researcher wants to build an unconventional model, entropy provides one useful
+principle to guide choice of probability distributions: Bet on the distribution with the biggest
+entropy. Why? There are three sorts of justifications.
+First, the distribution with the biggest entropy is the widest and least informative distri-
+bution. Choosing the distribution with the largest entropy means spreading probability as
+evenly as possible, while still remaining consistent with anything we think we know about
+a process. In the context of choosing a prior, it means choosing the least informative distri-
+bution consistent with any partial scientific knowledge we have about a parameter. In the
+context of choosing a likelihood, it means selecting the distribution we’d get by counting up
+all the ways outcomes could arise, consistent with the constraints on the outcome variable.
+In both cases, the resulting distribution embodies the least information while remaining true
+to the information we’ve provided.
+Second, nature tends to produce empirical distributions that have high entropy. Back in
+Chapter 4, I introduced the Gaussian distribution by demonstrating how any process that
+repeatedly adds together fluctuations will tend towards an empirical distribution with the
+distinctive Gaussian shape. That shape is the one that contains no information about the
+underlying process except its location and variance. As a result, it has maximum entropy.
+307

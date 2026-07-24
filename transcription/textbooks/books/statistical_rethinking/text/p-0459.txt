@@ -1,0 +1,47 @@
+13.5. MULTILEVEL POSTERIOR PREDICTIONS
+443
+axis( 1 , at=1:4 , labels=c("R/N","L/N","R/P","L/P") )
+lines( 1:4 , p_mu )
+shade( p_ci , 1:4 )
+The result is displayed in Figure 13.7, on the left. The gray region shows the 89% compati-
+bility interval for an actor with an average intercept. This kind of calculation makes it easy
+to see the impact of prosoc_left, as well as uncertainty about where the average is, but it
+doesn’t show the variation among actors.
+To show the variation among actors, we’ll need to use sigma_a in the calculation. First
+we simply use rnorm to sample some random chimpanzees, using mean a_bar and standard
+deviation sigma_a. Then we write a link function that references those simulated chim-
+panzees, not the ones in the posterior. It’s important to do the chimpanzee sampling outside
+the link function, because we want to reference the same simulate chimpanzee, whichever
+treatment we consider. This is the code:
+R code
+13.38
+a_sim <- with( post , rnorm( length(post$a_bar) , a_bar , sigma_a ) )
+p_link_asim <- function( treatment ) {
+logodds <- with( post , a_sim + b[,treatment] )
+return( inv_logit(logodds) )
+}
+p_raw_asim <- sapply( 1:4 , function(i) p_link_asim( i ) )
+Summarizing and plotting is exactly as before, and the result is displayed in the middle of
+Figure 13.7. These posterior predictions are marginal of actor, which means that they av-
+erage over the uncertainty among actors. In contrast, the predictions on the left just set the
+actor to the average, ignoring variation among actors.
+At this point, students usually ask, “So which one should I use?” The answer is, “It de-
+pends.” Both are useful, depending upon the question. The predictions for an average actor
+help to visualize the impact of treatment. The predictions that are marginal of actor illus-
+trate how variable different chimpanzees are, according to the model. You probably want to
+compute both for yourself, when trying to understand a model. But which you include in a
+report will depend upon context.
+In this case, we can do better by making a plot that displays both the treatment effect and
+the variation among actors. We can do this by forgetting about intervals and instead simu-
+lating a series of new actors in each of the four treatments. By drawing a line for each actor
+across all four treatments, we’ll be able to visualize both the zig-zag impact of prosoc_left
+as well as the variation among individuals.
+We don’t really need new code here. We just need to use the rows in p_raw_asim from
+above. Each row contains a single trend, a single simulated chimpanzee. So instead of sum-
+marizing with mean and PI, we can just loop over rows and plot:
+R code
+13.39
+plot( NULL , xlab="treatment" , ylab="proportion pulled left" ,
+ylim=c(0,1) , xaxt="n" , xlim=c(1,4) )
+axis( 1 , at=1:4 , labels=c("R/N","L/N","R/P","L/P") )
+for ( i in 1:100 ) lines( 1:4 , p_raw_asim[i,] , col=grau(0.25) , lwd=2 )

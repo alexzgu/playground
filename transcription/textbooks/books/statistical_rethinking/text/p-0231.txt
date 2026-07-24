@@ -1,0 +1,53 @@
+7.2. ENTROPY AND ACCURACY
+215
+so easy. The reason is that taking doing arithmetic in a computer often requires some tricks to retain
+precision. In doing probability calculations, it is usually safest to do everything on the log-probability
+scale. Here’s the code we need, to repeat the calculation in the previous section:
+R code
+7.14
+set.seed(1)
+logprob <- sim( m7.1 , ll=TRUE , n=1e4 )
+n <- ncol(logprob)
+ns <- nrow(logprob)
+f <- function( i ) log_sum_exp( logprob[,i] ) - log(ns)
+( lppd <- sapply( 1:n , f ) )
+You should see the same values as before. The code first calculates the log-probability of each obser-
+vation, using sim. You used sim in Chapter 4 to simulate observations from the posterior. It can also
+just return the log-probability, using ll=TRUE. It returns a matrix with a row for each sample and a
+column for each observation. Then the function f does the hard work. log_sum_exp computes the
+log of the sum of exponentiated values. So it takes all the log-probabilities for a given observation,
+exponentiates each, sums them, then takes the log. But it does this in a way that is numerically stable.
+Then the function subtracts the log of the number of samples, which is the same as dividing the sum
+by the number of samples.
+7.2.5. Scoring the right data. The log-probability score is a principled way to measure dis-
+tance from the target. But the score as computed in the previous section has the same flaw
+as R2: It always improves as the model gets more complex, at least for the types of models we
+have considered so far. Just like R2, log-probability on training data is a measure of retrod-
+ictive accuracy, not predictive accuracy. Let’s compute the log-score for each of the models
+from earlier in this chapter:
+R code
+7.15
+set.seed(1)
+sapply( list(m7.1,m7.2,m7.3,m7.4,m7.5,m7.6) , function(m) sum(lppd(m)) )
+[1]
+2.490390
+2.565982
+3.695910
+5.380871 14.089261 39.445390
+The more complex models have larger scores! But we already know that they are absurd. We
+simply cannot score models by their performance on training data. That way lies the monster
+Scylla, devourer of naive data scientists.
+It is really the score on new data that interests us. So before looking at tools for improving
+and measuring out-of-sample score, let’s bring the problem into sharper focus by simulating
+the score both in and out of sample. When we usually have data and use it to fit a statistical
+model, the data comprise a training sample. Parameters are estimated from it, and then
+we can imagine using those estimates to predict outcomes in a new sample, called the test
+sample. R is going to do all of this for you. But here’s the full procedure, in outline:
+(1) Suppose there’s a training sample of size N.
+(2) Compute the posterior distribution of a model for the training sample, and com-
+pute the score on the training sample. Call this score Dtrain.
+(3) Suppose another sample of size N from the same process. This is the test sample.
+(4) Compute the score on the test sample, using the posterior trained on the training
+sample. Call this new score Dtest.
+The above is a thought experiment. It allows us to explore the distinction between accuracy
+measured in and out of sample, using a simple prediction scenario.

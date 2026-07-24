@@ -1,0 +1,49 @@
+15.1. MEASUREMENT ERROR
+505
+reported standard errors Divorce.SE were calculated with knowledge of the process that
+produces the errors eD. How can use this informaton in a statistical model? It’s just like a
+simulation, but in reverse. If you wanted to simulate measurement error, you would assign a
+distribution to each observation and sample from it. For example, suppose the true value of
+a measurement is 10 meters. If it is measured with Gaussian error with standard deviation
+of 2 meters, this implies a probability distribution for any realized measurement y:
+y ∼Normal(10, 2)
+As the measurement error here shrinks, all the probability piles up on 10. But when there is
+error, many measurements are more and less plausible. This is what I mean by saying that
+ordinary data are a special case of a distribution. And here is the key insight: If we don’t know
+the true value (10 in this example), then we can just put a parameter there and let Bayes do
+the rest.
+Here’s how to define the error distribution for each divorce rate. For each observed value
+Dobs,i, there will be one parameter, Dtrue,i, defined by:
+Dobs,i ∼Normal(Dtrue,i, Dse,i)
+All this does is define the measurement Dobs,i as having the specified Gaussian distribution
+centered on the unknown parameter Dtrue,i. So the above defines a probability for each
+State i’s observed divorce rate, given a known measurement error. If you simulated observed
+divorce rates from known true rates, it would look like:
+D_obs <- rnorm( N_states , D_true , D_se )
+A simulation like this goes from assumptions about the distribution to data. When we in-
+stead estimate D_true, we run it in reverse, using Bayesian updating to go from data to
+distribution. This is what we’ve been doing since the beginning.
+This is a lot to take in. But we’ll go one step at a time. Recall that the goal is to model
+divorce rate D as a linear function of age at marriage A and marriage rate M. Here’s what the
+model looks like, with the measurement errors highlighted in blue:
+Dobs,i ∼Normal(Dtrue,i, Dse,i)
+[distribution for observed values]
+Dtrue,i ∼Normal(µi, σ)
+[distribution for true values]
+µi = α + βAAi + βMMi
+[linear model to assess A →D]
+α ∼Normal(0, 0.2)
+βA ∼Normal(0, 0.5)
+βM ∼Normal(0, 0.5)
+σ ∼Exponential(1)
+This is like a linear regression, but with the addition of the top line that connects the obser-
+vation to the true value. Each Dtrue parameter also gets a second role as the mean of another
+distribution, one that predicts the observed measurement. A cool implication that will arise
+here is that information flows in both directions—the uncertainty in measurement influences
+the regression parameters in the linear model, and the regression parameters in the linear
+model also influence the uncertainty in the measurements. There will be shrinkage.
+Here is the ulam version of the model, with all the variables standardized:
+R code
+15.3
+dlist <- list(
+D_obs = standardize( d$Divorce ),

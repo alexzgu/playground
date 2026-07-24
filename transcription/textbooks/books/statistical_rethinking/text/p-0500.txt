@@ -1,0 +1,50 @@
+484
+14. ADVENTURES IN COVARIANCE
+0
+1
+2
+3
+4
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+distance
+correlation
+Figure 14.10. Shape of the function relating
+distance to the covariance Kij. The horizontal
+axis is distance. The vertical is the correlation,
+relative to maximum, between any two soci-
+eties i and j. The dashed curve is the linear dis-
+tance function. The solid curve is the squared
+distance function.
+Why square the distance? You don’t have to. This is just a model. But the squared
+distance is the most common assumption, both because it is easy to fit to data and has the
+often-realistic property of allowing covariance to decline more quickly as distance grows.
+This will be easy to appreciate, if we plot this function under the linear-decline alternative,
+exp(−ρ2Dij), and compare. We’ll use a value ρ2 = 1, just for the example.
+R code
+14.38
+# linear
+curve( exp(-1*x) , from=0 , to=4 , lty=2 ,
+xlab="distance" , ylab="correlation" )
+# squared
+curve( exp(-1*x^2) , add=TRUE )
+The result is shown in Figure 14.10. The vertical axis here is just part of the total covariance
+function. You can think of it as the proportion of the maximum correlation between two
+societies i and j. The dashed curve is the linear distance function. It produces an exact expo-
+nential shape. The solid curve is the squared distance function. It produces a half-Gaussian
+decline that is initially slower than the exponential but rapidly accelerates and then becomes
+faster than exponential.
+The last two pieces of Kij are simpler. η2 is the maximum covariance between any two
+societies i and j. The term on the end, δijσ2, provides for extra covariance beyond η2 when
+i = j. It does this because the function δij is equal to 1 when i = j but is zero otherwise. In
+the Oceanic societies data, this term will not matter, because we only have one observation
+for each society. But if we had more than one observation per society, σ here describes how
+these observations covary.
+The model computes the posterior distribution of ρ, η, and σ. But it also needs priors
+for them. We’ll define priors for the square of each, and estimate them on the same scale,
+because that’s computationally easier. We don’t need σ in this model, so we’ll instead just fix
+it at an irrelevant constant.

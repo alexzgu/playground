@@ -1,0 +1,54 @@
+8.1. BUILDING AN INTERACTION
+249
+You can extract the prior and plot the implied lines using the same code as before. The result
+is shown on the right side of Figure 8.3. Some of these slopes are still implausibly strong.
+But in the main, this is a much better set of priors.
+Let’s look at the posterior distribution now:
+R code
+8.6
+precis( m8.1 )
+mean
+sd
+5.5% 94.5%
+a
+1.00 0.01
+0.98
+1.02
+b
+0.00 0.05 -0.09
+0.09
+sigma 0.14 0.01
+0.12
+0.15
+Really no overall association between terrain ruggedness and log GDP. Next we’ll see how to
+split apart the continents.
+Rethinking: Practicing for when it matters. The exercise in Figure 8.3 is really not necessary in
+this example, because there is enough data, and the model is simple enough, that even awful priors
+get washed out. You could even use completely flat priors (don’t!), and it would all be fine. But we
+practice doing things right not because it always matters. Rather, we practice doing things right so
+that we are ready when it matters.
+8.1.2. Adding an indicator variable isn’t enough. The first thing to realize is that just in-
+cluding an indicator variable for African nations, cont_africa here, won’t reveal the re-
+versed slope. It’s worth fitting this model to prove it to yourself, though. I’m going to walk
+through this as a simple model comparison exercise, just so you begin to get some applied
+examples of concepts you’ve accumulated from earlier chapters. Note that model compari-
+son here is not about selecting a model. Scientific considerations already select the relevant
+model. Instead it is about measuring the impact of model differences while accounting for
+overfitting risk.
+To build a model that allows nations inside and outside Africa to have different inter-
+cepts, we need to modify the model for µi so that the mean is conditional on continent. The
+conventional way to do this would be to just add another term to the linear model:
+µi = α + β(ri −¯r) + γAi
+where Ai is cont_africa, a 0/1 indicator variable. But let’s not follow this convention. In
+fact, this convention is often a bad idea. It took me years to figure this out, and I’m trying to
+save you from the horrors I’ve seen. The problem here, and in general, is that we need a prior
+for γ. Okay, we can do priors. But what that prior will necessarily do is tell the model that
+µi for a nation in Africa is more uncertain, before seeing the data, than µi outside Africa.
+And that makes no sense. This is the same issue we confronted back in Chapter 4, when I
+introduced categorical variables.
+There is a simple solution: Nations in Africa will get one intercept and those outside
+Africa another. This is what µi looks like now:
+µi = αcid[i] + β(ri −¯r)
+where cid is an index variable, continent ID. It takes the value 1 for African nations and 2 for
+all other nations. This means there are two parameters, α1 and α2, one for each unique index
+value. The notation cid[i] just means the value of cid on row i. I use the bracket notation

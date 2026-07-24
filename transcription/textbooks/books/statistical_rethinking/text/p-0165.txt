@@ -1,0 +1,48 @@
+5.2. MASKED RELATIONSHIP
+149
+A popular hypothesis has it that primates with larger brains produce more energetic
+milk, so that brains can grow quickly. Answering questions of this sort consumes a lot of
+effort in evolutionary biology, because there are many subtle statistical issues that arise when
+comparing species. We’ll start simple, but by the end of the book we’ll include some more of
+these subtle issues. The variables we’ll consider for now are:
+kcal.per.g : Kilocalories of energy per gram of milk.
+mass : Average female body mass, in kilograms.
+neocortex.perc : The percent of total brain mass that is neocortex mass.
+The question here is to what extent energy content of milk, measured here by kilocalories, is
+related to the percent of the brain mass that is neocortex. Neocortex is the gray, outer part
+of the brain that is particularly elaborated in mammals and especially primates. We’ll end
+up needing female body mass as well, to see the masking that hides the relationships among
+the variables. Let’s standardize these three variables. As in previous examples, standardizing
+helps us both get a reliable approximation of the posterior as well as build reasonable priors.
+R code
+5.28
+d$K <- scale( d$kcal.per.g )
+d$N <- scale( d$neocortex.perc )
+d$M <- scale( log(d$mass) )
+The first model to consider is the simple bivariate regression between kilocalories and
+neocortex percent. You already know how to set up this regression. In mathematical form:
+Ki ∼Normal(µi, σ)
+µi = α + βNNi
+where K is standardized kilocalories and N is standardized neocortex percent. We still need
+to consider the priors. But first let’s just try to run this as a quap model with some vague
+priors, because there is another key modeling issue to address first.
+R code
+5.29
+m5.5_draft <- quap(
+alist(
+K ~ dnorm( mu , sigma ) ,
+mu <- a + bN*N ,
+a ~ dnorm( 0 , 1 ) ,
+bN ~ dnorm( 0 , 1 ) ,
+sigma ~ dexp( 1 )
+) , data=d )
+When you execute this code, you’ll get a confusing error message:
+Error in quap(alist(K ~ dnorm(mu, sigma), mu <- a + bN * N, a ~ dnorm(0,
+:
+initial value in 'vmmin' is not finite
+The start values for the parameters were invalid. This could be caused by
+missing values (NA) in the data or by start values outside the parameter
+constraints. If there are no NA values in the data, try using explicit start
+values.
+What has gone wrong here? This particular error message means that the model didn’t return
+a valid probability for even the starting parameter values. In this case, the culprit is the

@@ -1,0 +1,64 @@
+11.4. CENSORING AND SURVIVAL
+375
+0
+20
+40
+60
+80
+100
+0.00
+0.02
+0.04
+day
+Density
+2 parts
+5 parts
+Single part failure: Exponential
+0
+20
+40
+60
+80
+100
+0.00
+0.02
+0.04
+day
+Density
+2/10 parts
+5/10 parts
+Multiple part failure: Gamma
+The plot on the right above is for the gamma distribution, which arises when the machine breaks only
+after M of its parts have broken. This code will let you simulate that process:
+R code
+11.65
+N <- 10
+M <- 2
+x <- replicate( 1e5 , sort(runif(N,1,100))[M] )
+This produces the black density in the right hand plot. The blue density is when M = 5 parts need
+to break. Naturally the exponential is a just a special case of the gamma, when M = 1. Note that
+this is yet another way to get an approximate Gaussian distribution. As the gamma’s mean increases,
+it looks more Gaussian. The blue density above is already rather Gaussian. If several things need to
+happen to cause some event, then waiting times can end up looking very Gaussian.
+11.4.1. Simulated cats. x
+11.4.2. Actual cats. x
+For observed adoptions, probability of observed waiting time is simply:
+Di ∼Exponential(λi)
+In rawer form:
+p(Di|λi) = λi exp(−λiDi)
+It’s the censored cats that are tricky. If something else happened before a cat could be
+adopted, or it simply hasn’t been adopted yet, then we need the probability of not being
+adopted, conditional on the observation time so far. One way to motivate this is to image
+a cohort of 100 cats, all joining the shelter on the same day. If half have been adopted after
+30 days, then the probability of waiting 30 days and still not being adopted is 0.5. If after
+60 days, only 25 remain, then the probability of waiting 60 days and not yet being adopted
+is 0.25. Any given rate of adoption implies a proportion of the cohort of 100 cats that will
+remain after any given number of days.
+The probability we comes from the cumulative probability distribution. A cu-
+mulative distribution gives the proportion of cats adopted before or at a certain number of
+days. So one-minus the cumulative distribution gives the probability a cat is not adopted
+by the same number of days. That is the probability that we need. This distribution—one-
+minus the cumulative probability distribution—is called the complementary cumula-
+tive probability distribution. In the case of the exponential distribution, the cumula-
+tive is:
+Pr(Di|λi) = 1 −exp(−λiDi)

@@ -1,0 +1,50 @@
+364
+11. GOD SPIKED THE INTEGERS
+no clear upper bound. But the linear model is gone:
+Ti ∼Poisson(λi)
+λi = αPβ
+i /γ
+Notice that there is no link function! All we have to do to ensure that λ remains positive is to make
+sure the parameters are positive. In the code below, I’ll use exponential priors for β and γ and a log-
+Normal for α. Then they all have to be positive. In building the model, we also want to allow some or
+all of the parameters to vary by contact rate. Since contact rate is suppose to mediate the influence of
+population size, let’s allow α and β. It could also influence γ, because trade networks might prevent
+tools from vanishing over time. But we’ll leave that as an exercise for the reader. Here’s the code:
+R code
+11.49
+dat2 <- list( T=d$total_tools, P=d$population, cid=d$contact_id )
+m11.11 <- ulam(
+alist(
+T ~ dpois( lambda ),
+lambda <- exp(a[cid])*P^b[cid]/g,
+a[cid] ~ dnorm(1,1),
+b[cid] ~ dexp(1),
+g ~ dexp(1)
+), data=dat2 , chains=4 , log_lik=TRUE )
+I’ve invented the exact priors behind the scenes. Let’s not get distracted with those. I encourage you
+to play around. The lesson here is in how we build in the predictor variables. Using prior simulations
+to design the priors is the same, although easier now that the parameters mean something. Finally,
+the code to produce posterior predictions is no different than the code in the main text used to plot
+predictions for m11.10.
+11.2.2. Negativebinomial(gamma-Poisson)models. Typicallythereis a lotof unexplained
+variation in Poisson models. Presumably this additional variation arises from unobserved
+influences that vary from case to case, generating variation in the true λ’s. Ignoring this vari-
+ation, or rate heterogeneity, can cause confounds just like it can for binomial models. So a
+very common extension of Poisson GLMs is to swap the Poisson distribution for something
+called the negative binomial distribution. The is really a Poisson distribution in disguise,
+and it is also sometimes called the gamma-Poisson distribution for this reason. It is a Pois-
+son in disguise, because it is a mixture of different Poisson distributions. We’ll work with
+mixtures in the next chapter.
+11.2.3. Example: Exposure and the offset. The parameter λ is the expected value of a Pois-
+son model, but it’s also commonly thought of as a rate. Both interpretations are correct, and
+realizing this allows us to make Poisson models for which the exposure varies across cases
+i. Suppose for example that a neighboring monastery performs weekly totals of completed
+manuscripts while your monastery does daily totals. If you come into possession of both
+sets of records, how could you analyze both in the same model, given that the counts are
+aggregated over different amounts of time, different exposures?
+Here’s how. Implicitly, λ is equal to an expected number of events, µ, per unit time or
+distance, τ. This implies that λ = µ/τ, which lets us redefine the link:
+yi ∼Poisson(λi)
+log λi = log µi
+τi
+= α + βxi

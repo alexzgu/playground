@@ -1,0 +1,55 @@
+11.2. POISSON REGRESSION
+361
+-1
+0
+1
+2
+0
+20
+40
+60
+log population (std)
+total tools
+Yap (0.6)
+Trobriand (0.56)
+Tonga (0.69)
+Hawaii (1.01)
+0
+50000
+150000
+250000
+0
+20
+40
+60
+population
+total tools
+Figure 11.9. Posterior predictions for the Oceanic tools model. Filled
+points are societies with historically high contact. Open points are those
+with low contact. Point size is scaled by relative LOOIS Pareto k values.
+Larger points are more influential. The solid curve is the posterior mean
+for high contact societies. The dashed curve is the same for low contact so-
+cieties. 89% compatibility intervals are shown by the shaded regions. Left:
+Standardized log population scale, as in the model code. Right: Same pre-
+dictions on the natural population scale.
+lines( P_seq , lmu , lty=2 , lwd=1.5 )
+shade( lci , P_seq , xpd=TRUE )
+# predictions for cid=2 (high contact)
+lambda <- link( m11.10 , data=data.frame( P=P_seq , cid=2 ) )
+lmu <- apply( lambda , 2 , mean )
+lci <- apply( lambda , 2 , PI )
+lines( P_seq , lmu , lty=1 , lwd=1.5 )
+shade( lci , P_seq , xpd=TRUE )
+The result is shown in Figure 11.9. Open points are low contact societies. Filled points are
+high contact societies. The points are scaled by their Pareto k values. The dashed curve is
+the low contact posterior mean. The solid curve is the high contact posterior mean.
+This plot is joined on its right by the same predictions shown on the natural scale, with
+raw population sizes on the horizontal. The code to do that is very similar, but you need to
+convert the P_seq to the natural scale, by reversing the standardization, and then you can
+just replace P_seq with the converted sequence in the lines and shade commands.
+R code
+11.48
+plot( d$population , d$total_tools , xlab="population" , ylab="total tools" ,
+col=rangi2 , pch=ifelse( dat$cid==1 , 1 , 16 ) , lwd=2 ,
+ylim=c(0,75) , cex=1+normalize(k) )
+ns <- 100

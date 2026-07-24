@@ -1,0 +1,46 @@
+ENDNOTES
+571
+25. Binmore (2009) describes the history within economics and related fields and provides a critique that I am
+sympathetic to. [12]
+26. See Gigerenzer et al. (2004). [13]
+27. Fisher (1925), page 9. See Gelman and Robert (2013) for reflection on intemperate anti-Bayesian attitudes
+from the middle of last century. [13]
+28. See McGrayne (2011) for a non-technical history of Bayesian data analysis. See also Fienberg (2006),
+which describes (among many other things) applied use of Bayesian multilevel models in election prediction,
+beginning in the early 1960s. [13]
+29. Silver (2012) calls overfitting the most important thing in statistics that you’ve never heard of. This reflects
+overfitting’s important and how rarely it features in introductory statistics courses. Silver’s book is a well-written,
+non-technical survey of modeling and prediction in a range of domains. [13]
+30. See Theobald (2010) for a fascinating example in which multiple non-null phylogenetic models are con-
+trasted. [14]
+31. See Sankararaman et al. (2012) for a thorough explanation, including why current evidence suggests that
+there really was interbreeding. [14]
+32. See Fienberg (2006), page 24. [16]
+33. See Wang et al. (2015) for a vivid example. [16]
+34. The biologist Sewall Wright (1889-1988) began developing his “path analysis” approach to causal inference
+in genetics around the year 1918. See Wright 1921. The next largest contributions came from Donald Rubin’s
+potential-outcomes approach Rubin (1974) and Judea Pearl’s more graphic approach (Pearl, 2000). A spirited,
+opinionated, and accessible overview is given by Pearl in his 2018 book (Pearl and MacKenzie, 2018). [17]
+35. Some philosophers and statisticians have held this view. Karl Pearson, one of the most important statisticians
+of the 20th century, wrote: “Beyond such discarded fundamentals as ‘matter’ and ‘force’ lies still another fetish
+among the inscrutable arcana of modern science, namely, the category of cause and effect.” (Pearson, 1911, p. vi
+of 3rd edition) This quote is playful, but the book contains an entire chapter of “Contingency and Correlation”
+with a section titled “The Category of Association, as replacing Causation.” The general message was that
+“cause” is a primitive concept that science should grow beyond, replace with refined notions of association and
+variation. [17]
+36. The phrase “causal salad” comes from Jag Bhalla’s 2018 blog post: https://bigthink.com/errors-we-live-
+by/judea-pearls-the-book-of-why-brings-news-of-a-new-science-of-causes.
+The post reviews Pearl and
+MacKenzie (2018). [17]
+Chapter 2
+37. Morison (1942). Globe illustration modified from public domain illustration at the Wikipedia entry for Mar-
+tin Behaim. In addition to underestimating the circumference, Colombo also overestimated the size of Asia and
+the distance between mainland China and Japan. [19]
+38. This distinction and vocabulary derive from Savage (1962). Savage used the terms to express a range of mod-
+els considering less and more realism. Statistical models are rarely large worlds. [19]
+39. See Robert (2007) for thorough coverage of the decision-theoretic optimality of Bayesian inference. [19]
+40. See Simon (1969) and chapters in Gigerenzer et al. (2000). [20]
+41. See Cox (1946). Jaynes (2003) and Van Horn (2003) explain the Cox theorem and its role in inference.
+See also Skilling and Knuth (2019), which demonstrates how this view of probability theory unifies seemingly
+different domains. [24]
+42. See Gelman and Robert (2013) for examples. [24]

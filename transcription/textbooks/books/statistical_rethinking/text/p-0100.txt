@@ -1,0 +1,50 @@
+84
+4. GEOCENTRIC MODELS
+model definition, and you’ll be able to see why we must bother with them. So don’t ignore
+the i, even if it seems like useless ornamentation right now.
+Rethinking: Independent and identically distributed. The short model above is sometimes de-
+scribed as assuming that the values hi are independent and identically distributed, which may be ab-
+breviated i.i.d., iid, or IID. You might even see the same model written:
+hi
+iid∼Normal(µ, σ).
+“iid” indicates that each value hi has the same probability function, independent of the other h values
+and using the same parameters. A moment’s reflection tells us that this is hardly ever true, in a physical
+sense. Whether measuring the same distance repeatedly or studying a population of heights, it is hard
+to argue that every measurement is independent of the others. For example, heights within families
+are correlated because of alleles shared through recent shared ancestry.
+The i.i.d. assumption doesn’t have to seem awkward, however, as long as you remember that
+probability is inside the golem, not outside in the world. The i.i.d. assumption is about how the golem
+represents its uncertainty. It is an epistemological assumption. It is not a physical assumption about
+the world, an ontological one, unless you insist that it is. E. T. Jaynes (1922–1998) called this the mind
+projection fallacy, the mistake of confusing epistemological claims with ontological claims.70
+The point isn’t to say epistemology trumps reality, but rather that in ignorance of such correla-
+tions the most conservative distribution to use is i.i.d.71 This issue will return in Chapter 10. Further-
+more, there is a mathematical result known as de Finetti’s theorem that tells us that values which are
+exchangeable can be approximated by mixtures of i.i.d. distributions. Colloquially, exchangeable
+values can be reordered. The practical impact of this is that “i.i.d.” as an assumption cannot be read
+too literally, as different process models again correspond to the same statistical model (as argued in
+Chapter 1). Even furthermore, there are many types of correlation that do little or nothing to the over-
+all shape of a distribution, but only affect the precise sequence in which values appear. For example,
+pairs of sisters have highly correlated heights. But the overall distribution of female height remains
+almost perfectly normal. In such cases, i.i.d. remains perfectly useful, despite ignoring the correla-
+tions. Consider for example that Markov chain Monte Carlo (Chapter 9) can use highly correlated
+sequential samples to estimate most any iid distribution we like.
+To complete the model, we’re going to need some priors. The parameters to be estimated
+are both µ and σ, so we need a prior Pr(µ, σ), the joint prior probability for all parameters.
+In most cases, priors are specified independently for each parameter, which amounts to as-
+suming Pr(µ, σ) = Pr(µ) Pr(σ). Then we can write:
+hi ∼Normal(µ, σ)
+[likelihood]
+µ ∼Normal(178, 20)
+[µ prior]
+σ ∼Uniform(0, 50)
+[σ prior]
+The labels on the right are not part of the model, but instead just notes to help you keep track
+of the purpose of each line. The prior for µ is a broad Gaussian prior, centered on 178cm,
+with 95% of probability between 178 ± 40.
+Why 178 cm? Your author is 178 cm tall. And the range from 138 cm to 218 cm encom-
+passes a huge range of plausible mean heights for human populations. So domain-specific
+information has gone into this prior. Everyone knows something about human height and
+can set a reasonable and vague prior of this kind. But in many regression problems, as you’ll
+see later, using prior information is more subtle, because parameters don’t always have such
+clear physical meaning.

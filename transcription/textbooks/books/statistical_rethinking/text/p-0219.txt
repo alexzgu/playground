@@ -1,0 +1,50 @@
+7.1. THE PROBLEM WITH PARAMETERS
+203
+b[5]*mass_std^5 + b[6]*mass_std^6,
+a ~ dnorm( 0.5 , 1 ),
+b ~ dnorm( 0 , 10 )
+), data=d , start=list(b=rep(0,6)) )
+Now to plot each model. We’ll follow the steps from earlier chapters: extract samples
+from the posterior, compute the posterior predictive distribution at each of several locations
+on the horizontal axis, summarize, and plot. For m7.1:
+R code
+7.10
+post <- extract.samples(m7.1)
+mass_seq <- seq( from=min(d$mass_std) , to=max(d$mass_std) , length.out=100 )
+l <- link( m7.1 , data=list( mass_std=mass_seq ) )
+mu <- apply( l , 2 , mean )
+ci <- apply( l , 2 , PI )
+plot( brain_std ~ mass_std , data=d )
+lines( mass_seq , mu )
+shade( ci , mass_seq )
+I show this plot and all the others, with some cosmetic improvements (see brain_plot for
+the code), in Figure 7.3. Each plot also displays R2. As the degree of the polynomial defining
+the mean increases, the R2 always improves, indicating better retrodiction of the data. The
+fifth-degree polynomial has an R2 value of 0.99. It almost passes exactly through each point.
+The sixth-degree polynomial actually does pass through every point, and it has no residual
+variance. It’s a perfect fit, R2 = 1. That is why we had to fix the sigma value—if it were
+estimated, it would shrink to zero, because the residual variance is zero when the line passes
+right through the center of each point.
+However, you can see from looking at the paths of the predicted means that the higher-
+degree polynomials are increasingly absurd. This absurdity is seen most easily in Figure 7.3,
+panel (f), which shows the most complex model, m6.6. The fit is perfect, but the model
+is ridiculous. Notice that there is a gap in the body mass data, because there are no fossil
+hominins with body mass between 55 kg and about 60 kg. In this region, the predicted
+mean brain size from the high-degree polynomial models has nothing to predict, and so the
+models pay no price for swinging around wildly in this interval. The swing is so extreme
+that I had to extend the range of the vertical axis to display the depth at which the predicted
+mean finally turns back around. At around 58 kg, the model predicts a negative brain size!
+The model pays no price (yet) for this absurdity, because there are no cases in the data with
+body mass near 58 kg.
+Why does the sixth-degree polynomial fit perfectly? Because it has enough parameters
+to assign one to each point of data. The model’s equation for the mean has 7 parameters:
+µi = α + β1mi + β2m2
+i + β3m3
+i + β4m4
+i + β5m5
+i + β6m6
+i ,
+and there are 7 species to predict brain sizes for. So effectively, this model assigns a unique
+parameter to reiterate each observed brain size. This is a general phenomenon: If you adopt
+a model family with enough parameters, you can fit the data exactly. But such a model will
+make rather absurd predictions for yet-to-be-observed cases.

@@ -1,0 +1,35 @@
+9 Markov Chain Monte Carlo
+For most of Western history, chance has been a villain. In classical Rome, chance was
+personified by Fortuna, goddess of cruel fate, with her spinning wheel of (mis)fortune. Op-
+posed to her sat Minerva, goddess of wisdom and understanding. Only the desperate would
+pray to Fortuna, while everyone implored Minerva for aid. Certainly science was the domain
+of Minerva, a realm with no useful role for Fortuna to play.
+But by the beginning of the 20th century, Fortuna and Minerva had become collabora-
+tors. Scientists began publishing books of random numbers, instruments of chance to be
+used for learning about the world. Chance and wisdom now cooperate, and few of us are
+bewildered by the notion that an understanding of chance could help us acquire wisdom.
+Everything from weather forecasting to finance to evolutionary biology is dominated by the
+study of stochastic processes.137
+This chapter introduces a marvelous example of Fortuna and Minerva’s cooperation:
+the estimation of posterior probability distributions using a stochastic process known as
+Markov chain Monte Carlo (MCMC). Unlike the earlier chapters in this book, here
+we’ll produce samples from the joint posterior without maximizing anything. Instead of hav-
+ing to lean on quadratic and other approximations of the shape of the posterior, now we’ll be
+able to sample directly from the posterior without assuming a Gaussian, or any other, shape
+for it.
+The cost of this power is that it may take much longer for our estimation to complete,
+and usually more work is required to specify the model as well. But the benefit is escaping the
+awkwardness of assuming multivariate normality. Equally important is the ability to directly
+estimate models, such as the generalized linear and multilevel models of later chapters. Such
+models routinely produce non-Gaussian posterior distributions, and sometimes they cannot
+be estimated at all with the techniques of earlier chapters.
+The good news is that tools for building and inspecting MCMC estimates are getting
+better all the time. In this chapter you’ll meet a convenient way to convert the quap formulas
+you’ve used so far into Markov chains. The engine that makes this possible is Stan (free and
+online at: mc-stan.org). Stan’s creators describe it as “a probabilistic programming language
+implementing statistical inference.” You won’t be working directly in Stan to begin with—
+the rethinking package provides tools that hide it from you for now. But as you move
+on to more advanced techniques, you’ll be able to generate Stan versions of the models you
+already understand. Then you can tinker with them and witness the power of a fully armed
+and operational Stan.
+269

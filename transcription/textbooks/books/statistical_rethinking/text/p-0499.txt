@@ -1,0 +1,93 @@
+14.5. CONTINUOUS CATEGORIES AND THE GAUSSIAN PROCESS
+483
+Notice that the diagonal is all zeros, because each society is zero kilometers from itself. Also
+notice that the matrix is symmetric around the diagonal, because the distance between two
+societies is the same whichever society we measure from.
+We’ll use these distances as a measure of similarity in technology exposure. This will
+allow us to estimate varying intercepts for each society that account for non-independence
+in tools as a function of their geographical similarly. The notion is that the expected number
+of tools for each society gets a varying intercept, based on a continuous distance measure,
+that makes it correlated with the tool counts of its neighbors.
+We’ll use the “scientific” tool model from Chapter 11. In that model, the first part of the
+model is a familiar Poisson probably of the outcome variable. Then there is a model-derived
+expected number of tools::
+Ti ∼Poisson(λi)
+λi = αPβ
+i /γ
+We’d like to have these λ values adjusted by a varying intercept parameter. We could just
+add the intercept to the expression above, but then λi might end up negative. So instead let’s
+make the varying intercepts multiplicative:
+Ti ∼Poisson(λi)
+λi = exp(ksociety[i])αPβ
+i /γ
+where ksociety[i] is the varying intercept. But unlike typical varying intercepts, it will be esti-
+mated in light of geographic distance, not distinct category membership.
+The heart of the Gaussian process is the multivariate prior for these intercepts:
+
+
+
+
+
+
+k1
+k2
+k3
+. . .
+k10
+
+
+
+
+
+
+∼MVNormal
+
+
+
+
+
+
+
+
+
+
+
+
+0
+0
+0
+. . .
+0
+
+
+
+
+
+
+, K
+
+
+
+
+
+
+[prior for intercepts]
+Kij = η2 exp(−ρ2D2
+ij) + δijσ2
+[deﬁne covariance matrix]
+The first line is the 10-dimensional Gaussian prior for the intercepts. It has 10 dimensions,
+because there are 10 societies in the distance matrix. The vector of means is all zeros, which
+means the inside the linear model the average society will multiply λ by exp(0) = 1. So the
+average doesn’t change the expectation. Negative k values will reduce λ, and positive k values
+will increase it.
+The covariance matrix for these intercepts is named K, and the covariance between any
+pair of societies i and j is Kij. This covariance is defined by the formula on the second line
+above. This formula uses three parameters—η, ρ, and σ—to model how covariance among
+societies changes with distances among them. It probably looks very unfamiliar. I’ll walk
+you through it in pieces.
+The part of the formula for K that gives the covariance model its shape is exp(−ρ2D2
+ij).
+Dij is the distance between the i-th and j-th societies. So what this function says is that the
+covariance between any two societies i and j declines exponentially with the squared distance
+between them. The parameter ρ determines the rate of decline. If it is large, then covariance
+declines rapidly with squared distance.

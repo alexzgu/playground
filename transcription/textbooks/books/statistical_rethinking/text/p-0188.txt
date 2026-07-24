@@ -1,0 +1,68 @@
+172
+6. THE HAUNTED DAG & THE CAUSAL TERROR
+kcal.per.g
+10
+30
+50
+0.5
+0.7
+0.9
+10
+30
+50
+perc.fat
+0.5
+0.7
+0.9
+30
+50
+70
+30
+50
+70
+perc.lactose
+Figure 6.3. A pairs plot of the total en-
+ergy, percent fat, and percent lactose vari-
+ables from the primate milk data. Percent
+fat and percent lactose are strongly nega-
+tively correlated with one another, provid-
+ing mostly the same information.
+The posterior distributions for bF and bL are essentially mirror images of one another. The
+posterior mean of bF is as positive as the mean of bL is negative. Both are narrow posterior
+distributions that lie almost entirely on one side or the other of zero. Given the strong associ-
+ation of each predictor with the outcome, we might conclude that both variables are reliable
+predictors of total energy in milk, across species. The more fat, the more kilocalories in the
+milk. The more lactose, the fewer kilocalories in milk. But watch what happens when we
+place both predictor variables in the same regression model:
+R code
+6.10
+m6.5 <- quap(
+alist(
+K ~ dnorm( mu , sigma ) ,
+mu <- a + bF*F + bL*L ,
+a ~ dnorm( 0 , 0.2 ) ,
+bF ~ dnorm( 0 , 0.5 ) ,
+bL ~ dnorm( 0 , 0.5 ) ,
+sigma ~ dexp( 1 )
+) ,
+data=d )
+precis( m6.5 )
+mean
+sd
+5.5% 94.5%
+a
+0.00 0.07 -0.11
+0.11
+bF
+0.24 0.18 -0.05
+0.54
+bL
+-0.68 0.18 -0.97 -0.38
+sigma
+0.38 0.05
+0.30
+0.46
+Now the posterior means of both bF and bL are closer to zero. And the standard deviations
+for both parameters are twice as large as in the bivariate models (m6.3 and m6.4).
+This is the same statistical phenomenon as in the leg length example. What has happened
+is that the variables perc.fat and perc.lactose contain much of the same information.

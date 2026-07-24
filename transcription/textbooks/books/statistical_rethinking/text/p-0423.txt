@@ -1,0 +1,100 @@
+12.4. ORDERED CATEGORICAL PREDICTORS
+407
+one (or any other constant), has a special name, a simplex. Stan kindly provides a special
+variable type, simplex, which enforces the sum-to-one constraint for you. And then we can
+assign the delta vector the Dirichlet prior.
+And it runs. This model samples more slowly than the other models so far in the book.
+But it still won’t take that long. On my most ancient 2013 edition laptop, it took 20 min-
+utes total. If you don’t have 4 cores so that the 4 chains can run in parallel, it’ll take longer.
+Regardless, it is important to get comfortable with waiting for a good approximation of the
+posterior, instead of using some terrible-but-fast approximation.
+Let’s look at the marginal posterior distributions, leaving out the kappa cutpoints:
+R code
+12.35
+precis( m12.6 , depth=2 , omit="kappa" )
+mean
+sd
+5.5% 94.5% n_eff Rhat
+bE
+-0.32 0.17 -0.61 -0.07
+1062
+1
+bC
+-0.96 0.05 -1.03 -0.88
+1716
+1
+bI
+-0.72 0.04 -0.78 -0.66
+2588
+1
+bA
+-0.70 0.04 -0.76 -0.64
+2089
+1
+delta[1]
+0.23 0.13
+0.05
+0.47
+1422
+1
+delta[2]
+0.14 0.09
+0.03
+0.30
+2611
+1
+delta[3]
+0.19 0.11
+0.05
+0.38
+2388
+1
+delta[4]
+0.17 0.10
+0.04
+0.35
+2234
+1
+delta[5]
+0.04 0.05
+0.01
+0.11
+1111
+1
+delta[6]
+0.10 0.07
+0.02
+0.23
+2305
+1
+delta[7]
+0.12 0.08
+0.03
+0.26
+2118
+1
+The overall association of education bE is negative—more educated individuals disapproved
+more of everything. The association is smaller than the treatment effects—at the posterior
+mean, the most educated individuals in the sample disapprove of everything by about −0.3,
+while adding action to a story reduces approval by about 0.7. Careful not to think of this
+association causally yet. Education is not a randomized treatment variable!
+To see what’s going on with the incremental effects, the delta parameters, we’ll have to
+look at them as a multivariate distribution. The easiest way to do this is the use pairs:
+R code
+12.36
+delta_labels <- c("Elem","MidSch","SHS","HSG","SCol","Bach","Mast","Grad")
+pairs( m12.6 , pars="delta" , labels=delta_labels )
+This is displayed as Figure 12.8. First notice that all of these parameters are negatively cor-
+related with one another. This is a result of the constraint that they sum to one. If one gets
+larger, the others have to get smaller. Next notice that all but one level of education produces
+some modest increment on average. Is it is only Some College (SCol) that seems to have only
+a tiny, if any, incremental effect.
+It’ll be instructive to compare the posterior above to the inference we get from a more
+conventional model with education entered as an ordinary continuous variable. We’ll nor-
+malize education level first, so that it ranges from 0 to 1. This will make the resulting param-
+eter comparable to the one in the model above.
+R code
+12.37
+dat$edu_norm <- normalize( d$edu_new )
+m12.7 <- ulam(
+alist(

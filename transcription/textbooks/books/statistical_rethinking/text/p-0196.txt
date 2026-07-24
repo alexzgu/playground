@@ -1,0 +1,44 @@
+180
+6. THE HAUNTED DAG & THE CAUSAL TERROR
+Rerun the models from earlier, models m6.7 and m6.8, using the data in d2 now. You’ll see
+that including fungus again confounds inference about the treatment, this time by making
+it seem like it helped the plants, even though it had no effect.
+This result is rather mysterious. Why should M have this effect? The next section is all
+about effects like this.
+Rethinking: Model selection doesn’t help. In the next chapter, you’ll learn about model selection
+using information criteria. Like other model comparison and selection schemes, these criteria help in
+contrasting and choosing model structure. But such approaches are no help in the example presented
+just above, since the model that includes fungus both fits the sample better and would make better
+out-of-sample predictions. Model m6.7 misleads because it asks the wrong question, not because it
+would make poor predictions. As argued in Chapter 1, prediction and causal inference are just not
+the same task. No statistical procedure can substitute for scientific knowledge and attention to it. We
+need multiple models because they help us understand causal paths, not just so we can choose one or
+another for prediction.
+6.3. Collider bias
+At the start of the chapter, I argued that all that is necessary for scientific studies to
+show a negative association between trustworthiness and newsworthiness is that selection
+processes—grant and journal review—care about both. Now I want to explain how this same
+selection phenomenon can happen inside a statistical model. When it does, it can seriously
+distort our inferences, a phenomenon known as collider bias.
+Let’s consider a DAG for this example. The model is that trustworthiness (T) and news-
+worthiness (N) are statistically independent in the population research proposals submitted
+to grant review panels. Both of them influence selection (S) for funding. This is the graph:
+N
+S
+T
+The fact that two arrows enter S means it is a collider. The core concept is easy to under-
+stand: When you condition on a collider, it creates statistical—but not necessarily causal—
+associations among its causes. In this case, once you learn that a proposal has been selected
+(S), then learning its trustworthiness (T) also provides information about its newsworthiness
+(N). Why? Because if, for example, a selected proposal has low trustworthiness, then it must
+have high newsworthiness. Otherwise it wouldn’t have been funded. The same works in re-
+verse: If a proposal has low newsworthiness, we’d infer that it must have higher than average
+trustworthiness. Otherwise it would not have been selected for funding.
+This is the informational phenomenon that generates the negative association between T
+and N in the population of selected proposals. And it means we have to pay attention to pro-
+cesses that select our sample of observations and may distort associations among variables.
+But the same phenomenon will also generate a misleading association inside a statistical
+model, when you include the collider as a predictor variable. If you are not careful, you can
+make an erroneous causal inference. Let’s consider an extended example.
+6.3.1. Collider of false sorrow. Consider the question of how aging influences happiness. If
+we have a large survey of people rating how happy they are, is age associated with happiness?

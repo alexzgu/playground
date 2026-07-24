@@ -1,8 +1,6 @@
 # Front matter
 *(PDF pages 1–17; book pages v–xviii)*
 
-*⚠ In progress: 11 of 17 pages transcribed; missing PDF pages 7–12.*
-
 ### PDF page 1 (no printed page number)
 
 **Markov Chains and Mixing Times, second edition**
@@ -234,6 +232,239 @@ Exercises — 277
 Notes — 278
 
 Chapter 20.   Continuous-Time Chains* — 280
+
+### PDF page 7 (book page ix)
+
+| | | |
+|---|---|---|
+| 20.1. | Definitions | 280 |
+| 20.2. | Continuous-Time Mixing | 281 |
+| 20.3. | Spectral Gap | 284 |
+| 20.4. | Product Chains | 285 |
+| | Exercises | 289 |
+| | Notes | 290 |
+
+**Chapter 21. Countable State Space Chains\*** — 291
+
+| | | |
+|---|---|---|
+| 21.1. | Recurrence and Transience | 291 |
+| 21.2. | Infinite Networks | 293 |
+| 21.3. | Positive Recurrence and Convergence | 295 |
+| 21.4. | Null Recurrence and Convergence | 300 |
+| 21.5. | Bounds on Return Probabilities | 301 |
+| | Exercises | 302 |
+| | Notes | 304 |
+
+**Chapter 22. Monotone Chains** — 305
+
+| | | |
+|---|---|---|
+| 22.1. | Introduction | 305 |
+| 22.2. | Stochastic Domination | 306 |
+| 22.3. | Definition and Examples of Monotone Markov Chains | 308 |
+| 22.4. | Positive Correlations | 309 |
+| 22.5. | The Second Eigenfunction | 313 |
+| 22.6. | Censoring Inequality | 314 |
+| 22.7. | Lower bound on $\bar{d}$ | 319 |
+| 22.8. | Proof of Strassen's Theorem | 320 |
+| 22.9. | Exercises | 321 |
+| 22.10. | Notes | 322 |
+
+**Chapter 23. The Exclusion Process** — 323
+
+| | | |
+|---|---|---|
+| 23.1. | Introduction | 323 |
+| 23.2. | Mixing Time of $k$-exclusion on the $n$-path | 328 |
+| 23.3. | Biased Exclusion | 329 |
+| 23.4. | Exercises | 333 |
+| 23.5. | Notes | 334 |
+
+**Chapter 24. Cesàro Mixing Time, Stationary Times, and Hitting Large Sets** — 335
+
+| | | |
+|---|---|---|
+| 24.1. | Introduction | 335 |
+| 24.2. | Equivalence of $t_{\mathrm{stop}}, t_{\mathrm{Ces}}$ and $t_{\mathrm{G}}$ for reversible chains | 337 |
+| 24.3. | Halting States and Mean-Optimal Stopping Times | 339 |
+| 24.4. | Regularity Properties of Geometric Mixing Times | 340 |
+| 24.5. | Equivalence of $t_{\mathrm{G}}$ and $t_H$ | 341 |
+| 24.6. | Upward Skip-Free Chains | 342 |
+| 24.7. | $t_H(\alpha)$ are comparable for $\alpha \le 1/2$. | 343 |
+| 24.8. | An Upper Bound on $t_{\mathrm{rel}}$ | 344 |
+| 24.9. | Application to Robustness of Mixing | 345 |
+| | Exercises | 346 |
+| | Notes | 346 |
+
+**Chapter 25. Coupling from the Past** — 348
+
+| | | |
+|---|---|---|
+| 25.1. | Introduction | 348 |
+
+### PDF page 8 (book page x)
+
+| | | |
+|---|---|---|
+| 25.2. | Monotone CFTP | 349 |
+| 25.3. | Perfect Sampling via Coupling from the Past | 354 |
+| 25.4. | The Hardcore Model | 355 |
+| 25.5. | Random State of an Unknown Markov Chain | 357 |
+| | Exercise | 358 |
+| | Notes | 358 |
+
+| | | |
+|---|---|---|
+| **Chapter 26.** | **Open Problems** | 359 |
+| 26.1. | The Ising Model | 359 |
+| 26.2. | Cutoff | 360 |
+| 26.3. | Other Problems | 360 |
+| 26.4. | Update: Previously Open Problems | 361 |
+
+| | | |
+|---|---|---|
+| **Appendix A.** | **Background Material** | 363 |
+| A.1. | Probability Spaces and Random Variables | 363 |
+| A.2. | Conditional Expectation | 369 |
+| A.3. | Strong Markov Property | 372 |
+| A.4. | Metric Spaces | 373 |
+| A.5. | Linear Algebra | 374 |
+| A.6. | Miscellaneous | 374 |
+| | Exercises | 374 |
+
+| | | |
+|---|---|---|
+| **Appendix B.** | **Introduction to Simulation** | 375 |
+| B.1. | What Is Simulation? | 375 |
+| B.2. | Von Neumann Unbiasing* | 376 |
+| B.3. | Simulating Discrete Distributions and Sampling | 377 |
+| B.4. | Inverse Distribution Function Method | 378 |
+| B.5. | Acceptance-Rejection Sampling | 378 |
+| B.6. | Simulating Normal Random Variables | 380 |
+| B.7. | Sampling from the Simplex | 382 |
+| B.8. | About Random Numbers | 382 |
+| B.9. | Sampling from Large Sets* | 383 |
+| | Exercises | 386 |
+| | Notes | 389 |
+
+| | | |
+|---|---|---|
+| **Appendix C.** | **Ergodic Theorem** | 390 |
+| C.1. | Ergodic Theorem* | 390 |
+| | Exercise | 391 |
+
+| | | |
+|---|---|---|
+| **Appendix D.** | **Solutions to Selected Exercises** | 392 |
+
+| | |
+|---|---|
+| **Bibliography** | 422 |
+| **Notation Index** | 437 |
+| **Index** | 439 |
+
+### PDF page 9 (book page xi)
+
+# Preface
+
+**Preface to second edition**
+
+Since the publication of the first edition, the field of mixing times has continued to enjoy rapid expansion. In particular, many of the open problems posed in the first edition have been solved. The book has been used in courses at numerous universities, motivating us to update it.
+
+In the eight years since the first edition appeared, we have made corrections and improvements throughout the book. We added three new chapters: Chapter 22 on monotone chains, Chapter 23 on the exclusion process, and Chapter 24 that relates mixing times and hitting time parameters to stationary stopping times. Chapter 4 now includes an introduction to mixing times in $\ell^p$, which reappear in Chapter 10. The latter chapter has several new topics, including estimates for hitting times on trees and Eulerian digraphs. A bound for cover times using spanning trees has been added to Chapter 11, which also now includes a general bound on cover times for regular graphs. The exposition in Chapter 6 and Chapter 17 now employs filtrations rather than relying on the random mapping representation. To reflect the key developments since the first edition, especially breakthroughs on the Ising model and the cutoff phenomenon, the Notes to the chapters and the open problems have been updated.
+
+We thank the many careful readers who sent us comments and corrections: Anselm Adelmann, Amitabha Bagchi, Nathanael Berestycki, Olena Bormashenko, Krzysztof Burdzy, Gerandy Brito, Darcy Camargo, Varsha Dani, Sukhada Fadnavis, Tertuliano Franco, Alan Frieze, Reza Gheissari, Jonathan Hermon, Ander Holroyd, Kenneth Hu, John Jiang, Svante Janson, Melvin Kianmanesh Rad, Yin Tat Lee, Zhongyang Li, Eyal Lubetzky, Abbas Mehrabian, R. Misturini, L. Morgado, Asaf Nachmias, Fedja Nazarov, Joe Neeman, Ross Pinsky, Anthony Quas, Miklos Racz, Dinah Shender, N.J.A. Sloane, Jeff Steif, Izabella Stuhl, Jan Swart, Ryokichi Tanaka, Daniel Wu, and Zhen Zhu. We are particularly grateful to Daniel Jerison, Pawel Pralat and Perla Sousi who sent us long lists of insightful comments.
+
+**Preface to first edition**
+
+Markov first studied the stochastic processes that came to be named after him in 1906. Approximately a century later, there is an active and diverse interdisciplinary community of researchers using Markov chains in computer science, physics, statistics, bioinformatics, engineering, and many other areas.
+
+The classical theory of Markov chains studied *fixed* chains, and the goal was to estimate the rate of convergence to stationarity of the distribution at time $t$, as $t \to \infty$. In the past two decades, as interest in chains with large state spaces has increased, a different asymptotic analysis has emerged. Some target distance to
+
+### PDF page 10 (book page xii)
+
+the stationary distribution is prescribed; the number of steps required to reach this target is called the *mixing time* of the chain. Now, the goal is to understand how the mixing time grows as the size of the state space increases.
+
+The modern theory of Markov chain mixing is the result of the convergence, in the 1980's and 1990's, of several threads. (We mention only a few names here; see the chapter Notes for references.)
+
+For statistical physicists Markov chains become useful in Monte Carlo simulation, especially for models on finite grids. The mixing time can determine the running time for simulation. However, Markov chains are used not only for simulation and sampling purposes, but also as models of dynamical processes. Deep connections were found between rapid mixing and spatial properties of spin systems, e.g., by Dobrushin, Shlosman, Stroock, Zegarlinski, Martinelli, and Olivieri.
+
+In theoretical computer science, Markov chains play a key role in sampling and approximate counting algorithms. Often the goal was to prove that the mixing time is polynomial in the logarithm of the state space size. (In this book, we are generally interested in more precise asymptotics.)
+
+At the same time, mathematicians including Aldous and Diaconis were intensively studying card shuffling and other random walks on groups. Both spectral methods and probabilistic techniques, such as coupling, played important roles. Alon and Milman, Jerrum and Sinclair, and Lawler and Sokal elucidated the connection between eigenvalues and expansion properties. Ingenious constructions of “expander” graphs (on which random walks mix especially fast) were found using probability, representation theory, and number theory.
+
+In the 1990's there was substantial interaction between these communities, as computer scientists studied spin systems and as ideas from physics were used for sampling combinatorial structures. Using the geometry of the underlying graph to find (or exclude) bottlenecks played a key role in many results.
+
+There are many methods for determining the asymptotics of convergence to stationarity as a function of the state space size and geometry. We hope to present these exciting developments in an accessible way.
+
+We will only give a taste of the applications to computer science and statistical physics; our focus will be on the common underlying mathematics. The prerequisites are all at the undergraduate level. We will draw primarily on probability and linear algebra, but we will also use the theory of groups and tools from analysis when appropriate.
+
+Why should mathematicians study Markov chain convergence? First of all, it is a lively and central part of modern probability theory. But there are ties to several other mathematical areas as well. The behavior of the random walk on a graph reveals features of the graph's geometry. Many phenomena that can be observed in the setting of finite graphs also occur in differential geometry. Indeed, the two fields enjoy active cross-fertilization, with ideas in each playing useful roles in the other. Reversible finite Markov chains can be viewed as resistor networks; the resulting discrete potential theory has strong connections with classical potential theory. It is amusing to interpret random walks on the symmetric group as card shuffles—and real shuffles have inspired some extremely serious mathematics—but these chains are closely tied to core areas in algebraic combinatorics and representation theory.
+
+In the spring of 2005, mixing times of finite Markov chains were a major theme of the multidisciplinary research program *Probability, Algorithms, and Statistical*
+
+### PDF page 11 (book page xiii)
+
+*Physics,* held at the Mathematical Sciences Research Institute. We began work on this book there.
+
+**Overview**
+
+We have divided the book into two parts.
+
+In **Part I**, the focus is on techniques, and the examples are illustrative and accessible. Chapter 1 defines Markov chains and develops the conditions necessary for the existence of a unique stationary distribution. Chapters 2 and 3 both cover examples. In Chapter 2, they are either classical or useful—and generally both; we include accounts of several chains, such as the gambler's ruin and the coupon collector, that come up throughout probability. In Chapter 3, we discuss Glauber dynamics and the Metropolis algorithm in the context of "spin systems." These chains are important in statistical mechanics and theoretical computer science.
+
+Chapter 4 proves that, under mild conditions, Markov chains do, in fact, converge to their stationary distributions and defines *total variation distance* and *mixing time*, the key tools for quantifying that convergence. The techniques of Chapters 5, 6, and 7, on coupling, strong stationary times, and methods for lower bounding distance from stationarity, respectively, are central to the area.
+
+In Chapter 8, we pause to examine card shuffling chains. Random walks on the symmetric group are an important mathematical area in their own right, but we hope that readers will appreciate a rich class of examples appearing at this stage in the exposition.
+
+Chapter 9 describes the relationship between random walks on graphs and electrical networks, while Chapters 10 and 11 discuss hitting times and cover times.
+
+Chapter 12 introduces eigenvalue techniques and discusses the role of the relaxation time (the reciprocal of the spectral gap) in the mixing of the chain.
+
+In **Part II**, we cover more sophisticated techniques and present several detailed case studies of particular families of chains. Much of this material appears here for the first time in textbook form.
+
+Chapter 13 covers advanced spectral techniques, including comparison of Dirichlet forms and Wilson's method for lower bounding mixing.
+
+Chapters 14 and 15 cover some of the most important families of "large" chains studied in computer science and statistical mechanics and some of the most important methods used in their analysis. Chapter 14 introduces the path coupling method, which is useful in both sampling and approximate counting. Chapter 15 looks at the Ising model on several different graphs, both above and below the critical temperature.
+
+Chapter 16 revisits shuffling, looking at two examples—one with an application to genomics—whose analysis requires the spectral techniques of Chapter 13.
+
+Chapter 17 begins with a brief introduction to martingales and then presents some applications of the evolving sets process.
+
+Chapter 18 considers the cutoff phenomenon. For many families of chains where we can prove sharp upper and lower bounds on mixing time, the distance from stationarity drops from near 1 to near 0 over an interval asymptotically smaller than the mixing time. Understanding why cutoff is so common for families of interest is a central question.
+
+Chapter 19, on lamplighter chains, brings together methods presented throughout the book. There are many bounds relating parameters of lamplighter chains
+
+### PDF page 12 (book page xiv)
+
+to parameters of the original chain: for example, the mixing time of a lamplighter chain is of the same order as the cover time of the base chain.
+
+Chapters 20 and 21 introduce two well-studied variants on finite discrete time Markov chains: continuous time chains and chains with countable state spaces. In both cases we draw connections with aspects of the mixing behavior of finite discrete-time Markov chains.
+
+Chapter 25, written by Propp and Wilson, describes the remarkable construction of coupling from the past, which can provide exact samples from the stationary distribution.
+
+Chapter 26 closes the book with a list of open problems connected to material covered in the book.
+
+**For the Reader**
+
+Starred sections contain material that either digresses from the main subject matter of the book or is more sophisticated than what precedes them and may be omitted.
+
+Exercises are found at the ends of chapters. Some (especially those whose results are applied in the text) have solutions at the back of the book. We of course encourage you to try them yourself first!
+
+The Notes at the ends of chapters include references to original papers, suggestions for further reading, and occasionally “complements.” These generally contain related material not required elsewhere in the book—sharper versions of lemmas or results that require somewhat greater prerequisites.
+
+The Notation Index at the end of the book lists many recurring symbols.
+
+Much of the book is organized by method, rather than by example. The reader may notice that, in the course of illustrating techniques, we return again and again to certain families of chains—random walks on tori and hypercubes, simple card shuffles, proper colorings of graphs. In our defense we offer an anecdote.
+
+In 1991 one of us (Y. Peres) arrived as a postdoc at Yale and visited Shizuo Kakutani, whose rather large office was full of books and papers, with bookcases and boxes from floor to ceiling. A narrow path led from the door to Kakutani's desk, which was also overflowing with papers. Kakutani admitted that he sometimes had difficulty locating particular papers, but he proudly explained that he had found a way to solve the problem. He would make four or five copies of any really interesting paper and put them in different corners of the office. When searching, he would be sure to find at least one of the copies. . . .
+
+Cross-references in the text and the Index should help you track earlier occurrences of an example. You may also find the chapter dependency diagrams below useful.
+
+We have included brief accounts of some background material in Appendix A. These are intended primarily to set terminology and notation, and we hope you will consult suitable textbooks for unfamiliar material.
+
+Be aware that we occasionally write symbols representing a real number when an integer is required (see, e.g., the $\binom{n}{\delta k}$'s in the proof of Proposition 13.37). We hope the reader will realize that this omission of floor or ceiling brackets (and the details of analyzing the resulting perturbations) is in her or his best interest as much as it is in ours.
 
 ### PDF page 13 (book page xv)
 

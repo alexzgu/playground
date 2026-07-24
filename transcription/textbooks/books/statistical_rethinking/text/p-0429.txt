@@ -1,0 +1,38 @@
+13 Models With Memory
+In the year 1985, Clive Wearing lost his mind, but not his music.185 Wearing was a
+musicologist and accomplished musician, but the same virus that causes cold sores, Herpes
+simplex, snuck into his brain and ate his hippocampus. The result was chronic anterograde
+amnesia—he cannot form new long-term memories. He remembers how to play the piano,
+though he cannot remember that he played it 5 minutes ago. Wearing now lives moment to
+moment, unaware of anything more than a few minutes into the past. Every cup of coffee is
+the first he has ever had.
+Many statistical models also have anterograde amnesia. As the models move from one
+cluster—individual, group, location—in the data to another, estimating parameters for each
+cluster, they forget everything about the previous clusters. They behave this way, because
+the assumptions force them to. Any of the models from previous chapters that used dummy
+variables (page 157) to handle categories are programmed for amnesia. These models im-
+plicitly assume that nothing learned about any one category informs estimates for the other
+categories—the parameters are independent of one another and learn from completely sepa-
+rate portions of the data. This would be like forgetting you had ever been in a café, each time
+you go to a new café. Cafés do differ, but they are also alike.
+Anterograde amnesia is bad for learning about the world. We want models that instead
+use all of the information in savvy ways. This does not mean treating all clusters as if they
+were the same. Instead it means learning simultaneously about each cluster while learning
+about the population of clusters. Doing both estimation tasks at the same time allows us to
+transfer information across clusters, and that transfer improves accuracy. That is the value
+of remembering.
+Consider cafés again. Suppose we program a robot to visit two cafés, order coffee, and
+estimate the waiting times at each. The robot begins with a vague prior for the waiting times,
+say with a mean of 5 minutes and a standard deviation of 1. After ordering a cup of coffee
+at the first café, the robot observes a waiting time of 4 minutes. It updates its prior, using
+Bayes’ theorem of course, with this information. This gives it a posterior distribution for the
+waiting time at the first café.
+Now the robot moves on to a second café. When this robot arrives at the next café, what
+is its prior? It could just use the posterior distribution from the first café as its prior for the
+second café. But that implicitly assumes that the two cafés have the same average waiting
+time. Cafés are all pretty much the same, but they aren’t identical. Likewise, it doesn’t make
+much sense to ignore the observation from the first café. That would be anterograde amnesia.
+So how can the coffee robot do better? It needs to represent the population of cafés and
+learn about that population. The distribution of waiting times in the population becomes
+the prior for each café. But unlike priors in previous chapters, this prior is actually learned
+413

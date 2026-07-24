@@ -1,0 +1,49 @@
+3.3. SAMPLING TO SIMULATE PREDICTION
+65
+distribution. We lose this information when we pluck out a single parameter value and then
+perform calculations with it. This loss of information leads to overconfidence.
+Let’s do some basic model checks, using simulated observations for the globe tossing
+model. The observations in our example case are counts of water, over tosses of the globe.
+The implied predictions of the model are uncertain in two ways, and it’s important to be
+aware of both.
+First, there is observation uncertainty. For any unique value of the parameter p, there
+is a unique implied pattern of observations that the model expects. These patterns of ob-
+servations are the same gardens of forking data that you explored in the previous chapter.
+These patterns are also what you sampled in the previous section. There is uncertainty in the
+predicted observations, because even if you know p with certainty, you won’t know the next
+globe toss with certainty (unless p = 0 or p = 1).
+Second, there is uncertainty about p. The posterior distribution over p embodies this
+uncertainty. And since there is uncertainty about p, there is uncertainty about everything
+that depends upon p. The uncertainty in p will interact with the sampling variation, when
+we try to assess what the model tells us about outcomes.
+We’d like to propagate the parameter uncertainty—carry it forward—as we evaluate the
+implied predictions. All that is required is averaging over the posterior density for p, while
+computing the predictions. For each possible value of the parameter p, there is an implied
+distribution of outcomes. So if you were to compute the sampling distribution of outcomes at
+each value of p, then you could average all of these prediction distributions together, using the
+posterior probabilities of each value of p, to get a posterior predictive distribution.
+Figure 3.6 illustrates this averaging. At the top, the posterior distribution is shown,
+with 10 unique parameter values highlighted by the vertical lines. The implied distribution
+of observations specific to each of these parameter values is shown in the middle row of
+plots. Observations are never certain for any value of p, but they do shift around in response
+to it. Finally, at the bottom, the sampling distributions for all values of p are combined,
+using the posterior probabilities to compute the weighted average frequency of each possible
+observation, zero to nine water samples.
+The resulting distribution is for predictions, but it incorporates all of the uncertainty
+embodied in the posterior distribution for the parameter p. As a result, it is honest. While
+the model does a good job of predicting the data—the most likely observation is indeed
+the observed data—predictions are still quite spread out. If instead you were to use only a
+single parameter value to compute implied predictions, say the most probable value at the
+peak of posterior distribution, you’d produce an overconfident distribution of predictions,
+narrower than the posterior predictive distribution in Figure 3.6 and more like the sampling
+distribution shown for p = 0.6 in the middle row. The usual effect of this overconfidence
+will be to lead you to believe that the model is more consistent with the data than it really is—
+the predictions will cluster around the observations more tightly. This illusion arises from
+tossing away uncertainty about the parameters.
+So how do you actually do the calculations? To simulate predicted observations for a
+single value of p, say p = 0.6, you can use rbinom to generate random binomial samples:
+R code
+3.25
+w <- rbinom( 1e4 , size=9 , prob=0.6 )
+This generates 10,000 (1e4) simulated predictions of 9 globe tosses (size=9), assuming p =
+0.6. The predictions are stored as counts of water, so the theoretical minimum is zero and the

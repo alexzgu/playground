@@ -1,0 +1,40 @@
+9.5. CARE AND FEEDING OF YOUR MARKOV CHAIN
+299
+To appreciate what has happened, take a look at the priors (dashed) and posteriors (blue)
+in Figure 9.11. Both the Gaussian prior for α and the exponential prior for σ contain very
+gradual downhill slopes. They are so gradual, that even with only two observations, as in
+this example, the likelihood almost completely overcomes them. The mean of the prior for
+α is 1, but the mean of the posterior is zero, just as the likelihood says it should be.
+These weakly informative priors have helped by providing a very gentle nudge towards
+reasonable values of the parameters. Now values like 30 million are no longer equally plau-
+sible as small values like 1 or 2. Lots of problematic chains want subtle priors like these,
+designed to tune estimation by assuming a tiny bit of prior information about each param-
+eter. And even though the priors end up getting washed out right away—two observations
+were enough here—they still have a big effect on inference, by allowing us to get an answer.
+That answer is also a good answer. This point will be even more important for non-Gaussian
+models to come.
+Rethinking: The folk theorem of statistical computing. The example above illustrates something
+known as the folk theorem of statistical computing: When you have computational prob-
+lems, often there’s a problem with your model.151 Before we begin to tune the software and pour
+more computer power into a problem, it can be useful to go over the model specification again, and
+the data itself, to make sure the problem isn’t in the pre-sampling stage. It’s very common when
+working with Bayesian models that slow or clunky sampling is due to something as simple as having
+entirely omitted one or more prior distributions.
+Overthinking: Divergent transitions are your friend. You’ll see divergent transition warnings
+often in using ulam and Stan. They are your friend, providing a helpful warning. These warnings
+arise when the numerical simulation that HMC uses is inaccurate. HMC can detect these inaccu-
+racies. That is one of its major advantages over other sampling approaches, most of which provide
+few automatic ways to discover bad chains. We’ll examine these divergent transitions in much more
+detail in a later chapter. We’ll also see some clever ways to work around them.
+9.5.4. Non-identifiable parameters. Back in Chapter 5, you met the problem of highly cor-
+related predictors and the non-identifiable parameters they can create. Here you’ll see what
+such parameters look like inside of a Markov chain. You’ll also see how you can identify
+them, in principle, by using a little prior information. Most importantly, the badly behaving
+chains produced in this example will exhibit characteristic bad behavior, so when you see
+the same pattern in your own models, you’ll have a hunch about the cause.
+To construct a non-identifiable model, we first simulate 100 observations from a Gauss-
+ian distribution with mean zero and standard deviation 1.
+R code
+9.25
+set.seed(41)
+y <- rnorm( 100 , mean=0 , sd=1 )

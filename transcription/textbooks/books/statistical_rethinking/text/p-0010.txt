@@ -1,0 +1,45 @@
+xiv
+PREFACE
+them, in the wilds of the sciences, as well as the exclusion of so many other useful tools. So
+the book assumes the reader is ready to try doing statistical inference without p-values. This
+isn’t the ideal situation. It would be better to have material that helps you spot common mis-
+takes and misunderstandings of p-values and tests in general, as all of us have to understand
+such things, even if we don’t use them. So I’ve tried to sneak in a little material of that kind,
+but unfortunately cannot devote much space to it. The book would be too long, and it would
+disrupt the teaching flow of the material.
+It’s important to realize, however, that the disregard paid to p-values is not a uniquely
+Bayesian attitude. Indeed, significance testing can be—and has been—formulated as a Bayes-
+ian procedure as well. So the choice to avoid significance testing is stimulated instead by
+epistemological concerns, some of which are briefly discussed in the first chapter.
+Teaching strategy
+The book uses much more computer code than formal mathematics. Even excellent
+mathematicians can have trouble understanding an approach, until they see a working algo-
+rithm. This is because implementation in code form removes all ambiguities. So material of
+this sort is easier to learn, if you also learn how to implement it.
+In addition to any pedagogical value of presenting code, so much of statistics is now com-
+putational that a purely mathematical approach is anyways insufficient. As you’ll see in later
+parts of this book, the same mathematical statistical model can sometimes be implemented
+in different ways, and the differences matter. So when you move beyond this book to more
+advanced or specialized statistical modeling, the computational emphasis here will help you
+recognize and cope with all manner of practical troubles.
+Every section of the book is really just the tip of an iceberg. I’ve made no attempt to be
+exhaustive. Rather I’ve tried to explain something well. In this attempt, I’ve woven a lot of
+concepts and material into data analysis examples. So instead of having traditional units on,
+for example, centering predictor variables, I’ve developed those concepts in the context of a
+narrative about data analysis. This is certainly not a style that works for all readers. But it
+has worked for a lot of my students. I suspect it fails dramatically for those who are being
+forced to learn this information. For the internally motivated, it reflects how we really learn
+these skills in the context of our research.
+How to use this book
+This book is not a reference, but a course. It doesn’t try to support random access.
+Rather, it expects sequential access. This has immense pedagogical advantages, but it has
+the disadvantage of violating how most scientists actually read books.
+This book has a lot of code in it, integrated fully into the main text. The reason for this
+is that doing model-based statistics in the 21st century really requires programming, of at
+least a minor sort. The code is not optional. Everyplace, I have erred on the side of including
+too much code, rather than too little. In my experience teaching scientific programming,
+novices learn more quickly when they have working code to modify, rather than needing to
+write an algorithm from scratch. My generation was probably the last to have to learn some
+programming to use a computer, and so coding has gotten harder and harder to teach as
+time goes on. My students are very computer literate, but they sometimes have no idea what
+computer code looks like.

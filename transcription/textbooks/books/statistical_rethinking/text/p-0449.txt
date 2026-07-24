@@ -1,0 +1,59 @@
+13.3. MORE THAN ONE TYPE OF CLUSTER
+433
+estimates tell us why. By retaining and reporting both models, we and our readers learn more
+about the experiment. Model comparison is of value. To select a model, we’d rather want
+to test conditional independencies of different causal models. Since this is an experiment,
+there is nothing to really select. The experimental design tells us the relevant causal model
+to inspect.
+13.3.2. Even more clusters. You might notice that the treatment effects, the b parameters,
+look a lot like the a and g parameters. Could we also use partial pooling on the treatment
+effects? Yes, we could. Some people will scream “No!” at this suggestion, because they have
+been taught that varying effects are only for variables that were not experimentally controlled.
+Since treatment was “fixed” by the experiment, the thinking goes, we should use un-pooled
+“fixed” effects.
+This is all wrong. The reason to use varying effects is because they provide better infer-
+ences. It doesn’t matter how the clusters arise. If the individual units are exchangable—
+the index values could be reassigned without changing the meaning of the model—then
+partial pooling could help.
+In this case, there are only four treatments and there is a lot of data on each treatment.
+So partial pooling isn’t going to make any difference anyway. Here is m13.4 but now with
+partial pooling on the treatments:
+R code
+13.25
+set.seed(15)
+m13.6 <- ulam(
+alist(
+pulled_left ~ dbinom( 1 , p ) ,
+logit(p) <- a[actor] + g[block_id] + b[treatment] ,
+b[treatment] ~ dnorm( 0 , sigma_b ),
+a[actor] ~ dnorm( a_bar , sigma_a ),
+g[block_id] ~ dnorm( 0 , sigma_g ),
+a_bar ~ dnorm( 0 , 1.5 ),
+sigma_a ~ dexp(1),
+sigma_g ~ dexp(1),
+sigma_b ~ dexp(1)
+) , data=dat_list , chains=4 , cores=4 , log_lik=TRUE )
+coeftab( m13.4 , m13.6 )
+m13.4
+m13.6
+b[1]
+-0.13
+-0.14
+b[2]
+0.39
+0.35
+b[3]
+-0.48
+-0.47
+b[4]
+0.28
+0.24
+I cut off the rest of the coeftab output. We’re only interested in the b parameters right now.
+These are not identical, but they are very close. If you look at sigma_b, you’ll that it is small.
+The treatments don’t vary a lot, on the logit scale, because they don’t make much difference
+in the first place. And there is a lot of data in each treatment, so they don’t get pooled much
+in any event. If you compare model m13.6 with m13.4, using either WAIC or PSIS, you’ll
+see they are no different on purely predictive criteria. This is the typical result, when each
+cluster (each treatment here) has a lot of data to inform its parameters.
+What you do get from m13.6 are more divergent transitions. So let’s finally deal
+with those.

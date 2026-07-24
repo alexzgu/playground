@@ -1,0 +1,53 @@
+78
+4. GEOCENTRIC MODELS
+assumption to make. In this way, the Gaussian is the distribution most consistent with our
+assumptions. Or rather, it is the most consistent with our golem’s assumptions. If you don’t
+think the distribution should be Gaussian, then that implies that you know something else
+that you should tell your golem about, something that would improve inference.
+This epistemological justification is premised on information theory and maximum
+entropy. We’ll dwell on information theory in Chapter 7 and maximum entropy in Chap-
+ter 10. Then in later chapters, other common and useful distributions will be used to build
+generalized linear models (GLMs). When these other distributions are introduced, you’ll
+learn the constraints that make them the uniquely most appropriate (consistent with our
+assumptions) distributions.
+For now, let’s take the ontological and epistemological justifications of just the Gaussian
+distribution as reasons to start building models of measures around it. Throughout all of this
+modeling, keep in mind that using a model is not equivalent to swearing an oath to it. The
+golem is your servant, not the other way around. Later on, we will see good reasons not to
+use Gaussian distributions.
+Rethinking: Heavy tails.
+The Gaussian distribution is very common in nature and has some nice
+statistical properties as well. But there are some risks in using it as a default data model. The extreme
+ends of a distribution are known as its tails. And the Gaussian distribution has some very thin tails—
+there is very little probability in them. Instead most of the mass in the Gaussian lies within one
+standard deviation of the mean. Many natural (and unnatural) processes have much heavier tails.
+These processes have much higher probabilities of producing extreme events. A real and important
+example is financial time series—the ups and downs of a stock market can look Gaussian in the short
+term, but over medium and long periods, extreme shocks make the Gaussian model (and anyone who
+uses it) look foolish.67 Historical time series may behave similarly, and any inference for example of
+trends in warfare are prone to heavy-tailed surprises.68 We’ll consider alternatives to the Gaussian
+later.
+Overthinking: Gaussian distribution. You don’t have to memorize the Gaussian probability distri-
+bution formula to make good use of it. You’re computer already knows it. But a little knowledge of
+its form can help demystify it. The probability density (see below) of some value y, given a Gaussian
+(normal) distribution with mean µ and standard deviation σ, is:
+p(y|µ, σ) =
+1
+√
+2πσ2 exp
+
+−(y −µ)2
+2σ2
+
+This looks monstrous. But the important bit is just the (y −µ)2 bit. This is the part that gives the
+normal distribution its fundamental shape, a quadratic shape. Once you exponentiate the quadratic
+shape, you get the classic bell curve. The rest of it just scales and standardizes the distribution so that
+it sums to one, as all probability distributions must. But an expression as simple as exp(−y2) yields
+the Gaussian prototype. Try it in R: curve( exp( -x^2 ) , from=-3 , to=3 ).
+The Gaussian is a continuous distribution, unlike the discrete distributions of earlier chapters.
+This means that the value y in the Gaussian distribution can be any continuous value. The binomial,
+in contrast, requires integers. Probability distributions with only discrete outcomes, like the bino-
+mial, are called probability mass functions and denoted Pr. Continuous ones like the Gaussian are
+called probability density functions, denoted with p or just plain old f, depending upon author and
+tradition. For mathematical reasons, probability densities, but not masses, can be greater than 1. Try
+dnorm(0,0,0.1), for example, which is the way to make R calculate p(0|0, 0.1). The answer, about

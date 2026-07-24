@@ -1,0 +1,41 @@
+580
+ENDNOTES
+189. It’s also common for the “multi” to refer to multiple linear models. This is especially true in the literature
+on “hierarchical linear models.” Regardless, we’re talking about the same kind of robot here. [417]
+190. Note that there is still uncertainty about the regularization. So this model isn’t exactly the same as just as-
+suming a regularizing prior with a constant standard deviation 1.6. Instead the intercepts for each tank average
+over the uncertainty in σ (and ¯α). [418]
+191. This fact has been understood much longer than multilevel models have been practical to use. See Stein
+(1955) for an influential non-Bayesian paper. [422]
+192. This example is from Neal (2003), page 732. In that paper, he just calls it a “funnel.” The Devil never comes
+up. [435]
+193. See Gelman and Little (1997) for an early paper. There are many recent applications, as well as extensions.
+See Gao et al. (2019). [444]
+Chapter 14
+194. Lewandowski et al. (2009). The “LKJ” part of the name comes from the first letters of the last names of the
+authors, who themselves called the approach the “onion method.” For use in Bayesian models, see the explana-
+tion in the latest version of the Stan reference manual. [456]
+195. See Gelfand et al. (1995), as well as Roberts and Sahu (1997). See also Papaspiliopoulos et al. (2007) for
+a more recent overview. See Betancourt and Girolami (2013) for a discussion focusing of Hamiltonian Monte
+Carlo. [467]
+196. See Pearl (2011). [470]
+197. See Angrist and Krueger (1991). [470]
+198. Feyrer and Sacerdote (2009). [473]
+199. See Caniglia et al. (2019). [474]
+200. See Angrist and Krueger (1995) and Kleibergen and Zivot (2003). To my knowledge, there is still no
+systematic and theoretically-informed understanding of parametric instrumental variable estimators, Bayesian
+or otherwise. This is odd, because there is a formal non-parametric theory for them, arising from DAGs. But
+the truth is probably that estimation is often impractical, even when the DAG says there is an instrument. [474]
+201. See Cohen and Malloy (2014). I learned this example from Alex Chino’s blog. See the 2011 posting:
+http://www.alexchinco.com/example-front-door-criterion/ [475]
+202. Thistlethwaite and Campbell (1960). [475]
+203. See Gelman and Imbens (2019) for some pointed examples and advice. [475]
+204. Koster and Leckie (2014). [475]
+205. See Neal (1998) for a highly cited overview, with notes on implementation. [481]
+206. See Uyeda et al. (2018) for discussion of problems with traditional methods and the impact of powerful
+binary traits like milk. [491]
+207. See Felsenstein (1985) and Grafen (1989). [492]
+208. Uhlenbeck and Ornstein (1930). Also see Cooper et al. (2016) for problems fitting these models. [496]
+209. See Jones and Moriarty (2013), Landis et al. (2013), and Meagher et al. (2018). [496]
+Chapter 15
+210. Joseph Bertrand, 1889, Calcul des probabilités. [501]

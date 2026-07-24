@@ -1,0 +1,43 @@
+Bibliography
+Akaike, H. (1973). Information theory and an extension of the maximum likelihood principle. In
+Petrov, B. N. and Csaki, F., editors, Second International Symposium on Information Theory, pages
+267–281.
+Akaike, H. (1974). A new look at the statistical model identification. IEEE Transactions on Automatic
+Control, 19(6):716–723.
+Akaike, H. (1978). A Bayesian analysis of the minimum AIC procedure. Ann. Inst. Statist. Math.,
+30:9–14.
+Akaike, H. (1981a). Likelihood of a model and information criteria. Journal of Econometrics, 16:3–14.
+Akaike, H. (1981b). This week’s citation classic. Current Contents Engineering, Technology, and Applied
+Sciences, 12:42.
+Amrhein, V., Greenland, S., and McShane, B. (2019). Scientists rise up against statistical significance.
+Nature, 567(7748):305–307.
+Angrist, J. D. and Krueger, A. B. (1991). Does compulsory school attendance affect schooling and
+earnings? The Quarterly Journal of Economics, 106(4):979–1014.
+Angrist, J. D. and Krueger, A. B. (1995). Split-sample instrumental variables estimates of the return
+to schooling. Journal of Business & Economic Statistics, 13(2):225–235.
+Baker, S. G. (1994). The multinomial-Poisson transformation. Journal of the Royal Statistical Society,
+Series D, 43(4):495–504.
+Beheim, B., Atkinson, Q., Bulbulia, J., Gervais, W. M., Gray, R., Henrich, J., Lang, M., Monroe, M. W.,
+Muthukrishna, M., Norenzayan, A., and et al. (2019). Corrected analyses show that moralizing
+gods precede complex societies but serious data concerns remain. psyarxiv.com/jwa2n.
+Berger, J. O. (1985). Statistical decision theory and Bayesian Analysis. Springer-Verlag, New York, 2nd
+edition.
+Berger, J. O. and Berry, D. A. (1988). Statistical analysis and the illusion of objectivity. American
+Scientist, pages 159–165.
+Berkson, J. (1946). Limitations of the application of fourfold table analysis to hospital data. Biometrics
+Bulletin, 2:27–53.
+Betancourt, M. (2017). A conceptual introduction to hamiltonian monte carlo. arXiv:1701.02434.
+Betancourt, M. J. and Girolami, M. (2013).
+Hamiltonian Monte Carlo for hierarchical models.
+arXiv:1312.0906.
+Bickel, P. J., Hammel, E. A., and O’Connell, J. W. (1975). Sex bias in graduate admission: Data from
+Berkeley. Science, 187(4175):398–404.
+Binmore, K. (2009). Rational Decisions. Princeton University Press.
+Boesch, C., Bombjaková, D., Meier, A., and Mundry, R. (2019). Learning curves and teaching when
+acquiring nut-cracking in humans and chimpanzees. Scientific Reports, 9(1):1515.
+Bolker, B. (2008). Ecological Models and Data in R. Princeton University Press.
+Box, G. E. P. (1979). Robustness in the strategy of scientific model building. In Launer, R. and
+Wilkinson, G., editors, Robustness in Statistics. Academic Press, New York.
+Box, G. E. P. (1980). Sampling and Bayes’ inference in scientific modelling and robustness. Journal of
+the Royal Statistical Society A, 143:383–430.
+583

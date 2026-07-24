@@ -1,0 +1,62 @@
+4.5. CURVES FROM LINES
+115
+alist(
+height ~ dnorm( mu , sigma ) ,
+mu <- a + b1*weight_s + b2*weight_s2 ,
+a ~ dnorm( 178 , 20 ) ,
+b1 ~ dlnorm( 0 , 1 ) ,
+b2 ~ dnorm( 0 , 1 ) ,
+sigma ~ dunif( 0 , 50 )
+) ,
+data=d )
+Now, since the relationship between the outcome height and the predictor weight depends
+upon two slopes, b1 and b2, it isn’t so easy to read the relationship off a table of coefficients:
+R code
+4.66
+precis( m4.5 )
+mean
+sd
+5.5%
+94.5%
+a
+146.06 0.37 145.47 146.65
+b1
+21.73 0.29
+21.27
+22.19
+b2
+-7.80 0.27
+-8.24
+-7.37
+sigma
+5.77 0.18
+5.49
+6.06
+The parameter α (a) is still the intercept, so it tells us the expected value of height when
+weight is at its mean value. But it is no longer equal to the mean height in the sample, since
+there is no guarantee it should in a polynomial regression.75 And those β1 and β2 parameters
+are the linear and square components of the curve, respectively. But that doesn’t make them
+transparent.
+You have to plot these model fits to understand what they are saying. So let’s do that.
+We’ll calculate the mean relationship and the 89% intervals of the mean and the predictions,
+like in the previous section. Here’s the working code:
+R code
+4.67
+weight.seq <- seq( from=-2.2 , to=2 , length.out=30 )
+pred_dat <- list( weight_s=weight.seq , weight_s2=weight.seq^2 )
+mu <- link( m4.5 , data=pred_dat )
+mu.mean <- apply( mu , 2 , mean )
+mu.PI <- apply( mu , 2 , PI , prob=0.89 )
+sim.height <- sim( m4.5 , data=pred_dat )
+height.PI <- apply( sim.height , 2 , PI , prob=0.89 )
+Plotting all of this is straightforward:
+R code
+4.68
+plot( height ~ weight_s , d , col=col.alpha(rangi2,0.5) )
+lines( weight.seq , mu.mean )
+shade( mu.PI , weight.seq )
+shade( height.PI , weight.seq )
+The results are shown in Figure 4.11. The left panel of the figure shows the familiar linear
+regression from earlier in the chapter, but now with the standardized predictor and full data
+with both adults and non-adults. The linear model makes some spectacularly poor predic-
+tions, at both very low and middle weights. Compare this to the middle panel, our new

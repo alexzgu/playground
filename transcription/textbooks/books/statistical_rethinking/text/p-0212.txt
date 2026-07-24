@@ -1,0 +1,37 @@
+196
+7. ULYSSES’ COMPASS
+Ptolemaic Model
+Copernican Model
+Earth
+Earth
+Sun
+Sun
+Figure 7.1. Ptolemaic (left) and Kopernikan (right) models of the solar
+system. Both models use epicycles (circles on circles), and both models
+produce exactly the same predictions. However, the Kopernikan model re-
+quires fewer circles. (Not all Ptolemaic epicycles are visible in the figure.)
+So instead of Ockham’s razor, think of Ulysses’ compass. Ulysses was the hero of Homer’s
+Odyssey. During his voyage, Ulysses had to navigate a narrow straight between the many-
+headed beast Scylla—who attacked from a cliff face and gobbled up sailors—and the sea
+monster Charybdis—who pulled boats and men down to a watery grave. Passing too close
+to either meant disaster. In the context of scientific models, you can think of these monsters
+as representing two fundamental kinds of statistical error:
+(1) The many-headed beast of overfitting, which leads to poor prediction by learn-
+ing too much from the data
+(2) The whirlpool of underfitting, which leads to poor prediction by learning too
+little from the data
+There is a third monster, the one you met in previous chapters—confounding. In this
+chapter you’ll see that confounded models can in fact produce better predictions than models
+that correctly measure a causal relationship. The consequence of this is that, when we design
+any particular statistical model, we must decide whether we want to understand causes or
+rather just predict. These are not the same goal, and different models are needed for each.
+However, to accurately measure a causal influence, we still have to deal with overfitting. The
+monsters of overfitting and underfitting are always lurking, no matter the goal.
+Our job is to carefully navigate among these monsters. There are two common families
+of approaches. The first approach is to use a regularizing prior to tell the model not to
+get too excited by the data. This is the same device that non-Bayesian methods refer to as
+“penalized likelihood.” The second approach is to use some scoring device, like informa-
+tion criteria or cross validation, to model the prediction task and estimate predictive
+accuracy. Both families of approaches are routinely used in the natural and social sciences.
+Furthermore, they can be—maybe should be—used in combination. So it’s worth under-
+standing both, as you’re going to need both at some point.

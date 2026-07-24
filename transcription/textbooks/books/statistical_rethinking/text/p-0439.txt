@@ -1,0 +1,46 @@
+13.2. VARYING EFFECTS AND THE UNDERFITTING/OVERFITTING TRADE-OFF
+423
+and so these estimates are rather imprecise. This is particularly true of the smaller ponds,
+where less data goes into producing the estimates. As a consequence, the error of these esti-
+mates is high, and they are rather overfit to the data. Standard errors for each intercept can
+be very large, and in extreme cases, even infinite. These are sometimes called the no pool-
+ing estimates. No information is shared across ponds. It’s like assuming that the variation
+among ponds is infinite, so nothing you learn from one pond helps you predict another.
+Third, when you estimate varying intercepts, you use partial pooling of information
+to produce estimates for each cluster that are less underfit than the grand mean and less
+overfit than the no-pooling estimates. As a consequence, they tend to be better estimates
+of the true per-cluster (per-pond) means. This will be especially true when ponds have few
+tadpoles in them, because then the no pooling estimates will be especially overfit. When a
+lot of data goes into each pond, then there will be less difference between the varying effect
+estimates and the no pooling estimates.
+To demonstrate this fact, we’ll simulate some tadpole data. That way, we’ll know the
+true per-pond survival probabilities. Then we can compare the no-pooling estimates to the
+partial pooling estimates, by computing how close each gets to the true values they are trying
+to estimate. The rest of this section shows how to do such a simulation.
+Learning to simulate and validate models and model fitting in this way is extremely valu-
+able. Once you start using more complex models, you will want to ensure that your code is
+working and that you understand the model. You can help in this project by simulating data
+from the model, with specified parameter values, and then making sure that your method of
+estimation can recover the parameters within tolerable ranges of precision. Even just simu-
+lating data from a model structure has a huge impact on understanding.
+13.2.1. The model. The first step is to define the model we’ll be using. I’ll use the same basic
+multilevel binomial model as before, but now with “ponds” instead of “tanks”:
+Si ∼Binomial(Ni, pi)
+logit(pi) = αpond[i]
+αj ∼Normal(¯α, σ)
+¯α ∼Normal(0, 1.5)
+σ ∼Exponential(1)
+So to simulate data from this process, we need to assign values to:
+• ¯α, the average log-odds of survival in the entire population of ponds
+• σ, the standard deviation of the distribution of log-odds of survival among ponds
+• α, a vector of individual pond intercepts, one for each pond
+We’ll also need to assign sample sizes, Ni, to each pond. But once we’ve made all of those
+choices, we can easily simulate counts of surviving tadpoles, straight from the top-level bi-
+nomial process, using rbinom. We’ll do it all one step at a time.
+Note that the priors are part of the model when we estimate, but not when we simu-
+late. Why? Because priors are epistemology, not ontology. They represent the initial state of
+information of our robot, not a statement about how nature chooses parameter values.
+13.2.2. Assignvaluestotheparameters. I’m goingto assign specific values representativeof
+the actual tadpole data, to make the upcoming plot that demonstrates the increased accuracy
+of the varying effects estimates. But you can come back to this step later and change them to
+whatever you want.

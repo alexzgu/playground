@@ -276,9 +276,7 @@ $$ \mathcal{R}(a \leftrightarrow B) = \sum_{j=1}^{k} 2^{-j} = 1 - 2^{-k} \le 1. 
 
 ### PDF page 150 (book page 134)
 
-*[Figure: A horizontal chain of four filled dots connected by curved multi-edges. The leftmost pair of dots is joined by two arcs; the next pair by three arcs; a dashed line connects to the rightmost pair, which is joined by many nested arcs (some dashed), depicting the multigraph obtained by identifying levels of a binary tree.]*
-
-FIGURE 10.2. A binary tree after identifying all vertices at the same distance from the root
+**FIGURE 10.2.** A binary tree after identifying all vertices at the same distance from the root *[Figure: A horizontal chain of four filled dots connected by curved multi-edges. The leftmost pair of dots is joined by two arcs; the next pair by three arcs; a dashed line connects to the rightmost pair, which is joined by many nested arcs (some dashed), depicting the multigraph obtained by identifying levels of a binary tree.]*
 
 Using the Commute Time Identity (Proposition 10.7), since $c_G = 2(n - 1)$, the expected commute time is bounded by $2n$. For the lazy random walk, the expected commute time is bounded by $4n$.
 
@@ -312,9 +310,7 @@ Let $T$ be a finite tree with edge conductances $\{c(e)\}$, and consider any edg
 
 ### PDF page 151 (book page 135)
 
-*[Figure: two small trees side by side, labeled $T$ (left) and $\widetilde{T}$ (right). In $T$, a vertex $y$ and vertex $v$ are marked among branching edges. In $\widetilde{T}$, vertex $y$ is a leaf attached by an edge to vertex $x$, with further branches.]*
-
-FIGURE 10.3. The modified tree $\widetilde{T}$.
+**FIGURE 10.3.** The modified tree $\widetilde{T}$. *[Figure: two small trees side by side, labeled $T$ (left) and $\widetilde{T}$ (right). In $T$, a vertex $y$ and vertex $v$ are marked among branching edges. In $\widetilde{T}$, vertex $y$ is a leaf attached by an edge to vertex $x$, with further branches.]*
 
 $x$, add $y$ and the edge $\{x, y\}$ with weight $c(x, y)$, and call the resulting network $\widetilde{T}$ and its edge set $\tilde{E}$. (See Figure 10.3.)
 
@@ -358,9 +354,7 @@ of order the volume of the tree, while the second is of order the depth times th
 
 EXAMPLE 10.18 (Hitting times on comb with linear backbone). Consider the graph obtained by starting with a path of length $n$, and attaching to each vertex $k \in \{1, 2, \ldots, n\}$ of this path another path of length $f(k)$. The resulting graph is a tree. (See Figure 10.4.)
 
-*[Figure: a "comb" graph. A horizontal backbone path has vertices labeled $1, 2, 3, \ldots, n{-}1, n$ (with a dashed segment indicating omitted middle vertices). From each backbone vertex $k$ a vertical path of length $f(k)$ rises upward, with its top vertex labeled $f(1), f(2), f(3), \ldots, f(n{-}1), f(n)$; the teeth grow taller toward the right.]*
-
-FIGURE 10.4. The comb graph.
+**FIGURE 10.4.** The comb graph. *[Figure: a "comb" graph. A horizontal backbone path has vertices labeled $1, 2, 3, \ldots, n{-}1, n$ (with a dashed segment indicating omitted middle vertices). From each backbone vertex $k$ a vertical path of length $f(k)$ rises upward, with its top vertex labeled $f(1), f(2), f(3), \ldots, f(n{-}1), f(n)$; the teeth grow taller toward the right.]*
 
 Writing $F(j) := \sum_{i=1}^{j} f(i)$, we have that
 
@@ -422,9 +416,7 @@ The lower bound in (10.29) follows from the above and (10.27), since $\sum_{j=1}
 
 ### PDF page 154 (book page 138)
 
-*[Figure: a cube drawn in perspective. The bottom-front-left corner is labeled $x$ (a filled dot) and the top-back-right corner is labeled $y$ (a filled dot). The bottom-front edge is marked with length $k$, the bottom-right receding edge is marked with length $k$, and the right vertical edge is marked with length $k$.]*
-
-FIGURE 10.5. The vertices $x$ and $y$ are antipodal vertices on the boundary of a cube of side-length $k$.
+**FIGURE 10.5.** The vertices $x$ and $y$ are antipodal vertices on the boundary of a cube of side-length $k$. *[Figure: a cube drawn in perspective. The bottom-front-left corner is labeled $x$ (a filled dot) and the top-back-right corner is labeled $y$ (a filled dot). The bottom-front edge is marked with length $k$, the bottom-right receding edge is marked with length $k$, and the right vertical edge is marked with length $k$.]*
 
 $(\tilde{c}_d)^{-1}$ by omitting all but the first term in the sum. The lower bound in (10.28) again follows from this bound together with (10.27).
 
@@ -487,9 +479,7 @@ $$ z = \left( \frac{(a+c)+(b-h)}{2}, \frac{(a-c)+(b+h)}{2} \right). $$
 
 ### PDF page 156 (book page 140)
 
-*[Figure: a rectangular box (two cubes side by side) drawn in perspective. The bottom-front-left corner is labeled $x$ (filled dot) and the bottom-front-right corner is labeled $y$ (filled dot); the top-back-middle corner is labeled $z$ (filled dot). The bottom-front edge is divided into two segments each marked with length $k$.]*
-
-FIGURE 10.6. If $x$ and $y$ are points of $\mathbb{Z}^d$ differing only in a single coordinate by $2k$, then a flow is constructed from $x$ to $y$ via a third vertex $z$. The point $z$ is an antipodal point to $x$ (also $y$) on the boundary of a cube of side-length $k$.
+**FIGURE 10.6.** If $x$ and $y$ are points of $\mathbb{Z}^d$ differing only in a single coordinate by $2k$, then a flow is constructed from $x$ to $y$ via a third vertex $z$. The point $z$ is an antipodal point to $x$ (also $y$) on the boundary of a cube of side-length $k$. *[Figure: a rectangular box (two cubes side by side) drawn in perspective. The bottom-front-left corner is labeled $x$ (filled dot) and the bottom-front-right corner is labeled $y$ (filled dot); the top-back-middle corner is labeled $z$ (filled dot). The bottom-front edge is divided into two segments each marked with length $k$.]*
 
 By Proposition 9.17,
 
@@ -518,9 +508,7 @@ $$ t_{\mathrm{mix}}^{(\infty)}(1/4) \leq 4 \max_{x \in \mathcal{X}} \mathbf{E}_\
 
 ### PDF page 157 (book page 141)
 
-*[Figure: A 9×9 grid graph (lattice). A path/flow is drawn in bold from vertex $x$ (lower middle) up-left to vertex $z$ (center-left), then a "V" shape from $z$ with one bold edge going up-right to vertex $y$ (upper right) and another bold edge going down-right toward $x$.]*
-
-FIGURE 10.7. Constructing a flow from $x$ to $y$.
+**FIGURE 10.7.** Constructing a flow from $x$ to $y$. *[Figure: A 9×9 grid graph (lattice). A path/flow is drawn in bold from vertex $x$ (lower middle) up-left to vertex $z$ (center-left), then a "V" shape from $z$ with one bold edge going up-right to vertex $y$ (upper right) and another bold edge going down-right toward $x$.]*
 
 *Thus,*
 
@@ -553,9 +541,7 @@ where $\psi(y,z) = P^t(y,x) \sqrt{\pi(y) P^2(y,z)}$. (By Exercise 1.8, the matri
 
 ### PDF page 158 (book page 142)
 
-*[Figure: A square with four corner vertices labeled $w$ (top-left), $z$ (top-right), $x$ (bottom-left), $y$ (bottom-right). On each of the four edges there is an added midpoint vertex labeled: $m_{wz}$ on the top edge, $m_{yz}$ on the right edge, $m_{xy}$ on the bottom edge, and $m_{wx}$ on the left edge.]*
-
-FIGURE 10.8. Adding states $m_{xy}$ for each pair $x, y \in \mathcal{X}$.
+**FIGURE 10.8.** Adding states $m_{xy}$ for each pair $x, y \in \mathcal{X}$. *[Figure: A square with four corner vertices labeled $w$ (top-left), $z$ (top-right), $x$ (bottom-left), $y$ (bottom-right). On each of the four edges there is an added midpoint vertex labeled: $m_{wz}$ on the top edge, $m_{yz}$ on the right edge, $m_{xy}$ on the bottom edge, and $m_{wx}$ on the left edge.]*
 
 By Cauchy-Schwarz, the right-hand side of (10.36) is at most
 

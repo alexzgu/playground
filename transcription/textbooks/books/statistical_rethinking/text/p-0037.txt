@@ -1,0 +1,46 @@
+2.1. THE GARDEN OF FORKING DATA
+21
+one of these paths is taken—murder or tea. But the book within Borges’ story explores all
+paths, with each decision branching outward into an expanding garden of forking paths.
+This is the same device that Bayesian inference offers. In order to make good inference
+about what actually happened, it helps to consider everything that could have happened.
+A Bayesian analysis is a garden of forking data, in which alternative sequences of events
+are cultivated. As we learn about what did happen, some of these alternative sequences are
+pruned. In the end, what remains is only what is logically consistent with our knowledge.
+This approach provides a quantitative ranking of hypotheses, a ranking that is maximally
+conservative, given the assumptions and data that go into it. The approach cannot guarantee
+a correct answer, on large world terms. But it can guarantee the best possible answer, on
+small world terms, that could be derived from the information fed into it.
+Consider the following toy example.
+2.1.1. Counting possibilities. Suppose there’s a bag, and it contains four marbles. These
+marbles come in two colors: blue and white. We know there are four marbles in the bag,
+but we don’t know how many are of each color. We do know that there are five possibilities:
+(1) [
+], (2) [
+], (3) [
+], (4) [
+], (5) [
+]. These are the only
+possibilities consistent with what we know about the contents of the bag. Call these five
+possibilities the conjectures.
+Our goal is to figure out which of these conjectures is most plausible, given some evi-
+dence about the contents of the bag. We do have some evidence: A sequence of three mar-
+bles is pulled from the bag, one at a time, replacing the marble each time and shaking the bag
+before drawing another marble. The sequence that emerges is:
+, in that order. These
+are the data.
+So now let’s plant the garden and see how to use the data to infer what’s in the bag.
+Let’s begin by considering just the single conjecture, [
+], that the bag contains one
+blue and three white marbles. On the first draw from the bag, one of four things could
+happen, corresponding to one of four marbles in the bag. So we can visualize the possibilities
+branching outward:
+Notice that even though the three white marbles look the same from a data perspective—
+we just record the color of the marbles, after all—they are really different events. This is
+important, because it means that there are three more ways to see
+than to see
+.
+Now consider the garden as we get another draw from the bag. It expands the garden
+out one layer:
+Now there are 16 possible paths through the garden, one for each pair of draws. On the
+second draw from the bag, each of the paths above again forks into four possible paths. Why?

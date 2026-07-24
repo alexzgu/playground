@@ -1,0 +1,48 @@
+14.2. ADVANCED VARYING SLOPES
+463
+Warning messages:
+1: There were 154 divergent transitions after warmup.
+We first discussed these back in Chapter 9. If you look at the diagnostics and the trankplot,
+you see that the chains are not mixing quite right. In the previous chapter, we saw how re-
+parameterizing the model can help. We’ll do that again here. Our goal is to factor all the
+parameters out of the adaptive priors and place them instead in the linear model. But now
+that we have covariance matrixes in the priors, how are we going to do that?
+The basic strategy is the same, just extrapolated to matrixes. What we’ll do is again make
+some z-scores for each random effect. But now we need matrixes of z-scores, just let we
+had matrixes of random effects in the previous model. Then we’ll want to multiply those
+z-scores into a covariance matrix so that we get back the random effects on the right scale
+for the linear model. There is a special matrix algebra trick for this, and ulam has a function
+compose_noncentered for performing this trick. The Overthinking box at the end of the
+section explains in more detail. This is how the non-centered version of the model looks:
+R code
+14.19
+set.seed(4387510)
+m14.3 <- ulam(
+alist(
+L ~ binomial(1,p),
+logit(p) <- g[tid] + alpha[actor,tid] + beta[block_id,tid],
+# adaptive priors - non-centered
+transpars> matrix[actor,4]:alpha <-
+compose_noncentered( sigma_actor , L_Rho_actor , z_actor ),
+transpars> matrix[block_id,4]:beta <-
+compose_noncentered( sigma_block , L_Rho_block , z_block ),
+matrix[4,actor]:z_actor ~ normal( 0 , 1 ),
+matrix[4,block_id]:z_block ~ normal( 0 , 1 ),
+# fixed priors
+g[tid] ~ normal(0,1),
+vector[4]:sigma_actor ~ dexp(1),
+cholesky_factor_corr[4]:L_Rho_actor ~ lkj_corr_cholesky( 2 ),
+vector[4]:sigma_block ~ dexp(1),
+cholesky_factor_corr[4]:L_Rho_block ~ lkj_corr_cholesky( 2 ),
+# compute ordinary correlation matrixes from Cholesky factors
+gq> matrix[4,4]:Rho_actor <<- Chol_to_Corr(L_Rho_actor),
+gq> matrix[4,4]:Rho_block <<- Chol_to_Corr(L_Rho_block)
+) , data=dat , chains=4 , cores=4 , log_lik=TRUE )
+No more divergent transitions! There are several advanced features of ulam on display above.
+One important bit to note is the last two lines. These compute the ordinary correlation ma-
+trixes from those Cholesky factors. This will help you interpret the correlations, if you want.
+That gq> tag in front of each line tells Stan to do this calculation only at the end of each tran-
+sition. This is more efficient. If you are still curious about the details, see the Overthinking
+box further down for the raw Stan version of this model.
+How has the non-centered parameterization helped here? If you compare the precis
+output of the two models, you’ll see that they arrive at roughly the same inferences. But the

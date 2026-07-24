@@ -1,0 +1,44 @@
+132
+5. THE MANY VARIABLES & THE SPURIOUS WAFFLES
+To make sense of this, we’re going to have to think causally. And then, only after we’ve
+done some thinking, a bigger regression model that includes both age at marriage and mar-
+riage rate will help us.
+5.1.1. Think before you regress. There are three observed variables in play: divorce rate
+(D), marriage rate (M), and the median age at marriage (A) in each State. The pattern we
+see in the previous two models and illustrated in Figure 5.2 is symptomatic of a situation in
+which only one of the predictor variables, A in this case, has a causal impact on the outcome,
+D, even though both predictor variables are strongly associated with the outcome.
+To understand this better, it is helpful to introduce a particular type of causal graph
+known as a DAG, short for directed acyclic graph. Graph means it is nodes and con-
+nections. Directed means the connections have arrows that indicate directions of causal in-
+fluence. And acyclic means that causes do not eventually flow back on themselves. A DAG
+is a way of describing qualitative causal relationships among variables. It isn’t as detailed as
+a full model description, but it contains information that a purely statistical model does not.
+Unlike a statistical model, a DAG, if it is correct, will tell you the consequences of intervening
+to change a variable.
+Here is a DAG for our divorce rate example:
+A
+D
+M
+If you want to see the code to draw this, see the Overthinking box at the end of this section. It
+may not look like much, but this type of diagram does a lot of work. It represents a heuristic
+causal model. Like other models, it is an analytical assumption. The symbols A, M, and D
+are our observed variables. The arrows show directions of influence. What this DAG says is:
+(1) A directly influences D
+(2) M directly influences D
+(3) A directly influences M
+These statements can then have further implications. In this case, because A →M and M →
+D, age of marriage influences divorce in two ways. First it can have a direct effect, perhaps
+because younger people change faster than older people and are therefore more likely to
+grow incompatible with a partner. Second, it can have an indirect effect by influencing the
+marriage rate. If people get married earlier, then the marriage rate may rise, because there
+are more young people. Consider for example if an evil dictator forced everyone to marry
+at age 65. Since a smaller fraction of the population lives to 65 than to 25, forcing delayed
+marriage will also reduce the marriage rate. If marriage rate itself has any direct effect on
+divorce, maybe by making marriage more or less normative, then some of that direct effect
+could be the indirect effect of age at marriage.
+To infer the strength of these different arrows, we need more than one statistical model.
+Model m5.1, the regression of D on A, tells us only that the total influence of age at marriage is
+strongly negative with divorce rate. The “total” here means we have to account for every path
+from A to D. There are two such paths in this graph: A →D, a direct path, and A →M →D,
+an indirect path. In general, it is possible that a variable like A has no direct effect at all on an

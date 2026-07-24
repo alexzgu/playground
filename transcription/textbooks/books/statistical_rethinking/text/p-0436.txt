@@ -1,0 +1,46 @@
+420
+13. MODELS WITH MEMORY
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+tank
+proportion survival
+1
+16
+32
+48
+small tanks
+medium tanks
+large tanks
+Figure 13.1. Empirical proportions of survivors in each tadpole tank,
+shown by the filled blue points, plotted with the 48 per-tank parameters
+from the multilevel model, shown by the black circles. The dashed line lo-
+cates the average proportion of survivors across all tanks. The vertical lines
+divide tanks with different initial densities of tadpoles: small tanks (10 tad-
+poles), medium tanks (25), and large tanks (35). In every tank, the posterior
+mean from the multilevel model is closer to the dashed line than the empir-
+ical proportion is. This reflects the pooling of information across tanks, to
+help with inference about each tank.
+case. Once we have a distributional assumption, we can use Bayes’ theorem to optimally (in
+the small world only) share information among the clusters.
+What does the inferred population distribution of survival look like? We can visualize
+it by sampling from the posterior distribution, as usual. First we’ll plot 100 Gaussian dis-
+tributions, one for each of the first 100 samples from the posterior distribution of both α
+and σ. Then we’ll sample 8000 new log-odds of survival for individual tanks. The result will
+be a posterior distribution of variation in survival in the population of tanks. Before we do
+the sampling though, remember that “sampling” from a posterior distribution is not a sim-
+ulation of empirical sampling. It’s just a convenient way to characterize and work with the
+uncertainty in the distribution. Now the sampling:
+R code
+13.6
+# show first 100 populations in the posterior
+plot( NULL , xlim=c(-3,4) , ylim=c(0,0.35) ,
+xlab="log-odds survive" , ylab="Density" )
+for ( i in 1:100 )
+curve( dnorm(x,post$a_bar[i],post$sigma[i]) , add=TRUE ,
+col=col.alpha("black",0.2) )
+# sample 8000 imaginary tanks from the posterior distribution
+sim_tanks <- rnorm( 8000 , post$a_bar , post$sigma )

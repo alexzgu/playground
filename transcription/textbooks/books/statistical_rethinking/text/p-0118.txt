@@ -1,0 +1,56 @@
+102
+4. GEOCENTRIC MODELS
+difficulty with tables alone is their apparent simplicity compared to the complexity of the
+model and data that generated them. Once you have more than a couple of parameters in a
+model, it is very hard to figure out from numbers alone how all of them act to influence pre-
+diction. This is also the reason we simulate from priors. Once you begin adding interaction
+terms (Chapter 8) or polynomials (later in this chapter), it may not even be possible to guess
+the direction of influence a predictor variable has on an outcome.
+So throughout this book, I emphasize plotting posterior distributions and posterior pre-
+dictions, instead of attempting to understand a table. Plotting the implications of your mod-
+els will allow you to inquire about things that are hard to read from tables:
+(1) Whether or not the model fitting procedure worked correctly
+(2) The absolute magnitude, rather than merely relative magnitude, of a relationship
+between outcome and predictor
+(3) The uncertainty surrounding an average relationship
+(4) The uncertainty surrounding the implied predictions of the model, as these are
+distinct from mere parameter uncertainty
+In addition, once you get the hang of processing posterior distributions into plots, you can
+ask any question you can think of, for any model type. And readers of your results will
+appreciate a figure much more than they will a table of estimates.
+So in the remainder of this section, I first spend a little time talking about tables of esti-
+mates. Then I move on to show how to plot estimates that always incorporate information
+from the full posterior distribution, including correlations among parameters.
+Rethinking: What do parameters mean? A basic issue with interpreting model-based estimates is
+in knowing the meaning of parameters. There is no consensus about what a parameter means, how-
+ever, because different people take different philosophical stances towards models, probability, and
+prediction. The perspective in this book is a common Bayesian perspective: Posterior probabilities
+of parameter values describe the relative compatibility of different states of the world with the data, ac-
+cording to the model. These are small world (Chapter 2) numbers. So reasonable people may disagree
+about the large world meaning, and the details of those disagreements depend strongly upon context.
+Such disagreements are productive, because they lead to model criticism and revision, something that
+golems cannot do for themselves.
+In later chapters, you’ll see that parameters can refer to observable quantities—data—as well as
+unobservable values. This makes parameters even more useful and their interpretation even more
+context dependent.
+4.4.3.1. Tables of marginal distributions. With the new linear regression trained on the
+Kalahari data, we inspect the marginal posterior distributions of the parameters:
+R code
+4.44
+precis( m4.3 )
+mean
+sd
+5.5%
+94.5%
+a
+154.60 0.27 154.17 155.03
+b
+0.90 0.04
+0.84
+0.97
+sigma
+5.07 0.19
+4.77
+5.38
+The first row gives the quadratic approximation for α, the second the approximation for β,
+and the third approximation for σ. Let’s try to make some sense of them.

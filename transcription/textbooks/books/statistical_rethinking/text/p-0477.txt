@@ -1,0 +1,39 @@
+14.2. ADVANCED VARYING SLOPES
+461
+14.2. Advanced varying slopes
+To see how to construct a model with more than two varying effects—varying intercepts
+plus more than one varying slope—as well as with more than one type of cluster, we’ll return
+to the chimpanzee experiment data that was introduced in Chapter 11. In these data, there
+are two types of clusters: actors and blocks. We explored cross-classification with two
+kinds of varying intercepts back on page 429. We also modeled the experiment with two
+different slopes: one for the effect of the prosocial option (the side of the table with two
+pieces of food) and one for the interaction between the prosocial option and the presence of
+another chimpanzee. Now we’ll model both types of clusters and place varying effects on the
+intercepts and both slopes. All of this machinery is not always necessary. But sometimes it
+is, and this is a relatively simple example to lay it all out.
+I’ll also use this example to emphasize the importance of non-centered parameteri-
+zation for some multilevel models. For any given multilevel model, there are several differ-
+ent ways to write it down. These ways are called “parameterizations.” Mathematically, these
+alternative parameterizations are equivalent, but inside the MCMC engine they are not. Re-
+member, how you fit the model is part of the model. Choosing a better parameterization
+is an awesome way to improve sampling for your MCMC model fit, and the non-centered
+parameterization tends to help a lot with complex varying effect models like the one you’ll
+work with in this section. I’ll hide the details of the technique in the main text. But as usual,
+there is an Overthinking box at the end that provides some detail.
+Okay, let’s construct a cross-classified varying slopes model. To maintain some sanity
+with this complicated model, we’ll use more than one linear model in the formulas. This will
+allow us to compartmentalize sub-models for the intercepts and each slope. Here’s what the
+likelihood and its linear model looks like:
+Li ∼Binomial(1, pi)
+logit(pi) = γtid[i] + αactor[i],tid[i] + βblock[i],tid[i]
+The linear model for logit(pi) contains an average log-odds for each treatment, γtid[i], an
+effect for each actor in each treatment, αactor[i],tid[i], and finally an effect for each block in
+each treatment, βblock[i],tid[i]. This is essentially an interaction model that allows the effect of
+each treatment to vary by each actor and each block. This is to say that the average treatment
+effect can vary by block, and the each individual chimpanzee can also respond (across blocks)
+to each treatment differently. This yields a total of 4+7×4+6×4 = 56 parameters. Pooling
+is really needed here.
+So let’s do some pooling. The next part of the model are the adaptive priors. Since
+there are two cluster types, actors and blocks, there are two multivariate Gaussian priors.
+The multivariate Gaussian priors are both 4-dimensional, in this example, because there are
+4 treatments. But in general, you can choose to have different varying effects in different

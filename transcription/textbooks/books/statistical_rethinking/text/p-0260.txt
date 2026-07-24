@@ -1,0 +1,63 @@
+244
+8. CONDITIONAL MANATEES
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+0.8
+0.9
+1.0
+1.1
+ruggedness (standardized)
+log GDP (as proportion of mean)
+African nations
+Lesotho
+Seychelles
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+0.8
+0.9
+1.0
+1.1
+1.2
+1.3
+ruggedness (standardized)
+log GDP (as proportion of mean)
+Non-African nations
+Switzerland
+Tajikistan
+Figure 8.2. Separate linear regressions inside and outside of Africa, for log-
+GDP against terrain ruggedness. The slope is positive inside Africa, but
+negative outside. How can we recover this reversal of the slope, using the
+combined data?
+relationship within Africa is puzzling. Why should difficult terrain be associated with higher
+GDP per capita?
+If this relationship is at all causal, it may be because rugged regions of Africa were pro-
+tected against the Atlantic and Indian Ocean slave trades. Slavers preferred to raid easily
+accessed settlements, with easy routes to the sea. Those regions that suffered under the slave
+trade understandably continue to suffer economically, long after the decline of slave-trading
+markets. However, an outcome like GDP has many influences, and is furthermore a strange
+measure of economic activity. And ruggedness is correlated with other geographic features,
+like coastlines, that also influence the economy. So it is hard to be sure what’s going on here.
+The causal hypothesis, in DAG form, might be (but see the Overthinking box at the end
+of this section):
+C
+G
+R
+U
+where R is terrain ruggedness, G is GDP, C is continent, and U is some set of unobserved
+confounds (like distance to coast). Let’s ignore U for now. You’ll consider some confounds
+in the practice problems at the end. Focus instead on the implication that R and C both
+influence G. This could mean that they are independent influences or rather that they interact
+(one moderates the influence of the other). The DAG does not display an interaction. That’s
+because DAGs do not specify how variables combine to influence other variables. The DAG
+above implies only that there is some function that uses R and C to generate G. In typical
+notation, G = f(R, C).
+So we need a statistical approach to judge different propositions for f(R, C). How do we
+make a model that produces the conditionality in Figure 8.2? We could cheat by splitting

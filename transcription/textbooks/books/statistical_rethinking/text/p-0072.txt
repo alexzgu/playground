@@ -1,0 +1,51 @@
+56
+3. SAMPLING THE IMAGINARY
+R code
+3.10
+quantile( samples , c( 0.1 , 0.9 ) )
+10%
+90%
+0.4464464 0.8118118
+This region is shown in the bottom-right plot in Figure 3.2.
+Intervals of this sort, which assign equal probability mass to each tail, are very common
+in the scientific literature. We’ll call them percentile intervals (PI). These intervals do
+a good job of communicating the shape of a distribution, as long as the distribution isn’t too
+asymmetrical. But in terms of supporting inferences about which parameters are consistent
+with the data, they are not perfect. Consider the posterior distribution and different intervals
+in Figure 3.3. This posterior is consistent with observing three waters in three tosses and a
+uniform (flat) prior. It is highly skewed, having its maximum value at the boundary, p = 1.
+You can compute it, via grid approximation, with:
+R code
+3.11
+p_grid <- seq( from=0 , to=1 , length.out=1000 )
+prior <- rep(1,1000)
+likelihood <- dbinom( 3 , size=3 , prob=p_grid )
+posterior <- likelihood * prior
+posterior <- posterior / sum(posterior)
+samples <- sample( p_grid , size=1e4 , replace=TRUE , prob=posterior )
+This code also goes ahead to sample from the posterior. Now, on the left of Figure 3.3, the
+50% percentile compatibility interval is shaded. You can conveniently compute this from the
+samples with PI (part of rethinking):
+R code
+3.12
+PI( samples , prob=0.5 )
+25%
+75%
+0.7037037 0.9329329
+This interval assigns 25% of the probability mass above and below the interval. So it pro-
+vides the central 50% probability. But in this example, it ends up excluding the most prob-
+able parameter values, near p = 1. So in terms of describing the shape of the posterior
+distribution—which is really all these intervals are asked to do—the percentile interval can
+be misleading.
+In contrast, the right-hand plot in Figure 3.3 displays the 50% highest posterior
+density interval (HPDI).56 The HPDI is the narrowest interval containing the specified
+probability mass. If you think about it, there must be an infinite number of posterior intervals
+with the same mass. But if you want an interval that best represents the parameter values
+most consistent with the data, then you want the densest of these intervals. That’s what the
+HPDI is. Compute it from the samples with HPDI (also part of rethinking):
+R code
+3.13
+HPDI( samples , prob=0.5 )
+|0.5
+0.5|
+0.8408408 1.0000000

@@ -1,0 +1,59 @@
+60
+3. SAMPLING THE IMAGINARY
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+0.000
+0.001
+0.002
+0.003
+0.004
+proportion water (p)
+Density
+mode
+median
+mean
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+0.2
+0.4
+0.6
+0.8
+decision
+expected proportional loss
+Figure 3.4. Point estimates and loss functions. Left: Posterior distribution
+(blue) after observing 3 water in 3 tosses of the globe. Vertical lines show
+the locations of the mode, median, and mean. Each point implies a different
+loss function. Right: Expected loss under the rule that loss is proportional
+to absolute distance of decision (horizontal axis) from the true value. The
+point marks the value of p that minimizes the expected loss, the posterior
+median.
+R code
+3.17
+sum( posterior*abs( 0.5 - p_grid ) )
+[1] 0.3128752
+The symbols posterior and p_grid are the same ones we’ve been using throughout this
+chapter, containing the posterior probabilities and the parameter values, respectively. All
+the code above does is compute the weighted average loss, where each loss is weighted by its
+corresponding posterior probability. There’s a trick for repeating this calculation for every
+possible decision, using the function sapply.
+R code
+3.18
+loss <- sapply( p_grid , function(d) sum( posterior*abs( d - p_grid ) ) )
+Now the symbol loss contains a list of loss values, one for each possible decision, corre-
+sponding the values in p_grid. From here, it’s easy to find the parameter value that mini-
+mizes the loss:
+R code
+3.19
+p_grid[ which.min(loss) ]
+[1] 0.8408408
+And this is actually the posterior median, the parameter value that splits the posterior density
+such that half of the mass is above it and half below it. Try median(samples) for compari-
+son. It may not be exactly the same value, due to sampling variation, but it will be close.

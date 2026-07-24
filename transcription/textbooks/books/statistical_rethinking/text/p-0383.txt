@@ -1,0 +1,56 @@
+11.3. MULTINOMIAL AND CATEGORICAL MODELS
+367
+three categories, and the count that accumulates is across all three categories. So we end up
+with a count of blue, white, and red marbles.
+When more than two types of unordered events are possible, and the probability of each
+type of event is constant across trials, then the maximum entropy distribution is the multi-
+nomial distribution. You already met the multinomial, implicitly, in Chapter 10 when
+we tossed pebbles into buckets as an introduction to maximum entropy. The binomial is
+really a special case of this distribution. And so its distribution formula resembles the bino-
+mial, just extrapolated out to three or more types of events. If there are K types of events
+with probabilities p1, ..., pK, then the probability of observing y1, ..., yK events of each type
+out of n total trials is:
+Pr(y1, ..., yK|n, p1, ..., pK) =
+n!
+Q
+i yi!
+K
+Y
+i=1
+pyi
+i
+The fraction with n! on top just expresses the number of different orderings that give the
+same counts y1, ..., yK. It’s the famous multiplicity from the previous chapter.
+A model built on a multinomial distribution may also be called a categorical regres-
+sion, usually when each event is isolated on a single row, like with logistic regression. In
+machine learning, this model type is sometimes known as the maximum entropy clas-
+sifier. Building a generalized linear model from a multinomial likelihood is complicated,
+because as the event types multiply, so too do your modeling choices. And there are two dif-
+ferent approaches to constructing the likelihoods, as well. The first is based directly on the
+multinomial likelihood and uses a generalization of the logit link. I’ll show you an example
+of this approach, which I’ll call the explicit approach. The second approach transforms the
+multinomial likelihood into a series of Poisson likelihoods, oddly enough. I’ll introduce that
+approach after I introduce Poisson GLMs.
+The conventional and natural link in this contextis the multinomiallogit, also known
+as the softmax function. This link function takes a vector of scores, one for each of K event
+types, and computes the probability of a particular type of event k as:
+Pr(k|s1, s2, ..., sK) =
+exp(sk)
+PK
+i=1 exp(si)
+The rethinking package provides this link as the softmax function. Combined with this
+conventional link, this type of GLM may be called multinomial logistic regression.
+The biggest issue is what to do with the multiple linear models. In a binomial GLM, you
+can pick either of the two possible events and build a single linear model for its log odds.
+The other event is handled automatically. But in a multinomial (or categorical) GLM, you
+need K −1 linear models for K types of events. One of the outcome values is chosen as a
+“pivot” and the others are modeled relative to it. In each the K −1 linear models, you can
+use any predictors and parameters you like—they don’t have to be the same, and there are
+often good reasons for them to be different. In the special case of two types of events, none
+of these choices arise, because there is only one linear model. And that’s why the binomial
+GLM is so much easier.
+There are two basic cases: (1) predictors have different values for different values the
+outcome, and (2) parameters are distinct for each value of the outcome. The first case is
+useful when each type of event has its own quantitative traits, and you want to estimate the
+association between those traits and the probability each type of event appears in the data.
+The second case is useful when you are interested instead in features of some entity that

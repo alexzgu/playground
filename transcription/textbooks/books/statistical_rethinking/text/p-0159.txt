@@ -1,0 +1,54 @@
+5.1. SPURIOUS ASSOCIATION
+143
+-2
+-1
+0
+1
+2
+-2
+-1
+0
+1
+Observed divorce
+Predicted divorce
+ID
+ME
+RI
+UT
+Figure 5.5. Posterior predictive plot for the
+multivariate divorce model, m5.3. The hori-
+zontal axis is the observed divorce rate in each
+State. The vertical axis is the model’s posterior
+predicted divorce rate, given each State’s me-
+dian age at marriage and marriage rate. The
+blue line segments are 89% compatibility inter-
+vals. The diagonal line shows where posterior
+predictions exactly match the sample.
+which have much lower divorce rates than the model expects them to have. The easiest way
+to label a few select points is to use identify:
+R code
+5.17
+identify( x=d$D , y=mu_mean , labels=d$Loc )
+After executing the line of code above, R will wait for you to click near a point in the active
+plot window. It’ll then place a label near that point, on the side you choose. When you are
+done labeling points, press your right mouse button (or press esc, on some platforms).
+What is unusual about Idaho and Utah? Both of these States have large proportions of
+members of the Church of Jesus Christ of Latter-day Saints. Members of this church have
+low rates of divorce, wherever they live. This suggests that having a finer view on the demo-
+graphic composition of each State, beyond just median age at marriage, would help a lot to
+refine our understanding.
+Rethinking: Stats, huh, yeah what is it good for? Often people want statistical modeling to do things
+that statistical modeling cannot do. For example, we’d like to know whether an effect is “real” or rather
+spurious. Unfortunately, modeling merely quantifies uncertainty in the precise way that the model
+understands the problem. Usually answers to large world questions about truth and causation depend
+upon information not included in the model. For example, any observed correlation between an out-
+come and predictor could be eliminated or reversed once another predictor is added to the model.
+But if we cannot think of the right variable, we might never notice. Therefore all statistical models are
+vulnerable to and demand critique, regardless of the precision of their estimates and apparent accu-
+racy of their predictions. Rounds of model criticism and revision embody the real tests of scientific
+hypotheses. A true hypothesis will pass and fail many statistical “tests” on its way to acceptance.
+Overthinking: Simulating spurious association. One way that spurious associations between a pre-
+dictor and outcome can arise is when a truly causal predictor, call it xreal, influences both the outcome,
+y, and a spurious predictor, xspur. This can be confusing, however, so it may help to simulate this sce-
+nario and see both how the spurious data arise and prove to yourself that multiple regression can
+reliably indicate the right predictor, xreal. So here’s a very basic simulation:

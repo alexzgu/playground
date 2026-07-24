@@ -1,0 +1,65 @@
+14.5. CONTINUOUS CATEGORIES AND THE GAUSSIAN PROCESS
+495
+a Brownian motion interpretation of the phylogeny that implies a very particular covari-
+ance matrix. Brownian motion just means Gaussian random walks. If species traits drift
+randomly with respect to one another after speciation, then the covariance between a pair of
+species ends up being linearly related to the phylogenetic branch distance between them—
+the further apart, the less covariance, as a proportion of distance. Of course the traits we
+are interested in obviously do not evolve neutrally, and they also evolve at different rates in
+different parts of the tree. But what you are about to do is unfortunately the most common
+formethodm of phylogenetic control.
+Let’s compute the implied covariance matrix, the distance matrix, and show how they
+are related. The ape R package has all of the functions you need.
+R code
+14.50
+library(ape)
+tree_trimmed <- keep.tip( Primates301_nex, spp_obs )
+Rbm <- corBrownian( phy=tree_trimmed )
+V <- vcv(Rbm)
+Dmat <- cophenetic( tree_trimmed )
+plot( Dmat , V , xlab="phylogenetic distance" , ylab="covariance" )
+I don’t display the plot here, but if you run the above code, you’ll see a scatterplot with pairs
+of species as points. The horizontal axis is phylogenetic, or patristic, distance. The vertical is
+the covariance under the Brownian model. They are really just inverses of one another. You
+can see this even more clearly if you use image(V) and image(Dmat) to plot heat maps of
+each.
+Now we can just insert this new matrix into our regression. The is otherwise the same.
+But first we need to get the rows and columns in the same order as the rest of the data and
+then convert it to a correlation matrix, so we can estimate the residual variance. Then we can
+just replace the identity matrix with our new correlation matrix and go.
+R code
+14.51
+# put species in right order
+dat_list$V <- V[ spp_obs , spp_obs ]
+# convert to correlation matrix
+dat_list$R <- dat_list$V / max(V)
+# Brownian motion model
+m14.10 <- ulam(
+alist(
+B ~ multi_normal( mu , SIGMA ),
+mu <- a + bM*M + bG*G,
+matrix[N_spp,N_spp]: SIGMA <- R * sigma_sq,
+a ~ normal( 0 , 1 ),
+c(bM,bG) ~ normal( 0 , 0.5 ),
+sigma_sq ~ exponential( 1 )
+), data=dat_list , chains=4 , cores=4 )
+precis( m14.10 )
+mean
+sd
+5.5% 94.5% n_eff Rhat
+a
+-0.20 0.17 -0.47
+0.06
+2152
+1
+bG
+-0.01 0.02 -0.04
+0.02
+2691
+1
+bM
+0.70 0.04
+0.64
+0.76
+1935
+1

@@ -1,0 +1,72 @@
+478
+14. ADVENTURES IN COVARIANCE
+transpars> matrix[N,2]:d <-
+compose_noncentered( rep_vector(sigma_d,2) , L_Rho_d , z ),
+matrix[2,N]:z ~ normal( 0 , 1 ),
+cholesky_factor_corr[2]:L_Rho_d ~ lkj_corr_cholesky( 8 ),
+sigma_d ~ exponential(1),
+## compute correlation matrix for dyads
+gq> matrix[2,2]:Rho_d <<- Chol_to_Corr( L_Rho_d )
+), data=kl_data , chains=4 , cores=4 , iter=2000 )
+I’ve broken this up into sections, to make it easier to read. The top section is the two out-
+come variables, each direction of gifting in the dyad. Each linear model contains the inter-
+cept a. Then comes a giving effect for the household giving on that line, gr[hidA,1] or
+gr[hidB,1]. That “1” is for the first column of the gr matrix. Then comes the receiving
+effect for the household receiving, either gr[hidB,2] or gr[hidA,2]. Finally, the dyad
+effects d[did,1] for household A and d[did,2] for household B. This is because we put
+household A in the first column of the d matrix. The order is arbitrary, since A and B are
+just labels.
+The next chunk of code defines the matrix of giving and receiving effects. The matrix
+gr will have a row for each household and 2 columns. The first column will be the giving
+varying effect and the second column will be the receiving varying effect, just like in the
+linear models.
+The third chunk defines the special dyad matrix. These are non-centered, for the sake of
+efficient mixing. The special piece is the rep_vector(sigma_d,2). This copies the standard
+deviation into a vector of length 2 and composes the covariance matrix from there. So we
+end up with the correct covariance matrix, with the same variance for both effects.
+Finally, there is a single line at the bottom that computes the correlation matrix for the
+dyads. This is necessary, because the model is parameterized using a Cholesky factor. The
+function Chol_to_Corr multiplies a matrix by its own transpose. This is how a Cholesky
+factor is made back into its original matrix. If you want to interpret the correlations among
+the effects, then this is a useful calculation. The gq> at the start of the line places the line in
+Stan’s generated quantities block, which holds code that is executed after each Hamiltonian
+transition. So anything you want calculated from each sample should be tagged in this way.
+It will show up in the posterior distribution.
+This model contains a lot of parameters. There are 600 dyad parameters, for example.
+But we can get some useful information from the covariance matrix components:
+R code
+14.32
+precis( m14.7 , depth=3 , pars=c("Rho_gr","sigma_gr") )
+mean
+sd
+5.5% 94.5% n_eff Rhat
+Rho_gr[1,1]
+1.00 0.00
+1.00
+1.00
+NaN
+NaN
+Rho_gr[1,2] -0.40 0.20 -0.70 -0.07
+1475
+1
+Rho_gr[2,1] -0.40 0.20 -0.70 -0.07
+1475
+1
+Rho_gr[2,2]
+1.00 0.00
+1.00
+1.00
+3834
+1
+sigma_gr[1]
+0.83 0.14
+0.64
+1.07
+2371
+1
+sigma_gr[2]
+0.42 0.09
+0.29
+0.57
+1251
+1

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Stitch per-page transcripts into chapter files and refresh README status.
+"""Stitch per-page transcripts into curriculum-material chapter files.
 
 Chapter membership comes from the booklet page number each transcript read off
 the page itself (PDF-5 as fallback; unnumbered inserts inherit the previous
@@ -7,12 +7,15 @@ page's chapter). Chapter 3 keeps its previously-transcribed PDF page 22.
 
 Usage: python3 assemble_chapters.py
 """
+from collections import Counter
 import json
 import re
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-ROOT = HERE.parent
+TRANSCRIPTION_ROOT = HERE.parent
+REPO_ROOT = TRANSCRIPTION_ROOT.parent
+DEST = REPO_ROOT / "curriculum_material" / "bayesian_booklet"
 OUT = HERE / "out"
 
 # key, filename, chapter number, title, booklet range (inclusive)
@@ -45,6 +48,7 @@ def chapter_key(booklet: int) -> str:
 
 
 def main():
+    DEST.mkdir(parents=True, exist_ok=True)
     manifest = json.loads((OUT / "manifest.json").read_text())
     by_chapter: dict[str, list[tuple[int, int | None, str]]] = {}
     prev_pdf, prev_key = None, None
@@ -68,7 +72,7 @@ def main():
 
     # preserved chunk of ch03 (PDF p. 22, transcribed in the earlier session)
     ch03_existing = ""
-    ch03_path = ROOT / "ch03-lecture-three.md"
+    ch03_path = DEST / "ch03-lecture-three.md"
     if ch03_path.exists():
         m = re.search(r"(### PDF page 22.*?)(?=\n### PDF page (?!22)|\Z)", ch03_path.read_text(), re.S)
         if m:
@@ -96,24 +100,32 @@ def main():
         if key == "ch03" and ch03_existing:
             body.append(ch03_existing)
         body += [text for _, _, text in pages]
-        (ROOT / fname).write_text("\n\n".join(body).rstrip() + "\n")
+        (DEST / fname).write_text("\n\n".join(body).rstrip() + "\n")
         written.append((fname, len(pdf_pages)))
 
     for fname, n in written:
         print(f"wrote {fname} ({n} pages)")
 
-    update_readme_status(manifest)
+    update_readme_status(manifest, delivered_page_counts())
 
 
-def update_readme_status(manifest: dict):
+def delivered_page_counts() -> Counter:
+    counts = Counter()
+    for path in DEST.glob("*.md"):
+        for page in re.findall(r"^### PDF page (\d+)\b", path.read_text(), re.M):
+            counts[int(page)] += 1
+    return counts
+
+
+def update_readme_status(manifest: dict, counts: Counter):
     done = sorted(int(k.split("-")[1]) for k, v in manifest.items()
                   if v.get("status") in ("transcribed", "verified", "verified-with-flags"))
     flagged = sorted(int(k.split("-")[1]) for k, v in manifest.items()
                      if v.get("status") == "verified-with-flags")
     unverified = sorted(int(k.split("-")[1]) for k, v in manifest.items()
                         if v.get("status") == "transcribed")
-    covered = set(done) | set(range(1, 23))
-    missing = [p for p in range(1, 196) if p not in covered]
+    missing = [p for p in range(1, 196) if counts[p] == 0]
+    duplicates = [p for p in range(1, 196) if counts[p] > 1]
 
     def ranges(nums):
         if not nums:
@@ -126,11 +138,12 @@ def update_readme_status(manifest: dict):
         return ", ".join(spans)
 
     status = ["## STATUS OF THIS TRANSCRIPT", ""]
-    if not missing:
-        status.append("**Complete:** all 195 PDF pages transcribed.")
+    if not missing and not duplicates:
+        status.append("**Complete:** all 195 PDF pages are represented exactly once in "
+                      "`curriculum_material/bayesian_booklet/`.")
     else:
-        status.append(f"**Transcribed:** PDF pages 1–22 (earlier session) plus {ranges(done)} "
-                      f"(pipeline). **Missing:** {ranges(missing)}.")
+        status.append(f"**Delivered-page audit:** missing PDF pages {ranges(missing)}; "
+                      f"duplicated PDF pages {ranges(duplicates)}.")
     if unverified:
         status.append(f"Pages transcribed but not yet machine-checked: {ranges(unverified)} "
                       f"— run `python3 transcribe/verify_claims.py`.")
@@ -138,15 +151,23 @@ def update_readme_status(manifest: dict):
         status.append(f"Pages where a machine check documents a suspected **error in the booklet itself** "
                       f"(each flagged inline with a [sic] note): {ranges(flagged)} — "
                       f"see verification-log.md and transcribe/out/verify-results.json.")
+    status.append("PDF page 186 was manually re-transcribed from the source scan during the "
+                  "2026-07-23 audit, replacing an earlier content-filter summary. Appendix A "
+                  "(PDF pages 189–195) was reintegrated from the pipeline's verified page outputs.")
     status.append("")
     status.append("Produced by the pipeline in `transcribe/` (see its README). "
                   "Machine checks are logged in `verification-log.md`.")
 
-    readme = ROOT / "README.md"
-    text = readme.read_text()
-    text = re.sub(r"## STATUS OF THIS TRANSCRIPT.*\Z", "\n".join(status) + "\n", text, flags=re.S)
-    readme.write_text(text)
-    print("README.md status updated")
+    source_readme = TRANSCRIPTION_ROOT / "README.md"
+    material_readme = DEST / "README.md"
+    if not material_readme.exists():
+        material_readme.write_text(source_readme.read_text())
+    for readme in (source_readme, material_readme):
+        text = readme.read_text()
+        text = re.sub(r"## STATUS OF THIS TRANSCRIPT.*\Z",
+                      "\n".join(status) + "\n", text, flags=re.S)
+        readme.write_text(text)
+    print("transcription and curriculum-material README status updated")
 
 
 if __name__ == "__main__":

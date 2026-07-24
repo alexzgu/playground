@@ -1,0 +1,47 @@
+2.2. BUILDING A MODEL
+29
+You can motivate your data story by trying to explain how each piece of data is born. This
+usually means describing aspects of the underlying reality as well as the sampling process.
+The data story in this case is simply a restatement of the sampling process:
+(1) The true proportion of water covering the globe is p.
+(2) A single toss of the globe has a probability p of producing a water (W) observation.
+It has a probability 1 −p of producing a land (L) observation.
+(3) Each toss of the globe is independent of the others.
+The data story is then translated into a formal probability model. This probability model is
+easy to build, because the construction process can be usefully broken down into a series of
+component decisions. Before meeting these components, however, it’ll be useful to visualize
+how a Bayesian model behaves. After you’ve become acquainted with how such a model
+learns from data, we’ll pop the machine open and investigate its engineering.
+Rethinking: The value of storytelling. The data story has value, even if you quickly abandon it and
+never use it to build a model or simulate new observations. Indeed, it is important to eventually
+discard the story, because many different stories always correspond to the same model. As a result,
+showing that a model does a good job does not in turn uniquely support our data story. Still, the story
+has value because in trying to outline the story, often one realizes that additional questions must be
+answered. Most data stories are much more specific than are the verbal hypotheses that inspire data
+collection. Hypotheses can be vague, such as “it’s more likely to rain on warm days.” When you
+are forced to consider sampling and measurement and make a precise statement of how temperature
+predicts rain, many stories and resulting models will be consistent with the same vague hypothesis.
+Resolving that ambiguity often leads to important realizations and model revisions, before any model
+is fit to data.
+2.2.2. Bayesian updating. Our problem is one of using the evidence—the sequence of globe
+tosses—to decide among different possible proportions of water on the globe. These propor-
+tions are like the conjectured marbles inside the bag, from earlier in the chapter. Each possi-
+ble proportion may be more or less plausible, given the evidence. A Bayesian model begins
+with one set of plausibilities assigned to each of these possibilities. These are the prior plau-
+sibilities. Then it updates them in light of the data, to produce the posterior plausibilities.
+This updating process is a kind of learning, called Bayesian updating. The details of this
+updating—how it is mechanically achieved—can wait until later in the chapter. For now,
+let’s look only at how such a machine behaves.
+For the sake of the example only, let’s program our Bayesian machine to initially assign
+the same plausibility to every proportion of water, every value of p. We’ll do better than this
+later. Now look at the top-left plot in Figure 2.5. The dashed horizontal line represents this
+initial plausibility of each possible value of p. After seeing the first toss, which is a “W,” the
+model updates the plausibilities to the solid line. The plausibility of p = 0 has now fallen
+to exactly zero—the equivalent of “impossible.” Why? Because we observed at least one
+speck of water on the globe, so now we know there is some water. The model executes this
+logic automatically. You don’t have it instruct it to account for this consequence. Probability
+theory takes care of it for you, because it is essentially counting paths through the garden of
+forking data, as in the previous section.
+Likewise, the plausibility of p > 0.5 has increased. This is because there is not yet any
+evidence that there is land on the globe, so the initial plausibilities are modified to be consis-
+tent with this. Note however that the relative plausibilities are what matter, and there isn’t

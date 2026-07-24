@@ -1,0 +1,56 @@
+236
+7. ULYSSES’ COMPASS
+0.0
+0.5
+1.0
+0.0
+0.5
+1.0
+1.5
+2.0
+PSIS Pareto k
+WAIC penalty
+ID
+ME
+Gaussian model (m5.3)
+Figure 7.10. Highly influential points and
+out-of-sample prediction. The horizontal axis
+is Pareto k from PSIS. The vertical axis is
+WAIC’s penalty term. The State of Idaho (ID)
+has an extremely unlikely value, according to
+the model. As a result it has both a very high
+Pareto k and a large WAIC penalty. Points
+like these are highly influential and potentially
+hurt prediction.
+observation on a row and the PSIS information, including individual Pareto k values, in
+columns. I’ll also plot the individual “penalty” values from WAIC, to show the relationship
+between Pareto k and the information theoretic prediction penalty.
+R code
+7.34
+set.seed(24071847)
+PSIS_m5.3 <- PSIS(m5.3,pointwise=TRUE)
+set.seed(24071847)
+WAIC_m5.3 <- WAIC(m5.3,pointwise=TRUE)
+plot( PSIS_m5.3$k , WAIC_m5.3$penalty , xlab="PSIS Pareto k" ,
+ylab="WAIC penalty" , col=rangi2 , lwd=2 )
+This plot is shown in Figure 7.10. Individual points are individual States, with Pareto k on
+the horizontal axis and WAIC’s penalty term. The State of Idaho (ID, upper-right corner)
+has both a very high Pareto k value (above 1) and a large pentalty term (over 2). As you saw
+back in Chapter 5, Idaho has a very low divorce rate for its age at marriage. As a result, it
+is highly influential—it exerts more influence on the posterior distribution than other States
+do. The Pareto k value is double the theoretical point at which the variance becomes infinite
+(shown by the dashed line). Likewise, WAIC assigns Idaho a penalty over 2. This penalty
+term is sometimes called the “effective number of parameters,” because in ordinary linear
+regressions the sum of all penalty terms from all points tends to be equal to the number of
+free parameters in the model. But in this case there are 4 parameters and the total penalty is
+closer to 6—check WAIC(m5.3). The outlier Idaho is causing this additional overfitting risk.
+What can be done about this? There is a tradition of dropping outliers. People some-
+times drop outliers even before a model is fit, based only on standard deviations from the
+mean outcome value. You should never do that—a point can only be unexpected and highly
+influential in light of a model. After you fit a model, the picture changes. If there are only a
+few outliers, and you are sure to report results both with and without them, dropping outliers
+might be okay. But if there are several outliers and we really need to model them, what then?
+A basic problem here is that the Gaussian error model is easily surprised. Gaussian
+distributions (introduced at the start of Chapter 4) have very thin tails. This means that very
+little probability mass is given to observations far from the mean. Many natural phenomena
+do have very thin tails like this. Human height is a good example. But many phenomena do

@@ -1,0 +1,46 @@
+8.1. BUILDING AN INTERACTION
+243
+predictor variable to change depending upon some other variable, but they are also estimat-
+ing aspects of the distribution of those changes. This may sound like genius, or madness, or
+both. Regardless, you can’t have the power of multilevel modeling without it.
+Models that allow for complex interactions are easy to fit to data. But they can be con-
+siderably harder to understand. And so I spend this chapter reviewing simple interaction
+effects: how to specify them, how to interpret them, and how to plot them. The chapter
+starts with a case of an interaction between a single categorical (indicator) variable and a
+single continuous variable. In this context, it is easy to appreciate the sort of hypothesis that
+an interaction allows for. Then the chapter moves on to more complex interactions between
+multiple continuous predictor variables. These are harder. In every section of this chapter,
+the model predictions are visualized, averaging over uncertainty in parameters.
+Interactions are common, but they are not easy. My hope is that this chapter lays a solid
+foundation for interpreting generalized linear and multilevel models in later chapters.
+Rethinking: Statistics all-star, Abraham Wald. The World War II bombers story is the work of Abra-
+ham Wald (1902–1950). Wald was born in what is now Romania, but immigrated to the United States
+after the Nazi invasion of Austria. Wald made many contributions over his short life. Perhaps most
+germane to the current material, Wald proved that for many types of rules for making statistical de-
+cisions, there will exist a Bayesian rule that is at least as good as any non-Bayesian one. Wald proved
+this, remarkably, beginning with non-Bayesian premises, and so anti-Bayesians could not ignore it.
+This work was summarized in Wald’s 1950 book, published just before his death.130 Wald died much
+too young, from a plane crash while touring India.
+8.1. Building an interaction
+Africa is special. The second largest continent, it is the most culturally and genetically
+diverse. Africa has about 3 billion fewer people than Asia, but it has just as many living lan-
+guages. Africa is so genetically diverse that most of the genetic variation outside of Africa
+is just a subset of the variation within Africa. Africa is also geographically special, in a puz-
+zling way: Bad geography tends to be related to bad economies outside of Africa, but African
+economies may actually benefit from bad geography.
+To appreciate the puzzle, look at regressions of terrain ruggedness—a particular kind of
+bad geography—against economic performance (log GDP131 per capita in the year 2000),
+both inside and outside of Africa (Figure 8.2). The variable rugged is a Terrain Rugged-
+ness Index132 that quantifies the topographic heterogeneity of a landscape. The outcome
+variable here is the logarithm of real gross domestic product per capita, from the year 2000,
+rgdppc_2000. We use the logarithm of it, because the logarithm of GDP is the magnitude
+of GDP. Since wealth generates wealth, it tends to be exponentially related to anything that
+increases it. This is like saying that the absolute distances in wealth grow increasingly large,
+as nations become wealthier. So when we work with logarithms instead, we can work on
+a more evenly spaced scale of magnitudes. Regardless, keep in mind that a log transform
+loses no information. It just changes what we the model assumes about the shape of the as-
+sociation between variables. In this case, raw GDP is not linearly associated with anything,
+because of its exponential pattern. But log GDP is linearly associated with lots of things.
+What is going on in this figure? It makes sense that ruggedness is associated with poorer
+countries, in most of the world. Rugged terrain means transport is difficult. Which means
+market access is hampered. Which means reduced gross domestic product. So the reversed

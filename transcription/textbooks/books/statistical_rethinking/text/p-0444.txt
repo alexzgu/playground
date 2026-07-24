@@ -1,0 +1,50 @@
+428
+13. MODELS WITH MEMORY
+Okay, so what are we to make of all of this? Remember, back in Figure 13.1 (page 420),
+the smaller tanks demonstrated more shrinkage towards the mean. Here, the ponds with the
+smallest sample size show the greatest improvement over the naive no-pooling estimates.
+This is no coincidence. Shrinkage towards the mean results from trying to negotiate the
+underfitting and overfitting risks of the grand mean on one end and the individual means
+of each pond on the other. The smaller tanks/ponds contain less information, and so their
+varying estimates are influenced more by the pooled information from the other ponds. In
+other words, small ponds are prone to overfitting, and so they receive a bigger dose of the un-
+derfit grand mean. Likewise, the larger ponds shrink much less, because they contain more
+information and are prone to less overfitting. Therefore they need less correcting. When in-
+dividual ponds are very large, pooling in this way does hardly anything to improve estimates,
+because the estimates don’t have far to go. But in that case, they also don’t do any harm, and
+the information pooled from them can substantially help prediction in smaller ponds.
+The partially pooled estimates are better onaverage. They adjustindividual cluster (pond)
+estimates to negotiate the trade-off between underfitting and overfitting. This is a form of reg-
+ularization, just like in Chapter 7, but now with an amount of regularization that is learned
+from the data itself.
+But there are some cases in which the no-pooling estimates are better. These exceptions
+often result from ponds with extreme probabilities of survival. The partial pooling estimates
+shrink such extreme ponds towards the mean, because few ponds exhibit such extreme be-
+havior. But sometimes outliers really are outliers.
+Overthinking: Repeating the pond simulation. This model samples pretty quickly. Compiling the
+model takes up most of the execution time. Luckily the compilation only has to be done once. Then
+you can pass new data to the compiled model and get new estimates. Once you’ve compiled m13.3
+once, you can use this code to re-simulate ponds and sample from the new posterior, without waiting
+for the model to compile again:
+R code
+13.20
+a <- 1.5
+sigma <- 1.5
+nponds <- 60
+Ni <- as.integer( rep( c(5,10,25,35) , each=15 ) )
+a_pond <- rnorm( nponds , mean=a , sd=sigma )
+dsim <- data.frame( pond=1:nponds , Ni=Ni , true_a=a_pond )
+dsim$Si <- rbinom( nponds,prob=inv_logit( dsim$true_a ),size=dsim$Ni )
+dsim$p_nopool <- dsim$Si / dsim$Ni
+newdat <- list(Si=dsim$Si,Ni=dsim$Ni,pond=1:nponds)
+m13.3new <- stan( fit=m13.3@stanfit , data=newdat , chains=4 )
+post <- extract.samples( m13.3new )
+dsim$p_partpool <- apply( inv_logit(post$a_pond) , 2 , mean )
+dsim$p_true <- inv_logit( dsim$true_a )
+nopool_error <- abs( dsim$p_nopool - dsim$p_true )
+partpool_error <- abs( dsim$p_partpool - dsim$p_true )
+plot( 1:60 , nopool_error , xlab="pond" , ylab="absolute error" , col=rangi2 , pch=16 )
+points( 1:60 , partpool_error )
+The stan function reuses the compiled model in m13.3, which is stored in the stanfit slot, passes
+it the new data, and returns the new samples in m13.3new. This is a useful trick, in case you want to
+perform a simulation study of a particular model structure.

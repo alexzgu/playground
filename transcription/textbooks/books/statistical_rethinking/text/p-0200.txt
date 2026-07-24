@@ -1,0 +1,40 @@
+184
+6. THE HAUNTED DAG & THE CAUSAL TERROR
+The pattern above is exactly what we should expect when we condition on a collider.
+The collider is marriage status. It a common consequence of age and happiness. As a result,
+when we condition on it, we induce a spurious association between the two causes. So it
+looks like, to model m6.9, that age is negatively associated with happiness. But this is just a
+statistical association, not a causal association. Once we know whether someone is married
+or not, then their age does provide information about how happy they are.
+You can see this in Figure 6.4. Consider only the blue points, the married people.
+Among only the blue points, older individuals have lower average happiness. This is because
+more people get marriage at time goes on, so the mean happiness among married people ap-
+proaches the population average of zero. Now consider only the open points, the unmarried
+people. Here it is also true that mean happiness declines with age. This is because happier
+individuals migrate over time into the married sub-population. So in both the married and
+unmarried sub-populations, there is a negative relationship between age and happiness. But
+in neither sub-population does this accurately reflect causation.
+It’s easy to plead with this example. Shouldn’t marriage also influence happiness? What
+if happiness does change with age? But this misses the point. If you don’t have a causal
+model, you can’t make inferences from a multiple regression. And the regression itself does
+not provide the evidence you need to justify a causal model. Instead, you need some science.
+6.3.2. ThehauntedDAG. Collider bias arises from conditioningona commonconsequence,
+as in the previous example. If we can just get our graph sorted, we can avoid it. But it isn’t
+always so easy to see a potential collider, because there may be unmeasured causes. Unmea-
+sured causes can still induce collider bias. So I’m sorry to say that we also have to consider
+the possibility that our DAG may be haunted.
+Suppose for example that we are interested in inferring the direct influence of both par-
+ents (P) and grandparents (G) on the educational achievement of children (C).90 Since grand-
+parents also presumably influence their own children’s education, there is an arrow G →P.
+This sounds pretty easy, so far. It’s similar in structure to our divorce rate example from last
+chapter:
+C
+G
+P
+But suppose there are unmeasured, common influences on parents and their children, such
+as neighborhoods, that are not shared by grandparents (who live on the south coast of Spain
+now). Then our DAG becomes haunted by the unobserved U:
+C
+G
+P
+U

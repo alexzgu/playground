@@ -1,0 +1,75 @@
+12.3. ORDERED CATEGORICAL OUTCOMES
+395
+1
+2
+3
+4
+5
+6
+7
+0
+500
+1000
+1500
+2000
+response
+Frequency
+1
+2
+3
+4
+5
+6
+7
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+response
+cumulative proportion
+1
+2
+3
+4
+5
+6
+7
+-2
+-1
+0
+1
+response
+log-cumulative-odds
+Figure 12.4. Re-describing a discrete distribution using log-cumulative-
+odds. Left: Histogram of discrete response in the sample. Middle: Cumu-
+lative proportion of each response. Right: Logarithm of cumulative odds
+of each response. Note that the log-cumulative-odds of response value 7 is
+infinity, so it is not shown.
+designed to constrain the probabilities to the 0/1 interval. Then when we decide to add pre-
+dictor variables, we can safely do so on the cumulative logit scale. The link function takes
+care of converting the parameter estimates to the proper probability scale.
+The first step in the conversion is to compute cumulative probabilities from the his-
+togram:
+R code
+12.14
+# discrete proportion of each response value
+pr_k <- table( d$response ) / nrow(d)
+# cumsum converts to cumulative proportions
+cum_pr_k <- cumsum( pr_k )
+# plot
+plot( 1:7 , cum_pr_k , type="b" , xlab="response" ,
+ylab="cumulative proportion" , ylim=c(0,1) )
+And the result is shown as the middle plot in Figure 12.4.
+Then to re-describe the histogram as log-cumulative odds, we’ll need a series of intercept
+parameters. Each intercept will be on the log-cumulative-odds scale and stand in for the cu-
+mulative probability of each outcome. So this is just the application of the link function. The
+log-cumulative-odds that a response value yi is equal-to-or-less-than some possible outcome
+value k is:
+log
+Pr(yi ≤k)
+1 −Pr(yi ≤k) = αk
+(12.1)
+where αk is an “intercept” unique to each possible outcome value k. We can compute these
+intercept parameters directly:

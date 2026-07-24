@@ -1,0 +1,38 @@
+2 Small Worlds and Large Worlds
+When Cristoforo Colombo (Christopher Columbus) infamously sailed west in the year
+1492, he believed that the Earth was spherical. In this, he was like most educated people of
+his day. He was unlike most people, though, in that he also believed the planet was much
+smaller than it actually is—only 30,000 km around its middle instead of the actual 40,000
+km (Figure 2.1).37 This was one of the most consequential mistakes in European history. If
+Colombo had believed instead that the Earth was 40,000 km around, he would have correctly
+reasoned that his fleet could not carry enough food and potable water to complete a journey
+all the way westward to Asia. But at 30,000 km around, Asia would lie a bit west of the
+coast of California. It was possible to carry enough supplies to make it that far. Emboldened
+in part by his unconventional estimate, Colombo set sail, eventually making landfall in the
+Bahamas.
+Colombo made a prediction based upon his view that the world was small. But since he
+lived in a large world, aspects of the prediction were wrong. In his case, the error was lucky.
+His small world model was wrong in an unanticipated way: There was a lot of land in the
+way. If he had been wrong in the expected way, with nothing but ocean between Europe and
+Asia, he and his entire expedition would have run out of supplies long before reaching the
+East Indies.
+Colombo’s small and large worlds provide a contrast between model and reality. All sta-
+tistical modeling has these same two frames: the small world of the model itself and the large
+world we hope to deploy the model in.38 Navigating between these two worlds remains a
+central challenge of statistical modeling. The challenge is aggravated by forgetting the dis-
+tinction.
+The small world is the self-contained logical world of the model. Within the small
+world, all possibilities are nominated. There are no pure surprises, like the existence of a huge
+continent between Europe and Asia. Within the small world of the model, it is important to
+be able to verify the model’s logic, making sure that it performs as expected under favorable
+assumptions. Bayesian models have some advantages in this regard, as they have reasonable
+claims to optimality: No alternative model could make better use of the information in the
+data and support better decisions, assuming the small world is an accurate description of the
+real world.39
+The large world is the broader context in which one deploys a model. In the large
+world, there may be events that were not imagined in the small world. Moreover, the model
+is always an incomplete representation of the large world, and so will make mistakes, even
+if all kinds of events have been properly nominated. The logical consistency of a model in
+the small world is no guarantee that it will be optimal in the large world. But it is certainly a
+warm comfort.
+19

@@ -1,0 +1,61 @@
+4.4. LINEAR PREDICTION
+109
+30
+35
+40
+45
+50
+55
+60
+140
+150
+160
+170
+180
+weight
+height
+30
+35
+40
+45
+50
+55
+60
+140
+150
+160
+170
+180
+weight
+height
+Figure 4.9. Left: The first 100 values in the distribution of µ at each weight
+value. Right: The !Kung height data again, now with 89% compatibility in-
+terval of the mean indicated by the shaded region. Compare this region to
+the distributions of blue points on the left.
+Read apply(mu,2,mean) as compute the mean of each column (dimension “2”) of the matrix
+mu. Now mu.mean contains the average µ at each weight value, and mu.PI contains 89% lower
+and upper bounds for each weight value. Be sure to take a look inside mu.mean and mu.PI,
+to demystify them. They are just different kinds of summaries of the distributions in mu, with
+each column being for a different weight value. These summaries are only summaries. The
+“estimate” is the entire distribution.
+You can plot these summaries on top of the data with a few lines of R code:
+R code
+4.57
+# plot raw data
+# fading out points to make line and interval more visible
+plot( height ~ weight , data=d2 , col=col.alpha(rangi2,0.5) )
+# plot the MAP line, aka the mean mu for each weight
+lines( weight.seq , mu.mean )
+# plot a shaded region for 89% PI
+shade( mu.PI , weight.seq )
+You can see the results in the right-hand plot in Figure 4.9.
+Using this approach, you can derive and plot posterior prediction means and intervals
+for quite complicated models, for any data you choose. It’s true that it is possible to use
+analytical formulas to compute intervals like this. I have tried teaching such an analytical
+approach before, and it has always been disaster. Part of the reason is probably my own failure
+as a teacher, but another part is that most social and natural scientists have never had much
+training in probability theory and tend to get very nervous around
+R
+’s. I’m sure with enough
+effort, every one of them could learn to do the mathematics. But all of them can quickly
+learn to generate and summarize samples derived from the posterior distribution. So while

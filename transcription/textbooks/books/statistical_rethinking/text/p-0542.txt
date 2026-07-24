@@ -1,0 +1,62 @@
+526
+15. MISSING DATA AND OTHER OPPORTUNITIES
+-10000
+-8000
+-6000
+-4000
+-2000
+0
+2000
+2
+3
+4
+5
+6
+7
+8
+Time (year)
+Population size
+Moralizing gods present
+Moralizing gods absent
+Moralizing gods unknown
+Figure 15.7. Missing values in the Moralizing_gods data.
+The blue
+points, both open and filled, are observed values for the presence of beliefs
+about moralizing gods. The x symbols are unknowns, the missing values.
+Of 864 cases, 528 of them (60%) are missing. Only 17 of the observed cases are zeros, which
+means “no moralizing gods.” This is a lot of missing data, to be sure. But the raw amount
+of missing data is not necessarily a reason to worry. Remember the homework-eating dogs
+from earlier—the impact of missing data depends upon the process that produces missing
+data. If the missing gods are scattered at random, then we’re in luck. It’ll be useful to visualize
+the missingness pattern.
+R code
+15.26
+symbol <- ifelse( Moralizing_gods$moralizing_gods==1 , 16 , 1 )
+symbol <- ifelse( is.na(Moralizing_gods$moralizing_gods) , 4 , symbol )
+color <- ifelse( is.na(Moralizing_gods$moralizing_gods) , "black" , rangi2 )
+plot( Moralizing_gods$year , Moralizing_gods$population , pch=symbol ,
+col=color , xlab="Time (year)" , ylab="Population size" , lwd=1.5 )
+The result is shown in Figure 15.7. I’ve just plotted log population against year. The sym-
+bols show the value of moralizing_gods. Filled blue points have value 1 (belief in moral-
+izing gods known to be present). The open blue points have value 0 (belief in moralizing
+gods known to be absent). The × symbols are points where the value is NA. This is a highly
+non-random missingness pattern. The reason is that written records are usually needed to
+determine historical religious beliefs. Let’s look at the cross-tabulation of gods and literacy:
+R code
+15.27
+with( Moralizing_gods ,
+table( gods=moralizing_gods , literacy=writing , useNA="always" ) )
+literacy
+gods
+0
+1 <NA>
+0
+16
+1
+0
+1
+9 310
+0
+<NA> 442
+86
+0

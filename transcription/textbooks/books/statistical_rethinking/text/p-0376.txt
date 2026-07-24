@@ -1,0 +1,57 @@
+360
+11. GOD SPIKED THE INTEGERS
+T ~ dpois( lambda ),
+log(lambda) <- a[cid] + b[cid]*P,
+a[cid] ~ dnorm( 3 , 0.5 ),
+b[cid] ~ dnorm( 0 , 0.2 )
+), data=dat , chains=4 , log_lik=TRUE )
+Let’s look at the PSIS model comparison quickly, just to flag two important facts.
+R code
+11.46
+compare( m11.9 , m11.10 , func=PSIS )
+LOO pLOO dLOO weight
+SE
+dSE
+m11.10
+85.5
+7.1
+0.0
+1 13.22
+NA
+m11.9
+141.1
+8.0 55.5
+0 33.33 32.78
+Warning messages:
+1: Some Pareto k diagnostic values are too high.
+First, note that we get the Pareto k warning again. This indicates some highly influential
+points. That shouldn’t be surprising—this is a small dataset. But it means we’ll want to take
+a look at the posterior predictions with that in mind. Second, while it’s no surprise that the
+intercept-only model m11.9 has a worse score than the interaction model m11.10, it might
+be very surprising that the “effective number of parameters” pPSIS is actually larger for the
+model with fewer parameters. Model m11.9 has only one parameter. Model m11.10 has four
+parameters. This isn’t some weird thing about PSIS—WAIC tells you the same story. What
+is going on here?
+The only place that model complexity—a model’s tendency to overfit—and parameter
+count have a clear relationship is in a simple linear regression with flat priors. Once a distri-
+bution is bounded, for example, then parameter values near the boundary produce less over-
+fitting than those far from the boundary. The same principle applies to data distributions.
+Any count near zero is harder to overfit. So overfitting risk depends both upon structural
+details of the model and the composition of the sample.
+In this sample, a major source of overfitting risk is the highly influential point flagged by
+PSIS. Let’s plot the posterior predictions now, and I’ll scale and label the highly influential
+points with their Pareto k values. Here’s the code to plot the data and superimpose posterior
+predictions for the expected number of tools at each population size and contact rate:
+R code
+11.47
+k <- PSIS( m11.10 , pointwise=TRUE )$k
+plot( dat$P , dat$T , xlab="log population (std)" , ylab="total tools" ,
+col=rangi2 , pch=ifelse( dat$cid==1 , 1 , 16 ) , lwd=2 ,
+ylim=c(0,75) , cex=1+normalize(k) )
+# set up the horizontal axis values to compute predictions at
+ns <- 100
+P_seq <- seq( from=-1.4 , to=3 , length.out=ns )
+# predictions for cid=1 (low contact)
+lambda <- link( m11.10 , data=data.frame( P=P_seq , cid=1 ) )
+lmu <- apply( lambda , 2 , mean )
+lci <- apply( lambda , 2 , PI )

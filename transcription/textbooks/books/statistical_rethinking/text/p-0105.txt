@@ -1,0 +1,52 @@
+4.3. GAUSSIAN MODEL OF HEIGHT
+89
+Now that you have these samples, you can describe the distribution of confidence in each
+combination of µ and σ by summarizing the samples. Think of them like data and describe
+them, just like in Chapter 3. For example, to characterize the shapes of the marginal posterior
+densities of µ and σ, all we need to do is:
+R code
+4.21
+dens( sample.mu )
+dens( sample.sigma )
+The jargon “marginal” here means “averaging over the other parameters.” Execute the above
+code and inspect the plots. These densities are very close to being normal distributions.
+And this is quite typical. As sample size increases, posterior densities approach the normal
+distribution. If you look closely, though, you’ll notice that the density for σ has a longer
+right-hand tail. I’ll exaggerate this tendency a bit later, to show you that this condition is
+very common for standard deviation parameters.
+To summarize the widths of these densities with posterior compatibility intervals, just
+like in Chapter 3:
+R code
+4.22
+PI( sample.mu )
+PI( sample.sigma )
+Since these samples are just vectors of numbers, you can compute any statistic from them that
+you could from ordinary data. If you want the mean or median, just use the corresponding
+R functions.
+Overthinking: Sample size and the normality of σ’s posterior. Before moving on to using quadratic
+approximation (quap) as shortcut to all of this inference, it is worth repeating the analysis of the height
+data above, but now with only a fraction of the original data. The reason to do this is to demonstrate
+that, in principle, the posterior is not always so Gaussian in shape. There’s no trouble with the mean,
+µ. For a Gaussian likelihood and a Gaussian prior on µ, the posterior distribution is always Gaussian
+as well, regardless of sample size. It is the standard deviation σ that causes problems. So if you care
+about σ—often people do not—you do need to be careful of abusing the quadratic approximation.
+The deep reasons for the posterior of σ tending to have a long right-hand tail are complex. But
+a useful way to conceive of the problem is that variances must be positive. As a result, there must be
+more uncertainty about how big the variance (or standard deviation) is than about how small it is.
+For example, if the variance is estimated to be near zero, then you know for sure that it can’t be much
+smaller. But it could be a lot bigger.
+Let’s quickly analyze only 20 of the heights from the height data to reveal this issue. To sample
+20 random heights from the original list:
+R code
+4.23
+d3 <- sample( d2$height , size=20 )
+Now I’ll repeat all the code from the previous subsection, modified to focus on the 20 heights in d3
+rather than the original data. I’ll compress all of the code together, but it’s just what you’ve already
+seen above.
+R code
+4.24
+mu.list <- seq( from=150, to=170 , length.out=200 )
+sigma.list <- seq( from=4 , to=20 , length.out=200 )
+post2 <- expand.grid( mu=mu.list , sigma=sigma.list )
+post2$LL <- sapply( 1:nrow(post2) , function(i)
+sum( dnorm( d3 , mean=post2$mu[i] , sd=post2$sigma[i] ,

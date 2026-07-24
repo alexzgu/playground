@@ -1,0 +1,47 @@
+9.5. CARE AND FEEDING OF YOUR MARKOV CHAIN
+295
+need one chain. But using more than one chain is fine, as well. It just doesn’t matter, once
+you’re sure it’s working. I’ll briefly explain these answers.
+The first time you try to sample from a chain, you might not be sure whether the chain is
+working right. So of course you will check the trace plot or trank plot. Having more than one
+chain during these checks helps to make sure that the Markov chains are all converging to the
+same distribution. Sometimes, individual chains look like they’ve settled down to a stable
+distribution, but if you run the chain again, it might settle down to a different distribution.
+When you run multiple Markov chains, each with different starting positions, and see that all
+of them end up in the same region of parameter space, it provides a check that the machine
+is working correctly. Using 3 or 4 chains is often enough to reassure us that the sampling is
+working properly.
+But once you’ve verified that the sampling is working well, and you have a good idea of
+how many warmup samples you need, it’s perfectly safe to just run one long chain. For ex-
+ample, suppose we learn that we need 1000 warmup samples and about 9000 real samples in
+total. Should we run one chain, with warmup=1000 and iter=10000, or rather 3 chains, with
+warmup=1000 and iter=4000? It doesn’t really matter, in terms of inference. But it might
+matter in efficiency, because the 3 chains duplicate warmup effect that just gets thrown away.
+And since warmup is typically the slowest part of the chain, these extra warmup samples cost
+a disproportionate amount of your computer’s time. On the other hand, if you run the chains
+on different processor cores, then you might prefer 3 chains, because you can spread the load
+and finish the whole job faster. My institute uses shared computing servers with 64 or more
+available cores. We run a lot of parallel chains.
+There are exotic situations in which all of the advice above must be modified. But for
+typical regression models, you can live by the motto one short chain to debug, four chains for
+verification and inference.
+Things may still go wrong. One of the perks of using HMC and Stan is that when sam-
+pling isn’t working right, it’s usually very obvious. As you’ll see in the sections to follow, bad
+chains tend to have conspicuous behavior. Other methods of MCMC sampling, like Gibbs
+sampling and ordinary Metropolis, aren’t so easy to diagnose.
+Rethinking: Convergence diagnostics. The default diagnostic output from Stan includes two met-
+rics, n_eff and Rhat. The first is a measure of the effective number of samples. The second is the
+Gelman-Rubin convergence diagnostic, ˆR.150 When n_eff is much lower than the actual number of
+iterations (minus warmup) of your chains, it means the chains are inefficient, but possibly still okay.
+When Rhat is above 1.00, it usually indicates that the chain has not yet converged, and probably you
+shouldn’t trust the samples. If you draw more iterations, it could be fine, or it could never converge.
+See the Stan user manual for more details. It’s important however not to rely too much on these di-
+agnostics. Like all heuristics, there are cases in which they provide poor advice. For example, Rhat
+can reach 1.00 even for an invalid chain. So view it perhaps as a signal of danger, but never of safety.
+For conventional models, these metrics typically work well.
+9.5.3. Taming a wild chain. One common problem with some models is that there are
+broad, flat regions of the posterior density. This happens most often, as you might guess,
+when one uses flat priors. The problem this can generate is a wild, wandering Markov chain
+that erratically samples extremely positive and extremely negative parameter values.
+Let’s look at a simple example. The code below tries to estimate the mean and standard
+deviation of the two Gaussian observations −1 and 1. But it uses totally flat priors.

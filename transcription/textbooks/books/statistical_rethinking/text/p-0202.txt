@@ -1,0 +1,69 @@
+186
+6. THE HAUNTED DAG & THE CAUSAL TERROR
+-3
+-2
+-1
+0
+1
+2
+-2
+-1
+0
+1
+2
+grandparent education (G)
+grandchild education (C)
+good neighborhoods
+bad neighborhoods
+Parents in 45th to 60th centiles
+Figure 6.5. Unobserved confounds and col-
+lider bias. In this example, grandparents influ-
+ence grandkids only indirectly, through par-
+ents. However, unobserved neighborhood ef-
+fects on parents and their children create the
+illusion that grandparents harm their grand-
+kids education. Parental education is a col-
+lider: Once we condition on it, grandparental
+education becomes negatively associated with
+grandchild education.
+a ~ dnorm( 0 , 1 ),
+c(b_PC,b_GC) ~ dnorm( 0 , 1 ),
+sigma ~ dexp( 1 )
+), data=d )
+precis(m6.11)
+mean
+sd
+5.5% 94.5%
+a
+-0.12 0.10 -0.28
+0.04
+b_PC
+1.79 0.04
+1.72
+1.86
+b_GC
+-0.84 0.11 -1.01 -0.67
+sigma
+1.41 0.07
+1.30
+1.52
+The inferred effect of parents looks too big, almost twice as large as it should be. That isn’t
+surprising. Some of the correlation between P and C is due to U, and the model doesn’t know
+about U. That’s a simple confound. More surprising is that the model is confident that the
+direct effect of grandparents is to hurt their grandkids. The regression is not wrong. But a
+causal interpretation of that association would be.
+How does collider bias arise in this case? Consider Figure 6.5. Note that I did stan-
+dardize the variables to make this plot. So the units on the axes are standard deviations. The
+horizontal axis is grandparent education. The vertical is grandchild education. There are
+two clouds of points. The blue cloud comprises children who live in good neighborhoods
+(U = 1). The black cloud comprises children who live in bad neighborhoods (U = −1). No-
+tice that both clouds of points show positive associations between G and C. More educated
+grandparents have more educated grandkids, but this effect arises entirely through parents.
+Why? Because we assumed it is so. The direct effect of G in the simulation is zero.
+So how does the negative association arise, when we condition on parents? Conditioning
+on parents is like looking within sub-populations of parents with similar education. So let’s
+try that. In Figure 6.5, I’ve highlighted in filled points those parents between the 45th and
+60th centiles of education. There is nothing special of this range. It just makes the phenom-
+enon easier to see. Now if we draw a regression line through only these points, regressing
+C on G, the slope is negative. There is the negative association that our multiple regression
+finds. But why does it exist?

@@ -1,0 +1,14 @@
+24
+2. SMALL WORLDS AND LARGE WORLDS
+Figure 2.4. The garden of forking data, showing for each possible compo-
+sition of the bag the forking paths that are logically compatible with the data.
+Rethinking: Justification. Using counts of paths through the garden as measures of relative plausibil-
+ity can be justified in several ways. The justification here is logical: If we wish to reason about plausibil-
+ity and remain consistent with ordinary logic—statements about true and false—then we should obey
+this procedure.41 There are several other justifications that lead to the same mathematical procedure.
+Regardless of how you choose to philosophically justify it, notice that it actually works. Justifications
+and philosophy motivate procedures, but it is the results that matter. The many successful real world
+applications of Bayesian inference may be all the justification you need. Twentieth century oppo-
+nents of Bayesian data analysis argued that Bayesian inference was easy to justify, but hard to apply.42
+That is luckily no longer true. Indeed, the opposite is often true—scientists are switching to Bayesian
+approaches because it lets them use the models they want. Just be careful not to assume that because

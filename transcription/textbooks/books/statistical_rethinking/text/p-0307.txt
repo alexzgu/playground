@@ -1,0 +1,34 @@
+9.4. EASY HMC: ULAM
+291
+n_eff = 2671
+a[1]
+n_eff = 3109
+a[2]
+n_eff = 2153
+b[1]
+n_eff = 2027
+b[2]
+n_eff = 2885
+sigma
+Figure 9.9. Stacked histograms of ranked samples, a trank plot, for m9.1.
+In a healthy chain, these histograms should be reasonable uniform, with no
+chain consistently running above or below the others.
+center of gravity of each dimension of the posterior. Another way to think of this is that
+the mean value of the chain is quite stable from beginning to end. Good mixing means
+that the chain rapidly explores the full region. It doesn’t slowly wander, but rather rapidly
+zig-zags around, as a good Hamiltonian chain should. Convergence means that multiple,
+independent chains stick around the same region of high probability.
+Trace plots are a natural way to view a chain, but they are often hard to read, because once
+you start plotting lots of chains over one another, the plot can look very confusing and hide
+pathologies in some chains. A second way to visualize the chains is a plot of the distribution
+of the ranked samples, a trace rank plot, or trank plot.148 What this means is to take
+all the samples for each individual parameter and rank them. The lowest sample gets rank 1.
+The largest gets the maximum rank (the number of samples across all chains). Then we draw
+a histogram of these ranks for each individual chain. Why do this? Because if the chains
+are exploring the same space efficiently, the histograms should be similar to one another and
+relatively uniform. The rethinking package provides a function to produce these:
+R code
+9.21
+trankplot( m9.1 , n_cols=2 )
+The result is reproduced in Figure 9.9. The axes are not labeled in these plots, to reduce
+clutter. But the horizontal is rank, from 1 to the number of samples across all chains (2000 in

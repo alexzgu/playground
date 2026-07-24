@@ -1,0 +1,7 @@
+Statistical Rethinking2
+A Bayesian Course
+with Examples
+in R and Stan
+Second Edition
+Richard McElreath
+This version compiled December 8, 2019

@@ -1,0 +1,48 @@
+7.2. ENTROPY AND ACCURACY
+217
+deviance means a better fit. So this decline with increasing model complexity is the same
+phenomenon you saw earlier in the chapter with R2.
+But now inspect the open points and black line segments. These display the distribu-
+tion of out-of-sample deviance at each number of parameters. While the training deviance
+always gets better with an additional parameter, the test deviance is smallest on average for
+3 parameters, which is the data-generating model in this case. The deviance out-of-sample
+gets worse (increases) with the addition of each parameter after the third. These additional
+parameters fit the noise in the additional predictors. So while deviance keeps improving (de-
+clining) in the training sample, it gets worse on average in the test sample. The right-hand
+plot shows the same relationships for larger samples of N = 100 cases.
+The size of the standard deviation bars may surprise you. While it is always true on
+average that deviance out-of-sample is worse than deviance in-sample, any individual pair
+of train and test samples may reverse the expectation. The reason is that any given training
+sample may be highly misleading. And any given testing sample may be unrepresentative.
+Keep this fact in mind as we develop devices for comparing models, because this fact should
+prevent you from placing too much confidence in analysis of any particular sample. Like all
+of statistical inference, there are no guarantees here.
+On that note, there is also no guarantee that the “true” data-generating model will have
+the smallest average out-of-sample deviance. You can see a symptom of this fact in the de-
+viance for the 2 parameter model. That model does worse in prediction than the model with
+only 1 parameter, even though the true model does include the additional predictor. This is
+because with only N = 20 cases, the imprecision of the estimate for the first predictor pro-
+duces more error than just ignoring it. In the right-hand plot, in contrast, there is enough
+data to precisely estimate the association between the first predictor and the outcome. Now
+the deviance for the 2 parameter model is better than that of the 1 parameter model.
+Deviance is an assessment of predictive accuracy, not of truth. The true model, in terms
+of which predictors are included, is not guaranteed to produce the best predictions. Likewise
+a false model, in terms of which predictors are included, is not guaranteed to produce poor
+predictions.
+The point of this thought experiment is to demonstrate how deviance behaves, in the-
+ory. While deviance on training data always improves with additional predictor variables,
+deviance on future data may or may not, depending upon both the true data-generating pro-
+cess and how much data is available to precisely estimate the parameters. These facts form
+the basis for understanding both regularizing priors and information criteria.
+Overthinking: Simulated training and testing. To reproduce Figure 7.6, sim.train.test is run
+10,000 (1e4) times for each of the 5 models. This code is sufficient to run all of the simulations:
+R code
+7.16
+N <- 20
+kseq <- 1:5
+dev <- sapply( kseq , function(k) {
+print(k);
+r <- replicate( 1e4 , sim_train_test( N=N, k=k ) );
+c( mean(r[1,]) , mean(r[2,]) , sd(r[1,]) , sd(r[2,]) )
+} )
+If you use Mac OS or Linux, you can parallelize the simulations by replacing the replicate line with:

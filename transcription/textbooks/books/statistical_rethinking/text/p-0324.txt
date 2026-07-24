@@ -1,0 +1,48 @@
+308
+10. BIG ENTROPY AND THE GENERALIZED LINEAR MODEL
+Natural processes other than addition also tend to produce maximum entropy distributions.
+But they are not Gaussian, because they retain different information about the underlying
+process.
+Third, regardless of why it works, it tends to work. Mathematical procedures are effective
+even when we don’t understand them. There are no guarantees that any logic in the small
+world (Chapter 2) will be useful in the large world. We use logic in science because it has a
+strong record of effectiveness in addressing real world problems. This is the historical justi-
+fication: The approach has solved difficult problems in the past. This is no guarantee that it
+will work on your problem. But no approach can guarantee that.
+This chapter serves as a conceptual introduction to generalized linear models and
+the principle of maximum entropy. A generalized linear model (GLM) is much like the
+linear regressions of previous chapters. It is a model that replaces a parameter of a likelihood
+function with a linear model. But GLMs need not use Gaussian likelihoods. Any likelihood
+function can be used, and linear models can be attached to any or all of the parameters that
+describe its shape. The principle of maximum entropy helps us choose likelihood functions,
+by providing a way to use stated assumptions about constraints on the outcome variable to
+choose the likelihood function that is the most conservative distribution compatible with
+the known constraints. Using this principle recovers all the most common likelihood func-
+tions of many statistical approaches, Bayesian or not, while simultaneously providing a clear
+rationale for choice among them.
+The chapters to follow this one build computational skills for working with different
+flavors of GLM. Chapter 11 addresses models for count variables. Chapter 12 explores more
+complicated models, such as ordinal outcomes and mixtures. Portions of these chapters are
+specialized by model type. So you can skip sections that don’t interest you at the moment.
+The multilevel chapters, beginning with Chapter 13, make use of binomial count models,
+however. So some familiarity with the material in Chapter 11 will be helpful.
+Rethinking: Bayesian updating and maximum entropy. Another kind of probability distribution,
+the posterior distribution deduced by Bayesian updating, is also a case of maximizing entropy. The
+posterior distribution has the greatest entropy relative to the prior (the smallest cross entropy) among
+all distributions consistent with the assumed constraints and the observed data.154 This fact won’t
+change how you calculate. But it should provide a deeper appreciation of the fundamental connec-
+tions between Bayesian inference and information theory. Notably, Bayesian updating is just like
+maximum entropy in that it produces the least informative distribution that is still consistent with
+our assumptions. Or you might say that the posterior distribution has the smallest divergence from
+the prior that is possible while remaining consistent with the constraints and data.
+10.1. Maximum entropy
+In Chapter 6, you met the basics of information theory. In brief, we seek a measure of
+uncertainty that satisfies three criteria: (1) the measure should be continuous; (2) it should
+increase as the number of possible events increases; and (3) it should be additive. The result-
+ing unique measure of the uncertainty of a probability distribution p with probabilities pi for
+each possible event i turns out to be just the average log-probability:
+H(p) = −
+X
+i
+pi log pi
+This function is known as information entropy.

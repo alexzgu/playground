@@ -1,0 +1,49 @@
+13.2. VARYING EFFECTS AND THE UNDERFITTING/OVERFITTING TRADE-OFF
+427
+0
+10
+20
+30
+40
+50
+60
+0.0
+0.1
+0.2
+0.3
+0.4
+pond
+absolute error
+tiny ponds (5)
+small ponds (10)
+medium ponds (25)
+large ponds (35)
+Figure 13.3. Error of no-pooling and partial pooling estimates, for the sim-
+ulated tadpole ponds. The horizontal axis displays pond number. The verti-
+cal axis measures the absolute error in the predicted proportion of survivors,
+compared to the true value used in the simulation. The higher the point,
+the worse the estimate. No-pooling shown in blue. Partial pooling shown
+in black. The blue and dashed black lines show the average error for each
+kind of estimate, across each initial density of tadpoles (pond size). Smaller
+ponds produce more error, but the partial pooling estimates are better on
+average, especially in smaller ponds.
+R code
+13.19
+nopool_avg <- aggregate(nopool_error,list(dsim$Ni),mean)
+partpool_avg <- aggregate(partpool_error,list(dsim$Ni),mean)
+The first thing to notice about Figure 13.3 plot is that both kinds of estimates are much
+more accurate for larger ponds, on the right side. This arises because more data means better
+estimates, assuming there is no confounding. If there is confounding, more data may just
+makes things worse. But there is no confounding in this simulated example. In the small
+ponds, sample size is small, and neither no-pooling nor partial-pooling can work magic.
+Therefore, prediction suffers on the left side of the plot. Second, note that the blue line is
+always above or very close to the black dashed line. This indicates that the no-pool estimates,
+shown by the blue points, have higher average error in each group of ponds, except for the
+medium ponds. Partial pooling isn’t always better. It’s just better on average in the long run.
+Even though both kinds of estimates get worse as sample size decreases, the varying effect
+estimates have the advantage, on average. Third, the distance between the blue line and the
+black dashed line grows as ponds get smaller. So while both kinds of estimates suffer from
+reduced sample size, the partial pooling estimates suffer less.
+The pattern displayed in the figure is representative, but only one random simulation.
+To see how to quickly re-run the model on newly simulated data, without re-compiling the
+model, see the Overthinking box at the end of this section.

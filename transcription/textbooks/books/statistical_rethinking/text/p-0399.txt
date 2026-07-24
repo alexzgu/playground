@@ -1,0 +1,49 @@
+12.1. OVER-DISPERSED COUNTS
+383
+unknown probabilities for each observation. See the Overthinking box at the end of this
+section (page 387) for details.
+A beta distribution has two parameters, an average probability ¯p and a shape parameter
+θ.176 The shape parameter θ describes how spread out the distribution is. When θ = 2,
+every probability from zero to one is equally likely. As θ increases above 2, the distribution
+of probabilities grows more concentrated. When θ < 2, the distribution is so dispersed that
+extreme probabilities near zero and one are more likely than the mean. You can play around
+with the parameters to get a feel for the shapes this distribution can take:
+R code
+12.1
+pbar <- 0.5
+theta <- 5
+curve( dbeta2(x,pbar,theta) , from=0 , to=1 ,
+xlab="probability" , ylab="Density" )
+Explore different values for pbar and theta in the code above. Remember, this is a distribu-
+tion for probabilities, so the horizontal axis you’ll see represents different possible probability
+values, and the vertical axis is the density with which each probability on the horizontal is
+sampled from the distribution. It’s weird, but you’ll get used to it.
+We’re going to bind our linear model to ¯p, so that changes in predictor variables change
+the central tendency of the distribution. In mathematical form, the model is:
+Ai ∼BetaBinomial(Ni, ¯pi, θ)
+logit(¯pi) = αgid[i]
+αj ∼Normal(0, 1.5)
+θ = ϕ + 2
+ϕ ∼Exponential(1)
+where the outcome A is admit, the size N is applications, and gid[i] is gender id, 1 for
+male and 2 for female. I’ve introduced a trick with the prior on θ. We want to assume that
+the dispersion is at least 2, which means flat. Less than 2 would be piling up probability on
+0 and 1. Greater than 2 is increasingly heaped on a single value. Which distribution has a
+minimum of 2? We can make one. The exponential has a minimum of zero. But if add 2 to
+any exponentially distribution variable, then the minimum of the new variable is 2. So the
+model above defines ϕ with an exponential distribution. And then
+The code below will load the data and then fit, using ulam, the beta-binomial model:
+R code
+12.2
+library(rethinking)
+data(UCBadmit)
+d <- UCBadmit
+d$gid <- ifelse( d$applicant.gender=="male" , 1L , 2L )
+dat <- list( A=d$admit , N=d$applications , gid=d$gid )
+m12.1 <- ulam(
+alist(
+A ~ dbetabinom( N , pbar , theta ),
+logit(pbar) <- a[gid],
+a[gid] ~ dnorm( 0 , 1.5 ),
+transpars> theta <<- phi + 2.0,
+phi ~ dexp(1)

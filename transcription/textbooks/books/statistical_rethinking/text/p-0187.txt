@@ -1,0 +1,65 @@
+6.1. MULTICOLLINEARITY
+171
+R code
+6.8
+library(rethinking)
+data(milk)
+d <- milk
+d$K <- scale( d$kcal.per.g )
+d$F <- scale( d$perc.fat )
+d$L <- scale( d$perc.lactose )
+In this example, we are concerned with the variables perc.fat (percent fat)and perc.lactose
+(percent lactose) that we might use to model the total energy content, kcal.per.g. The code
+above has already standardized these three variables. You’re going to use these three variables
+to explore a natural case of multicollinearity. Note that there are no missing values, NA, in
+these columns, so there’s no need here to extract complete cases. But you can rest assured
+that quap, unlike reckless functions like lm, would never silently drop cases.
+Start by modeling kcal.per.g as a function of perc.fat and perc.lactose, but in
+two bivariate regressions. Look back in Chapter 5 (page 151), for a discussion of these priors.
+R code
+6.9
+# kcal.per.g regressed on perc.fat
+m6.3 <- quap(
+alist(
+K ~ dnorm( mu , sigma ) ,
+mu <- a + bF*F ,
+a ~ dnorm( 0 , 0.2 ) ,
+bF ~ dnorm( 0 , 0.5 ) ,
+sigma ~ dexp( 1 )
+) , data=d )
+# kcal.per.g regressed on perc.lactose
+m6.4 <- quap(
+alist(
+K ~ dnorm( mu , sigma ) ,
+mu <- a + bL*L ,
+a ~ dnorm( 0 , 0.2 ) ,
+bL ~ dnorm( 0 , 0.5 ) ,
+sigma ~ dexp( 1 )
+) , data=d )
+precis( m6.3 )
+precis( m6.4 )
+mean
+sd
+5.5% 94.5%
+a
+0.00 0.08 -0.12
+0.12
+bF
+0.86 0.08
+0.73
+1.00
+sigma 0.45 0.06
+0.36
+0.54
+mean
+sd
+5.5% 94.5%
+a
+0.00 0.07 -0.11
+0.11
+bL
+-0.90 0.07 -1.02 -0.79
+sigma
+0.38 0.05
+0.30
+0.46

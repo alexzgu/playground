@@ -1,0 +1,59 @@
+12.1. OVER-DISPERSED COUNTS
+387
+0
+50000
+150000
+250000
+20
+30
+40
+50
+60
+70
+population
+total tools
+pure Poisson model
+0
+50000
+150000
+250000
+20
+30
+40
+50
+60
+70
+population
+total tools
+low contact
+high contact
+gamma-Poisson model
+Figure 12.2. The Poisson model of Oceanic tools (left) is highly influenced
+by Hawaii. The equivalent gamma-Poisson model (right) is much less in-
+fluenced by Hawaii, because the model expects more variation around the
+mean. And you can see the increased variation in the size of the shaded
+regions.
+and rates. So while they can be a lot harder to fit to data, they can be usefully conceptual-
+ized much like ordinary binomial and Poisson GLMs. So in terms of model comparison us-
+ing information criteria, a beta-binomial model is a binomial model, and a gamma-Poisson
+(negative-binomial) is a Poisson model.
+You should not use WAIC and PSIS with these models, however, unless you are very
+sure of what you are doing. The reason is that while ordinary binomial and Poisson models
+can be aggregated and disaggregated across rows in the data, without changing any causal as-
+sumptions, the same is not true of beta-binomial and gamma-Poisson models. The reason is
+that a beta-binomial or gamma-Poisson likelihood applies an unobserved parameter to each
+row in the data. When we then go to calculate log-likelihoods, how the data are structured
+will determine how the beta-distributed or gamma-distributed variation enters the model.
+For example, a beta-binomial model like the one examined earlier in this chapter has
+counts on each row. The rows were combinations of departments and gender in that case,
+and all of the applications for each department/gender combination were assumed to have
+the same unknown baseline probability of acceptance. What we’d like to do is treat each
+application as an observation, calculating WAIC over applications, so we get an estimate of
+accuracy for a new application to a known department/gender. We could disaggregate the
+data so each row is a single application. But if we do that, then we lose the fact that the beta-
+binomial model implies the same latent probability for all of the applicants from the same
+row in the data. This is a huge bother.
+What to do? Once you see how to incorporate over-dispersion with multilevel models,
+in the next chapter, this obstacle will be reduced. Why? Because a multilevel model can
+assign heterogeneity in probabilities or rates at any level of aggregation.
+Overthinking: Continuous mixtures. A distribution like the beta-binomial is called a continuous

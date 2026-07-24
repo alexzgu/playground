@@ -1,0 +1,51 @@
+122
+4. GEOCENTRIC MODELS
+of each as a deviation from the intercept. In mathematical form, this is our spline model:
+Ti ∼Normal(µi, σ)
+µi = α +
+K
+X
+k=1
+wkBk,i
+α ∼Normal(6, 10)
+wj ∼Normal(0, 1)
+σ ∼Exponential(1)
+That linear model might look weird. But all it is doing is multiplying each basis value by
+a corresponding parameter wk and then adding up all K of those products. This is just a
+compact way of writing a linear model. The rest should be familiar. Although I will ask you
+to simulate from those priors in the problems at the end of the chapter.
+To build this model in quap, we just need a way to do that sum. The easiest way is to
+use matrix multiplication. If you aren’t familiar with linear algebra in this context, that’s fine.
+There is an Overthinking box at the end with some more detail about why this works. The
+only other trick is to use a start list for the weights to tell quap how many there are.
+R code
+4.76
+m4.7 <- quap(
+alist(
+T ~ dnorm( mu , sigma ) ,
+mu <- a + B %*% w ,
+a ~ dnorm(6,10),
+w ~ dnorm(0,1),
+sigma ~ dexp(1)
+),
+data=list( T=d2$temp , B=B ) ,
+start=list( w=rep( 0 , ncol(B) ) ) )
+You can look at the posterior means if you like with precis(m4.7,depth=2). But it won’t
+reveal much. You should see 17 w parameters. But you can’t tell what the model thinks from
+the parameter summaries. Instead we need to plot the posterior predictions. First, here are
+the weighted basis functions:
+R code
+4.77
+post <- extract.samples(m4.7)
+w <- apply( post$w , 2 , mean )
+plot( NULL , xlim=range(d2$year) , ylim=c(-2,2) ,
+xlab="year" , ylab="basis * weight" )
+for ( i in 1:ncol(B) ) lines( d2$year , w[i]*B[,i] )
+This plot, with the knots added for reference, is displayed in the middle row of Figure 4.13.
+And finally the 97% posterior interval for µ, at each year:
+R code
+4.78
+mu <- link( m4.7 )
+mu_PI <- apply(mu,2,PI,0.97)
+plot( d2$year , d2$temp , col=col.alpha(rangi2,0.3) , pch=16 )
+shade( mu_PI , d2$year , col=col.alpha("black",0.5) )

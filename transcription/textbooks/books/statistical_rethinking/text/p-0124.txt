@@ -1,0 +1,47 @@
+108
+4. GEOCENTRIC MODELS
+R code
+4.53
+mu <- link( m4.3 )
+str(mu)
+num [1:1000, 1:352] 157 157 158 157 157 ...
+You end up with a big matrix of values of µ. Each row is a sample from the posterior distribu-
+tion. The default is 1000 samples, but you can use as many or as few as you like. Each column
+is a case (row) in the data. There are 352 rows in d2, corresponding to 352 individuals. So
+there are 352 columns in the matrix mu above.
+Now what can we do with this big matrix? Lots of things. The function link provides
+a posterior distribution of µ for each case we feed it. So above we have a distribution of
+µ for each individual in the original data. We actually want something slightly different: a
+distribution of µ for each unique weight value on the horizontal axis. It’s only slightly harder
+to compute that, by just passing link some new data:
+R code
+4.54
+# define sequence of weights to compute predictions for
+# these values will be on the horizontal axis
+weight.seq <- seq( from=25 , to=70 , by=1 )
+# use link to compute mu
+# for each sample from posterior
+# and for each weight in weight.seq
+mu <- link( m4.3 , data=data.frame(weight=weight.seq) )
+str(mu)
+num [1:1000, 1:46] 136 136 138 136 137 ...
+And now there are only 46 columns in mu, because we fed it 46 different values for weight.
+To visualize what you’ve got here, let’s plot the distribution of µ values at each height.
+R code
+4.55
+# use type="n" to hide raw data
+plot( height ~ weight , d2 , type="n" )
+# loop over samples and plot each mu value
+for ( i in 1:100 )
+points( weight.seq , mu[i,] , pch=16 , col=col.alpha(rangi2,0.1) )
+The result is shown on the left-hand side of Figure 4.9. At each weight value in weight.seq,
+a pile of computed µ values are shown. Each of these piles is a Gaussian distribution, like
+that in Figure 4.8. You can see now that the amount of uncertainty in µ depends upon the
+value of weight. And this is the same fact you saw in the right-hand plot in Figure 4.7.
+The final step is to summarize the distribution for each weight value. We’ll use apply,
+which applies a function of your choice to a matrix.
+R code
+4.56
+# summarize the distribution of mu
+mu.mean <- apply( mu , 2 , mean )
+mu.PI <- apply( mu , 2 , PI , prob=0.89 )

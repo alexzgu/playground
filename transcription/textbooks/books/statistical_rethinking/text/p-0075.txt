@@ -1,0 +1,47 @@
+3.2. SAMPLING TO SUMMARIZE
+59
+value with highest posterior probability, a maximum a posteriori (MAP) estimate. You can
+easily compute the MAP in this example:
+R code
+3.14
+p_grid[ which.max(posterior) ]
+[1] 1
+Or if you instead have samples from the posterior, you can still approximate the same point:
+R code
+3.15
+chainmode( samples , adj=0.01 )
+[1] 0.9985486
+But why is this point, the mode, interesting? Why not report the posterior mean or median?
+R code
+3.16
+mean( samples )
+median( samples )
+[1] 0.8005558
+[1] 0.8408408
+These are also point estimates, and they also summarize the posterior. But all three—the
+mode (MAP), mean, and median—are different in this case. How can we choose among
+them? Figure 3.4 shows this posterior distribution and the locations of these point sum-
+maries.
+One principled way to go beyond using the entire posterior as the estimate is to choose
+a loss function. A loss function is a rule that tells you the cost associated with using any
+particular point estimate. While statisticians and game theorists have long been interested
+in loss functions, and how Bayesian inference supports them, scientists hardly ever use them
+explicitly. The key insight is that different loss functions imply different point estimates.
+Here’s an example to help us work through the procedure. Suppose I offer you a bet. Tell
+me which value of p, the proportion of water on the Earth, you think is correct. I will pay
+you $100, if you get it exactly right. But I will subtract money from your gain, proportional
+to the distance of your decision from the correct value. Precisely, your loss is proportional
+to the absolute value of d −p, where d is your decision and p is the correct answer. We could
+change the precise dollar values involved, without changing the important aspects of this
+problem. What matters is that the loss is proportional to the distance of your decision from
+the true value.
+Now once you have the posterior distribution in hand, how should you use it to maxi-
+mize your expected winnings? It turns out that the parameter value that maximizes expected
+winnings (minimizes expected loss) is the median of the posterior distribution. Let’s calcu-
+late that fact, without using a mathematical proof. Those interested in the proof should follow
+the endnote.59
+Calculating expected loss for any given decision means using the posterior to average
+over our uncertainty in the true value. Of course we don’t know the true value, in most
+cases. But if we are going to use our model’s information about the parameter, that means
+using the entire posterior distribution. So suppose we decide p = 0.5 will be our decision.
+Then the expected loss will be:

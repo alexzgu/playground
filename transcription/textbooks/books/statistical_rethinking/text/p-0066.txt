@@ -1,0 +1,48 @@
+50
+3. SAMPLING THE IMAGINARY
+But I don’t like these examples, for two reasons. First, there’s nothing uniquely “Bayesian”
+about them. Remember: Bayesian inference is distinguished by a broad view of probability,
+not by the use of Bayes’ theorem. Since all of the probabilities I provided above reference
+frequencies of events, rather than theoretical parameters, all major statistical philosophies
+would agree to use Bayes’ theorem in this case. Second, and more important to our work
+in this chapter, these examples make Bayesian inference seem much harder than it has to
+be. Few people find it easy to remember which number goes where, probably because they
+never grasp the logic of the procedure. It’s just a formula that descends from the sky. If you
+are confused, it is only because you are trying to understand.
+There is a way to present the same problem that does make it more intuitive, however.
+Suppose that instead of reporting probabilities, as before, I tell you the following:
+(1) In a population of 100,000 people, 100 of them are vampires.
+(2) Of the 100 who are vampires, 95 of them will test positive for vampirism.
+(3) Of the 99,900 mortals, 999 of them will test positive for vampirism.
+Now tell me, if we test all 100,000 people, what proportion of those who test positive for
+vampirism actually are vampires? Many people, although certainly not all people, find this
+presentation a lot easier.49 Now we can just count up the number of people who test positive:
+95 + 999 = 1094. Out of these 1094 positive tests, 95 of them are real vampires, so that
+implies:
+Pr(vampire|positive) =
+95
+1094 ≈0.087
+It’s exactly the same answer as before, but without a seemingly arbitrary rule.
+The second presentation of the problem, using counts rather than probabilities, is often
+called the frequency format or natural frequencies. Why a frequency format helps people in-
+tuit the correct approach remains contentious. Some people think that human psychology
+naturally works better when it receives information in the form a person in a natural envi-
+ronment would receive it. In the real world, we encounter counts only. No one has ever seen
+a probability, the thinking goes. But everyone sees counts (“frequencies”) in their daily lives.
+Regardless of the explanation for this phenomenon, we can exploit it. And in this chap-
+ter we exploit it by taking the probability distributions from the previous chapter and sam-
+pling from them to produce counts. The posterior distribution is a probability distribution.
+And like all probability distributions, we can imagine drawing samples from it. The sampled
+events in this case are parameter values. Most parameters have no exact empirical realiza-
+tion. The Bayesian formalism treats parameter distributions as relative plausibility, not as
+any physical random process. In any event, randomness is always a property of informa-
+tion, never of the real world. But inside the computer, parameters are just as empirical as
+the outcome of a coin flip or a die toss or an agricultural experiment. The posterior defines
+the expected frequency that different parameter values will appear, once we start plucking
+parameters out of it.
+Rethinking: The natural frequency phenomenon is not unique. Changing the representation of
+a problem often makes it easier to address or inspires new ideas that were not available in an old
+representation.50 In physics, switching between Newtonian and Lagrangian mechanics can make
+problems much easier. In evolutionary biology, switching between inclusive fitness and multilevel
+selection sheds new light on old models. And in statistics, switching between Bayesian and non-
+Bayesian representations often teaches us new things about both approaches.

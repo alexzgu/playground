@@ -1,0 +1,47 @@
+11.2. POISSON REGRESSION
+353
+from it, we would stumble into the issue of assuming that the acceptance rate for one of the
+genders is pre-data more uncertain than the other. This isn’t to say that over-parameterizing
+a model is always a good idea. But it isn’t a violation of any statistical principle. You can
+always convert the posterior, post sampling, to any alternative parameterization. The only
+limitation is whether the algorithm we use to approximate the posterior can handle the high
+correlations. In this case, it can, and I bumped up the number iterations to make sure.
+Rethinking: Simpson’sparadox isnota paradox. This empirical example is a famous one in statistical
+teaching. It is often used to illustrate a phenomenon known as Simpson’s paradox.169 Like most
+paradoxes, there is no violation of logic, just of intuition. And since different people have different
+intuition, Simpson’s paradox means different things to different people. The poor intuition being
+violated in this case is that a positive association in the entire population should also hold within
+each department. Overall, females in these data did have a harder time getting admitted to graduate
+school. But that arose because females applied to the hardest departments for anyone, male or female,
+to gain admission to.
+Perhaps a little more paradoxical is that this phenomenon can repeat itself indefinitely within
+a sample. Any association between an outcome and a predictor can be nullified or reversed when
+another predictor is added to the model. And the reversal can reveal a true causal influence or rather
+just be a confound, as occurred in the grandparents example in Chapter 6. All that we can do about
+this is to remain skeptical of models and try to imagine ways they might be deceiving us. Thinking
+causally about these settings usually helps.170
+11.2. Poisson regression
+Binomial GLMs are appropriate when the outcome is a count from zero to some known
+upper bound. If you can analogize the data to the globe tossing model, then you should
+use a binomial GLM. But often the upper bound isn’t know. Instead the counts never get
+close to any upper limit. For example, if we go fishing and return with 17 fish, what was the
+theoretical maximum? Whatever it is, it isn’t in our data. How do we model the fish counts?
+It turns out that the binomial model works here, provided we squint at it the right way.
+When a binomial distribution has a very small probability of an event p and a very large num-
+ber of trials N, then it takes on a special shape. The expected value of a binomial distribution
+is just Np, and its variance is Np(1 −p). But when N is very large and p is very small, then
+these are approximately the same.
+For example, suppose you own a monastery that is in the business, like many monas-
+teries before the invention of the printing press, of copying manuscripts. You employ 1000
+monks, and on any particular day about 1 of them finishes a manuscript. Since the monks
+are working independently of one another, and manuscripts vary in length, some days pro-
+duce 3 or more manuscripts, and many days produce none. Since this is a binomial process,
+you can calculate the variance across days as Np(1−p) = 1000(0.001)(1−0.001) ≈1. You
+can simulate this, for example over 10,000 (1e5) days:
+R code
+11.35
+y <- rbinom(1e5,1000,1/1000)
+c( mean(y) , var(y) )
+[1] 0.9968400 0.9928199
+The mean and the variance are nearly identical. This is a special shape of the binomial. This
+special shape is known as the Poisson distribution, and it is useful because it allows us to

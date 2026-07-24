@@ -1,0 +1,57 @@
+488
+14. ADVENTURES IN COVARIANCE
+Ti 0.79 1.00 0.87 0.00 0.31 0.05 0.00 0.01 0.06
+0
+SC 0.70 0.87 1.00 0.00 0.17 0.11 0.01 0.02 0.02
+0
+Ya 0.00 0.00 0.00 1.00 0.00 0.01 0.16 0.14 0.00
+0
+Fi 0.31 0.31 0.17 0.00 1.00 0.00 0.00 0.00 0.61
+0
+Tr 0.05 0.05 0.11 0.01 0.00 1.00 0.09 0.56 0.00
+0
+Ch 0.00 0.00 0.01 0.16 0.00 0.09 1.00 0.32 0.00
+0
+Mn 0.00 0.01 0.02 0.14 0.00 0.56 0.32 1.00 0.00
+0
+To 0.08 0.06 0.02 0.00 0.61 0.00 0.00 0.00 1.00
+0
+Ha 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00 0.00
+1
+The cluster of small societies in the upper-left of the matrix—Malekula (Ml), Tikopia (Ti),
+and Santa Cruz (SC)—are highly correlated, all above 0.8 with one another. As you’ll see in a
+moment, these societies are very close together, and they also have similar tool totals. These
+correlations were estimating with log population in the model, remember, and so suggest
+some additional resemblance even accounting for the average association between popula-
+tion and tools. On the other end of spectrum is Hawaii (Ha), which is so far from all of the
+other societies that the correlation decays to zero everyplace. Other societies display a range
+of correlations.
+To make some sense of the variation in these correlations, let’s plot them on a crude map
+of the Pacific Ocean. The Kline2 data frame provides latitude and longitude for each society,
+to make this easy. I’ll also scale the size of each society on the map in proportion to its log
+population.
+R code
+14.44
+# scale point size to logpop
+psize <- d$logpop / max(d$logpop)
+psize <- exp(psize*1.5)-2
+# plot raw data and labels
+plot( d$lon2 , d$lat , xlab="longitude" , ylab="latitude" ,
+col=rangi2 , cex=psize , pch=16 , xlim=c(-50,30) )
+labels <- as.character(d$culture)
+text( d$lon2 , d$lat , labels=labels , cex=0.7 , pos=c(2,4,3,3,4,1,3,2,4,2) )
+# overlay lines shaded by Rho
+for( i in 1:10 )
+for ( j in 1:10 )
+if ( i < j )
+lines( c( d$lon2[i],d$lon2[j] ) , c( d$lat[i],d$lat[j] ) ,
+lwd=2 , col=col.alpha("black",Rho[i,j]^2) )
+The result appears on the left side of Figure 14.12. Darker lines indicate stronger correla-
+tions, with pure white being zero correlation and pure black 100% correlation. The cluster of
+three close societies—Malekula, Tikopia, and Santa Cruz—stand out. Close societies have
+stronger correlations. But since we can’t see total tools on this map, it’s hard to see what the
+consequence of these correlations is supposed to be.
+More sense can be made of these correlations, if we also compare against the simultane-
+ous relationship between tools and log population. Here’s a plot that combines the average
+posterior predictive relationship between log population and total tools with the shaded cor-
+relation lines for each pair of societies:

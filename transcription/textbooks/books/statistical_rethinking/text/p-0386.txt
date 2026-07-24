@@ -1,0 +1,51 @@
+370
+11. GOD SPIKED THE INTEGERS
+s1 <- with( post , a[,1] + b*income[1] )
+s2_orig <- with( post , a[,2] + b*income[2] )
+s2_new <- with( post , a[,2] + b*income[2]*2 )
+# compute probabilities for original and counterfactual
+p_orig <- sapply( 1:length(post$b) , function(i)
+softmax( c(s1[i],s2_orig[i],0) ) )
+p_new <- sapply( 1:length(post$b) , function(i)
+softmax( c(s1[i],s2_new[i],0) ) )
+# summarize
+p_diff <- p_new[2,] - p_orig[2,]
+precis( p_diff )
+'data.frame': 4000 obs. of 1 variables:
+mean
+sd 5.5% 94.5%
+histogram
+p_diff 0.13 0.09 0.01
+0.29 ▇▇▅▅▃▂▁▁▁▁
+So on average a 13% increase in probability of choosing the career, when the income is dou-
+bled. Note that value is conditional on comparing to the other careers in the calculation.
+These models do not produce predictions independent of a specific set of options. That’s not
+a bug. That’s just how choice works.
+11.3.2. Predictors matched to observations. Now consider an example in which each ob-
+served outcome has unique predictor values. Suppose you are still modeling career choice.
+But now you want to estimate the association between each person’s family income and
+which career they choose. So the predictor variable must have the same value in each lin-
+ear model, for each row in the data. But now there is a unique parameter multiplying it in
+each linear model. This provides an estimate of the impact of family income on choice, for
+each type of career.
+R code
+11.59
+N <- 500
+# simulate family incomes for each individual
+family_income <- runif(N)
+# assign a unique coefficient for each type of event
+b <- c(-2,0,2)
+career <- rep(NA,N)
+# empty vector of choices for each individual
+for ( i in 1:N ) {
+score <- 0.5*(1:3) + b*family_income[i]
+p <- softmax(score[1],score[2],score[3])
+career[i] <- sample( 1:3 , size=1 , prob=p )
+}
+code_m11.14 <- "
+data{
+int N; // number of observations
+int K; // number of outcome values
+int career[N]; // outcome
+real family_income[N];
+}

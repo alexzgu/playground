@@ -1,0 +1,59 @@
+344
+11. GOD SPIKED THE INTEGERS
+using ulam, you just need to put the Stan model code above into a character vector and then call stan:
+R code
+11.22
+m11.4_stan_code <- stancode(m11.4)
+m11.4_stan <- stan( model_code=m11.4_stan_code , data=dat_list , chains=4 )
+compare( m11.4_stan , m11.4 )
+WAIC pWAIC dWAIC weight
+SE
+dSE
+m11.4
+531.8
+8.3
+0.0
+0.56 18.96
+NA
+m11.4_stan 532.3
+8.5
+0.5
+0.44 18.87 0.16
+Warning message:
+In compare(m11.4_stan, m11.4) : Not all model fits of same class.
+This is usually a bad idea, because it implies they were fit by different algorithms.
+Check yourself, before you wreck yourself.
+They are the same model, as indicated by the identical (within sampling error) WAIC values. Note
+also the warning message. The compare function checks the types of the model objects. If there
+is more than one type, it carries on but with this warning. It is a bad idea to compare models that
+approximate the posterior using different algorithms. Any difference could just be a product of the
+difference in algorithms. In the often quoted words of the American philosopher O’Shea Jackson,
+check yourself before you wreck yourself.
+11.1.2. Relative shark and absolute penguin. In the analysis above, I mostly focused on
+changes in predictions on the outcome scale—how much difference does the treatment make
+in the probability of pulling a lever? This view of posterior prediction focuses on absolute
+effects, the difference a counter-factual change in a variable might make on an absolute
+scale of measurement, like the probability of an event.
+It is more common to see logistic regressions interpreted through relative effects.
+Relative effects are proportional changes in the odds of an outcome. If we change a variable
+and say the odds of an outcome double, then we are discussing relative effects. You can calcu-
+late these proportional odds relative effect sizes by simply exponentiating the parameter
+of interest. For example, to calculate the proportional odds of switching from treatment 2 to
+treatment 4 (adding a partner):
+R code
+11.23
+post <- extract.samples(m11.4)
+mean( exp(post$b[,4]-post$b[,2]) )
+[1] 0.9206479
+On average, the switch multiples the odds of pulling the left lever by 0.92, an 8% reduction
+in odds. This is what is meant by proportional odds. The new odds are calculated by taking
+the old odds and multiplying them by the proportional odds, which is 0.92 in this example.
+The risk of focusing on relative effects, such as proportional odds, is that they aren’t
+enough to tell us whether a variable is important or not. If the other parameters in the model
+make the outcome very unlikely, then even a large proportional odds like 5.0 would not make
+the outcome frequent. Consider for example a rare disease which occurs in 1 per one-million
+people. Suppose also that reading this textbook increased the odds of the disease 5-fold. That
+would mean approximate 4 more cases of the disease per one-million people. So only 5-in-
+a-million chance now. The book is safe for reading.
+But we also shouldn’t forget about relative effects. Relative effects are needed to make
+causal inferences, and they can be conditional very important, when other baseline rates

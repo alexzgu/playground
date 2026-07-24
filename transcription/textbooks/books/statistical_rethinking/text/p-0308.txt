@@ -1,0 +1,56 @@
+292
+9. MARKOV CHAIN MONTE CARLO
+this example). The vertical axis is the frequency of ranks in each bin of the histogram. This
+trank plot is what we hope for: Histograms that overlap and stay within the same range.
+To really understand the value of these plots, you’ll have to see some trace and trank
+plots for unhealthy chains. That’s the project of the next section.
+Overthinking: Raw Stan model code. All ulam does is translate a list of formulas into Stan’s modeling
+language. Then Stan does the rest. Learning how to write Stan code is not necessary for most of the
+models in this book. But other models do require some direct interaction with Stan, because it is
+capable of much more than ulam allows you to express. And even for simple models, you’ll gain
+additional comprehension and control, if you peek into the machine. You can always access the raw
+Stan code that ulam produces by using the function stancode. For example, stancode(m9.1) prints
+out the Stan code for the ruggedness model. Before you’re familiar with Stan’s language, it’ll look long
+and weird. But let’s take it one piece at a time. It’s actually just stuff you’ve already learned, expressed
+a little differently.
+data{
+vector[170] log_gdp_std;
+vector[170] rugged_std;
+int cid[170];
+}
+parameters{
+vector[2] a;
+vector[2] b;
+real<lower=0> sigma;
+}
+model{
+vector[170] mu;
+sigma ~ exponential( 1 );
+b ~ normal( 0 , 0.3 );
+a ~ normal( 1 , 0.1 );
+for ( i in 1:170 ) {
+mu[i] = a[cid[i]] + b[cid[i]] * (rugged_std[i] - 0.215);
+}
+log_gdp_std ~ normal( mu , sigma );
+}
+This is Stan code, not R code. It is essentially the formula list you provided to ulam, with the implied
+definitions of the variables make explicit. There are three “blocks.”
+The first block is the data block, at the top. This is where observed variables are named and their
+types are and sizes are declared. int cid[170] just means an integer variable named cid with 170
+values. That’s our continent index. The other two are vectors of real values, continuous ruggedness
+and log GDP variables. Each line in Stan ends in a semicolon. Don’t ask why. Just do it. You probably
+aren’t using enough semicolons in your life, anyway.
+The next block is parameters. These, you can probably guess, are the unobserved variables.
+They are described just like the observed ones. The new elements here are the <lower=0> for sigma
+and those vector[2] things. <lower=0> tells Stan that sigma must be positive. It is constrained.
+This constraint corresponds to the exponential prior we assign it, which is only defined on the positive
+reals. The vector[2] types are lists of real numbers of length 2. These are our 2 intercepts a and our
+2 slopes b.
+If you haven’t used explicit and static typed languages before, these first two blocks must seem
+weird. Why does Stan force the user to say explicitly what R and ulam figure out automatically? One
+reason is that the code doesn’t have to do as much checking of conditions, when the types of the
+variables are already there and unchanging. So it can be faster. But from our perspective, a major
+advantage is that explicit types help us avoid a large class of programming mistakes. The kinds of run-
+time shenanigans common to languages like R and Python are impossible in C++. In my experience,
+people who have studied compiled languages see static typing as a welcome feature. People who have
+only worked in interpreted languages like R see it as a bother. Both groups are correct.

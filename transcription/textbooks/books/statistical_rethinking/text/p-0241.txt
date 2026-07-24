@@ -1,0 +1,48 @@
+7.4. PREDICTING PREDICTIVE ACCURACY
+225
+with, the others. In such a case, you can of course compute WAIC as if each observation were
+independent of the others, but it’s not clear what the resulting value means.
+This caution raises a more general issue with all strategies to guess out-of-sample accu-
+racy: Their validity depends upon the predictive task you have in mind. And not all predic-
+tion can reasonably take the form that we’ve been assuming for the train-test simulations in
+this chapter. When we consider multilevel models, this issue will arise again.
+Rethinking: Information criteria and consistency. As mentioned previously, information criteria
+like AIC and WAIC do not always assign the best expected Dtest to the “true” model. In statisti-
+cal jargon, information criteria are not consistent for model identification. These criteria aim to
+nominate the model that will produce the best predictions, as judged by out-of-sample deviance, so
+it shouldn’t surprise us that they do not also do something that they aren’t designed to do. Other
+metrics for model comparison are however consistent. So are information criteria broken?
+They are not broken, if you care about prediction.117 Issues like consistency are nearly always
+evaluated asymptotically. This means that we imagine the sample size N approaching infinity. Then
+we ask how a procedure behaves in this large-data limit. With practically infinite data, AIC and WAIC
+and cross-validation will always select the most complex model, so they are sometimes accused of
+“overfitting.” But at the large-data limit, the most complex model will make predictions identical to
+the true model (assuming it exists in the model set). The reason is that with so much data every
+parameter can be very precisely estimated. And so using an overly complex model will not hurt
+prediction. For example, as sample size N →∞the model with 5 parameters in Figure 7.8 will tell
+you that the coefficients for predictors after the second are almost exactly zero. Therefore failing to
+identify the “correct” model does not hurt us, at least not in this sense. Furthermore, in the natural
+and social sciences the models under consideration are almost never the data-generating models. It
+makes little sense to attempt to identify a “true” model.
+Rethinking: What about BIC and Bayes factors? The Bayesian information criterion, abbre-
+viated BIC and also known as the Schwarz criterion,118 is more commonly juxtaposed with AIC. The
+choice between BIC or AIC (or neither!) is not about being Bayesian or not. There are both Bayesian
+and non-Bayesian ways to motivate both, and depending upon how strict one wishes to be, neither
+is Bayesian. BIC is related to the logarithm of the average likelihood of a linear model. The average
+likelihood is the denominator in Bayes’ theorem, the likelihood averaged over the prior. There is a
+venerable tradition in Bayesian inference of comparing average likelihoods as a means to comparing
+models. A ratio of average likelihoods is called a Bayes factor. On the log scale, these ratios are
+differences, and so comparing differences in average likelihoods resembles comparing differences in
+information criteria. Since average likelihood is averaged over the prior, more parameters induce a
+natural penalty on complexity. This helps guard against overfitting, even though the exact penalty is
+not the same as with information criteria.
+Many Bayesian statisticians dislike the Bayes factor approach,119 and all admit that there are
+technical obstacles to its use. One problem is that computing average likelihood is hard. Even when
+you can compute the posterior, you may not be able to estimate the average likelihood. Another
+problem is that, even when priors are weak and have little influence on posterior distributions within
+models, priors can have a huge impact on comparisons between models.
+It’s important to realize, though, that the choice of Bayesian or not does not also decide between
+information criteria or Bayes factors. Moreover, there’s no need to choose, really. We can always
+use both and learn from the ways they agree and disagree. And both information criteria and Bayes
+factors are purely predictive criteria that will happily select confounded models. They know nothing
+about causation.

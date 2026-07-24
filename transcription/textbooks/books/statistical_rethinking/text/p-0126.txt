@@ -1,0 +1,46 @@
+110
+4. GEOCENTRIC MODELS
+the mathematics would be a more elegant approach, and there is some additional insight
+that comes from knowing the mathematics, the pseudo-empirical approach presented here
+is very flexible and allows a much broader audience of scientists to pull insight from their
+statistical modeling. And again, when you start estimating models with MCMC (Chapter 9),
+this is really the only approach available. So it’s worth learning now.
+To summarize, here’s the recipe for generating predictions and intervals from the poste-
+rior of a fit model.
+(1) Use link to generate distributions of posterior values for µ. The default behavior
+of link is to use the original data, so you have to pass it a list of new horizontal axis
+values you want to plot posterior predictions across.
+(2) Use summary functions like mean or PI to find averages and lower and upper
+bounds of µ for each value of the predictor variable.
+(3) Finally, use plotting functions like lines and shade to draw the lines and intervals.
+Or you might plot the distributions of the predictions, or do further numerical
+calculations with them. It’s really up to you.
+This recipe works for every model we fit in the book. As long as you know the structure of
+the model—how parameters relate to the data—you can use samples from the posterior to
+describe any aspect of the model’s behavior.
+Rethinking: Overconfident confidence intervals. The confidence interval for the regression line in
+Figure 4.9 clings tightly to the MAP line. Thus there is very little uncertainty about the average
+height as a function of average weight. But you have to keep in mind that these inferences are always
+conditional on the model. Even a very bad model can have very tight confidence intervals. It may
+help if you think of the regression line in Figure 4.9 as saying: Conditional on the assumption that
+height and weight are related by a straight line, then this is the most plausible line, and these are its
+plausible bounds.
+Overthinking: How link works. The function link is not really very sophisticated. All it is doing
+is using the formula you provided when you fit the model to compute the value of the linear model.
+It does this for each sample from the posterior distribution, for each case in the data. You could
+accomplish the same thing for any model, fit by any means, by performing these steps yourself. This
+is how it’d look for m4.3.
+R code
+4.58
+post <- extract.samples(m4.3)
+mu.link <- function(weight) post$a + post$b*( weight - xbar )
+weight.seq <- seq( from=25 , to=70 , by=1 )
+mu <- sapply( weight.seq , mu.link )
+mu.mean <- apply( mu , 2 , mean )
+mu.CI <- apply( mu , 2 , PI , prob=0.89 )
+And the values in mu.mean and mu.CI should be very similar (allowing for simulation variance) to
+what you got the automated way, using link.
+Knowing this manual method is useful both for (1) understanding and (2) sheer power. What-
+ever the model you find yourself with, this approach can be used to generate posterior predictions for
+any component of it. Automated tools like link save effort, but they are never as flexible as the code
+you can write yourself.

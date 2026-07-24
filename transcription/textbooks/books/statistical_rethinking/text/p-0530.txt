@@ -1,0 +1,55 @@
+514
+15. MISSING DATA AND OTHER OPPORTUNITIES
+D <- ifelse( X > 1 , 1 , 0 )
+Hm <- H
+Hm[D==1] <- NA
+Assuming a simple binomial model, first let’s see what we get when we fully observe H. Re-
+member, we haven’t observed X, so we can’t put it in the model.
+R code
+15.12
+dat_list <- list(
+H = H,
+S = S )
+m15.3 <- ulam(
+alist(
+H ~ binomial( 10 , p ),
+logit(p) <- a + bS*S,
+a ~ normal( 0 , 1 ),
+bS ~ normal( 0 , 0.5 )
+), data=dat_list , chains=4 )
+precis( m15.3 )
+mean
+sd 5.5% 94.5% n_eff Rhat
+a
+1.11 0.03 1.07
+1.15
+1265
+1
+bS 0.69 0.03 0.65
+0.73
+1366
+1
+The true coefficient on S should be 1.00. We don’t expect to get that exactly, but the estimate
+above is way off. This model used the complete data, before dogs ate any homework, so
+it can’t be missingness that is the problem. This is just a case of omitted variable bias
+(Chapter 10). Recall that in a generalized linear model, even if an unobserved variable like
+X doesn’t structurally confound or interact with the predictor of interest like S, that doesn’t
+mean that it won’t cause bias in estimation of the effect of S. The reason is that there are ceiling
+and floor effects on the outcome variable that induce interactions among all predictors.
+Now what impact does missing data have? Surely it will make things even worse. Let’s
+see. We’ll run the same model now, but with H∗instead of H, dropping all cases where D = 1.
+R code
+15.13
+dat_list0 <- list(
+H = H[D==0],
+S = S[D==0] )
+m15.4 <- ulam(
+alist(
+H ~ binomial( 10 , p ),
+logit(p) <- a + bS*S,
+a ~ normal( 0 , 1 ),
+bS ~ normal( 0 , 0.5 )
+), data=dat_list0 , chains=4 )
+precis( m15.4 )
+mean
+sd 5.5% 94.5% n_eff Rhat

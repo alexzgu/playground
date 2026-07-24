@@ -1,0 +1,49 @@
+262
+8. CONDITIONAL MANATEES
+decode the posterior into something else. Centered predictors or not, plotting posterior pre-
+dictions always tells you what the golem is thinking, on the scale of the outcome. That’s why
+we’ve emphasized plotting so much. But in previous chapters, there were no interactions. As
+a result, when plotting model predictions as a function of any one predictor, you could hold
+the other predictors constant at any value you liked. So the choice of which values to set the
+un-viewed predictor variables to hardly mattered.
+Now that’ll be different. Once there are interactions in a model, the effect of changing
+a predictor depends upon the values of the other predictors. Maybe the simplest way to go
+about plotting such interdependency is to make a frame of multiple bivariate plots. In each
+plot, you choose different values for the un-viewed variables. Then by comparing the plots
+to one another, you can see how big of a difference the changes make.
+That’s what we did for the terrain ruggedness example. But there we needed only two
+plots, one for Africa and one for everyplace else. Now we’ll need more. Here’s how you
+might accomplish this visualization, for the tulip data. I’m going to make three plots in a
+single panel. Such a panel of three plots that are meant to be viewed together is a triptych,
+and triptych plots are very handy for understanding the impact of interactions. Here’s the
+strategy. We want each plot to show the bivariate relationship between water and blooms,
+as predicted by the model. Each plot will plot predictions for a different value of shade. For
+this example, it is easy to pick which three values of shade to use, because there are only
+three values: −1, 0, and 1. But more generally, you might use a representative low value, the
+median, and a representative high value.
+Here’s the code to draw posterior predictions for m8.4, the non-interaction model. This
+will loop over three values for shade, compute posterior predictions, then draw 20 lines from
+the posterior.
+R code
+8.25
+par(mfrow=c(1,3)) # 3 plots in 1 row
+for ( s in -1:1 ) {
+idx <- which( d$shade_cent==s )
+plot( d$water_cent[idx] , d$blooms_std[idx] , xlim=c(-1,1) , ylim=c(0,1) ,
+xlab="water" , ylab="blooms" , pch=16 , col=rangi2 )
+mu <- link( m8.4 , data=data.frame( shade_cent=s , water_cent=-1:1 ) )
+for ( i in 1:20 ) lines( -1:1 , mu[i,] , col=col.alpha("black",0.3) )
+}
+The result is shown in Figure 8.7, along with the same type of plot for the interaction model,
+m8.5. Notice that the top model believes that water helps—there is a positive slope in each
+plot—and that shade hurts—the lines sink lower moving from left to right. But the slope
+with water doesn’t vary across shade levels. Without the interaction, it cannot vary. In the
+bottom row, the interaction is turned on. Now the model believes that the effect of water
+decreases as shade increases. The lines get flat.
+What is going on here? The likely explanation for these results is that tulips need both
+water and light to produce blooms. At low light levels, water can’t have much of an effect,
+because the tulips don’t have enough light to produce blooms. At higher light levels, water
+can matter more, because the tulips have enough light to produce blooms. At very high light
+levels, light is no longer limiting the blooms, and so water can have a much more dramatic
+impact on the outcome. The same explanation works symmetrically for shade. If there isn’t
+enough light, then more water hardly helps. You could remake Figure 8.7 with shade on the

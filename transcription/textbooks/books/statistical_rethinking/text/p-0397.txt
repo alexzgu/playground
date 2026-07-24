@@ -1,0 +1,36 @@
+12 Monsters and Mixtures
+In Hawaiian legend, Nanaue was the son of a shark who fell in love with a human women.
+He grew into a murderous man with a shark mouth in the middle of his back. In Greek
+legend, the minotaur was a man with the head of a bull. He was the spawn of a human
+woman and a great white bull. The gryphon is a legendary monster that is part eagle and
+part lion. Maori legends speak of Taniwha, monsters with features of serpents and birds and
+even sharks, much like the dragons of Chinese and European mythology.
+By piecing together parts of different creatures, it’s easy to make a monster. Many mon-
+sters are hybrids. Many statistical models are too. This chapter is about constructing likeli-
+hood and link functions by piecing together the simpler components of previous chapters.
+Like legendary monsters, these hybrid likelihoods contain pieces of other model types. En-
+dowed with some properties of each piece, they help us model outcome variables with in-
+convenient, but common, properties. Being monsters, these models are both powerful and
+dangerous. They are often harder to estimate and to understand. But with some knowledge
+and caution, they are important tools.
+We’ll consider three common and useful examples. The first are models for handling
+over-dispersion. These models extend the binomial and Poisson models of the previous
+chapter to cope a bit with unmeasured sources of variation. The second type is a family of
+zero-inflated and zero-augmented models, each of which mixes a binary event with
+an ordinary GLM likelihood like a Poisson or binomial. The third type is the ordered
+categorical model, useful for categorical outcomes with a fixed ordering. This model is
+built by merging a categorical likelihood function with a special kind of link function, usually
+a cumulative link. We’ll also learn how to construct ordered categorical predictors.
+These model types help us transform our modeling to cope with the inconvenient real-
+ities of measurement, rather than transforming measurements to cope with the constraints
+of our models. There are lots of other model types that arise for this purpose and in this way,
+by mixing bits of simpler models together. We can’t possibly cover them all. But when you
+encounter a new type, at least you’ll have a framework in which to understand it. And if you
+ever need to construct your own unique monster, feel free to do so. Just be sure to validate it
+by simulating dummy data and then recovering the data-generating process through fitting
+the model to the dummy data.
+12.1. Over-dispersed counts
+In an earlier chapter (Chapter 7), I argued that models based on normal distributions
+can be overly sensitive to extreme observations. The problem isn’t necessary that “outliers”
+are bad data. Rather processes are often variable mixtures and this results in thicker tails.
+381

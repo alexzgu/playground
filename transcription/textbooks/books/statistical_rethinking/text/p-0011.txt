@@ -1,0 +1,45 @@
+HOW TO USE THIS BOOK
+xv
+What the book assumes. This book does not try to teach the reader to program, in the most
+basic sense. It assumes that you have made a basic effort to learn how to install and process
+data in R. In most cases, a short introduction to R programming will be enough. I know
+many people have found Emmanuel Paradis’ R for Beginners helpful. You can find it and
+many other beginner guides here:
+http://cran.r-project.org/other-docs.html
+To make use of this book, you should know already that y<-7 stores the value 7 in the sym-
+bol y. You should know that symbols which end in parentheses are functions. You should
+recognize a loop and understand that commands can be embedded inside other commands
+(recursion). Knowing that R vectorizes a lot of code, instead of using loops, is important. But
+you don’t have to yet be confident with R programming.
+Inevitably you will come across elements of the code in this book that you haven’t seen
+before. I have made an effort to explain any particularly important or unusual programming
+tricks in my own code. In fact, this book spends a lot of time explaining code. I do this
+because students really need it. Unless they can connect each command to the recipe and
+the goal, when things go wrong, they won’t know whether it is because of a minor or major
+error. The same issue arises when I teach mathematical evolutionary theory—students and
+colleagues often suffer from rusty algebra skills, so when they can’t get the right answer, they
+often don’t know whether it’s because of some small mathematical misstep or instead some
+problem in strategy. The protracted explanations of code in this book aim to build a level of
+understanding that allows the reader to diagnose and fix problems.
+Why R?. This book uses R for the same reason that it uses English: Lots of people know it
+already. R is convenient for doing computational statistics. But many other languages are
+just fine. I recommend Python (especially PyMC) and Julia as well. The first edition ended
+up with code translations for various languages and styles. Hopefully the second edition will
+as well.
+Using the code. Code examples in the book are marked by a shaded box, and output from
+example code is often printed just beneath a shaded box, but marked by a fixed-width type-
+face. For example:
+R code
+0.1
+print( "All models are wrong, but some are useful." )
+[1] "All models are wrong, but some are useful."
+Next to each snippet of code, you’ll find a number that you can search for in the accompa-
+nying code snippet file, available from the book’s website. The intention is that the reader
+follow along, executing the code in the shaded boxes and comparing their own output to that
+printed in the book. I really want you to execute the code, because just as one cannot learn
+martial arts by watching Bruce Lee movies, you can’t learn to program statistical models by
+only reading a book. You have to get in there and throw some punches and, likewise, take
+some hits.
+If you ever get confused, remember that you can execute each line independently and
+inspect the intermediate calculations. That’s how you learn as well as solve problems. For
+example, here’s a confusing way to multiply the numbers 10 and 20:

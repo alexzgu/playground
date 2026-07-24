@@ -1,0 +1,48 @@
+142
+5. THE MANY VARIABLES & THE SPURIOUS WAFFLES
+globe tosses, averaging over the posterior, and comparing the simulated results to the ob-
+served. These kinds of checks are useful in many ways. For now, we’ll focus on two uses for
+them.
+(1) Did the model correctly approximate the posterior distribution? Golems do make
+mistakes, as do golem engineers. Errors can be more easily diagnosed by compar-
+ing implied predictions to the raw data. Some caution is required, because not all
+models try to exactly match the sample. But even then, you’ll know what to expect
+from a successful approximation. You’ll see some examples later (Chapter 13).
+(2) How does the model fail? All models are useful fictions, so they always fail in some
+way. Sometimes, the model fits correctly but is still so poor for our purposes that
+it must be discarded. More often, a model predicts well in some respects, but not
+in others. By inspecting the individual cases where the model makes poor predic-
+tions, you might get an idea of how to improve the model. The difficulty is that this
+process is essentially creative and relies upon the analysts domain expertise. No
+robot can (yet) do it for you. It also risks chasing noise, a topic we’ll focus on in
+later chapters.
+How could we produce a simple posterior predictive check in the divorce example? Let’s
+begin by simulating predictions, averaging over the posterior.
+R code
+5.15
+# call link without specifying new data
+# so it uses original data
+mu <- link( m5.3 )
+# summarize samples across cases
+mu_mean <- apply( mu , 2 , mean )
+mu_PI <- apply( mu , 2 , PI )
+# simulate observations
+# again no new data, so uses original data
+D_sim <- sim( m5.3 , n=1e4 )
+D_PI <- apply( D_sim , 2 , PI )
+This code is similar to what you’ve seen before, but now using the original observed data.
+For multivariate models, there are many different ways to display these simulations. The
+simplest is to just plot predictions against observed. This code will do that, and then add a line
+to show perfect prediction and line segments for the confidence interval of each prediction:
+R code
+5.16
+plot( mu_mean ~ d$D , col=rangi2 , ylim=range(mu_PI) ,
+xlab="Observed divorce" , ylab="Predicted divorce" )
+abline( a=0 , b=1 , lty=2 )
+for ( i in 1:nrow(d) ) lines( rep(d$D[i],2) , mu_PI[,i] , col=rangi2 )
+The resulting plot appears in Figure 5.5. It’s easy to see from this arrangement of the sim-
+ulations that the model under-predicts for States with very high divorce rates while it over-
+predicts for States with very low divorce rates. That’s normal. This is what regression does—it
+is skeptical of extreme values, so it expects regression towards the mean. But beyond this gen-
+eral regression to the mean, some States are very frustrating to the model, lying very far from
+the diagonal. I’ve labeled some points like this, including Idaho (ID) and Utah (UT), both of

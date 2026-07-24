@@ -1,0 +1,66 @@
+4.5. CURVES FROM LINES
+119
+800
+1000
+1200
+1400
+1600
+1800
+2000
+year
+basis value
+0
+1
+1
+2
+3
+4
+5
+1306
+800
+1000
+1200
+1400
+1600
+1800
+2000
+year
+basis * weight
+0
+1
+2
+3
+4
+5
+800
+1000
+1200
+1400
+1600
+1800
+2000
+5
+6
+7
+8
+year
+March temperature
+Figure 4.12. Using B-splines to make local, linear approximations. Top:
+Each basis function is a variable that turns on parts of the range of the pre-
+dictor variable. At any given value on the horizontal axis, e.g. 1306, only two
+have non-zero values. Middle: Parameters called weights multiply the basis
+functions. The spline at any given point is just the sum of these weighted
+basis functions. Bottom: The resulting B-spline shown against the raw data.
+Each weight parameter just determines the slope in a specific range of the
+predictor variable.
+our B variables, are used to gently transition from one part to the next. Essentially, these
+variables tell you which knot you are close to. Beginning on the left of the top plot, basis
+function 1 has value 1 and all of the others are set to zero. As we move rightwards towards
+the second knot, basis 1 declines and basis 2 increases. At knot 2, basis 2 has value 1, and all
+of the others are set to zero.
+The nice feature of these basis functions is that they make the the influence of each param-
+eter quite local. At any point on the horizontal axis in Figure 4.12, only two basis functions
+have non-zero values. For example, the dashed blue line in the top plot shows the year 1306.
+Basis functions 2 and 3 are non-zero for that year. So the parameters for basis functions 2
+and 3 are the only parameters influencing prediction for the year 1306. This is quite unlike
+polynomial regression, where parameters influence the entire shape of the curve.

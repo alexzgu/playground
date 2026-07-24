@@ -1,0 +1,47 @@
+10.1. MAXIMUM ENTROPY
+319
+numbers of each type of event are assumed to be constant, then the distribution that is most
+consistent with these constraints is the binomial distribution. This distribution spreads prob-
+ability out as evenly and conservatively as possible.
+Second, of course usually we do not know the expected value, but wish to estimate it. But
+this is actually the same problem, because assuming the distribution has a constant expected
+value leads to the binomial distribution as well, but with unknown expected value np, which
+must be estimated from the data. (You’ll learn how to do this in Chapter 11.) If only two
+un-ordered outcomes are possible and you think the process generating them is invariant in
+time—so that the expected value remains constant at each combination of predictor values—
+then the distribution that is most conservative is the binomial. This is analogous to how the
+Gaussian distribution is the most conservative distribution for a continuous outcome vari-
+able with finite variance. Variables with different constraints get different maximum entropy
+distributions, but the underlying principle remains the same.
+Third, back in Chapter 2, we derived the binomial distribution just by counting how
+many paths through the garden of forking data were consistent with our assumptions. For
+each possible composition of the bag of marbles—which corresponds here to each possible
+expected value—there is a unique number of ways to realize any possible sequence of data.
+The likelihoods derived in that way turn out to be exactly the same as the likelihoods we get
+by maximizing entropy. This is not a coincidence. Entropy counts up the number of different
+ways a process can produce a particular result, according to our assumptions. The garden of
+forking data did only the same thing—count up the numbers of ways a sequence could arise,
+given assumptions.
+Entropy maximization, like so much in probability theory, is really just counting. But
+it’s abbreviated counting that allows us to generalize lessons learned in one context to new
+problems in new contexts. Instead of having to tediously draw out a garden of forking data,
+we can instead map constraints on an outcome to a probability distribution. There is no guar-
+antee that this is the best probability distribution for the real problem you are analyzing. But
+there is a guarantee that no other distribution more conservatively reflects your assumptions.
+That’s not everything, but nor is it nothing. Any other distribution implies hidden con-
+straints that are unknown to us, reflecting phantom assumptions. A full and honest account-
+ing of assumptions is helpful, because it aids in understanding how a model misbehaves.
+And since all models misbehave sometimes, it’s good to be able to anticipate those times
+before they happen, as well as to learn from those times when they inevitably do.
+Rethinking: Conditional independence. All this talk of constant expected value brings up an im-
+portant question: Do these distributions necessarily assume that each observation is uncorrelated
+with every other observation? Not really. What is usually meant by “independence” in a probability
+distribution is just that each observation is uncorrelated with the others, once we know the corre-
+sponding predictor values. This is usually known as conditional independence, the claim that
+observations are independent after accounting for differences in predictors, through the model. It’s
+a modeling assumption. What this assumption doesn’t cover is a situation in which an observed
+event directly causes the next observed event. For example, if you buy the next Nick Cave album
+because I buy the next Nick Cave album, then your behavior is not independent of mine, even after
+conditioning on the fact that we both like that sort of music.
+Overthinking: Binomial maximum entropy. The usual way to derive a maximum entropy distribu-
+tion is to state the constraints and then use a mathematical device called the Lagrangian to solve for

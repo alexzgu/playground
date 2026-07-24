@@ -1,0 +1,74 @@
+4.1. WHY NORMAL DISTRIBUTIONS ARE NORMAL
+75
+-6
+-3
+0
+3
+6
+0.00
+0.10
+0.20
+position
+Density
+16 steps
+-6
+-3
+0
+3
+6
+0.0
+0.1
+0.2
+0.3
+position
+Density
+4 steps
+-6
+-3
+0
+3
+6
+0.00
+0.10
+0.20
+position
+Density
+8 steps
+0
+4
+8
+12
+16
+-6
+-3
+0
+3
+6
+step number
+position
+Figure 4.2. Random walks on the soccer field converge to a normal dis-
+tribution. The more steps are taken, the closer the match between the real
+empirical distribution of positions and the ideal normal distribution, super-
+imposed in the last plot in the bottom panel.
+R code
+4.1
+pos <- replicate( 1000 , sum( runif(16,-1,1) ) )
+You can plot the distribution of final positions in a number of different ways, including
+hist(pos) and plot(density(pos)). In Figure 4.2, I show the result of these random
+walks and how their distribution evolves as the number of steps increases. The top panel
+plots 100 different, independent random walks, with one highlighted in black. The vertical
+dashes indicate the locations corresponding to the distribution plots underneath, measured
+after 4, 8, and 16 steps. Although the distribution of positions starts off seemingly idiosyn-
+cratic, after 16 steps, it has already taken on a familiar outline. The familiar “bell” curve of
+the Gaussian distribution is emerging from the randomness. Go ahead and experiment with
+even larger numbers of steps to verify for yourself that the distribution of positions is stabi-
+lizing on the Gaussian. You can square the step sizes and transform them in a number of
+arbitrary ways, without changing the result: Normality emerges. Where does it come from?
+Any process that adds together random values from the same distribution converges to
+a normal. But it’s not easy to grasp why addition should result in a bell curve of sums.64
+Here’s a conceptual way to think of the process. Whatever the average value of the source
+distribution, each sample from it can be thought of as a fluctuation from that average value.
+When we begin to add these fluctuations together, they also begin to cancel one another out.
+A large positive fluctuation will cancel a large negative one. The more terms in the sum, the
+more chances for each fluctuation to be canceled by another, or by a series of smaller ones
+in the opposite direction. So eventually the most likely sum, in the sense that there are the

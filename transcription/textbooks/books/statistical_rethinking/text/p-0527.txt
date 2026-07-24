@@ -1,0 +1,47 @@
+15.2. MISSING DATA
+511
+R code
+15.7
+N <- 500
+A <- rnorm(N)
+M <- rnorm(N,-A)
+D <- rnorm(N,A)
+A_obs <- rnorm(N,A)
+In a problem at the end of the Chapter, I’ll ask you to investigate this further.
+When you have your own data and your own particular measurement concerns, all of
+this can be overwhelming. But the way to proceed is same as always: Use your background
+knowledge to write down a generative model or models, simulate data from these models in
+order to understand the inferential risks, and design a statistical approach that can work at
+least in theory.
+15.2. Missing data
+With measurement error, the insight is to realize that any uncertain piece of data can be
+replaced by a distribution that reflects uncertainty. But sometimes data are simply missing—
+no measurement is available at all. At first, this seems like a lost cause. What can be done
+when there is no measurement at all, not even one with error?
+The most common treatment of missing values is just to drop all cases with any missing
+values. This is known as complete case analysis. It is the default and silent behavior of
+most statistical software. Another common response is to replace missing values with some
+assumed value, like the mean of the variable or a reference value like zero. Neither of these
+treatments is safe. Complete case analysis is at best inefficient. It throws away data. But it can
+also produce bias, depending upon the causal details. Replacing missing values with static
+values is never warranted—we do not know those values, and if you fix them, the model will
+think it knows them with certainty.
+So what can we do instead? We can think causally about missingness, and we can use
+the model to impute missing values. A generative model tells you whether the process that
+produced the missing values will also prevent the identification of causal effects. Sometimes
+it does. Other times it does not. Luckily, we can add missingness to a DAG and use the same
+criteria you already learned to figure out whether it produces confounding. A generative
+model also provides information about values you have not yet seen.213 And this information
+can be used to average over our uncertainty and make full use of the non-missing values,
+dropping nothing.
+All this will become clearer, if we draw some diagrams. We’ll start with some simple,
+fictional examples. Then we’ll turn to some real examples.
+Rethinking: Missing data are meaningful data. The fact that a variable has an unobserved value is
+still an observation. It is data, just with a very special value. The meaning of this value depends upon
+the context. Consider for example a questionnaire on personal income. If some people refuse to fill
+in their income, this may be associated with low (or high) income. Therefore a model that tries to
+predict the missing values can be enlightening. In ecology, the absence of an observation of a species
+is a subtle kind of observation. It could mean the species isn’t there. Or it could mean it is there but
+you didn’t see it. An entire category of models, occupancy models,214 exists to take this duality
+into account. Missing values are always produced by some process, and thinking about that process
+can sometimes solve big problems.

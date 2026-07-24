@@ -1,0 +1,46 @@
+4.7. PRACTICE
+123
+This is shown in the bottom of the figure. The spline is much wigglier now. Try increasing
+the number of knots and the basis degree to see how this changes the spline.
+You might wonder how many knots is correct. We’ll be ready to address that question
+in a few more chapters. Really we’ll answer it by changing the question.
+Overthinking: Matrix multiplication in the spline model. To make model m4.7 easier to program,
+we used a matrix multiplication of the basis matrix B by the vector of parameters w: B %*% w. This
+notation is just linear algebra shorthand for (1) multiplying each element of the vector w by each value
+in the corresponding column of B and then (2) summing up each row of the result. You could also fit
+the same model with the following less-elegant code:
+R code
+4.79
+m4.7alt <- quap(
+alist(
+T ~ dnorm( mu , sigma ) ,
+mu <- a + sapply( 1:1124 , function(i) sum( B[i,]*w ) ) ,
+a ~ dnorm(6,10),
+w ~ dnorm(0,1),
+sigma ~ dexp(1)
+),
+data=list( T=d2$temp , B=B ) ,
+start=list( w=rep( 0 , ncol(B) ) ) )
+So you end up with exactly what you need: A sum linear predictor for each year (row). If you haven’t
+worked with much linear algebra, matrix notation can be intimidating. It is useful to remember that it
+is nothing more than the mathematics you already know, but expressed in a highly compressed form
+that is convenient when working with repeated calculations on lists of numbers.
+4.6. Summary
+This chapter introduced the simple linear regression model, a framework for estimating
+the association between a predictor variable and an outcome variable. The Gaussian distri-
+bution comprises the likelihood in such models, because it counts up the relative numbers of
+ways different combinations of means and standard deviations can produce an observation.
+To fit these models to data, the chapter introduced quadratic approximation of the posterior
+distribution and the tool quap. It also introduced new procedures for visualizing posterior
+distributions and posterior predictions. The next chapter expands on these concepts by in-
+troducing regression models with more than one predictor variable.
+The basic techniques from this chapter are the foundation of most of the examples in
+later chapters. So if much of the material was new to you, it might be worth reviewing the
+chapter now, before pressing onwards.
+4.7. Practice
+Easy.
+4E1. In the model definition below, which line is the likelihood?
+yi ∼Normal(µ, σ)
+µ ∼Normal(0, 10)
+σ ∼Exponential(1)
+4E2. In the model definition just above, how many parameters are in the posterior distribution?

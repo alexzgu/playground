@@ -1,0 +1,79 @@
+8.2. SYMMETRY OF INTERACTIONS
+255
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+0.8
+0.9
+1.0
+1.1
+ruggedness (standardized)
+log GDP (as proportion of mean)
+African nations
+Burundi
+Equatorial Guinea
+Lesotho
+Rwanda
+Swaziland
+Seychelles
+South Africa
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+0.8
+0.9
+1.0
+1.1
+1.2
+1.3
+ruggedness (standardized)
+log GDP (as proportion of mean)
+Non-African nations
+Switzerland
+Greece
+Lebanon
+Luxembourg
+Nepal
+Tajikistan
+Yemen
+Figure 8.5. Posterior predictions for the terrain ruggedness model, includ-
+ing the interaction between Africa and ruggedness. Shaded regions are 97%
+posterior intervals of the mean.
+example the GDP and terrain ruggedness problem. The interaction there has two equally
+valid phrasings.
+(1) How much does the association between ruggedness and log GDP depend upon
+whether the nation is in Africa?
+(2) How much does the association of Africa with log GDP depend upon ruggedness?
+While these two possibilities sound different to most humans, your golem thinks they are
+identical.
+In this section, we’ll examine this fact, first mathematically. Then we’ll plot the rugged-
+ness and GDP example again, but with the reverse phrasing—the association between Africa
+and GDP depends upon ruggedness.
+Consider yet again the model for µi:
+µi = αcid[i] + βcid[i](ri −¯r)
+The interpretation previously has been that the slope is conditional on continent. But it’s also
+fine to say that the intercept is conditional on ruggedness. It’s easier to see this if we write
+the above expression another way:
+µi = (2 −cidi)(α1 + β1(ri −¯r))
+|
+{z
+}
+cid[i]=1
++ (cidi −1)(α2 + β2(ri −¯r))
+|
+{z
+}
+cid[i]=2
+This looks weird, but it’s the same model. When cidi = 1, only the first term, the Africa
+parameters, remains. The second term vanishes to zero. When instead cidi = 2, the first
+term vanishes to zero and only the second term remains. Now if we imagine switching a
+nation to Africa, in order to know what this does for the prediction, we have to know the
+ruggedness (unless we are exactly at the average ruggedness, ¯r).
+It’ll be helpful to plot the reverse interpretation: The association of being in Africa with
+log GDP depends upon terrain ruggedness. What we’ll do is compute the difference between

@@ -19,9 +19,7 @@ The $x$-th row of $P$ is the distribution $P(x, \cdot)$. Thus $P$ is ***stochast
 
 $$ \sum_{y \in \mathcal{X}} P(x, y) = 1 \qquad \text{for all } x \in \mathcal{X}. $$
 
-*[Figure: line drawing of a frog sitting on one lily pad, with a fly on that pad and another fly on a second lily pad nearby.]*
-
-FIGURE 1.1. A randomly jumping frog. Whenever he tosses heads, he jumps to the other lily pad.
+**FIGURE 1.1.** A randomly jumping frog. Whenever he tosses heads, he jumps to the other lily pad. *[Figure: line drawing of a frog sitting on one lily pad, with a fly on that pad and another fly on a second lily pad nearby.]*
 
 ### PDF page 19 (book page 3)
 
@@ -149,9 +147,7 @@ Rather than writing down the transition matrix in (1.11), this chain can be spec
 
 ### PDF page 22 (book page 6)
 
-*[Figure: two ring graphs side by side. Left — a 10-vertex cycle ($\mathbb{Z}_{10}$) with vertices alternately filled (black) and open (white), illustrating the two-class (even/odd) structure. Right — a 9-vertex cycle ($\mathbb{Z}_9$) with all vertices filled (black).]*
-
-FIGURE 1.3. Random walk on $\mathbb{Z}_{10}$ is periodic, since every step goes from an even state to an odd state, or vice-versa. Random walk on $\mathbb{Z}_9$ is aperiodic.
+**FIGURE 1.3.** Random walk on $\mathbb{Z}_{10}$ is periodic, since every step goes from an even state to an odd state, or vice-versa. Random walk on $\mathbb{Z}_9$ is aperiodic. *[Figure: two ring graphs side by side. Left — a 10-vertex cycle ($\mathbb{Z}_{10}$) with vertices alternately filled (black) and open (white), illustrating the two-class (even/odd) structure. Right — a 9-vertex cycle ($\mathbb{Z}_9$) with all vertices filled (black).]*
 
 More precisely, suppose that $Z$ is a random variable which is equally likely to take on the values $-1$ and $+1$. If the current state of the chain is $j \in \mathbb{Z}_n$, then the next state is $j + Z \bmod n$. For any $k \in \mathbb{Z}_n$,
 $$ \mathbf{P}\{(j + Z) \bmod n = k\} = P(j,k). $$
@@ -564,7 +560,7 @@ Let $P_\mathcal{C} = P_{\mathcal{C} \times \mathcal{C}}$ be the restriction of t
 
 ### PDF page 32 (book page 16)
 
-FIGURE 1.5. The directed graph associated to a Markov chain. A directed edge is placed between $v$ and $w$ if and only if $P(v, w) > 0$. Here there is one essential class, which consists of the filled vertices. *[Figure: a directed graph of eight vertices; the three vertices on the right are filled (solid black) and form the single essential class, with the remaining five open (unfilled) vertices on the left connected by directed edges leading into that essential class.]*
+**FIGURE 1.5.** The directed graph associated to a Markov chain. A directed edge is placed between $v$ and $w$ if and only if $P(v, w) > 0$. Here there is one essential class, which consists of the filled vertices. *[Figure: a directed graph of eight vertices; the three vertices on the right are filled (solid black) and form the single essential class, with the remaining five open (unfilled) vertices on the left connected by directed edges leading into that essential class.]*
 
 $P(x, z) = 0$ for $z \notin [x]$. Moreover, $P_\mathcal{C}$ is irreducible by definition of a communicating class.
 

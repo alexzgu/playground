@@ -36,28 +36,40 @@
   "status": "transcribed"
  },
  "p-0007": {
-  "error": "claude exited 1: API Error: 400 Output blocked by content filtering policy",
-  "status": "failed"
+  "chunk": "chunk-0007-0007",
+  "printed_page": "ix",
+  "qa": null,
+  "status": "transcribed"
  },
  "p-0008": {
-  "error": "claude exited 1: API Error: 400 Output blocked by content filtering policy",
-  "status": "failed"
+  "chunk": "chunk-0008-0008",
+  "printed_page": "x",
+  "qa": null,
+  "status": "transcribed"
  },
  "p-0009": {
-  "error": "claude exited 1: API Error: 400 Output blocked by content filtering policy",
-  "status": "failed"
+  "chunk": "chunk-0009-0009",
+  "printed_page": "xi",
+  "qa": null,
+  "status": "transcribed"
  },
  "p-0010": {
-  "error": "claude exited 1: API Error: 400 Output blocked by content filtering policy",
-  "status": "failed"
+  "chunk": "chunk-0010-0010",
+  "printed_page": "xii",
+  "qa": null,
+  "status": "transcribed"
  },
  "p-0011": {
-  "error": "claude exited 1: API Error: 400 Output blocked by content filtering policy",
-  "status": "failed"
+  "chunk": "chunk-0011-0011",
+  "printed_page": "xiii",
+  "qa": null,
+  "status": "transcribed"
  },
  "p-0012": {
-  "error": "claude exited 1: API Error: 400 Output blocked by content filtering policy",
-  "status": "failed"
+  "chunk": "chunk-0012-0012",
+  "printed_page": "xiv",
+  "qa": null,
+  "status": "transcribed"
  },
  "p-0013": {
   "chunk": "chunk-0013-0015",
@@ -2214,16 +2226,22 @@
   "status": "transcribed"
  },
  "p-0372": {
-  "error": "claude exited 1: API Error: 400 Output blocked by content filtering policy",
-  "status": "failed"
+  "chunk": "chunk-0372-0372",
+  "printed_page": "356",
+  "qa": null,
+  "status": "transcribed"
  },
  "p-0373": {
-  "error": "claude exited 1: API Error: 400 Output blocked by content filtering policy",
-  "status": "failed"
+  "chunk": "chunk-0373-0373",
+  "printed_page": "357",
+  "qa": null,
+  "status": "transcribed"
  },
  "p-0374": {
-  "error": "claude exited 1: API Error: 400 Output blocked by content filtering policy",
-  "status": "failed"
+  "chunk": "chunk-0374-0374",
+  "printed_page": "358",
+  "qa": null,
+  "status": "transcribed"
  },
  "p-0375": {
   "chunk": "chunk-0375-0377",

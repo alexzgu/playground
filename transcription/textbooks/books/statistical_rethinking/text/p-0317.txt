@@ -1,0 +1,83 @@
+9.5. CARE AND FEEDING OF YOUR MARKOV CHAIN
+301
+200
+400
+600
+800
+1000
+-1000
+-500
+0
+500
+n_eff = 2
+a1
+200
+400
+600
+800
+1000
+-500
+0
+500
+1000
+n_eff = 2
+a2
+200
+400
+600
+800
+1000
+0.9
+1.0
+1.1
+1.2
+n_eff = 2
+sigma
+n_eff = 2
+a1
+n_eff = 2
+a2
+n_eff = 2
+sigma
+200
+400
+600
+800
+1000
+-20
+0
+10
+20
+n_eff = 389
+a1
+200
+400
+600
+800
+1000
+-20
+0
+10
+20
+n_eff = 389
+a2
+200
+400
+600
+800
+1000
+0.9
+1.0
+1.1
+1.2
+1.3
+n_eff = 448
+sigma
+n_eff = 389
+a1
+n_eff = 389
+a2
+n_eff = 448
+sigma
+Figure 9.12. Top panel, m9.4. A chain with wandering parameters, a1 and
+a2. Bottom panel, m9.5. Same model but with weakly informative priors.

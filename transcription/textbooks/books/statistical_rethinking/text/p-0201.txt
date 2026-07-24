@@ -1,0 +1,52 @@
+6.3. COLLIDER BIAS
+185
+Now P is a common consequence of G and U, so if we condition on P, it will bias inference
+about G →C, even if we never get to measure U. I don’t expect that fact to be immediately
+obvious. So let’s crawl through a quantitative example.
+First, let’s simulate 200 triads of grandparents, parents, and children. This simulation
+will be simple. We’ll just project our DAG as a series of implied functional relationships. The
+DAG above implies that:
+(1) P is some function of G and U
+(2) C is some function of G, P, and U
+(3) G and U are not functions of any other known variables
+We can make these implications into a simple simulation, using rnorm to generate simulated
+observations. But to do this, we need to be a bit more precise than “some function of.” So I’ll
+invent some strength of association:
+R code
+6.25
+N <- 200
+# number of grandparent-parent-child triads
+b_GP <- 1 # direct effect of G on P
+b_GC <- 0 # direct effect of G on C
+b_PC <- 1 # direct effect of P on C
+b_U <- 2
+# direct effect of U on P and C
+These parameters are like slopes in a regression model. Notice that I’ve assumed that grand-
+parents G have zero effect on their grandkids C. The example doesn’t depend upon that
+effect being exactly zero, but it will make the lesson clearer. Now we use these slopes to draw
+random observations:
+R code
+6.26
+set.seed(1)
+U <- 2*rbern( N , 0.5 ) - 1
+G <- rnorm( N )
+P <- rnorm( N , b_GP*G + b_U*U )
+C <- rnorm( N , b_PC*P + b_GC*G + b_U*U )
+d <- data.frame( C=C , P=P , G=G , U=U )
+I’ve made the neighborhood effect, U, binary. This will make the example easier to under-
+stand. But the example doesn’t depend upon that assumption. The other lines are just linear
+models embedded in rnorm.
+Now what happens when we try to infer the influence of grandparents? Since some of
+the total effect of grandparents passes through parents, we realize we need to control for
+parents. Here is a simple regression of C on P and G. Normally I would advise standardizing
+the variables, because it makes establishing sensible priors a lot easier. But I’m going to keep
+the simulated data on its original scale, so you can see what happens to inference about the
+slopes above. If we changed the scale, we shouldn’t expect to get those values back. But if
+we leave the scale alone, we should be able to recover something close to those values. So I
+apologize for using vague priors here, just to push forward in the example.
+R code
+6.27
+m6.11 <- quap(
+alist(
+C ~ dnorm( mu , sigma ),
+mu <- a + b_PC*P + b_GC*G,

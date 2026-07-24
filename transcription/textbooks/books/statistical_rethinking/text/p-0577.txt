@@ -1,0 +1,47 @@
+16.4. POPULATION DYNAMICS
+561
+0
+20
+40
+60
+80
+100
+120
+year
+thousands of pelts
+1900
+1910
+1920
+Lepus
+Lynx
+0
+100
+200
+300
+400
+500
+year
+thousands of animals
+1900
+1910
+1920
+Lepus
+Lynx
+Figure 16.9. Posterior predictions for the lynx-hare model. Top: Posterior
+pelts. The points are the data, black for hares and blue for lynx. Each trend
+is a predicted time series from the posterior distribution. The jagged path is
+caused by uncorrelated measurement error. Bottom: Posterior populations.
+Unlike the pelt predictions, these are smooth trajectories without measure-
+ment error.
+points. The underlying population may be smooth, but the measurements will not be. This
+is an example of why it is almost always a mistake to model a time series as if observed data
+cause observed data in the next time step. This is what is often done in autoregressive models.
+But if there is measurement error, and there always is, the data are emissions of some unseen
+state. The hidden states are the causes. The measurements don’t cause anything.
+It is helpful to compare the pelt predictions to the population predictions. So here are
+21 simulations of population dynamics from the posterior:
+R code
+16.20
+plot( NULL , pch=16 , xlim=c(1,21) , ylim=c(0,500) , xlab="year" ,
+ylab="thousands of animals" , xaxt="n" )
+at <- c(1,11,21)

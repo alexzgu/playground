@@ -1,0 +1,26 @@
+CITATION INDEX
+601
+tails, heavy and thin, 78
+test sample, 215
+testable implications, 133
+thin tails, 78
+time series, 548, 553
+trace plot, 289, 295
+trace rank plot, 291
+training sample, 215
+trank plot, 291, 295
+transformed parameters, 343, 467
+transitivity, 481
+triptych, 262
+two-stage least squares, 474
+U-turn, 280
+ulam, 286
+underfitting, 196, see also overfitting, 205
+variance-covariance, 93
+varying effects, 416, 449
+varying intercepts, 416, 419
+varying slopes, 450, 451, 455
+warmup, 280
+Widely Applicable Information Criterion, 223
+zero-augmented, 381
+zero-inflated, 381, 388

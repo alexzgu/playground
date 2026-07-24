@@ -1,0 +1,90 @@
+11.1. BINOMIAL REGRESSION
+345
+change. Consider for example the parable of relative shark and absolute penguin. Penguins
+have problems with sharks and are very much afraid of them. People too fear sharks. But
+we commonly hear that just about everything is more dangerous than sharks. It is true, for
+example, that a person is more likely to die from a bee sting than from a shark attack. In this
+comparison, absolute risks are being compared: The lifetime risk of death from bees vastly
+exceeds the lifetime risk of death from shark bite.
+However, this comparison is irrelevant in nearly all circumstances, because bees and
+sharks don’t live in the same places. When you are in the water, like a penguin often is,
+you want to know instead the relative risk of dying from a shark attack. Conditional on
+being in the ocean, sharks are much more dangerous than bees. And this is why from a
+penguin’s perspective, the relative risk of death from shark bite is valuable information. For
+us too, relative shark risk is what we want to know, for those rare times when we are in the
+ocean. For the penguin, the base rate of being in shark infested waters is much higher. As a
+consequence, the relative risk is highly relevant for the absolutely delicious penguin.
+11.1.3. Aggregated binomial: Chimpanzees again, condensed. In the chimpanzees data
+context, the models all calculated the likelihood of observing either zero or one pulls of the
+left-hand lever. The models did so, because the data were organized such that each row
+describes the outcome of a single pull. But in principle the same data could be organized
+differently. As long as we don’t care about the order of the individual pulls, the same infor-
+mation is contained in a count of how many times each individual pulled the left-hand lever,
+for each combination of predictor variables.
+For example, to calculate the number of times each chimpanzee pulled the left-hand
+lever, for each combination of predictor values:
+R code
+11.24
+data(chimpanzees)
+d <- chimpanzees
+d$treatment <- 1 + d$prosoc_left + 2*d$condition
+d$side <- d$prosoc_left + 1 # right 1, left 2
+d$cond <- d$condition + 1 # no partner 1, partner 2
+d_aggregated <- aggregate(
+d$pulled_left ,
+list( treatment=d$treatment , actor=d$actor ,
+side=d$side , cond=d$cond ) ,
+sum )
+colnames(d_aggregated)[5] <- "left_pulls"
+Here are the results for the first two chimpanzees:
+treatment actor side cond left_pulls
+1
+1
+1
+1
+1
+6
+2
+1
+2
+1
+1
+18
+3
+1
+3
+1
+1
+5
+4
+1
+4
+1
+1
+6
+5
+1
+5
+1
+1
+6
+6
+1
+6
+1
+1
+14
+7
+1
+7
+1
+1
+14
+8
+2
+1
+2
+1
+9
+The left_pulls column on the right is the count of times each actor pulled the left-hand
+lever for trials in each treatment. Recall that actor number 2 always pulled the left-hand

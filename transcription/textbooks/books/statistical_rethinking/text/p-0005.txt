@@ -1,0 +1,113 @@
+CONTENTS
+ix
+12.2.
+Zero-inflated outcomes
+388
+12.3.
+Ordered categorical outcomes
+392
+12.4.
+Ordered categorical predictors
+403
+12.5.
+Summary
+409
+12.6.
+Practice
+409
+Chapter 13.
+Models With Memory
+413
+13.1.
+Example: Multilevel tadpoles
+415
+13.2.
+Varying effects and the underfitting/overfitting trade-off
+422
+13.3.
+More than one type of cluster
+429
+13.4.
+Divergent transitions and non-centered priors
+434
+13.5.
+Multilevel posterior predictions
+440
+13.6.
+Summary
+445
+13.7.
+Practice
+445
+Chapter 14.
+Adventures in Covariance
+449
+14.1.
+Varying slopes by construction
+451
+14.2.
+Advanced varying slopes
+461
+14.3.
+Instruments and causal designs
+468
+14.4.
+Social relations as correlated varying effects
+475
+14.5.
+Continuous categories and the Gaussian process
+481
+14.6.
+Summary
+498
+14.7.
+Practice
+499
+Chapter 15.
+Missing Data and Other Opportunities
+501
+15.1.
+Measurement error
+503
+15.2.
+Missing data
+511
+15.3.
+Categorical errors and discrete absences
+528
+15.4.
+Summary
+533
+15.5.
+Practice
+533
+Chapter 16.
+Generalized Linear Madness
+537
+16.1.
+Geometric people
+538
+16.2.
+Hidden minds and observed behavior
+543
+16.3.
+Ordinary differential nut cracking
+549
+16.4.
+Population dynamics
+553
+16.5.
+Summary
+562
+16.6.
+Practice
+562
+Chapter 17.
+Horoscopes
+565
+Endnotes
+569
+Bibliography
+583
+Citation index
+595

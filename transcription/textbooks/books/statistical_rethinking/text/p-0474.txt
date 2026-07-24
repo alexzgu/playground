@@ -1,0 +1,52 @@
+458
+14. ADVENTURES IN COVARIANCE
+-1.0
+-0.5
+0.0
+0.5
+1.0
+0.0
+0.5
+1.0
+1.5
+2.0
+2.5
+correlation
+Density
+posterior
+prior
+Figure 14.4. Posterior distribution of the cor-
+relation between intercepts and slopes. Blue:
+Posterior distribution of the correlation, reli-
+ably below zero. Dashed: Prior distribution,
+the LKJcorr(2) density.
+Next, consider the shrinkage. The multilevel model estimates posterior distributions for
+intercepts and slopes of each café. The inferred correlation between these varying effects
+was used to pool information across them. This is just as the inferred variation among in-
+tercepts pools information among them, as well as how the inferred variation among slopes
+pools information among them. All together, the variances and correlation define an in-
+ferred multivariate Gaussian prior for the varying effects. And this prior, learned from the
+data, adaptively regularizes both the intercepts and slopes.
+To see the consequence of this adaptive regularization, shrinkage, let’s plot the posterior
+mean varying effects. Then we can compare them to raw, unpooled estimates. We’ll also
+show the contours of the inferred prior—the population of intercepts and slopes—and this
+will help us visualize the shrinkage. Here’s code to plot the unpooled estimates and posterior
+means.
+R code
+14.14
+# compute unpooled estimates directly from data
+a1 <- sapply( 1:N_cafes ,
+function(i) mean(wait[cafe_id==i & afternoon==0]) )
+b1 <- sapply( 1:N_cafes ,
+function(i) mean(wait[cafe_id==i & afternoon==1]) ) - a1
+# extract posterior means of partially pooled estimates
+post <- extract.samples(m14.1)
+a2 <- apply( post$a_cafe , 2 , mean )
+b2 <- apply( post$b_cafe , 2 , mean )
+# plot both and connect with lines
+plot( a1 , b1 , xlab="intercept" , ylab="slope" ,
+pch=16 , col=rangi2 , ylim=c( min(b1)-0.1 , max(b1)+0.1 ) ,
+xlim=c( min(a1)-0.1 , max(a1)+0.1 ) )
+points( a2 , b2 , pch=1 )
+for ( i in 1:N_cafes ) lines( c(a1[i],a2[i]) , c(b1[i],b2[i]) )
+And to superimpose the contours of the population:

@@ -1,0 +1,47 @@
+2.2. BUILDING A MODEL
+31
+the other direction. The maximum height of the curve increases with each sample, meaning
+that fewer values of p amass more plausibility as the amount of evidence increases. As each
+new observation is added, the curve is updated consistent with all previous observations.
+Notice that every updated set of plausibilities becomes the initial plausibilities for the
+next observation. Every conclusion is the starting point for future inference. However, this
+updating process works backwards, as well as forwards. Given the final set of plausibilities
+in the bottom-right plot of Figure 2.5, and knowing the final observation (W), it is possible
+to mathematically divide out the observation, to infer the previous plausibility curve. So the
+data could be presented to your model in any order, or all at once even. In most cases, you
+will present the data all at once, for the sake of convenience. But it’s important to realize that
+this merely represents abbreviation of an iterated learning process.
+Rethinking: Sample size and reliable inference. It is common to hear that there is a minimum num-
+ber of observations for a useful statistical estimate. For example, there is a widespread superstition
+that 30 observations are needed before one can use a Gaussian distribution. Why? In non-Bayesian
+statistical inference, procedures are often justified by the method’s behavior at very large sample sizes,
+so-called asymptotic behavior. As a result, performance at small samples sizes is questionable.
+In contrast, Bayesian estimates are valid for any sample size. This does not mean that more data
+isn’t helpful—it certainly is. Rather, the estimates have a clear and valid interpretation, no matter the
+sample size. But the price for this power is dependency upon the initial plausibilities, the prior. If
+the prior is a bad one, then the resulting inference will be misleading. There’s no free lunch,44 when
+it comes to learning about the world. A Bayesian golem must choose an initial plausibility, and a
+non-Bayesian golem must choose an estimator. Both golems pay for lunch with their assumptions.
+2.2.3. Evaluate. The Bayesian model learns in a way that is demonstrably optimal, provided
+that the real, large world is accurately described by the model. This is to say that your
+Bayesian machine guarantees perfect inference, within the small world. No other way of
+using the available information, and beginning with the same state of information, could do
+better.
+Don’t get too excited about this logical virtue, however. The calculations may malfunc-
+tion, so results always have to be checked. And if there are important differences between
+the model and reality, then there is no logical guarantee of large world performance. And
+even if the two worlds did match, any particular sample of data could still be misleading. So
+it’s worth keeping in mind at least two cautious principles.
+First, the model’s certainty is no guarantee that the model is a good one. As the amount
+of data increases, the globe tossing model will grow increasingly sure of the proportion of
+water. This means that the curves in Figure 2.5 will become increasingly narrow and tall,
+restricting plausible values within a very narrow range. But models of all sorts—Bayesian or
+not—can be very confident about an inference, even when the model is seriously misleading.
+This is because the inferences are conditional on the model. What your model is telling you
+is that, given a commitment to this particular model, it can be very sure that the plausible
+values are in a narrow range. Under a different model, things might look differently. There
+will be examples in later chapters.
+Second, it is important to supervise and critique your model’s work. Consider again the
+fact that the updating in the previous section works in any order of data arrival. We could
+shuffle the order of the observations, as long as six W’s and three L’s remain, and still end up
+with the same final plausibility curve. That is only true, however, because the model assumes

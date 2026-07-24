@@ -1,0 +1,43 @@
+16.4. POPULATION DYNAMICS
+557
+0
+10
+20
+30
+40
+number (thousands)
+time
+Figure 16.7. Simulated population dynamics
+from the lynx-hare model. Black: Hare pop-
+ulation. Blue: Lynx population. This model
+produces repeating cycles of predators and
+prey.
+plot( z[,2] , type="l" , ylim=c(0,max(z[,2])) , lwd=2 , xaxt="n" ,
+ylab="number (thousands)" , xlab="" )
+lines( z[,1] , col=rangi2 , lwd=2 )
+mtext( "time" , 1 )
+The result is displayed in Figure 16.7. The black curve is the hare population, and the blue
+is the lynx population. This model produces cycles, similar to what we see in the data. The
+model behaves this way, because lynx eat hares. Once the hares are eaten, the lynx begin to
+die off. Then the cycle repeats.
+16.4.2. The statistical model. To turn the lynx-hare model into a statistical analysis, we
+need to connect the deterministic population dynamics to the observed data. Observed data
+have many reasons not to exactly match a deterministic expectation. The most obvious is
+that we never get to count every hare and lynx. We just have partial samples. So we need to
+model both the underlying population dynamics and the observation process.
+Let Ht and Lt as before represent the numbers of hares and lynx at time t. And now
+let ht and ℓt represent the observed numbers of hares and lynx. While Ht causes Ht+dt, the
+observed ht does not cause anything. It’s just a pale reflection of the unobserved state of the
+system at time t. We have to use a statistical model to project it back to the underly model of
+Ht and Lt. Then we can make a prediction for ht+dt and ℓt+dt.
+To do this, we need to assign an error distribution to the observation process. To do this
+in a principled way, we should outline the generative process that goes from the true state of
+nature, Ht, to the measurement, ht. First, hares get trapped. Suppose each hare is trapped
+with some probability pt which varies year to year, for all sorts of reasons. Third, the actual
+number of pelts were rounded to the nearest 100 and divided by 1000. So they are no longer
+counts exactly. This all sounds like a mess. That’s measurement for you.
+We can do this though. Suppose for example there is a population of Ht = 104 hares.
+Suppose also that the annual trapping rate varies according to a beta distribution pt ∼
+Beta(2, 18). This means the average is 10%, but it is very rarely double that. We get a bi-
+nomial count of pelts sampled for the population of hares, and then that is rounded to the
+nearest 100 and divided by 1000. Let’s see what this sort of distribution looks like:

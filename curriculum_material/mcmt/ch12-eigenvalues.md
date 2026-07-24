@@ -220,9 +220,7 @@ $$ P\varphi_j(\omega^k) = \frac{\varphi_j(\omega^{k-1}) + \varphi_j(\omega^{k+1}
 
 ### PDF page 182 (book page 166)
 
-*[Figure: two unit-circle diagrams, each showing the 10th roots of unity as a regular 10-gon inscribed in a circle with coordinate axes. In the left diagram, a black (filled) vertex sits in the upper-right, with dashed chords connecting to other vertices and a grey vertex marking a midpoint near the real axis. In the right diagram, a black vertex is again in the upper right, with dashed lines to two vertices and a grey midpoint vertex near the center-right.]*
-
-FIGURE 12.1. For simple random walk on the cycle, the eigenvalues must be the cosines. Here $n = 10$. The black vertices represent $\omega = e^{2\pi i/10}$, while the grey vertices represent $(1/2)(\omega^2 + \omega^0)$ and $(1/2)(\omega^3 + \omega^{-1})$, respectively.
+**FIGURE 12.1.** For simple random walk on the cycle, the eigenvalues must be the cosines. Here $n = 10$. The black vertices represent $\omega = e^{2\pi i/10}$, while the grey vertices represent $(1/2)(\omega^2 + \omega^0)$ and $(1/2)(\omega^3 + \omega^{-1})$, respectively. *[Figure: two unit-circle diagrams, each showing the 10th roots of unity as a regular 10-gon inscribed in a circle with coordinate axes. In the left diagram, a black (filled) vertex sits in the upper-right, with dashed chords connecting to other vertices and a grey vertex marking a midpoint near the real axis. In the right diagram, a black vertex is again in the upper right, with dashed lines to two vertices and a grey midpoint vertex near the center-right.]*
 
 Hence $\varphi_j$ is an eigenfunction of $P$ with eigenvalue
 
@@ -244,9 +242,7 @@ When $n = 2m$ is even, $\cos(2\pi m/n) = -1$ is an eigenvalue, so $\gamma_\star 
 
 ### PDF page 183 (book page 167)
 
-*[Figure: a unit circle with 12 vertices (the 12th roots of unity) marked as a regular 12-gon. Seven black filled dots lie along the horizontal real axis (the projection points). Vertical dashed lines connect the off-axis circle vertices down/up to their projections on the real axis, illustrating the lumping of the 12-cycle onto the 7-path.]*
-
-FIGURE 12.2. A random walk on the 12-cycle projects to a random walk on the 7-path. This random walk is reflected when it hits an endpoint.
+**FIGURE 12.2.** A random walk on the 12-cycle projects to a random walk on the 7-path. This random walk is reflected when it hits an endpoint. *[Figure: a unit circle with 12 vertices (the 12th roots of unity) marked as a regular 12-gon. Seven black filled dots lie along the horizontal real axis (the projection points). Vertical dashed lines connect the off-axis circle vertices down/up to their projections on the real axis, illustrating the lumping of the 12-cycle onto the 7-path.]*
 
 LEMMA 12.9. *Let $\mathcal{X}$ be the state space of a Markov chain $(X_t)$ with transition matrix $P$. Let $\sim$ be an equivalence relation on $\mathcal{X}$ with equivalence classes $\mathcal{X}^\sharp = \{[x] : x \in \mathcal{X}\}$ such that $[X_t]$ is a Markov chain with transition matrix $P^\sharp([x], [y]) = P(x, [y])$. Then:*
 
@@ -271,9 +267,7 @@ EXAMPLE 12.10 (Path with reflection at the endpoints). Let $\omega = e^{\pi i/(n
 
 ### PDF page 184 (book page 168)
 
-*[Figure: A circle centered at the origin with 16 points marked around its circumference (the 16th roots of unity, rotated). The "odd" states are shown as open circles on the upper and lower arcs; vertical dashed lines drop from symmetric pairs of these points onto the horizontal (real) axis, where four filled black dots mark the projected positions and two open circles mark the endpoints — illustrating the projection of the 16-cycle onto the 4-path.]*
-
-FIGURE 12.3. A random walk on the "odd" states of a 16-cycle projects to a random walk on the 4-path. This lumped walk has holding probability 1/2 at the endpoints of the path.
+**FIGURE 12.3.** A random walk on the "odd" states of a 16-cycle projects to a random walk on the 4-path. This lumped walk has holding probability 1/2 at the endpoints of the path. *[Figure: A circle centered at the origin with 16 points marked around its circumference (the 16th roots of unity, rotated). The "odd" states are shown as open circles on the upper and lower arcs; vertical dashed lines drop from symmetric pairs of these points onto the horizontal (real) axis, where four filled black dots mark the projected positions and two open circles mark the endpoints — illustrating the projection of the 16-cycle onto the 4-path.]*
 
 required by Lemma 2.5. If we identify each equivalence class with the common projection $v_k = \cos(\pi k/(n-1))$ of its elements onto the real axis, the lumped chain is a simple random walk on the path with $n$ vertices $W^\sharp = \{v_0, v_1, \ldots, v_{n-1}\}$ and reflecting boundary conditions. That is, when the walk is at $v_0$, it moves to $v_1$ with probability 1 and when the walk is at $v_{n-1}$, it moves to $v_{n-2}$ with probability 1. (See Figure 12.2.)
 

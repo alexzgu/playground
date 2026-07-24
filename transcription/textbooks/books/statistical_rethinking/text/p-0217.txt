@@ -1,0 +1,50 @@
+7.1. THE PROBLEM WITH PARAMETERS
+201
+The point of this example is not to praise R2 but to bury it. But we still need to compute
+it before burial. This is thankfully easy. We just compute the posterior predictive distribu-
+tion for each observation—you did this is earlier chapters with sim. Then we subtract each
+observation from its prediction to get a residual. Then we need the variance of both these
+residuals and the outcome variable. This means the actual empirical variance, not the vari-
+ance that R returns with the var function, which is a frequentist estimator and therefore
+has the wrong denominator. So we’ll compute variance the old fashioned way: the average
+squared deviation from the mean. The rethinking package includes a function var2 for
+this purpose. In principle, the Bayesian approach mandates that we do this for each sample
+from the posterior. But R2 is traditionally computed only at the mean prediction. So we’ll
+do that as well here.
+R code
+7.5
+set.seed(12)
+s <- sim( m7.1 )
+r <- apply(s,2,mean) - d$brain_std
+resid_var <- var2(r)
+outcome_var <- var2( d$brain_std )
+1 - resid_var/outcome_var
+[1] 0.4774589
+We’ll want to do this for the next several models, so let’s write a function to make it repeatable:
+R code
+7.6
+R2_is_bad <- function( quap_fit ) {
+s <- sim( quap_fit , refresh=0 )
+r <- apply(s,2,mean) - d$brain_std
+1 - var2(r)/var2(d$brain_std)
+}
+Now for some other models to compare to m7.1. We’ll consider five more models, each
+more complex than the last. Each of these models will just be a polynomial of higher degree.
+For example, a second-degree polynomial that relates body size to brain size is a parabola.
+In math form, it is:
+bi ∼Normal(µi, σ)
+µi = α + β1mi + β2m2
+i
+α ∼Normal(0.5, 1)
+βj ∼Normal(0, 10)
+for j = 1..2
+σ ∼Log-Normal(0, 1)
+This model family adds one more parameter, β2, but uses all of the same data as m7.1. To do
+this model in quap, we can define β as a vector. The only trick required is to tell quap how
+long that vector is by using a start list:
+R code
+7.7
+m7.2 <- quap(
+alist(
+brain_std ~ dnorm( mu , exp(log_sigma) ),
+mu <- a + b[1]*mass_std + b[2]*mass_std^2,

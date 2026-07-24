@@ -1,0 +1,45 @@
+10.4. SUMMARY
+329
+the models you compare use the same outcome distribution type—Gaussian, binomial, expo-
+nential, gamma, Poisson, or another. In that case, the constants subtract out when you com-
+pare models by their differences. But if two models have different outcome distributions, the
+constants don’t subtract out, and you can be misled by a difference in AIC/DIC/WAIC/LOO.
+Really all you have to remember is to only compare models that all use the same type of
+likelihood. Of course it is possible to compare models that use different likelihoods, just not
+with information criteria. Luckily, the principle of maximum entropy ordinarily motivates
+an easy choice of likelihood, at least for ordinary regression models. So there is no need to
+lean on information criteria for this modeling choice.
+There are a few nuances with WAIC/LOO and individual GLM types. These nuances
+will arise as examples of each GLM are worked, in later chapters.
+10.3. Maximum entropy priors
+The principle of maximum entropy helps us to make modeling choices. When pressed
+to choose an outcome distribution—a likelihood—maximum entropy nominates the least
+informative distribution consistent with the constraints on the outcome variable. Applying
+the principle in this way leads to many of the same distributional choices that are commonly
+regarded as just convenient assumptions or useful conventions.
+Another way that the principle of maximum entropy helps with choosing distributions
+arises when choosing priors. GLMs are easy to use with conventional weakly informative
+priors of the sort you’ve been using up to this point in the book. Such priors are nice, be-
+cause they allow the data to dominate inference while also taming some of the pathologies
+of unconstrained estimation. There were some striking examples of their “soft power” in
+Chapter 9.
+But sometimes, rarely, some of the parameters in a GLM refer to things we might actually
+have background information about. When that’s true, maximum entropy provides a way to
+generate a prior that embodies the background information, while assuming as little else as
+possible. This makes them appealing, conservative choices.
+We won’t be using maximum entropy to choose priors in this book, but when you come
+across an analysis that does, you can interpret the principle in the same way as you do with
+likelihoods and understand the approach as an attempt to include relevant background in-
+formation about parameters, while introducing no other assumptions by accident.
+10.4. Summary
+This chapter has been a conceptual, not practical, introduction to maximum entropy
+and generalized linear models. The principle of maximum entropy provides an empirically
+successful way to choose likelihood functions. Information entropy is essentially a measure
+of the number of ways a distribution can arise, according to stated assumptions. By choos-
+ing the distribution with the biggest information entropy, we thereby choose a distribution
+that obeys the constraints on outcome variables, without importing additional assumptions.
+Generalized linear models arise naturally from this approach, as extensions of the linear mod-
+els in previous chapters. The necessity of choosing a link function to bind the linear model
+to the generalized outcome introduces new complexities in model specification, estimation,
+and interpretation. You’ll become comfortable with these complexities through examples in
+later chapters.

@@ -1,0 +1,47 @@
+11.2. POISSON REGRESSION
+365
+Since the logarithm of a ratio is the same as a difference of logarithms, we can also write:
+log λi = log µi −log τi = α + βxi
+These τ values are the “exposures.” So if different observations i have different exposures,
+then this implies that the expected value on row i is given by:
+log µi = log τi + α + βxi
+When τi = 1, then log τi = 0 and we’re back where we started. But when the exposure varies
+across cases, then τi does the important work of correctly scaling the expected number of
+events for each case i. So you can model cases with different exposures just by writing a
+model like:
+yi ∼Poisson(µi)
+log µi = log τi + α + βxi
+where τ is a column in the data. So this is just like adding a predictor, the logarithm of the
+exposure, without adding a parameter for it. There will be an example later in this section.
+You can also put a parameter in front of log τi, which is one way to model the hypothesis that
+the rate is not constant with time.
+For the last Poisson example, we’ll look at a case where the exposure varies across obser-
+vations. When the length of observation, area of sampling, or intensity of sampling varies,
+the counts we observe also naturally vary. Since a Poisson distribution assumes that the rate
+of events is constant in time (or space), it’s easy to handle this. All we need to do, as ex-
+plained above, is to add the logarithm of the exposure to the linear model. The term we add
+is typically called an offset.
+We’ll simulate for this example, both to provide another example of dummy-data sim-
+ulation as well as to ensure we get the right answer from the offset approach. Suppose,
+as we did earlier, that you own a monastery. The data available to you about the rate at
+which manuscripts are completed is totaled up each day. Suppose the true rate is λ = 1.5
+manuscripts per day. We can simulate a month of daily counts:
+R code
+11.50
+num_days <- 30
+y <- rpois( num_days , 1.5 )
+So now y holds 30 days of simulated counts of completed manuscripts.
+Also suppose that your monastery is turning a tidy profit, so you are considering pur-
+chasing another monastery. Before purchasing, you’d like to know how productive the new
+monastery might be. Unfortunately, the current owners don’t keep daily records, so a head-
+to-head comparison of the daily totals isn’t possible. Instead, the owners keep weekly totals.
+Suppose the daily rate at the new monastery is actually λ = 0.5 manuscripts per day. To
+simulate data on a weekly basis, we just multiply this average by 7, the exposure:
+R code
+11.51
+num_weeks <- 4
+y_new <- rpois( num_weeks , 0.5*7 )
+And new y_new holds four weeks of counts of completed manuscripts.
+To analyze both y, totaled up daily, and y_new, totaled up weekly, we just add the loga-
+rithm of the exposure to linear model. First, let’s build a data frame to organize the counts
+and help you see the exposure for each case:

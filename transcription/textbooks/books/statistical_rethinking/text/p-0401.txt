@@ -1,0 +1,67 @@
+12.1. OVER-DISPERSED COUNTS
+385
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+0.0
+0.5
+1.0
+1.5
+2.0
+2.5
+3.0
+probability admit
+Density
+distribution of female admission rates
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+case
+A
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+12
+Posterior validation check
+Figure 12.1. Left: Posterior distribution of beta distributions for m12.1.
+The thick curve is the posterior mean beta distribution. The lighter curves
+represent 100 combinations of ¯p and θ sampled from the posterior. Right:
+Posterior validation check for m12.1. As a result of the widely dispersed
+beta distributions on the left, the raw data (blue) is contained within the
+prediction intervals.
+that admit most applicants. What the model has done is accommodate the variation among
+departments—there is a lot of variation! As a result, it is no longer tricked by department
+variation into a false inference about gender.
+To get a sense of how the beta distribution of probabilities of admission influences pre-
+dicted counts of applications admitted, let’s look at the posterior validation check:
+R code
+12.5
+postcheck( m12.1 )
+This plot is shown on the right in Figure 12.1. The vertical axis shows the predicted propor-
+tion admitted, for each case on the horizontal. The blue points show the empirical propor-
+tion admitted on each row of the data. The open circles are the posterior mean ¯p, with 89%
+percentile interval, and the + symbols mark the 89% interval of predicted counts of admis-
+sion. There is a lot of dispersion expected here. The model can’t see departments, because
+we didn’t tell it about them. But it does see heterogeneity across rows, and it uses the beta
+distribution to estimate and anticipate that heterogeneity.
+12.1.2. Negative-binomial or gamma-Poisson. A negative-binomial model, more use-
+fully called a gamma-Poisson model, assumes that each Poisson count observation has its
+own rate.177 It estimates the shape of a gamma distribution to describe the Poisson rates
+across cases. Predictor variables adjust the shape of this distribution, not the expected value
+of each observation. The gamma-Poisson model is very much like a beta-binomial model,
+with the gamma distribution of rates (or expected values) replacing the beta distribution of
+probabilities of success. Why gamma? Because it makes the mathematics easy—there is a
+simple analytical expression for Poisson probabilities that are mixed together with gamma

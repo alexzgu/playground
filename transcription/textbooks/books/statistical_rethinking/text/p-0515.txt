@@ -1,0 +1,42 @@
+14.7. PRACTICE
+499
+of parameters. The LKJcorr prior was introduced as a convenient family of priors for corre-
+lation matrices. You saw how covariance models can be applied to causal inference, using
+instrumental variables and the front-door criterion. Gaussian processes represent a practi-
+cal method of extending the varying effects strategy to continuous dimensions of similarity,
+such as spatial, network, phylogenetic, or any other abstract distance between entities in the
+data. The next chapter continues to develop the broader multilevel approach by applying it
+to commonplace problems in statistical inference: measurement error and missing data.
+14.7. Practice
+Easy.
+14E1. Add to the following model varying slopes on the predictor x.
+yi ∼Normal(µi, σ)
+µi = αgroup[i] + βxi
+αgroup ∼Normal(α, σα)
+α ∼Normal(0, 10)
+β ∼Normal(0, 1)
+σ ∼HalfCauchy(0, 2)
+σα ∼HalfCauchy(0, 2)
+14E2. Think up a context in which varying intercepts will be positively correlated with varying
+slopes. Provide a mechanistic explanation for the correlation.
+14E3. When is it possible for a varying slopes model to have fewer effective parameters (as estimated
+by WAIC or DIC) than the corresponding model with fixed (unpooled) slopes? Explain.
+Medium.
+14M1. Repeat the café robot simulation from the beginning of the chapter. This time, set rho to zero,
+so that there is no correlation between intercepts and slopes. How does the posterior distribution of
+the correlation reflect this change in the underlying simulation?
+14M2. Fit this multilevel model to the simulated café data:
+Wi ∼Normal(µi, σ)
+µi = αcafé[i] + βcafé[i]Ai
+αcafé ∼Normal(α, σα)
+βcafé ∼Normal(β, σβ)
+α ∼Normal(0, 10)
+β ∼Normal(0, 10)
+σ ∼HalfCauchy(0, 1)
+σα ∼HalfCauchy(0, 1)
+σβ ∼HalfCauchy(0, 1)
+Use WAIC to compare this model to the model from the chapter, the one that uses a multi-variate
+Gaussian prior. Explain the result.
+14M3. Re-estimate the varying slopes model for the UCBadmit data, now using a non-centered pa-
+rameterization. Compare the efficiency of the forms of the model, using n_eff. Which is better?
+Which chain sampled faster?

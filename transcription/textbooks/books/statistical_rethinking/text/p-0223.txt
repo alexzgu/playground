@@ -1,0 +1,112 @@
+7.2. ENTROPY AND ACCURACY
+207
+(2) Accuracy in context. Some prediction tasks are inherently easier than others. So
+even if we ignore costs and benefits, we still need a way to judge “accuracy” that
+accounts for how much a model could possibly improve prediction.
+It will help to explore these two dimensions in an example. Suppose in a certain city,
+a certain weatherperson issues uncertain predictions for rain or shine on each day of the
+year.101 The predictions are in the form of probabilities of rain. The currently employed
+weatherperson predicted these chances of rain over a 10-day sequence, with the actual out-
+comes shown below each prediction:
+Day
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+Prediction
+1
+1
+1
+0.6
+0.6
+0.6
+0.6
+0.6
+0.6
+0.6
+Observed
+A newcomer rolls into town, and this newcomer boasts that he can best the current weather-
+person, by always predicting sunshine. Over the same 10 day period, the newcomer’s record
+would be:
+Day
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+Prediction
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+Observed
+“So by rate of correct prediction alone,” the newcomer announces, “I’m the best person for
+the job.”
+The newcomer is right. Define hit rate as the average chance of a correct prediction. So
+for the current weatherperson, she gets 3 × 1 + 7 × 0.4 = 5.8 hits in 10 days, for a rate of
+5.8/10 = 0.58 correct predictions per day. In contrast, the newcomer gets 3×0+7×1 = 7,
+for 7/10 = 0.7 hits per day. The newcomer wins.
+7.2.1.1. Costs and benefits. But it’s not hard to find another criterion, other than rate of
+correct prediction, that makes the newcomer look foolish. Any consideration of costs and
+benefits will suffice. Suppose for example that you hate getting caught in the rain, but you also
+hate carrying an umbrella. Let’s define the cost of getting wet as −5 points of happiness and
+the cost of carrying an umbrella as −1 point of happiness. Suppose your chance of carrying
+an umbrella is equal to the forecast probability of rain. Your job is now to maximize your
+happiness by choosing a weatherperson. Here are your points, following either the current
+weatherperson or the newcomer:
+Day
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+Observed
+Points
+Current
+−1
+−1
+−1
+−0.6
+−0.6
+−0.6
+−0.6
+−0.6
+−0.6
+−0.6
+Newcomer
+−5
+−5
+−5
+0
+0
+0
+0
+0
+0
+0
+So the current weatherperson nets you 3 × (−1) + 7 × (−0.6) = −7.2 happiness, while the
+newcomer nets you −15 happiness. So the newcomer doesn’t look so clever now. You can
+play around with the costs and the decision rule, but since the newcomer always gets you
+caught unprepared in the rain, it’s not hard to beat his forecast.

@@ -1,0 +1,43 @@
+254
+8. CONDITIONAL MANATEES
+mu <- link( m8.3 , data=data.frame( cid=1 , rugged_std=rugged_seq ) )
+mu_mean <- apply( mu , 2 , mean )
+mu_ci <- apply( mu , 2 , PI , prob=0.97 )
+lines( rugged_seq , mu_mean , lwd=2 )
+shade( mu_ci , rugged_seq , col=col.alpha(rangi2,0.3) )
+mtext("African nations")
+# plot non-Africa - cid=2
+d.A0 <- dd[ dd$cid==2 , ]
+plot( d.A0$rugged_std , d.A0$log_gdp_std , pch=1 , col="black" ,
+xlab="ruggedness (standardized)" , ylab="log GDP (as proportion of mean)" ,
+xlim=c(0,1) )
+mu <- link( m8.3 , data=data.frame( cid=2 , rugged_std=rugged_seq ) )
+mu_mean <- apply( mu , 2 , mean )
+mu_ci <- apply( mu , 2 , PI , prob=0.97 )
+lines( rugged_seq , mu_mean , lwd=2 )
+shade( mu_ci , rugged_seq )
+mtext("Non-African nations")
+And the result is shown in Figure 8.5. Finally, the slope reverses direction inside and outside
+of Africa. And because we achieved this inside a single model, we could statistically evaluate
+the value of this reversal.
+8.2. Symmetry of interactions
+Buridan’s ass is a toy philosophical problem in which an ass who always moves towards
+the closest pile of food will starve to death when he finds himself equidistant between two
+identical piles. The basic problem is one of symmetry: How can the ass decide between two
+identical options? Like many toy problems, you can’t take this one too seriously. Of course
+the ass will not starve. But thinking about how the symmetry is broken can be productive.
+Interactions are like Buridan’s ass. Like the two piles of identical food, a simple inter-
+action model contains two symmetrical interpretations. Absent some other information,
+outside the model, there’s no logical basis for preferring one over the other. Consider for
+Rethinking: All Greek to me. We use these Greek symbols α and β because it is conventional. They
+don’t have special meanings. If you prefer some other Greek symbol like ω—why should α get all
+the attention?—feel free to use that instead. It is conventional to use Greek letters for unobserved
+variables (parameters) and Roman letters for observed variables (data). That convention does have
+some value, because it helps others read your models. But breaking the convention is not an error,
+and sometimes it is better to use a familiar Roman symbol than an unfamiliar Greek one like ξ or ζ.
+If your readers cannot say the symbol’s name, it could make understanding the model harder.
+A core problem with the convention of using Greek for unobserved and Roman for observed
+variables is that in many models the same variable can be both observed and unobserved. This hap-
+pens, for example, when data are missing for some cases. It also happens in “occupancy” detection
+models, where specific values of the outcome (usually zero) cannot be trusted. We will deal with these
+issues explicitly in Chapter 15.

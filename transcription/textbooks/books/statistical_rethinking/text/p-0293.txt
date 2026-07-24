@@ -1,0 +1,48 @@
+9.3. HAMILTONIAN MONTE CARLO
+277
+Hamiltonian Monte Carlo (or Hybrid Monte Carlo, HMC) pushes Jaynes’ principle
+much further. HMC is more computationally costly than Metropolis or Gibbs sampling. But
+its proposals are also much more efficient. As a result, HMC doesn’t need as many samples to
+describe the posterior distribution. You need less computer time in total, even though each
+sample needs more. And as models become more complex—thousands or tens of thousands
+of parameters—HMC can really outshine other algorithms, because the other algorithms just
+won’t work. The Earth would be swallowed by the Sun before your chain produces a reliable
+approximation of the posterior.
+We’re going to be using HMC on and off for the remainder of this book. You won’t
+have to implement it yourself. But understanding some of the concept behind it will help
+you grasp how it outperforms Metropolis and Gibbs sampling and also how it encounters its
+own, unique problems.
+9.3.1. Another parable. Suppose King Markov’s cousin Monty is King on the mainland.
+Monty’s kingdom is not a discrete set of islands. Instead, it is a continuous territory stretched
+out along a narrow valley, running north-south. But the King has a similar obligation: to
+visit his citizens in proportion to their local population density. Within the valley, people
+distribute themselves inversely proportional to elevation—most people live in the middle of
+the valley, fewer up the mountainside. How can King Monty fulfill his royal obligation?
+Like Markov, Monty doesn’t wish to bother with schedules and calculations. Also like
+Markov, Monty has a highly educated and mathematically gifted advisor, named Hamilton.
+Hamilton designed an odd, but highly efficient, method. And this method solves one of
+Metropolis’ flaws—the king hardly ever stays in the same place, but keeps moving on to visit
+new locations.
+Here’s how it works. The king’s vehicle picks random direction, either north or south, and
+drives off at a random momentum. As the vehicle goes uphill, it slows down and turns around
+when its declining momentum forces it to. Then it picks up speed again on the way down.
+After a fixed period of time, they stop the vehicle, get out, and start shaking hands and kissing
+babies. Then they get back in the vehicle and begin again. Amazingly, Hamilton can prove
+mathematically that this procedure guarantees that, in the long run, the locations visited will
+be inversely proportional to their relative elevations, which are also inversely proportional
+to the population densities. Not only does this keep the king moving, but it also spaces
+the locations apart better—unlike the other king, Monty does not only visit neighboring
+locations.
+This mad plan is illustrated, and simulated, in Figure 9.5. The horizontal axis is time.
+The vertical axis is location. The king’s journey starts on the far left, in the middle of the
+valley. The vehicle begins by heading south. The width of the curve indicates the momentum
+at each time. The vehicle climbs up hill but slows and briefly turns around before stopping
+at the first location. Then again and again new locations are chosen in the same way, but
+with different random directions and momentums, departing from the most recent location.
+When the initial momentum is small, the vehicle starts to turn around earlier. But when the
+initial momentum is large, like in the big swing around time 300, the king can traverse the
+entire valley before stopping.
+The autocorrelation between locations visited is very low under this strategy. This
+means that adjacent locations have a very low, almost zero correlation. The king can move
+from one end of the valley to another. This stands in contrast to the highly autocorrelated
+movement under the Metropolis plan (Figure 9.2). King Markov of the Islands might wish

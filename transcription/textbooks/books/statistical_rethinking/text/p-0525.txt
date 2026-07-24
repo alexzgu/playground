@@ -1,0 +1,51 @@
+15.1. MEASUREMENT ERROR
+509
+-1
+0
+1
+2
+-2
+-1
+0
+1
+2
+marriage rate (std)
+divorce rate (std)
+Figure 15.3. Shrinkage of both divorce rate
+and marriage rate. Solid points are the ob-
+served values.
+Open points are posterior
+means. Lines connect pairs of points for the
+same State. Both variables are shrunk towards
+the inferred regression relationship.
+If you inspect the precis output, you’ll see that the coefficients for age at marriage and
+marriage rate are essentially unchanged from the previous model. So adding error on the
+predictor didn’t change the major inference. But it did provide updated estimates of marriage
+rate itself. We can visualize this by the shrinkage of both marriage and divorce rates:
+R code
+15.6
+post <- extract.samples( m15.2 )
+D_true <- apply( post$D_true , 2 , mean )
+M_true <- apply( post$M_true , 2 , mean )
+plot( dlist$M_obs , dlist$D_obs , pch=16 , col=rangi2 ,
+xlab="marriage rate (std)" , ylab="divorce rate (std)" )
+points( M_true , D_true )
+for ( i in 1:nrow(d) )
+lines( c( dlist$M_obs[i] , M_true[i] ) , c( dlist$D_obs[i] , D_true[i] ) )
+The result is Figure 15.3. What has happened is that since the States with highly uncer-
+tain marriage rates tend to be small States with high marriage rates, pooling has resulted in
+smaller estimates for those States.
+The big take home point for this section is that when you have a distribution of values,
+don’t reduce it down to a single value to use in a regression. Instead, use the entire distribu-
+tion. Anytime we use an average value, discarding the uncertainty around that average, we
+risk overconfidence and spurious inference. This doesn’t only apply to measurement error,
+but also to cases in which data are averaged before analysis.
+In the previous model, with error on both the outcome and one of the predictors, we
+used a standardized Normal(0,1) prior for the M values. This is okay, but it ignores some
+information. Consider again the DAG for this system: A →M →D, A →D. This implies
+that a better prior for the M values would include A as a predictor. In other words, the entire
+generative model belongs. We’ll attempt this in a practice problem at the end of the chapter.
+15.1.3. Measurement terrors. In the models above, measurement error is rather benign.
+The errors are uncorrelated with one another and with the other variables in the model.
+This means there are no new confounds (non-causal paths) introduced by the errors. But
+sometimes errors are more difficult to manage.

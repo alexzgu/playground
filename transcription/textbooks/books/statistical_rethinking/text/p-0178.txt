@@ -1,0 +1,48 @@
+162
+5. THE MANY VARIABLES & THE SPURIOUS WAFFLES
+R code
+5.53
+m5.10 <- quap(
+alist(
+K ~ dnorm( mu , sigma ),
+mu <- a[clade_id] + h[house],
+a[clade_id] ~ dnorm( 0 , 0.5 ),
+h[house] ~ dnorm( 0 , 0.5 ),
+sigma ~ dexp( 1 )
+) , data=d )
+If you inspect the posterior, you’ll see that Slytherin stands out.
+Rethinking: Differences and statistical significance. A common error in interpretation of parameter
+estimates is to suppose that because one parameter is sufficiently far from zero—is “significant”—and
+another parameter is not—is “not significant”—that the difference between the parameters is also
+significant. This is not necessarily so.83 This isn’t just an issue for non-Bayesian analysis: If you want
+to know the distribution of a difference, then you must compute that difference, a contrast. It isn’t
+enough to just observe, for example, that a slope among males overlaps a lot with zero while the
+same slope among females is reliably above zero. You must compute the posterior distribution of the
+difference in slope between males and females. For example, suppose you have posterior distributions
+for two parameters, βf and βm. βf’s mean and standard deviation is 0.15±0.02, and βm’s is 0.02±0.10.
+So while βf is reliably different from zero (“significant”) and βm is not, the difference between the two
+(assuming they are uncorrelated) is (0.15 −0.02) ±
+√
+0.022 + 0.12 ≈0.13 ± 0.10. The distribution
+of the difference overlaps a lot with zero. In other words, you can be confident that βf is far from zero,
+but you cannot be sure that the difference between βf and βm is far from zero.
+In the context of non-Bayesian significance testing, this phenomenon arises from the fact that
+statistical significance is inferentially powerful in one way: difference from the null. When βm over-
+laps with zero, it may also overlap with values very far from zero. Its value is uncertain. So when you
+then compare βm to βf, that comparison is also uncertain, manifesting in the width of the posterior
+distribution of the difference βf −βm. Lurking underneath this example is a more fundamental mis-
+take in interpreting statistical significance: The mistake of accepting the null hypothesis. Whenever
+an article or book says something like “we found no difference” or “no effect,” this usually means
+that some parameter was not significantly different from zero, and so the authors adopted zero as the
+estimate. This is both illogical and extremely common.
+5.4. Summary
+This chapter introduced multiple regression, a way of constructing descriptive models
+for how the mean of a measurement is associated with more than one predictor variable. The
+defining question of multiple regression is: What is the value of knowing each predictor, once
+we already know the other predictors? Implicit in this question are: (1) a focus on the value
+of the predictors for description of the sample, instead of forecasting a future sample; and
+(2) the assumption that the value of each predictor does not depend upon the values of the
+other predictors. In later chapters, we confront these two issues. But before that, in the next
+chapter we’ll see how adding predictor variables can create as many problems as it can solve.
+5.5. Practice
+Easy.

@@ -1,0 +1,78 @@
+432
+13. MODELS WITH MEMORY
+sigma_g
+sigma_a
+a_bar
+g[6]
+g[5]
+g[4]
+g[3]
+g[2]
+g[1]
+a[7]
+a[6]
+a[5]
+a[4]
+a[3]
+a[2]
+a[1]
+b[4]
+b[3]
+b[2]
+b[1]
+0
+2
+4
+6
+Value
+0
+1
+2
+3
+4
+0.0
+0.5
+1.0
+1.5
+2.0
+2.5
+3.0
+3.5
+standard deviation
+Density
+actor
+block
+Figure 13.4. Left: Posterior means and 89% compatibility intervals for
+m13.4. The greater variation across actors than blocks can be seen imme-
+diately in the a and g distributions. Right: Posterior distributions of the
+standard deviations of varying intercepts by actor (black) and block (blue).
+R code
+13.24
+compare( m13.4 , m13.5 )
+WAIC
+SE dWAIC
+dSE pWAIC weight
+m13.5 531.3 19.25
+0
+NA
+8.6
+0.63
+m13.4 532.3 19.33
+1 1.71
+10.7
+0.37
+Look at the pWAIC column, which reports the “effective number of parameters.” While m13.4
+has 7 more parameters than m13.5 does, it has only 2 more effective parameters. Why? Be-
+cause the posterior distribution for sigma_g ended up close to zero. This means each of
+the 6 g parameters is strongly shrunk towards zero—they are relatively inflexible. In con-
+trast, the a parameters are shrunk towards zero much less, because the estimated variation
+across actors is much larger, resulting in less shrinkage. But as a consequence, each of the a
+parameters contributes much more to the pWAIC value.
+You might also notice that the difference in WAIC between these models is small, only
+about 1. This is especially small compared the standard error of the difference. These two
+models imply nearly identical predictions, and so their expected out-of-sample accuracy is
+nearly identical. The block parameters have been shrunk so much towards zero that they do
+very little work in the model.
+If you are feeling the urge to “select” m13.4 as the best model, pause for a moment.
+There is nothing to gain here by selecting either model. The comparison of the two models
+tells a richer story—whether we include block or not hardly matters, and the g and sigma_g

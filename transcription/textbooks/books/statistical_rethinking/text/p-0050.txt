@@ -1,0 +1,45 @@
+34
+2. SMALL WORLDS AND LARGE WORLDS
+R code
+2.2
+dbinom( 6 , size=9 , prob=0.5 )
+[1] 0.1640625
+That number is the relative number of ways to get six water, holding p at 0.5 and N = W + L
+at nine. So it does the job of counting relative number of paths through the garden. Change
+the 0.5 to any other value, to see how the value changes.
+Much later in the book, in Chapter 10, we’ll see that the binomial distribution is rather
+special, because it represents the maximum entropy way to count binary events. “Maxi-
+mum entropy” might sound like a bad thing. Isn’t entropy disorder? Doesn’t “maximum
+entropy” mean the death of the universe? Actually it means that the distribution contains
+no additional information other than: There are two events, and the probabilities of each
+in each trial are p and 1 −p. Chapter 10 explains this in more detail, and the details can
+certainly wait.
+Overthinking: Names and probability distributions. The “d” in dbinom stands for density. Func-
+tions named in this way almost always have corresponding partners that begin with “r” for random
+samples and that begin with “p” for cumulative probabilities. See for example the help ?dbinom.
+Rethinking: A central role for likelihood. A great deal of ink has been spilled focusing on how
+Bayesian and non-Bayesian data analyses differ. Focusing on differences is useful, but sometimes
+it distracts us from fundamental similarities. Notably, the most influential assumptions in both
+Bayesian and many non-Bayesian models are the distributions assigned to data, the likelihood func-
+tions. The likelihoods influence inference for every piece of data, and as sample size increases, the
+likelihood matters more and more. This helps to explain why Bayesian and non-Bayesian inferences
+are often so similar. If we had to define “Bayesian” using only one aspect of it, we should describe
+likelihood, not priors.
+2.3.2.2. Unobserved variables. The distributions we assign to the observed variables typ-
+ically have their own variables. In the binomial above, there is p, the probability of sampling
+water. Since p is not observed, we usually call it a parameter. Even though we cannot
+observe p, we still have to define it.
+In future chapters, there will be more parameters in your models. In statistical modeling,
+many of the most common questions we ask about data are answered directly by parameters:
+• What is the average difference between treatment groups?
+• How strong is the association between a treatment and an outcome?
+• Does the effect of the treatment depend upon a covariate?
+• How much variation is there among groups?
+You’ll see how these questions become extra parameters inside the distribution function we
+assign to the data.
+For every parameter you intend your Bayesian machine to consider, you must provide a
+distribution of prior plausibility, its prior. A Bayesian machine must have an initial plausi-
+bility assignment for each possible value of the parameter, and these initial assignments do
+useful work. When you have a previous estimate to provide to the machine, that can become
+the prior, as in the steps in Figure 2.5. Back in Figure 2.5, the machine did its learning one
+piece of data at a time. As a result, each estimate becomes the prior for the next step. But this

@@ -152,9 +152,7 @@ By Proposition 21.6, $\mathbb{Z}^3$ is transient. This works for any $\mathbb{Z}
 
 ### PDF page 311 (book page 295)
 
-*[Figure: a three-dimensional diagram showing a small sphere at the origin (with coordinate axes passing through it), and a tilted unit square positioned above and to the right. Two dots mark points, and dashed lines from the origin/sphere fan outward to the corners of the square, illustrating the radial projection of the square onto the sphere.]*
-
-FIGURE 21.1. Projecting a unit square orthogonal to the directed edge $((0,0,2),(1,0,2))$ onto the sphere of radius $1/4$ centered at the origin.
+**FIGURE 21.1.** Projecting a unit square orthogonal to the directed edge $((0,0,2),(1,0,2))$ onto the sphere of radius $1/4$ centered at the origin. *[Figure: a three-dimensional diagram showing a small sphere at the origin (with coordinate axes passing through it), and a tilted unit square positioned above and to the right. Two dots mark points, and dashed lines from the origin/sphere fan outward to the corners of the square, illustrating the radial projection of the square onto the sphere.]*
 
 **21.3. Positive Recurrence and Convergence**
 

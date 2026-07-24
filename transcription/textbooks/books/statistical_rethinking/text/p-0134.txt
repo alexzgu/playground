@@ -1,0 +1,73 @@
+118
+4. GEOCENTRIC MODELS
+have lots of nice properties. The “B” stands for “basis,” which here just means “component.” B-
+splines build up wiggly functions from simpler less-wiggly components. Those components
+are called basis functions.
+To see how B-splines work, we’ll need an example that is much wigglier—that’s a scien-
+tific term—than the !Kung stature data. Cherry trees blossom all over Japan in the Spring
+each year, and the tradition of flower viewing (Hanami 花見) follows. Let’s load a thousand
+years of Japanese cherry blossom dates:
+R code
+4.72
+library(rethinking)
+data(cherry_blossoms)
+d <- cherry_blossoms
+precis(d)
+'data.frame': 1215 obs. of 5 variables:
+mean
+sd
+5.5%
+94.5%
+histogram
+year
+1408.00 350.88 867.77 1948.23
+▇▇▇▇▇▇▇▇▇▇▇▇▁
+doy
+104.54
+6.41
+94.43
+115.00
+▁▂▅▇▇▃▁▁
+temp
+6.14
+0.66
+5.15
+7.29
+▁▃▅▇▃▂▁▁
+temp_upper
+7.19
+0.99
+5.90
+8.90 ▁▂▅▇▇▅▂▂▁▁▁▁▁▁▁
+temp_lower
+5.10
+0.85
+3.79
+6.37 ▁▁▁▁▁▁▁▃▅▇▃▂▁▁▁
+See ?cherry_blossoms for details and sources. We’re going to work with just the recon-
+structed temperature record, temp, for now. It runs from the year 839 to 1980. It is very
+wiggly. You should go ahead and plot temp against year to see. No parabolic curve is going
+to do the job here.
+The short explanation of B-splines is that they divide the full range of some predictor
+variable, like year, into parts. Then they assign a parameter to each part. These parameters
+are gradually turned on and off in a way that makes their sum into a fancy, wiggly curve. The
+long explanation contains lots more details. But all of those details just exist to achieve this
+goal of building up a big, curvy function from individually less curvy local functions.
+Here’s a longer explanation, with visual examples. Our goal is to approximate the tem-
+perature trend with a wiggly function. With B-splines, just like with polynomial regression,
+we do this by generating new predictor variables and using those in the linear model, µi.
+Unlike polynomial regression, B-splines do not directly transform the predictor by squaring
+or cubing it. Instead they invent a series of entirely new, synthetic predictor variables. Each
+of these variables serves to gradually turn a specific parameter on and off within a specific
+range of the predictor variables. Each of these variables is called a basis function. The
+linear model ends up looking very familiar:
+µi = α + w1Bi,1 + w2Bi,2 + w3Bi,3 + ...
+where Bi,n is the n-th basis function’s value on row i, and the w parameters are correspond-
+ing weights for each. The parameters act like slopes, adjusting the influence of each basis
+function on the mean µi. So really this is just another linear regression, but with some fancy,
+synthetic predictor variables. These synthetic variables do some really elegant descriptive
+(geocentric) work for us.
+How do we construct these basis variables B? I display the simplest case in Figure 4.12,
+in which I approximate the temperature data with four different linear approximations. First,
+I divide the full range of the horizontal axis into four parts, using pivot points called knots.
+The knots are shown by the + symbols in the top plot. Then five different basis functions,

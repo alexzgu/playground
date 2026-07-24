@@ -1,0 +1,51 @@
+11.2. POISSON REGRESSION
+363
+0
+50000
+150000
+250000
+20
+30
+40
+50
+60
+70
+population
+total tools
+low contact
+high contact
+Figure 11.10. Posterior predictions for the
+scientific model of the Oceanic tool counts.
+Compare to the right hand plot in Fig-
+ure 11.9. Since this model forces the trends to
+pass through the origin, as it must, its behavior
+is more sensible, in addition to having param-
+eters with meaning outside a linear model.
+The simplest model assumes that innovation is proportional to population size with some di-
+minishing returns (an elasticity). It also assumes that tool loss is proportional to the number
+of tools, with no diminishing returns. If you recall the neutral evolution debate from Chap-
+ter 1, this is a model of that type—the theoretical model is more elaborate than the statistical
+model we’ll derive from it.
+The Overthinking box below presents the mathematical version of this model and shows
+you the code to build it in ulam. The model ends up in m11.11. Let’s call this the scientific
+model and the previous m11.10 the geocentric model. Figure 11.10 shows the posterior
+predictions for the scientific model, on the natural scale of population size. Comparing it
+with the analogous plot in Figure 11.9, notice that the trend for high contact societies always
+trends above the trend for low contact societies. Both trends always pass through the origin
+now, as they must. The scientific model is still far from perfect. But it provides a better
+foundation to learn from. The parameters have clearer meanings now. They aren’t just bits
+of machinery in the bottom of a tide prediction engine.
+You might ask how the scientific model compares to the geocentric model. The expected
+accuracy out of sample, whether you use PSIS or WAIC, is a few points better than the geo-
+centric model. It is still tugged around by Hawaii and Tonga. We’ll return to these data in a
+later chapter and approach contact rate a different way, by taking account of how close these
+societies are to one another.
+Overthinking: Modeling tool innovation. Taking the verbal model in the main text above, we can
+write that the change in the expected number of tools in one time step is:
+∆T = αPβ −γT
+where P is the population size, T is the number of tools, and α, β, and γ are parameters to be estimated.
+To find an equilibrium number of tools T, just set ∆T = 0 and solve for T. This yields:
+ˆT = αPβ
+γ
+We’re going to use this inside a Poisson model now. The noise around the outcome will still be Poisson,
+because that is still the maximum entropy distribution in this context—total_tools is a count with

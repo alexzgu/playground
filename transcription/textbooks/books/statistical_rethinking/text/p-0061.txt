@@ -1,0 +1,50 @@
+2.4. MAKING THE MODEL GO
+45
+The standard deviation is typically computed from the Hessian, so computing the Hessian is
+nearly always a necessary step. But sometimes the computation goes wrong, and your golem will
+choke while trying to compute the Hessian. In those cases, you have several options. Not all hope is
+lost. But for now it’s enough to recognize the term and associate it with an attempt to find the standard
+deviation for a quadratic approximation.
+2.4.5. Markov chain Monte Carlo. There are lots of important model types, like multilevel
+(mixed-effects) models, for which neither grid approximation nor quadratic approximation
+is always satisfactory. Such models may have hundreds or thousands or tens-of-thousands
+of parameters. Grid approximation routinely fails here, because it just takes too long—the
+Sun will go dark before your computer finishes the grid. Special forms of quadratic approx-
+imation might work, if everything is just right. But commonly, something is not just right.
+Furthermore, multilevel models do not always allow us to write down a single, unified func-
+tion for the posterior distribution. This means that the function to maximize (when finding
+the MAP) is not known, but must be computed in pieces.
+As a result, various counterintuitive model fitting techniques have arisen. The most pop-
+ular of these is Markov chain Monte Carlo (MCMC), which is a family of conditioning
+engines capable of handling highly complex models. It is fair to say that MCMC is largely re-
+sponsible for the insurgence of Bayesian data analysis that began in the 1990s. While MCMC
+is older than the 1990s, affordable computer power is not, so we must also thank the en-
+gineers. Much later in the book (Chapter 9), you’ll meet simple and precise examples of
+MCMC model fitting, aimed at helping you understand the technique.
+The conceptual challenge with MCMC lies in its highly non-obvious strategy. Instead of
+attempting to compute or approximate the posterior distribution directly, MCMC techniques
+merely draw samples from the posterior. You end up with a collection of parameter values,
+and the frequencies of these values correspond to the posterior plausibilities. You can then
+build a picture of the posterior from the histogram of these samples.
+We nearly always work directly with these samples, rather than first constructing some
+mathematical estimate from them. And the samples are in many ways more convenient than
+having the posterior, because they are easier to think with. And so that’s where we turn in
+the next chapter, to thinking with samples.
+Overthinking: Monte Carlo Globe Tossing. If you are eager to see MCMC in action, a working
+Markov chain for the globe tossing model does not require much code. The following R code will
+suffice:
+R code
+2.8
+n_samples <- 1000
+p <- rep( NA , n_samples )
+p[1] <- 0.5
+W <- 6
+L <- 3
+for ( i in 2:n_samples ) {
+p_new <- rnorm( 1 , p[i-1] , 0.1 )
+if ( p_new < 0 ) p_new <- abs( p_new )
+if ( p_new > 1 ) p_new <- 2 - p_new
+q0 <- dbinom( W , W+L , p[i-1] )
+q1 <- dbinom( W , W+L , p_new )
+p[i] <- ifelse( runif(1) < q1/q0 , p_new , p[i-1] )
+}

@@ -1,0 +1,39 @@
+11.6. PRACTICE
+379
+11H3. The data contained in library(MASS);data(eagles) are records of salmon pirating at-
+tempts by Bald Eagles in Washington State. See ?eagles for details. While one eagle feeds, some-
+times another will swoop in and try to steal the salmon from it. Call the feeding eagle the “victim” and
+the thief the “pirate.” Use the available data to build a binomial GLM of successful pirating attempts.
+(a) Consider the following model:
+yi ∼Binomial(ni, pi)
+log
+pi
+1 −pi
+= α + βPPi + βVVi + βAAi
+α ∼Normal(0, 1.5)
+βP ∼Normal(0, 0.5)
+βV ∼Normal(0, 0.5)
+βA ∼Normal(0, 0.5)
+where y is the number of successful attempts, n is the total number of attempts, P is a dummy variable
+indicating whether or not the pirate had large body size, V is a dummy variable indicating whether
+or not the victim had large body size, and finally A is a dummy variable indicating whether or not
+the pirate was an adult. Fit the model above to the eagles data, using both quap and ulam. Is the
+quadratic approximation okay?
+(b) Now interpret the estimates. If the quadratic approximation turned out okay, then it’s okay
+to use the quap estimates. Otherwise stick to ulam estimates. Then plot the posterior predictions.
+Compute and display both (1) the predicted probability of success and its 89% interval for each row (i)
+in the data, as well as (2) the predicted success count and its 89% interval. What different information
+does each type of posterior prediction provide?
+(c) Now try to improve the model. Consider an interaction between the pirate’s size and age
+(immature or adult). Compare this model to the previous one, using WAIC. Interpret.
+11H4. The data contained in data(salamanders) are counts of salamanders (Plethodon elongatus)
+from 47 different 49-m2 plots in northern California.174 The column SALAMAN is the count in each
+plot, and the columns PCTCOVER and FORESTAGE are percent of ground cover and age of trees in the
+plot, respectively. You will model SALAMAN as a Poisson variable.
+(a) Model the relationship between density and percent cover, using a log-link (same as the ex-
+ample in the book and lecture). Use weakly informative priors of your choosing. Check the quadratic
+approximation again, by comparing map to map2stan. Then plot the expected counts and their 89%
+interval against percent cover. In which ways does the model do a good job? In which ways does it
+do a bad job?
+(b) Can you improve the model by using the other predictor, FORESTAGE? Try any models you
+think useful. Can you explain why FORESTAGE helps or does not help with prediction?

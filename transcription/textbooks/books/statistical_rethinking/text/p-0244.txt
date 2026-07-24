@@ -1,0 +1,80 @@
+228
+7. ULYSSES’ COMPASS
+1
+2
+3
+4
+5
+56.0
+57.0
+58.0
+59.0
+number of parameters
+average deviance
+WAIC
+PSIS
+CV
+test
+N = 20
+1
+2
+3
+4
+5
+6.0
+6.5
+7.0
+number of parameters
+average error (test deviance)
+N = 20
+flat
+prior
+sigma =
+0.5
+1
+2
+3
+4
+5
+270
+275
+280
+285
+number of parameters
+average deviance
+N = 100
+1
+2
+3
+4
+5
+13.0
+14.0
+15.0
+number of parameters
+average error (test deviance)
+N = 100
+flat
+prior
+sigma =
+0.5
+Figure 7.9. WAIC and cross-validation as estimates of the out-of-sample
+deviance. The top row displays 1000 train-test simulations with N = 20.
+The bottom row shows 1000 simulations with N = 1000. In each plot, there
+are two sets of trends. The open points are unregularized. The filled points
+are for regularizing σ = 0.5 priors. Left: The vertical axis is absolute de-
+viance. Points are the average test deviance. The black line is the average
+WAIC estimate. Blue is the leave-one-out cross-validation (CV) score, and
+dashed blue is the PSIS approximation of the cross-validation score. Right:
+The same data, but now shown on the scale of average error in approximat-
+ing the test deviance.
+may be much smaller than the expected error. And if all we care about is the rank order of
+the models, then there is no reason to think that WAIC is any better than PSIS.
+Despite its slight disadvantage in accuracy, PSIS has a distinct advantage in warning
+the user about when it is unreliable. The k values that PSIS computes for each observation
+indicate when the PSIS score may be unreliable, as well as identify which observations are at
+fault. We’ll see later how useful this can be.
+Rethinking: Diverse prediction frameworks. The train-test gambit we’ve been using in this chapter
+entails predicting a test sample of the same size and nature as the training sample. This most certainly
+does not mean that information criteria can only be used when we plan to predict a sample of the
+same size as training. The same size just scales the out-of-sample deviance similarly. It is the distance

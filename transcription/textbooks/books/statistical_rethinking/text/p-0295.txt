@@ -1,0 +1,51 @@
+9.3. HAMILTONIAN MONTE CARLO
+279
+there isn’t much information in the likelihood and the priors are rather flat, then the particle
+can glide for a long time before the slope (gradient) makes it turn around. When instead the
+log-posterior is very steep, because either the likelihood or the priors are very concentrated,
+then the particle doesn’t get far before turning around.
+In principle, HMC will always accept every proposal, because it only makes intelligent
+proposals. In practice, HMC uses a rejection criterion, because it is only approximating
+the smooth path of a particle. It isn’t unusual to see acceptance rates over 95% with HMC.
+Making smart proposals pays. What is the rejection criterion? Because HMC runs a physics
+simulation, certain things have to be conserved, like total energy of the system. When the
+total energy changes during the simulation, that means the numerical approximation is bad.
+When the approximation isn’t good, it might reject the proposal.
+All of this sounds, and is, complex. But what is gained from all of this complexity is very
+efficient sampling of complex models. In cases where ordinary Metropolis or Gibbs sam-
+pling wander slowly through parameter space, Hamiltonian Monte Carlo remains efficient.
+This is especially true when working with multilevel models with hundreds or thousands of
+parameters. A particle in 1000-dimension space sounds crazy, but it’s not harder for your
+compute to imagine than a particle in 3-dimensions.
+To take some of magic out of this, let’s do a two-dimensional simulation, for a simple
+posterior distribution with two parameters, the mean and standard deviation of a Gaussian.
+I’m going to show just the most minimal mathematical details. You don’t need to grasp all
+the mathematics to make use of HMC. But having some intuition about how it works will
+help you appreciate why it works so much better than other approaches, as well as why it
+sometimes doesn’t work. If you want much more mathematical detail, follow the endnote.143
+Suppose the data are 100 x values and 100 y values sampled from Normal(0, 1) and that
+the model is:
+xi ∼Normal(µx, 1)
+yi ∼Normal(µy, 1)
+µx ∼Normal(0, 0.5)
+µy ∼Normal(0, 0.5)
+What HMC needs to drive are two functions and two settings. The first function computes
+the log-probability of the data and parameters. This is just the top part of Bayes formula,
+and every MCMC strategy requires this. It tells the algorithm the “elevation” of any set of
+parameter values. For the model above, it is just:
+X
+i
+log p(yi|µy, 1) +
+X
+i
+log p(xi|µx, 1) + log p(µy|0, 0.5) + log p(µx, 0, 0.5)
+where p(x|a, b) here means the Gaussian density of x at mean a and standard deviation b. The
+second thing HMC needs is the gradient, which just means the slope in all directions at
+the current position. In this case, that means just two derivatives. If you take the expression
+above and differentiate it with respect to µx and then µy, you have what you need. I’ve placed
+these derivatives, in code form, in the Overthinking box further down, where you’ll find a
+complete R implementation of this example.
+The two settings that HMC needs are a choice of number of leapfrog steps and a
+choice of step size for each. This part is strange. And usually your machine will pick these
+values for you. But having some idea of them will be useful for understanding some of the
+newer features of HMC algorithms. Each path in the simulation—each curve for example

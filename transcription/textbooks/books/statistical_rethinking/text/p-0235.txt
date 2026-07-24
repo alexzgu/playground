@@ -1,0 +1,55 @@
+7.3. GOLEM TAMING: REGULARIZATION
+219
+-3
+-2
+-1
+0
+1
+2
+3
+0.0
+0.5
+1.0
+1.5
+2.0
+parameter value
+Density
+Figure 7.7. Regularizing priors, weak and
+strong. Three Gaussian priors of varying stan-
+dard deviation. These priors reduce overfit-
+ting, but with different strength.
+Dashed:
+Normal(0, 1).
+Thin solid: Normal(0, 0.5).
+Thick solid: Normal(0, 0.2).
+Assume, as is good practice, that the predictor x is standardized so that its standard deviation
+is 1 and its mean is zero. Then the prior on α is a nearly flat prior that has no practical effect
+on inference, as you’ve seen in earlier chapters.
+But the prior on β is narrower and is meant to regularize. The prior β ∼Normal(0, 1)
+says that, before seeing the data, the machine should be very skeptical of values above 2 and
+below −2, as a Gaussian prior with a standard deviation of 1 assigns only 5% plausibility to
+values above and below 2 standard deviations. Because the predictor variable x is standard-
+ized, you can interpret this as meaning that a change of 1 standard deviation in x is very
+unlikely to produce 2 units of change in the outcome.
+You can visualize this prior in Figure 7.7 as the dashed curve. Since more probability
+is massed up around zero, estimates are shrunk towards zero—they are conservative. The
+other curves are narrower priors that are even more skeptical of parameter values far from
+zero. The thin solid curve is a stronger Gaussian prior with a standard deviation of 0.5. The
+thick solid curve is even stronger, with a standard deviation of only 0.2.
+How strong or weak these skeptical priors will be in practice depends upon the data
+and model. So let’s explore a train-test example, similar to what you saw in the previous
+section (Figure 7.6). This time we’ll use the regularizing priors pictured in Figure 7.7,
+instead of flat priors. For each of five different models, we simulate 10,000 times for each of
+the three regularizing priors above. Figure 7.8 shows the results. The points are the same
+flat-prior deviances as in the previous section: blue for training deviance and black for test
+deviance. The lines show the train and test deviances for the different priors. The blue lines
+are training deviance and the black lines test deviance. The style of the lines correspond to
+those in Figure 7.7.
+Focus on the left-hand plot, where the sample size is N = 20, for the moment. The
+training deviance always increases—gets worse—with tighter priors. The thick blue trend is
+substantially larger than the others, and this is because the skeptical prior prevents the model
+from adapting completely to the sample. But the test deviances, out-of-sample, improve (get
+smaller) with the tighter priors. The model with three parameters is still the best model
+out-of-sample, and the regularizing priors have little impact on its deviance.
+But also notice that as the prior gets more skeptical, the harm done by an overly complex
+model is greatly reduced. For the Normal(0, 0.2) prior (thick line), the models with 4 and 5

@@ -1,0 +1,66 @@
+512
+15. MISSING DATA AND OTHER OPPORTUNITIES
+(a)
+H*
+D
+H
+S
+(b)
+H*
+D
+H
+S
+(c)
+H*
+D
+H
+S
+X
+(d)
+H*
+D
+H
+S
+Figure 15.4. Four causal scenarios
+for the missing homework. See text
+for a complete explanation. (a) Dogs
+(D) eat homework (H) completely at
+random. (b) Dogs eat homework of
+students who study (S) too much. (c)
+Dogs eatmorehomework in noisy(X)
+homes, where the homework is also
+worse.
+(d) Dogs prefer to eat bad
+homework.
+15.2.1. DAG ate my homework. Consider a sample of students, all of whom own dogs.
+The students produce homework (H). This homework varies in quality, influenced by how
+much each student studies (S). We could simulate 100 students, their attributes, and their
+homework like this:
+R code
+15.8
+N <- 100
+S <- rnorm( N )
+H <- rbinom( N , size=10 , inv_logit(S) )
+I’ve assumed here that homework H will be graded on a 10-point scale. More studying pro-
+duces more points, on average.
+And then some dogs eat some homework. One way to get a grasp on the problem of
+missing data is to think of missingness as its own variable, a 0/1 indicator for missingness.
+So let D be a 0/1 indicator variable for whether each dog ate homework. Once homework has
+been eaten, we cannot observe the true distribution of homework. But we do get to observe
+H∗, a copy of H with missing values where D = 1. In DAG form, this implies H →H∗←D.
+We’d like to learn the causal influence of studying (S) on homework (H), S →H. But
+since we don’t observe H, we have to use H∗instead. So we are relying on S →H∗being a
+good approximation of S →H. When will this be true? The impact of any missing values in
+H∗depends upon how the missing values are generated. It depends upon their cause. Let’s
+consider four scenarios, depicted as DAGs in Figure 15.4.
+The simplest scenario, (a) in the upper left, is when dogs are completely random. A
+dog’s decision to eat a piece of homework or not is not influenced by any relevant variable.
+Therefore there is no arrow entering D in the DAG. Let’s simulate some random eating:
+R code
+15.9
+D <- rbern( N ) # dogs completely random
+Hm <- H
+Hm[D==1] <- NA
+That Hm variable is H∗. We can’t use * in a variable name. Look inside Hm and you’ll see
+random NAs scattered about. Is this a problem? We can decide by considering whether the
+outcome H is independent of D. More generally, a minimal condition for missing values to

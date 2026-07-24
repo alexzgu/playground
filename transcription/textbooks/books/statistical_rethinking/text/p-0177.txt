@@ -1,0 +1,49 @@
+5.3. CATEGORICAL VARIABLES
+161
+Let’s use a model to measure the average milk energy in each clade. Here’s the mathematical
+version:
+Ki ∼Normal(µi, σ)
+µi = αclade[i]
+αj ∼Normal(0, 0.5)
+, for j = 1..4
+σ ∼Exponential(1)
+Remember, K is the standardized kilocalories. I widened the prior on α a little, to allow
+the different clades to disperse, if the data wants them to. But I encourage you to play with
+that prior and repeatedly re-approximate the posterior so you can see how the posterior
+differences among the categories depend upon it. Firing up quap now:
+R code
+5.51
+d$K <- scale( d$kcal.per.g )
+m5.9 <- quap(
+alist(
+K ~ dnorm( mu , sigma ),
+mu <- a[clade_id],
+a[clade_id] ~ dnorm( 0 , 0.5 ),
+sigma ~ dexp( 1 )
+) , data=d )
+labels <- paste( "a[" , 1:4 , "]:" , levels(d$clade) , sep="" )
+plot( precis( m5.9 , depth=2 , pars="a" ) , labels=labels ,
+xlab="expected kcal (std)" )
+a[4]:Strepsirrhine
+a[3]:Old World Monkey
+a[2]:New World Monkey
+a[1]:Ape
+-1.0
+-0.5
+0.0
+0.5
+1.0
+expected kcal (std)
+I used the optional labels argument to augment the parameter names a[1] through a[4]
+with the clade names from the original variable. In practice, you have to be very careful to
+keep track of which index values go with which categories. Don’t trust R’s factor variable
+type to necessarily do things right.
+If you have another kind of categorical variable, like diet or habitat, that you’d like to
+add to the model, the approach is just the same. For example, let’s randomly assign these
+primates to some made up categories: [1] Gryffindor, [2] Hufflepuff, [3] Ravenclaw, and [4]
+Slytherin.
+R code
+5.52
+set.seed(63)
+d$house <- sample( rep(1:4,each=8) , size=nrow(d) )
+Now we can include these categories as another predictor in the model:

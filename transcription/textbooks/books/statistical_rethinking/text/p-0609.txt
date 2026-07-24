@@ -1,0 +1,6 @@
+Bibliography
+593
+Yao, Y., Vehtari, A., Simpson, D., and Gelman, A. (2018). Using stacking to average bayesian predictive
+distributions (with discussion). Bayesian Analysis, 13(3):917–1007.
+Zhang, Y. and Yang, Y. (2015). Cross-validation for selecting a model selection procedure. Journal of
+Econometrics, 187:950112.

@@ -1,0 +1,59 @@
+296
+9. MARKOV CHAIN MONTE CARLO
+R code
+9.22
+y <- c(-1,1)
+set.seed(11)
+m9.2 <- ulam(
+alist(
+y ~ dnorm( mu , sigma ) ,
+mu <- alpha ,
+alpha ~ dnorm( 0 , 1000 ) ,
+sigma ~ dexp( 0.0001 )
+) , data=list(y=y) , chains=3 )
+Now let’s look at the precis output:
+R code
+9.23
+precis( m9.2 )
+mean
+sd
+5.5%
+94.5% n_eff Rhat
+alpha
+69.38
+393.89 -363.57
+739.53
+116 1.03
+sigma 568.53 1247.18
+6.81 2563.38
+179 1.02
+Whoa! This posterior can’t be right. The mean of −1 and 1 is zero, so we’re hoping to get
+a mean value for alpha around zero. Instead we get crazy values and implausibly wide in-
+tervals. Inference for sigma is no better. The n_eff and Rhat diagnostics don’t look good
+either. We drew 1500 samples total, but the estimated effective sample sizes are 116 and 179.
+You might get different numbers, but they will qualitatively be just as bad.
+You should also see several warning messages, including:
+Warning messages:
+1: There were 67 divergent transitions after warmup. Increasing adapt_delta
+above 0.95 may help. See
+http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup
+There is useful advice at the URL. The quick version is that Stan detected problems in ex-
+ploring all of the posterior. These are divergent transitions. I’ll give a more thorough
+explanation in a later chapter. Think of them as Stan’s way of telling you there are problems
+with the chains. For simple models, increasing the adapt_delta control parameter will usu-
+ally remove the divergent transitions. This is explained more in the Overthinking box at the
+end of this section. You can try adding control=list(adapt_delta=0.99) to the ulam
+call—ulam’s default is 0.95. But it won’t help much in this specific case. This problem runs
+deeper, with the model itself.
+You should also see a second warning:
+2: Examine the pairs() plot to diagnose sampling problems
+This refers to Stan’s pairs method, not ulam’s. To use it, try pairs( m9.2@stanfit ). This
+is like ulam’s pairs plot, but divergent transitions are colored in red. For that reason, the plot
+won’t reproduce in this book. So be sure to inspect it on your own machine. The shape of
+the posterior alone should shake your confidence.
+Now take a look at the trace plot for this fit, traceplot(m9.2). It’s shown in the top
+row of Figure 9.10. The reason for the weird estimates is that the Markov chains seem to
+drift around and spike occasionally to extreme values. This is not a healthy pair of chains,
+and they do not provide useful samples. The trankplot(m9.2) is also shown. The rank
+histograms spend long periods with one chain above or below the others. This indicates
+poor exploration of the posterior.

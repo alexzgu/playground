@@ -1,0 +1,52 @@
+15.3. CATEGORICAL ERRORS AND DISCRETE ABSENCES
+529
+“weighted average,” to remove discrete parameters from the model. After sampling the other
+parameters, we can then use their samples to compute the posterior distribution of any dis-
+crete parameter that we removed. So no information is given up. And removing the discrete
+parameters actually makes the Markov chain more efficient, whatever engine you are using,
+so it is usually worth doing, even if you aren’t using HMC. The technique can even be useful
+when the parameters aren’t discrete, because removing continuous parameters also speeds
+up the chain.
+This all sounds too good to be true. It is all true. But implementing it is not at all obvious.
+In this section, I’ll teach you how to do it, using the simplest example possible. The key idea,
+whatever the context, is that whether a variable is observed (data) or not (parameter), the
+generative model defines its information. There is a little bit of mathematics in this section,
+but no more than you learned in secondary school. Once you grasp the general approach,
+you can apply it to discrete variables that are not binary, including count and categorical
+variables.
+15.3.1. Discrete cats. Imagine a neighborhood in which every house contains a songbird.
+Suppose we survey the neighborhood and sample one minute of song from each house,
+recording the number of notes. You notice that some houses also have house cats, and won-
+der if the presence of a cat changes the amount that each bird sings. So you try to also figure
+out which houses have cats. You can do this easily in some cases, either by seeing the cat or
+by asking a human resident. But in about 20% of houses, you can’t determine whether or not
+a cat lives there.
+This very silly example sets us a very practical working example of how to cope with
+discrete missing data. We will translate this story into a generative model, simulate data
+from it, and then build a statistical model that copes with the missing values. Let’s consider
+the story above first as a DAG:
+C*
+C
+N
+RC
+The presence/absence of a cat C influences the number of sung notes N. Because of missing
+values RC however, we only observe C∗. To make this into a fully generative model, we must
+now pick functions for each arrow above. Here are my choices, in statistical notation:
+Ni ∼Poisson(λi)
+[Probability of notes sung]
+log λi = α + βCi
+[Rate of notes as function of cat]
+Ci ∼Bernoulli(k)
+[Probability cat is present]
+RC,i ∼Bernoulli(r)
+[Probability of not knowing Ci]
+And then to actually simulate some demonstration data, we’ll have to pick values for α, β, k,
+and r. Here’s a working simulation.
+R code
+15.29
+set.seed(9)
+N_houses <- 100L
+alpha <- 5
+beta <- (-3)
+k <- 0.5
+r <- 0.2

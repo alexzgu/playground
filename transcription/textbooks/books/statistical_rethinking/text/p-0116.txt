@@ -1,0 +1,48 @@
+100
+4. GEOCENTRIC MODELS
+Making choices tends to make novices nervous. There’s an illusion sometimes that default pro-
+cedures are more objective than procedures that require user choice, such as choosing priors. If that’s
+true, then all “objective” means is that everyone does the same thing. It carries no guarantees of
+realism or accuracy.
+Rethinking: Prior predictive simulation and p-hacking A serious problem in contemporary applied
+statistics is “p-hacking,” the practice of adjusting the model and the data to achieve a desired result.
+The desired result is usually a p-value less then 5%. The problem is that when the model is adjusted
+in light of the observed data, then p-values no longer retain their original meaning. False results are
+to be expected. We don’t pay any attention to p-values in this book. But the danger remains, if we
+choose our priors conditional on the observed sample, just to get some desired result. The procedure
+we’ve performed in this chapter is to choose priors conditional on pre-data knowledge of the data—
+its constraints, ranges, and theoretical relationships. This is why the actual data are not shown in the
+earlier section. We are judging our priors against general facts, not the sample. We’ll look at how the
+model performs against the real data next.
+4.4.2. Finding the posterior distribution. The code needed to approximate the posterior is
+a straightforward modification of the kind of code you’ve already seen. All we have to do
+is incorporate our new model for the mean into the model specification inside quap and be
+sure to add a prior for the new parameter, β. Let’s repeat the model definition, now with the
+corresponding R code on the right-hand side:
+hi ∼Normal(µi, σ)
+height ~ dnorm(mu,sigma)
+µi = α + β(xi −¯x)
+mu <- a + b*weight
+α ∼Normal(178, 20)
+a ~ dnorm(178,20)
+β ∼Log-Normal(0, 1)
+b ~ dlnorm(0,1)
+σ ∼Uniform(0, 50)
+sigma ~ dunif(0,50)
+Notice that the linear model, in the R code on the right-hand side, uses the R assignment
+operator, <-, even though the mathematical definition uses the symbol =. This is a code
+convention shared by several Bayesian model fitting engines, so it’s worth getting used to the
+switch. You just have to remember to use <- instead of = when defining a linear model.
+That’s it. The above allows us to build the posterior approximation:
+R code
+4.42
+# load data again, since it's a long way back
+library(rethinking)
+data(Howell1)
+d <- Howell1
+d2 <- d[ d$age >= 18 , ]
+# define the average weight, x-bar
+xbar <- mean(d2$weight)
+# fit model
+m4.3 <- quap(
+alist(

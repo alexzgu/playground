@@ -1,0 +1,57 @@
+3.2. SAMPLING TO SUMMARIZE
+57
+0.00
+0.25
+0.50
+0.75
+1.00
+0.000
+0.001
+0.002
+0.003
+0.004
+proportion water (p)
+Density
+50% Percentile Interval
+0.00
+0.25
+0.50
+0.75
+1.00
+0.000
+0.001
+0.002
+0.003
+0.004
+proportion water (p)
+Density
+50% HPDI
+Figure 3.3. The difference between percentile and highest posterior den-
+sity compatibility intervals. The posterior density here corresponds to a flat
+prior and observing three water samples in three total tosses of the globe.
+Left: 50% percentile interval. This interval assigns equal mass (25%) to both
+the left and right tail. As a result, it omits the most probable parameter value,
+p = 1. Right: 50% highest posterior density interval, HPDI. This interval
+finds the narrowest region with 50% of the posterior probability. Such a
+region always includes the most probable parameter value.
+This interval captures the parameters with highest posterior probability, as well as being no-
+ticeably narrower: 0.16 in width rather than 0.23 for the percentile interval.
+Rethinking: Why 95%? The most common interval mass in the natural and social sciences is the
+95% interval. This interval leaves 5% of the probability outside, corresponding to a 5% chance of the
+parameter not lying within the interval (although see below). This customary interval also reflects
+the customary threshold for statistical significance, which is 5% or p < 0.05. It is not easy to defend
+the choice of 95% (5%), outside of pleas to convention. Ronald Fisher is sometimes blamed for this
+choice, but his widely cited 1925 invocation of it was not enthusiastic:
+“The [number of standard deviations] for which P = .05, or 1 in 20, is 1.96 or
+nearly 2; it is convenient to take this point as a limit in judging whether a devia-
+tion is to be considered significant or not.”54
+Most people don’t think of convenience as a serious criterion. Later in his career, Fisher actively
+advised against always using the same threshold for significance.55
+So what are you supposed to do then? There is no consensus, but thinking is always a good idea.
+If you are trying to say that an interval doesn’t include some value, then you might use the widest
+interval that excludes the value. Often, all compatibility intervals do is communicate the shape of a
+distribution. In that case, a series of nested intervals may be more useful than any one interval. For
+example, why not present 67%, 89%, and 97% intervals, along with the median? Why these values?
+No reason. They are prime numbers, which makes them easy to remember. But all that matters is
+they be spaced enough to illustrate the shape of the posterior. And these values avoid 95%, since
+conventional 95% intervals encourage many readers to conduct unconscious hypothesis tests.

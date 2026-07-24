@@ -1,0 +1,59 @@
+16.4. POPULATION DYNAMICS
+559
+Then we need to define the unobserved variables. Let’s start with the unobserved population
+sizes of lynx Lt and hare Ht.
+H1 ∼Log-Normal(log 10, 1)
+[Prior for initial hare population]
+L1 ∼Log-Normal(log 10, 1)
+[Prior for initial lynx population]
+HT>1 = H1 +
+Z T
+1
+Ht(bH −mHLt)dt
+[Model for hare population]
+LT>1 = L1 +
+Z T
+1
+Lt(bLHt −mL)dt
+[Model for lynx population]
+The first two lines above assign priors to the initial population sizes at time t = 1. The
+differential equation model then, in the third and fourth lines, defines all times after that.
+And finally all the parameters need priors.
+σH ∼Exponential(1)
+[Prior for measurement dispersion]
+σL ∼Exponential(1)
+[Prior for measurement dispersion]
+pH ∼Beta(αH, βH)
+[Prior for hare trap probability]
+pL ∼Beta(αL, βL)
+[Prior for lynx trap probability]
+bH ∼Half-Normal(1, 0.5)
+[Prior hare birth rate]
+bL ∼Half-Normal(0.05, 0.05)
+[Prior lynx birth rate]
+mH ∼Half-Normal(0.05, 0.05)
+[Prior hare mortality rate]
+mL ∼Half-Normal(1, 0.5)
+[Prior lynx mortality rate]
+In the problems at the end of the chapter, I’ll ask you to conduct prior predictive simulations
+with these priors.
+Now we’re ready to start engineering the sampler. The obstacle in this model is com-
+puting Ht and Lt for each time t. The differential equations define these variables, but our
+sampler need to numerically solve them on each iteration. So we need to write the numer-
+ical integration we did earlier, when we simulated the model, into our Bayesian sampler.
+Fortunately, Stan already has functions for solving differential equations. So this will be eas-
+ier than it sounds. The Stan User’s Guide (https://mc-stan.org) contains a full section on
+programming this type of model, with several examples.
+We’ll do this model directly in Stan. You can load the Stan code and display it with:
+R code
+16.17
+data(Lynx_Hare_model)
+cat(Lynx_Hare_model)
+I won’t reproduce the entire model here. But I will point out the unusual pieces that handle
+the differential equations. The first unusual piece is at the top, the functions block. This is
+an optional block that lets us write special calculations that we can use in the model. This is
+where we put a function that computes the values of the differential equations. Look at the
+code—seriously, look at it—and you’ll see the dpop_dt function at the start of the model.
+The pop here is for population. This function returns the rates of change in the population.
+It takes as input the time t, the initial state of the population pop_init, and a vector of
+parameters theta. Then it computes the rates of change in lynx and hares.

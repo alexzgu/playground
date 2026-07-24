@@ -1,6 +1,6 @@
 # Textbook transcription pipeline
 
-Automates page-by-page markdown transcription of the four remaining curriculum
+Automates page-by-page markdown transcription of the five remaining curriculum
 textbooks (the Bayesian booklet was done earlier by the sibling pipeline in
 `../transcribe/`). Output chapter files land in `curriculum_material/<key>/`.
 
@@ -9,6 +9,7 @@ textbooks (the Bayesian booklet was done earlier by the sibling pipeline in
 | `stochastic_calculus` | stochastic_calculus.pdf | Lawler, *Stochastic Calculus: An Introduction with Applications* | 260 |
 | `mcmt` | MCMT.pdf | Levin & Peres, *Markov Chains and Mixing Times* (2nd ed.) | 461 |
 | `islp` | ISLP_Textbook.pdf | James et al., *An Introduction to Statistical Learning with Applications in Python* | 613 |
+| `statistical_rethinking` | Statistical Rethinking 2nd Edition.pdf | McElreath, *Statistical Rethinking: A Bayesian Course with Examples in R and Stan* (2nd ed.) | 617 |
 | `montgomery_doe` | 546_textbook.pdf | Montgomery, *Design and Analysis of Experiments* (8th ed.) | 757 |
 
 ## How it differs from the booklet pipeline
@@ -17,9 +18,9 @@ textbooks (the Bayesian booklet was done earlier by the sibling pipeline in
   dumped per page and handed to the model alongside the image to nail exact wording
   and table numbers. (MCMT's text layer is ciphertext — its fonts map glyphs into the
   Unicode private-use area — so MCMT is transcribed from images alone.) A per-page QA
-  score (fraction of text-layer words recovered in the transcript) is stored in the
-  manifest; pages under 0.55 get status `transcribed-lowqa` and are listed in the
-  book's README for spot-checking.
+  scores (multiset word-token recall and token-order similarity) are stored in the
+  manifest; pages under the advisory thresholds get status `transcribed-lowqa` and
+  are listed in the book's README for visual spot-checking.
 - **Chunked calls**: up to 3 consecutive pages per `claude -p` call (~3× throughput).
 - **No SymPy verification stage** (the booklet had one): at ~2,100 pages, coverage was
   prioritized over machine-checking. The text-layer QA is the safety net.
@@ -31,9 +32,9 @@ textbooks (the Bayesian booklet was done earlier by the sibling pipeline in
 
 ```bash
 python3 render_pages.py                          # once — page JPEGs + text layers
-python3 transcribe_books.py --book <key>         # all pending pages (resumable)
+python3 transcribe_books.py --book <key>         # Opus, max effort; all pending pages (resumable)
 python3 assemble.py --book <key>                 # rebuild curriculum_material/<key>/
-./supervisor.sh                                  # or: drive all four books end-to-end
+./supervisor.sh                                  # or: drive all books end-to-end
 ```
 
 Useful variations:
@@ -43,8 +44,8 @@ python3 transcribe_books.py --book islp --pages 78-143      # one chapter's wort
 python3 transcribe_books.py --book mcmt --pages 231 --force # redo a page
 ```
 
-The supervisor processes books smallest-first (stochastic_calculus → mcmt → islp →
-montgomery_doe) so complete books accumulate; it backs off 30 min on usage-limit
+The supervisor derives its book list from `books.json` and processes books
+smallest-first so complete books accumulate; it backs off 30 min on usage-limit
 breaker trips, re-assembles chapter files after every runner pass, and drops
 `books/<key>/out/COMPLETE` markers. Launch it detached to survive session teardown:
 `setsid nohup ./supervisor.sh &`.
@@ -62,3 +63,6 @@ breaker trips, re-assembles chapter files after every runner pass, and drops
 ## Reviewing quality
 Check each book README's low-QA list, spot-check those pages against
 `books/<key>/pages/p-NNNN.jpg`. For MCMT (no QA), sample a few pages per chapter.
+Run `python3 audit_transcripts.py` to verify manifest/file/assembled coverage,
+page-heading uniqueness, Markdown delimiter balance, and text-layer recall/order.
+This deterministic audit complements rather than replaces image review.

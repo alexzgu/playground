@@ -1,0 +1,41 @@
+36
+2. SMALL WORLDS AND LARGE WORLDS
+between certainty (data) and uncertainty (parameters) to incorporate measurement error and missing
+data into your modeling.
+Rethinking: Prior, prior pants on fire. Historically, some opponents of Bayesian inference objected
+to the arbitrariness of priors. It’s true that priors are very flexible, being able to encode many different
+states of information. If the prior can be anything, isn’t it possible to get any answer you want? Indeed
+it is. Regardless, after a couple hundred years of Bayesian calculation, it hasn’t turned out that people
+use priors to lie. If your goal is to lie with statistics, you’d be a fool to do it with priors, because such a
+lie would be easily uncovered. Better to use the more opaque machinery of the likelihood. Or better
+yet—don’t actually take this advice!—massage the data, drop some “outliers,” and otherwise engage
+in motivated data transformation.
+It is true though that choice of the likelihood is much more conventionalized than choice of prior.
+But conventional choices are often poor ones, smuggling in influences that can be hard to discover.
+In this regard, both Bayesian and non-Bayesian models are equally harried, because both traditions
+depend heavily upon likelihood functions and conventionalized model forms. And the fact that the
+non-Bayesian procedure doesn’t have to make an assumption about the prior is of little comfort. This
+is because non-Bayesian procedures need to make choices that Bayesian ones do not, such as choice of
+estimator or likelihood penalty. Often, such choices can be shown to be equivalent to some Bayesian
+choice of prior or rather choice of loss function. (You’ll meet loss functions later in Chapter 3.)
+2.3.3. A model is born. With all the above work, we can now summarize out model. The
+observed variables W and L are given relative counts through the binomial distribution. So
+we can write, as a shortcut:
+W ∼Binomial(N, p)
+where N = W + L. The above is just a convention for communicating the assumption that
+the relative counts of ways to realize W in N trials with probability p on each trial comes from
+the binomial distribution. And the unobserved parameter p similarly gets:
+p ∼Uniform(0, 1)
+This means that p has a uniform—flat—prior over its entire possible range, from zero to one.
+As I mentioned earlier, this is obviously not the best we could do, since we know the Earth
+has more water than land, even if we do not know the exact proportion yet.
+Next, let’s see how to use these assumptions to generate inference.
+2.4. Making the model go
+Once you have named all the variables and chosen definitions for each, a Bayesian model
+can update all of the prior distributions to their purely logical consequences: the posterior
+distribution. For every unique combination of data, likelihood, parameters, and prior,
+there is a unique posterior distribution. This distribution contains the relative plausibility
+of different parameter values, conditional on the data and model. The posterior distribution
+takes the form of the probability of the parameters, conditional on the data. This case, it
+would be Pr(p|W, L), the probability of each possible value of p, conditional on the specific
+W and L that we observed.

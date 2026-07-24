@@ -1,0 +1,40 @@
+9.7. PRACTICE
+303
+9.6. Summary
+This chapter has been an informal introduction to Markov chain Monte Carlo (MCMC)
+estimation. The goal has been to introduce the purpose and approach MCMC algorithms.
+The major algorithms introduced were the Metropolis, Gibbs sampling, and Hamiltonian
+Monte Carlo algorithms. Each has its advantages and disadvantages. The ulam function in
+the rethinking package was introduced. It uses the Stan (mc-stan.org) Hamiltonian Monte
+Carlo engine to fit models as they are defined in this book. General advice about diagnosing
+poor MCMC fits was introduced by the use of a couple of pathological examples. In the next
+chapters, we use this new power to learn new kinds of models.
+9.7. Practice
+Easy.
+9E1. Which of the following is a requirement of the simple Metropolis algorithm?
+(1) The parameters must be discrete.
+(2) The likelihood function must be Gaussian.
+(3) The proposal distribution must be symmetric.
+9E2. Gibbs sampling is more efficient than the Metropolis algorithm. How does it achieve this extra
+efficiency? Are there any limitations to the Gibbs sampling strategy?
+9E3. Which sort of parameters can Hamiltonian Monte Carlo not handle? Can you explain why?
+9E4. Explain the difference between the effective number of samples, n_eff as calculated by Stan,
+and the actual number of samples.
+9E5. Which value should Rhat approach, when a chain is sampling the posterior distribution cor-
+rectly?
+9E6. Sketch a good trace plot for a Markov chain, one that is effectively sampling from the posterior
+distribution. What is good about its shape? Then sketch a trace plot for a malfunctioning Markov
+chain. What about its shape indicates malfunction?
+Medium.
+9M1. Re-estimate the terrain ruggedness model from the chapter, but now using a uniform prior and
+an exponential prior for the standard deviation, sigma. The uniform prior should be dunif(0,10)
+and the exponential should be dexp(1). Do the different priors have any detectible influence on the
+posterior distribution?
+9M2. The Cauchy and exponential priors from the terrain ruggedness model are very weak. They
+can be made more informative by reducing their scale. Compare the dcauchy and dexp priors for
+progressively smaller values of the scaling parameter. As these priors become stronger, how does each
+influence the posterior distribution?
+9M3. Re-estimate one of the Stan models from the chapter, but at different numbers of warmup it-
+erations. Be sure to use the same number of sampling iterations in each case. Compare the n_eff
+values. How much warmup is enough?
+Hard.

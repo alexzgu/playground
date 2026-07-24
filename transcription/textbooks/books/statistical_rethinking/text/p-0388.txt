@@ -1,0 +1,53 @@
+372
+11. GOD SPIKED THE INTEGERS
+R code
+11.60
+library(rethinking)
+data(UCBadmit)
+d <- UCBadmit
+Now let’s use a Poisson regression to model both the rate of admission and the rate of re-
+jection. And we’ll compare the inference to the binomial model’s probability of admission.
+Here are both the binomial and Poisson models:
+R code
+11.61
+# binomial model of overall admission probability
+m_binom <- quap(
+alist(
+admit ~ dbinom(applications,p),
+logit(p) <- a,
+a ~ dnorm( 0 , 1.5 )
+), data=d )
+# Poisson model of overall admission rate and rejection rate
+# 'reject' is a reserved word in Stan, cannot use as variable name
+dat <- list( admit=d$admit , rej=d$reject )
+m_pois <- ulam(
+alist(
+admit ~ dpois(lambda1),
+rej ~ dpois(lambda2),
+log(lambda1) <- a1,
+log(lambda2) <- a2,
+c(a1,a2) ~ dnorm(0,1.5)
+), data=dat , chains=3 , cores=3 )
+Let’s consider just the posterior means, for the sake of simplicity. But keep in mind that the
+entire posterior is what matters. First, the inferred binomial probability of admission, across
+the entire data set, is:
+R code
+11.62
+inv_logit(coef(m_binom))
+a
+0.3877596
+And in the Poisson model, the implied probability of admission is given by:
+padmit =
+λ1
+λ1 + λ2
+=
+exp(a1)
+exp(a1) + exp(a2)
+In code form:
+R code
+11.63
+k <- coef(m_pois)
+a1 <- k['a1']
+a2 <- k['a2']
+exp(a1)/(exp(a1)+exp(a2))
+[1] 0.3872366

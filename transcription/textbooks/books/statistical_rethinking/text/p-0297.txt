@@ -1,0 +1,90 @@
+9.3. HAMILTONIAN MONTE CARLO
+281
+-0.3
+-0.2
+-0.1
+0.0
+0.1
+0.2
+0.3
+-0.3
+-0.2
+-0.1
+0.0
+0.1
+0.2
+0.3
+mux
+muy
+1
+2
+3
+4
+2D Gaussian, L = 11
+-0.3
+-0.2
+-0.1
+0.0
+0.1
+0.2
+0.3
+-0.3
+-0.2
+-0.1
+0.0
+0.1
+0.2
+0.3
+mux
+muy
+2D Gaussian, L = 28
+-1.5
+-1.0
+-0.5
+0.0
+0.5
+1.0
+1.5
+-1.5
+-1.0
+-0.5
+0.0
+0.5
+1.0
+1.5
+a1
+a2
+1
+2
+3
+4
+Posterior correlation -0.9
+-1.5
+-1.0
+-0.5
+0.0
+0.5
+1.0
+1.5
+-1.5
+-1.0
+-0.5
+0.0
+0.5
+1.0
+1.5
+a1
+a2
+50 trajectories
+Figure 9.6. Hamiltonian Monte Carlo trajectories follow physical paths de-
+termined by the curvature of the posterior distribution. Top-left: With the
+right combination of leapfrog steps and step size, the individual paths pro-
+duce independent samples from the posterior. The simulation begins at the
+× and then moves in order to the points labeled 1 though 4. Top-right:
+With the wrong combination, sequential samples can end up very close to
+one another. The chain in the top-right will still work. It’ll just be much
+less efficient. Bottom-left: HMC really shines when the posterior contains
+high correlations, as here. Bottom-right: 50 samples from the same high
+correlation posterior, showing only one rejected sample (the open point).
+A low rate of rejected proposals and lower autocorrelation between samples
+means fewer samples are needed to approximate the posterior.

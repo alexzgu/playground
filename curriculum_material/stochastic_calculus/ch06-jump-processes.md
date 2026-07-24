@@ -3,9 +3,7 @@
 
 ### PDF page 191 (book page 185)
 
-# Chapter 6
-
-# Jump processes
+# Chapter 6 — Jump processes
 
 **6.1 Lévy processes**
 
@@ -1250,8 +1248,6 @@ $$ \lim_{j\to\infty} \int f(x)\nu_{n_j}(dx) = \int f(x)\mu(dx). $$
 
 ### PDF page 227 (book page 221)
 
-**6.8. THE LÉVY-KHINCHIN CHARACTERIZATION**
-
 By taking a subsubsequence if necessary we can also conclude that there exists $\tilde{m}, \tilde{\sigma}^2$ such that
 
 $$ \lim_{j\to\infty} n_j \tilde{m}_{n_j} = \tilde{m}, \qquad \lim_{j\to\infty} n_j \sigma_{n_j}^2 = \tilde{\sigma}^2. $$
@@ -1401,7 +1397,7 @@ $$ \int_0^t A_s\, dY_s $$
 
 as an Itô integral as in Chapter 3.
 
-We start with simple processes. Suppose $A_t$ is a simple process as in Section 3.2.2. To be specific, suppose that times $0 \leq t_0 < t_1 < \cdots < t_n < \infty$ are given, and $A_s = A_{t_j}$ t for $t_j \leq s < t_{j+1}$. Then, we define
+We start with simple processes. Suppose $A_t$ is a simple process as in Section 3.2.2. To be specific, suppose that times $0 \leq t_0 < t_1 < \cdots < t_n < \infty$ are given, and $A_s = A_{t_j}$ for $t_j \leq s < t_{j+1}$. Then, we define
 
 $$ \int_0^t A_s\, dY_s = \sum_{i=0}^{j-1} A_{t_i}\, [Y_{t_{i+1}} - Y_{t_i}] + A_{t_j}\, [Y_t - Y_{t_j}]. $$
 

@@ -1,0 +1,47 @@
+218
+7. ULYSSES’ COMPASS
+R code
+7.17
+r <- mcreplicate( 1e4 , sim_train_test( N=N, k=k ) , mc.cores=4 )
+Set mc.cores to the number of processor cores you want to use for the simulations. Once the sim-
+ulations complete, dev will be a 4-by-5 matrix of means and standard deviations. To reproduce the
+plot:
+R code
+7.18
+plot( 1:5 , dev[1,] , ylim=c( min(dev[1:2,])-5 , max(dev[1:2,])+10 ) ,
+xlim=c(1,5.1) , xlab="number of parameters" , ylab="deviance" ,
+pch=16 , col=rangi2 )
+mtext( concat( "N = ",N ) )
+points( (1:5)+0.1 , dev[2,] )
+for ( i in kseq ) {
+pts_in <- dev[1,i] + c(-1,+1)*dev[3,i]
+pts_out <- dev[2,i] + c(-1,+1)*dev[4,i]
+lines( c(i,i) , pts_in , col=rangi2 )
+lines( c(i,i)+0.1 , pts_out )
+}
+By altering this code, you can simulate many different train-test scenarios. See ?sim_train_test
+for additional options.
+7.3. Golem Taming: Regularization
+What if I told you that one way to produce better predictions is to make the model worse
+at fitting the sample? Would you believe it? In this section, we’ll demonstrate it.
+The root of overfitting is a model’s tendency to get overexcited by the training sample.
+When the priors are flat or nearly flat, the machine interprets this to mean that every parame-
+ter value is equally plausible. As a result, the model returns a posterior that encodes as much
+of the training sample—as represented by the likelihood function—as possible.
+One way to prevent a model from getting too excited by the training sample is to use a
+skeptical prior. By “skeptical,” I mean a prior that slows the rate of learning from the sample.
+The most common skeptical prior is a regularizing prior. Such a prior, when tuned
+properly, reduces overfitting while still allowing the model to learn the regular features of a
+sample. If the prior is too skeptical, however, then regular features will be missed, resulting
+in underfitting. So the problem is really one of tuning. But as you’ll see, even mild skepticism
+can help a model do better, and doing better is all we can really hope for in the large world,
+where no model nor prior is optimal.
+In previous chapters, I forced us to revise the priors until the prior predictive distribution
+produced only reasonable outcomes. As a consequence, those priors regularized inference.
+In very small samples, they would be a big help. Here I want to show you why, using some
+more simulations. Consider this Gaussian model:
+yi ∼Normal(µi, σ)
+µi = α + βxi
+α ∼Normal(0, 100)
+β ∼Normal(0, 1)
+σ ∼Exponential(1)

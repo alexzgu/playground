@@ -1,0 +1,46 @@
+324
+10. BIG ENTROPY AND THE GENERALIZED LINEAR MODEL
+exactly the same constraints. Its shape is described by a single parameter, the rate of events
+λ. Poisson GLMs are detailed in the next chapter.
+There are many other exponential family distributions, and many of them are useful.
+But don’t worry that you need to memorize them all. You can pick up new distributions,
+and the sorts of generative processes they correspond to, as needed. It’s also not important
+that an outcome distribution be a member of the exponential family—if you think you have
+good reasons to use some other distribution, then use it. But you should also check its per-
+formance, just like you would any modeling assumption.
+Rethinking: A likelihood is a prior. In traditional statistics, likelihood functions are “objective” and
+prior distributions “subjective.” However, likelihoods are themselves prior probability distributions:
+They are priors for the data, conditional on the parameters. And just like with other priors, there
+is no correct likelihood. But there are better and worse likelihoods, depending upon the context.
+Useful inference does not require that the data (or residuals) be actually distributed according to the
+likelihood anymore than it requires the posterior distribution to be like the prior. The duality between
+likelihoods and priors will become quite explicit in Chapter 15.
+10.2.2. Linking linear models to distributions. To build a regression model from any of
+the exponential family distributions is just a matter of attaching one or more linear mod-
+els to one or more of the parameters that describe the distribution’s shape. But as hinted at
+earlier, usually we require a link function to prevent mathematical accidents like nega-
+tive distances or probability masses that exceed 1. So for any outcome distribution, say for
+example the exotic “Zaphod” distribution,164 we write:
+yi ∼Zaphod(θi, ϕ)
+f (θi) = α + β(xi −¯x)
+where f is a link function.
+But what function should f be? A link function’s job is to map the linear space of a model
+like α + β(xi −¯x) onto the non-linear space of a parameter like θ. So f is chosen with that
+goal in mind. Most of the time, for most GLMs, you can use one of two exceedingly common
+links, a logit link or a log link. Let’s introduce each, and you’ll work with both in later chapters.
+The logit link maps a parameter that is defined as a probability mass, and therefore
+constrained to lie between zero and one, onto a linear model that can take on any real value.
+This link is extremely common when working with binomial GLMs. In the context of a
+model definition, it looks like this:
+yi ∼Binomial(n, pi)
+logit(pi) = α + βxi
+And the logit function itself is defined as the log-odds:
+logit(pi) = log
+pi
+1 −pi
+The “odds” of an event are just the probability it happens divided by the probability it does
+not happen. So really all that is being stated here is:
+log
+pi
+1 −pi
+= α + βxi

@@ -1,0 +1,48 @@
+192
+6. THE HAUNTED DAG & THE CAUSAL TERROR
+them all by conditioning on S. That’s all there is to it. You can get your computer to confirm
+this answer:
+R code
+6.30
+library(dagitty)
+dag_6.2 <- dagitty( "dag {
+A -> D
+A -> M -> D
+A <- S -> M
+S -> W -> D
+}")
+adjustmentSets( dag_6.2 , exposure="W" , outcome="D" )
+{ A, M }
+{ S }
+We could control for either A and M or for S alone. If you don’t have to add something to
+the model, then don’t.
+This DAG is obviously not satisfactory—it assumes there are no unobserved confounds,
+which is very unlikely for this sort of data. But we can still learn something by analyzing
+it. While the data cannot tell us whether a graph is correct, it can sometimes suggest how a
+graph is wrong. Earlier in chapter, we discussed conditional independencies, which are
+some of a model’s testable implications. Condition independencies are pairs of variables that
+are not associated, once we condition on some set of other variables. By listing these implied
+conditional independencies and assessing each, we can at least test some of the features of a
+graph.
+Now that you know the elemental confounds, you are ready to derive any DAG’s con-
+ditional independencies on your own. You can find conditional independencies using the
+same path logic you learned for finding and closing backdoors. You just have to focus on a
+pair of variables, find all paths connecting them, and figure out if there is any set of variables
+you could condition on to close them all. In a large graph, this is quite a chore, because there
+are many pairs of variables and possibly many paths. But your computer is good at such
+chores. In this case, there are three implied conditional independencies:
+R code
+6.31
+impliedConditionalIndependencies( dag_6.2 )
+A _||_ W | S
+D _||_ S | A, M, W
+M _||_ W | S
+Read the first as “median age of marriage should be independent of (_||_) Waffle Houses,
+conditioning on (|) a State being in the south.” In the second, divorce and being in the
+south should be independent when we simultaneously condition on all of median age of
+marriage, marriage rate, and Waffle Houses. Finally, marriage rate and Waffle Houses should
+be independent, conditioning on being in the south.
+In the problems at the end of this chapter, I’ll ask you to evaluate these implications, as
+well as try to assess the causal influence of Waffle Houses on divorce.
+Rethinking: DAGs are not enough. If you don’t have a real, mechanistic model of your system, DAGs
+are fantastic tools. If nothing else, they caution against the commonplace approach of using multiple

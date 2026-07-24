@@ -1,0 +1,49 @@
+5.1. SPURIOUS ASSOCIATION
+147
+-2
+-1
+0
+1
+2
+-2
+-1
+0
+1
+2
+manipulated M
+counterfactual D
+Total counterfactual effect of M on D
+Figure 5.7. The counterfactual effect of ma-
+nipulating marriage rate M on divorce rate D.
+Since M →D was estimated to be very small,
+there is almost no trend here. By manipulat-
+ing M, we break the influence of A on M, and
+this removes the association between M and
+D.
+we modify the DAG so that no arrows enter X. Suppose for example that we now simulate
+the effect of manipulating M. This implies the DAG:
+A
+D
+M
+The arrow A →M is deleted, because if we control the values of M, then A no longer influ-
+ences it. It’s like a perfectly controlled experiment. Now we can modify the code above to
+simulate the counterfactual result of manipulating M. We’ll simulate a counterfactual for an
+average state, with A = 0, and see what changing M does.
+R code
+5.23
+sim_dat <- data.frame( M=seq(from=-2,to=2,length.out=30) , A=0 )
+s <- sim( m5.3_A , data=sim_dat , vars="D" )
+plot( sim_dat$M , colMeans(s) , ylim=c(-2,2) , type="l" ,
+xlab="manipulated M" , ylab="counterfactual D"
+)
+shade( apply(s,2,PI) , sim_dat$M )
+mtext( "Total counterfactual effect of M on D" )
+We only simulate D now—note the vars argument to sim() in the code above. We don’t
+simulate A, because M doesn’t influence it. I show this plot in Figure 5.7. This trend is
+naturally less strong, because we already found that there is no evidence for a strong influence
+of M on D.
+In more complex models with many potential paths, the same strategy will compute
+counterfactuals for an exposure of interest. But as you’ll see in later examples, often it is
+simply not possible to estimate a plausible, un-confounded causal effect of some exposure
+X on some outcome Y. But even in those cases, there are still important counterfactuals to
+consider. So we’ll return to this theme in future chapters.

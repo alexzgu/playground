@@ -1,0 +1,136 @@
+310
+10. BIG ENTROPY AND THE GENERALIZED LINEAR MODEL
+1
+2
+3
+4
+5
+bucket
+pebbles
+0
+5
+10
+10
+1
+2
+3
+4
+5
+bucket
+pebbles
+0
+5
+10
+1
+8
+1
+1
+2
+3
+4
+5
+bucket
+pebbles
+0
+5
+10
+2
+6
+2
+1
+2
+3
+4
+5
+bucket
+pebbles
+0
+5
+10
+1
+2
+4
+2
+1
+1
+2
+3
+4
+5
+bucket
+pebbles
+0
+5
+10
+2
+2
+2
+2
+2
+1 way
+90 ways
+1260 ways
+37800 ways
+113400 ways
+A
+B
+C
+D
+E
+1
+2
+3
+4
+5
+1
+2
+3
+4
+5
+1
+2
+3
+4
+5
+1
+2
+3
+4
+5
+1
+2
+3
+4
+5
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+1.2
+0.0
+0.5
+1.0
+1.5
+log(ways) per pebble
+entropy
+A
+B
+C
+D E
+Figure 10.1. Entropy as a measure of the number of unique arrangements
+of a system that produce the same distribution. Plots A through E show the
+numbers of unique ways to arrange 10 pebbles into each of 5 different dis-
+tributions. Bottom-right: The entropy of each distribution plotted against
+the log number of ways per pebble to produce it.
+each distribution can be realized, then divide that logarithm by 10, the number of pebbles.
+This gives us the log ways per pebble for each distribution:
+R code
+10.4
+ways <- c(1,90,1260,37800,113400)
+logwayspp <- log(ways)/10
+The bottom-right plot in Figure 10.1 displays these logwayspp values against the infor-
+mation entropies H. These two sets of values contain the same information, as information
+entropy is an approximation of the log ways per pebble (see the Overthinking box at the
+end for details). As the number of pebbles grows larger, the approximation gets better. It’s

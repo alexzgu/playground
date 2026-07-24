@@ -1,0 +1,46 @@
+4.3. GAUSSIAN MODEL OF HEIGHT
+87
+This means it won’t be possible to express non-Gaussian models using tricks like ϵ. Better to learn
+one system that does generalize.
+Overthinking: Model definition to Bayes’ theorem again. It can help to see how the model definition
+on the previous page allows us to build up the posterior distribution. The height model, with its priors
+for µ and σ, defines this posterior distribution:
+Pr(µ, σ|h) =
+Q
+i Normal(hi|µ, σ)Normal(µ|178, 20)Uniform(σ|0, 50)
+R R Q
+i Normal(hi|µ, σ)Normal(µ|178, 20)Uniform(σ|0, 50)dµdσ
+This looks monstrous, but it’s the same creature as before. There are two new things that make it seem
+complicated. The first is that there is more than one observation in h, so to get the joint likelihood
+across all the data, we have to compute the probability for each hi and then multiply all these likeli-
+hoods together. The product on the right-hand side takes care of that. The second complication is
+the two priors, one for µ and one for σ. But these just stack up. In the grid approximation code in
+the section to follow, you’ll see the implications of this definition in the R code. Everything will be
+calculated on the log scale, so multiplication will become addition. But otherwise it’s just a matter of
+executing Bayes’ theorem.
+4.3.3. Grid approximation of the posterior distribution. Since this is the first Gaussian
+model in the book, and indeed the first model with more than one parameter, it’s worth
+quickly mapping out the posterior distribution through brute force calculations. This isn’t
+the approach I encourage in any other place, because it is laborious and computationally ex-
+pensive. Indeed, it is usually so impractical as to be essentially impossible. But as always, it
+is worth knowing what the target actually looks like, before you start accepting approxima-
+tions of it. A little later in this chapter, you’ll use quadratic approximation to estimate the
+posterior distribution, and that’s the approach you’ll use for several chapters more. Once you
+have the samples you’ll produce in this subsection, you can compare them to the quadratic
+approximation in the next.
+Unfortunately, doing the calculations here requires some technical tricks that add little,
+if any, conceptual insight. So I’m going to present the code here without explanation. You can
+execute it and keep going for now, but later return and follow the endnote for an explanation
+of the algorithm.72 For now, here are the guts of the golem:
+R code
+4.16
+mu.list <- seq( from=150, to=160 , length.out=100 )
+sigma.list <- seq( from=7 , to=9 , length.out=100 )
+post <- expand.grid( mu=mu.list , sigma=sigma.list )
+post$LL <- sapply( 1:nrow(post) , function(i) sum(
+dnorm( d2$height , post$mu[i] , post$sigma[i] , log=TRUE ) ) )
+post$prod <- post$LL + dnorm( post$mu , 178 , 20 , TRUE ) +
+dunif( post$sigma , 0 , 50 , TRUE )
+post$prob <- exp( post$prod - max(post$prod) )
+You can inspect this posterior distribution, now residing in post$prob, using a variety of
+plotting commands. You can get a simple contour plot with:

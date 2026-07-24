@@ -1,0 +1,37 @@
+17 Horoscopes
+Statistics courses and books—this one included—tend to resemble horoscopes. There
+are two senses to this resemblance.
+First, in order to remain plausibly correct, they must remain tremendously vague. This
+is because the targets of the advice, for both horoscopes and statistical advice, are diverse.
+But only the most general advice applies to all cases. A horoscope uses only the basic facts of
+birth to forecast life events, and a textbook statistical guide uses only the basic facts of meas-
+urement and design to dictate a model. It is easy to do better, once more detail is available.
+In the case of statistical analysis, it is typically only the scientist who can provide that detail,
+not the statistician.230
+Second, there are strong incentives for both astrologers and statisticians to exaggerate
+the power and importance of their advice. No one likes an astrologer who forecasts doom,
+and few want a statistician who admits the answers as desired are not in the data as collected.
+Scientists desire results, and they will buy and attend to statisticians and statistical procedures
+that promise them. What we end up with is too often horoscopic: vague and optimistic, but
+still claiming critical importance.231
+Statistical inference is indeed critically important. But only as much as every other part
+of research. Scientific discovery is not an additive process, in which sin in one part can
+be atoned by virtue in another. Everything interacts.232 So equally when science works as
+intended as when it does not, every part of the process deserves our attention. Statistical
+analysis can neither be uniquely credited with science’s success, nor can it be uniquely blamed
+for its failures and follies.
+And there are plenty of failures and follies. Science, you may have heard, is not perfect.
+The Lancet is one of the oldest and most prestigious medical journals in the world. This is
+what its editor-in-chief, Richard Horton, wrote in its pages in 2015:233
+The case against science is straightforward: much of the scientific literature,
+perhaps half, may simply be untrue. Afflicted by studies with small sam-
+ple sizes, tiny effects, invalid exploratory analyses, and flagrant conflicts of
+interest, together with an obsession for pursuing fashionable trends of du-
+bious importance, science has taken a turn towards darkness.
+How do we know that much of the published scientific literature is untrue? There are two
+major methods.
+First, it is hard to repeat many published findings, even those in the best journals.234
+Some of this lack of repeatability arises from methodological subtleties, not because the find-
+ings are false. But many famous findings cannot be repeated, no matter who tries. There is
+a sense in which this should be unsurprising, given the nature of statistical testing. See the
+565

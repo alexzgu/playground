@@ -1,0 +1,80 @@
+14.3. INSTRUMENTS AND CAUSAL DESIGNS
+471
+precis( m14.4 )
+mean
+sd
+5.5% 94.5% n_eff Rhat
+aW
+0.00 0.04 -0.06
+0.06
+2024
+1
+bEW
+0.40 0.04
+0.33
+0.46
+1996
+1
+sigma 0.92 0.03
+0.87
+0.97
+1861
+1
+This is just an ordinary confound, where the unmeasured U is ruining our inference. If you
+have incentives to believe that education enhances wages, you might report this inference as
+is. But even if E does increase W, the estimate from this model will be biased upwards. It’s
+not enough to just know that E positively influences W. Accuracy matters.
+Next let’s consider what happens when we add Q as an ordinary predictor. Modifying
+the model above:
+R code
+14.25
+m14.5 <- ulam(
+alist(
+W ~ dnorm( mu , sigma ),
+mu <- aW + bEW*E + bQW*Q,
+aW ~ dnorm( 0 , 0.2 ),
+bEW ~ dnorm( 0 , 0.5 ),
+bQW ~ dnorm( 0 , 0.5 ),
+sigma ~ dexp( 1 )
+) , data=dat_sim , chains=4 , cores=4 )
+precis( m14.5 )
+mean
+sd
+5.5% 94.5% n_eff Rhat
+aW
+0.00 0.04 -0.06
+0.06
+1526
+1
+bEW
+0.64 0.05
+0.56
+0.71
+1381
+1
+bQW
+-0.41 0.05 -0.48 -0.33
+1416
+1
+sigma
+0.86 0.03
+0.82
+0.90
+1823
+1
+This is a disaster. As expected from study of the DAG, bQW picks up an association from U.
+And bEW is even further from the truth now. It was 0.4 above. Now it’s 0.64. That is bias
+amplification in action.
+Now we’re ready to see how to correctly use Q. The answer is actually pretty simple. We
+just use the generative model. Let’s write a simple generative version of the DAG. It really
+has four sub-models. First, there is model for how wages W are caused by education E and
+the unobserved confound U. In mathematical notation:
+Wi ∼Normal(µw,i, σw)
+µw,i = αw + βewEi + Ui
+Second, there is a model for how education levels E are caused by quarter of birth Q—this is
+our instrument recall—and the same unobserved confound U.
+Ei ∼Normal(µe,i, σe)
+µe,i = αe + βqeQi + Ui
+The third model is for Q. The model just says that one-quarter of all people are born in each
+quarter of the year.
+Qi ∼Categorical([0.25, 0.25, 0.25, 0.25])

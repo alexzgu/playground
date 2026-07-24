@@ -1,0 +1,71 @@
+5.2. MASKED RELATIONSHIP
+153
+-2.0
+-1.5
+-1.0
+-0.5
+0.0
+0.5
+1.0
+1.5
+-1.0
+-0.5
+0.0
+0.5
+1.0
+1.5
+2.0
+neocortex percent (std)
+kilocal per g (std)
+-2
+-1
+0
+1
+-1.0
+-0.5
+0.0
+0.5
+1.0
+1.5
+2.0
+log body mass (std)
+kilocal per g (std)
+-2.0
+-1.5
+-1.0
+-0.5
+0.0
+0.5
+1.0
+1.5
+-1.0
+-0.5
+0.0
+0.5
+1.0
+1.5
+2.0
+neocortex percent (std)
+kilocal per g (std)
+Counterfactual holding M = 0
+-2
+-1
+0
+1
+-1.0
+-0.5
+0.0
+0.5
+1.0
+1.5
+2.0
+log body mass (std)
+kilocal per g (std)
+Counterfactual holding N = 0
+Figure 5.9. Milk energy and neocortex among primates. In the top two
+plots, simple bivariate regressions of kilocalories per gram of milk (K) on
+(left) neocortex percent (N) and (right) log female body mass (M) show
+weak associations. In the bottom row, a model with both neocortex percent
+(N) and log body mass (M) shows stronger associations.
+the code that plotted the upper-left plot in the same figure, to be sure you understand how
+to do this.

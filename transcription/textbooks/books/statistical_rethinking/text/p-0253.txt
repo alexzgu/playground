@@ -1,0 +1,67 @@
+7.5. MODEL COMPARISON
+237
+-4
+-2
+0
+2
+4
+0.0
+0.1
+0.2
+0.3
+0.4
+0.5
+0.6
+0.7
+value
+Density
+Gaussian
+Student-t
+-6
+-4
+-2
+0
+2
+4
+6
+0
+5
+10
+15
+20
+25
+30
+value
+minus log Density
+Gaussian
+Student-t
+Figure 7.11. Thin tails and influential observations. The Gaussian distribu-
+tion (blue) assigns very little probability to extreme observations. It has thin
+tails. The Student-t distribution with shape ν = 2 (black) assigns more prob-
+ability to extreme events. These distributions are compared on the proba-
+bility (left) and log-probability (right) scales.
+not. Instead many phenomena have thicker tails with rare, extreme observations. These are
+not measurement errors, but real events containing information about natural process.
+One way to both use these extreme observations and reduce their influence is to employ
+some kind of robust regression. A “robust regression” can mean many different things,
+but usually it indicates a linear model in which the influence of extreme observations is re-
+duced. A common and useful kind of robust regression is to replace the Gaussian model
+with a thicker-tailed distribution like Student’s t (or “Student-t”) distribution.124 This dis-
+tribution has nothing to do with students. The Student-t distribution arises from a mixture
+of Gaussian distributions with different variances.125 If the variances are diverse, then the
+tails can be quite thick.
+The generalized Student-t distribution has the same mean µ and scale σ parameters as
+the Gaussian, but it also has an extra shape parameter ν that controls how thick the tails
+are. The rethinking package provides Student-t as dstudent. When ν is large, the tails
+are thin, converging in the limit ν = ∞to a Gaussian distribution. But as ν approaches 1,
+the tails get thicker and rare extreme observations occur more often. Figure 7.11 compares
+a Gaussian distribution (in blue) to a corresponding Student-t distribution (in black) with
+ν = 2. The Student-t distribution has thicker tails, and this is most obvious on the log
+scale (right), where the Gaussian tails shrink quadratically—a normal distribution is just an
+exponentiated parabola remember—while the Student-t tails shrink much more slowly.
+If you have a very large data set with such events, you could estimate ν. Financial time
+series, taken over very long periods, are one example. But when using robust regression, we
+don’t usually try to estimate ν, because there aren’t enough extreme observations to do so.
+Instead we assume ν is small (thick tails) in order to reduce the influence of outliers. For
+example, if we use the severity of wars since 1950 to estimate a trend, the estimate is likely
+biased by the fact that big conflicts like the first and second World Wars are rare. They reside

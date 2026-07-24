@@ -1,0 +1,52 @@
+10.2. GENERALIZED LINEAR MODELS
+321
+0.0
+0.5
+1.0
+1.5
+2.0
+0.0
+0.5
+1.0
+x
+probability
+Figure 10.5. Why we need link functions.
+The solid blue line is a linear model of a prob-
+ability mass. It increases linearly with a pre-
+dictor, x, on the horizontal axis. But when it
+reaches the maximum probability mass of 1, at
+the dashed boundary, it will happily continue
+upwards, as shown by the dashed blue line. In
+reality, further increases in x could not further
+increase probability, as indicated by the hori-
+zontal continuation of the solid trend.
+Luckily, it’s easy to do better. By using all of our prior knowledge about the outcome
+variable, usually in the form of constraints on the possible values it can take, we can appeal
+to maximum entropy for the choice of distribution. Then all we have to do is generalize the
+linear regression strategy—replace a parameter describing the shape of the likelihood with a
+linear model—to probability distributions other than the Gaussian.
+This is the essence of a generalized linear model.162 And it results in models that
+look like this:
+yi ∼Binomial(n, pi)
+f (pi) = α + β(xi −¯x)
+There are only two changes here from the familiar Gaussian model. The first is principled—
+the principle of maximum entropy. The second is an epicycle—a modeling trick that works
+descriptively but not causally—but a quite successful one. I’ll briefly explain each, before
+moving on in the remainder of the section to describe all of the most common distributions
+used to construct generalized linear models. Later chapters show you how to implement
+them.
+First, the likelihood is binomial instead of Gaussian. For a count outcome y for which
+each observation arises from n trials and with constant expected value np, the binomial dis-
+tribution has maximum entropy. So it’s the least informative distribution that satisfies our
+prior knowledge of the outcomes y. If the outcome variable had different constraints, it could
+be a different maximum entropy distribution.
+Second, there is now a funny little f at the start of the second line of the model. This
+represents a link function, to be determined separately from the choice of distribution.
+Generalized linear models need a link function, because rarely is there a “µ”, a parameter
+describing the average outcome, and rarely are parameters unbounded in both directions,
+like µ is. For example, the shape of the binomial distribution is determined, like the Gaussian,
+by two parameters. But unlike the Gaussian, neither of these parameters is the mean. Instead,
+the mean outcome is np, which is a function of both parameters. Since n is usually known
+(but not always), it is most common to attach a linear model to the unknown part, p. But p is
+a probability mass, so pi must lie between zero and one. But there’s nothing to stop the linear
+model α + βxi from falling below zero or exceeding one. Figure 10.5 plots an example.

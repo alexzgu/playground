@@ -1,0 +1,61 @@
+552
+16. GENERALIZED LINEAR MADNESS
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+age
+body mass
+0
+4
+8
+12
+16
+20
+24
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+1.2
+age
+nuts per second
+0
+4
+8
+12
+16
+20
+24
+Figure 16.4. Prior predictive simulation for the nut opening model. Left:
+Prior growth curves, normalizing average adult mass to 1. This prior tries
+to start leveling off around age 12, like a real chimpanzee. Right: Prior nut
+opening rates. This prior allows many different developmental patterns. But
+they are all increasing with age and assume that baby chimpanzees cannot
+open nuts.
+Now do your duty by checking the chain diagnostics. The marginal distribution of each
+parameter isn’t as interesting here as the posterior developmental curve. So let’s go straight
+to producing that.
+R code
+16.12
+post <- extract.samples(m16.4)
+plot( NULL , xlim=c(0,1) , ylim=c(0,1.5) , xlab="age" ,
+ylab="nuts per second" , xaxt="n" )
+at <- c(0,0.25,0.5,0.75,1,1.25,1.5)
+axis( 1 , at=at , labels=round(at*max(Panda_nuts$age)) )
+# raw data
+pts <- dat_list$n / dat_list$seconds
+point_size <- normalize( dat_list$seconds )
+points( jitter(dat_list$age) , pts , col=rangi2 , lwd=2 , cex=point_size*3 )
+# 30 posterior curves
+for ( i in 1:30 ) with( post ,
+curve( phi[i]*(1-exp(-k[i]*x))^theta[i] , add=TRUE , col=grau() ) )
+The result is shown in Figure 16.5. The blue points are the raw data, with size scaled by
+the duration of each observation. The curves are 30 skill curves drawn from the posterior
+distribution. These curves level off around the age of maximum body size, consistent with
+the idea that strength is the main limiting factor. This doesn’t mean that there isn’t knowledge
+involved. There is still plenty of variation to explain.

@@ -1,0 +1,31 @@
+9.7. PRACTICE
+305
+R code
+9.31
+m5.8s2 <- ulam(
+alist(
+height ~ dnorm( mu , sigma ) ,
+mu <- a + bl*leg_left + br*leg_right ,
+a ~ dnorm( 10 , 100 ) ,
+bl ~ dnorm( 2 , 10 ) ,
+br ~ dnorm( 2 , 10 ) ,
+sigma ~ dexp( 1 )
+) ,
+data=d, chains=4,
+constraints=list(br="lower=0"),
+start=list(a=10,bl=0,br=0.1,sigma=1) )
+Note the constraints list. What this does is constrain the prior distribution of br so that it has
+positive probability only above zero. In other words, that prior ensures that the posterior distribution
+for br will have no probability mass below zero.
+Compare the two posterior distributions for m5.8s and m5.8s2. What has changed in the pos-
+terior distribution of both beta parameters? Can you explain the change induced by the change in
+prior?
+9H4. For the two models fit in the previous problem, use WAIC or PSIS to compare the effective
+numbers of parameters for each model. You will need to use log_lik=TRUE to instruct ulam() to
+compute the terms that both WAIC and PSIS need. Which model has more effective parameters?
+Why?
+9H5. Modify the Metropolis algorithm code from the chapter to handle the case that the island
+populations have a different distribution than the island labels. This means the island’s number will
+not be the same as its population.
+9H6. Modify the Metropolis algorithm code from the chapter to write your own simple MCMC
+estimator for globe tossing data and model from Chapter 2.

@@ -1,0 +1,53 @@
+156
+5. THE MANY VARIABLES & THE SPURIOUS WAFFLES
+R code
+5.40
+xseq <- seq( from=min(dcc$M)-0.15 , to=max(dcc$M)+0.15 , length.out=30 )
+mu <- link( m5.7 , data=data.frame( M=xseq , N=0 ) )
+mu_mean <- apply(mu,2,mean)
+mu_PI <- apply(mu,2,PI)
+plot( NULL , xlim=range(dcc$M) , ylim=range(dcc$K) )
+lines( xseq , mu_mean , lwd=2 )
+shade( mu_PI , xseq )
+The reader should try to reproduce the lower-right plot by appropriately modifying this.
+Overthinking: Simulating a masking relationship. Just as with understanding spurious association
+(page 143), it may help to simulate data in which two meaningful predictors act to mask one another.
+In the previous section, I showed three DAGs consistent with this. To simulate data consistent with
+the first DAG:
+R code
+5.41
+# M -> K <- N
+# M -> N
+n <- 100
+M <- rnorm( n )
+N <- rnorm( n , M )
+K <- rnorm( n , N - M )
+d_sim <- data.frame(K=K,N=N,M=M)
+You can quickly see the masking pattern of inferences by replacing dcc with d_sim in models m5.5,
+m5.6, and m5.7. Look at the precis summaries and you’ll see the same masking pattern where the
+slopes become more extreme in m5.7. The other two DAGs can be simulated like this:
+R code
+5.42
+# M -> K <- N
+# N -> M
+n <- 100
+N <- rnorm( n )
+M <- rnorm( n , N )
+K <- rnorm( n , N - M )
+d_sim2 <- data.frame(K=K,N=N,M=M)
+# M -> K <- N
+# M <- U -> N
+n <- 100
+U <- rnorm( n )
+N <- rnorm( n , U )
+M <- rnorm( n , U )
+K <- rnorm( n , N - M )
+d_sim3 <- data.frame(K=K,N=N,M=M)
+In the primate milk example, it may be that the positive association between large body size and
+neocortex percent arises from a tradeoff between lifespan and learning. Large animals tend to live
+a long time. And in such animals, an investment in learning may be a better investment, because
+learning can be amortized over a longer lifespan. Both large body size and large neocortex then
+influence milk composition, but in different directions, for different reasons. This story implies that
+the DAG with an arrow from M to N, the first one, is the right one. But with the evidence at hand,
+we cannot easily see which is right. To compute the Markov equivalence set, let’s define the first
+DAG and ask dagitty to do the hard work:

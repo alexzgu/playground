@@ -1,0 +1,63 @@
+9.4. EASY HMC: ULAM
+285
+will use. But otherwise installing Stan on your computer is the hardest part. And once you
+get comfortable with interpreting samples produced in this way, you go peek inside and see
+exactly how the model formulas you already understand correspond to the code that drives
+the Markov chain. When you use ulam, you can also use the same helper functions as quap:
+extract.samples, extract.prior, link, sim, and others.
+There are other R packages that make using Stan even easier, because they don’t require
+the full formulas that quap and ulam do. At the time of printing, the best are brms and
+rstanarm for multilevel models and blavaan for structural equation models. For learning
+about Bayesian modeling, I recommend you stick with the full and explicit formulas of ulam
+for now. The reason is that an interface that hides the model structure makes it hard to learn
+the model structure. But there is nothing wrong with moving on to simplified interfaces
+later, once you gain experience.
+To see how ulam works, let’s revisit the terrain ruggedness example from Chapter 7. This
+code will load the data and reduce it down to cases (nations) that have the outcome variable
+of interest:
+R code
+9.11
+library(rethinking)
+data(rugged)
+d <- rugged
+d$log_gdp <- log(d$rgdppc_2000)
+dd <- d[ complete.cases(d$rgdppc_2000) , ]
+dd$log_gdp_std <- dd$log_gdp / mean(dd$log_gdp)
+dd$rugged_std <- dd$rugged / max(dd$rugged)
+dd$cid <- ifelse( dd$cont_africa==1 , 1 , 2 )
+So you remember the old way, we’re going to repeat the procedure for fitting the interaction
+model. This model aims to predict log GDP with terrain ruggedness, continent, and the
+interaction of the two. Here’s the way to do it with quap, just like before.
+R code
+9.12
+m8.3 <- quap(
+alist(
+log_gdp_std ~ dnorm( mu , sigma ) ,
+mu <- a[cid] + b[cid]*( rugged_std - 0.215 ) ,
+a[cid] ~ dnorm( 1 , 0.1 ) ,
+b[cid] ~ dnorm( 0 , 0.3 ) ,
+sigma ~ dexp( 1 )
+) , data=dd )
+precis( m8.3 , depth=2 )
+mean
+sd
+5.5% 94.5%
+a[1]
+0.89 0.02
+0.86
+0.91
+a[2]
+1.05 0.01
+1.03
+1.07
+b[1]
+0.13 0.07
+0.01
+0.25
+b[2]
+-0.14 0.05 -0.23 -0.06
+sigma
+0.11 0.01
+0.10
+0.12
+Just as you saw in the previous chapter.

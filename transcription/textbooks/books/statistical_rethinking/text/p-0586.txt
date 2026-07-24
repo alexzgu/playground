@@ -1,0 +1,48 @@
+570
+ENDNOTES
+11. Lansing and Cox (2011). See objections by Hahn, Bentley, and Feldman in the peer commentary to the arti-
+cle. [7]
+12. See Cho (2011) for a December 2011 summary focusing on debates about measurement. [9]
+13. For an autopsy of the experiment, see (posted 2012) http://profmattstrassler.com/articles-and-posts/particle-
+physics-basics/ neutrinos/neutrinos-faster-than-light/opera-what-went-wrong/. [9]
+14. See Mulkay and Gilbert (1981) for many examples of “Popperism” from practicing scientists, including fa-
+mous ones. [9]
+15. For an accessible history of some measurement issues in the development of physics and biology, including
+early experiments on relativity and abiogenesis, I recommend Collins and Pinch (1998). Some scientists have
+read this book as an attack on science. However, as the authors clarify in the second edition, this was not their in-
+tention. Science makes myths, like all cultures do. That doesn’t necessarily imply that science does not work. See
+also Daston and Galison (2007), which tours concepts of objective measurement, spanning several centuries. [9]
+16. The first chapter of Sober (2008) contains a similar discussion of modus tollens. Note that the statistical phi-
+losophy of Sober’s book is quite different from that of the book you are holding. In particular, Sober is weakly
+anti-Bayesian. This is important, because it emphasizes that rejecting modus tollens as a model of statistical in-
+ference has nothing to do with any debates about Bayesian versus non-Bayesian tools. [9]
+17. Popper himself had to deal with this kind of theory, because the rise of quantum mechanics in his lifetime
+presented rather serious challenges to the notion that measurement was unproblematic. See Chapter 9 in his
+Logic of Scientific Discovery, for example. [10]
+18. See the Afterword to the 2nd edition of Collins and Pinch (1998) for examples of textbooks getting it wrong
+by presenting tidy fables about the definitiveness of evidence. [10]
+19. A great deal has been written about the sociology of science and the interface of science and public interest.
+Interested novices might begin with Kitcher (2011), Science in a Democratic Society, which has a very broad top-
+ical scope and so can serve as an introduction to many dilemmas. [10]
+20. Yes, even procedures that claim to be free of assumptions do have assumptions and are a kind of model. All
+systems of formal representation, including numbers, do not directly reference reality. For example, there is
+more than one way to construct “real” numbers in mathematics, and there are important consequences in some
+applications. In application, all formal systems are like models. See http://plato.stanford.edu/entries/philosophy-
+mathematics/ for a short overview of some different stances that can be sustained towards reasoning in mathe-
+matical systems. [10]
+21. Most scholars trace frequentism to British logician John Venn (1834–1923), as for example presented in his
+1876 book. Speaking of the proportion of male births in all births, Venn said, “probability is nothing but that
+proportion” (page 84). Venn taught Fisher some of his maths, so this may be where Fisher acquired his opposi-
+tion to Bayesian probability. Regardless, it seems to be a peculiar English invention. [11]
+22. Fisher (1956). See also Fisher (1955), the first major section of which discusses the same point. Some peo-
+ple would dispute that Fisher was a “frequentist,” because he championed his own likelihood methods over the
+methods of Neyman and Pearson. But Fisher definitely rejected the broader Bayesian approach to probability
+theory. See Endnote 27. [11]
+23. This last sentence is a rephrasing from Lindley (1971): “A statistician faced with some data often embeds it in
+a family of possible data that is just as much a product of his fantasy as is a prior distribution.” Dennis V. Lindley
+(1923–2013) was a prominent defender of Bayesian data analysis when it had very few defenders. [11]
+24. It’s hard to find an accessible introduction to image analysis, because it’s a very computational subject. At
+the intermediate level, see Marin and Robert (2007), Chapter 8. You can hum over their mathematics and still
+acquaint yourself with the different goals and procedures. See also Jaynes (1984) for spirited comments on the
+history of Bayesian image analysis and his pessimistic assessment of non-Bayesian approaches. There are better
+non-Bayesian approaches since. [11]

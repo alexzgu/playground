@@ -1,0 +1,43 @@
+xviii
+PREFACE
+# see ?cars for details
+data(cars)
+# fit a linear regression of distance on speed
+m <- lm( dist ~ speed , data=cars )
+# estimated coefficients from the model
+coef(m)
+# plot residuals against speed
+plot( resid(m) ~ speed , data=cars )
+Even those who are familiar with scripting Stata or SAS will be in for some readjust-
+ment. Programs like Stata and SAS have a different paradigm for how information is pro-
+cessed. In those applications, procedural commands like PROC GLM are issued in imitation
+of menu commands. These procedures produce a mass of default output that the user then
+sifts through. R does not behave this way. Instead, R forces the user to decide which bits of
+information she wants. One fits a statistical model in R and then must issue later commands
+to ask questions about it. This more interrogative paradigm will become familiar through the
+examples in the text. But be aware that you are going to take a more active role in deciding
+what questions to ask about your models.
+Installing the rethinking R package
+The code examples require that you have installed the rethinking R package. This
+package contains the data examples and many of the modeling tools that the text uses. The
+rethinking package itself relies upon another package, rstan, for fitting the more advanced
+models in the second half of the book.
+You should install rstan first. Navigate your internet browser to mc-stan.org and
+follow the instructions for your platform. You will need to install both a C++ compiler
+(also called the “tool chain”) and the rstan package. Instructions for doing both are at
+mc-stan.org. Then from within R, you can install rethinking and its dependencies with
+this code:
+R code
+0.5
+install.packages(c("coda","mvtnorm","devtools"))
+library(devtools)
+devtools::install_github("rmcelreath/rethinking",ref="Experimental")
+(The ref argument gives you the Experimental branch, which contains the new tools for the
+2nd edition. When the 2nd edition goes live, this will become the master branch.) Note
+that rethinking is not on the CRAN package archive, at least not yet. You’ll always be able
+to perform a simple internet search and figure out the current installation instructions for
+the most recent version of the rethinking package. If you encounter any bugs while using
+the package, you can check github.com/rmcelreath/rethinking to see if a solution is
+already posted. If not, you can leave a bug report and be notified when a solution becomes
+available. In addition, all of the source code for the package is found there, in case you aspire
+to do some tinkering of your own. Feel free to “fork” the package and bend it to your will.

@@ -1,0 +1,76 @@
+264
+8. CONDITIONAL MANATEES
+water
+blooms
+-1
+0
+1
+0
+0.5
+1
+m8.6 prior: shade = -1
+water
+blooms
+-1
+0
+1
+0
+0.5
+1
+m8.6 prior: shade = 0
+water
+blooms
+-1
+0
+1
+0
+0.5
+1
+m8.6 prior: shade = 1
+water
+blooms
+-1
+0
+1
+0
+0.5
+1
+m8.7 prior: shade = -1
+water
+blooms
+-1
+0
+1
+0
+0.5
+1
+m8.7 prior: shade = 0
+water
+blooms
+-1
+0
+1
+0
+0.5
+1
+m8.7 prior: shade = 1
+Figure 8.8. Triptych plots of prior predicted blooms across water and
+shade treatments. Top row: Without an interaction between water and
+shade. Bottom row: With an interaction between water and shade. Each
+plot shows 20 prior lines for each level of shade.
+that all three have the same slope. This is what we expect from a model without an interac-
+tion. So while the lines in the prior have lots of different slopes, the slopes for water don’t
+depend upon shade. In the bottom row, the three bolded lines again come from a single prior
+sample. But now the interaction makes the slope systematically change as shade changes.
+What can we say about these priors, overall? They are harmless, but only weakly realistic.
+Most of the lines stay within the valid outcome space. But silly trends are not rare. We could
+do better. We could also do a lot worse, such as flat priors which would consider plausible
+that even a tiny increase in shade would kill all the tulips. If you displayed these priors to your
+colleagues, a reasonable summary might be, “These priors contain no bias towards positive or
+negative effects, and at the same time they very weakly bound the effects to realistic ranges.”
+8.4. Summary
+This chapter introduced interactions, which allow for the association between a predictor
+and an outcome to depend upon the value of another predictor. While you can’t see them in
+a DAG, interactions can be important for making accurate inferences. Interactions can be
+difficult to interpret, and so the chapter also introduced triptych plots that help in visualizing
+the effect of an interaction. No new coding skills were introduced, but the statistical models

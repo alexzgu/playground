@@ -1,0 +1,30 @@
+18
+1. THE GOLEM OF PRAGUE
+support this goal, the chapter introduced Bayesian inference, model comparison, multilevel
+models, and graphical causal models. The remainder of the book is organized into four in-
+terdependent parts.
+(1) Chapters 2 and 3 are foundational. They introduce Bayesian inference and the basic
+tools for performing Bayesian calculations. They move quite slowly and emphasize
+a purely logical interpretation of probability theory.
+(2) The next four chapters, 4 through 9, build multiple linear regression as a Bayesian
+tool. This tool supports causal inference, but only when we analyze separate causal
+models that help us determine which variables to include. These chapters empha-
+size plotting results instead of attempting to interpret estimates of individual pa-
+rameters. Problems of model complexity—overfitting—also feature prominently.
+So you’ll also get an introduction to information theory and formal model compar-
+ison in Chapter 7.
+(3) The third part of the book, Chapters 9 through 12, presents generalized linear mod-
+els of several types. Chapter 9 introduces Markov chain Monte Carlo, used to fit the
+models in later chapters. Chapter 10 introduces maximum entropy as an explicit
+procedure to help us design and interpret these models. Then Chapters 11 and 12
+detail the models themselves.
+(4) The last part, Chapters 13 through 16, gets around to multilevel models, as well as
+specialized models that address measurement error, missing data, and spatial cor-
+relation. This material is fairly advanced, but it proceeds in the same mechanistic
+way as earlier material. Chapter 16 departs from the rest of the book in deploy-
+ing models which are not of the generalized linear type but are rather theoretical
+models expressed directly as statistical models.
+The final chapter, Chapter 17, returns to some of the issues raised in this first one.
+At the end of each chapter, there are practice problems ranging from easy to hard. These
+problems help you test your comprehension. The harder ones expand on the material, intro-
+ducing new examples and obstacles.

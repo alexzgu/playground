@@ -1,0 +1,36 @@
+Preface to the Second Edition
+It came as a complete surprise to me that I wrote a statistics book. It is even more sur-
+prising how popular the book has become. But I had set out to write the statistics book that
+I wish I could have had in graduate school. No one should have to learn this stuff the way I
+did. I am glad there is an audience to benefit from the book.
+It consumed 5 years to write it. There was an initial set of course notes, melted down and
+hammered into a first 200 page manuscript. I discarded that first manuscript. But it taught
+me the outline of the book I really wanted to write. Then several years of teaching with the
+manuscript further refined it.
+Really I could have continued refining it every year. Going to press carries the penalty of
+freezing a dynamic process of both learning how to teach the material and keeping up with
+changes in the material. As time goes on, I see more elements of the book that I wish I had
+done differently. I’ve also received a lot of feedback on the book, and that feedback has given
+me ideas for improving it.
+So in the second edition, I put those ideas into action. The goal with a second edition is
+only to refine the strategy that made the first edition a success. The major changes are:
+The R package has some new tools. The map tool from the first edition is still here, but now
+it is named quap. This renaming is just to avoid misunderstanding. We just used it to get a
+quadratic approximation to the posterior. So now is named as such. A bigger change is that
+map2stan has been replaced by ulam. The new ulam is very similar to map2stan, and in
+many cases can be used identically. But it is also much more flexible, mainly because it does
+not make any assumptions about GLM structure and allows explicit variable types within
+the formula list. All the map2stan code is still in the package and will continue to work.
+But now ulam allows for much more, especially in later chapters. Both of these tools allow
+sampling from the prior distribution, using extract.prior, as well as the posterior. This
+helps with the next change.
+Much more prior predictive simulation. A prior predictive simulation means simulating
+predictions from a model, using only the prior distribution instead of the posterior distri-
+bution. This is very useful for understanding the implications of a prior. There was only a
+vestigial amount of this in the first edition. Now most modeling examples have some prior
+predictive simulation. I think this is most useful addition to the second edition, since it helps
+so much with understanding not only priors but also the model itself.
+More emphasis on the distinction between prediction and inference. Chapter 5, the chap-
+ter on multiple regression, has been split into two chapters. The first chapter focuses on
+helpful aspects of regression. The second focuses on ways that it can mislead. This allows as
+xi

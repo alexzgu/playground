@@ -1,0 +1,61 @@
+128
+5. THE MANY VARIABLES & THE SPURIOUS WAFFLES
+0
+10
+20
+30
+40
+50
+6
+8
+10
+12
+14
+Waffle Houses per million
+Divorce rate
+AL
+AR
+GA
+ME
+NJ
+OK
+SC
+Figure 5.1. The number of Waffle House
+diners per million people is associated with
+divorce rate (in the year 2009) within the
+United States. Each point is a State. “South-
+ern” (former Confederate) States shown in
+blue.
+Shaded region is 89% percentile in-
+terval of the mean.
+These data are in
+data(WaffleDivorce) in the rethinking
+package.
+type of influence, we should. Furthermore, when causation is multiple, one cause
+can hide another.
+(3) Interactions. The importance of one variable may depend upon another. For ex-
+ample, plants benefit from both light and water. But in the absence of either, the
+other is no benefit at all. Such interactions occur very often. Effective inference
+about one variable will often depend upon consideration of others.
+In this chapter, we begin to deal with the first of these two, using multiple regression to
+deal with simple confounds and to take multiple measurements of association. You’ll see how
+to include any arbitrary number of main effects in your linear model of the Gaussian mean.
+These main effects are additive combinations of variables, the simplest type of multiple vari-
+able model. We’ll focus on two valuable things these models can help us with: (1) revealing
+spurious correlations like the Waffle House correlation with divorce and (2) revealing impor-
+tant correlations that may be masked by unrevealed correlations with other variables. Along
+the way, you’ll meet categorical variables, which require special handling compared
+to continuous variables.
+However, multiple regression can be worse than useless, if we don’t know how to use it.
+Just adding variables to a model can do a lot of damage. So in this chapter, we’ll begin to
+think formally about causal inference and introduce graphical causal models as a way to
+design and interpret regression models. The next chapter continues on this theme, describing
+some serious and common dangers of adding predictor variables, ending with a unifying
+framework for understanding the examples in both this chapter and the next.
+Rethinking: Causal inference. Despite its central importance, there is no unified approach to causal
+inference yet in the sciences or in statistics. There are even people who argue that cause does not
+really exist; it’s just a psychological illusion.79 And in complex dynamical systems, everything seems
+to cause everything else. “Cause” loses intuitive value. About one thing, however, there is general
+agreement: Causal inference always depends upon unverifiable assumptions. Another way to say
+this is that it’s always possible to imagine some way in which your inference about cause is mistaken,
+no matter how careful the design or analysis. A lot can be accomplished, despite this barrier.80

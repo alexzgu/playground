@@ -1,0 +1,61 @@
+3.2. SAMPLING TO SUMMARIZE
+55
+0.00
+0.25
+0.50
+0.75
+1.00
+0.0000
+0.0010
+0.0020
+proportion water (p)
+Density
+0.00
+0.25
+0.50
+0.75
+1.00
+0.0000
+0.0010
+0.0020
+proportion water (p)
+Density
+0.00
+0.25
+0.50
+0.75
+1.00
+0.0000
+0.0010
+0.0020
+proportion water (p)
+Density
+lower 80%
+0.00
+0.25
+0.50
+0.75
+1.00
+0.0000
+0.0010
+0.0020
+proportion water (p)
+Density
+middle 80%
+Figure 3.2. Two kinds of posterior interval. Top row: Intervals of defined
+boundaries. Top-left: The blue area is the posterior probability below a pa-
+rameter value of 0.5. Top-right: The posterior probability between 0.5 and
+0.75. Bottom row: Intervals of defined mass. Bottom-left: Lower 80% poste-
+rior probability exists below a parameter value of about 0.75. Bottom-right:
+Middle 80% posterior probability lies between the 10% and 90% quantiles.
+Suppose for example you want to know the boundaries of the lower 80% posterior probabil-
+ity. You know this interval starts at p = 0. To find out where it stops, think of the samples
+as data and ask where the 80th percentile lies:
+R code
+3.9
+quantile( samples , 0.8 )
+80%
+0.7607608
+This region is shown in the bottom-left plot in Figure 3.2. Similarly, the middle 80% interval
+lies between the 10th percentile and the 90th percentile. These boundaries are found using
+the same approach:

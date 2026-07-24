@@ -1,0 +1,110 @@
+CITATION INDEX
+599
+hidden Markov model, 533, 548
+hierarchical model, 415
+highest posterior density interval, 56
+Histomancy, 322
+Hybrid Monte Carlo, 278
+hyperparameters, 417
+hyperpriors, 417
+identifiable, 540
+identification, 16
+identity matrix, 494
+importance sampling, 221
+imputation, 516
+imputation, multiple, 523
+impute, 511
+index variable, 159
+indicator variable, 157
+information criteria, 13, 196, 221–223
+information criteria, multilevel models, 440
+information entropy, 28, 210, 308
+information theory, 78, 197, 208, 209
+Kullback-Leibler divergence, 211
+instrumental variable, 469, 510
+instrumental variables, 451
+instrumental variables, with dagitty, 473
+interaction, 128, 242
+interaction, continuous, 257
+inverse problem, 543
+inverse-link function, 335
+inverse-logit, 325
+Kline2, 485
+knots, 118
+large world, 19
+leapfrog steps, 279
+leave-one-out cross-validation, 221
+likelihood, 27, 33
+likelihood, average, 37
+likelihood, marginal, 37
+linear model, 95
+linear model, generalized, 320
+linear regression, 73
+link, 107, 110
+link function, 321, 324
+LKJcorr probability density, 456
+lme4, 434
+log link, 326
+log scoring rule, 208
+log-linear, 359
+log-pointwise-predictive-density, 214, 222, 223
+log_sum_exp, 226
+logistic, 325
+logistic regression, 333
+logit link, 324
+loss function, 59
+Lotka-Volterra model, 556
+lppd, 223
+main effects, 258
+Markov chain Monte Carlo, 45, 269
+Markov equivalence, 138, 155, 156
+maxent, 211
+maximum a posteriori, 59
+maximum entropy, 7, 34, 78, 211, 308
+maximum entropy classifier, 367
+maximum entropy distribution, 311
+maximum entropy, binomial distribution, 319
+maximum entropy, Gaussian, 314
+maximum entropy, Wallis derivation, 311
+maximum likelihood estimate, 44
+MCMC, 269
+MCMC, convergence, 290
+MCMC, mixing, 290
+MCMC, stationarity, 290
+mcreplicate, 217
+measurement error, 502
+measurement error, discrete, 528
+mediation, 133, 352
+Metropolis algorithm, 46, 273
+Minimum Description Length, 205
+missing at random, 516
+missing completely at random, 516
+missing data, 502
+missing not at random, 516
+missing values, discrete, 528
+misspecified, 455
+mixed effects model, 415
+mixing, MCMC, 290
+mixture model, 388
+mixture, continuous, 388
+model averaging, 233
+model block, 547
+model checking, 64, 440
+model comparison, 230
+model selection, 229
+moderation, 242
+modus tollens, 8
+MRP, 444
+multicollinearity, 167
+multilevel model, 14, 414
+multilevel model, cross-classified, 461
+multilevel model, non-centered parameterization,
+467
+multinomial distribution, 367
+multinomial logistic regression, 367
+multinomial logit, 367
+multinomial-Poisson transformation, 371
+multinomial-Poisson transformation, derivation,
+373
+multiple imputation, 523
+multiple regression, 127

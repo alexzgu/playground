@@ -1,0 +1,55 @@
+4.3. GAUSSIAN MODEL OF HEIGHT
+93
+and covariances are sufficient to describe a multi-dimensional Gaussian distribution. To see
+this matrix of variances and covariances, for model m4.1, use:
+R code
+4.32
+vcov( m4.1 )
+mu
+sigma
+mu
+0.1697395865 0.0002180593
+sigma 0.0002180593 0.0849057933
+The above is a variance-covariance matrix. It is the multi-dimensional glue of a qua-
+dratic approximation, because it tells us how each parameter relates to every other param-
+eter in the posterior distribution. A variance-covariance matrix can be factored into two
+elements: (1) a vector of variances for the parameters and (2) a correlation matrix that tells
+us how changes in any parameter lead to correlated changes in the others. This decomposi-
+tion is usually easier to understand. So let’s do that now:
+R code
+4.33
+diag( vcov( m4.1 ) )
+cov2cor( vcov( m4.1 ) )
+mu
+sigma
+0.16973959 0.08490579
+mu
+sigma
+mu
+1.000000000 0.001816412
+sigma 0.001816412 1.000000000
+The two-element vector in the output is the list of variances. If you take the square root of this
+vector, you get the standard deviations that are shown in precis output. The two-by-two
+matrix in the output is the correlation matrix. Each entry shows the correlation, bounded
+between −1 and +1, for each pair of parameters. The 1’s indicate a parameter’s correlation
+with itself. If these values were anything except 1, we would be worried. The other entries
+are typically closer to zero, and they are very close to zero in this example. This indicates
+that learning µ tells us nothing about σ and likewise that learning σ tells us nothing about
+µ. This is typical of simple Gaussian models of this kind. But it is quite rare more generally,
+as you’ll see in later chapters.
+Okay, so how do we get samples from this multi-dimensional posterior? Now instead
+of sampling single values from a simple Gaussian distribution, we sample vectors of values
+from a multi-dimensional Gaussian distribution. The rethinking package provides a con-
+venience function to do exactly that:
+R code
+4.34
+library(rethinking)
+post <- extract.samples( m4.1 , n=1e4 )
+head(post)
+mu
+sigma
+1 155.0031 7.443893
+2 154.0347 7.771255
+3 154.9157 7.822178
+4 154.4252 7.530331
+5 154.5307 7.655490

@@ -1,0 +1,59 @@
+7.5. MODEL COMPARISON
+231
+[1] -177.1724
+attr(,"pWAIC")
+[1] 3.5532
+attr(,"se")
+[1] 14.17035
+The first value is the guess for the out-of-sample deviance. The other values are (in order):
+lppd, the effective number of parameters pWAIC, and the standard error of the WAIC value.
+The Overthinking box in the previous section shows how to calculate these numbers from
+scratch. To make it easier to compare multiple models, the rethinking package provides a
+convenience function, compare:
+R code
+7.26
+set.seed(77)
+compare( m6.6 , m6.7 , m6.8 )
+WAIC pWAIC dWAIC weight
+SE
+dSE
+m6.7 361.9
+3.8
+0.0
+1 14.26
+NA
+m6.8 402.8
+2.6
+40.9
+0 11.28 10.48
+m6.6 405.9
+1.6
+44.0
+0 11.66 12.23
+(PSIS will give you almost identical values. You can add func=PSIS to the compare call to
+check.) What do all of these numbers mean? The first column contains the WAIC values.
+Smaller values are better, and the models are ordered by WAIC, from best to worst. The
+model that includes the fungus variable has the smallest WAIC, as promised. The second
+column, pWAIC, is the penalty term of WAIC. These values are close to, but slightly below,
+the number of dimensions in the posterior of each model, which is to be expected in linear
+regressions with regularizing priors.
+The next column, dWAIC, is the difference between each model’s WAIC and the best
+WAIC in the set. So it’s zero for the best model and then the differences with the other
+models tell you how far apart each is from the top model. So m6.7 is about 40 units of
+deviance smaller than both other models. The intercept model, m6.6, is 3 units worse than
+m6.8. Are these big differences or small differences? One way to answer that is to ask a clearer
+question: Are the models easily distinguished by their expected out-of-sample accuracy? To
+answer that question, we need to consider the error in the WAIC estimates. Since we don’t
+have the target sample, these are just guesses, and we know from the simulations that there
+is a lot of variation in WAIC’s error.
+That is what the last two columns, SE and dSE, are there to help us with. SE is the approx-
+imate standard error of each WAIC. In a very approximate sense, we expect out-of-sample
+accuracy to be normally distributed with mean equal to the reported WAIC value and a stan-
+dard deviation equal to the standard error. This approximation will be quite bad, when the
+sample is small. But it is still better than older criteria like AIC, which provide no way to
+gauge their error.
+Now to judge whether two models are easy to distinguish, we don’t use their standard
+errors but rather the standard error of their difference. What does that mean? Just like
+each WAIC value, each difference in WAIC values also has a standard error. To compute the
+standard error of the difference between models m6.7 and m6.8, we just need the pointwise
+breakdown of the WAIC values:

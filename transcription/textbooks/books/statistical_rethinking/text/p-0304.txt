@@ -1,0 +1,83 @@
+288
+9. MARKOV CHAIN MONTE CARLO
+Sampling durations (seconds):
+warmup sample total
+chain:1
+0.06
+0.03
+0.09
+chain:2
+0.05
+0.03
+0.09
+chain:3
+0.05
+0.03
+0.08
+chain:4
+0.05
+0.04
+0.10
+Formula:
+log_gdp_std ~ dnorm(mu, sigma)
+mu <- a[cid] + b[cid] * (rugged_std - 0.215)
+a[cid] ~ dnorm(1, 0.1)
+b[cid] ~ dnorm(0, 0.3)
+sigma ~ dexp(1)
+There were 2000 samples from all 4 chains, because each 1000 sample chain uses by deault the
+fist half of the samples to adapt. Something curious happens when we look at the summary:
+R code
+9.18
+precis( m9.1 , 2 )
+mean
+sd
+5.5% 94.5% n_eff Rhat
+a[1]
+0.89 0.02
+0.86
+0.91
+2406
+1
+a[2]
+1.05 0.01
+1.03
+1.07
+2783
+1
+b[1]
+0.13 0.07
+0.01
+0.24
+2568
+1
+b[2]
+-0.14 0.06 -0.23 -0.05
+2589
+1
+sigma
+0.11 0.01
+0.10
+0.12
+2507
+1
+If there were only 2000 samples in total, how we can have more than 2000 effective samples
+for each parameter? It’s no mistake. The adaptive sampler that Stan uses is so good, it can ac-
+tually produce sequential samples that are better than uncorrelated. They are anti-correlated.
+This means it can explore the posterior distribution so efficiently that it can beat random. It’s
+Jaynes’ rule in action.
+9.4.4. Visualization. By plotting the samples, you can get a direct appreciation for how
+Gaussian (quadratic) the actual posterior density has turned out to be. Use pairs directly on
+the model object, so that R knows to display parameter names and parameter correlations:
+R code
+9.19
+pairs( m9.1 )
+Figure 9.7 shows the resulting plot. This is a pairs plot, so it’s still a matrix of bivariate scatter
+plots. But now along the diagonal the smoothed histogram of each parameter is shown, along
+with its name. And in the lower triangle of the matrix, the correlation between each pair of
+parameters is shown, with stronger correlations indicated by relative size.
+For this model and these data, the resulting posterior distribution is quite nearly multi-
+variate Gaussian. The density for sigma is certainly skewed in the expected direction. But
+otherwise the quadratic approximation does almost as well as Hamiltonian Monte Carlo.
+This is a very simple kind of model structure of course, with Gaussian priors, so an approxi-
+mately quadratic posterior should be no surprise. Later, we’ll see some more exotic posterior
+distributions.

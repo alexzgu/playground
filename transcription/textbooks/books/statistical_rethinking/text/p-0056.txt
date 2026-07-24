@@ -1,0 +1,45 @@
+40
+2. SMALL WORLDS AND LARGE WORLDS
+2.4.3. Grid approximation. One of the simplest conditioning techniques is grid approxi-
+mation. While most parameters are continuous, capable of taking on an infinite number of
+values, it turns out that we can achieve an excellent approximation of the continuous pos-
+terior distribution by considering only a finite grid of parameter values. At any particular
+value of a parameter, p′, it’s a simple matter to compute the posterior probability: just mul-
+tiply the prior probability of p′ by the likelihood at p′. Repeating this procedure for each
+value in the grid generates an approximate picture of the exact posterior distribution. This
+procedure is called grid approximation. In this section, you’ll see how to perform a grid
+approximation, using simple bits of R code.
+Grid approximation will mainly be useful as a pedagogical tool, as learning it forces the
+user to really understand the nature of Bayesian updating. But in most of your real modeling,
+grid approximation isn’t practical. The reason is that it scales very poorly, as the number of
+parameters increases. So in later chapters, grid approximation will fade away, to be replaced
+by other, more efficient techniques. Still, the conceptual value of this exercise will carry
+forward, as you graduate to other techniques.
+In the context of the globe tossing problem, grid approximation works extremely well.
+So let’s build a grid approximation for the model we’ve constructed so far. Here is the recipe:
+(1) Define the grid. This means you decide how many points to use in estimating the
+posterior, and then you make a list of the parameter values on the grid.
+(2) Compute the value of the prior at each parameter value on the grid.
+(3) Compute the likelihood at each parameter value.
+(4) Compute the unstandardized posterior at each parameter value, by multiplying the
+prior by the likelihood.
+(5) Finally, standardize the posterior, by dividing each value by the sum of all values.
+In the globe tossing context, here’s the code to complete all five of these steps:
+R code
+2.3
+# define grid
+p_grid <- seq( from=0 , to=1 , length.out=20 )
+# define prior
+prior <- rep( 1 , 20 )
+# compute likelihood at each value in grid
+likelihood <- dbinom( 6 , size=9 , prob=p_grid )
+# compute product of likelihood and prior
+unstd.posterior <- likelihood * prior
+# standardize the posterior, so it sums to 1
+posterior <- unstd.posterior / sum(unstd.posterior)
+The above code makes a grid of only 20 points. To display the posterior distribution now:
+R code
+2.4
+plot( p_grid , posterior , type="b" ,
+xlab="probability of water" , ylab="posterior probability" )
+mtext( "20 points" )

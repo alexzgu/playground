@@ -1,0 +1,47 @@
+528
+15. MISSING DATA AND OTHER OPPORTUNITIES
+After Captain Cook, Hawaii is correctly coded with 1 for belief in moralizing gods. It is also
+a fact that Hawaii never developed its own writing system. So there is no direct evidence of
+when moralizing gods appeared in Hawaii. Any imputation model needs to decide how to
+fill in those NA values. With so much missing data, any imputation model would necessarily
+make very strong assumptions.
+The strongest assumption would be to just replace all the of the NA values with some con-
+stant, like zero. This implies a generative model in which any polity that believes in moraliz-
+ing gods will never produce a missing value. In the case of Hawaii, it assumes that moralizing
+gods appear only after Captain Cook arrives. This procedure results in biased estimates of
+time of adoption of moralizing gods, because presumably more than just Hawaii believed in
+moralizing gods before they started writing about them. You might think no analyst would
+impute missing values this way. But this sort of arbitrary imputation is not rare.218
+What else could we do? In principle we could perform a model-based imputation of
+the missing values in moralizing_gods. But we don’t have any obviously correct way to
+do this. We can’t just associate presence/absence of moralizing gods with population size,
+because that’s the very question under investigation. Assuming the answer seems like a bad
+idea. Sometimes all that statistics can do for us is confirm that we’ll just have to gather more
+evidence. Here that means doing research to replace NA values with observations.
+But if we were going to try to impute the missing values, there is another obstacle. The
+moralizing_gods variable is discrete. It can take the values of zero or one only. Whether
+imputing or dealing with measurement error, discrete variables are computationally trickier
+than continuous variables. The next section shows you how to handle them.
+Rethinking: Present details about missing data. The moralizing gods example contains a lot of
+missing data—60% of the primary exposure variable is NA. Obviously in cases like this one, it is very
+important to inform readers about missing data and carefully justify how they were handled. But
+even in more routine contexts, with more modest amounts of missing data, clear documentation
+of missing data and its treatment is necessary. This is best done with a causal model that makes
+transparent what is being assumed about the source of missing values and simultaneously justifies
+how they are handled. But the minimum is to report the counts of missing values in each variable
+and what was done with them.
+15.3. Categorical errors and discrete absences
+The examples above focused on nice continuous variables. In the section on measure-
+ment error, the variables were continuous. In the section on missing data, neocortex percent
+is continuous. When a variable is continuous, you can just assign a parameter to each un-
+known value—whether it is measured with error or rather completely missing—and let the
+Markov chain do the hard part.
+But when a variable is instead discrete—0/1 or 1,2,3,4 for example—then the Markov
+chain needs some extra tutoring. Discrete unobserved variables require discrete parameters.
+There are two issues with discrete parameters. First, a discrete variable will not produce
+a smooth surface for Hamiltonian Monte Carlo to glide around on. HMC just doesn’t do
+discrete variables. Second, other estimation approaches also have problems with discrete
+parameter spaces, because discrete jumps are difficult to calibrate. Chains tend to get stuck
+for long periods.
+But that doesn’t mean we are stuck. In almost every case, we don’t need to sample
+discrete parameters at all. Instead we can use a special technique, known to experts as a

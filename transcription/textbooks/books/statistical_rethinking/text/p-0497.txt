@@ -1,0 +1,47 @@
+14.5. CONTINUOUS CATEGORIES AND THE GAUSSIAN PROCESS
+481
+R code
+14.36
+dy1 <- apply( post$d[,,1] , 2 , mean )
+dy2 <- apply( post$d[,,2] , 2 , mean )
+plot( dy1 , dy2 )
+The result is the righthand plot in Figure 14.9. These are only posterior means—there is a
+lot of uncertainty about each dyad. But there is an astonishing amount of balance. This could
+reflect reciprocity, adjusted for overall wealth levels. Or it could reflect types of relationships
+among households, like kin obligations, that we haven’t included in the model.
+The full dataset contains a number of covariates that can be used to explain these effects:
+economic activities, relationships, distances among households. A model like this one, with
+only varying effects, can partition the variation and show us where the action is. But our goal
+is to gain some causal understanding through adding more information to the model.
+Rethinking: Where everybody knows your name. The gift example is a social network model. In
+that light, an important feature missing from this model is the transitivity of social relationships.
+If household A is friends with household B, and household C is friends with household B, then house-
+holds A and C are more likely to be friends. This isn’t magic. It just arises from unobserved factors
+that create correlated relationships. For example, people who go to the same pub tend to know one
+another. The pub is an unmeasured confound for inferring causes of social relations. Models that can
+estimate and expect transitivity can be better. This can be done using something called a stochastic
+block model. However to fit such a model, we’ll need some techniques in the next chapter.
+14.5. Continuous categories and the Gaussian process
+All of the varying effects so far, whether they were intercepts or slopes, have been de-
+fined over discrete, unordered categories. For example, cafés are unique places, and there
+is no sense in which café 1 comes before café 2. The “1” and “2” are just labels for unique
+things. The same goes for tadpole ponds, academic departments, or individual chimpanzees.
+By estimating unique parameters for each cluster of this kind, we can quantify some of the
+unique features that generate variation across clusters and covariation among the observa-
+tions within each cluster. Pooling across the clusters improves accuracy and simultaneously
+provides a picture of the variation.
+But what about continuous dimensions of variation like age or income or stature? Indi-
+viduals of the same age share some of the same exposures. They listened to some of the same
+music, heard about the same politicians, and experienced the same weather events. And
+individuals of similar ages also experienced some of these same exposures, but to a lesser
+extent than individuals of the same age. The covariation falls off as any two individuals be-
+come increasingly dissimilar in age or income or stature or any other dimension that indexes
+background similarity. It doesn’t make sense to estimate a unique varying intercept for all
+individuals of the same age, ignoring the fact that individuals of similar ages should have
+more similar intercepts. And of course, it’s likely that every individual in your sample has a
+unique age. So then continuous differences in similarity are all you have to work with.
+Luckily, there is a way to apply the varying effects approach to continuous categories of
+this kind. This will allow us to estimate a unique intercept (or slope) for any age, while still
+regarding age as a continuous dimension in which similar ages have more similar intercepts
+(or slopes). The general approach is known as Gaussian process regression.205 This
+name is unfortunately wholly uninformative about what it is for and how it works.

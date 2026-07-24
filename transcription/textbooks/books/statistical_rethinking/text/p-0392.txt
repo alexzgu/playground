@@ -1,0 +1,65 @@
+376
+11. GOD SPIKED THE INTEGERS
+So the complement is just:
+Pr(Di|λi) = exp(−λiDi)
+So that’s what we need in our model, since it is the probability of waiting Di days without
+being adopted yet.
+The model:
+Di|Ai = 1 ∼Exponential(λi)
+Di|Ai = 0 ∼Exponential-CCDF(λi)
+λi = 1/µi
+log µi = αcid[i]
+R code
+11.66
+library(rethinking)
+data(AustinCats)
+d <- AustinCats
+d$adopt <- ifelse( d$out_event=="Adoption" , 1L , 0L )
+dat <- list(
+days_to_event = as.numeric( d$days_to_event ),
+color_id = ifelse( d$color=="Black" , 1L , 2L ) ,
+adopted = d$adopt
+)
+m11.15 <- ulam(
+alist(
+days_to_event|adopted==1 ~ exponential( lambda ),
+days_to_event|adopted==0 ~ custom(exponential_lccdf( !Y | lambda )),
+lambda <- 1.0/mu,
+log(mu) <- a[color_id],
+a[color_id] ~ normal(0,1)
+), data=dat , chains=4 , cores=4 )
+precis( m11.15 , 2 )
+mean
+sd 5.5% 94.5% n_eff Rhat
+a[1] 4.05 0.03 4.01
+4.09
+1405
+1
+a[2] 3.88 0.01 3.87
+3.90
+1403
+1
+Calculate average time to adoption:
+R code
+11.67
+post <- extract.samples( m11.15 )
+post$D <- exp(post$a)
+precis( post , 2 )
+'data.frame': 2000 obs. of 4 variables:
+mean
+sd
+5.5% 94.5%
+histogram
+a[1]
+4.05 0.03
+4.01
+4.09
+▁▁▁▂▅▇▅▂▁▁
+a[2]
+3.88 0.01
+3.87
+3.90
+▁▁▂▇▇▃▁▁
+D[1] 57.44 1.47 55.11 59.77 ▁▁▁▃▇▇▅▂▁▁▁
+D[2] 48.44 0.49 47.71 49.22
+▁▁▃▇▇▂▁▁

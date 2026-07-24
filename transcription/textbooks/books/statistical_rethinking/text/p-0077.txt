@@ -1,0 +1,48 @@
+3.3. SAMPLING TO SIMULATE PREDICTION
+61
+So what are we to learn from all of this? In order to decide upon a point estimate, a
+single-value summary of the posterior distribution, we need to pick a loss function. Different
+loss functions nominate different point estimates. The two most common examples are the
+absolute loss as above, which leads to the median as the point estimate, and the quadratic
+loss (d −p)2, which leads to the posterior mean (mean(samples)) as the point estimate.
+When the posterior distribution is symmetrical and normal-looking, then the median and
+mean converge to the same point, which relaxes some anxiety we might have about choosing
+a loss function. For the original globe tossing data (6 waters in 9 tosses), for example, the
+mean and median are barely different.
+In principle, though, the details of the applied context may demand a rather unique loss
+function. Consider a practical example like deciding whether or not to order an evacuation,
+based upon an estimate of hurricane wind speed. Damage to life and property increases
+very rapidly as wind speed increases. There are also costs to ordering an evacuation when
+none is needed, but these are much smaller. Therefore the implied loss function is highly
+asymmetric, rising sharply as true wind speed exceeds our guess, but rising only slowly as
+true wind speed falls below our guess. In this context, the optimal point estimate would tend
+to be larger than posterior mean or median. Moreover, the real issue is whether or not to
+order an evacuation, and so producing a point estimate of wind speed may not be necessary
+at all.
+Usually, research scientists don’t think about loss functions. And so any point estimate
+like the mean or MAP that they may report isn’t intended to support any particular decision,
+but rather to describe the shape of the posterior. You might argue that the decision to make
+is whether or not to accept an hypothesis. But the challenge then is to say what the relevant
+costs and benefits would be, in terms of the knowledge gained or lost.60 Usually it’s better
+to communicate as much as you can about the posterior distribution, as well as the data and
+the model itself, so that others can build upon your work. Premature decisions to accept or
+reject hypotheses can cost lives.61
+It’s healthy to keep these issues in mind, if only because they remind us that many of
+the routine questions in statistical inference can only be answered under consideration of a
+particular empirical context and applied purpose. Statisticians can provide general outlines
+and standard answers, but a motivated and attentive scientist will always be able to improve
+upon such general advice.
+3.3. Sampling to simulate prediction
+Another common job for samples is to ease simulation of the model’s implied obser-
+vations. Generating implied observations from a model is useful for at least four distinct
+reasons.
+(1) Model design. We can sample not only from the posterior, but also from the prior.
+Seeing what the model expects, before the data arrive, is the best way to understand
+the implications of the prior. We’ll do a lot of this in later chapters, where there will
+be multiple parameters and so their joint implications are not always very clear.
+(2) Model checking. After a model is updated using data, it is worth simulating im-
+plied observations, to check both whether the fit worked correctly and to investi-
+gate model behavior.
+(3) Software validation. In order to be sure that our model fitting software is working,
+it helps to simulate observations under a known model and then attempt to recover
+the values of the parameters the data were simulated under.

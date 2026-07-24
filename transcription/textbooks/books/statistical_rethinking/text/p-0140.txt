@@ -1,0 +1,51 @@
+124
+4. GEOCENTRIC MODELS
+4E3. Using the model definition above, write down the appropriate form of Bayes’ theorem that
+includes the proper likelihood and priors.
+4E4. In the model definition below, which line is the linear model?
+yi ∼Normal(µ, σ)
+µi = α + βxi
+α ∼Normal(0, 10)
+β ∼Normal(0, 1)
+σ ∼Exponential(2)
+4E5. In the model definition just above, how many parameters are in the posterior distribution?
+Medium.
+4M1. For the model definition below, simulate observed y values from the prior (not the posterior).
+yi ∼Normal(µ, σ)
+µ ∼Normal(0, 10)
+σ ∼Exponential(1)
+4M2. Translate the model just above into a quap formula.
+4M3. Translate the quap model formula below into a mathematical model definition.
+flist <- alist(
+y ~ dnorm( mu , sigma ),
+mu <- a + b*x,
+a ~ dnorm( 0 , 10 ),
+b ~ dunif( 0 , 1 ),
+sigma ~ dexp( 1 )
+)
+4M4. A sample of students is measured for height each year for 3 years. After the third year, you want
+to fit a linear regression predicting height using year as a predictor. Write down the mathematical
+model definition for this regression, using any variable names and priors you choose. Be prepared to
+defend your choice of priors.
+4M5. Now suppose I remind you that every student got taller each year. Does this information lead
+you to change your choice of priors? How?
+4M6. Now suppose I tell you that the variance among heights for students of the same age is never
+more than 64cm. How does this lead you to revise your priors?
+Hard.
+4H1. The weights listed below were recorded in the !Kung census, but heights were not recorded for
+these individuals. Provide predicted heights and 89% intervals for each of these individuals. That is,
+fill in the table below, using model-based predictions.
+Individual
+weight
+expected height
+89% interval
+1
+46.95
+2
+43.72
+3
+64.78
+4
+32.59
+5
+54.63

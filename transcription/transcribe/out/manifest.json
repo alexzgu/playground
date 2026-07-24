@@ -2151,16 +2151,16 @@
  },
  "p-186": {
   "booklet_page": 307,
-  "claims": 0,
+  "claims": 1,
   "crops_given": 0,
   "hw_marks": 4,
   "insert": false,
-  "note": "content-filter stub \u2014 reproduced BDA p.307; summarized, not transcribed",
+  "note": "faithfully re-transcribed from the source scan during the 2026-07-23 audit; replaces an earlier content-filter summary",
   "status": "verified",
   "verified": {
    "fail": 0,
    "other": 0,
-   "pass": 0
+   "pass": 1
   }
  },
  "p-187": {
@@ -2221,6 +2221,7 @@
   "crops_given": 0,
   "hw_marks": 0,
   "insert": false,
+  "note": "visually rechecked during the 2026-07-23 appendix audit; corrected the R assignment operator transcription",
   "status": "verified",
   "verified": {
    "fail": 0,
@@ -2234,6 +2235,7 @@
   "crops_given": 0,
   "hw_marks": 0,
   "insert": false,
+  "note": "visually rechecked during the 2026-07-23 appendix audit; corrected a false lowercase-l reading of printed \"Import\"",
   "status": "verified",
   "verified": {
    "fail": 0,

@@ -1,0 +1,57 @@
+302
+9. MARKOV CHAIN MONTE CARLO
+R code
+9.27
+m9.5 <- ulam(
+alist(
+y ~ dnorm( mu , sigma ) ,
+mu <- a1 + a2 ,
+a1 ~ dnorm( 0 , 10 ),
+a2 ~ dnorm( 0 , 10 ),
+sigma ~ dexp( 1 )
+) , data=list(y=y) , chains=3 )
+precis( m9.5 )
+mean
+sd
+5.5% 94.5% n_eff Rhat
+a1
+0.01 7.16 -11.43 11.54
+389
+1
+a2
+0.18 7.15 -11.41 11.57
+389
+1
+sigma 1.03 0.08
+0.92
+1.17
+448
+1
+The estimates for a1 and a2 are better identified now. Well, they still aren’t individually
+identified. But their sum is identified. And take a look at the trace and trank plots in Fig-
+ure 9.12. Notice also that the model sampled a lot faster. With flat priors, m9.4, sampling
+may take 3 times as long as it does for m9.5. Often, a model that is very slow to sample is
+under-identified. This is an aspect of something Bayesian statistician Andrew Gelman calls
+the folk theorem of statistical computing: When you are having trouble fitting a
+model, it often indicates a bad model.
+In the end, adding some weakly informative priors saves this model. You might think
+you’d never accidentally try to fit an unidentified model. But you’d be wrong. Even if you
+don’t make obvious mistakes, complex models can easily become unidentified or nearly so.
+With many predictors, and especially with interactions, correlations among parameters can
+be large. Just a little prior information telling the model “none of these parameters can be 30
+million” often helps, and it has no effect on estimates. A flat prior really is flat, all the way to
+infinity. Unless you believe infinity is a reasonable estimate, don’t use a flat prior.
+Additionally, adding weak priors can speed up sampling, because the Markov chain won’t
+feel that it has to run out to extreme values that you, but not your model, already know are
+highly implausible.
+Rethinking: Hamiltonian warnings and Gibbs overconfidence. When people start using Stan, or
+some other Hamiltonian sampler, they often find that models they used to fit in Metropolis-Hastings
+and Gibbs samplers like BUGS, JAGS, and MCMCglmm no longer work well. The chains are slow.
+There are lots of warnings. Stan is really something of a nag. Is something wrong with Stan?
+No. Those problems were probably always there, even in the other tools. But since Gibbs doesn’t
+use gradients, it doesn’t notice some issues that a Hamiltonian engine will. A culture has evolved in
+applied statistics of running bad chains for a very long time—for millions of iterations—and then
+thinning aggressively, praying, and publishing. Phylogenetic analyses may be particularly prone to
+this, since tree spaces are very difficult to explore.152 Tools like Stan and other Hamiltonian engines
+are so important for reliable research precisely because they more diagnostic criteria for the accuracy
+of the Monte Carlo approximation. Don’t resent the nagging.

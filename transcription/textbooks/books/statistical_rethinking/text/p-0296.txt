@@ -1,0 +1,48 @@
+280
+9. MARKOV CHAIN MONTE CARLO
+between visits in Figure 9.5—is divided up into a number of leapfrog steps. If you choose
+many steps, the paths will be long. If you choose few, they will be short. The size of each step
+is determined by, you guessed it, the step size. The step size determines a how fine grained
+the simulation is. If the step size is small, then the particle can turn sharply. If the step size is
+large, then each leap will be large and could even overshoot the point where the simulation
+would want to turn around.
+Let’s put it all together in Figure 9.6. The code to reproduce this figure is in the Over-
+thinking box below. The left simulation uses L = 11 leapfrog steps, each with a step size of
+ϵ = 0.03. The contours show the log-posterior. It’s a symmetric bowl in this example. Only
+4 samples from the posterior distribution are shown. The chain begins at the ×. The first
+simulation gets flicked to the right and rolls downhill and then uphill again, stopping on the
+other side and taking a sample at the point labeled 1. The width of the path shows the total
+momentum, the kinetic energy, at each point.144 Each leapfrog step is indicated by the white
+dots along the path. The process repeats, with random direction and momentum in both di-
+mensions each time. You could take 100 samples here and get an excellent approximation
+with very low autocorrelation.
+However, that low autocorrelation is not automatic. The righthand plot in Figure 9.6
+shows the same code but with L = 28 leapfrog steps. Now because of the combination of
+leapfrog steps and step size, the paths tend to land close to where they started. Instead of in-
+dependent samples from the posterior, we get correlated samples, like in a Metropolis chain.
+This problem is called the U-turn problem—the simulations turn around and return to the
+same neighborhood. The U-turn problem looks especially bad in this example, because the
+posterior is a perfect 2-dimensional Gaussian bowl. So the parabolic paths always loop back
+onto themselves. In most models, this won’t be the case. But you’ll still get paths return-
+ing close to where they started. This just shows that the efficiency of HMC comes with the
+expense of having to tune the leapfrog steps and step size in each application.
+Fancy HMC samplers, like Stan and its rstan package, have two ways to deal with U-
+turns. First, they will choose the leapfrog steps and step size for you. They can do this by
+conducting a warmup phase in which they try to figure out which step size explores the
+posterior efficiently. If you are familiar with older algorithms like Gibbs sampling, which use
+a burn-in phase, warmup is not like burn-in. Technically, burn-in samples are just samples.
+They are part of the posterior. But Stan’s warmup phase, for example, does not produce
+useful samples. It is just tuning the simulation. The warmup phase tends to be slower than
+the sampling phase. So when you start using Stan, and warmup seems to be slow, in most
+cases it will speed up a lot as time goes on.
+The second thing fancy HMC samplers do is use a clever algorithm to adaptively set the
+number of leapfrog steps. These algorithms are called no-U-turn samplers, or NUTS. A
+no-U-turn sampler guess from the shape of the posterior when the path is turning around.
+Then it stops the simulation. The details are both complicated and amazing.145 Stan currently
+(as of version 2.17) uses a second-generation NUTS2 sampler. See the Stan manual for more.
+Overthinking: Hamiltonian Monte Carlo in the raw. The HMC algorithm needs five things to go:
+(1) a function U that returns the negative log-probability of the data at the current position (parameter
+values), (2) a function grad_U that returns the gradient of the negative log-probability at the current
+position, (3) a step size epsilon, (4) a count of leapfrog steps L, and (5) a starting position current_q.
+Keep in mind that the position is a vector of parameter values and that the gradient also needs to
+return a vector of the same length. So that these U and grad_U functions make more sense, let’s

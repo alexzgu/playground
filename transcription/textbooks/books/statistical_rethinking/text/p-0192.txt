@@ -1,0 +1,47 @@
+176
+6. THE HAUNTED DAG & THE CAUSAL TERROR
+variables. We might have a linear model like:
+h1,i ∼Normal(µi, σ)
+µi = h0,i × p
+where h0,i is plant i’s height at time t = 0, h1,i is its height at time t = 1, and p is a parameter
+measuring the proportion of h0,i that h1,i is. More precisely, p = h1,i/h0,i. If p = 1, the plant
+hasn’t changed at all from time t = 0 to time t = 1. If p = 2, it has doubled in height. So
+if we center our prior for p on 1, that implies an expectation of no change in height. That
+is less than we know. But we should allow p to be less than 1, in case the experiment goes
+horribly wrong and we kill all the plants. We also have to ensure that p > 0, because it is a
+proportion. Back in Chapter 4 (page 4.4.1.3), we used a Log-Normal distribution, because
+it is always positive. Let’s use one again. If we use p ∼Log-Normal(0, 0.25), the prior
+distribution looks like:
+R code
+6.14
+sim_p <- rlnorm( 1e4 , 0 , 0.25 )
+precis( data.frame(sim_p) )
+'data.frame': 10000 obs. of 1 variables:
+mean
+sd 5.5% 94.5%
+histogram
+sim_p 1.03 0.26 0.67
+1.48 ▁▃▇▇▃▁▁▁▁▁▁
+So this prior expects anything from 40% shrinkage up to 50% growth. Let’s fit this model, so
+you can see how it just measures the average growth in the experiment.
+R code
+6.15
+m6.6 <- quap(
+alist(
+h1 ~ dnorm( mu , sigma ),
+mu <- h0*p,
+p ~ dlnorm( 0 , 0.25 ),
+sigma ~ dexp( 1 )
+), data=d )
+precis(m6.6)
+mean
+sd 5.5% 94.5%
+p
+1.43 0.02 1.40
+1.45
+sigma 1.79 0.13 1.59
+1.99
+About 40% growth, on average. Now to include the treatment and fungus variables. We’ll
+include both of them, following the notion that we’d like to measure the impact of both the
+treatment and the fungus itself. The parameters for these variables will also be on the pro-
+portion scale. They will be changes in proportion growth. So we’re going to make a linear

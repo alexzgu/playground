@@ -2738,7 +2738,13 @@
    "verdict": "pass"
   }
  },
- "p-186": {},
+ "p-186": {
+  "c1": {
+   "desc": "Differentiating the transformed log posterior with respect to log \u03c4 gives \u2212(J\u22121)+\u03a3(\u03bc\u2212\u03b1\u2c7c)\u00b2/\u03c4\u00b2.",
+   "detail": "",
+   "verdict": "pass"
+  }
+ },
  "p-187": {},
  "p-188": {
   "c1": {

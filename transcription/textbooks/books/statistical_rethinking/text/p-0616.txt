@@ -1,0 +1,108 @@
+600
+CITATION INDEX
+multivariate linear model, 472
+multivariate regression, 522
+n_eff, 293
+negative binomial, 364
+negative-binomial, 385
+no pooling, 423
+no-U-turn samplers, 280
+non-centered parameterization, 435, 461, 467
+non-identifiability, 173
+number of samples, effective, 293
+NUTS, 280
+occupancy models, 511
+Ockham’s razor, 195
+omitted variable bias, 174, 328, 514
+ordered categorical, 381
+ordered categories, 392
+ordered predictor variables, 403
+ordinary differential equations, 555
+ordinary least squares, 200
+Ornstein–Uhlenbeck process, 496
+outlier, 234
+outliers, dropping, 236
+over-dispersion, 381, 382, 421, 490
+overfitting, 3, 13, 20, 196–198
+p-hacking, 100
+Pagel’s lambda, 496
+pairs, 173
+parameter, 27, 34
+parameters, 33
+parameters block, 547
+Pareto distribution, 221, 222
+partial pooling, 15, 423
+patristic distance, 491
+percentile intervals, 56
+phylogenetic regression, 491, 492
+pipe, 189
+point estimate, 58
+Poisson distribution, 323, 353
+Poisson regression, 331
+polynomial regression, 113
+pooling, 419
+post-stratification, 444
+post-treatment bias, 174
+posterior distribution, 36
+posterior predictive check, 139
+posterior predictive distribution, 65
+posterior probability, 27
+power analysis, 62
+predictor variable, 94
+prequential, 229
+principle of indifference, 26
+prior, 34
+prior predictive, 85
+prior predictive simulation, 97, 100
+prior probability, 27
+priors, 97
+process models, 5
+proportional odds, 344
+PSIS, 221
+Ptolemy, 73
+quadratic approximation, 42, 90
+quap, 42
+random effects, 415
+randomization, 28
+randomized controlled experiments, 16
+RDD, 475
+RDD-intro, 475
+regression discontinuity, 475, 525
+regularizing prior, 196, 218, 418
+relative effects, 344
+reparameterize, 434
+residuals, 322
+ridge regression, 220
+rlkjcorr, 456
+robust regression, 237, 266
+rugged, dataset, 246
+sampling distribution, 11, 64
+sensitivity analysis, 327
+shrinkage, 419, 507
+sim, 111, 113
+sim.train.test, 217
+sim_train_test, 216
+simplex, 407, 545
+Simpson’s paradox, 187, 353
+simulation, 61
+small world, 19
+social network, 481
+social relations model, 476
+softmax, 367
+spherical cow, 539
+spline, 117
+spurious correlation, 133
+Stan, 269
+standard error, 44
+standardize, 114
+Stanislaw Ulam, 270
+stargazing, 197
+start values, 91
+state space model, 533, 548, 555
+stationarity, MCMC, 290
+step size, 279
+stochastic, 80
+stochastic block model, 481
+Student’s t, 237
+subjective Bayesian, 35
+survival models, 373

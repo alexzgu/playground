@@ -9,9 +9,7 @@ CHAPTER 16
 
 One reasonable restriction of the random transposition shuffle is to only allow interchanges of adjacent cards—see Figure 16.1. Restricting the moves in this
 
-*[Figure: six playing cards in a row, face-down (cross-hatched backs) with small numbered labels 1, 2, 3, 4, 5, 6; two curved arrows beneath cards 2 and 3 pointing at each other, indicating a swap of the two neighboring cards.]*
-
-FIGURE 16.1. An adjacent transposition swaps two neighboring cards.
+**FIGURE 16.1.** An adjacent transposition swaps two neighboring cards. *[Figure: six playing cards in a row, face-down (cross-hatched backs) with small numbered labels 1, 2, 3, 4, 5, 6; two curved arrows beneath cards 2 and 3 pointing at each other, indicating a swap of the two neighboring cards.]*
 
 manner slows the shuffle down. It also breaks the symmetry of the random transpositions walk enough to require different methods of analysis.
 
@@ -192,11 +190,9 @@ Applying $\rho_{9,3}$:
 | 9 | 4 | 2 | 5 | 1 | 8 | 6 | 3 | 7 | $\Rightarrow$ | 4 | 9 | 7 | 5 | 1 | 8 | 6 | 3 | 2 |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 
-FIGURE 16.2. Applying reversals to permutations of length 9. Note that the second reversal wraps around the ends of the permutation.
+**FIGURE 16.2.** Applying reversals to permutations of length 9. Note that the second reversal wraps around the ends of the permutation.
 
-*[Figure: A circular (ring) arrangement of ten labeled nodes, read clockwise from the top: 4, 8, 3, 1, 2, 10, 7, 6, 5, 9. Adjacent nodes are joined by arcs around the ring; three of the edges — 5–6, 6–7, and 1–2 — are drawn in bold, marking the three conserved edges.]*
-
-FIGURE 16.3. The permutation $1, 3, 8, 4, 9, 5, 6, 7, 10, 2$ has three conserved edges.
+**FIGURE 16.3.** The permutation $1, 3, 8, 4, 9, 5, 6, 7, 10, 2$ has three conserved edges. *[Figure: A circular (ring) arrangement of ten labeled nodes, read clockwise from the top: 4, 8, 3, 1, 2, 10, 7, 6, 5, 9. Adjacent nodes are joined by arcs around the ring; three of the edges — 5–6, 6–7, and 1–2 — are drawn in bold, marking the three conserved edges.]*
 
 Equivalently, to perform a step in the $L$-reversal chain: choose $i \in [n]$ uniformly, and then choose $k \in [0, L-1]$ uniformly. Perform the reversal $\rho_{i,i+k}$ (which will wrap around the ends of the sequence when $i + k > n$). Note that the total probability assigned to id is $n/nL = 1/L$.
 
@@ -261,9 +257,7 @@ $$ \mathrm{Var}[U(t)] \leq [1 + o(1)]\mathbf{E}[U(t)]. \tag{16.10} $$
 
 ### PDF page 255 (book page 239)
 
-*[Figure: a horizontal strip of cells representing positions. From left to right: a cell labeled $a$, then cells with a double-headed arrow labeled $L-1$ spanning to a cell $c_1$, another $L-1$ arrow to a cell $c_2$, then "..." , then a cell $c_{d-1}$, an $L-1$ arrow to a cell $c_d$, and an arrow labeled $r$ to a cell $b$ at the right.]*
-
-FIGURE 16.4.    To express $(a\,b)$ in terms of short transpositions, first carry the marker at position $a$ over to position $b$; then perform all but the last transposition in reverse order to take the marker at position $b$ over to position $a$.
+**FIGURE 16.4.** To express $(a\,b)$ in terms of short transpositions, first carry the marker at position $a$ over to position $b$; then perform all but the last transposition in reverse order to take the marker at position $b$ over to position $a$. *[Figure: a horizontal strip of cells representing positions. From left to right: a cell labeled $a$, then cells with a double-headed arrow labeled $L-1$ spanning to a cell $c_1$, another $L-1$ arrow to a cell $c_2$, then "..." , then a cell $c_{d-1}$, an $L-1$ arrow to a cell $c_d$, and an arrow labeled $r$ to a cell $b$ at the right.]*
 
 Let $A \subseteq \mathcal{S}_n$ be the set of permutations with at least $\mathbf{E}[U(t)]/2$ conserved edges. Under the uniform distribution $\pi$ on $\mathcal{S}_n$, the event $A$ has probability less than or equal to $5/\mathbf{E}[U(t)]$, by Markov's inequality.
 
@@ -361,9 +355,7 @@ The coupling upper bound for random adjacent transpositions is described in **Al
 
 ### PDF page 258 (book page 242)
 
-*[Figure: a plot on axes. The horizontal axis is marked at $1/3$, $2/3$, and $1$; the vertical axis is marked at $1$, $2$, $3$. A line starts at height $3$ above the origin, decreases linearly to height $1$ at horizontal position $2/3$, then stays flat at height $1$ out to $1$.]*
-
-FIGURE 16.5.   When $L = n^\alpha$ and $0 < \alpha < 1$, the mixing of the $L$-reversal chain takes at least $\Omega(n^{1\vee(3-3\alpha)} \log n)$ steps. This plot shows $1 \vee (3 - 3\alpha)$.
+**FIGURE 16.5.** When $L = n^\alpha$ and $0 < \alpha < 1$, the mixing of the $L$-reversal chain takes at least $\Omega(n^{1\vee(3-3\alpha)} \log n)$ steps. This plot shows $1 \vee (3 - 3\alpha)$. *[Figure: a plot on axes. The horizontal axis is marked at $1/3$, $2/3$, and $1$; the vertical axis is marked at $1$, $2$, $3$. A line starts at height $3$ above the origin, decreases linearly to height $1$ at horizontal position $2/3$, then stays flat at height $1$ out to $1$.]*
 
 **Cancrini, Caputo, and Martinelli (2006)** showed that the relaxation time of the $L$-reversal chain is $\Theta(n^{1\vee(3-3\alpha)})$. **Morris (2009)** has proved an upper bound on the mixing time that is only $O(\log^2 n)$ larger than Durrett's conjecture.
 

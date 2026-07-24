@@ -1,0 +1,53 @@
+Bibliography
+591
+Schwarz, G. E. (1978). Estimating the dimension of a model. Annals of Statistics, 6:461–464.
+Sedlemeier, P. and Gigerenzer, G. (1989). Do studies of statistical power have an effect on the power
+of studies? Psychological Bulletin, 105(2):309–316.
+Senn, S. (2003). A conversation with John Nelder. Statistical Science, 18:118–131.
+Shannon, C. E. (1948). A mathematical theory of communication. The Bell System Technical Journal,
+27:379–423.
+Shannon, C. E. (1956). The bandwagon. IRE Transactions: on Information Theory, 2:3.
+Silk, J. B., Brosnan, S. F., Vonk, J., Henrich, J., Povinelli, D. J., Richardson, A. S., Lambeth, S. P., Mas-
+caro, J., and Schapiro, S. J. (2005). Chimpanzees are indifferent to the welfare of unrelated group
+members. Nature, 437:1357–1359.
+Silver, N. (2012). The Signal and the Noise: Why So Many Predictions Fail—but Some Don’t. Penguin
+Press, New York.
+Simmons, J. P., Nelson, L. D., and Simonsohn, U. (2011). False-positive psychology: Undisclosed
+flexibility in data collection and analysis allows presenting anything as significant. Psychological
+Science, 22:1359–1366.
+Simmons, J. P., Nelson, L. D., and Simonsohn, U. (2013). Life after p-hacking. SSRN Scholarly Paper
+ID 2205186, Social Science Research Network, Rochester, NY.
+Simon, H. (1969). The Sciences of the Artificial. MIT Press, Cambridge, Mass.
+Simpson, E. H. (1951). The interpretation of interaction in contingency tables. Journal of the Royal
+Statistical Society, Series B, 13:238–241.
+Skilling, J. and Knuth, K. H. (2019). The symmetrical foundation of measure, probability, and quan-
+tum theories. Annalen der Physik, 531:1800057.
+Smaldino, P. (2017). Models are stupid, and we need more of them. In Vallacher, R. R., Read, S. J.,
+and Nowak, A., editors, Computational Social Psychology, chapter 14.
+Sober, E. (2008). Evidence and Evolution: The logic behind the science. Cambridge University Press,
+Cambridge.
+Speed, T. (1986). Questions, answers and statistics. In International Conference on Teaching Statistics
+2. International Association for Statistical Education.
+Stein, C. (1955). Inadmissibility of the usual estimator for the mean of a multivatiate normal distri-
+bution. In Proceedings of the Third Berkeley Symposium of Mathematical Statistics and Probability,
+volume 1, pages 197–206, Berkeley. University of California Press.
+Taleb, N. N. (2007). The Black Swan: the Impact of the Highly Improbable. Random House, New York.
+Theobald, D. L. (2010). A formal test of the theory of universal common ancestry. Nature, 465:219–
+222.
+Thistlethwaite, D. and Campbell, D. (1960). Regression-discontinuity analysis: An alternative to the
+ex post facto experiment. Journal of Educational Psychology, 51:309–317.
+Uhlenbeck, G. E. and Ornstein, L. S. (1930). On the theory of the brownian motion. Phys. Rev.,
+36:823–841.
+Uyeda, J. C., Zenil-Ferguson, R., and Pennell, M. W. (2018). Rethinking phylogenetic comparative
+methods. Systematic Biology, 67(6):1091–1109.
+Van Horn, K. S. (2003). Constructing a logic of plausible inference: A guide to Cox’s theorem guide
+to Cox’s theorem. International Journal of Approximate Reasoning, 34:3–24.
+van Leeuwen, E. J. C., Cohen, E., Collier-Baker, E., Rapold, C. J., Schäfer, M., Schütte, S., and Haun,
+D. B. M. (2018). The development of human social learning across seven societies. Nature Com-
+munications, 9(1):2076.
+van Smeden, M., Lash, T. L., and Groenwold, R. H. H. (2019). Five myths about measurement error
+in epidemiologic research. doi:10.17605/OSF.IO/MSX8D.
+Vehtari, A., Gelman, A., and Gabry, J. (2016). Practical bayesian model evaluation using leave-one-
+out cross-validation and waic. Statistics and Computing, 27(5):1413–1432.
+Vehtari, A., Gelman, A., Simpson, D., Carpenter, B., and Bürkner, P.-C. (2019a). Rank-normalization,
+folding, and localization: An improved bR for assessing convergence of mcmc.

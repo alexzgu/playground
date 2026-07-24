@@ -1,0 +1,81 @@
+14.4. SOCIAL RELATIONS AS CORRELATED VARYING EFFECTS
+477
+Together, this all implies that each household H needs varying effects, a gH and a rH. In
+addition each dyad AB has two varying effects, dAB and dBA. We want to allow the g and r
+parameters to be correlated—do people who give a lot also get a lot? We also want to allow the
+dyad effects to be correlated—is there balance within dyads? We can do all of this with two
+difference multi-normal priors. The first will represent the population of household effects:
+
+gi
+ri
+
+∼MVNormal
+
+0
+0
+
+,
+
+σ2
+g
+σgσrρgr
+σgσrρgr
+σ2
+r
+
+For any household i, a pair of g and r parameters are assigned a prior with a typical covariance
+matrix with two standard deviations and a correlation parameter. There’s nothing new here.
+The second multi-normal prior will represent the population of dyad effects:
+
+dij
+dji
+
+∼MVNormal
+
+0
+0
+
+,
+
+σ2
+d
+σ2
+dρd
+σ2
+dρd
+σ2
+d
+
+For a dyad with households i and j, there is a pair of dyad effects with a prior with another
+covariance matrix. But this matrix is funny. Take a close look and you’ll see that there is only
+one standard deviation parameter, σd. Why? Because the labels in each dyad are arbitrary.
+It isn’t meaningful which household comes first or second. So both parameters must have
+the same variance. But we do want to estimate their correlation, and that is what ρd will do
+for us. If ρd is positive, then when one household gives more within a dyad, so too does the
+other. If ρd is negative, then when one households gives more, the other gives less. If ρd is
+instead near zero, then there is no pattern within dyads.
+Let’s build this model now. We need to construct the dyad covariance matrix in a custom
+way, and we need to be careful with indexing the varying effects. Here is the model:
+R code
+14.31
+kl_data <- list(
+N = nrow(kl_dyads),
+N_households = max(kl_dyads$hidB),
+did = kl_dyads$did,
+hidA = kl_dyads$hidA,
+hidB = kl_dyads$hidB,
+giftsAB = kl_dyads$giftsAB,
+giftsBA = kl_dyads$giftsBA
+)
+m14.7 <- ulam(
+alist(
+giftsAB ~ poisson( lambdaAB ),
+giftsBA ~ poisson( lambdaBA ),
+log(lambdaAB) <- a + gr[hidA,1] + gr[hidB,2] + d[did,1] ,
+log(lambdaBA) <- a + gr[hidB,1] + gr[hidA,2] + d[did,2] ,
+a ~ normal(0,1),
+## gr matrix of varying effects
+vector[2]:gr[N_households] ~ multi_normal(0,Rho_gr,sigma_gr),
+Rho_gr ~ lkj_corr(4),
+sigma_gr ~ exponential(1),
+## dyad effects

@@ -1,0 +1,60 @@
+114
+4. GEOCENTRIC MODELS
+str(d)
+'data.frame': 544 obs. of
+4 variables:
+$ height: num
+152 140 137 157 145 ...
+$ weight: num
+47.8 36.5 31.9 53 41.3 ...
+$ age
+: num
+63 63 65 41 51 35 32 27 19 54 ...
+$ male
+: int
+1 0 0 1 0 1 0 1 0 1 ...
+Go ahead and plot height against weight. The relationship is visibly curved, now that we’ve
+included the non-adult individuals.
+The most common polynomial regression is a parabolic model of the mean:
+µi = α + β1xi + β2x2
+i
+The above is a parabolic (second order) polynomial. The α + β1xi part is the same linear
+function of x in a linear regression, just with a little “1” subscript added to the parameter
+name, so we can tell it apart from the new parameter. The additional term uses the square
+of xi to construct a parabola, rather than a perfectly straight line. The new parameter β2
+measures the curvature of the relationship.
+Fitting these models to data is easy. Interpreting them can be hard. We’ll begin with
+the easy part, fitting a parabolic model of height on weight. The first thing to do is to stan-
+dardize the predictor variable. We’ve done this is previous examples. But this is especially
+helpful for working with polynomial models. When predictor variables have very large val-
+ues in them, there are sometimes numerical glitches. Even well-known statistical software
+can suffer from these glitches, leading to mistaken estimates. These problems are very com-
+mon for polynomial regression, because the square or cube of a large number can be truly
+massive. Standardizing largely resolves this issue. It should be your default behavior.
+To define the parabolic model, just modify the definition of µi. Here’s the model:
+hi ∼Normal(µi, σ)
+height ~ dnorm(mu,sigma)
+µi = α + β1xi + β2x2
+i
+mu <- a + b1*weight.s + b2*weight.s^2
+α ∼Normal(178, 20)
+a ~ dnorm(178,20)
+β1 ∼Log-Normal(0, 1)
+b1 ~ dlnorm(0,1)
+β2 ∼Normal(0, 1)
+b2 ~ dnorm(0,1)
+σ ∼Uniform(0, 50)
+sigma ~ dunif(0,50)
+The confusing issue here is assigning a prior for β2, the parameter on the squared value of
+x. Unlike β1, we don’t want a positive constraint. In the problems at the end of the chapter,
+you’ll use prior predictive simulation to understand why. These polynomial parameters are
+in general very difficult to set realistic priors for, which is another reason to avoid polynomial
+models.
+Approximating the posterior is straightforward. Just modify the definition of mu so that
+it contains both the linear and quadratic terms. But in general it is better to pre-process any
+variable transformations. So I’ll also build the square of weight.s as a separate variable:
+R code
+4.65
+d$weight_s <- ( d$weight - mean(d$weight) )/sd(d$weight)
+d$weight_s2 <- d$weight_s^2
+m4.5 <- quap(

@@ -1,0 +1,54 @@
+430
+13. MODELS WITH MEMORY
+that adapts the amount of pooling across units, be they actors or blocks. These are σα and σγ,
+respectively. Finally, note that there is only one global mean parameter ¯α. We can’t identify a
+separate mean for each varying intercept type, because both intercepts are added to the same
+linear prediction. If you do include a mean for each cluster type, it won’t be the end of the
+world, however. It’ll be like the right leg and left leg example from Chapter 6.
+Now to run the model that uses both actor and block:
+R code
+13.21
+library(rethinking)
+data(chimpanzees)
+d <- chimpanzees
+d$treatment <- 1 + d$prosoc_left + 2*d$condition
+dat_list <- list(
+pulled_left = d$pulled_left,
+actor = d$actor,
+block_id = d$block,
+treatment = as.integer(d$treatment) )
+set.seed(13)
+m13.4 <- ulam(
+alist(
+pulled_left ~ dbinom( 1 , p ) ,
+logit(p) <- a[actor] + g[block_id] + b[treatment] ,
+b[treatment] ~ dnorm( 0 , 0.5 ),
+## adaptive priors
+a[actor] ~ dnorm( a_bar , sigma_a ),
+g[block_id] ~ dnorm( 0 , sigma_g ),
+## hyper-priors
+a_bar ~ dnorm( 0 , 1.5 ),
+sigma_a ~ dexp(1),
+sigma_g ~ dexp(1)
+) , data=dat_list , chains=4 , cores=4 , log_lik=TRUE )
+You’ll end up with 2000 samples from 4 independent chains. As always, be sure to inspect the
+trace plots and the diagnostics. As soon as you start trusting the machine, the machine will
+betray your trust. In this case, you should see a warning about divergent transitions:
+Warning messages:
+1: There were 22 divergent transitions after warmup.
+The model did actually sample fine. But these warnings indicate that it had some trouble
+efficiently exploring the posterior. In the next section, I’ll show you how to fix this. For now,
+we can keep moving and interpret the posterior.
+This is easily the most complicated model we’ve used in the book so far. So let’s look at
+the posterior and take note of a few important features:
+R code
+13.22
+precis( m13.4 , depth=2 )
+plot( precis(m13.4,depth=2) ) # also plot
+mean
+sd
+5.5% 94.5% n_eff Rhat
+b[1]
+-0.12 0.30 -0.59
+0.39
+158 1.03

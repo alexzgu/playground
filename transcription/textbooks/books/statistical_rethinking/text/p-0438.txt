@@ -1,0 +1,46 @@
+422
+13. MODELS WITH MEMORY
+such cases, the trace plot for the variance parameters may swing around over very large values. It
+can do this, because the exponential prior has a long tail. Such large values are typically a priori im-
+possible. Often, the chain will still sample validly, but it might be highly inefficient, exhibiting small
+n_eff values and possibly many divergent transitions.
+To improve such a model, instead of using exponential priors for the variance components, you
+can use half-Normal priors or some other prior with a thin tail. A half-Normal is a Normal distribu-
+tion with all mass above zero. It is just cut off below zero. For example:
+Si ∼Binomial(Ni, pi)
+logit(pi) = αtank[i]
+αj ∼Normal(¯α, σ)
+α ∼Normal(0, 1.5)
+σ ∼Half-Normal(0, 1)
+Inside an ulam formula, you’d use dhalfnorm. Inside a Stan model, you just assign a lower bound to
+the parameter of lower=0.
+13.2. Varying effects and the underfitting/overfitting trade-off
+Varying intercepts are just regularized estimates, but adaptively regularized by estimat-
+ing how diverse the clusters are while estimating the features of each cluster. This fact is not
+easy to grasp, so if it still seems mysterious, this section aims to further relate the properties
+of multilevel estimates to the foundational underfitting/overfitting dilemma from Chapter 7.
+A major benefit of using varying effects estimates, instead of the empirical raw estimates,
+is that they provide more accurate estimates of the individual cluster (tank) intercepts.191 On
+average, the varying effects actually provide a better estimate of the individual tank (cluster)
+means. The reason that the varying intercepts provide better estimates is that they do a better
+job of trading off underfitting and overfitting.
+To understand this in the context of the reed frog example, suppose that instead of exper-
+imental tanks we had natural ponds, so that we might be concerned with making predictions
+for the same clusters in the future. We’ll approach the problem of predicting future survival
+in these ponds, from three perspectives:
+(1) Complete pooling. This means we assume that the population of ponds is invariant,
+the same as estimating a common intercept for all ponds.
+(2) No pooling. This means we assume that each pond tells us nothing about any other
+pond. This is the model with amnesia.
+(3) Partial pooling. This means using an adaptive regularizing prior, as in the previous
+section.
+First, suppose you ignore the varying intercepts and just use the overall mean across all
+ponds, α, to make your predictions for each pond. A lot of data contributes to your estimate
+of α, and so it can be quite precise. However, your estimate of α is unlikely to exactly match
+the mean of any particular pond. As a result, the total sample mean underfits the data. This
+is the complete pooling approach, pooling the data from all ponds to produce a single
+estimate that is applied to every pond. This sort of model is equivalent to assuming that the
+variation among ponds is zero—all ponds are identical.
+Second, suppose you use the survival proportions for each pond to make predictions.
+This means using a separate intercept for each pond. The blue points in Figure 13.1 are this
+same kind of estimate. In each particular pond, quite little data contributes to each estimate,

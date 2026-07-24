@@ -1,0 +1,49 @@
+66
+3. SAMPLING THE IMAGINARY
+0.1
+0.2
+0.3
+0.4
+0.5
+0.6
+0.7
+0.8
+0.9
+probability of water
+0
+0.5
+1
+number of water samples
+0
+3
+6
+9
+Posterior probability
+Sampling distributions
+Posterior predictive 
+distribution
+Figure 3.6. Simulating predictions from the total posterior. Top: The fa-
+miliar posterior distribution for the globe tossing data. Ten example pa-
+rameter values are marked by the vertical lines. Values with greater poste-
+rior probability indicated by thicker lines. Middle row: Each of the ten pa-
+rameter values implies a unique sampling distribution of predictions. Bot-
+tom: Combining simulated observation distributions for all parameter val-
+ues (not just the ten shown), each weighted by its posterior probability, pro-
+duces the posterior predictive distribution. This distribution propagates un-
+certainty about parameter to uncertainty about prediction.
+theoretical maximum is nine. You can use simplehist(w) (in the rethinking package) to
+get a clean histogram of your simulated outcomes.
+All you need to propagate parameter uncertainty into these predictions is replace the
+value 0.6 with samples from the posterior:
+R code
+3.26
+w <- rbinom( 1e4 , size=9 , prob=samples )
+The symbol samples above is the same list of random samples from the posterior distribu-
+tion that you’ve used in previous sections. For each sampled value, a random binomial obser-
+vation is generated. Since the sampled values appear in proportion to their posterior proba-
+bilities, the resulting simulated observations are averaged over the posterior. You can manip-
+ulate these simulated observations just like you manipulate samples from the posterior—you
+can compute intervals and point statistics using the same procedures. If you plot these sam-
+ples, you’ll see the distribution shown in the right-hand plot in Figure 3.6.
+The simulated model predictions are quite consistent with the observed data in this
+case—the actual count of 6 lies right in the middle of the simulated distribution. There is

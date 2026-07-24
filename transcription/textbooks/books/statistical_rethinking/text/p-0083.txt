@@ -1,0 +1,54 @@
+3.3. SAMPLING TO SIMULATE PREDICTION
+67
+G
+2
+4
+6
+8
+0
+500
+1500
+2500
+longest run length
+Frequency
+G
+0
+2
+4
+6
+8
+0
+500
+1500
+2500
+number of switches
+Frequency
+Figure 3.7. Alternative views of the same posterior predictive distribution
+(see Figure 3.6). Instead of considering the data as the model saw it, as
+a sum of water samples, now we view the data as both the length of the
+maximum run of water or land (left) and the number of switches between
+water and land samples (right). Observed values highlighted in blue. While
+the simulated predictions are consistent with the run length (3 water in a
+row), they are much less consistent with the frequent switches (6 switches
+in 9 tosses).
+quite a lot of spread to the predictions, but a lot of this spread arises from the binomial pro-
+cess itself, not uncertainty about p. Still, it’d be premature to conclude that the model is
+perfect. So far, we’ve only viewed the data just as the model views it: Each toss of the globe
+is completely independent of the others. This assumption is questionable. Unless the person
+tossing the globe is careful, it is easy to induce correlations and therefore patterns among
+the sequential tosses. Consider for example that about half of the globe (and planet) is cov-
+ered by the Pacific Ocean. As a result, water and land are not uniformly distributed on the
+globe, and therefore unless the globe spins and rotates enough while in the air, the position
+when tossed could easily influence the sample once it lands. The same problem arises in coin
+tosses, and indeed skilled individuals can influence the outcome of a coin toss, by exploiting
+the physics of it.62
+So with the goal of seeking out aspects of prediction in which the model fails, let’s look
+at the data in two different ways. Recall that the sequence of nine tosses was W L W W W L
+W L W. First, consider the length of the longest run of either water or land. This will provide
+a crude measure of correlation between tosses. So in the observed data, the longest run is 3
+W’s. Second, consider the number of times in the data that the sample switches from water
+to land or from land to water. This is another measure of correlation between samples. In
+the observed data, the number of switches is 6. There is nothing special about these two new
+ways of describing the data. They just serve to inspect the data in new ways. In your own
+modeling, you’ll have to imagine aspects of the data that are relevant in your context, for
+your purposes.

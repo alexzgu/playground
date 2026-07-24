@@ -1,0 +1,48 @@
+14.1. VARYING SLOPES BY CONSTRUCTION
+459
+R code
+14.15
+# compute posterior mean bivariate Gaussian
+Mu_est <- c( mean(post$a) , mean(post$b) )
+rho_est <- mean( post$Rho[,1,2] )
+sa_est <- mean( post$sigma_cafe[,1] )
+sb_est <- mean( post$sigma_cafe[,2] )
+cov_ab <- sa_est*sb_est*rho_est
+Sigma_est <- matrix( c(sa_est^2,cov_ab,cov_ab,sb_est^2) , ncol=2 )
+# draw contours
+library(ellipse)
+for ( l in c(0.1,0.3,0.5,0.8,0.99) )
+lines(ellipse(Sigma_est,centre=Mu_est,level=l),
+col=col.alpha("black",0.2))
+The result appears on the left in Figure 14.5. The blue points are the unpooled estimates for
+each café. The open points are the posterior means from the varying effects model. A line
+connects the points that belong to the same café. Each open point is displaced from the blue
+towards the center of the contours, as a result of shrinkage in both dimensions. Blue points
+farther from the center experience more shrinkage, because they are less plausible, given the
+inferred population.
+But notice too that shrinkage is not in direct lines towards the center. This is most ob-
+vious for the café that appears in the top-middle of the plot. That particular café had an
+average intercept, so it lies in the middle of the horizontal axis. But it also had an unusu-
+ally high slope, so it lies at the top of the vertical axis. Pooled information from the other
+cafés results in skepticism about the slope. But since intercepts and slopes are correlated in
+the population as a whole, shrinking the slope down also shrinks the intercept. So all those
+angled shrinkage lines reflect the negative correlation between intercepts and slopes.
+The right-hand plot in Figure 14.5 displays the same information, but now on the out-
+come scale. You can compute these average outcomes from knowledge of the linear model:
+R code
+14.16
+# convert varying effects to waiting times
+wait_morning_1 <- (a1)
+wait_afternoon_1 <- (a1 + b1)
+wait_morning_2 <- (a2)
+wait_afternoon_2 <- (a2 + b2)
+# plot both and connect with lines
+plot( wait_morning_1 , wait_afternoon_1 , xlab="morning wait" ,
+ylab="afternoon wait" , pch=16 , col=rangi2 ,
+ylim=c( min(wait_afternoon_1)-0.1 , max(wait_afternoon_1)+0.1 ) ,
+xlim=c( min(wait_morning_1)-0.1 , max(wait_morning_1)+0.1 ) )
+points( wait_morning_2 , wait_afternoon_2 , pch=1 )
+for ( i in 1:N_cafes )
+lines( c(wait_morning_1[i],wait_morning_2[i]) ,
+c(wait_afternoon_1[i],wait_afternoon_2[i]) )
+abline( a=0 , b=1 , lty=2 )

@@ -1,0 +1,62 @@
+15.2. MISSING DATA
+525
+Religion is a human universal, as common among human societies as walking on two
+legs and naming stars. Anthropologists, archaeologists, and scholars of religion are some-
+times curious about the impact of religious beliefs on the welfare of human societies. Some
+of the most successful religious traditions involve gods (and other supernatural entities) that
+enforce moral norms. For example, in the Abrahamic traditions, God punishes the wicked
+and rewards the just. Such gods might be called “moralizing gods.” In other traditions, gods
+behave in their own self-interest, with no interest in encouraging humans to cooperate with
+one another. Does such a difference in belief have any consequences for the society? For ex-
+ample, if people who believe in a moralizing god are better at cooperating with one another,
+then maybe societies that believe in moralizing gods grow faster and tend to replace societies
+with less moralizing gods.
+Let’s look at a set of historical data that was used to evaluate this idea.217
+R code
+15.24
+data(Moralizing_gods)
+str(Moralizing_gods)
+'data.frame': 864 obs. of
+5 variables:
+$ polity
+: Factor w/ 30 levels "Big Island Hawaii",..: 1 1 1 1 1 1 ...
+$ year
+: int
+1000 1100 1200 1300 1400 1500 1600 1700 1800 -600 ...
+$ population
+: num
+3.73 3.73 3.6 4.03 4.31 ...
+$ moralizing_gods: int
+NA NA NA NA NA NA NA NA 1 NA ...
+$ writing
+: int
+0 0 0 0 0 0 0 0 0 0 ...
+These data are population sizes (on the log scale) of different regions (polity) in differ-
+ent centuries (year). The key explanatory variable is moralizing_gods, which indicates
+whether members of a society believed in supernatural enforcement of morality (1), did not
+believe (0), or there is insufficient evidence for assigning a value (NA). This last value (NA)
+is usually associated with lack of any written evidence about religious belief. There is also an
+indicator variable for literacy (writing).
+Does belief in moralizing gods increase the rate of population growth? This is a difficult
+causal query. There are plausibly many unobserved confounds that could produce a non-
+causal association between population growth rate and the content of religious traditions.
+And belief in moralizing gods may not produce an immediately detectable increase in pop-
+ulation. Instead the causal effect could work over long time periods or only during periods
+of conflict or ecological stress. Minimally, what we need is some comparison of popula-
+tion growth rates before and after each society adopts moralizing gods. This is not a causal
+identification strategy that does anything about confounds—the appearance of moralizing
+gods and larger populations could still be driven by other (unmeasured) variables. There is
+no sense in which we can think of the year that moralizing gods appear as being a random
+treatment, in the sense of a regression discontinuity (Chapter 14, page ??). But if we
+playfully assume that there are no confounds, how should we go about this analysis?
+The first obstacle is that there are a lot of missing values in the moralizing_gods vari-
+able. This prevents us from knowing exactly when (if ever) each society adopts belief in
+moralizing gods. How many values are missing? Let’s count:
+R code
+15.25
+table( Moralizing_gods$moralizing_gods , useNA="always" )
+0
+1 <NA>
+17
+319
+528

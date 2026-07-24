@@ -1,0 +1,56 @@
+272
+9. MARKOV CHAIN MONTE CARLO
+0
+20
+40
+60
+80
+100
+2
+4
+6
+8
+10
+week
+island
+2
+4
+6
+8
+10
+0
+5000
+10000
+15000
+island
+number of weeks
+Figure 9.2. Results of the king following the Metropolis algorithm. The
+left-hand plot shows the king’s position (vertical axis) across weeks (hori-
+zontal axis). In any particular week, it’s nearly impossible to say where the
+king will be. The right-hand plot shows the long-run behavior of the algo-
+rithm, as the time spent on each island turns out to be proportional to its
+population size.
+proposal of “0” loops around to island 10. Finally, a random number between zero and one
+is generated (runif(1)), and the king moves, if this random number is less than the ratio of
+the proposal island’s population to the current island’s population (proposal/current).
+You can see the results of this simulation in Figure 9.2. The left-hand plot shows the
+king’s location across the first 100 weeks of his simulated travels.
+R code
+9.2
+plot( 1:100 , positions[1:100] )
+As you move from the left to the right in this plot, the points show the king’s location through
+time. The king travels among islands, or sometimes stays in place for a few weeks. This plot
+demonstrates the seemingly pointless path the Metropolis algorithm sends the king on. The
+right-hand plot shows that the path is far from pointless, however.
+R code
+9.3
+plot( table( positions ) )
+The horizontal axis is now islands (and their relative populations), while the vertical is the
+number of weeks the king is found on each. After the entire 100,000 weeks (almost 2000
+years) of the simulation, you can see that the proportion of time spent on each island con-
+verges to be almost exactly proportional to the relative populations of the islands.
+The algorithm will still work in this way, even if we allow the king to be equally likely
+to propose a move to any island from any island, not just among neighbors. As long as
+King Markov still uses the ratio of the proposal island’s population to the current island’s
+population as his probability of moving, in the long run, he will spend the right amount of
+time on each island. The algorithm would also work for any size archipelago, even if the king

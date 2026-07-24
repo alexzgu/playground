@@ -73,9 +73,7 @@ $$ \Phi_\star := \min_{S \,:\, \pi(S) \leq \frac{1}{2}} \Phi(S). \tag{7.7} $$
 
 ### PDF page 106 (book page 90)
 
-*[Figure: two interlocking circular-torus graphs joined at a single point, each a dense mesh of vertices and edges wrapped around a torus. Figure: two side-by-side "glued" tori meeting at one shared vertex.]*
-
-FIGURE 7.2. Two "glued" two-dimensional tori.
+**FIGURE 7.2.** Two "glued" two-dimensional tori. *[Figure: two side-by-side circular-torus graphs, each a dense mesh of vertices and edges, meeting at one shared vertex.]*
 
 For simple random walk on a graph with vertices $\mathcal{X}$ and edge set $E$,
 
@@ -111,9 +109,7 @@ If $\pi(A) \leq 1/2$ and $t < 1/[4\Phi(A)]$, then $d(t) > 1/4$. Therefore, $t_{\
 
 ### PDF page 107 (book page 91)
 
-*[Figure: a star graph — one central vertex connected by straight edges to 10 outer vertices radiating in all directions.]*
-
-FIGURE 7.3. The star graph with 11 vertices.
+**FIGURE 7.3.** The star graph with 11 vertices. *[Figure: a star graph — one central vertex connected by straight edges to 10 outer vertices radiating in all directions.]*
 
 EXAMPLE 7.5 (Two glued tori). Consider the graph consisting of two copies of the $d$-dimensional torus $\mathbb{Z}_n^d$ "glued" together at a single vertex $v^\star$; see Figure 7.2 for an example of dimension two. Denote by $V_1$ and $V_2$ the sets of vertices in the right and left tori, respectively. Note that $V_1 \cap V_2 = \{v^\star\}$. Let $A = V_1 \setminus \{v^\star\}$.
 

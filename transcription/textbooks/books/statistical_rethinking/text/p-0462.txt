@@ -1,0 +1,55 @@
+446
+13. MODELS WITH MEMORY
+13E5. Write an example mathematical model formula for a Poisson regression with two different
+kinds of varying intercepts, a cross-classified model.
+Medium.
+13M1. Revisit the Reed frog survival data, data(reedfrogs), and add the predation and size
+treatment variables to the varying intercepts model. Consider models with either main effect alone,
+both main effects, as well as a model including both and their interaction. Instead of focusing on
+inferences about these two predictor variables, focus on the inferred variation across tanks. Explain
+why it changes as it does across models.
+13M2. Compare the models you fit just above, using WAIC. Can you reconcile the differences in
+WAIC with the posterior distributions of the models?
+13M3. Re-estimatethe basic Reed frog varying intercept model, butnow using a Cauchy distribution
+in place of the Gaussian distribution for the varying intercepts. That is, fit this model:
+si ∼Binomial(ni, pi)
+logit(pi) = αtank[i]
+αtank ∼Cauchy(α, σ)
+α ∼Normal(0, 1)
+σ ∼Exponential(1)
+Compare the posterior means of the intercepts, αtank, to the posterior means produced in the chapter,
+using the customary Gaussian prior. Can you explain the pattern of differences?
+13M4. Modify the cross-classified chimpanzees model m13.4 so that the adaptive prior for blocks
+contains a parameter ¯γ for its mean:
+γj ∼Normal(¯γ, σγ)
+¯γ ∼Normal(0, 1.5)
+Compare this model to m13.4. What has including ¯γ done?
+Hard.
+13H1. In 1980, a typical Bengali woman could have 5 or more children in her lifetime. By the
+year 2000, a typical Bengali woman had only 2 or 3. You’re going to look at a historical set of data,
+when contraception was widely available but many families chose not to use it. These data reside in
+data(bangladesh) and come from the 1988 Bangladesh Fertility Survey. Each row is one of 1934
+women. There are six variables, but you can focus on three of them for this practice problem:
+(1) district: ID number of administrative district each woman resided in
+(2) use.contraception: An indicator (0/1) of whether the woman was using contraception
+(3) urban: An indicator (0/1) of whether the woman lived in a city, as opposed to living in a
+rural area
+The first thing to do is ensure that the cluster variable, district, is a contiguous set of integers. Recall
+that these values will be index values inside the model. If there are gaps, you’ll have parameters for
+which there is no data to inform them. Worse, the model probably won’t run. Look at the unique
+values of the district variable:
+R code
+13.40
+sort(unique(d$district))
+[1]
+1
+2
+3
+4
+5
+6
+7
+8
+9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25
+[26] 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50
+[51] 51 52 53 55 56 57 58 59 60 61

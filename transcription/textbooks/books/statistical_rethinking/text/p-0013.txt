@@ -1,0 +1,49 @@
+HOW TO USE THIS BOOK
+xvii
+Everyone knows that the command line is more powerful. But it also saves you time
+and fulfills ethical obligations. With a command script, each analysis documents itself, so
+that years from now you can come back to your analysis and replicate it exactly. You can
+re-use your old files and send them to colleagues. Pointing and clicking, however, leaves
+no trail of breadcrumbs. A file with your R commands inside it does. Once you get in the
+habit of planning, running, and preserving your statistical analyses in this way, it pays for
+itself many times over. With point-and-click, you pay down the road, rather than only up
+front. It is also a basic ethical requirement of science that our analyses be fully documented
+and repeatable. The integrity of peer review and the cumulative progress of research depend
+upon it. A command line statistical program makes this documentation natural. A point-
+and-click interface does not. Be ethical.
+So we don’t use the command line because we are hardcore or elitist (although we might
+be). We use the command line because it is better. It is harder at first. Unlike the point-and-
+click interface, you do have to learn a basic set of commands to get started with a command
+line interface. However, the ethical and cost saving advantages are worth the inconvenience.
+How you should work. But I would be cruel, if I just told the reader to use a command-line
+tool, without also explaining something about how to do it. You do have to relearn some
+habits, but it isn’t a major change. For readers who have only used menu-driven statistics
+software before, there will be some significant readjustment. But after a few days, it will
+seem natural to you. For readers who have used command-driven statistics software like
+Stata and SAS, there is still some readjustment ahead. I’ll explain the overall approach first.
+Then I’ll say why even Stata and SAS users are in for a change.
+The sane approach to scripting statistical analyses is to work back and forth between
+two applications: (1) a plain text editor of your choice and (2) the R program running in a
+terminal. There are several applications that integrate the text editor with the R console. The
+most popular of these is RStudio. It has a lot of options, but really it is just an interface that
+includes both a script editor and an R terminal.
+A plain text editor is a program that creates and edits simple formatting-free text files.
+Common examples include Notepad (in Windows) and TextEdit (in Mac OS X) and Emacs
+(in most *NIX distributions, including Mac OS X). There is also a wide selection of fancy
+text editors specialized for programmers. You might investigate for example RStudio and
+the Atom text editor, both of which are free. Note that MSWord files are not plain text.
+You will use a plain text editor to keep a running log of the commands you feed into the
+R application for processing. You absolutely do not want to just type out commands directly
+into R itself. Instead, you want to either copy and paste lines of code from your plain text
+editor into R, or instead read entire script files directly into R. You might enter commands
+directly into R as you explore data or debug or merely play. But your serious work should be
+implemented through the plain text editor, for the reasons explained in the previous section.
+You can add comments to your R scripts to help you plan the code and remember later
+what the code is doing. To make a comment, just begin a line with the # symbol. To help clar-
+ify the approach, below I provide a very short complete script for running a linear regression
+on one of R’s built-in sets of data. Even if you don’t know what the code does yet, hopefully
+you will see it as a basic model of clarity of formatting and use of comments.
+R code
+0.4
+# Load the data:
+# car braking distances in feet paired with speeds in km/h

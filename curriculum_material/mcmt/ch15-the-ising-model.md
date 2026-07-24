@@ -35,8 +35,6 @@ THEOREM 15.1. *Consider the Glauber dynamics for the Ising model on a graph with
 
 $$ t_{\mathrm{rel}} \leq \frac{n}{c(\beta)} \,. \tag{15.2} $$
 
-215
-
 ### PDF page 232 (book page 216)
 
 *Also,*
@@ -188,9 +186,7 @@ Since $\varphi_\alpha(c_\alpha) > \varphi_\alpha(1/2)$, there is an $r(\alpha) >
 
 ### PDF page 235 (book page 219)
 
-*[Figure: a plot of the function $\varphi_\alpha$ over the horizontal axis from about 0.1 to 0.9 (ticks at 0.2, 0.4, 0.6, 0.8) and vertical axis labeled 0.68, 0.685, 0.69, 0.695. A solid concave-down curve peaks near the center at about 0.6915 (the $\alpha = 0.9$ case); a dashed curve dips to a local minimum near the center and rises on both sides (the $\alpha = 1.1$ case).]*
-
-FIGURE 15.1. The function $\varphi_\alpha$ defined in (15.14). The dashed graph corresponds to $\alpha = 1.1$, the solid line to $\alpha = 0.9$.
+**FIGURE 15.1.** The function $\varphi_\alpha$ defined in (15.14). The dashed graph corresponds to $\alpha = 1.1$, the solid line to $\alpha = 0.9$. *[Figure: a plot of the function $\varphi_\alpha$ over the horizontal axis from about 0.1 to 0.9 (ticks at 0.2, 0.4, 0.6, 0.8) and vertical axis labeled 0.68, 0.685, 0.69, 0.695. A solid concave-down curve peaks near the center at about 0.6915 (the $\alpha = 0.9$ case); a dashed curve dips to a local minimum near the center and rises on both sides (the $\alpha = 1.1$ case).]*
 
 **15.3. The Cycle**
 
@@ -484,9 +480,7 @@ DEFINITION 15.15. A ***fault line*** (with at most $k$ defects) is a self-avoidi
 
 ### PDF page 243 (book page 227)
 
-*[Figure: a 4×4 grid of lattice squares. In the second row from top, the leftmost two squares are shaded (positive spins), the rest of that row white; in the third row, the middle two squares are shaded; in the bottom row, the middle two squares are shaded. A bold fault line runs along the top edge of the second row for the leftmost two squares, then steps down along the vertical edge, then continues rightward along the lower edge of the second-row/third-row boundary toward the right side.]*
-
-**FIGURE 15.4.** A fault line with one defect. Positive spins are indicated by shaded squares, while negative spins are indicated by white squares. The fault line is drawn in bold.
+**FIGURE 15.4.** A fault line with one defect. Positive spins are indicated by shaded squares, while negative spins are indicated by white squares. The fault line is drawn in bold. *[Figure: a 4×4 grid of lattice squares. In the second row from top, the leftmost two squares are shaded (positive spins), the rest of that row white; in the third row, the middle two squares are shaded; in the bottom row, the middle two squares are shaded. A bold fault line runs along the top edge of the second row for the leftmost two squares, then steps down along the vertical edge, then continues rightward along the lower edge of the second-row/third-row boundary toward the right side.]*
 
 **LEMMA 15.16.** *Denote by $F_k$ the set of Ising configurations in $[0, n]^2$ that have a fault line with at most $k$ defects. Then $\pi(F_k) \leq \sum_{\ell \geq n} 2(n + 1)\alpha_\ell e^{2\beta(2k-\ell)}$. In particular, if $k$ is fixed and $\beta > (1/2)\log(\alpha)$, then $\pi(F_k)$ decays exponentially in $n$.*
 

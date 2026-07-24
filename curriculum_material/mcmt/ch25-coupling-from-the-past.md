@@ -1,7 +1,5 @@
 # Chapter 25 — Coupling from the Past
-*(PDF pages 364–374; book pages 348–355)*
-
-*⚠ In progress: 8 of 11 pages transcribed; missing PDF pages 372–374.*
+*(PDF pages 364–374; book pages 348–358)*
 
 ### PDF page 364 (book page 348)
 
@@ -11,9 +9,7 @@ CHAPTER 25
 
 by James G. Propp and David B. Wilson
 
-*[Figure: photograph of two men standing side by side in front of a colorful abstract painting; the caption below reads:]*
-
-J.G. Propp (left) and D.B. Wilson (right).
+J.G. Propp (left) and D.B. Wilson (right). *[Figure: photograph of two men standing side by side in front of a colorful abstract painting.]*
 
 **25.1. Introduction**
 
@@ -145,3 +141,47 @@ Recall from Section 3.3.4 that the states of the hardcore model are given by sub
 The natural single-site heat-bath Markov chain for hardcore states would pick a site at random, forget whether or not there is a particle at that site, and then place a particle at the site with probability $\lambda/(\lambda + 1)$ if there are no neighboring particles or with probability 0 if there is a neighboring particle.
 
 For general (non-bipartite) graphs $G$ there is no monotone structure which would allow one to use monotone CFTP. But **Häggström and Nelander (1999)** and **Huber (1998)** proposed the following scheme for using CFTP with the single-site heat-bath Markov chain. One can associate with each *set* of hardcore states a three-valued function on the vertex set, where the value "1" means that all states in the set are known to have a particle at that vertex, the value "0" means that all states in the set are known to have a vacancy at that vertex, and the value "?" means that it is possible that some of the states in the set have a particle there while others have a vacancy. Initially we place a "?" at every site since the Markov chain could be in any state. We can operate directly on this three-valued state-model by means of simple rules that mimic the single-site heat-bath. The randomizing operation picks a random site and proposes to place a particle there with probability $\lambda/(\lambda + 1)$ or proposes to place a vacancy there with probability $1/(\lambda + 1)$. Any proposal to place a vacancy always succeeds for any state in the current set, so in this case a "0" is placed at the site. A proposal to place a particle at the site succeeds only if no neighboring site has a particle, so in this case we place a "1" if all neighboring sites have a "0", and otherwise we place a "?" at the site since the proposal to place a particle there may succeed for some states
+
+### PDF page 372 (book page 356)
+
+**FIGURE 25.4.** Hardcore model on the $40 \times 40$ square grid with periodic boundary conditions, for different values of $\lambda$. Particles are shown as diamonds, and the constraint that no two particles are adjacent is equivalent to the constraint that no two diamonds overlap. Particles on the even sublattice (where the $x$-coordinate and $y$-coordinate have the same parity) are shown in dark gray, and particles on the odd sublattice are shown in light gray. There is a critical value of $\lambda$ above which the hardcore model typically has a majority of particles on one of these two sublattices. CFTP generates random samples for values of $\lambda$ beyond those for which Glauber dynamics is currently known to be rapidly mixing. *[Figure: a 2 × 3 array of square panels, each showing a 40 × 40 grid configuration of the hardcore model. Particles are drawn as small diamonds, colored dark (blue) for the even sublattice and light (orange) for the odd sublattice. The panels are labeled, left to right in the top row, $\lambda = 0.5$, $\lambda = 1$, $\lambda = 2$, and in the bottom row, $\lambda = 3$, $\lambda = 4$, $\lambda = 5$. As $\lambda$ increases the configurations become denser and increasingly dominated by a single sublattice color: the $\lambda = 4$ panel is mostly light and the $\lambda = 5$ panel is mostly dark.]*
+
+in the set and fail for other states. After the update, the "0, 1, ?" configuration describes any possible state that the Markov chain may be in after the single-site heat-bath operation. It is immediate that if the "0, 1, ?" Markov chain, starting from the all-?'s state, ever reaches a state in which there are no ?'s, then the single-site heat-bath chain, using the same random proposals, maps all initial states into the same final state. Hence we might want to call the "0, 1, ?" Markov chain the "certification chain," for it tells us when the stochastic flow of primary interest has achieved coalescence.
+
+One might fear that it would take a long time for the certification chain to certify coalescence, but Häggström and Nelander (1999) show that the number of ?'s tends to shrink to zero exponentially fast provided $\lambda < 1/\Delta$, where $\Delta$ is the maximum degree of the graph. Recall from Theorem 5.9 that the Glauber dynamics Markov chain is rapidly mixing when $\lambda < 1/(\Delta - 1)$ — having the number of ?'s shrink to zero rapidly is a stronger condition than rapid mixing. The best
+
+### PDF page 373 (book page 357)
+
+current bounds for general graphs is that Glauber dynamics is rapidly mixing if $\lambda \le 2/(\Delta - 2)$ (**Vigoda, 2001**; **Dyer and Greenhill, 2000**). For particular graphs of interest, such as the square lattice, in practice the number of ?'s shrinks to zero rapidly for values of $\lambda$ much larger than what these bounds guarantee. Such observations constitute empirical evidence in favor of rapid mixing for larger $\lambda$'s.
+
+**25.5. Random State of an Unknown Markov Chain**
+
+Now we come to a problem that in a sense encompasses all the cases we have discussed so far: the problem of sampling from the stationary distribution $\pi$ of a general Markov chain. Of course, in the absence of further strictures this problem admits a trivial "solution": just solve for the stationary distribution analytically! In the case of the systems studied in Sections 25.2 and 25.4, this is not practical, since the state spaces are large. We now consider what happens if the state space is small but the analytic method of simulation is barred by imposing the constraint that the transition probabilities of the Markov chain are unknown: one merely has access to a black box that simulates the transitions.
+
+It might seem that, under this stipulation, no solution to the problem is possible, but in fact a solution was found by **Asmussen, Glynn, and Thorisson (1992)**. However, their algorithm was not very efficient. Subsequently **Aldous (1995)** and **Lovász and Winkler (1995a)** found faster procedures (although the algorithm of Aldous involves controlled but non-zero error). The CFTP-based solution given below is even faster than that of Lovász and Winkler.
+
+For pictorial concreteness, we envision the Markov chain as a biased random walk on some directed graph $G$ whose arcs are labeled with weights, where the transition probabilities from a given vertex are proportional to the weights of the associated arcs (as in the preceding section). We denote the vertex set of $G$ by $\Omega$, and denote the stationary distribution on $\Omega$ by $\pi$. **Propp and Wilson (1998)** give a CFTP-based algorithm that lets one sample from this distribution $\pi$.
+
+Our goal is to define suitable random maps from $\Omega$ to $\Omega$ in which many states are mapped into a single state. We might therefore define a random map from $\Omega$ to itself by starting at some fixed vertex $r$, walking randomly for some large number $T$ of steps, and mapping all states in $\Omega$ to the particular state $v$ that one has arrived at after $T$ steps. However, $v$ is subject to initialization bias, so this random map procedure typically does not preserve $\pi$ in the sense defined in Section 25.3.
+
+What actually works is a multi-phase scheme of the following sort: start at some vertex $r$ and take a random walk for a *random* amount of time $T_1$, ending at some state $v$; then map every state that has been visited during that walk to $v$. In the second phase, continue walking from $v$ for a further random amount of time $T_2$, ending at some new state $v'$; then map every state that was visited during the second phase but not the first to $v'$. In the third phase, walk from $v'$ for a random time to a new state $v''$, and map every hitherto-unvisited state that was visited during that phase to the state $v''$, and so on. Eventually, every state gets visited, and every state gets mapped to some state. Such maps are easy to compose, and it is easy to recognize when such a composition is coalescent (it maps every state to one particular state).
+
+There are two constraints that our random durations $T_1$, $T_2$, ... must satisfy if we are planning to use this scheme for CFTP. (For convenience we will assume henceforth that the $T_i$'s are i.i.d.) First, the distribution of each $T_i$ should have the
+
+### PDF page 374 (book page 358)
+
+property that, at any point during the walk, the (conditional) expected time until the walk terminates does not depend on where one is or how one got there. This ensures that the stochastic flow determined by these random maps preserves $\pi$. Second, the time for the walk should be neither so short that only a few states get visited by the time the walk ends nor so long that generating even a single random map takes more time than an experimenter is willing to wait. Ideally, the expected duration of the walk should be on the order of the cover time for the random walk. **Propp and Wilson (1998)** show that by using the random walk itself to estimate its own cover time, one gets an algorithm that generates a random state distributed according to $\pi$ in expected time $\leq 15$ times the cover time.
+
+At the beginning of this section, we said that one has access to a black box that simulates the transitions. This is, strictly speaking, ambiguous: does the black box have an “input port” so that we can ask it for a random transition from a specified state? Or are we merely passively observing a Markov chain in which we have no power to intervene? This ambiguity gives rise to two different versions of the problem, of separate interest. Our CFTP algorithm works for both of them.
+
+For the “passive” version of the problem, it is not hard to show that no scheme can work in expected time less than the expected cover time of the walk, so in this setting our algorithm runs in time that is within a constant factor of optimal. It is possible to do better in the active setting, but no good lower bounds are currently known for this case.
+
+**Exercise**
+
+**EXERCISE 25.1.** Show that in the special case where the graph is bipartite, there is a natural partial order on the space of hardcore configurations that is preserved by Glauber dynamics and that in this case monotone CFTP and CFTP with the “0, 1, ?” Markov chain are equivalent.
+
+**Notes**
+
+This chapter is based in part on the expository article “Coupling from the Past: a User's Guide,” which appeared in *Microsurveys in Discrete Probability*, volume 41 of the *DIMACS Series in Discrete Mathematics and Computer Science*, published by the AMS, and contains excerpts from the article “Exact Sampling with Coupled Markov Chains and Applications to Statistical Mechanics,” which appeared in *Random Structures and Algorithms*, volume 9(1&2):223–252, 1996.
+
+For more on perfectly sampling the spanning trees of a graph, see **Anantharam and Tsoucas (1989)**, **Broder (1989)**, and **Aldous (1990)**. For more examples of perfect sampling, see **Häggström and Nelander (1998)**, **Wilson (2000a)**, and the webpage **Wilson (2004b)**.

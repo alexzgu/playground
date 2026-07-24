@@ -1,0 +1,45 @@
+28
+2. SMALL WORLDS AND LARGE WORLDS
+In the next major section, you’ll meet the more formal notation for these objects and see how
+they compose a simple statistical model.
+Rethinking: Randomization. When you shuffle a deck of cards or assign subjects to treatments by
+flipping a coin, it is common to say that the resulting deck and treatment assignments are randomized.
+What does it mean to randomize something? It just means that we have processed the thing so that we
+know almost nothing about its arrangement. Shuffling a deck of cards changes our state of knowledge,
+so that we no longer have any specific information about the ordering of cards. However, the bonus
+that arises from this is that, if we really have shuffled enough to erase any prior knowledge of the
+ordering, then the order the cards end up in is very likely to be one of the many orderings with high
+information entropy. The concept of information entropy will be increasingly important as we
+progress, and will be unpacked in Chapters 7 and 10.
+2.2. Building a model
+By working with probabilities instead of raw counts, Bayesian inference is made much
+easier, but it looks much harder. So in this section, we follow up on the garden of forking
+data by presenting the conventional form of a Bayesian statistical model. The toy example
+we’ll use here has the anatomy of a typical statistical analysis, so it’s the style that you’ll grow
+accustomed to. But every piece of it can be mapped onto the garden of forking data. The
+logic is the same.
+Suppose you have a globe representing our planet, the Earth. This version of the world
+is small enough to hold in your hands. You are curious how much of the surface is covered
+in water. You adopt the following strategy: You will toss the globe up in the air. When you
+catch it, you will record whether or not the surface under your right index finger is water or
+land. Then you toss the globe up in the air again and repeat the procedure.43 This strategy
+generates a sequence of surface samples from the globe. The first nine samples might look
+like:
+W L W W W L W L W
+where W indicates water and L indicates land. So in this example you observe six W (water)
+observations and three L (land) observations. Call this sequence of observations the data.
+To get the logic moving, we need to make assumptions, and these assumptions constitute
+the model. Designing a simple Bayesian model benefits from a design loop with three steps.
+(1) Data story: Motivate the model by narrating how the data might arise.
+(2) Update: Educate your model by feeding it the data.
+(3) Evaluate: All statistical models require supervision, leading possibly to model revi-
+sion.
+The next sections walk through these steps, in the context of the globe tossing evidence.
+2.2.1. A data story. Bayesian data analysis usually means producing a story for how the
+data came to be. This story may be descriptive, specifying associations that can be used to
+predict outcomes, given observations. Or it may be causal, a theory of how some events
+produce other events. Typically, any story you intend to be causal may also be descriptive.
+But many descriptive stories are hard to interpret causally. But all data stories are complete,
+in the sense that they are sufficient for specifying an algorithm for simulating new data. In
+the next chapter, you’ll see examples of doing just that, as simulating new data is useful not
+only for model criticism but also for model construction.

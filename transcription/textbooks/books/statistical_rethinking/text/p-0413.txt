@@ -1,0 +1,55 @@
+12.3. ORDERED CATEGORICAL OUTCOMES
+397
+Let’s go ahead and see how it’s done as a model. Conventions for writing mathematical
+forms of the ordered logit vary a lot. We’ll use this convention:
+Ri ∼Ordered-logit(ϕi, κ)
+[probability of data]
+ϕi = 0
+[linear model]
+κk ∼Normal(0, 1.5)
+[common prior for each intercept]
+But we can express the model more literally as well:
+Ri ∼Categorical(p)
+[probability of data]
+p1 = q1
+[probabilities of each value k]
+pk = qk −qk−1
+for K > k > 1
+pK = 1 −qk−1
+logit(qk) = κk −ϕi
+[cumulative logit link]
+ϕi = terms of linear model
+[linear model]
+κk ∼Normal(0, 1.5)
+[common prior for each intercept]
+This second form is cruel, but it exposes that an ordered-logit distribution is really just a
+categorical distribution that takes a vector p = {p1, p2, p3, p4, p5, p6} of probabilities of each
+response value below the maximum response (7 in this example). Each response value k in
+this vector is defined by its link to an intercept parameter, αk. Finally, some weakly regu-
+larizing priors are placed on these intercepts. In this example, there is a lot of data, so just
+about any prior will be overwhelmed. As always, in small sample contexts, you’ll have to
+think much harder about priors. Consider for example that we know α1 < α2, before we
+even see the data.
+In code form for either quap and ulam, the link function will be embedded in the likeli-
+hood function already. This makes the calculations more efficient and avoids forcing you to
+code all the routine intermediate calculations above. So to fit the basic model, incorporating
+no predictor variables:
+R code
+12.16
+m12.4 <- ulam(
+alist(
+R ~ dordlogit( 0 , cutpoints ),
+cutpoints ~ dnorm( 0 , 1.5 )
+) , data=list( R=d$response ), chains=4 , cores=4 )
+That zero in the dordlogit is a placeholder for the linear model that we’ll construct later.
+If you want to use this model in quap instead, you’ll need to specify the start values for
+the cutpoints. Otherwise it’ll have a very hard time getting started. The exact values aren’t
+important, but their ordering, on the log-cumulative-odds scale, is important. This code will
+work:
+R code
+12.17
+m12.4q <- quap(
+alist(
+response ~ dordlogit( 0 , c(a1,a2,a3,a4,a5,a6) ),
+c(a1,a2,a3,a4,a5,a6) ~ dnorm( 0 , 1.5 )
+) , data=d , start=list(a1=-2,a2=-1,a3=0,a4=1,a5=2,a6=2.5) )

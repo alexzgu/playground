@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Build books.json: per-book chapter maps (chapter -> PDF start page) for the
-four curriculum textbooks, derived from each PDF's own outline/contents.
+curriculum textbooks, derived from each PDF's own outline/contents.
 
-- ISLP: PDF outline (level-1 entries) gives PDF pages directly.
+- ISLP / Statistical Rethinking: PDF outline (level-1 entries) gives PDF pages
+  directly.
 - Lawler / Montgomery: contents pages parsed for (chapter, title, printed page);
   printed->PDF offset detected by probing printed page-number tokens in bodies.
 - MCMT: contents fonts use a private-use-area cipher (U+E04E == 'a'); decoded,
@@ -137,6 +138,30 @@ def islp():
             "front_matter_end": body[0]["pdf_start"] - 1 if body else 0}
 
 
+def statistical_rethinking():
+    d = fitz.open(CM / "Statistical Rethinking 2nd Edition.pdf")
+    chapters = []
+    for lvl, label, page in d.get_toc():
+        if lvl != 1:
+            continue
+        m = re.fullmatch(r"Chapter\s+(\d+)\.\s*(.*)", label)
+        num, title = (m.group(1), m.group(2)) if m else ("", label)
+        chapters.append({"num": num, "title": title, "pdf_start": page})
+    body = [c for c in chapters if c["num"]]
+    return {
+        "key": "statistical_rethinking",
+        "pdf": "Statistical Rethinking 2nd Edition.pdf",
+        "title": "Statistical Rethinking: A Bayesian Course with Examples in R and Stan (2nd ed.)",
+        "author": "Richard McElreath",
+        "npages": len(d),
+        "printed_offset": 16,
+        "text_layer": "good",
+        "transcription_model": "GPT-5.6",
+        "chapters": chapters,
+        "front_matter_end": body[0]["pdf_start"] - 1 if body else 0,
+    }
+
+
 def montgomery():
     d = fitz.open(CM / "546_textbook.pdf")
     off, votes = detect_offset(d, [40, 120, 250, 400, 550, 700], 800)
@@ -176,15 +201,18 @@ def verify(book):
         t = d[p - 1].get_text()
         hay = decode_mcmt(t) if book["key"] == "mcmt" else t
         first_words = " ".join(ch["title"].split()[:2])
+        normalized_hay = re.sub(r"\W+", " ", hay.casefold())
+        normalized_title = re.sub(r"\W+", " ", ch["title"].casefold()).strip()
+        normalized_first_words = " ".join(normalized_title.split()[:2])
         if ch["num"] and not (re.search(rf"(?i)chapter\s*{re.escape(ch['num'])}\b", hay)
                               or first_words.lower() in hay.lower()
-                              or ch["title"].split()[0].lower() in hay.lower()):
+                              or normalized_first_words in normalized_hay):
             problems.append(f"ch {ch['num']} '{ch['title']}' not found on PDF p.{p}: {hay[:90]!r}")
     return problems
 
 
 def main():
-    books = [lawler(), mcmt(), islp(), montgomery()]
+    books = [lawler(), mcmt(), islp(), statistical_rethinking(), montgomery()]
     for b in books:
         probs = verify(b)
         status = "OK" if not probs else f"{len(probs)} PROBLEM(S)"

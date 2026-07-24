@@ -1,0 +1,45 @@
+574
+ENDNOTES
+all of the log-products by the maximum log-product. As a result, the values in post$prob are not all zero, but
+they also aren’t exactly probabilities. Instead they are relative posterior probabilities. But that’s good enough for
+what we wish to do with these values. [87]
+73. The most accessible of Galton’s writings on the topic has been reprinted as Galton (1989). [95]
+74. See Reilly and Zeringue (2004) for an example using predator-prey dynamics.
+We’ll engage with this
+example in Chapter 16. [97]
+75. The implied definition of α in a parabolic model is α = E yi −β1 E xi −β2 E x2
+i . Now even when the average
+xi is zero, E xi = 0, the average square will likely not be zero. So α becomes hard to directly interpret again. [115]
+76. For much more discussion of knot choice, see Fahrmeir et al. (2013) and Wood (2017). A common approach
+is to use Wood’s knot choice algorithm as implemented by default in the R package mgcv. [120]
+Chapter 5
+77. “How to Measure a Storm’s Fury One Breakfast at a Time.” The Wall Street Journal: September 1, 2011. [127]
+78. See Meehl (1990), in particular the “crud factor” described on page 204. [127]
+79. Debates about causal inference go back a long time. David Hume is key citation. One curious obstacle
+in modern statistics is that classic causal reasoning requires that if A causes B, then B will always appear
+when A appears. But with probabilistic relationships, like those described in most contemporary scientific
+models, it is unsurprising to talk about probabilistic causes, in which B only sometimes follows A. See
+http://plato.stanford.edu/entries/causation-probabilistic/. [128]
+80. See Pearl (2014) for an accessible introduction, with discussion. See also Rubin (2005) for a related approach.
+[128]
+81. See Freckleton (2002). [141]
+82. Data from Table 2 of Hinde and Milligan (2011). [148]
+83. See Gelman and Stern (2006) for further explanation, and see Nieuwenhuis et al. (2011) for some evidence
+of how commonly this mistake occurs. [162]
+84. These data are modified from an example in Grafen and Hails (2002). [164]
+Chapter 6
+85. This example is joint work with Paul Smaldino. [165]
+86. See Berkson (1946). A related phenomenon is range restriction that results from selection, which reduces
+the correlation between criteria and subsequent performance. This is one reason that standardized test scores
+do not correlate with success in school. They might also just not predict success at all. But even if they did, it’s
+not surprising that they are uncorrelated with success after selection. See Dawes (1975). [165]
+87. Rosenbaum (1984) calls it concomitant variable bias. See also Chapter 9 in Gelman and Hill (2007). There
+isn’t really any standard terminology for this issue. It is a component of generalized mediation analysis, and
+some fields discuss it under that banner. [174]
+88. See Pearl (2016), chapter 2. You’ll often see the d in d-separation defined as “dependency.” That would
+certainly make more sense. But the term d-separation comes from a more general theory of graphs. Directed
+graphs involve d-separation and undirected graphs involve instead u-separation. Anyway, if you want to call it
+“dependency separation,” I won’t mind. [178]
+89. I learned this example from Dr. Julia Rohrer. See her 2017 blog post http://www.the100.ci/2017/04/21/whats-
+an-age-effect-net-of-all-time-varying-covariates/ as well as the papers Rohrer (2017) and Glenn (2009). [181]
+90. This example is from Breen (2018). [184]

@@ -1,0 +1,48 @@
+566
+17. HOROSCOPES
+Rethinking box on page 51. But the high false-discovery rate has become a great concern,
+partly because many placed unrealistic faith in significance testing and partly because it is
+hugely expensive to try to develop drugs and therapies from unrepeatable medical findings.
+It is even more expensive to design policy around false nutritional, psychological, economic,
+or ecological discoveries.235 But the basic reputation of science is also at stake, all material
+costs aside. Why pay attention to breathlessly announced new discoveries, when as many as
+half of them will turn out to be false?
+Second, the history of the sciences is equal parts wonder and blunder. The periodic ta-
+ble of the elements looks impressive now, but its story is unglamorous. There were more
+false elemental discoveries than there are current elements in the periodic table.236 Don’t
+think that all these false discoveries were performed by frauds and cranks. Enrico Fermi
+(1901–1954) was one of the greatest physicists of the 20th century. He discovered two heavy
+elements, ausonium (Ao, atomic number 93) and hesperium (Es, atomic number 94). These
+atomic numbers are now assigned to neptunium and plutonium, because Fermi had not ac-
+tually discovered either. He mistook a mix of lighter already-discovered elements. These
+sorts of errors, and many other sorts of errors, were routine on the path to the current peri-
+odic table. Its story is one of error, ego, fraud, and correction. Other sciences look similar.
+Philosophers of science actually have a term, the pessimistic induction, for the observation
+that because most science has been wrong, most science is wrong.237
+How can we reconcile such messy history, and widespread contemporary failure, with
+obvious successes like General Relativity? Science is a population-level process of variation
+and selective retention. It does not operate on individual hypotheses, but rather on popu-
+lations of hypotheses. It comprises a mix of dynamics that may, over long periods of time,
+reveal the clockwork of nature.238 But these same dynamics generate error. So it’s entirely
+possible for most findings at any one point in time to be false but for science in the long
+term to still function. This is analogous to how natural selection can adapt a biological pop-
+ulation to its environment, even though most individual variation in any one generation is
+maladaptive.
+What is included in these dynamics? Here’s a list of some salient pieces of the dynamic
+of scientific discovery, in no particular order. You might make your own list here, as there’s
+nothing special about mine.
+(1) Quality of theory and predictions: If most theories are wrong, most findings will be
+false positives. Karl Popper argued that all that matters for a theory to be scientific
+is that it be falsifiable. But for science to be effective, we must require more of
+theory. There was a brief quantitative version of this argument on page 51. A good
+theory specifies precise predictions that provide precise tests, and more than one
+model is usually necessary.
+(2) Dynamics of research funding: Who gets funded, and how does the process select
+for particular forms of research? If there are no sources of long-term funding, then
+necessary long-term research will not be done. If people who already have funding
+judge who getsnew funding, research may becomeoverly conservative andpossibly
+corrupt.
+(3) Quality of measurement: Research design matters, all agree; but often this is for-
+gotten when interpreting statistical analyses. A persistent problem is designs with
+low signal-to-noise ratios.239 Poor signal will not mean no findings, just unreliable
+ones.

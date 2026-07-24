@@ -1,0 +1,56 @@
+112
+4. GEOCENTRIC MODELS
+30
+35
+40
+45
+50
+55
+60
+140
+150
+160
+170
+180
+weight
+height
+Figure 4.10. 89% prediction interval for
+height, as a function of weight. The solid line
+is the average line for the mean height at each
+weight. The two shaded regions show different
+89% plausible regions. The narrow shaded in-
+terval around the line is the distribution of µ.
+The wider shaded region represents the region
+within which the model expects to find 89%
+of actual heights in the population, at each
+weight.
+The code above uses some objects computed in previous sections, so go back and execute
+that code, if you need to.
+In Figure 4.10, I plot the result. The wide shaded region in the figure represents the
+area within which the model expects to find 89% of actual heights in the population, at each
+weight. There is nothing special about the value 89% here. You could plot the boundary for
+other percents, such as 67% and 97% (also both primes), and add those to the plot. Doing so
+would help you see more of the shape of the predicted distribution of heights. I leave that as
+an exercise for the reader. Just go back to the code above and add prob=0.67, for example,
+to the call to PI. That will give you 67% intervals, instead of 89% ones.
+Notice that the outline for the wide shaded interval is a little rough. This is the simulation
+variance in the tails of the sampled Gaussian values. If it really bothers you, increase the
+number of samples you take from the posterior distribution. The optional n parameter for
+sim.height controls how many samples are used. Try for example:
+R code
+4.62
+sim.height <- sim( m4.3 , data=list(weight=weight.seq) , n=1e4 )
+height.PI <- apply( sim.height , 2 , PI , prob=0.89 )
+Run the plotting code again, and you’ll see the shaded boundary smooth out some. With
+extreme percentiles, it can be very hard to get out all of the roughness. Luckily, it hardly
+matters, except for aesthetics. Moreover, it serves to remind us that all statistical inference
+is approximate. The fact that we can compute an expected value to the 10th decimal place
+does not imply that our inferences are precise to the 10th decimal place.
+Rethinking: Two kinds of uncertainty. In the procedure above, we encountered both uncertainty
+in parameter values and uncertainty in a sampling process. These are distinct concepts, even though
+they are processed much the same way and end up blended together in the posterior predictive simu-
+lation. The posterior distribution is a ranking of the relative plausibilities of every possible combina-
+tion of parameter values. The distribution of simulated outcomes, like height, is instead a distribution
+that includes sampling variation from some process that generates Gaussian random variables. This
+sampling variation is still a model assumption. It’s no more or less objective than the posterior distri-
+bution. Both kinds of uncertainty matter, at least sometimes. But it’s important to keep them straight,

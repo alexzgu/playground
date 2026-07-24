@@ -1,0 +1,47 @@
+2.3. COMPONENTS OF THE MODEL
+33
+The first variable is our target of inference, p, the proportion of water on the globe. This
+variable cannot be observed. Unobserved variables are usually called parameters. But
+while p itself is unobserved, we can infer it from the other variables.
+The other variables are the observed variables, the counts of water and land. Call the
+count of water W and the count of land L. The sum of these two variables is the number of
+globe tosses: N = W + L.
+2.3.2. Definitions. Once we have the variables listed, we then have to define each of them.
+In defining each, we build a model that relates the variables to one another. Remember, the
+goal is count all the ways the data could arise, given the assumptions. This means, as in
+the globe tossing model, that for each possible value of the unobserved variables, such as
+p, we need to define the relative number of ways—the probability—that the values of each
+observed variable could arise. And then for each unobserved variable, we need to define the
+prior plausibility of each value it could take. I appreciate that this is all a bit abstract. So here
+are the specifics, for the globe.
+2.3.2.1. Observed variables. For the count of water W and land L, we define how plau-
+sible any combination of W and L would be, for a specific value of p. This is very much like
+the marble counting we did earlier in the chapter. Each specific value of p corresponds to a
+specific plausibility of the data, as in Figure 2.5.
+So that we don’t have to literally count, we can use a mathematical function that tells
+us the right plausibility. In conventional statistics, a distribution function assigned to an
+observed variable is usually called a likelihood. That term has special meaning in non-
+Bayesian statistics, however. We will be able to do things with our distributions that non-
+Bayesian models forbid. So I will try to avoid the term likelihood, just to avoid confusing
+you. But when someone says, “likelihood,” they will usually mean a distribution function
+assigned to an observed variable.
+In the case of the globe tossing model, the function we need can be derived directly from
+the data story. Begin by nominating all of the possible events. There are two: water (W) and
+land (L). There are no other events. The globe never gets stuck to the ceiling, for example.
+When we observe a sample of W’s and L’s of length N (nine in the actual sample), we need
+to say how likely that exact sample is, out of the universe of potential samples of the same
+length. That might sound challenging, but it’s the kind of thing you get good at very quickly,
+once you start practicing.
+In this case, once we add our assumptions that (1) every toss is independent of the other
+tosses and (2) the probability of W is the same on every toss, probability theory provides
+a unique answer, known as the binomial distribution. This is the common “coin tossing”
+distribution. And so the probability of observing W waters and L lands, with a probability p
+of water on each toss, is:
+Pr(W, L|p) = (W + L)!
+W!L!
+pW(1 −p)L
+Read the above as:
+The counts of “water” W and “land’ L are distributed binomially, with prob-
+ability p of “water” on each toss.
+And the binomial distribution formula is built into R, so you can easily compute the likeli-
+hood of the data—six W’s in nine tosses—under any value of p with:

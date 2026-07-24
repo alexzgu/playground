@@ -1,0 +1,51 @@
+11.4. CENSORING AND SURVIVAL
+377
+Rethinking: Censored data as missing data. A more fundamental way to think about the censored
+values is that the true time to adoption has not been observed. It is a missing value. But we have
+some information, the time so far, that lets us narrow down its value. It is possible to write a model
+that actually infers each unobserved time-to-adoption, instead of using the CCDF. The models are
+equivalent. But the model which infers each censored value requires more coding and usually more
+computer time as well. However, sometimes such a model actually samples better, despite being
+more complicated. The reason is that some cumulative distributions can be numerically unstable.
+Mathematics in a computer is an odd beast.
+Overthinking: Custom distributions in Stan. The survival model above uses a custom probability
+assignment to define the complementary cumulative distribution for the censored cats. It is very
+easy to add any custom probability distribution this way. It will help to see what the strange custom
+distribution in ulam actual does in the Stan code, so you can go straight to Stan in the future. Focusing
+on the model block of stancode(m00):
+R code
+11.68
+model{
+vector[22356] lambda;
+b ~ normal( 0 , 1 );
+a ~ normal( 0 , 1 );
+for ( i in 1:22356 ) {
+lambda[i] = a + b * black[i];
+lambda[i] = exp(lambda[i]);
+}
+for ( i in 1:22356 )
+if ( adopted[i] == 0 ) target += exponential_lccdf(days_to_event[i] | lambda[i]);
+for ( i in 1:22356 )
+if ( adopted[i] == 1 ) days_to_event[i] ~ exponential( lambda[i] );
+}
+The conditional statements create those two if statements. And the custom distribution just adds the
+code you write, adding the [i] loop index to variables, to Stan’s target. What is target? It is the log-
+posterior that defines the surface our Hamiltonian simulation runs on. You add log-probability terms
+to it and Stan does all the automatic differentiation (back propagation) to figure out the curvature.
+Any distribution statement like y[i] ~ exponential(lambda[i]) is really just adding a term to
+target. You could replace it with target += exponential_lpdf(y[i]|lambda[i]). The _lpdf
+means “log probability density function.”
+To take this lesson to the next level, we can do away with built in distributions completely and
+code them using raw mathematical functions. The exponential probability density is just:
+p(y|λ) = λ exp(−λy)
+And the complementary cumulative distribution (which is one minus the cumulative) is just:
+f(y|λ) = exp(−λy)
+Yeah, they are very similar. Most distributions aren’t so easy as the exponential. But regardless of
+what these expressions look like, you can code them directly into Stan using basic functions. In this
+case, we could rewrite the model block with:
+R code
+11.69
+for ( i in 1:22356 ) {
+if ( adopted[i] == 0 ) target += -lambda[i]*days_to_event[i];
+if ( adopted[i] == 1 ) target += log(lambda[i]) - lambda[i]*days_to_event[i];
+}

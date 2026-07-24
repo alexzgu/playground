@@ -1,0 +1,44 @@
+2.1. THE GARDEN OF FORKING DATA
+23
+Figure 2.3. After eliminating paths inconsistent with the observed se-
+quence, only 3 of the 64 paths remain.
+and two white marbles. Now we count up all of the ways each conjecture could produce the
+observed data. For one blue and three white, there are three ways, as we counted already. For
+two blue and two white, there are eight paths forking through the garden that are logically
+consistent with the observed sequence. For three blue and one white, there are nine paths
+that survive.
+To summarize, we’ve considered five different conjectures about the contents of the bag,
+ranging from zero blue marbles to four blue marbles. For each of these conjectures, we’ve
+counted up how many sequences, paths through the garden of forking data, could potentially
+produce the observed data,
+:
+Conjecture
+Ways to produce
+[
+]
+0 × 4 × 0 = 0
+[
+]
+1 × 3 × 1 = 3
+[
+]
+2 × 2 × 2 = 8
+[
+]
+3 × 1 × 3 = 9
+[
+]
+4 × 0 × 4 = 0
+Notice that the number of ways to produce the data, for each conjecture, can be computed
+by first counting the number of paths in each “ring” of the garden and then by multiplying
+these counts together. This is just a computational device. It tells us the same thing as Fig-
+ure 2.4, but without having to draw the garden. The fact that numbers are multiplied during
+calculation doesn’t change the fact that this is still just counting of logically possible paths.
+This point will come up again, when you meet the more formal representation of Bayesian
+inference.
+So what good are these counts? By comparing these counts, we have part of a solution
+for a way to rate the relative plausibility of each conjectured bag composition. But it’s only a
+part of a solution, because in order to compare these counts we first have to decide how many
+ways each conjecture could itself be realized. We might argue that when we have no reason
+to assume otherwise, we can just consider each conjecture equally plausible and compare the
+counts directly. But often we do have reason to assume otherwise.

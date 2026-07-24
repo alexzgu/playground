@@ -1,0 +1,76 @@
+106
+4. GEOCENTRIC MODELS
+30
+35
+40
+45
+50
+55
+60
+140
+150
+160
+170
+180
+weight
+height
+N = 10
+30
+35
+40
+45
+50
+55
+60
+140
+150
+160
+170
+180
+weight
+height
+N = 50
+30
+35
+40
+45
+50
+55
+60
+140
+150
+160
+170
+180
+weight
+height
+N = 150
+30
+35
+40
+45
+50
+55
+60
+140
+150
+160
+170
+180
+weight
+height
+N = 352
+Figure 4.7. Samples from the quadratic approximate posterior distribution
+for the height/weight model, m4.3, with increasing amounts of data. In each
+plot, 20 lines sampled from the posterior distribution, showing the uncer-
+tainty in the regression relationship.
+see the uncertainty displayed by plotting an interval or contour around the average regres-
+sion line. In this section, I’ll walk you through how to compute any arbitrary interval you
+like, using the underlying cloud of regression lines embodied in the posterior distribution.
+Focus for the moment on a single weight value, say 50 kilograms. You can quickly make
+a list of 10,000 values of µ for an individual who weighs 50 kilograms, by using your samples
+from the posterior:
+R code
+4.50
+post <- extract.samples( m4.3 )
+mu_at_50 <- post$a + post$b * ( 50 - xbar )

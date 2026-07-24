@@ -1,0 +1,78 @@
+26
+2. SMALL WORLDS AND LARGE WORLDS
+every bag containing [
+], they made two bags containing [
+] and three bags
+containing [
+]. They also ensured that every bag contained at least one blue and one
+white marble. We can update our counts again:
+Factory
+Conjecture
+Prior count
+count
+New count
+[
+]
+0
+0
+0 × 0 = 0
+[
+]
+3
+3
+3 × 3 = 9
+[
+]
+16
+2
+16 × 2 = 32
+[
+]
+27
+1
+27 × 1 = 27
+[
+]
+0
+0
+0 × 0 = 0
+Now the conjecture [
+] is most plausible, but barely better than [
+]. Is there a
+threshold difference in these counts at which we can safely decide that one of the conjectures
+is the correct one? You’ll spend the next chapter exploring that question.
+Rethinking: Original ignorance. Which assumption should we use, when there is no previous infor-
+mation about the conjectures? The most common solution is to assign an equal number of ways that
+each conjecture could be correct, before seeing any data. This is sometimes known as the principle
+of indifference: When there is no reason to say that one conjecture is more plausible than another,
+weigh all of the conjectures equally. This book does not use nor endorse “ignorance” priors. As we’ll
+see in later chapters, the structure of the model and the scientific context always provide information
+that allows us to do better than ignorance.
+For the sort of problems we examine in this book, the principle of indifference results in infer-
+ences very comparable to mainstream non-Bayesian approaches, most of which contain implicit equal
+weighting of possibilities. For example a typical non-Bayesian confidence interval weighs equally all
+of the possible values a parameter could take, regardless of how implausible some of them are. In
+addition, many non-Bayesian procedures have moved away from equal weighting, through the use of
+penalized likelihood and other methods. We’ll discuss this in Chapter 7.
+2.1.3. From counts to probability. It is helpful to think of this strategy as adhering to a
+principle of honest ignorance: When we don’t know what caused the data, potential causes
+that may produce the data in more ways are more plausible. This leads us to count paths
+through the garden of forking data.
+It’s hard to use these counts though, so we almost always standardize them in a way that
+transforms them into probabilities. Why is it hard to work with the counts? First, since
+relative value is all that matters, the size of the counts 3, 8, and 9 contain no information of
+value. They could just as easily be 30, 80, and 90. The meaning would be the same. It’s just
+the relative values that matter. Second, as the amount of data grows, the counts will very
+quickly grow very large and become difficult to manipulate. By the time we have 10 data
+points, there are already more than one million possible sequences. We’ll want to analyze
+data sets with thousands of observations, so explicitly counting these things isn’t practical.
+Luckily, there’s a mathematical way to compress all of this. Specifically, we define the
+updated plausibility of each possible composition of the bag, after seeing the data, as:
+plausibility of [
+] after seeing
+∝
+ways [
+] can produce
+×
+prior plausibility [
+]

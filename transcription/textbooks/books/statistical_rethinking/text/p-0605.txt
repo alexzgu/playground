@@ -1,0 +1,53 @@
+Bibliography
+589
+McGrayne, S. B. (2011). The Theory That Would Not Die: How Bayes’ Rule Cracked the Enigma Code,
+Hunted Down Russian Submarines, and Emerged Triumphant from Two Centuries of Controversy.
+Yale University Press.
+McHenry, H. M. and Coffing, K. (2000). Australopithecus to Homo: Transformations in body and
+mind. Annual Review of Anthropology, 29:125–146.
+Meagher, J. P., Damoulas, T., Jones, K. E., and Girolami, M. (2018). Phylogenetic gaussian processes
+for bat echolocation. In Statistical Data Science, chapter 7, pages 111–124.
+Meehl, P. E. (1956). Wanted—a good cookbook. The American Psychologist, 11:263–272.
+Meehl, P. E. (1967). Theory-testing in psychology and physics: A methodological paradox. Philosophy
+of Science, 34:103–115.
+Meehl, P. E. (1990). Why summaries of research on psychological theories are often uninterpretable.
+Psychological Reports, 66:195–244.
+Metropolis, N., Rosenbluth, A., Rosenbluth, M., Teller, A., and Teller, E. (1953). Equations of state
+calculations by fast computing machines. Journal of Chemical Physics, 21(6):1087–1092.
+Metropolis, N. and Ulam, S. (1949). The Monte Carlo method. Journal of the American Statistical
+Association, 44(247):335–341.
+Molenberghs, G., Fitzmaurice, G., Kenward, M. G., Tsiatis, A., and Verbeke, G. (2014). Handbook of
+Missing Data Methodology. CRC Press.
+Morison, S. E. (1942). Admiral of the Ocean Sea: A Life of Christopher Columbus. Little, Brown and
+Company, Boston.
+Mulkay, M. and Gilbert, G. N. (1981). Putting philosophy to work: Karl Popper’s influence on scien-
+tific practice. Philosophy of the Social Sciences, 11:389–407.
+Muñoz-Rodríguez, P., Carruthers, T., Wood, J. R. I., Williams, B. R. M., Weitemier, K., Kronmiller, B.,
+Ellis, D., Anglin, N. L., Longway, L., Harris, S. A., Rausher, M. D., Kelly, S., Liston, A., and Scotland,
+R. W. (2018). Reconciling Conflicting Phylogenies in the Origin of Sweet Potato and Dispersal to
+Polynesia. Current Biology, 28(8):1246–1256.
+Neal, R. M. (1998). Regression and classification using Gaussian process priors. In Bernardo, J. M.,
+editor, Bayesian Statistics, volume 6, pages 475–501. Oxford University Press.
+Neal, R. M. (2003). Slice sampling. The Annals of Statistics, 31:706–767.
+Neal, R. M. (2012). MCMC using hamiltonian dynamics. arXiv:1206.1901. Published as Chapter 5
+of the Handbook of Markov Chain Monte Carlo, 2011.
+Nelder, J. and Wedderburn, R. (1972). Generalized linear models. Journal of the Royal Statistical
+Society, Series A, 135:370–384.
+Nettle, D. (1998). Explaining global patterns of language diversity. Journal of Anthropological Archae-
+ology, 17:354–74.
+Nieuwenhuis, S., Forstmann, B. U., and Wagenmakers, E.-J. (2011). Erroneous analyses of interac-
+tions in neuroscience: a problem of significance. Nature Neuroscience, 14(9):1105–1107.
+Nunn, N. and Puga, D. (2011). Ruggedness: The blessing of bad geography in Africa. Review of
+Economics and Statistics.
+Nuzzo, R. (2014). Statistical errors. Nature, 506:150–152.
+Ohta, T. and Gillespie, J. H. (1996). Development of neutral and nearly neutral theories. Theoretical
+Population Biology, 49:128–142.
+O’Rourke, K. and Detsky, A. S. (1989). Meta-analysis in medical research: Strong encouragement for
+higher quality in individual research efforts. Journal of Clinical Epidemiology, 42(10):1021–1024.
+Papaspiliopoulos, O., Roberts, G. O., and Skold, M. (2007). A general framework for the parametriza-
+tion of hierarchical models. Statistical Science, (22):59–73.
+Pearl, J. (2000). Causality: Models of Reasoning and Inference. Cambridge University Press, Cam-
+bridge.
+Pearl, J. (2011). Invited Commentary: Understanding Bias Amplification. American Journal of Epi-
+demiology, 174(11):1223–1227.
+Pearl, J. (2014). Understanding Simpson’s paradox. The American Statistician, 68:8–13.

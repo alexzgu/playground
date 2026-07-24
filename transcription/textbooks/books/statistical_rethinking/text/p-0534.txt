@@ -1,0 +1,49 @@
+518
+15. MISSING DATA AND OTHER OPPORTUNITIES
+distribution for each missing value. Conceptually this is like the measurement error case—if
+we don’t know something, we condition it on what we know and let Bayes figure it out.
+In our case, the variable with missing values is neocortex percent. Again, we’ll call it B,
+for “brain”:
+B = [0.55, B2, B3, B4, 0.65, 0.65, ..., 0.76, 0.75]
+For every index i at which there is a missing value, there is also a parameter Bi that will form
+a posterior distribution for it. The simplest model will simply impute B from its own normal
+distribution. Here it is, with the neocortex pieces in blue:
+Ki ∼Normal(µi, σ)
+[distribution for outcome k]
+µi = α + βBBi + βM log Mi
+[linear model]
+Bi ∼Normal(ν, σB)
+[distribution for obs/missing B]
+α ∼Normal(0, 0.5)
+βB ∼Normal(0, 0.5)
+βM ∼Normal(0, 0.5)
+σ ∼Exponential(1)
+ν ∼Normal(0.5, 1)
+σB ∼Exponential(1)
+This model ignores that B and M are associated through U. But let’s start with this model, just
+to keep things simple. The interpretation of Bi ∼Normal(ν, σB) is awkward at first. Note
+that when Bi is observed, then this line is a likelihood, just like any old linear regression.
+The model learns the distributions of ν and σB that are consistent with the data. But when
+Bi is missing and therefore a parameter, that same line is interpreted as a prior. Since the
+parameters ν and σB are also estimated, the prior is learned from thedata, just likethe varying
+effects in previous chapters.
+One issue with this model is that it assumes each B value has a standardized Gaussian
+uncertainty. But we know that these values are bounded between zero and one, because they
+are proportions. So it is possible to do a little better. In the practice problems at the end of
+the chapter, you’ll see how. But keep in mind that assigning a Gaussian distribution doesn’t
+really mean that the frequency distribution of the variable is a bell curve. It just means we
+will use only the mean and variance to describe it. The Gaussian is a very conservative choice,
+because it is the flattest unbounded distribution with a given variance (Chapter 10). But as
+described way back in Chapter 7, if you have reason to suspect the tails of the distribution
+are thick, then definitely do not use a Gaussian distribution.
+Implementing an imputation model can be done several different ways. All of the ways
+are a little awkward, because the locations of missing values have to respected, and that means
+plenty of index management. The approach I’ll use here hews closely to the discussion just
+above: We’ll merge the observed values and parameters into a vector that we’ll use as “data”
+in the regression. For convenience, ulam can automate this merging. The Overthinking box
+at the end of this section presents a full implementation in raw Stan code.
+To fit the model with ulam, first get the data loaded and transform the predictors:
+R code
+15.16
+library(rethinking)
+data(milk)

@@ -1,0 +1,49 @@
+260
+8. CONDITIONAL MANATEES
+To build in an interaction between water and shade, we need to construct µ so that the
+impact of changing either water or shade depends upon the value of the other variable. For
+example, if water is low, then decreasing the shade (increase light) can’t help as much as when
+water is high. So we want the slope of water, βW, to be conditional on shade. Likewise for
+shade being conditional on water (remember Buridan’s interaction, 254). How can we do
+this?
+In the previous example, terrain ruggedness, we made a slope conditional on the value of
+a category. When there are, in principle, an infinite number of categories, then it’s harder. In
+this case, the “categories” of shade and water are, in principle, infinite and ordered. We only
+observed three levels of water, but the model should be able to make a prediction with a water
+level intermediate between any two of the observed ones. With continuous interactions, the
+problem isn’t so much the infinite part but rather the ordered part. Even if we only cared
+about the three observed values, we’d still need to preserve the ordering, which is bigger
+than which. So what to do?
+The conventional answer is to reapply the original geocentrism that justifies a linear re-
+gression. When we have two variable, an outcome and a predictor, and we wish to model
+the mean of the outcome such that it is conditional on the value of a continuous predictor x,
+we can use a linear model: µi = α + βxi. Now in order to make the slope β conditional on
+yet another variable, we can just recursively apply the same trick.
+For brevity, let Wi and Si be the centered variables. Then if we define the slope βW with
+its own linear model γW:
+µi = α + γW,iWi + βSSi
+γW,i = βW + βWSSi
+Now γW,i is the slope defining how quickly blooms change with water level. The parameter
+βW is the rate of change, when shade is at its mean value. And βWS is the rate change in γW,i
+as shade changes—the slope for shade on the slope of water. Remember, it’s turtles all the
+way down. Note the i in γW,i—it depends upon the row i, because it has Si in it.
+We also want to allow the association with shade, βS, to depend upon water. Luckily,
+because of the symmetry of simple interactions, we get this for free. There is just no way
+to specify a simple, linear interaction in which you can say the effect of some variable x
+depends upon z but the effect of z does not depend upon x. I explain this in more detail in
+the Overthinking box at the end of this section. The impact of this is that it is conventional
+to substitute γW,i into the equation for µi and just state:
+µi = α + (βW + βWSSi)
+|
+{z
+}
+γW,i
+Wi + βSSi = α + βWWi + βSSi + βWSSiWi
+And that’s the conventional form of a continuous interaction, with the extra term on the far
+right end holding the product of the two variables.
+Let’s put this to work on the tulips. The interaction model is:
+Bi ∼Normal(µi, σ)
+µi = α + βWWi + βSSi + βWSWiSi
+The last thing we need is a prior for this new interaction parameter, βWS. This is hard, because
+these epicycle parameters don’t have clear natural meaning. Still, implied predictions help.
+Suppose the strongest plausible interaction is one in which high enough shade makes water

@@ -1,0 +1,47 @@
+13.2. VARYING EFFECTS AND THE UNDERFITTING/OVERFITTING TRADE-OFF
+425
+13.2.3. Simulatesurvivors. Now we’re ready to simulate thebinomial survival process. Each
+pond i has ni potential survivors, and nature flips each tadpole’s coin, so to speak, with prob-
+ability of survival pi. This probability pi is implied by the model definition, and is equal to:
+pi =
+exp(αi)
+1 + exp(αi)
+The model uses a logit link, and so the probability is defined by the logistic function.
+Putting the logistic into the random binomial function, we can generate a simulated
+survivor count for each pond:
+R code
+13.11
+dsim$Si <- rbinom( nponds , prob=logistic(dsim$true_a) , size=dsim$Ni )
+As usual with R, if you give it a list of values, it returns a new list of the same length. In the
+above, each paired αi (dsim$true_a) and Ni (dsim$Ni) is used to generate a random sur-
+vivor count with the appropriate probability of survival and maximum count. These counts
+are stored in a new column in dsim.
+13.2.4. Compute the no-pooling estimates. We’re ready to start analyzing the simulated
+data now. The easiest task is to just compute the no-pooling estimates. We can accomplish
+this straight from the empirical data, just by calculating the proportion of survivors in each
+pond. I’ll keep these estimates on the probability scale, instead of translating them to the
+log-odds scale, because we’ll want to compare the quality of the estimates on the probability
+scale later.
+R code
+13.12
+dsim$p_nopool <- dsim$Si / dsim$Ni
+Now there’s another column in dsim, containing the empirical proportions of survivors in
+each pond. These are the same no-pooling estimates you’d get by fitting a model with a
+dummy variable for each pond and flat priors that induce no regularization.
+13.2.5. Compute the partial-pooling estimates. Now to fit the model to the simulated data,
+using map2stan. I’ll use a single long chain in this example, but keep in mind that you need
+to use multiple chains to check convergence to the right posterior distribution. In this case,
+it’s safe. But don’t get cocky.
+R code
+13.13
+dat <- list( Si=dsim$Si , Ni=dsim$Ni , pond=dsim$pond )
+m13.3 <- ulam(
+alist(
+Si ~ dbinom( Ni , p ),
+logit(p) <- a_pond[pond],
+a_pond[pond] ~ dnorm( a_bar , sigma ),
+a_bar ~ dnorm( 0 , 1.5 ),
+sigma ~ dexp( 1 )
+), data=dat , chains=4 )
+We’ve fit the basic varying intercept model above. You can take a look at the estimates for ¯α
+and σ with the usual precis approach:

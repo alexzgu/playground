@@ -1,0 +1,39 @@
+[islp] 107 page(s) in 36 chunk(s), model=opus, effort=max, workers=3
+[1/36] p50-52: 3/3 ok
+[2/36] p41-43: 0/3 ok claude exited 1: API Error: Output blocked by content filtering policy
+[3/36] p44-46: 0/3 ok claude exited 1: API Error: Output blocked by content filtering policy
+[4/36] p53-55: 3/3 ok
+[5/36] p59-61: 3/3 ok
+[6/36] p56-58: 3/3 ok
+[7/36] p62-64: 3/3 ok
+[8/36] p65-67: 3/3 ok
+[9/36] p74-76: 3/3 ok
+[10/36] p71-73: 0/3 ok claude exited 1: API Error: Output blocked by content filtering policy
+[11/36] p77-79: 0/3 ok claude exited 1: API Error: Output blocked by content filtering policy
+[12/36] p80-82: 3/3 ok
+[13/36] p86-88: 3/3 ok
+[14/36] p83-85: 3/3 ok
+[15/36] p89-91: 3/3 ok
+[16/36] p92-94: 0/3 ok claude exited 1: API Error: Output blocked by content filtering policy
+[17/36] p68-70: 3/3 ok
+[18/36] p98-100: 3/3 ok
+[19/36] p104-106: 3/3 ok
+[20/36] p107-109: 3/3 ok
+[21/36] p110-112: 3/3 ok
+[22/36] p113-115: 3/3 ok
+[23/36] p95-97: 0/3 ok claude exited 1: API Error: Output blocked by content filtering policy
+[24/36] p119-121: 3/3 ok
+[25/36] p122-124: 3/3 ok
+[26/36] p101-103: 0/3 ok claude exited 1: API Error: Output blocked by content filtering policy
+[27/36] p116-118: 0/3 ok claude exited 1: API Error: Output blocked by content filtering policy
+[28/36] p128-130: 3/3 ok
+[29/36] p125-127: 3/3 ok
+[30/36] p137-139: 3/3 ok
+[31/36] p140-142: 3/3 ok
+[32/36] p131-133: 3/3 ok
+[33/36] p143-145: 3/3 ok
+[34/36] p134-136: 3/3 ok
+[35/36] p149-150: 2/2 ok
+[36/36] p146-148: 3/3 ok
+
+Done. 83 ok, 24 failed.

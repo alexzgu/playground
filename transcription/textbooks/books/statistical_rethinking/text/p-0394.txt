@@ -1,0 +1,37 @@
+378
+11. GOD SPIKED THE INTEGERS
+This is the same model. Using the built-in distributions has some speed advantages, so usually you
+don’t want to do raw coding like this. But sometimes you need to, so it is worth understanding.
+11.5. Summary
+This chapter described some of the most common generalized linear models, those used
+to model counts. It is important to never convert counts to proportions before analysis,
+because doing so destroys information about sample size. A fundamental difficulty with
+these models is that parameters are on a different scale, typically log-odds (for binomial)
+or log-rate (for Poisson), than the outcome variable they describe. Therefore computing
+implied predictions is even more important than before.
+11.6. Practice
+Easy.
+11E1. If an event has probability 0.35, what are the log-odds of this event?
+11E2. If an event has log-odds 3.2, what is the probability of this event?
+11E3. Suppose that a coefficient in a logistic regression has value 1.7. What does this imply about
+the proportional change in odds of the outcome?
+11E4. Why do Poisson regressions sometimes require the use of an offset? Provide an example.
+Medium.
+11M1. As explained in the chapter, binomial data can be organized in aggregated and disaggregated
+forms, without any impact on inference. But the likelihood of the data does change when the data are
+converted between the two formats. Can you explain why?
+11M2. If a coefficient in a Poisson regression has value 1.7, what does this imply about the change
+in the outcome?
+11M3. Explain why the logit link is appropriate for a binomial generalized linear model.
+11M4. Explain why the log link is appropriate for a Poisson generalized linear model.
+11M5. What would it imply to use a logit link for the mean of a Poisson generalized linear model?
+Can you think of a real research problem for which this would make sense?
+11M6. State the constraints for which the binomial and Poisson distributions have maximum en-
+tropy. Are the constraints different at all for binomial and Poisson? Why or why not?
+Hard.
+11H1. Use quap to construct a quadratic approximate posterior distribution for the chimpanzee
+model that includes a unique intercept for each actor, m10.4 (page ??). Compare the quadratic ap-
+proximation to the posterior distribution produced instead from MCMC. Can you explain both the
+differences and the similarities between the approximate and the MCMC distributions?
+11H2. Use WAIC to compare the chimpanzee model that includes a unique intercept for each actor,
+m11.4 (page ??), to the simpler models fit in the same section.

@@ -1,0 +1,49 @@
+15.3. CATEGORICAL ERRORS AND DISCRETE ABSENCES
+531
+k ~ beta(2,2)
+), data=dat , chains=4 , cores=4 )
+The likelihood of notes at the top is split into two cases. You can read notes|RC==0 as “the
+probability of N when RC = 0.” So the first line in the model code above is just the ordinary
+Poisson probability when the cat is known present or absent (RC = 0). The next lines are
+the average likelihood, when we haven’t observed the presence or absence of the cat, when
+RC = 1. It looks complicated, but it is just the previous expression on the log scale. The term
+log(k) + poisson_lpmf( notes | exp(a + b) ) is log(Pr(Ci = 1) Pr(Ni|Ci = 1)),
+and log(1-k) + poisson_lpmf( notes | exp(a) ) is log(Pr(Ci = 0) Pr(Ni|Ci = 0)).
+These two terms are then combined to make the weighted sum, on the log scale, using the
+helper function log_sum_exp. This function just takes a vector of log-probabilities, expo-
+nentiates them, sums them, and then returns the log of the sum. But it does all of this in a
+numerically stable way.
+The rest of the model above is more familiar. Be sure to note however the cat pres-
+ence/absence model at the bottom. When the cat is known present or absent, RC = 0, we
+want to use that observation to update the parameter k, the probability a cat is present. This
+is the same k in the likelihood. This means that the non-missing observations inform the
+prior k for the missing observations. Take a look at the posterior of m15.6 and verify that it
+mixes well and produces results that are consistent with the data generating process.
+Now suppose we want to infer the unknown C values. To compute the probability that
+any particular cat was present or absent, we can refer back to the generative model. The thing
+we want to know is Pr(Ci = 1). Prior to seeing the data, this is just the prior Pr(Ci = 1) = k.
+Once we observe Ni, the number of notes sung, we can update this prior with Bayes’ rule. In
+this case:
+Pr(Ci = 1|Ni) =
+Pr(Ni|Ci = 1) Pr(Ci = 1)
+Pr(Ni|Ci = 1) Pr(Ci = 1) + Pr(Ni|Ci = 0) Pr(Ci = 0)
+This looks like a mess. But really it is just a definition. The top is the probability of Ni notes
+when Ci = 1. The bottom is just the average probability of Ni notes. There are just two
+terms to calculate, and we actually already used them in our model. The denominator in the
+expression above is the same average probability of Ni that we wrote into the model code.
+To compute Pr(Ci = 1|Ni) for each i, we just need a few extra lines in the model code.
+We’ll perform these calculations in Stan’s generated quantities block, which means the
+calculations are performed only once per HMC transition and are saved in the returned
+samples. When using ulam, we can tag a line with gq> to indicate this is what we want. Here
+is the updated model, with the new lines at the bottom:
+R code
+15.31
+m15.7 <- ulam(
+alist(
+# singing bird model
+notes|RC==0 ~ poisson( lambda ),
+notes|RC==1 ~ custom( log_sum_exp(
+log(k) + poisson_lpmf( notes | exp(a + b) ),
+log(1-k) + poisson_lpmf( notes | exp(a) )
+) ),
+log(lambda) <- a + b*cat,

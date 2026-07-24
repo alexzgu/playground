@@ -1,0 +1,73 @@
+444
+13. MODELS WITH MEMORY
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+treatment
+proportion pulled left
+R/N
+L/N
+R/P
+L/P
+average actor
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+treatment
+proportion pulled left
+R/N
+L/N
+R/P
+L/P
+marginal of actor
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+treatment
+proportion pulled left
+R/N
+L/N
+R/P
+L/P
+simulated actors
+Figure 13.7. Posterior predictive distributions for the chimpanzees vary-
+ing intercept model, m13.4. The solid lines are posterior means and the
+shaded regions are 80% percentile intervals. Left: Setting the varying inter-
+cept a to the mean a_bar produces predictions for an average actor. These
+predictions ignore uncertainty arising from variation among actors. Mid-
+dle: Simulating varying intercepts using the posterior standard deviation
+among actors, sigma_a, produces predictions that account for variation
+among actors. Right: 100 simulated actors with unique intercepts sampled
+from the posterior. Each simulation maintains the same parameter values
+across all four treatments.
+The result is shown in the right-hand plot of Figure 13.7. Each trend is a simulated actor,
+across all four treatments on the horizontal axis. It is much easier in this plot to see both the
+zig-zag impact of treatment and the variation among actors that is induced by the posterior
+distribution of sigma_a.
+Also note the interaction of treatment and the variation among actors. Because this is
+a binomial model, in principle all parameters interact, due to ceiling and floor effects. For
+actors with very large intercepts, near the top of the plot, treatment has very little effect. These
+actors have strong handedness preferences. But actors with intercepts nearer the mean are
+influenced by treatment.
+13.5.3. Post-stratification. A common problem is to use a non-representative sample of a
+population and to generate representative predictions for the same population. For example,
+we might survey potential voters, asking about their voting intentions. Such samples are
+nearly always biased—different groups respond to such surveys at different rates. So if we
+just use the survey average, we’ll make the wrong prediction about the election. How can we
+do better?
+One technique is post-stratification.193 The idea is to fit a model in which each
+demographic slice of the population—a specific combination of age, economic, and educa-
+tional variables for example—gets its own predicted voting intention. Then these predictions
+are re-weighted using general census information about the full voting population. Because
+there are usually many demographic categories, and samples can be small in some of them,
+post-stratification is often combined with multilevel modeling, in which case it is sometimes
+called MRP, pronounced “Mister P,” for multilevel regression with post-stratification.

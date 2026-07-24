@@ -1,0 +1,43 @@
+246
+8. CONDITIONAL MANATEES
+you might consider.
+8.1.1. Making a rugged model. Let’s see how to recover the reversal of slope, within a single
+model. We’ll begin by fitting a single model to all the data, ignoring continent. This will let
+us think through the model structure and priors before facing the devil of interaction. To
+get started, load the data and preform some pre-processing:
+R code
+8.1
+library(rethinking)
+data(rugged)
+d <- rugged
+# make log version of outcome
+d$log_gdp <- log( d$rgdppc_2000 )
+# extract countries with GDP data
+dd <- d[ complete.cases(d$rgdppc_2000) , ]
+# rescale variables
+dd$log_gdp_std <- dd$log_gdp / mean(dd$log_gdp)
+dd$rugged_std <- dd$rugged / max(dd$rugged)
+Each row in these data is a country, and the various columns are economic, geographic, and
+historical features.133 Raw magnitudes of GDP and terrain ruggedness aren’t meaningful
+to humans. So I’ve scaled the variables to make the units easier to work with. The usual
+standardization is to subtract the mean and divide by the standard deviation. This makes a
+variable into z-scores. We don’t want to do that here, because zero ruggedness is meaningful.
+So instead terrain ruggedness is divided by the maximum value observed. This means it ends
+up scaled from totally flat (zero) to the maximum in the sample at 1 (Lesotho, a very rugged
+and beautiful place). Similarly, log GDP is divided by the average value. So it is rescaled as a
+proportion of the international average. 1 means average, 0.8 means 80% of the average, and
+1.1 means 10% more than average.
+To build a Bayesian model for this relationship, we’ll again use our geocentric skeleton:
+log(yi) ∼Normal(µi, σ)
+µi = α + β(ri −¯r)
+where yi is GDP for nation i, ri is terrain ruggedness for nation i, and¯r is the average rugged-
+ness in the whole sample. It’s value is 0.215—most nations aren’t that rugged. Remember
+that using ¯r just makes it easier to assign a prior to the intercept α.
+The hard thinking here comes when we specify priors. If you are like me, you don’t
+have much scientific information about plausible associations between log GDP and terrain
+ruggedness. But even when we don’t know much about the context, the measurements them-
+selves constrain the priors in useful ways. The scaled outcome and predictor will make this
+easier. Consider first the intercept, α, defined as the log GDP when ruggedness is at the
+sample mean. So it must be close to 1, because we scaled the outcome so that the mean is 1.
+Let’s start with a guess at:
+α ∼Normal(1, 1)

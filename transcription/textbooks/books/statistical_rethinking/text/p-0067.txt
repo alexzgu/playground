@@ -1,0 +1,46 @@
+3. SAMPLING THE IMAGINARY
+51
+This chapter teaches you basic skills for working with samples from the posterior dis-
+tribution. It will seem a little silly to work with samples at this point, because the posterior
+distribution for the globe tossing model is very simple. It’s so simple that it’s no problem to
+work directly with the grid approximation or even the exact mathematical form.51 But there
+are two reasons to adopt the sampling approach early on, before it’s really necessary.
+First, many scientists are quite shaky about integral calculus, even though they have
+strong and valid intuitions about how to summarize data. Working with samples transforms
+a problem in calculus into a problem in data summary, into a frequency format problem. An
+integral in a typical Bayesian context is just the total probability in some interval. That can be
+a challenging calculus problem. But once you have samples from the probability distribution,
+it’s just a matter of counting values in the interval. Even seemingly simple calculations, like
+confidence intervals, are made difficult once a model has many parameters. In those cases,
+one must average over the uncertainty in all other parameters, when describing the uncer-
+tainty in a focal parameter. This requires a complicated integral, but only a very simple data
+summary. An empirical attack on the posterior allows the scientist to ask and answer more
+questions about the model, without relying upon a captive mathematician. For this reason,
+it is often easier and more intuitive to work with samples from the posterior, than to work
+with probabilities and integrals directly.
+Second, some of the most capable methods of computing the posterior produce nothing
+but samples. Many of these methods are variants of Markov chain Monte Carlo techniques
+(MCMC, Chapter 9). So if you learn early on how to conceptualize and process samples from
+the posterior, when you inevitably must fit a model to data using MCMC, you will already
+know how to make sense of the output. Beginning with Chapter 9 of this book, you will
+use MCMC to open up the types and complexity of models you can practically fit to data.
+MCMC is no longer a technique only for experts, but rather part of the standard toolkit of
+quantitative science. So it’s worth planning ahead.
+So in this chapter we’ll begin to use samples to summarize and simulate model output.
+The skills you learn here will apply to every problem in the remainder of the book, even
+though the details of the models and how the samples are produced will vary.
+Rethinking: Why statistics can’t save bad science. The vampirism example at the start of this chapter
+has the same logical structure as many different signal detection problems: (1) There is some binary
+state that is hidden from us; (2) we observe an imperfect cue of the hidden state; (3) we (should) use
+Bayes’ theorem to logically deduce the impact of the cue on our uncertainty.
+Scientific inference is often framed in similar terms: (1) An hypothesis is either true or false; (2)
+we use a statistical procedure and get an imperfect cue of the hypothesis’ falsity; (3) we (should) use
+Bayes’ theorem to logically deduce the impact of the cue on the status of the hypothesis. It’s the third
+step that is hardly ever done. But let’s do it, for a toy example, so you can see how little statistical
+procedures—Bayesian or not—may do for us.
+Suppose the probability of a positive finding, when an hypothesis is true, is Pr(sig|true) = 0.95.
+That’s the power of the test. Suppose that the probability of a positive finding, when an hypothesis is
+false, is Pr(sig|false) = 0.05. That’s the false-positive rate, like the 5% of conventional significance
+testing. Finally, we have to state the base rate at which hypotheses are true. Suppose for example that
+1 in every 100 hypotheses turns out to be true. Then Pr(true) = 0.01. No one knows this value,
+but the history of science suggests it’s small. See Chapter 17 for more discussion. Now use Bayes’ to

@@ -1,0 +1,6 @@
+[statistical_rethinking] 85 page(s) in 29 chunk(s), model=fable, effort=max, workers=2
+[1/29] p36-38: 0/3 ok missing/invalid section in chunk-0036-0038
+[2/29] p42-44: 0/3 ok missing/invalid section in chunk-0042-0044
+[3/29] p45-47: 0/3 ok missing/invalid section in chunk-0045-0047
+[4/29] p48-50: 0/3 ok missing/invalid section in chunk-0048-0050
+4 consecutive failures — likely a usage/rate limit. Stopping early; re-run to resume.

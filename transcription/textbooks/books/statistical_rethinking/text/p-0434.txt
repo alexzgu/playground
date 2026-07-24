@@ -1,0 +1,55 @@
+418
+13. MODELS WITH MEMORY
+sigma ~ dexp( 1 )
+), data=dat , chains=4 , log_lik=TRUE )
+This model provides posterior distributions for 50 parameters: one overall sample intercept
+¯α, the standard deviation among tanks σ, and then 48 per-tank intercepts. Let’s check WAIC
+though to see the effective number of parameters. We’ll compare the earlier model, m13.1,
+with the new multilevel model:
+R code
+13.4
+compare( m13.1 , m13.2 )
+WAIC
+SE dWAIC
+dSE pWAIC weight
+m13.2 200.0 7.19
+0.0
+NA
+20.9
+1
+m13.1 215.9 4.43
+15.9 4.03
+26.2
+0
+There are two facts to note here. First, the multilevel model has only 21 effective parameters.
+There are 28 fewer effective parameters than actual parameters, because the prior assigned
+to each intercept shrinks them all towards the mean ¯α. In this case, the prior is reason-
+ably strong. Check the mean of sigma with precis and you’ll see it’s around 1.6. This is a
+regularizing prior, like you’ve used in previous chapters, but now the amount of regu-
+larization has been learned from the data itself.190 Second, notice that the multilevel model
+m13.2 has fewer effective parameters than the ordinary fixed model m13.1. This is despite
+the fact that the ordinary model has fewer actual parameters, only 48 instead of 50. The ex-
+tra two parameters in the multilevel model allowed it to learn a more aggressive regularizing
+prior, to adaptively regularize. This resulted in a less flexible posterior and therefore fewer
+effective parameters.
+Overthinking: QUAP fails, MCMC succeeds. Why doesn’t simple quadratic approximation, using
+for example quap, work with multilevel models? When a prior is itself a function of parameters, there
+are two levels of uncertainty. This means that the probability of the data, conditional on the param-
+eters, must average over each level. Ordinary quadratic approximation cannot handle the averaging
+in the likelihood, because in general it’s not possible to derive an analytical solution. That means
+there is no unified function for calculating the log-posterior. So your computer cannot directly find
+its minimum (the maximum of the posterior).
+Some other computational approach is needed. It is possible to extend the mode-finding opti-
+mization strategy to these models, but we don’t want to be stuck with optimization in general. One
+reason is that the posterior of these models is routinely non-Gaussian. Another is that optimiza-
+tion approaches tend to be more fragile than MCMC. Stan actually has optimization routines. See
+?optimizing.
+To appreciate the impact of this adaptive regularization, let’s plot and compare the pos-
+terior means from models m13.1 and m13.2. The code that follows is long, only because it
+decorates the plot with informative labels. The basic code is just the first part, which extracts
+samples and computes means.
+R code
+13.5
+# extract Stan samples
+post <- extract.samples(m13.2)
+# compute median intercept for each tank

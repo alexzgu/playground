@@ -1,0 +1,51 @@
+42
+2. SMALL WORLDS AND LARGE WORLDS
+another approximation, one that makes stronger assumptions. The reason is that the number
+of unique values to consider in the grid grows rapidly as the number of parameters in your
+model increases. For the single-parameter globe tossing model, it’s no problem to compute
+a grid of 100 or 1000 values. But for two parameters approximated by 100 values each, that’s
+already 1002 = 10000 values to compute. For 10 parameters, the grid becomes many billions
+of values. These days, it’s routine to have models with hundreds or thousands of parameters.
+The grid approximation strategy scales very poorly with model complexity, so it won’t get
+us very far.
+A useful approach is quadratic approximation. Under quite general conditions, the
+region near the peak of the posterior distribution will be nearly Gaussian—or “normal”—in
+shape. This means the posterior distribution can be usefully approximated by a Gaussian
+distribution. A Gaussian distribution is convenient, because it can be completely described
+by only two numbers: the location of its center (mean) and its spread (variance).
+A Gaussian approximation is called “quadratic approximation” because the logarithm of
+a Gaussian distribution forms a parabola. And a parabola is a quadratic function. So this
+approximation essentially represents any log-posterior with a parabola.
+We’ll use quadratic approximation for much of the first half of this book. For many of the
+most common procedures in applied statistics—linear regression, for example—the approx-
+imation works very well. Often, it is even exactly correct, not actually an approximation at
+all. Computationally, quadratic approximation is very inexpensive, at least compared to grid
+approximation and MCMC (discussed next). The procedure, which R will happily conduct
+at your command, contains two steps.
+(1) Find the posterior mode. This is usually accomplished by some optimization algo-
+rithm, a procedure that virtually “climbs” the posterior distribution, as if it were a
+mountain. The golem doesn’t know where the peak is, but it does know the slope
+under its feet. There are many well-developed optimization procedures, most of
+them more clever than simple hill climbing. But all of them try to find peaks.
+(2) Once you find the peak of the posterior, you must estimate the curvature near the
+peak. This curvature is sufficient to compute a quadratic approximation of the
+entire posterior distribution. In some cases, these calculations can be done analyt-
+ically, but usually your computer uses some numerical technique instead.
+To compute the quadratic approximation for the globe tossing data, we’ll use a tool in
+the rethinking package: quap. We’re going to be using quap a lot in the first half of this
+book. It’s a flexible model fitting tool that will allow us to specify a large number of different
+“regression” models. So it’ll be worth trying it out right now. You’ll get a more thorough
+understanding of it later.
+To compute the quadratic approximation to the globe tossing data:
+R code
+2.6
+library(rethinking)
+globe.qa <- quap(
+alist(
+W ~ dbinom( W+L ,p) ,
+# binomial likelihood
+p ~ dunif(0,1)
+# uniform prior
+) ,
+data=list(W=6,L=3) )
+# display summary of quadratic approximation

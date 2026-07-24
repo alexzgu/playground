@@ -1,0 +1,48 @@
+322
+10. BIG ENTROPY AND THE GENERALIZED LINEAR MODEL
+The link function f provides a solution to this common problem. This chapter will introduce
+the two most common link functions. Then you’ll see how to use them in the chapters that
+follow.
+Rethinking: The scourge of Histomancy. One strategy for choosing an outcome distribution is to
+plot the histogram of the outcome variable and, by gazing into its soul, decide what sort of distribution
+function to use. Call this strategy Histomancy, the ancient art of divining likelihood functions from
+empirical histograms. This sorcery is used, for example, when testing for normality before deciding
+whether or not to use a non-parametric procedure. Histomancy is a false god, because even perfectly
+good Gaussian variables may not look Gaussian when displayed as a histogram. Why? Because at
+most what a Gaussian likelihood assumes is not that the aggregated data look Gaussian, but rather that
+the residuals, after fitting the model, look Gaussian. So for example the combined histogram of male
+and female body weights is certainly not Gaussian. But it is (approximately) a mixture of Gaussian
+distributions. So after conditioning on sex, the residuals may be quite normal. Other times, people
+decide not to use a Poisson model, because the variance of the aggregate outcome exceeds its mean
+(see Chapter 11). But again, at most what a Poisson likelihood assumes is that the variance equals the
+mean after conditioning on predictors. It may very well be that a Gaussian or Poisson likelihood is
+a poor assumption in any particular context. But this can’t easily be decided via Histomancy. This is
+why we need principles, whether maximum entropy or otherwise.
+10.2.1. Meet the family. The most common distributions used in statistical modeling are
+members of a family known as the exponential family. Every member of this family is
+a maximum entropy distribution, for some set of constraints. And conveniently, just about
+every other statistical modeling tradition employs the exact same distributions, even though
+they arrive at them via justifications other than maximum entropy.
+Figure 10.6 illustrates the representative shapes of the most common exponential fam-
+ily distributions used in GLMs. The horizontal axis in each plot represents values of a vari-
+able, and the vertical axis represents probability density (for the continuous distributions)
+or probability mass (for the discrete distributions). For each distribution, the figure also
+provides the notation (above each density plot) and the name of R’s corresponding built-in
+distribution function (below each density plot). The gray arrows in Figure 10.6 indicate
+some of the ways that these distributions are dynamically related to one another. These rela-
+tionships arise from generative processes that can convert one distribution to another. You
+do not need to know these relationships in order to successfully use these distributions in
+your modeling. But the generative relationships do help to demystify these distributions, by
+tying them to causation and measurement.
+Two of these distributions, the Gaussian and binomial, are already familiar to you. To-
+gether, they comprise the most commonly used outcome distributions in applied statistics,
+through the procedures of linear regression (Chapter 4) and logistic regression (Chapter 11).
+There are also three new distributions that deserve some commentary.
+The exponential distribution (center) is constrained to be zero or positive. It is
+a fundamental distribution of distance and duration, kinds of measurements that represent
+displacement from some point of reference, either in time or space. If the probability of
+an event is constant in time or across space, then the distribution of events tends towards
+exponential. The exponential distribution has maximum entropy among all non-negative
+continuous distributions with the same average displacement. Its shape is described by a
+single parameter, the rate of events λ, or the average displacement λ−1. This distribution is
+the core of survival and event history analysis, which is not covered in this book.

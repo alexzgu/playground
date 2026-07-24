@@ -1,0 +1,52 @@
+366
+11. GOD SPIKED THE INTEGERS
+R code
+11.52
+y_all <- c( y , y_new )
+exposure <- c( rep(1,30) , rep(7,4) )
+monastery <- c( rep(0,30) , rep(1,4) )
+d <- data.frame( y=y_all , days=exposure , monastery=monastery )
+Take a look at d and confirm that there are three columns: The observed counts are in y, the
+number of days each count was totaled over are in days, and the new monastery is indicated
+by monastery.
+To fit the model, and estimate the rate of manuscript production at each monastery, we
+just compute the log of each exposure and then include that variable in linear model. This
+code will do the job:
+R code
+11.53
+# compute the offset
+d$log_days <- log( d$days )
+# fit the model
+m11.12 <- quap(
+alist(
+y ~ dpois( lambda ),
+log(lambda) <- log_days + a + b*monastery,
+a ~ dnorm( 0 , 1 ),
+b ~ dnorm( 0 , 1 )
+), data=d )
+To compute the posterior distributions of λ in each monastery, we sample from the posterior
+and then just use the linear model, but without the offset now. We don’t use the offset again,
+when computing predictions, because the parameters are already on the daily scale, for both
+monasteries.
+R code
+11.54
+post <- extract.samples( m11.12 )
+lambda_old <- exp( post$a )
+lambda_new <- exp( post$a + post$b )
+precis( data.frame( lambda_old , lambda_new ) )
+'data.frame': 10000 obs. of 2 variables:
+mean
+sd 5.5% 94.5%
+histogram
+lambda_old 1.34 0.21 1.03
+1.70
+▁▁▃▇▅▂▁▁▁
+lambda_new 0.52 0.14 0.33
+0.77 ▁▁▃▇▇▃▂▁▁▁▁▁▁
+The new monastery produces about half as many manuscripts per day. So you aren’t going
+to pay that much for it.
+11.3. Multinomial and categorical models
+The binomial distribution is relevant when there are only two things that can happen,
+and we count those things. In general, more than two things can happen. For example, recall
+the bag of marbles from way back in Chapter 2. It contained only blue and white marbles.
+But suppose we introduce red marbles as well. Now each draw from the bag can be one of

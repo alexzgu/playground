@@ -1,0 +1,44 @@
+5.1. SPURIOUS ASSOCIATION
+133
+outcome like D. It could still be associated with D entirely through the indirect path. That
+type of relationship is known as mediation, and we’ll have another example later.
+In this example however, the indirect path does almost no work. How can we show that?
+We know from m5.2 that marriage rate is positively associated with divorce rate. But that isn’t
+enough to tell us that the path M →D is positive. It could be that the association between
+M and D arises entirely from A’s influence on both M and D. Like this:
+A
+D
+M
+This DAG is also consistent with the posterior distributions of models m5.1 and m5.2. So
+which is it? Is there a direct effect of marriage rate, or rather is age at marriage just driving
+both, creating a spurious correlation between marriage rate and divorce rate?
+To find out, we need to slow down and consider carefully what each DAG implies. That’s
+what we’ll do next.
+Overthinking: Drawing a DAG. There are several packages, whether for R or Python or another
+environment, that aid with drawing and analyzing directed acyclic graphs. The one I use for examples
+in this book is dagitty. It has the advantage of being both an R package and something you can use
+in your internet browser or on your computer desktop. Visit http://www.dagitty.net/. To draw
+the simple DAG you saw earlier in this section:
+R code
+5.7
+library(dagitty)
+dag5.1 <- dagitty( "dag {
+A -> D
+A -> M
+M -> D
+}")
+coordinates(dag5.1) <- list( x=c(A=0,D=1,M=2) , y=c(A=0,D=1,M=0) )
+drawdag( dag5.1 )
+The -> arrows in the DAG definition indicate directions of influence. The coordinates function let’s
+you layout theplot asyoulike. Youcan also let dagitty do the layout, using plot(graphLayout(dag5.1)).
+The rethinking package has a DAG plotting function that allows a bit more visual control. See
+?drawdag.
+5.1.2. Testable implications. How do we use data to compare multiple, plausible causal
+models? The first thing to consider are the testable implications of each model. Con-
+sider the two DAGs we have so far considered:
+A
+D
+M
+A
+D
+M

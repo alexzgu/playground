@@ -1,0 +1,48 @@
+130
+5. THE MANY VARIABLES & THE SPURIOUS WAFFLES
+You can replicate the right-hand plot in the figure using a linear regression model:
+Di ∼Normal(µi, σ)
+µi = α + βAAi
+α ∼Normal(0, 0.2)
+βA ∼Normal(0, 0.5)
+σ ∼Exponential(1)
+Di is the standardized (zero centered, standard deviation one) divorce rate for State i, and
+Ai is State i’s standardized median age at marriage. The linear model structure should be
+familiar from the previous chapter.
+What about those priors? Since the outcome and the predictor are both standardized, the
+intercept α should end up very close to zero. What does the prior slope βA imply? If βA = 1,
+that would imply that a change of one standard deviation in age at marriage is associated
+likewise with a change of one standard deviation in divorce. To know whether or not that is
+a strong relationship, you need to know how big a standard deviation of age at marriage is:
+R code
+5.2
+sd( d$MedianAgeMarriage )
+[1] 1.24363
+So when βA = 1, a change of 1.2 years in median age at marriage is associated with a full
+standard deviation change in the outcome variable. That seems like an insanely strong rela-
+tionship. The prior above thinks that only 5% of plausible slopes more extreme than 1. We’ll
+simulate from these priors in a moment, so you can see how they look in the outcome space.
+To compute the approximate posterior, there are no new code tricks or techniques here.
+But I’ll add comments to help explain the mass of code to follow.
+R code
+5.3
+m5.1 <- quap(
+alist(
+D ~ dnorm( mu , sigma ) ,
+mu <- a + bA * A ,
+a ~ dnorm( 0 , 0.2 ) ,
+bA ~ dnorm( 0 , 0.5 ) ,
+sigma ~ dexp( 1 )
+) , data = d )
+To simulate from the priors, we can use extract.prior and link as in the previous chapter.
+I’ll plot the lines over the range of 2 standard deviations for both the outcome and predictor.
+That’ll cover most of the possible range of both variables.
+R code
+5.4
+set.seed(10)
+prior <- extract.prior( m5.1 )
+mu <- link( m5.1 , post=prior , data=list( A=c(-2,2) ) )
+plot( NULL , xlim=c(-2,2) , ylim=c(-2,2) )
+for ( i in 1:50 ) lines( c(-2,2) , mu[i,] , col=col.alpha("black",0.4) )
+Figure 5.3 displays the result. You may wish to try some vaguer, flatter priors and see how
+quickly the prior regression lines become ridiculous.

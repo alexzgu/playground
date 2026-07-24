@@ -1,0 +1,68 @@
+98
+4. GEOCENTRIC MODELS
+30
+35
+40
+45
+50
+55
+60
+-100
+0
+100
+200
+300
+400
+weight
+height
+b ~ dnorm(0,10)
+30
+35
+40
+45
+50
+55
+60
+-100
+0
+100
+200
+300
+400
+weight
+height
+log(b) ~ dnorm(0,1)
+World's tallest person (272cm)
+Embryo
+Figure 4.5. Prior predictive simulation for the height and weight model.
+Left: Simulation using the β ∼Normal(0, 10) prior. Right: A more sensible
+log(β) ∼Normal(0, 1) prior.
+we need to simulate a bunch of lines, the lines implied by the priors for α and β. Here’s how
+to do it, setting a seed so you can reproduce it exactly:
+R code
+4.38
+set.seed(2971)
+N <- 100
+# 100 lines
+a <- rnorm( N , 178 , 20 )
+b <- rnorm( N , 0 , 10 )
+Now we have 100 pairs of α and β values. Now to plot the lines:
+R code
+4.39
+plot( NULL , xlim=range(d2$weight) , ylim=c(-100,400) ,
+xlab="weight" , ylab="height" )
+abline( h=0 , lty=2 )
+abline( h=272 , lty=1 , lwd=0.5 )
+mtext( "b ~ dnorm(0,10)" )
+xbar <- mean(d2$weight)
+for ( i in 1:N ) curve( a[i] + b[i]*(x - xbar) ,
+from=min(d2$weight) , to=max(d2$weight) , add=TRUE ,
+col=col.alpha("black",0.2) )
+The result is displayed in Figure 4.5. For reference, I’ve added a dashed line at zero—no
+one is shorter than zero—and the “Wadlow” line at 272cm for the world’s tallest person. The
+pattern doesn’t look like any human population at all. It essentially says that the relationship
+between weight and height could be absurdly positive or negative. Before we’ve even seen
+the data, this is a bad model. Can we do better?
+We can do better immediately. We know that average height increases with average
+weight, at least up to a point. Let’s try restricting it to positive values. The easiest way to do
+this is to define the prior as Log-Normal instead. If you aren’t accustomed to playing with

@@ -1,0 +1,52 @@
+6
+1. THE GOLEM OF PRAGUE
+H0
+H1
+“Evolution
+   is neutral”
+“Selection
+   matters”
+P0A
+Neutral,
+non-equilibrium
+P0B
+Neutral,
+equilibrium
+P1B
+Fluctuating
+selection
+P1A
+Constant
+selection
+MI
+MII
+MIII
+Hypotheses
+Process models
+Statistical models
+Figure 1.2. Relations among hypotheses (left), detailed process models
+(middle), and statistical models (right), illustrated by the example of “neu-
+tral” models of evolution. Hypotheses (H) are typically vague, and so cor-
+respond to more than one process model (P). Statistical evaluations of hy-
+potheses rarely address process models directly. Instead, they rely upon
+statistical models (M), all of which reflect only some aspects of the process
+models. As a result, relations are multiple in both directions: Hypotheses
+do not imply unique models, and models do not imply unique hypotheses.
+This fact greatly complicates statistical inference.
+mathematically or through simulation, the direction of time in a model means that some
+things cause other things, but not the reverse. You can use such models to perform experi-
+ments and probe their causal implications. Sometimes these probes reveal, before we even
+turn to statistical inference, that the model cannot explain a phenomenon of interest.
+In order to challenge process models with data, they have to be made into statistical
+models. Unfortunately, statistical models do not embody specific causal relationships. A
+statistical model expresses associations among variables. As a result, many different process
+models may be consistent with any single statistical model.
+How do we get a statistical model from a causal model? One way is to derive the ex-
+pected frequency distribution of some quantity—a “statistic”—from the causal model. For
+example, a common statistic in this context is the frequency distribution (histogram) of the
+frequency of different genetic variants (alleles). Some alleles are rare, appearing in only a
+few individuals. Others are very common, appearing in very many individuals in the popu-
+lation. A famous result in population genetics is that a model like P0A produces a power law
+distribution of allele frequencies. And so this fact yields a statistical model, MII, that pre-
+dicts a power law in the data. In contrast the constant selection process model P1A predicts
+something quite different, MIII.

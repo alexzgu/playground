@@ -1,0 +1,60 @@
+15.2. MISSING DATA
+521
+-2.0
+-1.5
+-1.0
+-0.5
+0.0
+0.5
+1.0
+1.5
+-1.0
+-0.5
+0.0
+0.5
+1.0
+1.5
+2.0
+neocortex percent (std)
+kcal milk (std)
+-2
+-1
+0
+1
+2
+-2.0
+-1.0
+0.0
+0.5
+1.0
+1.5
+log body mass (std)
+neocortex percent (std)
+Figure 15.5. Left: Inferred distribution of milk energy (vertical) and neo-
+cortex proportion (horizontal), with imputed values shown by open points.
+The line segments are 89% posterior compatibility intervals. Right: In-
+ferred distribution between the two predictors, neocortex proportion and
+log mass. Imputed values again shown by open points.
+plot( dat_list$B , dat_list$K , pch=16 , col=rangi2 ,
+xlab="neocortex percent (std)" , ylab="kcal milk (std)" )
+miss_idx <- which( is.na(dat_list$B) )
+Ki <- dat_list$K[miss_idx]
+points( B_impute_mu , Ki )
+for ( i in 1:12 ) lines( B_impute_ci[,i] , rep(Ki[i],2) )
+# M vs B
+plot( dat_list$M , dat_list$B , pch=16 , col=rangi2 ,
+ylab="neocortex percent (std)" , xlab="log body mass (std)" )
+Mi <- dat_list$M[miss_idx]
+points( Mi , B_impute_mu )
+for ( i in 1:12 ) lines( rep(Mi[i],2) , B_impute_ci[,i] )
+Figure 15.5 displays both the inferred relationship between milk energy and neocortex (left)
+and the relationship between the two predictors (right). Both plots show imputed neocortex
+values in blue, with 89% compatibility intervals shown by the line segments. Although there’s
+a lot of uncertainty in the imputed values—hey, Bayesian inference isn’t magic, just logic—
+they do show a gentle tilt towards the regression relationship. This has happened because
+the observed values provide information that guides the estimation of the missing values.
+The right-hand plot shows the inferred relationship between the two predictors. We al-
+ready know that these two predictors are positively associated—that’s what creates the mask-
+ing problem. But notice here that the imputed values do not show an upward slope. They
+do not, because the imputation model—the first regression with neocortex (observed and
+missing) as the outcome—assumed no relationship.

@@ -1,7 +1,21 @@
 # Chapter 7 — Moving Beyond Linearity
-*(PDF pages 297–337; book pages 290–292)*
+*(PDF pages 297–337; book pages 289–292)*
 
-*⚠ In progress: 3 of 41 pages transcribed; missing PDF pages 297, 301–337.*
+*⚠ In progress: 4 of 41 pages transcribed; missing PDF pages 301–337.*
+
+### PDF page 297 (book page 289)
+
+# Chapter 7 — Moving Beyond Linearity
+
+*[Publisher icon: Check for updates.]*
+
+So far in this book, we have mostly focused on linear models. Linear models are relatively simple to describe and implement, and have advantages over other approaches in terms of interpretation and inference. However, standard linear regression can have significant limitations in terms of predictive power. This is because the linearity assumption is almost always an approximation, and sometimes a poor one. In Chapter 6 we see that we can improve upon least squares using ridge regression, the lasso, principal components regression, and other techniques. In that setting, the improvement is obtained by reducing the complexity of the linear model, and hence the variance of the estimates. But we are still using a linear model, which can only be improved so far! In this chapter we relax the linearity assumption while still attempting to maintain as much interpretability as possible. We do this by examining very simple extensions of linear models like polynomial regression and step functions, as well as more sophisticated approaches such as splines, local regression, and generalized additive models.
+
+- *Polynomial regression* extends the linear model by adding extra predictors, obtained by raising each of the original predictors to a power. For example, a cubic regression uses three variables, $X$, $X^2$, and $X^3$, as predictors. This approach provides a simple way to provide a non-linear fit to data.
+
+- *Step functions* cut the range of a variable into $K$ distinct regions in order to produce a qualitative variable. This has the effect of fitting a piecewise constant function.
+
+- *Regression splines* are more flexible than polynomials and step functions, and in fact are an extension of the two. They involve dividing the range of $X$ into $K$ distinct regions. Within each region, a polynomial function is fit to the data. However, these polynomials are
 
 ### PDF page 298 (book page 290)
 
@@ -35,7 +49,7 @@ The left-hand panel in Figure 7.1 is a plot of `wage` against `age` for the `Wag
 
 *[Figure title: **Degree−4 Polynomial**]*
 
-**FIGURE 7.1.** *The* `Wage` *data.* Left: *The solid blue curve is a degree-4 polynomial of* `wage` *(in thousands of dollars) as a function of* `age`*, fit by least squares. The dashed curves indicate an estimated 95 % confidence interval.* Right: *We model the binary event* `wage>250` *using logistic regression, again with a degree-4 polynomial. The fitted posterior probability of* `wage` *exceeding* $250,000 *is shown in blue, along with an estimated 95 % confidence interval.*
+**FIGURE 7.1.** *The* `Wage` *data.* Left: *The solid blue curve is a degree-4 polynomial of* `wage` *(in thousands of dollars) as a function of* `age`*, fit by least squares. The dashed curves indicate an estimated 95 % confidence interval.* Right: *We model the binary event* `wage>250` *using logistic regression, again with a degree-4 polynomial. The fitted posterior probability of* `wage` *exceeding* \$250,000 *is shown in blue, along with an estimated 95 % confidence interval.*
 
 *[Figure: two side-by-side plots against Age (x-axis, 20 to 80). Left panel: a scatterplot of Wage (y-axis, ~50 to 300) versus Age in gray points, overlaid with a solid blue degree-4 polynomial fit that rises from age 20, peaks around age 40–50, and declines toward age 80, flanked by two dashed blue confidence-interval curves. Right panel: Pr(Wage>250 | Age) (y-axis, 0.00 to 0.20) as a solid blue curve that rises to a bump around age 40–50 and then falls near age 80, flanked by dashed blue confidence-interval curves that fan out widely on the right; rug marks (gray tick marks) along the top and bottom indicate the ages of the high earners and low earners.]*
 
@@ -45,7 +59,7 @@ $$ \hat{f}(x_0) = \hat{\beta}_0 + \hat{\beta}_1 x_0 + \hat{\beta}_2 x_0^2 + \hat
 
 What is the variance of the fit, i.e. $\text{Var}\,\hat{f}(x_0)$? Least squares returns variance estimates for each of the fitted coefficients $\hat{\beta}_j$, as well as the covariances between pairs of coefficient estimates. We can use these to compute the estimated variance of $\hat{f}(x_0)$.[^1] The estimated *pointwise* standard error of $\hat{f}(x_0)$ is the square-root of this variance. This computation is repeated at each reference point $x_0$, and we plot the fitted curve, as well as twice the standard error on either side of the fitted curve. We plot twice the standard error because, for normally distributed error terms, this quantity corresponds to an approximate 95 % confidence interval.
 
-It seems like the wages in Figure 7.1 are from two distinct populations: there appears to be a *high earners* group earning more than $250,000 per annum, as well as a *low earners* group. We can treat `wage` as a binary variable by splitting it into these two groups. Logistic regression can then be used to predict this binary response, using polynomial functions of `age`
+It seems like the wages in Figure 7.1 are from two distinct populations: there appears to be a *high earners* group earning more than \$250,000 per annum, as well as a *low earners* group. We can treat `wage` as a binary variable by splitting it into these two groups. Logistic regression can then be used to predict this binary response, using polynomial functions of `age`
 
 [^1]: If $\hat{\mathbf{C}}$ is the $5 \times 5$ covariance matrix of the $\hat{\beta}_j$, and if $\ell_0^T = (1, x_0, x_0^2, x_0^3, x_0^4)$, then $\text{Var}[\hat{f}(x_0)] = \ell_0^T \hat{\mathbf{C}} \ell_0$.
 

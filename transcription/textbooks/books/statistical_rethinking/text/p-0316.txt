@@ -1,0 +1,58 @@
+300
+9. MARKOV CHAIN MONTE CARLO
+By simulating the data, we know the right answer. Then we fit this model:
+yi ∼Normal(µ, σ)
+µ = α1 + α2
+α1 ∼Normal(0, 1000)
+α2 ∼Normal(0, 1000)
+σ ∼Exponential(1)
+The linear model contains two parameters, α1 and α2, which cannot be identified. Only their
+sum can be identified, and it should be about zero, after estimation.
+Let’s run the Markov chain and see what happens. This chain is going to take much
+longer than the previous ones. But it should still finish after a few minutes.
+R code
+9.26
+set.seed(384)
+m9.4 <- ulam(
+alist(
+y ~ dnorm( mu , sigma ) ,
+mu <- a1 + a2 ,
+a1 ~ dnorm( 0 , 1000 ),
+a2 ~ dnorm( 0 , 1000 ),
+sigma ~ dexp( 1 )
+) , data=list(y=y) , chains=3 )
+precis( m9.4 )
+mean
+sd
+5.5%
+94.5% n_eff Rhat
+a1
+-364.81 318.57 -792.82 240.50
+2 2.80
+a2
+365.00 318.57 -240.26 792.98
+2 2.80
+sigma
+1.05
+0.10
+0.90
+1.19
+2 2.02
+Those estimates look suspicious, and the n_eff and Rhat values are terrible. The means for
+a1 and a2 are about the same distance from zero, but on opposite sides of zero. And the
+standard deviations are massive. This is a result of the fact that we cannot simultaneously
+estimate a1 and a2, but only their sum.
+You should also see a warning when sampling ends:
+Warning messages:
+1: There were 1199 transitions after warmup that exceeded the maximum treedepth.
+Increase max_treedepth above 10. See
+http://mc-stan.org/misc/warnings.html#maximum-treedepth-exceeded
+This is confusing. If you visit the URL, you’ll see that this means the chains are inefficient, be-
+cause some internal limit was reached. These treedepth warnings usually indicate inefficient
+chains, but not necessarily broken chains. Youcantry adding control=list(max_treedepth=15)
+to the ulam call, but it won’t help much. There is something else seriously wrong here.
+Looking at the trace plot reveals more. The left column in Figure 9.12 shows two
+Markov chains from the model above. These chains do not look like they are stationary, nor
+do they seem to be mixing very well. Indeed, when you see a pattern like this, it is reason to
+worry. Don’t use these samples.
+Again, weakly regularizing priors can rescue us. Now the model fitting code is:

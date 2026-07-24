@@ -1,0 +1,44 @@
+2.4. MAKING THE MODEL GO
+39
+Rethinking: Bayesian data analysis isn’t about Bayes’ theorem. A common notion about Bayesian
+data analysis, and Bayesian inference more generally, is that it is distinguished by the use of Bayes’
+theorem. This is a mistake. Inference under any probability concept will eventually make use of Bayes’
+theorem. Common introductory examples of “Bayesian” analysis using HIV and DNA testing are not
+uniquely Bayesian. Since all of the elements of the calculation are frequencies of observations, a non-
+Bayesian analysis would do exactly the same thing. Instead, Bayesian approaches get to use Bayes’
+theorem more generally, to quantify uncertainty about theoretical entities that cannot be observed,
+like parameters and models. Powerful inferences can be produced under both Bayesian and non-
+Bayesian probability concepts, but different justifications and sacrifices are necessary.
+2.4.2. Motors. Recall that your Bayesian model is a machine, a figurative golem. It has built-
+in definitions for the likelihood, the parameters, and the prior. And then at its heart lies a
+motor that processes data, producing a posterior distribution. The action of this motor can
+be thought of as conditioning the prior on the data. As explained in the previous section, this
+conditioning is governed by the rules of probability theory, which defines a uniquely logical
+posterior for set of assumptions and observations.
+However, knowing the mathematical rule is often of little help, because many of the in-
+teresting models in contemporary science cannot be conditioned formally, no matter your
+skill in mathematics. And while some broadly useful models like linear regression can be
+conditioned formally, this is only possible if you constrain your choice of prior to special
+forms that are easy to do mathematics with. We’d like to avoid forced modeling choices of
+this kind, instead favoring conditioning engines that can accommodate whichever prior is
+most useful for inference.
+What this means is that various numerical techniques are needed to approximate the
+mathematics that follows from the definition of Bayes’ theorem. In this book, you’ll meet
+three different conditioning engines, numerical techniques for computing posterior distri-
+butions:
+(1) Grid approximation
+(2) Quadratic approximation
+(3) Markov chain Monte Carlo (MCMC)
+There are many other engines, and new ones are being invented all the time. But the three
+you’ll get to know here are common and widely useful. In addition, as you learn them, you’ll
+also learn principles that will help you understand other techniques.
+Rethinking: How you fit the model is part of the model. Earlier in this chapter, I implicitly defined
+the model as a composite of a prior and a likelihood. That definition is typical. But in practical terms,
+we should also consider how the model is fit to data as part of the model. In very simple problems,
+like the globe tossing example that consumes this chapter, calculation of the posterior density is trivial
+and foolproof. In even moderately complex problems, however, the details of fitting the model to
+data force us to recognize that our numerical technique influences our inferences. This is because
+different mistakes and compromises arise under different techniques. The same model fit to the same
+data using different techniques may produce different answers. When something goes wrong, every
+piece of the machine may be suspect. And so our golems carry with them their updating engines, as
+much slaves to their engineering as they are to the priors and likelihoods we program into them.

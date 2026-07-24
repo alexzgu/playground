@@ -1,0 +1,60 @@
+6.2. POST-TREATMENT BIAS
+175
+Carefully controlled experiments can be ruined just as easily as uncontrolled observational
+studies. Blindly tossing variables into the causal salad is never a good idea, no matter how
+the data were collected.
+The language “post-treatment” comes in fact from thinking about experimental designs.
+Suppose for example that you are growing some plants in a greenhouse. You want to know
+the difference in growth under different anti-fungal soil treatments, because fungus on the
+plants tends to reduce their growth. Plants are initially seeded and sprout. Their heights are
+measured. Then different soil treatments are applied. Final measures are the height of the
+plant and the presence of fungus. There are four variables of interest here: initial height, final
+height, treatment, and presence of fungus. Final height is the outcome of interest. But which
+of the other variables should be in the model? If your goal is to make a causal inference about
+the treatment, you shouldn’t include the presence of fungus, because it is a post-treatment
+effect.
+Let’s simulate some data, to make the example more transparent and see what exactly
+goes wrong when we include a post-treatment variable.
+R code
+6.13
+set.seed(71)
+# number of plants
+N <- 100
+# simulate initial heights
+h0 <- rnorm(N,10,2)
+# assign treatments and simulate fungus and growth
+treatment <- rep( 0:1 , each=N/2 )
+fungus <- rbinom( N , size=1 , prob=0.5 - treatment*0.4 )
+h1 <- h0 + rnorm(N, 5 - 3*fungus)
+# compose a clean data frame
+d <- data.frame( h0=h0 , h1=h1 , treatment=treatment , fungus=fungus )
+precis(d)
+mean
+sd
+5.5% 94.5%
+histogram
+h0
+9.96 2.10
+6.57 13.08 ▁▂▂▂▇▃▂▃▁▁▁▁
+h1
+14.40 2.69 10.62 17.93
+▁▁▃▇▇▇▁▁
+treatment
+0.50 0.50
+0.00
+1.00
+▇▁▁▁▁▁▁▁▁▇
+fungus
+0.23 0.42
+0.00
+1.00
+▇▁▁▁▁▁▁▁▁▂
+Now you should have a data frame d with the simulated plant experiment data.
+6.2.1. A prior is born. When designing the model, it helps to pretend you don’t have the
+data generating process just above. In real research, you will not know the real data gener-
+ating process. But you will have a lot of scientific information to guide model construction.
+So let’s spend some time taking this mock analysis seriously.
+We know that the plants at time t = 1 should be taller than at time t = 0, whatever scale
+they are measured on. So if we put the parameters on a scale of proportion of height at time
+t = 0, rather than on the absolute scale of the data, we can set the priors more easily. To
+make this simpler, let’s focus right now only on the height variables, ignoring the predictor

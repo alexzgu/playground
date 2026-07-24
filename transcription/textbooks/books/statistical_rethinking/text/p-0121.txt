@@ -1,0 +1,46 @@
+4.4. LINEAR PREDICTION
+105
+that average is meaningful, because it alters our confidence in the relationship between the
+predictor and the outcome.
+So now let’s display a bunch of these lines, so you can see the scatter. This lesson will be
+easier to appreciate, if we use only some of the data to begin. Then you can see how adding
+in more data changes the scatter of the lines. So we’ll begin with just the first 10 cases in d2.
+The following code extracts the first 10 cases and re-estimates the model:
+R code
+4.48
+N <- 10
+dN <- d2[ 1:N , ]
+mN <- quap(
+alist(
+height ~ dnorm( mu , sigma ) ,
+mu <- a + b*( weight - mean(weight) ) ,
+a ~ dnorm( 178 , 20 ) ,
+b ~ dlnorm( 0 , 1 ) ,
+sigma ~ dunif( 0 , 50 )
+) , data=dN )
+Now let’s plot 20 of these lines, to see what the uncertainty looks like.
+R code
+4.49
+# extract 20 samples from the posterior
+post <- extract.samples( mN , n=20 )
+# display raw data and sample size
+plot( dN$weight , dN$height ,
+xlim=range(d2$weight) , ylim=range(d2$height) ,
+col=rangi2 , xlab="weight" , ylab="height" )
+mtext(concat("N = ",N))
+# plot the lines, with transparency
+for ( i in 1:20 )
+curve( post$a[i] + post$b[i]*(x-mean(dN$weight)) ,
+col=col.alpha("black",0.3) , add=TRUE )
+The last line loops over all 20 lines, using curve to display each.
+The result is shown in the upper-left plot in Figure 4.7. By plotting multiple regression
+lines, sampled from the posterior, it is easy to see both the highly confident aspects of the
+relationship and the less confident aspects. The cloud of regression lines displays greater
+uncertainty at extreme values for weight.
+The other plots in Figure 4.7 show the same relationships, but for increasing amounts
+of data. Just re-use the code from before, but change N <- 10 to some other value. Notice
+that the cloud of regression lines grows more compact as the sample size increases. This is a
+result of the model growing more confident about the location of the mean.
+4.4.3.4. Plotting regression intervals and contours. The cloud of regression lines in Fig-
+ure 4.7 is an appealing display, because it communicates uncertainty about the relationship
+in a way that many people find intuitive. But it’s more common, and often much clearer, to

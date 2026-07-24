@@ -1,0 +1,63 @@
+11.3. MULTINOMIAL AND CATEGORICAL MODELS
+369
+vector[K] career_income;
+}
+parameters{
+vector[K-1] a; // intercepts
+real<lower=0> b; // association of income with choice
+}
+model{
+vector[K] p;
+vector[K] s;
+a ~ normal( 0 , 1 );
+b ~ normal( 0 , 0.5 );
+s[1] = a[1] + b*career_income[1];
+s[2] = a[2] + b*career_income[2];
+s[3] = 0; // pivot
+p = softmax( s );
+career ~ categorical( p );
+}
+"
+Then we set up the data list and invoke stan:
+R code
+11.57
+dat_list <- list( N=N , K=3 , career=career , career_income=income )
+m11.13 <- stan( model_code=code_m11.13 , data=dat_list , chains=4 )
+precis( m11.13 , 2 )
+mean
+sd
+5.5% 94.5% n_eff Rhat
+a[1]
+0.06 0.21 -0.31
+0.37
+423
+1
+a[2] -0.49 0.38 -1.19
+0.04
+435
+1
+b
+0.27 0.19
+0.02
+0.61
+460
+1
+You might have gotten a small number of divergent transitions above. Can you figure out
+why?
+Be aware that the estimates you get from these models are extraordinarily difficult to
+interpret. Since the parameters are relative to the pivot outcome value, they could end up
+positive or negative, depending upon the context. In the example above, I chose the last
+outcome type, the third career. If you choose another, you’ll get different estimates, but the
+same predictions on the outcome scale. It really is a tide prediction engine. So you absolutely
+must convert them to a vector of probabilities to make much sense of them. However, in this
+case, it’s clear that the coefficient on career income b is positive. It’s just not clear at all how
+big the effect is.
+To conduct a counterfactual simulation, we can extract the samples and make our own.
+The goal is to compare a counterfactual career in which the income is changed. How much
+does the probability change, in the presence of these competing careers? This is a subtle kind
+of question, because the probability change always depends upon the other choices. So let’s
+imagine doubling the income of career 2 above:
+R code
+11.58
+post <- extract.samples( m11.13 )
+# set up logit scores

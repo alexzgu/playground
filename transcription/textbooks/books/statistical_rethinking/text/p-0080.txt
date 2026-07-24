@@ -1,0 +1,45 @@
+64
+3. SAMPLING THE IMAGINARY
+Rethinking: Sampling distributions. Many readers will already have seen simulated observations.
+Sampling distributions are the foundation of common non-Bayesian statistical traditions. In
+those approaches, inference about parameters is made through the sampling distribution. In this
+book, inference about parameters is never done directly through a sampling distribution. The poste-
+rior distribution is not sampled, but deduced logically. Then samples can be drawn from the poste-
+rior, as earlier in this chapter, to aid in inference. In neither case is “sampling” a physical act. In both
+cases, it’s just a mathematical device and produces only small world (Chapter 2) numbers.
+3.3.2. Model checking. Model checking means (1) ensuring the model fitting worked
+correctly and (2) evaluating the adequacy of a model for some purpose. Since Bayesian mod-
+els are always generative, able to simulate observations as well as estimate parameters from
+observations, once you condition a model on data, you can simulate to examine the model’s
+empirical expectations.
+3.3.2.1. Did the software work? In the simplest case, we can check whether the software
+worked by checking for correspondence between implied predictions and the data used to
+fit the model. You might also call these implied predictions retrodictions, as they ask how
+well the model reproduces the data used to educate it. An exact match is neither expected
+nor desired. But when there is no correspondence at all, it probably means the software did
+something wrong.
+There is no way to really be sure that software works correctly. Even when the retro-
+dictions correspond to the observed data, there may be subtle mistakes. And when you start
+working with multilevel models, you’ll have to expect a certain pattern of lack of correspon-
+dence between retrodictions and observations. Despite there being no perfect way to ensure
+software has worked, the simple check I’m encouraging here often catches silly mistakes,
+mistakes of the kind everyone makes from time to time.
+In the case of the globe tossing analysis, the software implementation is simple enough
+that it can be checked against analytical results. So instead let’s move directly to considering
+the model’s adequacy.
+3.3.2.2. Is the model adequate? After assessing whether the posterior distribution is the
+correct one, because the software worked correctly, it’s useful to also look for aspects of the
+data that are not well described by the model’s expectations. The goal is not to test whether
+the model’s assumptions are “true,” because all models are false. Rather, the goal is to assess
+exactly how the model fails to describe the data, as a path towards model comprehension,
+revision, and improvement.
+All models fail in some respect, so you have to use your judgment—as well as the judg-
+ments of your colleagues—to decide whether any particular failure is or is not important.
+Few scientists want to produce models that do nothing more than re-describe existing sam-
+ples. So imperfect prediction (retrodiction) is not a bad thing. Typically we hope to either
+predict future observations or understand enough that we might usefully tinker with the
+world. We’ll consider these problems again, in Chapter 6.
+For now, we need to learn how to combine sampling of simulated observations, as in the
+previous section, with sampling parameters from the posterior distribution. We expect to
+do better when we use the entire posterior distribution, not just some point estimate derived
+from it. Why? Because there is a lot of information about uncertainty in the entire posterior

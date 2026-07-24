@@ -1,0 +1,48 @@
+148
+5. THE MANY VARIABLES & THE SPURIOUS WAFFLES
+Overthinking: Simulating counterfactuals. The example in this section used sim() to hide the de-
+tails. But simulating counterfactuals on your own is not hard. It just uses the model definition.
+Assume we’ve already fit model m5.3_A, the model that includes both causal paths A →D and
+A →M →D. We define a range of values that we want to assign to A:
+R code
+5.24
+A_seq <- seq( from=-2 , to=2 , length.out=30 )
+Next we need to extract the posterior samples, because we’ll simulate observations for each set of
+samples. Then it really is just a matter of using the model definition with the samples, as in previous
+examples. The model defines the distribution of M. We just convert that definition to the correspond-
+ing simulation function, which is rnorm in this case:
+R code
+5.25
+post <- extract.samples( m5.3\_A )
+M_sim <- with( post , sapply( 1:30 ,
+function(i) rnorm( 1e3 , aM + bAM*A_seq[i] , sigma_M ) ) )
+I used the with() function, which saves us having to type post$ in front of every parameter name.
+The linear model inside rnorm comes right out of the model definition. This produces a matrix of
+values, with samples in rows and cases corresponding to the values in A_seq in the columns. Now
+that we have simulated values for M, we can simulate D too:
+R code
+5.26
+D_sim <- with( post , sapply( 1:30 ,
+function(i) rnorm( 1e3 , a + bA*A_seq[i] + bM*M_sim[,i] , sigma ) ) )
+If you plot A_seq against the column means of D_sim, you’ll see the same result as before. In complex
+models, there might be many more variables to simulate. But the basic procedure is the same.
+5.2. Masked relationship
+The divorce rate example demonstrates that multiple predictor variables are useful for
+knocking out spurious association. A second reason to use more than one predictor variable
+is to measure the direct influences of multiple factors on an outcome, when none of those
+influences is apparent from bivariate relationships. This kind of problem tends to arise when
+there are two predictor variables that are correlated with one another. However, one of these
+is positively correlated with the outcome and the other is negatively correlated with it.
+You’ll consider this kind of problem in a new data context, information about the com-
+position of milk across primate species, as well as some facts about those species, like body
+mass and brain size.82 Milk is a huge investment, being much more expensive than gestation.
+Such an expensive resource is likely adjusted in subtle ways, depending upon the physiolog-
+ical and development details of each mammal species. Let’s load the data into R first:
+R code
+5.27
+library(rethinking)
+data(milk)
+d <- milk
+str(d)
+You should see in the structure of the data frame that you have 29 rows (cases) for 8 variables
+(columns).

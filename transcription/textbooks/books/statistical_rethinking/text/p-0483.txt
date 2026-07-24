@@ -1,0 +1,54 @@
+14.2. ADVANCED VARYING SLOPES
+467
+Suppose for example that we are testing a pain reliever, like aspirin. For many medica-
+tions, only some people benefit. The average treatment effect is not really as interesting as
+the distribution of treatment effects, in such cases.
+Overthinking: Non-centered parameterization of the multilevel model. When there are inefficient
+chains, often running the chains long enough will produce reliable samples from the posterior. This
+was the case with m14.2 in the main text. But this is both inefficient and unreliable. The chains could
+still be biased in subtle ways that are hard to detect. Better to re-parameterize, as explained in the
+preceding section.195 How does this work in the case of covariance matrixes?
+Model m14.3 uses a trick known as the Cholesky decomposition to smuggle the covariance ma-
+trix out of the prior. The top part of the model is the same as the centered version, m14.2. The changes
+are the extra lines that construct the adaptive priors:
+# adaptive priors - non-centered
+transpars> matrix[actor,4]:alpha <-
+compose_noncentered( sigma_actor , L_Rho_actor , z_actor ),
+transpars> matrix[block_id,4]:beta <-
+compose_noncentered( sigma_block , L_Rho_block , z_block ),
+matrix[4,actor]:z_actor ~ normal( 0 , 1 ),
+matrix[4,block_id]:z_block ~ normal( 0 , 1 ),
+These two lines that begin with transpars> define the matrixes of varying effects alpha and beta.
+Each is a matrix with a row for each actor/block and a column for each effect. As a convenience,
+compose_noncentered mixes the vector of standard deviations, the correlation matrix, and the z-
+scores together to make a matrix of parameters on the correct scale for the linear model. This means
+that the matrixes of z-scores—the third and fourth lines above—can just be normal(0,1). The other
+change to the model, to make it non-centered, is that the correlation matrixes have been replaced
+with something called a Cholesky factor, cholesky_factor_corr to be precise.
+So what is compose_concentered doing? And what are these mysterious Cholesky factors?
+A Cholesky decomposition L is a way to represent a square, symmetric matrix like a correlation
+matrix R such that R = LL⊺. It is a marvelous fact that you can multiply L by a matrix of uncorrelated
+samples (z-scores) and end up with a matrix of correlated samples (the varying effects). This is the
+trick that lets us take the covariance matrix out of the prior. We just sample a matrix of uncorrelated
+z-scores and then multiply those by the Cholesky factor and the standard deviations to get the varying
+effects with the correct scale and correlation. It would be magic, except that it is just algebra.
+Let’s look at the raw Stan code, to demystify all of this and help you transition to building mod-
+els directly in Stan, where you will have more control. Those transpars> flags in the ulam code
+define the matrixes alpha and beta as transformed parameters, which means that Stan will
+include them in the posterior, even though they are just functions of parameters. So if you look at
+stancode(m14.3), you’ll see a new block above the model block:
+transformed parameters{
+matrix[7,4] alpha;
+matrix[6,4] beta;
+beta = (diag_pre_multiply(sigma_block, L_Rho_block) * z_block)';
+alpha = (diag_pre_multiply(sigma_actor, L_Rho_actor) * z_actor)';
+}
+These arethecalculations thatmergevectors ofstandarddeviations, sigma_actor and sigma_block,
+with Cholesky correlation factors, L_Rho_actor and L_Rho_block. Thefunction diag_pre_multiply
+does this—all it does is make a diagonal matrix from the sigma vector and then multiply, producing
+a Cholesky factor for the right covariance matrix. Finally, that Cholesky covariance factor is matrix
+multiplied by the matrix of z-scores. For convenience, the thing is transposed—that ' on the end
+of each line—so we can index it as alpha[actor,effect] instead of alpha[effect,actor]. But
+really that step isn’t necessary.
+Then down in the model block, the matrixes alpha and beta are just available as parameters, so
+the linear model part looks the same:

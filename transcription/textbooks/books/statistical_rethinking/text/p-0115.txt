@@ -1,0 +1,49 @@
+4.4. LINEAR PREDICTION
+99
+logarithms, that’s okay. I’ll show each step. There’s more detail in the box at the end of this
+section.
+Defining β as Log-Normal(0,1) means to claim that the logarithm of β has a Normal(0,1)
+distribution. Plainly:
+β ∼Log-Normal(0, 1)
+R provides the dlnorm and rlnorm densities for working with log-normal distributions. You
+can simulate this relationship to see what this means for β:
+R code
+4.40
+b <- rlnorm( 1e4 , 0 , 1 )
+dens( b , xlim=c(0,5) , adj=0.1 )
+If the logarithm of β is normal, then β itself is strictly positive. The reason is that exp(x)
+is greater than zero for any real number x. This is the reason that Log-Normal priors are
+commonplace. They are an easy way to enforce positive relationships. So what does this
+earn us? Do the prior predictive simulation again, now with the Log-Normal prior:
+R code
+4.41
+set.seed(2971)
+N <- 100
+# 100 lines
+a <- rnorm( N , 178 , 20 )
+b <- rlnorm( N , 0 , 1 )
+Plotting as before produces the right-hand plot in Figure 4.5. This is much more sensible.
+There is still a rare impossible relationship. But nearly all lines in the joint prior for α and β
+are now within human reason.
+We’re fussing about this prior, even though as you’ll see in the next section there is so
+much data in this example that the priors end up not mattering. We fuss for two reasons.
+First, there are many analyses in which no amount of data makes the prior irrelevant. In such
+cases, non-Bayesian procedures are no better off. They also depend upon structural features
+of the model. Paying careful attention to those features is essential. Second, thinking about
+the priors helps us develop better models, maybe even eventually going beyond geocentrism.
+Rethinking: What’s the correct prior? People commonly ask what the correct prior is for a given
+analysis. The question sometimes implies that for any given set of data, there is a uniquely correct
+prior that must be used, or else the analysis will be invalid. This is a mistake. There is no more a
+uniquely correct prior than there is a uniquely correct likelihood. Statistical models are machines for
+inference. Many machines will work, but some work better than others. Priors can be wrong, but
+only in the same sense that a kind of hammer can be wrong for building a table.
+In choosing priors, there are simple guidelines to get you started. Priors encode states of infor-
+mation before seeing data. So priors allow us to explore the consequences of beginning with different
+information. In cases in which we have good prior information that discounts the plausibility of some
+parameter values, like negative associations between height and weight, we can encode that informa-
+tion directly into priors. When we don’t have such information, we still usually know enough about
+the plausible range of values. And you can vary the priors and repeat the analysis in order to study
+how different states of initial information influence inference. Frequently, there are many reasonable
+choices for a prior, and all of them produce the same inference. And conventional Bayesian priors
+are conservative, relative to conventional non-Bayesian approaches. We’ll see how this conservatism
+arises in Chapter 7.

@@ -1,0 +1,57 @@
+9.4. EASY HMC: ULAM
+289
+a.1
+1.02
+1.05
+1.08
+-0.01
+0.17
+-0.3
+-0.1
+-0.02
+0.84
+0.90
+0.02
+1.02
+1.05
+1.08
+a.2
+-0.06
+-0.09
+-0.03
+b.1
+0.02
+-0.1
+0.1
+0.3
+-0.03
+-0.3
+-0.1
+b.2
+0.01
+0.84
+0.90
+-0.1
+0.1
+0.3
+0.10
+0.12
+0.10
+0.12
+sigma
+Figure 9.7. Pairs plot of the samples produced by ulam. The diagonal
+shows a density estimate for each parameter. Below the diagonal, corre-
+lations between parameters are shown.
+9.4.5. Checking the chain. Provided the Markov chain is defined correctly, then it is guar-
+anteed to converge in the long run to the answer we want, the posterior distribution. But
+some posterior distributions are hard to explore—there will be examples—and the time it
+would take for them to provide an unbiased approximation is very long indeed. Such prob-
+lems are rarer for HMC than other algorithms, but they still exist. In fact, one of the virtues
+of HMC is that it tells us when things are going wrong. Other algorithms, like Metropolis-
+Hastings, can remain silent about major problems. In the next major section, we’ll dwell on
+causes of and solutions to malfunction.
+For now, let’s look at two chain visualizations that can often, but not always, spot prob-
+lems. The first is called a trace plot. A trace plot merely plots the samples in sequential
+order, joined by a line. It’s King Markov’s path through the islands, in the metaphor at the
+start of the chapter. Looking at the trace plot of each parameter is often the best thing for diag-
+nosing common problems. And once you come to recognize a healthy, functioning Markov

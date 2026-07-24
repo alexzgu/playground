@@ -1,0 +1,43 @@
+13.7. PRACTICE
+445
+How does it work? Supposing you have estimates pi for each demographic category i,
+then the post-stratified prediction for the whole population (not the sample) just re-weights
+these estimates using the number of individuals Ni in each category:
+P
+i Nipi
+P
+i Ni
+Compute this for each sample in the posterior distribution, then you’ll have a posterior dis-
+tribution of predictions as usual.
+Post-stratification does not always work. It is not justified when selection bias is itself
+caused by the outcome of interest. Suppose for example that responding to the survey R is
+influenced by age A, and that age A influences voting intention V: R ←A →V. In that
+case it is possible to estimate the influence of A on V. But if V →R, then there is little hope.
+Suppose for example that only supporters respond. Then V = 1 for everyone who responds.
+Selection on the outcome variable is one of the worst things that can happen in statistics.
+13.6. Summary
+This chapter has been an introduction to the motivation, implementation, and inter-
+pretation of basic multilevel models. It focused on varying intercepts, which achieve better
+estimates of baseline differences among clusters in the data. They achieve better estimates,
+because they simultaneously model the population of clusters and use inferences about the
+population to pool information among parameters. From another perspective, varying inter-
+cepts are adaptively regularized parameters, relying upon a prior that is itself learned from
+the data. All of this is a foundation for the next chapter, which extends these concepts to
+additional types of parameters and models.
+13.7. Practice
+Easy.
+13E1. Which of the following priors will produce more shrinkage in the estimates? (a) αtank ∼
+Normal(0, 1); (b) αtank ∼Normal(0, 2).
+13E2. Make the following model into a multilevel model.
+yi ∼Binomial(1, pi)
+logit(pi) = αgroup[i] + βxi
+αgroup ∼Normal(0, 10)
+β ∼Normal(0, 1)
+13E3. Make the following model into a multilevel model.
+yi ∼Normal(µi, σ)
+µi = αgroup[i] + βxi
+αgroup ∼Normal(0, 10)
+β ∼Normal(0, 1)
+σ ∼HalfCauchy(0, 2)
+13E4. Write an example mathematical model formula for a Poisson regression with varying inter-
+cepts.

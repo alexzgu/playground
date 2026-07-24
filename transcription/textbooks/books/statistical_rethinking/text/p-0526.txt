@@ -1,0 +1,47 @@
+510
+15. MISSING DATA AND OTHER OPPORTUNITIES
+Consider for example a DAG in which the errors on D and M are correlated with one
+another, because they are both influenced by a variable P:
+A
+D
+Dobs
+M
+Mobs
+P
+eD
+eM
+In this case, if we naively regress Dobs on Mobs, then there is an open non-causal path through
+P. If we have information about the measurement process, such that we can model the true
+variables D and M, there is still hope. But we’ll need to consider the covariance between the
+errors. This is computationally similar to how we did instrumental variable regression in the
+previous chapter. There’s a problem at the end of this chapter where I ask you to attempt this.
+Another unfortunate situation can arise when another variable influences the error and
+creates another non-causal path. For example, suppose that the true marriage rate M influ-
+ences the error on divorce rate D:
+A
+D
+Dobs
+M
+Mobs
+eD
+eM
+Why might this happen? If marriages are rare, then there aren’t as many couples that could
+possibly get divorced. This means a smaller sample size to measure the divorce rate. So
+smaller M induces a larger error eD. This produces a non-causal path from Mobs to Dobs
+that passes through eD. And again, if we can average other the uncertainty in the true M
+and D, using information about the measurement process, then we might do alright. But
+ignoring the measurement error isn’t alright. And that’s what almost everyone does almost
+every time.212
+Another pattern of measurement error to worry about is when a causal variable is mea-
+sured less precisely than a non-causal variable. Suppose for example that we know D and M
+very precisely but that now A is measured with error. Also assume that M has zero causal
+effect on D, like this:
+A
+Aobs
+D
+M
+eA
+In this circumstance, it can happen that a naive regression of D on Aobs and M will strongly
+suggest that M influences D. The reason is that M contains information about the true A.
+And M is measured more precisely than A is. It’s like a proxy A. Here’s a small simulation
+you can toy with that will produce such a frustration:

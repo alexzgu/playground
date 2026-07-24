@@ -1,0 +1,46 @@
+7.1. THE PROBLEM WITH PARAMETERS
+197
+In order to introduce information criteria, this chapter must also introduce informa-
+tion theory. If this is your first encounter with information theory, it’ll probably seem
+strange. But some understanding of it needed. Once you start using information criteria—
+this chapter describes AIC, DIC, WAIC, and PSIS-LOO—you’ll find that implementing them
+is much easier than understanding them. This is their curse. So most of this chapter aims to
+fight the curse, focusing on their conceptual foundations, with applications to follow.
+It’s worth noting, before getting started, that this material is hard. If you find yourself
+confused at any point, you are normal. Any sense of confusion you feel is just your brain cor-
+rectly calibrating to the subject matter. Over time, confusion is replaced by comprehension
+for how overfitting, regularization, and information criteria behave in familiar contexts.
+Rethinking: Stargazing. The most common form of model selection among practicing scientists is
+to search for a model in which every coefficient is statistically significant. Statisticians sometimes call
+this stargazing, as it is embodied by scanning for asterisks (**) trailing after estimates. A colleague
+of mine once called this approach the “Space Odyssey,” in honor of A. C. Clarke’s novel and film. The
+model that is full of stars, the thinking goes, is best.
+But such a model is not best. Whatever you think about null hypothesis significance testing in
+general, using it to select among structurally different models is a mistake—p-values are not designed
+to help you navigate between underfitting and overfitting. As you’ll see once you start using AIC and
+related measures, predictor variables that improve prediction are not always statistically significant. It
+is also possible for variables that are statistically significant to do nothing useful for prediction. Since
+the conventional 5% threshold is purely conventional, we shouldn’t expect it to optimize anything.
+Rethinking: Is AIC Bayesian? AIC is not usually thought of as a Bayesian tool. There are both his-
+torical and statistical reasons for this. Historically, AIC was originally derived without reference to
+Bayesian probability. Statistically, AIC uses MAP estimates instead of the entire posterior, and it re-
+quires flat priors. So it doesn’t look particularly Bayesian. Reinforcing this impression is the existence
+of another model comparison metric, the Bayesian information criterion (BIC). However, BIC
+also requires flat priors and MAP estimates, although it’s not actually an “information criterion.”
+Regardless, AIC has a clear and pragmatic interpretation under Bayesian probability, and Akaike
+and others have long argued for alternative Bayesian justifications of the procedure.95 And as you’ll
+see later in the book, more obviously Bayesian information criteria like WAIC provide almost exactly
+the same results as AIC, when AIC’s assumptions are met. In this light, we can fairly regard AIC as
+a special limit of a Bayesian criterion like WAIC, even if that isn’t how AIC was originally derived.
+All of this is an example of a common feature of statistical procedures: The same procedure can be
+derived and justified from multiple, sometimes philosophically incompatible, perspectives.
+7.1. The problem with parameters
+In the previous chapters, we saw how adding variables and parameters to a model can
+help to reveal hidden effects and improve estimates. You also saw that adding variables can
+hurt, in particular when we lack a trusted causal model. Colliders are real. But sometimes we
+don’t care about causal inference. Maybe we just want to make good predictions. Consider
+for example the grandparent-parent-child example from the previous chapter. Just adding
+all the variables to the model will give us a good predictive model in that case. That we don’t
+understand what is going on is irrelevant. So is just adding everything to the model okay?
+The answer is “no.” There are two related problems with just adding variables. The first
+is that adding parameters—making the model more complex—nearly always improves the

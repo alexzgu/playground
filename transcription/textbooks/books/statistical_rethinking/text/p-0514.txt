@@ -1,0 +1,53 @@
+498
+14. ADVENTURES IN COVARIANCE
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+0.0
+0.5
+1.0
+1.5
+phylogenetic distance
+covariance
+prior
+posterior
+Figure 14.14. Posterior covariance functions
+for the Gaussian process phylogenetic regres-
+sion (blue), compared to the prior (gray). Un-
+like the Brownian motion model, in which co-
+variance starts high and decays linearly with
+distance, this model favors a very small covari-
+ation at all distances.
+doesn’t completely explain away the association between group size and brain size, as it did
+in the Brownian motion model.
+Overthinking: Building custom kernels. The rethinking package provides cov_GPL1 (the OU
+kernel) and cov_GPL2 (the quadratic kernel) for building Gaussian process covariance matrices. But
+it’s easy to build your own, if you use Stan directly. Let’s look at stancode(m14.11). The top part is
+a custom functions block, containing the cov_GPL1 function:
+functions{
+matrix cov_GPL1(matrix x, real sq_alpha, real sq_rho, real delta) {
+int N = dims(x)[1];
+matrix[N, N] K;
+for (i in 1:(N-1)) {
+K[i, i] = sq_alpha + delta;
+for (j in (i + 1):N) {
+K[i, j] = sq_alpha * exp(-sq_rho * x[i,j] );
+K[j, i] = K[i, j];
+}
+}
+K[N, N] = sq_alpha + delta;
+return K;
+}
+}
+This function takes as input as distance matrix x and the parameters of the Gaussian process. It then
+loops over all the cells in the covariance matrix K, computing the value of each. To modify the kernel,
+you’d change the line that computes each covariance:
+K[i, j] = sq_alpha * exp(-sq_rho * x[i,j] );
+For example, the quadratic kernel just squares the x[i,j]. All that remain is to call the function
+inside the model block.
+14.6. Summary
+This chapter extended the basic multilevel strategy of partial pooling to slopes as well
+as intercepts. Accomplishing this meant modeling covariation in the statistical population

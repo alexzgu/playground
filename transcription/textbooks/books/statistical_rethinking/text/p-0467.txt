@@ -1,0 +1,51 @@
+14.1. VARYING SLOPES BY CONSTRUCTION
+451
+such as phylogenetic and network regressions. Finally, we’ll circle back to causal inference
+and use our new powers over covariance to go beyond the tools of Chapter 6), introducing
+instrumental variables. Instruments are ways of inferring cause without closing back-
+door paths. However are very tricky both in design and estimation.
+The material in this chapter is difficult. So if it suddenly seems both conceptually and
+computationally much more difficult, that only means you are paying attention. Material like
+this requires repetition, discussion, and learning from mistakes. The struggle is definitely
+worth it. You don’t have to understand it all at once.
+14.1. Varying slopes by construction
+How should the robot pool information across intercepts and slopes? By modeling the
+joint population of intercepts and slopes, which means by modeling their covariance. In
+conventional multilevel models, the device that makes this possible is a joint multivariate
+Gaussian distribution for all of the varying effects, both intercepts and slopes. So instead
+of having two independent Gaussian distributions of intercepts and of slopes, the robot can
+do better by assigning a two-dimensional Gaussian distribution to both the intercepts (first
+dimension) and the slopes (second dimension).
+You’ve been working with multivariate Gaussian distributionseversince Chapter 4, when
+you began using the quadratic approximation for the posterior distribution. The variance-
+covariance matrix, vcov, for a fit model describes how each parameter’s posterior probability
+is associated with each other parameter’s posterior probability. Now we’ll use the same kind
+of distribution to describe the variation within and covariation among different kinds of
+varying effects. Varying intercepts have variation, and varying slopes have variation. Inter-
+cepts and slopes covary.
+In order to see how this works and how varying slopes are specified and interpreted,
+let’s simulate the coffee robot from the introduction. Like previous simulation exercises, this
+will simultaneously help you see how to conduct your own prospective power analyses, in
+addition to reemphasizing the generative nature of Bayesian statistical models.
+Rethinking: Why Gaussian? There is no reason the multivariate distribution of intercepts and slopes
+must be Gaussian. But there are both practical and epistemological justifications. On the practical
+side, there aren’t many multivariate distributions that are easy to work with. The only common ones
+are multivariate Gaussian and multivariate Student-t distributions. On the epistemological side, if all
+we want to say about these intercepts and slopes is their means, variances, and covariances, then the
+maximum entropy distribution is multivariate Gaussian. But thin Gaussian tails can still be risky.
+14.1.1. Simulate the population. Begin by defining the population of cafés that the robot
+might visit. This means we’ll define the average wait time in the morning and the afternoon,
+as well as the correlation between them. These numbers are sufficient to define the average
+properties of the cafés. Let’s define these properties, then we’ll sample cafés from them.
+R code
+14.1
+a <- 3.5
+# average morning wait time
+b <- (-1)
+# average difference afternoon wait time
+sigma_a <- 1
+# std dev in intercepts
+sigma_b <- 0.5
+# std dev in slopes
+rho <- (-0.7)
+# correlation between intercepts and slopes

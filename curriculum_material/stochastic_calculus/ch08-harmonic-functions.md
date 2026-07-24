@@ -3,9 +3,7 @@
 
 ### PDF page 249 (book page 243)
 
-# Chapter 8
-
-# Harmonic functions
+# Chapter 8 — Harmonic functions
 
 ## 8.1 Dirichlet problem
 

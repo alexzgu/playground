@@ -1,0 +1,50 @@
+392
+12. MONSTERS AND MIXTURES
+R code
+12.11
+m12.3_alt <- ulam(
+alist(
+y|y>0 ~ custom( log1m(p) + poisson_lpmf(y|lambda) ),
+y|y==0 ~ custom( log_mix( p , 0 , poisson_lpmf(0|lambda) ) ),
+logit(p) <- ap,
+log(lambda) <- al,
+ap ~ dnorm(-1.5,1),
+al ~ dnorm(1,0.5)
+) , data=list(y=as.integer(y)) , chains=4 )
+That is the same model, but with explicit mixtures and some raw Stan code inside the custom lines.
+If you look at stancode(m12.3_alt), you’ll see the corresponding lines:
+if ( y[i] > 0 ) target += log1m(p) + poisson_lpmf(y[i] | lambda);
+if ( y[i] == 0 ) target += log_mix(p, 0, poisson_lpmf(0 | lambda));
+That target thing is a chain of terms for calculating the log-posterior. When we use it with +=, we add
+another term to the stack. Stan will later use this stack to figure out the gradient, through aggressive
+and systematic use of the chain rule from calculus. Then there are some important tricks for doing
+this calculation. The log1m function computes the log of one-minus a value. We need log(1−p), but
+if p is very close to 1, then this can round catastrophically to zero and then the log will be negative
+infinity. Using log1m makes this much less likely. The function log_mix mixes together two log-
+probabilities, which is what we need for the probability of a zero. But it also uses clever techniques to
+avoid rounding error. It’s equivalent in this case to:
+if ( y[i] == 0 ) target += log( p + (1-p)*exp(-lambda) );
+but more stable under extreme values of p. In this case, it makes no difference—the less fancy direct
+approach works fine. But it’s good to know the better approach. You’ll see it the code and more
+complex models won’t work right otherwise. Finally, note that I coerced y to integer in the data list.
+When you use ulam’s built-in distributions, it will try to coerce variables into the correct Stan type.
+But if you build your own, you need to do this yourself.
+12.3. Ordered categorical outcomes
+It is very common in the social sciences, and occasional in the natural sciences, to have
+an outcome variable that is discrete, like a count, but in which the values merely indicate
+different ordered levels along some dimension. For example, if I were to ask you how much
+you like to eat fish, on a scale from 1 to 7, you might say 5. If I were to ask 100 people the
+same question, I’d end up with 100 values between 1 and 7. In modeling each outcome value,
+I’d have to keep in mind that these values are ordered, because 7 is greater than 6, which is
+greater than 5, and so on. The result is a set of ordered categories. Unlike a count, the
+differences in value are not necessarily equal. It might be much harder to move someone’s
+preference for fish from 1 to 2 than it is to move it from 5 to 6. Just treating ordered categories
+as continuous measures is not a good idea.179
+Luckily, there is a standard and accessible solution. In principle, an ordered categorical
+variable is just a multinomial prediction problem (page 366). But the constraint that the
+categories be ordered demands a special treatment. What we’d like is for any associated pre-
+dictor variable, as it increases, to move predictions progressively through the categories in
+sequence. So for example if preference for ice cream is positively associated with years of
+age, then the model should sequentially move predictions upwards as age increases: 3 to 4,
+4 to 5, 5 to 6, etc. This presents a challenge: how to ensure that the linear model maps onto
+the outcomes in the right order.

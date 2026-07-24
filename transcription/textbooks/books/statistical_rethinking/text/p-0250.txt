@@ -1,0 +1,48 @@
+234
+7. ULYSSES’ COMPASS
+combining the predictions of multiple models. For the sake of space, we won’t cover it in
+this book. But see the endnote for some places to start.123
+Rethinking: WAIC metaphors. Here are two metaphors to help explain the concepts behind using
+WAIC (or another information criterion) to compare models.
+Think of models as race horses. In any particular race, the best horse may not win. But it’s more
+likely to win than is the worst horse. And when the winning horse finishes in half the time of the
+second-place horse, you can be pretty sure the winning horse is also the best. But if instead it’s a photo-
+finish, with a near tie between first and second place, then it is much harder to be confident about
+which is the best horse. WAIC values are analogous to these race times—smaller values are better,
+and the distances between the horses/models are informative. Akaike weights transform differences
+in finishing time into probabilities of being the best model/horse on future data/races. But if the track
+conditions or jockey changes, these probabilities may mislead. Forecasting future racing/prediction
+based upon a single race/fit carries no guarantees.
+Think of models as stones thrown to skip on a pond. No stone will ever reach the other side
+(perfect prediction), but some sorts of stones make it farther than others, on average (make better
+test predictions). But on any individual throw, lots of unique conditions avail—the wind might pick
+up or change direction, a duck could surface to intercept the stone, or the thrower’s grip might slip. So
+which stone will go farthest is not certain. Still, the relative distances reached by each stone therefore
+provide information about which stone will do best on average. But we can’t be too confident about
+any individual stone, unless the distances between stones is very large.
+Of course neither metaphor is perfect. Metaphors never are. But many people find these to be
+helpful in interpreting information criteria.
+7.5.2. Outliers and other illusions. In the divorce example from Chapter 5, we saw in the
+posterior predictions that a few States were very hard for the model. The State of Idaho in
+particular was something of an outlier (page 5.5). Individual points like Idaho tend to be
+very influential in ordinary regression models. Let’s see how PSIS and WAIC represent that
+importance. Begin by refitting the three divorce models from Chapter 5.
+R code
+7.32
+library(rethinking)
+data(WaffleDivorce)
+d <- WaffleDivorce
+d$A <- standardize( d$MedianAgeMarriage )
+d$D <- standardize( d$Divorce )
+d$M <- standardize( d$Marriage )
+m5.1 <- quap(
+alist(
+D ~ dnorm( mu , sigma ) ,
+mu <- a + bA * A ,
+a ~ dnorm( 0 , 0.2 ) ,
+bA ~ dnorm( 0 , 0.5 ) ,
+sigma ~ dexp( 1 )
+) , data = d )
+m5.2 <- quap(
+alist(
+D ~ dnorm( mu , sigma ) ,

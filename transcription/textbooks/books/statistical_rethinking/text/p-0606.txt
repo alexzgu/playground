@@ -1,0 +1,53 @@
+590
+Bibliography
+Pearl, J. (2016). Causal Inference in Statistics: A Primer. John Wiley and Sons.
+Pearl, J. and MacKenzie, D. (2018). The Book of Why: The New Science of Cause and Effect. Basic
+Books, New York.
+Pearson, K. (1911). The Grammar of Science. A. and C. Black, London.
+Pfanzagl, J. and Sheynin, O. (1996). Studies in the history of probability and statistics. Biometrika,
+83:891–898.
+Popper, K. (1963). Conjectures and Refutations: The Growth of Scientific Knowledge. Routledge, New
+York.
+Popper, K. (1996). The Myth of the Framework: In Defence of Science and Rationality. Routledge.
+Proulx, S. R. and Adler, F. R. (2010). The standard of neutrality: still flapping in the breeze? Journal
+of Evolutionary Biology, 23:1339–1350.
+Rao, C. R. (1997). Statistics and Truth: Putting Chance To Work. World Scientific Publishing.
+Reilly, C. and Zeringue, A. (2004). Improved predictions of lynx trappings using a biologial model. In
+Gelman, A. and Meng, X., editors, Applied Bayesian Modeling and Causal Inference from Incomplete-
+Data Perspectives, pages 297–308. John Wiley and Sons.
+Reinhart, C. and Rogoff, K. (2010). Growth in a time of debt. American Economic Review, 100(2):573–
+578.
+Rice, K. (2010). A decision-theoretic formulation of Fisher’s approach to testing. The American
+Statistician, 64(4):345–349.
+Riley, S. J., DeGloria, S. D., and Elliot, R. (1999). A terrain ruggedness index that quantifies topo-
+graphic heterogeneity. Intermountain Journal of Sciences, 5:23–27.
+Robert, C. and Casella, G. (2011). A short history of Markov chain Monte Carlo: Subjective rec-
+ollections from incomplete data. In Brooks, S., Gelman, A., Jones, G., and Meng, X.-L., editors,
+Handbook of Markov Chain Monte Carlo, chapter 2. CRC Press.
+Robert, C. P. (2007). The Bayesian Choice: from decision-theoretic foundations to computational im-
+plementation. Springer Texts in Statistics. Springer, 2nd edition.
+Roberts, G. O. and Sahu, S. K. (1997). Updating schemes, correlation structure, blocking and param-
+eterisation for the Gibbs sampler. Journal of the Royal Statistical Society, Series B, (59):291–317.
+Rohrer, J. M. (2017). Thinking clearly about correlations and causation: Graphical causal models for
+observational data. Advances in Methods and Practices in Psychological Science, 1:27–42.
+Rommel, S. A., Costidis, A. M., Pitchford, T. D., Lightsey, J. D., Snyder, R. H., and Haubold, E. M.
+(2007). Forensic methods for characterizing watercraft from watercraft-induced wounds on the
+Florida manatee (Trichechus manatus latirostris). Marine Mammal Science, 23(1):110–132.
+Rosenbaum, P. R. (1984). The consequences of adjustment for a concomitant variable that has been
+affected by the treatment. Journal of the Royal Statistical Society A, 147(5):656–666.
+Rosenthal, R. (1979). The file drawer problem and tolerance for null results. Psychological Bulletin,
+86(3):638–641.
+Rubin, D. (1974). Estimating causal effects of treatments in randomized and nonrandomized studies.
+Journal of Educational Psychology, 66:688–701.
+Rubin, D. (1987). Multiple Imputation for Nonresponse in Surveys. John Wiley & Sons, Inc.
+Rubin, D. B. (1976). Inference and missing data. Biometrika, 63:581–592.
+Rubin, D. B. (2005). Causal inference using potential outcomes: Design, modeling, decisions. Journal
+of the American Statistical Association, 100(469):322–331.
+Rubin, D. B. and Little, R. J. A. (2002). Statistical analysis with missing data. Wiley, New York, 2nd
+edition.
+Sankararaman, S., Patterson, N., Li, H., Pääbo, S., and Reich, D. (2012). The date of interbreeding
+between Neandertals and modern humans. PLoS Genetics, 8(10):e1002947.
+Savage, L. J. (1962). The Foundations of Statistical Inference. Methuen.
+Savage, P. E., Whitehouse, H., François, P., Currie, T. E., Feeney, K., Cioni, E., Purcell, R., Ross, R. M.,
+Larson, J., Baines, J., and et al. (2019). Reply to beheim et al.: Reanalyses confirm robustness of
+original analyses. osf.io/preprints/socarxiv/xjryt.

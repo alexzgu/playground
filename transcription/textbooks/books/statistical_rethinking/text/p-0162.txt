@@ -1,0 +1,57 @@
+146
+5. THE MANY VARIABLES & THE SPURIOUS WAFFLES
+-2
+-1
+0
+1
+2
+-2
+-1
+0
+1
+2
+manipulated A
+counterfactual D
+Total counterfactual effect of A on D
+-2
+-1
+0
+1
+2
+-2
+-1
+0
+1
+2
+manipulated A
+counterfactual M
+Counterfactual effect A -> M
+Figure 5.6. Counterfactual plots for the multivariate divorce model, m5.3.
+These plots visualize the predicted effect of manipulating age at marriage A
+on divorce rate D. Left: Total causal effect of manipulating A (horizontal)
+on D. The model allows some of the total causal effect of A to act through
+M, although the posterior distribution finds little support for an effect of M
+on D. This plot nevertheless contains both paths, A →D and A →M →D.
+Right: Simulated values of M show the estimated influence A →M.
+# simulate M and then D, using A_seq
+s <- sim( m5.3_A , data=sim_dat , vars=c("M","D") )
+That’s all there is to it. But do at least glance at the Overthinking box at the end of this
+section, where I show you the individual steps, so you can perform this kind of counterfactual
+simulation for any model fit with any software. Now to plot the predictions:
+R code
+5.22
+# display counterfactual predictions
+plot( sim_dat$A , colMeans(s$D) , ylim=c(-2,2) , type="l" ,
+xlab="manipulated A" , ylab="counterfactual D"
+)
+shade( apply(s$D,2,PI) , sim_dat$A )
+mtext( "Total counterfactual effect of A on D" )
+The resulting plot is shown in Figure 5.6 (left side). This predicted trend in D include both
+paths: A →D and A →M →D. We found previously that M →D is very small, so the
+second path doesn’t contribute much to the trend. But if M were to strongly influence D, the
+code above would include the effect. The counterfactual simulation also generated values for
+M. These are show on the right in Figure 5.6. The object s from the code above includes
+these simulated M values. Try to reproduce the figure yourself, by modifying the plotting
+code.
+The trick with simulating counterfactuals is to realize that when we manipulate some
+variable X, we break the causal influence of other variables on X. This is the same as saying

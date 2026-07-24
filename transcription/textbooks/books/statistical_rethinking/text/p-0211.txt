@@ -1,0 +1,37 @@
+7 Ulysses’ Compass
+Mikołaj Kopernik (also known as Nicolaus Copernicus, 1473–1543): Polish astronomer,
+ecclesiastical lawyer, and blasphemer. Famous for his heliocentric model of the solar sys-
+tem, Kopernik argued for replacing the geocentric model, because the heliocentric model
+was more “harmonious.” This position eventually lead (decades later) to Galileo’s famous
+disharmony with, and trial by, the Church.
+This story has become a fable of science’s triumph over ideology and superstition. But
+Kopernik’s justification looks poor to us now, ideology aside. There are two problems: The
+model was neither particularly harmonious nor more accurate than the geocentric model.
+The Copernican model was very complicated. In fact, it had similar epicycle clutter as the
+Ptolemaic model (Figure 7.1). Kopernik had moved the Sun to the center, but since he still
+used perfect circles for orbits, he still needed epicycles. And so “harmony” doesn’t quite
+describe the model’s appearance. Just like the Ptolemaic model, the Kopernikan model was
+effectively a Fourier series, a means of approximating periodic functions. This leads to the
+second problem: The heliocentric model made exactly the same predictions as the geocentric
+model. Equivalent approximations can be constructed whether the Earth is stationary or
+rather moving. So there was no reason to prefer it on the basis of accuracy alone.
+Kopernik didn’t appeal just to some vague harmony, though. He also argued for the
+superiority of his model on the basis of needing fewer causes: “We thus follow Nature, who
+producing nothing in vain or superfluous often prefers to endow one cause with many ef-
+fects.”94 And it was true that a heliocentric model required fewer circles and epicycles to
+make the same predictions as a geocentric model. In this sense, it was simpler.
+Scholars often prefer simpler theories. This preference is sometimes vague—a kind of
+aesthetic preference. Other times we retreat to pragmatism, preferring simpler theories be-
+cause their simpler models are easier to work with. Frequently, scientists cite a loose princi-
+ple known as Ockham’s razor: Models with fewer assumptions are to be preferred. In the
+case of Kopernik and Ptolemy, the razor makes a clear recommendation. It cannot guarantee
+that Kopernik was right (he wasn’t, after all), but since the heliocentric and geocentric mod-
+els make the same predictions, at least the razor offers a clear resolution to the dilemma. But
+the razor can be hard to use more generally, because usually we must choose among models
+that differ in both their accuracy and their simplicity. How are we to trade these different
+criteria against one another? The razor offers no guidance.
+This chapter describes some of the most commonly used tools for coping with this trade-
+off. Some notion of simplicity usually features in all of these tools, and so each is commonly
+compared to Ockham’s razor. But each tool is equally about improving predictive accuracy.
+So they are not like the razor, because they explicitly trade-off accuracy and simplicity.
+195

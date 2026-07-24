@@ -1,0 +1,46 @@
+16.3. ORDINARY DIFFERENTIAL NUT CRACKING
+551
+Here are my suggestions for priors:
+ϕ ∼Log-Normal(log(1), 0.1)
+k ∼Log-Normal(log(2), 0.25)
+θ ∼Log-Normal(log(5), 0.25)
+All three are Log-Normal, because all three parameters have to be positive and continuous.
+We can simulate from these priors and draw the implied prior growth and rate curves.
+R code
+16.10
+N <- 1e4
+phi <- rlnorm( N , log(1) , 0.1 )
+k <- rlnorm( N , log(2), 0.25 )
+theta <- rlnorm( N , log(5) , 0.25 )
+# relative grow curve
+plot( NULL , xlim=c(0,1.5) , ylim=c(0,1) , xaxt="n" , xlab="age" ,
+ylab="body mass" )
+at <- c(0,0.25,0.5,0.75,1,1.25,1.5)
+axis( 1 , at=at , labels=round(at*max(Panda_nuts$age)) )
+for ( i in 1:20 ) curve( (1-exp(-k[i]*x)) , add=TRUE , col=grau() , lwd=1.5 )
+# implied rate of nut opening curve
+plot( NULL , xlim=c(0,1.5) , ylim=c(0,1.2) , xaxt="n" , xlab="age" ,
+ylab="nuts per second" )
+at <- c(0,0.25,0.5,0.75,1,1.25,1.5)
+axis( 1 , at=at , labels=round(at*max(Panda_nuts$age)) )
+for ( i in 1:20 ) curve( phi[i]*(1-exp(-k[i]*x))^theta[i] , add=TRUE ,
+col=grau() , lwd=1.5 )
+The plots are displayed in Figure 16.4. It will help to inspect the distribution of each pa-
+rameter with dens(). But these plots that combine all of the parameters are essential for
+understanding their implications.
+Coding this model presents no new problems. We just build the usual data list and ex-
+press the likelihood and priors in ulam():
+R code
+16.11
+dat_list <- list(
+n = as.integer( Panda_nuts$nuts_opened ),
+age = Panda_nuts$age / max(Panda_nuts$age),
+seconds = Panda_nuts$seconds )
+m16.4 <- ulam(
+alist(
+n ~ poisson( lambda ),
+lambda <- seconds*phi*(1-exp(-k*age))^theta,
+phi ~ lognormal( log(1) , 0.1 ),
+k ~ lognormal( log(2) , 0.25 ),
+theta ~ lognormal( log(5) , 0.25 )
+), data=dat_list , chains=4 )

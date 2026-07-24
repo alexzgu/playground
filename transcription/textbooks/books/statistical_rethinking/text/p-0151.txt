@@ -1,0 +1,43 @@
+5.1. SPURIOUS ASSOCIATION
+135
+R code
+5.9
+DMA_dag1 <- dagitty('dag{ D <- A -> M -> D }')
+impliedConditionalIndependencies( DMA_dag1 )
+There are no conditional independencies, so there is no output to display.
+Let’s try to summarize. The testable implications of the first DAG are that all pairs of vari-
+ables should be associated, whatever we condition on. The testable implications of the second
+DAG are that all pairs of variables should be associated, before conditioning on anything, but
+that D and M should be independent after conditioning on A. So the only implication that
+differs between these DAGs is the last one: D ⊥⊥M|A.
+To test this implication, we need a statistical model that conditions on A, so we can see
+whether that renders D independent of M. And that is what multiple regression helps with.
+It can address a useful descriptive question:
+Is there any additional value in knowing a variable, once I already know all of
+the other predictor variables?
+So for example once you fit a multiple regression to predict divorce using both marriage rate
+and age at marriage, the model addresses the questions:
+(1) After I already know marriage rate, what additional value is there in also knowing
+age at marriage?
+(2) After I already know age at marriage, what additional value is there in also knowing
+marriage rate?
+The parameter estimates corresponding to each predictor are the (often opaque) answers to
+these questions. The questions above are descriptive, and the answers are also descriptive. It
+is only the derivation of the testable implications above that give these descriptive results a
+causal meaning.
+Rethinking: “Control” is out of control. Very often, the question just above is spoken of as “statisti-
+cal control,” as in controlling for the effect of one variable while estimating the effect of another. But
+this is sloppy language, as it implies too much. Statistical control is quite different from experimental
+control, as we’ll explore more in the next chapter. The point here isn’t to police language. Instead, the
+point is to observe the distinction between small world and large world interpretations. Since most
+people who use statistics are not statisticians, sloppy language like “control” can promote a sloppy
+culture of interpretation. Such cultures tend to overestimate the power of statistical methods, so re-
+sisting them can be difficult. Disciplining your own language may be enough. Disciplining another’s
+language is hard to do, without seeming like a fastidious scold, as this very box must seem.
+5.1.3. Multiple regression notation. Multiple regression formulas look a lot like the poly-
+nomial models at the end of the previous chapter—they add more parameters and variables
+to the definition of µi. The strategy is straightforward:
+(1) Nominate the predictor variables you want in the linear model of the mean.
+(2) For each predictor, make a parameter that will measure its association with the
+outcome.
+(3) Multiply the parameter by the variable and add that term to the linear model.

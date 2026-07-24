@@ -1,0 +1,86 @@
+462
+14. ADVENTURES IN COVARIANCE
+cluster types. Here are the two priors in this case:
+
+
+αj,1
+αj,2
+αj,3
+αj,4
+
+∼MVNormal
+
+
+
+
+
+
+0
+0
+0
+0
+
+, Sactor
+
+
+
+
+
+
+βj,1
+βj,2
+βj,3
+βj,4
+
+∼MVNormal
+
+
+
+
+
+
+0
+0
+0
+0
+
+, Sblock
+
+
+
+
+What these priors state is that actors and blocks come from two different statistical popu-
+lations. Within each, the 4 features of each actor or block are related through a covariance
+matrix S specific to that population. There are no means in these priors, just because we
+already placed the average treatment effects—γ—in the linear model.
+And the ulam code for this model looks as you’d expect, given previous examples. To
+define the multiple linear models, just write each into the formula list in order. I’ll add some
+white space and comments to this formula list, to make it easier to read.
+R code
+14.18
+library(rethinking)
+data(chimpanzees)
+d <- chimpanzees
+d$block_id <- d$block
+d$treatment <- 1L + d$prosoc_left + 2L*d$condition
+dat <- list(
+L = d$pulled_left,
+tid = d$treatment,
+actor = d$actor,
+block_id = as.integer(d$block_id) )
+set.seed(4387510)
+m14.2 <- ulam(
+alist(
+L ~ dbinom(1,p),
+logit(p) <- g[tid] + alpha[actor,tid] + beta[block_id,tid],
+# adaptive priors
+vector[4]:alpha[actor] ~ multi_normal(0,Rho_actor,sigma_actor),
+vector[4]:beta[block_id] ~ multi_normal(0,Rho_block,sigma_block),
+# fixed priors
+g[tid] ~ dnorm(0,1),
+sigma_actor ~ dexp(1),
+Rho_actor ~ dlkjcorr(4),
+sigma_block ~ dexp(1),
+Rho_block ~ dlkjcorr(4)
+) , data=dat , chains=4 , cores=4 )
+When sampling from this model, you will notice many “divergent transitions”:

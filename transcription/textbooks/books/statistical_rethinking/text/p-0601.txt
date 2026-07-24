@@ -1,0 +1,53 @@
+Bibliography
+585
+Feyrer, J. and Sacerdote, B. (2009). Colonialism and modern income: Islands as natural experiments.
+The Review of Economics and Statistics, 91(2):245–262.
+Fienberg, S. E. (2006). When did Bayesian inference become “Bayesian”? Bayesian Analysis, 1(1):1–
+40.
+Fisher, R. A. (1925). Statistical Methods for Research Workers. Oliver and Boyd, Edinburgh.
+Fisher, R. A. (1955). Statistical methods and scientific induction. Journal of the Royal Statistical Society
+B, 17(1):69–78.
+Fisher, R. A. (1956). Statistical methods and scientific inference. Hafner, New York, NY.
+Fontani, M., Costa, M., and Orna, M. V. (2014). The Lost Elements: The Periodic Table’s Shadow Side.
+Oxford University Press, Oxford.
+Forer, B. (1949). The fallacy of personal validation: A classroom demonstration of gullibility. Journal
+of Abnormal and Social Psychology, 44:118–123.
+Franco, A., Malhotra, N., and Simonovits, G. (2014). Publication bias in the social sciences: Unlock-
+ing the file drawer. Science, 345:1502–1505.
+Frank, S. (2007). Dynamics of Cancer: Incidence, Inheritance, and Evolution. Princeton University
+Press, Princeton, NJ.
+Frank, S. A. (2009). The common patterns of nature. Journal of Evolutionary Biology, 22:1563–1585.
+Frank, S. A. (2011). Measurement scale in maximum entropy models of species abundance. Journal
+of Evolutionary Biology, 24:485–496.
+Freckleton, R. P. (2002). On the misuse of residuals in ecology: regression of residuals vs. multiple
+regression. Journal of Animal Ecology, 71:542–545.
+Fullerton, A. S. (2009). A conceptual framework for ordered logistic regression models. Sociological
+Methods & Research, 38(2):306–347.
+Galton, F. (1989). Kinship and correlation. Statistical Science, 4(2):81–86.
+Gao, Y., Kennedy, L., Simpson, D., and Gelman, A. (2019). Improving multilevel regression and
+poststratification with structured priors. arXiv:1908.06716.
+Gelfand, A. E. (1996). Model determination using sampling-based methods. Markov chain Monte
+Carlo in practice, pages 145–161.
+Gelfand, A. E., Sahu, S. K., and Carlin, B. P. (1995). Efficient parameterisations for normal linear
+mixed models. Biometrika, (82):479–488.
+Gelman, A. (2005). Analysis of variance: Why it is more important than ever. The Annals of Statistics,
+33(1):1–53.
+Gelman, A., Carlin, J. C., Stern, H. S., Dunson, D. B., Vehtari, A., and Rubin, D. B. (2013a). Bayesian
+Data Analysis. Chapman & Hall/CRC, 3rd edition.
+Gelman, A. and Greenland, S. (2019). Are confidence intervals better termed ”uncertainty intervals”?
+BMJ, 366:l5381.
+Gelman, A. and Hill, J. (2007). Data Analysis Using Regression and Multilevel/Hierarchical Models.
+Cambridge University Press.
+Gelman, A., Hwang, J., and Vehtari, A. (2013b). Understanding predictive information criteria for
+Bayesian models.
+Gelman, A. and Imbens, G. (2019). Why high-order polynomials should not be used in regression
+discontinuity designs. Journal of Business & Economic Statistics, 37(3):447–456.
+Gelman, A. and Little, T. (1997). Poststratification into many categories using hierarchical logistic
+regression. Survey Methodology, 23:127–135.
+Gelman, A. and Loken, E. (2013). The garden of forking paths: Why multiple comparisons can be a
+problem, even when there is no ‘fishing expedition’ or ‘p-hacking’ and the research hypothesis was
+posited ahead of time. Technical report, Department of Statistics, Columbia University.
+Gelman, A. and Loken, E. (2014).
+Ethics and statistics: The AAA tranche of subprime science.
+CHANCE, 27(1):51–56.
+Gelman, A. and Nolan, D. (2002). Teaching Statistics: A Bag of Tricks. Oxford University Press.

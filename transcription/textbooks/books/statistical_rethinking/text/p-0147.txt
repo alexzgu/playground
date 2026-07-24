@@ -1,0 +1,50 @@
+5.1. SPURIOUS ASSOCIATION
+131
+-2
+-1
+0
+1
+2
+-2
+-1
+0
+1
+2
+Median age marriage (std)
+Divorce rate (std)
+Figure 5.3. Plausible regression lines implied
+by the priors in m5.1. These are weakly infor-
+mative priors in that they allow some implusi-
+bly strong relationships but generally bound
+the lines to possible ranges of the variables.
+Now for the posterior predictions. The procedure is exactly like the examples from the
+previous chapter: link, then summarize with mean and PI, and then plot.
+R code
+5.5
+# compute percentile interval of mean
+A_seq <- seq( from=-3 , to=3.2 , length.out=30 )
+mu <- link( m5.1 , data=list(A=A_seq) )
+mu.mean <- apply( mu , 2, mean )
+mu.PI <- apply( mu , 2 , PI )
+# plot it all
+plot( D ~ A , data=d , col=rangi2 )
+lines( A_seq , mu.mean , lwd=2 )
+shade( mu.PI , A_seq )
+If you inspect the precis output, you’ll see that posterior for βA is reliably negative, as seen
+in Figure 5.2.
+You can fit a similar regression for the relationship in the left-hand plot:
+R code
+5.6
+d$M <- scale( d$Marriage )
+m5.2 <- quap(
+alist(
+D ~ dnorm( mu , sigma ) ,
+mu <- a + bM * M ,
+a ~ dnorm( 0 , 0.2 ) ,
+bM ~ dnorm( 0 , 0.5 ) ,
+sigma ~ dexp( 1 )
+) , data = d )
+As you can see in the figure, this relationship isn’t as strong as the previous one.
+But merely comparing parameter means between different bivariate regressions is no
+way to decide which predictor is better. Both of these predictors could provide independent
+value, or they could be redundant, or one could eliminate the value of the other.

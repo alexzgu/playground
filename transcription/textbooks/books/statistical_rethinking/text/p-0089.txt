@@ -1,0 +1,37 @@
+4 Geocentric Models
+History has been unkind to Ptolemy. Claudius Ptolemy (born 90 CE, died 168 CE) was
+an Egyptian mathematician and astronomer, most famous for his geocentric model of the
+solar system. These days, when scientists wish to mock someone, they might compare him
+to a supporter of the geocentric model. But Ptolemy was a genius. His mathematical model
+of the motions of the planets (Figure 4.1) was extremely accurate. To achieve its accuracy,
+it employed a device known as an epicycle, a circle on a circle. It is even possible to have epi-
+epicycles, circles on circles on circles. With enough epicycles in the right places, Ptolemy’s
+model could predict with accuracy greater than anyone had achieved before him. And so
+the model was utilized for over a thousand years. And Ptolemy and people like him, toiling
+over centuries, worked it all out without the aid of a computer. Anyone should be flattered
+to be compared to Ptolemy.
+The trouble of course is that the geocentric model is wrong, in many respects. If you
+used it to plot the path of your Mars probe, you’d miss the red planet by quite a distance.
+But for spotting Mars in the night sky, it remains an excellent model. It would have to be
+re-calibrated every century or so, depending upon which heavenly body you wish to locate.
+But the geocentric model continues to make useful predictions, provided those predictions
+remain within a narrow domain of questioning.
+The strategy of using epicycles might seem crazy, once you know the correct structure
+of the solar system. But it turns out that the ancients had hit upon a generalized system of
+approximation. Given enough circles embedded in enough places, the Ptolemaic strategy is
+the same as a Fourier series, a way of decomposing a periodic function (like an orbit) into
+a series of sine and cosine functions. So no matter the actual arrangement of planets and
+moons, a geocentric model can be built to describe their paths against the night sky.
+Linear regression is the geocentric model of applied statistics. By “linear regression,”
+we will mean a family of simple statistical golems that attempt to learn about the mean and
+variance of some measurement, using an additive combination of other measurements. Like
+geocentrism, linear regression can usefully describe a very large variety of natural phenom-
+ena. Like geocentrism, linear regression is a descriptive model that corresponds to many
+different process models. If we read its structure too literally, we’re likely to make mistakes.
+But used wisely, these little linear golems continue to be useful.
+This chapter introduces linear regression as a Bayesian procedure. Under a probability
+interpretation, which is necessary for Bayesian work, linear regression uses a Gaussian (nor-
+mal) distribution to describe our golem’s uncertainty about some measurement of interest.
+This type of model is simple, flexible, and commonplace. Like all statistical models, it is
+not universally useful. But linear regression has a strong claim to being foundational, in the
+73

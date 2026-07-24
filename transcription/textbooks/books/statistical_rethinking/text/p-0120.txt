@@ -1,0 +1,52 @@
+104
+4. GEOCENTRIC MODELS
+30
+35
+40
+45
+50
+55
+60
+140
+150
+160
+170
+180
+weight
+height
+Figure 4.6. Height in centimeters (vertical)
+plotted against weight in kilograms (horizon-
+tal), with the line at the posterior mean plotted
+in black.
+certainly looks highly plausible. But there an infinite number of other highly plausible lines
+near it. Let’s draw those too.
+4.4.3.3. Adding uncertainty around the mean. The posterior mean line is just the poste-
+rior mean, the most plausible line in the infinite universe of lines the posterior distribution
+has considered. Plots of the average line, like Figure 4.6, are useful for getting an impres-
+sion of the magnitude of the estimated influence of a variable. But they do a poor job of
+communicating uncertainty. Remember, the posterior distribution considers every possible
+regression line connecting height to weight. It assigns a relative plausibility to each. This
+means that each combination of α and β has a posterior probability. It could be that there
+are many lines with nearly the same posterior probability as the average line. Or it could be
+instead that the posterior distribution is rather narrow near the average line.
+So how can we get that uncertainty onto the plot? Together, a combination of α and
+β define a line. And so we could sample a bunch of lines from the posterior distribution.
+Then we could display those lines on the plot, to visualize the uncertainty in the regression
+relationship.
+To better appreciate how the posterior distribution contains lines, we work with all of
+the samples from the model. Let’s take a closer look at the samples now:
+R code
+4.47
+post <- extract.samples( m4.3 )
+post[1:5,]
+a
+b
+sigma
+1 154.5505 0.9222372 5.188631
+2 154.4965 0.9286227 5.278370
+3 154.4794 0.9490329 4.937513
+4 155.2289 0.9252048 4.869807
+5 154.9545 0.8192535 5.063672
+Each row is a correlated random sample from the joint posterior of all three parameters, using
+the covariances provided by vcov(m4.3). The paired values of a and b on each row define a
+line. The average of very many of these lines is the posterior mean line. But the scatter around

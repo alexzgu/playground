@@ -1,0 +1,45 @@
+328
+10. BIG ENTROPY AND THE GENERALIZED LINEAR MODEL
+Since x appears in this answer, the impact of a change in x depends upon x. That’s an interaction with
+itself. The rate of change in the odds is a little nicer:
+∂p/(1 −p)
+∂x
+= β exp(α + βx)
+but it still contains the entire linear model. Sometimes people avoid non-linear models because
+they don’t like having to interpret non-linear effects. But if the actual phenomenon contains non-
+linearities, this solves only a small world problem.
+10.2.3. Omitted variable bias again. Back in Chapters 5 and 6, you saw some examples of
+omitted variable bias, where leaving a causally important variable out of a model leads
+to biased inference. The same thing can of course happen in GLMs. But it can be worse in
+GLMs, because even a variable that isn’t technically a confounder can bias inference, once
+we have a link function. The reason is that the ceiling and floor effects described above can
+distort estimates by suppressing the causal influence of a variable.
+Suppose for example that two variables X and Z independently influence a binary out-
+come Y. If either X and Z is large enough, then Y = 1. Both variables are sufficient causes
+of Y. Now if we don’t measure Z but only X, we might consistently underestimate the causal
+effect of X. Why? Because Z is sufficient for Y to equal 1, and we didn’t measure Z. So there
+are cases in the data where X is small but Y = 1. These cases imply X does not influence Y
+very strongly, but only because we are ignoring Z. This phenomenon doesn’t occur in ordi-
+nary linear regression, because independent causes just contribute to the mean. There are
+no ceiling or floor effects (in theory).
+There is no avoiding this problem. Falling back on a linear, rather than generalized linear,
+model won’t change the reality of omitted variable bias. It will just statistically disguise it.
+That may be a good publication strategy, but it’s not a good inferential strategy.
+10.2.4. Absolute and relative differences. There is an important practical consequence of
+the way that a link function compresses and expands different portions of the linear model’s
+range: Parameter estimates do not by themselves tell you the importance of a predictor on
+the outcome. The reason is that each parameter represents a relative difference on the scale
+of the linear model, ignoring other parameters, while we are really interested in absolute
+differences in outcomes that must incorporate all parameters.
+This point will come up again in the context of data examples in later chapters, when it
+will be easier to illustrate its importance. For now, just keep in mind that a big beta-coefficient
+may not correspond to a big effect on the outcome.
+10.2.5. GLMs and information criteria. What you learned in Chapter 6 about information
+criteria and regularizing priors applies also to GLMs. But with all these new outcome distri-
+butions at your command, it is tempting to use information criteria to compare models with
+different likelihood functions. Is a Gaussian or binomial better? Can’t we just let WAIC or
+cross-validation sort it out?
+Unfortunately, WAIC (or any other information criterion) cannot sort it out. The prob-
+lem is that deviance is part normalizing constant. The constant affects the absolute magni-
+tude of the deviance, but it doesn’t affect fit to data. Since information criteria are all based
+on deviance, their magnitude also depends upon these constants. That is fine, as long as all of

@@ -1,0 +1,44 @@
+xvi
+PREFACE
+R code
+0.2
+x <- 1:2
+x <- x*10
+x <- log(x)
+x <- sum(x)
+x <- exp(x)
+x
+200
+If you don’t understand any particular step, you can always print out the contents of the sym-
+bol x immediately after that step. For the code examples, this is how you come to understand
+them. For your own code, this is how you find the source of any problems and then fix them.
+Optional sections. Reflecting realism in how books like this are actually read, there are two
+kinds of optional sections: (1) Rethinking and (2) Overthinking. The Rethinking sections
+look like this:
+Rethinking: Think again. The point of these Rethinking boxes is to provide broader context for the
+material. They allude to connections to other approaches, provide historical background, or call out
+common misunderstandings. These boxes are meant to be optional, but they round out the material
+and invite deeper thought.
+The Overthinking sections look like this:
+Overthinking: Getting your hands dirty. These sections, set in smaller type, provide more detailed
+explanations of code or mathematics. This material isn’t essential for understanding the main text.
+But it does have a lot of value, especially on a second reading. For example, sometimes it matters how
+you perform a calculation. Mathematics tells that these two expressions are equivalent:
+p1 = log(0.01200)
+p2 = 200 × log(0.01)
+But when you use R to compute them, they yield different answers:
+R code
+0.3
+( log( 0.01^200 ) )
+( 200 * log(0.01) )
+[1] -Inf
+[1] -921.034
+The second line is the right answer. This problem arises because of rounding error, when the computer
+rounds very small decimal values to zero. This loses precision and can introduce substantial errors in
+inference. As a result, we nearly always do statistical calculations using the logarithm of a probability,
+rather than the probability itself.
+You can ignore most of these Overthinking sections on a first read.
+The command line is the best tool. Programming at the level needed to perform 21st cen-
+tury statistical inference is not that complicated, but it is unfamiliar at first. Why not just
+teach the reader how to do all of this with a point-and-click program? There are big advan-
+tages to doing statistics with text commands, rather than pointing and clicking on menus.

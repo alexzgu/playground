@@ -19,9 +19,7 @@ EXAMPLE 5.1. A simple random walk on the segment $\{0, 1, \ldots, n\}$ is a Mark
 
 A simple proof uses a coupling of the distributions $P^t(x, \cdot)$ and $P^t(y, \cdot)$. Let $\Delta_1, \Delta_2, \ldots$ be a sequence of i.i.d. (that is, independent and identically distributed)
 
-*[Figure: a plot with vertical axis labeled 0,1,2,3,4. Two coupled random walk trajectories start at labeled points — $y$ at height 3 (walk $Y_t$) and $x$ at height 2 (walk $X_t$) — descend, meet, and then continue together as a single bold path with an arrow at the end.]*
-
-FIGURE 5.1. Coupled random walks on $\{0, 1, 2, 3, 4\}$. The walks stay together after meeting.
+**FIGURE 5.1.** Coupled random walks on $\{0, 1, 2, 3, 4\}$. The walks stay together after meeting. *[Figure: a plot with vertical axis labeled 0,1,2,3,4. Two coupled random walk trajectories start at labeled points — $y$ at height 3 (walk $Y_t$) and $x$ at height 2 (walk $X_t$) — descend, meet, and then continue together as a single bold path with an arrow at the end.]*
 
 ### PDF page 77 (book page 61)
 
@@ -102,9 +100,7 @@ This algorithm for running the walk leads to the following coupling of two walks
 
 ### PDF page 79 (book page 63)
 
-*[Figure 5.2 illustration: Two coupled binary strings, each labeled "Copy 1:" and "Copy 2:". Top pair — Copy 1: `0 0 1 1 0 [1] 0 0 1 1`, Copy 2: `0 1 1 0 0 [0] 1 0 1 0`, with the sixth coordinate boxed in each. A curved arrow at the top right points to a small oval containing "1" (a coin flip). A large brace beneath the top pair leads to the bottom pair — Copy 1: `0 0 1 1 0 [1] 0 0 1 1`, Copy 2: `0 1 1 0 0 [1] 1 0 1 0`, with the sixth coordinate now boxed and set to 1 in both copies.]*
-
-FIGURE 5.2. One step in two coupled lazy walks on the hypercube. First, choose a coordinate to update—here, the sixth. Then, flip a 0/1 coin and use the result to update the chosen coordinate to the same value in both walks.
+**FIGURE 5.2.** One step in two coupled lazy walks on the hypercube. First, choose a coordinate to update—here, the sixth. Then, flip a 0/1 coin and use the result to update the chosen coordinate to the same value in both walks. *[Figure: Two coupled binary strings, each labeled "Copy 1:" and "Copy 2:". Top pair — Copy 1: `0 0 1 1 0 [1] 0 0 1 1`, Copy 2: `0 1 1 0 0 [0] 1 0 1 0`, with the sixth coordinate boxed in each. A curved arrow at the top right points to a small oval containing "1" (a coin flip). A large brace beneath the top pair leads to the bottom pair — Copy 1: `0 0 1 1 0 [1] 0 0 1 1`, Copy 2: `0 1 1 0 0 [1] 1 0 1 0`, with the sixth coordinate now boxed and set to 1 in both copies.]*
 
 If $\tau$ is the first time when all of the coordinates have been selected at least once, then the two walkers agree with each other from time $\tau$ onwards. (If the initial states agree in some coordinates, the first time the walkers agree could be strictly before $\tau$.) The distribution of $\tau$ is exactly the same as the coupon collector random variable studied in Section 2.2. Using Corollary 5.5, together with the bound on the tail of $\tau$ given in Proposition 2.4, shows that
 
@@ -126,9 +122,7 @@ We show that $\frac{1}{32}n^2 \leq t_{\mathrm{mix}} \leq n^2$.
 
 ### PDF page 80 (book page 64)
 
-*[Figure 5.3 illustration: A 3D rendering of a torus (doughnut shape) whose surface is drawn as a grid mesh, representing the graph $\mathbb{Z}_{20}^2$.]*
-
-FIGURE 5.3. The 2-torus $\mathbb{Z}_{20}^2$.
+**FIGURE 5.3.** The 2-torus $\mathbb{Z}_{20}^2$. *[Figure: A 3D rendering of a torus (doughnut shape) whose surface is drawn as a grid mesh, representing the graph $\mathbb{Z}_{20}^2$.]*
 
 then $\mathbf{E}_{x,y}(\tau) = k(n-k)$, where $k$ is the clockwise distance between $x$ and $y$. Since $\tau = \tau_{\mathrm{couple}}$, by Corollary 5.5,
 
@@ -232,9 +226,9 @@ We conclude that $t_{\mathrm{mix}} \leq 16n$.
 
 ### PDF page 83 (book page 67)
 
-**FIGURE 5.5.** The winning streak for $n = 5$. Here $X_t = 2$, $X_{t+1} = 3$, and $X_{t+2} = 0$. *[Figure: three rows of bit cells. time $t$: 1 0 [1 0 0 1 1] 1 0 0 0 0, with a window boxed around bits "1 0 0 1 1"; time $t+1$: 1 0 1 [0 0 1 1 1] 0 0 0 0, window boxed around "0 0 1 1 1"; time $t+2$: 1 0 1 0 [0 1 1 1 0] 0 0 0, window boxed around "0 1 1 1 0".]*
+**FIGURE 5.5.** The winning streak for $n = 5$. Here $X_t = 2$, $X_{t+1} = 3$, and $X_{t+2} = 0$. *[Figure: three rows of bit cells. time $t$: 1 0 1 0 [0 1 1 1 0] 0 0 0, window boxed around "0 1 1 1 0"; time $t+1$: 1 0 1 [0 0 1 1 1] 0 0 0 0, window boxed around "0 0 1 1 1"; time $t+2$: 1 0 [1 0 0 1 1] 1 0 0 0 0, window boxed around "1 0 0 1 1".]*
 
-**FIGURE 5.6.** The time reversal of the winning streak for $n = 5$. Here $\widehat{X}_t = 0$, $\widehat{X}_{t+1} = 3$, and $\widehat{X}_{t+2} = 2$. *[Figure: three rows of bit cells. time $t$: 1 0 1 0 [0 1 1 1 0] 0 0 0, window boxed around "0 1 1 1 0"; time $t+1$: 1 0 1 [0 0 1 1 1] 0 0 0 0, window boxed around "0 0 1 1 1"; time $t+2$: 1 0 [1 0 0 1 1] 1 0 0 0 0, window boxed around "1 0 0 1 1".]*
+**FIGURE 5.6.** The time reversal of the winning streak for $n = 5$. Here $\widehat{X}_t = 0$, $\widehat{X}_{t+1} = 3$, and $\widehat{X}_{t+2} = 2$. *[Figure: three rows of bit cells. time $t$: 1 0 [1 0 0 1 1] 1 0 0 0 0, with a window boxed around bits "1 0 0 1 1"; time $t+1$: 1 0 1 [0 0 1 1 1] 0 0 0 0, window boxed around "0 0 1 1 1"; time $t+2$: 1 0 1 0 [0 1 1 1 0] 0 0 0, window boxed around "0 1 1 1 0".]*
 
 **FIGURE 5.7.** The underlying graphs of the transitions of (a) the winning streak chain for $n = 5$ and (b) its time reversal. *[Figure: two directed graphs, each on vertices 0,1,2,3,4,5 arranged in a line. (a): from each vertex arcs go forward to vertex $i+1$ and there is a self-loop at 0 and arcs back to 0 from every vertex (arcs curving from the right vertices back to 0); a self-loop at 5. (b): the mirror image — arcs run leftward between consecutive vertices and long arcs from 0 out to each vertex, self-loops at 0 and 5.]*
 
@@ -383,9 +377,7 @@ Suppose now a vertex $w$ which is a neighbor of $v_0$ is selected for updating.
 
 ### PDF page 87 (book page 71)
 
-*[Figure: Two side-by-side diagrams. Each shows a central vertex labeled 6 (marked $w$) connected by four edges to surrounding vertices; edges continue as dashed lines beyond. Left diagram: top vertex 1, right vertex 2 (marked $v_0$), left vertex 3, bottom vertex 4, with a curved arrow pointing to the region and the label "5 permitted". Right diagram: top vertex 1, right vertex 5 (marked $v_0$), left vertex 3, bottom vertex 4, with a curved arrow and the label "5 not permitted".]*
-
-FIGURE 5.8. Two colorings which disagree only at $v_0$. The one on the left can be updated with the color 5 at a neighbor of $w$ of $v_0$, while the one on the right cannot be updated with a 5 at $w$. If vertex $w$ is selected for updating and color 5 is proposed, the two configurations will disagree at both $v_0$ and $w$.
+**FIGURE 5.8.** Two colorings which disagree only at $v_0$. The one on the left can be updated with the color 5 at a neighbor of $w$ of $v_0$, while the one on the right cannot be updated with a 5 at $w$. If vertex $w$ is selected for updating and color 5 is proposed, the two configurations will disagree at both $v_0$ and $w$. *[Figure: Two side-by-side diagrams. Each shows a central vertex labeled 6 (marked $w$) connected by four edges to surrounding vertices; edges continue as dashed lines beyond. Left diagram: top vertex 1, right vertex 2 (marked $v_0$), left vertex 3, bottom vertex 4, with a curved arrow pointing to the region and the label "5 permitted". Right diagram: top vertex 1, right vertex 5 (marked $v_0$), left vertex 3, bottom vertex 4, with a curved arrow and the label "5 not permitted".]*
 
 Thus, the only way a new disagreement can possibly be introduced is if a neighbor of $v_0$ is selected for updating, and either $x(v_0)$ or $y(v_0)$ is proposed.
 

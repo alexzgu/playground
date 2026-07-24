@@ -1,0 +1,47 @@
+1.2. STATISTICAL RETHINKING
+5
+For both of these reasons, deductive falsification never works. The scientific method cannot
+be reduced to a statistical procedure, and so our statistical methods should not pretend. Sta-
+tistical evidence is part of the hot mess that is science, with all of its combat and egotism and
+mutual coercion. If you believe, as I do, that science does often work, then learning that it
+doesn’t work via falsification shouldn’t change your mind. But it might help you do better
+science, because it will open your eyes to many legitimately useful functions of statistical
+golems.
+Rethinking: Is NHST falsificationist? Null hypothesis significance testing, NHST, is often identified
+with the falsificationist, or Popperian, philosophy of science. However, usually NHST is used to falsify
+a null hypothesis, not the actual research hypothesis. So the falsification is being done to something
+other than the explanatory model. This seems the reverse from Karl Popper’s philosophy.5
+1.2.1. Hypotheses are not models. When we attempt to falsify a hypothesis, we must work
+with a model of some kind. Even when the attempt is not explicitly statistical, there is always
+a tacit model of measurement, of evidence, that operationalizes the hypothesis. All models
+are false,6 so what does it mean to falsify a model? One consequence of the requirement
+to work with models is that it’s no longer possible to deduce that a hypothesis is false, just
+because we reject a model derived from it.
+Let’s explore this consequence in the context of an example from population biology
+(Figure 1.2). Beginning in the 1960s, evolutionary biologists became interested in the pro-
+posal that the majority of evolutionary changes in gene frequency are caused not by natural
+selection, but rather by mutation and drift. No one really doubted that natural selection is re-
+sponsible for functional design. This was a debate about genetic sequences. So began several
+productive decades of scholarly combat over “neutral” models of molecular evolution.7 This
+combat is most strongly associated with Motoo Kimura (1924–1994), who was perhaps the
+strongest advocate of neutral models. But many other population geneticists participated.
+As time has passed, related disciplines such as community ecology8 and anthropology9 have
+experienced (or are currently experiencing) their own versions of the neutrality debate.
+Let’s use the schematic in Figure 1.2 to explore connections between motivating hy-
+potheses and different models, in the context of the neutral evolution debate. On the left,
+there are two stereotyped, informal hypotheses: Either evolution is “neutral” (H0) or natu-
+ral selection matters somehow (H1). These hypotheses have vague boundaries, because they
+begin as verbal conjectures, not precise models. There are thousands of possible detailed
+processes that can be described as “neutral,” depending upon choices about, for example,
+population structure, number of sites, number of alleles at each site, mutation rates, and
+recombination.
+Once we have made these choices, we have the middle column in Figure 1.2, detailed
+process models of evolution. P0A and P0B differ in that one assumes the population size
+and structure have been constant long enough for the distribution of alleles to reach a steady
+state. The other imagines instead that population size fluctuates through time, which can
+be true even when there is no selective difference among alleles. The “selection matters”
+hypothesis H1 likewise corresponds to many different process models. I’ve shown two big
+players: a model in which selection always favors certain alleles and another in which selec-
+tion fluctuates through time, favoring different alleles.10
+An important feature of these process models is that they express causal structure. Dif-
+ferent process models formalize different cause and effect relationships. Whether analyzed

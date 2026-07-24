@@ -1,0 +1,65 @@
+44
+2. SMALL WORLDS AND LARGE WORLDS
+0.0
+0.5
+1.0
+0.0
+0.5
+1.0
+1.5
+2.0
+2.5
+proportion water
+Density
+n = 9
+0.0
+0.5
+1.0
+0
+1
+2
+3
+proportion water
+n = 18
+0.0
+0.5
+1.0
+0
+1
+2
+3
+4
+5
+proportion water
+n = 36
+Figure 2.8. Accuracy of the quadratic approximation. In each plot, the
+exact posterior distribution is plotted in blue, and the quadratic approxima-
+tion is plotted as the black curve. Left: The globe tossing data with n = 9
+tosses and w = 6 waters. Middle: Double the amount of data, with the
+same fraction of water, n = 18 and w = 12. Right: Four times as much
+data, n = 36 and w = 24.
+in such cases the model must be simple and the computations will be quite fast. You can also
+use MCMC, which is introduced next.
+Rethinking: Maximum likelihood estimation. The quadratic approximation, either with a uniform
+prior or with a lot of data, is often equivalent to a maximum likelihood estimate (MLE) and its
+standard error. The MLE is a very common non-Bayesian parameter estimate. This correspon-
+dence between a Bayesian approximation and a common non-Bayesian estimator is both a blessing
+and a curse. It is a blessing, because it allows us to re-interpret a wide range of published non-Bayesian
+model fits in Bayesian terms. It is a curse, because maximum likelihood estimates have some curious
+drawbacks, and the quadratic approximation can share them. We’ll explore these in later chapters.
+Overthinking: The Hessians are coming. Sometimes it helps to know more about how the quadratic
+approximation is computed. In particular, the approximation sometimes fails. When it does, chances
+are you’ll get a confusing error message that says something about the “Hessian.” Students of world
+history may know that the Hessians were German mercenaries hired by the British in the 18th century
+to do various things, including fight against the American revolutionary George Washington. These
+mercenaries are named after a region of what is now central Germany, Hesse.
+The Hessian that concerns us here has little to do with mercenaries. It is named after mathe-
+matician Ludwig Otto Hesse (1811–1874). A Hessian is a square matrix of second derivatives. It is
+used for many purposes in mathematics, but in the quadratic approximation it is second derivatives
+of the log of posterior probability with respect to the parameters. It turns out that these derivatives
+are sufficient to describe a Gaussian distribution, because the logarithm of a Gaussian distribution
+is just a parabola. Parabolas have no derivatives beyond the second, so once we know the center of
+the parabola (the posterior mode) and its second derivative, we know everything about it. And in-
+deed the second derivative (with respect to the outcome) of the logarithm of a Gaussian distribution
+is proportional to its inverse squared standard deviation (its “precision”: page 79). So knowing the
+standard deviation tells us everything about its shape.

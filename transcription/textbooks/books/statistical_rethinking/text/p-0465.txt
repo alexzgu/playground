@@ -1,0 +1,36 @@
+14 Adventures in Covariance
+Recall the coffee robot from the introduction to the previous chapter (page 413). This
+robot is programmed to move among cafés, order coffee, and record the waiting time. The
+previous chapter focused on the fact that the robot learns more efficiently when it pools
+information among the cafés. Varying intercepts are a mechanism for achieving that pooling.
+Now suppose that the robot also records the time of day, morning or afternoon. The av-
+erage wait time in the morning tends to be longer than the average wait time in the afternoon.
+This is because cafés are busier in the morning. But just like cafés vary in their average wait
+times, they also vary in their differences between morning and afternoon. In conventional
+regression, these differences in wait time between morning and afternoon are slopes, since
+they express the change in expectation when an indictor (or dummy, page 157) variable for
+time of day changes value. The linear model might look like this:
+µi = αcafé[i] + βcafé[i]Ai
+where Ai is a 0/1 indicator for afternoon and βcafé[i] is a parameter for the expected difference
+between afternoon and morning for each café.
+Since the robot more efficiently learns about the intercepts, αcafé[i] above, when it pools
+information about intercepts, it likewise learns more efficiently about the slopes when it also
+pools information about slopes. And the pooling is achieved in the same way, by estimating
+the population distribution of slopes at the same time the robot estimates each slope. The
+distributions assigned to both intercepts and slopes enable pooling for both, as the model
+(robot) learns the prior from the data.
+This is the essence of the general varying effects strategy: Any batch of parameters
+with exchangeable index values can and probably should be pooled. Exchangeable just means
+the index values have no true ordering, because they are arbitrary labels. There’s nothing
+special about intercepts; slopes can also vary by unit in the data, and pooling information
+among them makes better use of the data. So our coffee robot should be programmed to
+model both the population of intercepts and the population of slopes. Then it can use pooling
+for both and squeeze more information out of the data.
+But here’s a fact that will help us to squeeze even more information out of the data: Cafés
+covary in their intercepts and slopes. Why? At a popular café, wait times are on average long
+in the morning, because staff are very busy (Figure 14.1). But the same café will be much
+less busy in the afternoon, leading to a large difference between morning and afternoon wait
+times. At such a popular café, the intercept is high and the slope is far from zero, because the
+difference between morning and afternoon waits is large. But at a less popular café, the dif-
+ference will be small. Such an unpopular café makes you wait less in the morning—because
+449

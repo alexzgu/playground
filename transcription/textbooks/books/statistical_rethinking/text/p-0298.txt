@@ -1,0 +1,73 @@
+282
+9. MARKOV CHAIN MONTE CARLO
+present them first, built custom for the 2D Gaussian example. The U function just expresses the log-
+posterior, as stated before in the main text:
+X
+i
+log p(yi|µy, 1) +
+X
+i
+log p(xi|µx, 1) + log p(µy|0, 0.5) + log p(µx, 0, 0.5)
+So it’s just four calls to dnorm really:
+R code
+9.5
+# U needs to return neg-log-probability
+U <- function( q , a=0 , b=1 , k=0 , d=1 ) {
+muy <- q[1]
+mux <- q[2]
+U <- sum( dnorm(y,muy,1,log=TRUE) ) + sum( dnorm(x,mux,1,log=TRUE) ) +
+dnorm(muy,a,b,log=TRUE) + dnorm(mux,k,d,log=TRUE)
+return( -U )
+}
+Now the gradient function requires two partial derivatives. Luckily, Gaussian derivatives are very
+clean. The derivative of the logarithm of any univariate Gaussian with mean a and standard deviation
+b with respect to a is:
+∂log N(y|a, b)
+∂a
+= y −a
+b2
+And since the derivative of a sum is a sum of derivatives, this is all we need to write the gradients:
+∂U
+∂µx
+= ∂log N(x|µx, 1)
+∂µx
++ ∂log N(µx|0, 0.5)
+∂µx
+=
+X
+i
+xi −µx
+12
++ 0 −µx
+0.52
+And the gradient for µy has the same form. Now in code form:
+R code
+9.6
+# gradient function
+# need vector of partial derivatives of U with respect to vector q
+U_gradient <- function( q , a=0 , b=1 , k=0 , d=1 ) {
+muy <- q[1]
+mux <- q[2]
+G1 <- sum( y - muy ) + (a - muy)/b^2 #dU/dmuy
+G2 <- sum( x - mux ) + (k - mux)/d^2 #dU/dmux
+return( c( -G1 , -G2 ) ) # negative bc energy is neg-log-prob
+}
+# test data
+set.seed(7)
+y <- rnorm(50)
+x <- rnorm(50)
+x <- as.numeric(scale(x))
+y <- as.numeric(scale(y))
+The gradient function above isn’t too bad for this model. But it can be terrifying for a reasonably
+complex model. That is why tools like Stan build the gradients dynamically, using the model defini-
+tion. Now we are ready to visit the heart. To understand some of the details here, you should read
+Radford Neal’s chapter in the Handbook of Markov Chain Monte Carlo. Armed with the log-posterior
+and gradient functions, here’s the code to produce Figure 9.6:
+R code
+9.7
+library(shape) # for fancy arrows
+Q <- list()
+Q$q <- c(-0.1,0.2)
+pr <- 0.3
+plot( NULL , ylab="muy" , xlab="mux" , xlim=c(-pr,pr) , ylim=c(-pr,pr) )
+step <- 0.03

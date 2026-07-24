@@ -1,0 +1,44 @@
+54
+3. SAMPLING THE IMAGINARY
+[1] 0.1718746
+So about 17% of the posterior probability is below 0.5. Couldn’t be easier. But since grid ap-
+proximation isn’t practical in general, it won’t always be so easy. Once there is more than one
+parameter in the posterior distribution (wait until the next chapter for that complication),
+even this simple sum is no longer very simple.
+So let’s see how to perform the same calculation, using samples from the posterior. This
+approach does generalize to complex models with many parameters, and so you can use
+it everywhere. All you have to do is similarly add up all of the samples below 0.5, but also
+divide the resulting count by the total number of samples. In other words, find the frequency
+of parameter values below 0.5:
+R code
+3.7
+sum( samples < 0.5 ) / 1e4
+[1] 0.1726
+And that’s nearly the same answer as the grid approximation provided, although your answer
+will not be exactly the same, because the exact samples you drew from the posterior will be
+different. This region is shown in the upper-left plot in Figure 3.2. Using the same approach,
+you can ask how much posterior probability lies between 0.5 and 0.75:
+R code
+3.8
+sum( samples > 0.5 & samples < 0.75 ) / 1e4
+[1] 0.6059
+So about 61% of the posterior probability lies between 0.5 and 0.75. This region is shown in
+the upper-right plot of Figure 3.2.
+Overthinking: Counting with sum. In the R code examples just above, I used the function sum
+to effectively count up how many samples fulfill a logical criterion. Why does this work? It works
+because R internally converts a logical expression, like samples < 0.5, to a vector of TRUE and FALSE
+results, one for each element of samples, saying whether or not each element matches the criterion.
+Go ahead and enter samples < 0.5 on the R prompt, to see this for yourself. Then when you sum
+this vector of TRUE and FALSE, R counts each TRUE as 1 and each FALSE as 0. So it ends up counting
+how many TRUE values are in the vector, which is the same as the number of elements in samples
+that match the logical criterion.
+3.2.2. Intervals of defined mass. It is more common to see scientific journals reporting
+an interval of defined mass, usually known as a confidence interval. An interval of
+posterior probability, such as the ones we are working with, may instead be called a credible
+interval. We’re going to call it a compatibility interval instead, in order to avoid the
+unwarranted implications of “confidence” and “credibility.”53 What the interval indicates
+is a range of parameter values compatible with the model and data. The model and data
+themselves may not inspire confidence, in which case the interval will not either.
+These posterior intervals report two parameter values that contain between them a spec-
+ified amount of posterior probability, a probability mass. For this type of interval, it is easier
+to find the answer by using samples from the posterior than by using a grid approximation.

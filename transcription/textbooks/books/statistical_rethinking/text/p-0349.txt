@@ -1,0 +1,46 @@
+11.1. BINOMIAL REGRESSION
+333
+(1) Logistic regression is the common name when the data are organized into
+single-trial cases, such that the outcome variable can only take values 0 and 1.
+(2) When individual trials with the same covariate values are instead aggregated to-
+gether, it is common to speak of an aggregated binomial regression. In this
+case, the outcome can take the value zero or any positive integer up to n, the num-
+ber of trials.
+Both flavors use the same logit link function (page 324), so both may sometimes be called
+“logistic” regression, as the inverse of the logit function is the logistic. Either form of bi-
+nomial regression can be converted into the other by aggregating (logistic to aggregated) or
+exploding (aggregated to logistic) the outcome variable. We’ll fully work an example of each.
+Like other GLMs, binomial regression is never guaranteed to produce a nice multivari-
+ate Gaussian posterior distribution. So quadratic approximation is not always satisfactory.
+We’ll work some examples using quap, but we’ll also check the inferences against MCMC
+sampling, using ulam. The reason to do it both ways is so you can get a sense of both how
+often quadratic approximation works, even when in principle it should not, and why it fails
+in particular contexts. This is useful, because even if you never use quadratic approximation
+again, your Frequentist colleagues use it all the time, and you might want to be skeptical of
+their estimates.
+11.1.1. Logistic regression: Prosocial chimpanzees. The data for this example come from
+an experiment167 aimed at evaluating the prosocial tendencies of chimpanzees (Pan troglo-
+dytes). The experimental structure mimics many common experiments conducted on hu-
+man students (Homo sapiens studiensis) by economists and psychologists. A focal chim-
+panzee sits at one end of a long table with two levers, one on the left and one on the right in
+Figure 11.2. On the table are four dishes which may contain desirable food items. The two
+dishes on the right side of the table are attached by a mechanism to the right-hand lever. The
+two dishes on the left side are similarly attached to the left-hand lever.
+When either the left or right lever is pulled by the focal animal, the two dishes on the
+same side slide towards opposite ends of the table. This delivers whatever is in those dishes
+to the opposite ends. In all experimental trials, both dishes on the focal animal’s side contain
+food items. But only one of the dishes on the other side of the table contains a food item.
+Therefore while both levers deliver food to the focal animal, only one of the levers delivers
+food to the other side of the table.
+There are two experimental conditions. In the partner condition, another chimpanzee
+is seated at the opposite end of the table, as pictured in Figure 11.2. In the control condi-
+tion, the other side of the table is empty. Finally, two counterbalancing treatments alternate
+which side, left or right, has a food item for the other side of the table. This helps detect any
+handedness preferences for individual focal animals.
+When human students participate in an experiment like this, they nearly always choose
+the lever linked to two pieces of food, the prosocial option, but only when another student
+sits on the opposite side of the table. The motivating question is whether a focal chimpanzee
+behaves similarly, choosing the prosocial option more often when another animal is present.
+In terms of linear models, we want to estimate the interaction between condition (presence
+or absence of another animal) and option (which side is prosocial).
+Load the data from the rethinking package:

@@ -1,0 +1,56 @@
+198
+7. ULYSSES’ COMPASS
+30
+40
+50
+60
+70
+600
+800
+1000
+1200
+body mass (kg)
+brain volume (cc)
+afarensis
+africanus
+habilis
+boisei
+rudolfensis
+ergaster
+sapiens
+Figure 7.2. Average brain volume in cubic
+centimeters against body mass in kilograms,
+for six hominin species. What model best de-
+scribes the relationship between brain size and
+body size?
+fit of a model to the data.96 By “fit” I mean a measure of how well the model can retrodict
+the data used to fit the model. There are many such measures, each with its own foibles. In
+the context of linear Gaussian models, R2 is the most common measure of this kind. Often
+described as “variance explained,” R2 is defined as:
+R2 = var(outcome) −var(residuals)
+var(outcome)
+= 1 −var(residuals)
+var(outcome)
+Being easy to compute, R2 is popular. But like other measures of fit to sample, R2 increases as
+more predictor variables are added. This is true even when the variables you add to a model
+are just random numbers, with no relation to the outcome. So it’s no good to choose among
+models using only fit to the data.
+Second, while more complex models fit the data better, they often predict new data
+worse. Models that have many parameters tend to overfit more than simpler models. This
+means that a complex model will be very sensitive to the exact sample used to fit it, leading
+to potentially large mistakes when future data is not exactly like the past data. But simple
+models, with too few parameters, tend instead to underfit, systematically over-predicting or
+under-predicting the data, regardless of how well future data resemble past data. So we can’t
+always favor either simple models or complex models.
+Let’s examine both of these issues in the context of a simple example.
+7.1.1. More parameters (almost) always improve fit. Overfitting occurs when a model
+learns too much from the sample. What this means is that there are both regular and irregular
+features in every sample. The regular features are the targets of our learning, because they
+generalize well or answer a question of interest. Regular features are useful, given an objective
+of our choice. The irregular features are instead aspects of the data that do not generalize and
+so may mislead us.
+Overfitting happens automatically, unfortunately. In the kind of statistical models we’ve
+seen so far in this book, adding additional parameters will always improve the fit of a model to
+the sample. Much later in the book, beginning with Chapter 13, you’ll meet models for which
+adding parameters does not necessarily improve fit to the sample, but may well improve
+predictive accuracy.

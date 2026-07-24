@@ -1,0 +1,57 @@
+454
+14. ADVENTURES IN COVARIANCE
+2
+3
+4
+5
+6
+-2.0
+-1.5
+-1.0
+-0.5
+intercepts (a_cafe)
+slopes (b_cafe)
+Figure 14.2. 20 cafés sampled from a statisti-
+cal population. The horizontal axis is the inter-
+cept (average morning wait) for each cafe. The
+vertical axis is the slope (average difference be-
+tween afternoon and morning wait) for each
+café.
+The gray ellipses illustrate the multi-
+variate Gaussian population of intercepts and
+slopes.
+Overthinking: Variance, covariance, correlation. In typical statistical usage, we define covariance
+using three parameters: (1) the standard deviation of the first variable (σα for example), (2) the stan-
+dard deviation of the second variable (σβ for example), and (3) the correlation between the two vari-
+ables (ραβ for example). Why is the covariance equal to σασβραβ?
+The usual definition of the covariance between two variables x and y is cov(x, y) = E(xy) −
+E(x) E(y). You can say this as “the covariance is the difference between the average product and the
+product of the averages.” The variance is just a special case of this, the covariance of a variable with
+itself: var(x) = cov(x, x) = E(x2) −E(x)2. If we consider only random variables with expecta-
+tion zero—no harm done, since we can recenter at will—then these are just cov(x, y) = E(xy) and
+var(x) = E(x2).
+A correlation is just a rescaled covariance, so that the minimum is −1 and the maximum is 1.
+We can standardize a covariance this way by dividing it by the maximum possible covariance, which
+turns out to be
+p
+var(x) var(y), the product of the standard deviations. Now to show you that this is
+the largest that cov(x, y) = E(xy) can ever be. A covariance will be largest when the second variable
+y is just a rescaled copy of x. For example, let yi = pxi, where p is some proportion like 0.5 or
+1.5. So y = px is just a stretched x. The covariance is now cov(x, y) = E(px2) = p E(x2). The
+variances are var(x) = E(x2) and var(y) = E(y2) = E(p2x2) = p2 E(x2). Having fun yet? Here
+comes the end. var(x) var(y) = p2 E(x2)2 and so
+p
+var(x) var(y) = p E(x2) = cov(x, y). That’s the
+largest the covariance can get. So if we want a standardized measure of associate, the correlation,
+we divide the covariance by this maximum value, which gives us the usual definition of a correlation
+coefficient, ρxy = cov(x, y)/
+p
+var(x) var(y). Solve this equation for cov(x, y) and you get cov(x, y) =
+p
+var(x) var(y)ρxy. Whew. All of this is just to show that the applied statistics usage of covariance as
+cov(x, y) = σxσyρxy is as justified as it is convenient.
+14.1.2. Simulate observations. We’re almost done simulating. What we did above was sim-
+ulate individual cafés and their average properties. Now all that remains is to simulate our
+robot visiting these cafés and collecting data. The code below simulates 10 visits to each café,
+5 in the morning and 5 in the afternoon. The robot records the wait time during each visit.
+Then it combines all of the visits into a common data frame.

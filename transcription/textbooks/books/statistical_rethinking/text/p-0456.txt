@@ -1,0 +1,48 @@
+440
+13. MODELS WITH MEMORY
+13.5. Multilevel posterior predictions
+Way back in Chapter 3 (page 64), I commented on the importance of model checking.
+Software does not always work as expected, and one robust way to discover mistakes is to
+compare the sample to the posterior predictions of a fit model. The same procedure, produc-
+ing implied predictions from a fit model, is very helpful for understanding what the model
+means. Every model is a merger of sense and nonsense. When we understand a model,
+we can find its sense and control its nonsense. But as models get more complex, it is very
+difficult to impossible to understand them just by inspecting tables of posterior means and
+intervals. Exploring implied posterior predictions helps much more.
+Once you believe the posterior is correct, implied predictions are needed to consider
+the causal effects. What is the estimated effect of intervening on one or more variables? We
+need counterfactual posterior predictions for this question. We saw an example of this in
+Chapter 5.
+Another role for constructing implied predictions is in computing information cri-
+teria, like AIC and WAIC. These criteria provide simple estimates of out-of-sample model
+accuracy, the KL divergence. In practical terms, information criteria provide a rough meas-
+ure of a model’s flexibility and therefore overfitting risk. This was the big conceptual mission
+of Chapter 7.
+All of this advice applies to multilevel models as well. We still often need model checks,
+counterfactual predictions for understanding, and information criteria. The introduction of
+varying effects does introduce nuance, however.
+First, we should no longer expect the model to exactly retrodict the sample, because
+adaptive regularization has as its goal to trade off poorer fit in sample for better inference
+and hopefully better fit out of sample. That is what shrinkage does for us. Of course, we
+should never be trying to really retrodict the sample. But now you have to expect that even
+a perfectly good model fit will differ from the raw data in a systematic way.
+Second, “prediction” in the context of a multilevel model requires additional choices. If
+we wish to validate a model against the specific clusters used to fit the model, that is one
+thing. But if we instead wish to compute predictions for new clusters, other than the ones
+observed in the sample, that is quite another. We’ll consider each of these in turn, continuing
+to use the chimpanzees model from the previous section.
+13.5.1. Posterior prediction for same clusters. When working with the same clusters as
+you used to fit a model, varying intercepts are just parameters. The only trick is to ensure
+that you use the right intercept for each case in the data. If you use link and sim to do your
+work for you, this is handled automatically. Otherwise, you just use the model definition.
+For example, in data(chimpanzees), there are 7 unique actors. These are the clusters.
+The varying intercepts model, m13.4, estimated an intercept for each, in addition to two
+parameters to describe the mean and standard deviation of the population of actors. We’ll
+construct posterior predictions (retrodictions), using both the automated link approach
+and doing it from scratch, so there is no confusion.
+Before computing predictions, note again that we should no longer expect the posterior
+predictive distribution to match the raw data, even when the model worked correctly. Why?
+The whole point of partial pooling is to shrink estimates towards the grand mean. So the
+estimates should not necessarily match up with the raw data, once you use pooling.
+The code needed to compute posterior predictions is just like the code from Chapter 11.
+Here it is again, computing and plotting posterior predictions for actor number 2:

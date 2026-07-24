@@ -1,0 +1,24 @@
+ACKNOWLEDGMENTS
+xix
+Acknowledgments
+Many people have contributed advice, ideas, and complaints to this book. Most impor-
+tant among them have been the graduate students who have taken statistics courses from
+me over the last decade, as well as the colleagues who have come to me for advice. These
+people taught me how to teach them this material, and in some cases I learned the material
+only because they needed it. A large number of individuals donated their time to comment
+on sections of the book or accompanying computer code. These include: Rasmus Bååth,
+Ryan Baldini, Bret Beheim, Maciek Chudek, John Durand, Andrew Gelman, Ben Goodrich,
+Mark Grote, Dave Harris, Chris Howerton, James Holland Jones, Jeremy Koster, Andrew
+Marshall, Sarah Mathew, Karthik Panchanathan, Pete Richerson, Alan Rogers, Cody Ross,
+Noam Ross, Aviva Rossi, Kari Schroeder, Paul Smaldino, Rob Trangucci, Shravan Vasishth,
+Annika Wallin, and a score of anonymous reviewers. Bret Beheim and Dave Harris were
+brave enough to provide extensive comments on an early draft. Caitlin DeRango and Kot-
+rina Kajokaite invested their time in improving several chapters and problem sets. Mary
+Brooke McEachern provided crucial opinions on content and presentation, as well as calm
+support and tolerance. A number of anonymous reviewers provided detailed feedback on
+individual chapters. None of these people agree with all of the choices I have made, and all
+mistakes and deficiencies remain my responsibility. But especially when we haven’t agreed,
+their opinions have made the book stronger.
+The book is dedicated to Dr. Parry M. R. Clarke (1977–2012), who asked me to write
+it. Parry’s inquisition of statistical and mathematical and computational methods helped
+everyone around him. He made us better.

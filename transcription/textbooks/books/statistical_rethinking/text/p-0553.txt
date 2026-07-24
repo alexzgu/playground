@@ -1,0 +1,37 @@
+16 Generalized Linear Madness
+When I asked my high school physics teacher about statistics, she told me a joke. Here’s
+how I remember it. A physicist, an engineer, and a statistician go bow hunting together. After
+many hours, they spot a deer in the distance. The physicist does a quick ballistic calculation,
+ignoring air resistance. The arrow flies true but falls a few meters short of the target. The
+deer doesn’t notice. The engineer smirks, introduces a fudge factor for air resistance, and
+shoots. The second arrow lands instead a few meters long. The deer still doesn’t notice. The
+statistician takes the average and yells, “We got it!”
+The sciences construct theories of natural processes. Eventually these theories are ex-
+pressed formally, as mathematical models. Such models are specialized, make precise pre-
+dictions, and can fail in equally precise ways. Being wrong in precise ways is useful, because
+the failures borrow meaning from the cause and effect relationships built into the models.
+This is true of the physicist and the engineer in the joke. They were wrong in very precise
+ways that give us hints about which causes were at fault.
+Applied statistics has to apply to all the sciences, and so it is often much vaguer about
+models. Instead it focuses on average performance, regardless of the model. The generalized
+linear models in the preceding chapters are not credible scientific models of most natural
+processes. They are powerful, geocentric (Chapter 4) descriptions of associations. In combi-
+nation with a logic of causal inference, for example DAGs and do-calculus, generalized linear
+models can nevertheless be unreasonably powerful.
+But there are problems with this GLMs-plus-DAGs approach. Not everything can be
+modeled as a GLM—a linear combination of variables mapped onto a non-linear outcome.
+But if it is the only approach you know, then you have to use it. Other times the theory of
+interest can be expressed as a GLM, but the theory implies that some of the parameters are
+fixed at special values. We might never notice, if we start with GLMs instead of real models.
+And when a GLM fails, it’s not easy to learn from the failure. Debugging epicycles is a game
+no one can win. If we could replace the heuristic DAG with an actual structural causal model,
+we might solve all these problems at once.
+In this chapter, I will go beyond generalized linear madness. I’ll work through
+examples in which the scientific context provides a causal model that will breathe life into the
+statistical model. I’ve chosen examples which are individually distinct and highlight different
+challenges in developing and translating causal models into bespoke (see the Rethinking box
+below) statistical models. You won’t require any specialized scientific expertise to grasp these
+examples. And the basic strategy is the same as it has been from the start: Define a generative
+model of a phenomenon and then use that model to design strategies for causal inference and
+statistical estimation.
+537

@@ -1,0 +1,41 @@
+534
+15. MISSING DATA AND OTHER OPPORTUNITIES
+15E1. Rewrite the Oceanic tools model (from Chapter 11) below so that it assumes measured error
+on the log population sizes of each society. You don’t need to fit the model to data. Just modify the
+mathematical formula below.
+Ti ∼Poisson(µi)
+log µi = α + β log Pi
+α ∼Normal(0, 1.5)
+β ∼Normal(0, 1)
+15E2. Rewrite the same model so that it allows imputation of missing values for log population.
+There aren’t any missing values in the variable, but you can still write down a model formula that
+would imply imputation, if any values were missing.
+Medium.
+15M1. Using the mathematical form of the imputation model in the chapter, explain what is being
+assumed about how the missing values were generated.
+15M2. In earlier chapters, we threw away cases from the primate milk data, so we could use the
+neocortex variable. Now repeat the WAIC model comparison example from Chapter 6, but use im-
+putation on the neocortex variable so that you can include all of the cases in the original data. The
+simplest form of imputation is acceptable. How are the model comparison results affected by being
+able to include all of the cases?
+15M3. Repeat the divorce data measurement error models, but this time double the standard errors.
+Can you explain how doubling the standard errors impacts inference?
+Hard.
+15H1. The data in data(elephants) are counts of matings observed for bull elephants of differing
+ages. There is a strong positive relationship between age and matings. However, age is not always
+assessed accurately. First, fit a Poisson model predicting MATINGS with AGE as a predictor. Second,
+assume that the observed AGE values are uncertain and have a standard error of ±5 years. Re-estimate
+the relationship between MATINGS and AGE, incorporating this measurement error. Compare the
+inferences of the two models.
+15H2. Repeat the model fitting problem above, now increasing the assumed standard error on AGE.
+How large does the standard error have to get before the posterior mean for the coefficient on AGE
+reaches zero?
+15H3. The fact that information flows in all directions among parameters sometimes leads to rather
+unintuitive conclusions. Here’s an example from missing data imputation, in which imputation of a
+single datum reverses the direction of an inferred relationship. Use these data:
+R code
+15.32
+set.seed(100)
+x <- c( rnorm(10) , NA )
+y <- c( rnorm(10,x) , 100 )
+d <- list(x=x,y=y)

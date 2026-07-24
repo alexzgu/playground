@@ -1,0 +1,53 @@
+546
+16. GENERALIZED LINEAR MADNESS
+data, conditional on assuming a specific strategy s. For example assuming s = 1, the majority
+strategy, then Pr(yi = 2|s = 1) = 1. This is just the mathy way of saying that a child using
+the majority strategy always follows the majority color choice.
+We don’t know s though. We can’t observe it directly. However we do have a probability
+for each s in the model. These are the elements of the simplex p. So to get the unconditional
+probability of the data Pr(yi) we just need to use p to average over the unknown strategy s:
+Pr(yi) =
+5
+X
+s=1
+ps Pr(yi|s)
+Read this as the probability of yi is the weighted average of the probabilities of yi conditional on
+each strategy s. This expression is a mixture, as in earlier chapters. Sometimes you’ll read that
+this marginalizes out the unknown strategy. This just means averaging over the strategies,
+using some probability of each to get the weight of each in the average. Above, the values in
+p provide these weights.
+Okay, so we have our statistical model now. Let’s write it in a more conventional form:
+yi ∼Categorical(θ)
+θj =
+5
+X
+s=1
+ps Pr(j|s)
+for j = 1...3
+p ∼Dirichlet([4, 4, 4, 4, 4])
+The vector θ holds the average probability of each behavior, conditional on p. As a generative
+model, the above implies that all children are identical—each child on each trial has some
+probability ps of using strategy s. Of course there are individual differences among the chil-
+dren. But since we don’t have any repeat observations of each child in these data, we can’t
+do much better than the above. But if we did have repeat observations, we’d assign a unique
+simplex p to each child, power up the partial pooling, and enjoy the fireworks.
+16.2.3. Coding the statistical model. Coding this model means explicitly coding the logic
+of each strategy, those Pr(j|s) terms above. We will write this model directly in Stan, because
+it will actually make it both easier to code and easier to extend. There have been some op-
+tional Stan models in previous chapters. But now it’s not optional. I’ve included the model
+code in the rethinking package. You can load and display it with:
+R code
+16.7
+data(Boxes_model)
+cat(Boxes_model)
+I’ll put the explanation of the Stan code in the Overthinking box further down, so you can
+focus on the coding details later.
+To run the sampler, all that remains is to prepare the data list and then invoke stan().
+The data list needs only the sample size N, the vector of choices y, and the vector of presenta-
+tion order majority_first.
+R code
+16.8
+# prep data
+dat_list <- list(
+N = nrow(Boxes),
+y = Boxes$y,

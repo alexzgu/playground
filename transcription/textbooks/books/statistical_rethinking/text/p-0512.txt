@@ -1,0 +1,53 @@
+496
+14. ADVENTURES IN COVARIANCE
+sigma_sq
+0.16 0.02
+0.13
+0.19
+2251
+1
+This model annihilates group size—the posterior mean is almost zero and there is a lot of
+mass on both sides of zero. The big change from the previous model suggests that there is a
+lot of clustering of brain size in the tree and that this produces a spurious relationship with
+group size, which also clusters in the tree. How the model uses this clustering depends upon
+the details of the correlation matrix we gave it.
+The Brownian motion model is a special kind of Gaussian process in which the covari-
+ance declines in a very rigid way with increasing distance. There is no need to be so rigid and
+good reason to think evolution is not well-described by Brownian motion. It’s very common
+to use something called Pagel’s lambda to modify the Brownian motion model. But all
+this does is scale all of the species correlations by a common factor. It maintains the same
+arbitrary and unrealistic distance model. Another common alternative is the Ornstein–
+Uhlenbeck process (or OU process), which is a damped Brownian motion process that
+tends to return towards some mean (or means). What this does in practice is constrain
+the variation, making the relationship between phylogenetic distance and covariance non-
+linear.208 More precisely, the OU process just defines the covariance between two species i
+and j as:
+K(i, j) = η2 exp(−ρ2Dij)
+This is an exponential distance kernel, unlike the quadratic kernel in the previous example.
+The exponential kernel says that covariance between points (species) declines rapidly, mak-
+ing for much less smooth functions. It is also usually harder to fit to data, since it a much
+rougher function. This means in practice that you’ll need to be careful about priors, poten-
+tially making them narrower.
+But the OU process is still a Gaussian process, and you can fit it the same way as the
+quadratic kernel in the previous section. The literature on phylogenetic regression has not
+emphasized this fact. But expressing the model as a Gaussian process makes it possible to
+customize the function space as the problem requires.209 This framing isn’t yet common.
+Biologists tend to use phylogenies under a cloud of superstition and fearful button pushing.
+But the Gaussian process framing both unifies existing approaches and allows the model to
+describe the pattern of covariation with phylogenetic distance. Hopefully it also makes clear
+that there is no correct way to include phylogenetic distance. If the goal is estimate a causal
+effect, then it isn’t good enough to reject some null model. We need to usefully reconstruct
+patterns among unmeasured confounds. And different evolutionary histories will require
+different models.
+To build the Gaussian process regression, we need a distance matrix. We already have
+that—you computed it earlier. Then we just need the Gaussian process construction line of
+code. In this example, we’ll use the OU process kernel, which is known more generally as the
+L1 norm, which ulam provides as cov_GPL1. But see the Overthinking box further down,
+to see how to write your own Gaussian process kernels.
+R code
+14.52
+# add scaled and reordered distance matrix
+dat_list$Dmat <- Dmat[ spp_obs , spp_obs ] / max(Dmat)
+m14.11 <- ulam(
+alist(
+B ~ multi_normal( mu , SIGMA ),

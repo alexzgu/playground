@@ -1,0 +1,110 @@
+598
+CITATION INDEX
+causal models, 16
+causal salad, 17
+censoring, 374
+centered parameterization, 435
+centering, 103
+Cholesky decomposition, 467
+collider, 180, 189
+collider bias, 166, 180
+Colombo, Cristoforo, 19
+Columbus, Christopher, 19
+compatibility interval, 54
+complementary cumulative probability
+distribution, 375
+complete case analysis, 150, 511, 527
+complete pooling, 422
+complete-case, 516
+concentration of measure, 275
+conditional independence, 319
+conditional independencies, 134, 155, 179, 192
+conditioning, 241
+confidence interval, 54
+confounding, 188
+consistency, model, 225
+consistent, 225
+constrasts, 339
+continuous mixture, 382
+contrast, 160
+convergence, MCMC, 290
+correlation matrix, prior for, 456
+correlation, among parameters, 103
+correlation, spurious, 133
+counterfactual, 144
+counterfactual predictions, 139
+credible interval, 54
+cross entropy, 212
+cross validation, 13, 196
+cross-classification, 461
+cross-classified, 429
+cross-classified multilevel model, 461
+cross-validation, 221
+cross-validation, Pareto-smoothed importance
+sampling, 221
+cumulative link, 381, 393
+cumulative probability distribution, 375
+Curse of Tippecanoe, 238
+d-separation, 178
+DAG, 17, 132
+data block, 547
+data compression, 205
+data dredging, 238
+data(Howell1), 90, 100, 157
+data(milk), 148, 160
+data(WaffleDivorce), 130
+dbetabinom, 383
+descendent, 189
+deviance, 214
+Deviance Information Criterion, 223
+differential equations, 555
+Directed acyclic graph, 155
+directed acyclic graph, 17, 132
+Dirichlet distribution, 405
+discrete measurement error, 528
+dispersion, 382
+displacements, 374
+divergence, see also Kullback-Leibler divergence,
+211, 312, 314
+divergent transition, 284, 299
+divergent transitions, 296, 422, 430, 433, 434
+do-operator, 193
+dummy data, 62
+effective number of parameters, 224
+entropy, cross, 212
+epicycle, 73
+exchangable, 433
+exchangeable, 84
+exclusion restriction, 469
+exponential distribution, 322, 374
+exponential distribution, as prior, 422
+exponential family, 7, 77, 322
+exposure, 364
+extract.samples, 93
+fat tails, 78
+folk theorem of statistical computing, 299, 302
+fork, 189
+forward algorithm, 533
+Fourier series, 73
+frequentist, 11
+front-door criterion, 474
+Galton, Francis, 95
+gamma distribution, 323, 374
+gamma-Poisson, 364, 385, 490
+Gaussian process regression, 481
+Gaussian processes, 450
+generalized linear madness, 537
+generalized linear model, 320, 321
+and information criteria, 328
+generalized linear models, 308, 331
+generated quantities, 343, 531
+geocentric model, 73
+Gibbs sampling, 273
+GPL2, 485
+gradient, 279
+graphical causal model, 17
+graphical causal models, 16
+grid approximation, 40
+Hamilton, William Rowan, 278
+Hamiltonian Monte Carlo, 277
+heavy tails, 78

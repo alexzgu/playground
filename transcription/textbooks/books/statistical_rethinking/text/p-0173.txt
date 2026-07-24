@@ -1,0 +1,54 @@
+5.3. CATEGORICAL VARIABLES
+157
+R code
+5.43
+dag5.7 <- dagitty( "dag{
+M -> K <- N
+M -> N }" )
+coordinates(dag5.7) <- list( x=c(M=0,K=1,N=2) , y=c(M=0.5,K=1,N=0.5) )
+MElist <- equivalentDAGs(dag5.7)
+Now MElist should contain six different DAGs. To plot them all, you can use drawdag(MElist).
+5.3. Categorical variables
+A common question for statistical methods is to what extent an outcome changes as a
+result of presence or absence of a category. A category here means discrete and unordered.
+For example, consider the different species in the milk energy data again. Some of them are
+apes, while others are New World monkeys. We might want to ask how predictions should
+vary when the species is an ape instead of a monkey. Taxonomic group is a categorical
+variable, because no species can be half-ape and half-monkey (discreteness), and there
+is no sense in which one is larger or smaller than the other (unordered). Other common
+examples of categorical variables include:
+• Sex: male, female
+• Developmental status: infant, juvenile, adult
+• Geographic region: Africa, Europe, Melanesia
+Many readers will already know that variables like this, routinely called factors, can easily
+be included in linear models. But what is not widely understood is how these variables are
+included in a model. This is because the computer does all of the work for us, most of the
+time. But there are some subtleties here that make exposing the machinery worthwhile. In
+most cases, there are different ways to build a category model. One way may be easier, be-
+cause it is easier to define the priors. And interpreting estimates for categorical variables can
+be harder than for regular continuous variables. Knowing how the machine works removes
+a lot of this difficulty.
+5.3.1. Binary categories. In the simplest case, the variable of interest has only two cate-
+gories, like male and female. Let’s rewind to the Kalahari data you met in Chapter 4. Back
+then, we ignored sex when predicting height, but obviously we expect males and females to
+have different averages. Take a look at the variables available:
+R code
+5.44
+data(Howell1)
+d <- Howell1
+str(d)
+'data.frame': 544 obs. of
+4 variables:
+$ height: num
+152 140 137 157 145 ...
+$ weight: num
+47.8 36.5 31.9 53 41.3 ...
+$ age
+: num
+63 63 65 41 51 35 32 27 19 54 ...
+$ male
+: int
+1 0 0 1 0 1 0 1 0 1 ...
+The male variable is our new predictor, an example of a indicator variable. Indicator
+variables—sometimes also called “dummy” variables—are devices for encoding unordered
+categories into quantitative models. There is no sense here in which “male” is one more than

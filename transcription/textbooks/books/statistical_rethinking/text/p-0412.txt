@@ -1,0 +1,70 @@
+396
+12. MONSTERS AND MIXTURES
+1
+2
+3
+4
+5
+6
+7
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+response
+cumulative proportion
+1
+2
+3
+4
+5
+6
+7
+Figure 12.5. Cumulative probability and or-
+dered likelihood. The horizontal axis displays
+possible observable outcomes, from 1 through
+7. The vertical axis displays cumulative proba-
+bility. The gray bars over each outcome show
+cumulative probability. These keep growing
+with each successive outcome value. The blue
+line segments show the discrete probability of
+each individual outcome. These are the likeli-
+hoods that go into Bayes’ theorem.
+R code
+12.15
+logit <- function(x) log(x/(1-x)) # convenience function
+round( lco <- logit( cum_pr_k ) , 2 )
+1
+2
+3
+4
+5
+6
+7
+-1.92 -1.27 -0.72
+0.25
+0.89
+1.77
+Inf
+These values are plotted in the right-hand panel of Figure 12.4. Notice that the cumulative
+logit of the largest response, 7, is infinity. This is because log(1/(1 −1)) = ∞. Since the
+largest response value always has a cumulative probability of 1, we effectively do not need a
+parameter for it. We get it for free, from the law of total probability. So for K = 7 possible
+response values, we only need K −1 = 6 intercepts.
+All of the above is very nice, but what we really want is the posterior distribution of
+these intercepts. This will allow us to take into account sample size and prior information,
+as well as insert predictor variables (in the next section). To use Bayes’ theorem to compute
+the posterior distribution of these intercepts, we’ll need to compute the likelihood of each
+possible response value. So the last step in constructing the basic model fitting engine for
+ordered categorical outcomes is to use the cumulative probabilities, Pr(yi ≤k), to compute
+likelihood, Pr(yi = k).
+Figure 12.5 illustrates how this is done. Each intercept αk implies a cumulative prob-
+ability for each k. You just use the inverse link to translate from log-cumulative-odds back
+to cumulative probability. So when we observe k and need its likelihood, we can get the
+likelihood by subtraction:
+pk = Pr(yi = k) = Pr(yi ≤k) −Pr(yi ≤k −1)
+(12.2)
+The blue line segments in Figure 12.5 are these likelihoods, computed by subtraction. With
+these in hand, the posterior distribution is computed the usual way.

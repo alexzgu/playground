@@ -1,0 +1,70 @@
+318
+10. BIG ENTROPY AND THE GENERALIZED LINEAR MODEL
+ww
+bw
+wb
+bb
+ww
+bw
+wb
+bb
+ww
+bw
+wb
+bb
+ww
+bw
+wb
+bb
+0.7
+0.8
+0.9
+1.0
+1.1
+1.2
+0
+2
+4
+6
+8
+Entropy
+Density
+A
+B
+C
+D
+A
+B
+C
+D
+Figure 10.4. Left: Distribution of entropies from randomly simulated dis-
+tributions with expected value 1.4. The letters A, B, C, and D mark the en-
+tropies of individual distributions shown on the right. Right: Individual
+probability distributions. As entropy decreases, going from A to D, the dis-
+tribution becomes more uneven. The distribution marked A is the binomial
+distribution with np = 1.4.
+R code
+10.11
+entropies <- as.numeric(H[1,])
+distributions <- H[2,]
+Now we can ask what the largest observed entropy was:
+R code
+10.12
+max(entropies)
+[1] 1.221728
+That value is nearly identical to the entropy of the binomial distribution we calculated before.
+And the distribution with that entropy is:
+R code
+10.13
+distributions[ which.max(entropies) ]
+[[1]]
+[1] 0.08981599 0.21043116 0.20993686 0.48981599
+And that’s almost exactly {0.09, 0.21, 0.21, 0.49}, the distribution we calculated earlier.
+The other distributions in Figure 10.4—B, C, and D—are all less even than A. They
+demonstrate how as entropy declines the probability distributions become progressively less
+even. All four of these distributions really do have expected value 1.4. But among the infinite
+distributions that satisfy this constraint, it is only the most even distribution, the exact one
+nominated by the binomial distribution, that has greatest entropy.
+So what? There are a few conceptual lessons to take away from this example. First, hope-
+fully it reinforces the maximum entropy nature of the binomial distribution. When only
+two un-ordered outcomes are possible—such as blue and white marbles—and the expected

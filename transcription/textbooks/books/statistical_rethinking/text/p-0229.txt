@@ -1,0 +1,46 @@
+7.2. ENTROPY AND ACCURACY
+213
+provide a probability distribution q to approximate the actual distribution on Mars, p. For the Earth,
+q = {0.7, 0.3}, for probability of water and land, respectively. Mars is very dry, but let’s say for the
+sake of the example that there is 1% surface water, so p = {0.01, 0.99}. If we count the ice caps,
+that’s not too big a lie. Now compute the divergence going from Earth to Mars. It turns out to be
+DE→M = DKL(p, q) = 1.14. That’s the additional uncertainty induced by using the Earth to predict
+the Martian landing spot. Now consider going back the other direction. The numbers in p and q stay
+the same, but we swap their roles, and now DM→E = DKL(q, p) = 2.62. The divergence is more than
+double in this direction. This result seems to defy comprehension. How can the distance from Earth
+to Mars be shorter than the distance from Mars to Earth?
+Divergence behaves this way as a feature, not a bug. There really is more additional uncertainty
+induced by using Mars to predict Earth than by using Earth to predict Mars. The reason is that, going
+from Mars to Earth, Mars has so little water on its surface that we will be very very surprised when
+we most likely land in water on Earth. In contrast, Earth has good amounts of both water and dry
+land. So when we use the Earth to predict Mars, we expect both water and land, to some extent, even
+though we do expect more water than land. So we won’t be nearly as surprised when we inevitably
+arrive on Martian dry land, because 30% of Earth is dry land.
+An important practical consequence of this asymmetry, in a model fitting context, is that if we
+use a distribution with high entropy to approximate an unknown true distribution of events, we will
+reduce the distance to the truth and therefore the error. This fact will help us build generalized linear
+models, later on in Chapter 10.
+7.2.4. Estimating divergence. At this point in the chapter, dear reader, you may be won-
+dering where the chapter is headed. At the start, the goal was to deal with overfitting and
+underfitting. But now we’ve spent pages and pages on entropy and other fantasies. It’s as if
+I promised you a day at the beach, but now you find yourself at a dark cabin in the woods,
+wondering if this is a necessary detour or rather a sinister plot.
+It is a necessary detour. The point of all the preceding material about information theory
+and divergence is to establish both:
+(1) How to measure the distance of a model from our target. Information theory gives
+us the distance measure we need, the K-L divergence.
+(2) How to estimate the divergence. Having identified the right measure of distance,
+we now need a way to estimate it in real statistical modeling tasks.
+Item (1) is accomplished. Item (2) remains for last. You’re going to see now that the diver-
+gence leads to using a measure of model fit known as deviance.
+To use DKL to compare models, it seems like we would have to know p, the target proba-
+bility distribution. In all of the examples so far, I’ve just assumed that p is known. But when
+we want to find a model q that is the best approximation to p, the “truth,” there is usually no
+way to access p directly. We wouldn’t be doing statistical inference, if we already knew p.
+But there’s an amazing way out of this predicament. It helps that we are only interested
+in comparing the divergences of different candidates, say q and r. In that case, most of p just
+subtracts out, because there is a E log(pi) term in the divergence of both q and r. This term
+has no effect on the distance of q and r from one another. So while we don’t know where p is,
+we can estimate how far apart q and r are, and which is closer to the target. It’s as if we can’t
+tell how far any particular archer is from hitting the target, but we can tell which archer gets
+closer and by how much.

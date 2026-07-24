@@ -1,0 +1,45 @@
+538
+16. GENERALIZED LINEAR MADNESS
+Unlike the other chapters in this book, there is some mathematics in this chapter, and it
+really cannot be avoided. But all you need is some algebra. We won’t so much do math as
+express ideas with math. We will also work directly with Stan model code, since ulam() is
+not flexible enough for some of the examples. If you aren’t interested in the code, you can
+ignore it. But as usual, seeing the implementation often helps to clarify the concepts.
+Rethinking: Bespoken for. Mass production has some advantages, but it also makes our clothes fit
+badly. Garments bought off-the-shelf are not manufactured with you in mind. They are not bespoke
+products, designed for any particular person with a particular body. Unless you are lucky to have a
+perfectly average body shape, you will need a tailor to get better.
+Statistical analyses are similar. Generalized linear models are off-the-shelf products, mass pro-
+duced for a consumer market of impatient researchers with diverse goals. Science asked statisticians
+for tools that could be used anywhere. And so they delivered. But the clothes don’t always fit.
+One problem with off-the-shelf models is that they interrupt expertise. A typical researcher
+knows a lot about their subject. Evidence of this is the detailed objections a scientist makes when
+someone from another specialty tries to build a theoretical model for their subject. But then when
+those scientists turn to analyze their own data, they use tools that forbid the use of that knowledge.
+There is no way in a standard GLM to incorporate it. Even worse, if the only models researchers are
+ever taught are GLMs (or GLMMs), these models may crowd out the formation of informed, bespoke
+scientific models.
+GLMs are unreasonably powerful. But we should remember that they are usually only geocentric
+devices. Better bespoke models are eventually necessary, both for better fit and better inference.
+16.1. Geometric people
+Back in Chapter 4, you met linear regression in the context of building a predictive model
+of height using weight. You even saw how to measure non-linear associations between the
+two variables. But nothing in that example was scientifically satisfying. The height-weight
+model was just a statistical device. It contains no biological information and tells us noth-
+ing about how the association between height and weight arises. Consider for example that
+weight obviously does not cause height, at least not in humans. If anything, the causal rela-
+tionship is the reverse.
+So now let’s try to do better. Why? Because when the model is scientifically inspired,
+rather than just statistical required, disagreements between model and data are informative
+of real causal relationships.
+Suppose for example that a person is shaped like a cylinder. Of course a person isn’t
+exactly shaped like a cylinder. There are arms and a head. But let’s see how far this cylinder
+model gets us. The weight of the cylinder is a consequence of the volume of the cylinder.
+And the volume of the cylinder is a consequence of growth in the height and width of the
+cylinder. So if we can relate the height to the volume, then we’d have a model to predict
+weight from height.
+16.1.1. The scientificmodel. Let’s do it. Sometime a long time ago you learned, and sensibly
+forgot, that the formula for the volume of a person-cylinder is:
+V = πr2h
+where r is the person’s radius and h is its height. See Figure 16.1.219 We don’t know each
+individual’s radius, but let’s assume that each individual’s radius is some constant proportion

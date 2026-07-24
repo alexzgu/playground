@@ -1,0 +1,56 @@
+6.2. POST-TREATMENT BIAS
+177
+model of p now.
+h1,i ∼Normal(µi, σ)
+µi = h0,i × p
+p = α + βTTi + βFFi
+α ∼Log-Normal(0, 0.25)
+βT ∼Normal(0, 0.5)
+βF ∼Normal(0, 0.5)
+σ ∼Exponential(1)
+The proportion of growth p is now a function of the predictor variables. It looks like any
+other linear model. The priors on the slopes are almost certainly too flat. They place 95% of
+the prior mass between −1 (100% reduction) and +1 (100% increase) and two-thirds of the
+prior mass between −0.5 and +0.5. After we finish this section, you may want to loop back
+and try simulating from these priors. Here’s the code to approximate the posterior:
+R code
+6.16
+m6.7 <- quap(
+alist(
+h1 ~ dnorm( mu , sigma ),
+mu <- h0 * p,
+p <- a + bt*treatment + bf*fungus,
+a ~ dlnorm( 0 , 0.2 ) ,
+bt ~ dnorm( 0 , 0.5 ),
+bf ~ dnorm( 0 , 0.5 ),
+sigma ~ dexp( 1 )
+), data=d )
+precis(m6.7)
+mean
+sd
+5.5% 94.5%
+a
+1.48 0.02
+1.44
+1.52
+bt
+0.00 0.03 -0.05
+0.05
+bf
+-0.27 0.04 -0.33 -0.21
+sigma
+1.41 0.10
+1.25
+1.57
+That a parameter is the same as p before. And it has nearly the same posterior. The marginal
+posterior for bt, the effect of treatment, is solidly zero, with a tight interval. The treatment is
+not associated with growth. The fungus seems to have hurt growth, however. Given that we
+know the treatment matters, because we built the simulation that way, what happened here?
+6.2.2. Blocked by consequence. The problem is that fungus is mostly a consequence of
+treatment. This is to say that fungus is a post-treatment variable. So when we control
+for fungus, the model is implicitly answering the question: Once we already know whether
+or not a plant developed fungus, does soil treatment matter? The answer is “no,” because soil
+treatment has its effects on growth through reducing fungus. But we actually want to know,
+based on the design of the experiment, is the impact of treatment on growth. To measure
+this properly, we should omit the post-treatment variable fungus. Here’s what the inference
+looks like in that case:

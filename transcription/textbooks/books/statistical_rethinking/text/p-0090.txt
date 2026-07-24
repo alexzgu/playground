@@ -1,0 +1,40 @@
+74
+4. GEOCENTRIC MODELS
+Earth
+equant
+planet
+epicycle
+deferent
+Figure 4.1. The Ptolemaic Universe, in
+which complex motion of the planets in
+the night sky was explained by orbits
+within orbits, called epicycles. The model
+is incredibly wrong, yet makes quite good
+predictions.
+sense that once you learn to build and interpret linear regression models, you can more easily
+move on to other types of regression which are less normal.
+4.1. Why normal distributions are normal
+Suppose you and a thousand of your closest friends line up on the halfway line of a soccer
+field (football pitch). Each of you has a coin in your hand. At the sound of the whistle, you
+begin flipping the coins. Each time a coin comes up heads, that person moves one step
+towards the left-hand goal. Each time a coin comes up tails, that person moves one step
+towards the right-hand goal. Each person flips the coin 16 times, follows the implied moves,
+and then stands still. Now we measure the distance of each person from the halfway line.
+Can you predict what proportion of the thousand people who are standing on the halfway
+line? How about the proportion 5 yards left of the line?
+It’s hard to say where any individual person will end up, but you can say with great con-
+fidence what the collection of positions will be. The distances will be distributed in approxi-
+mately normal, or Gaussian, fashion. This is true even though the underlying distribution is
+binomial. It does this because there are so many more possible ways to realize a sequence of
+left-right steps that sums to zero. There are slightly fewer ways to realize a sequence that ends
+up one step left or right of zero, and so on, with the number of possible sequences declining
+in the characteristic bell curve of the normal distribution.
+4.1.1. Normal by addition. Let’s see this result, by simulating this experiment in R. To show
+that there’s nothing special about the underlying coin flip, assume instead that each step is
+different from all the others, a random distance between zero and one yard. Thus a coin is
+flipped, a distance between zero and one yard is taken in the indicated direction, and the
+process repeats. To simulate this, we generate for each person a list of 16 random numbers
+between −1 and 1. These are the individual steps. Then we add these steps together to get
+the position after 16 steps. Then we need to replicate this procedure 1000 times. This is the
+sort of task that would be harrowing in a point-and-click interface, but it is made trivial by
+the command line. Here’s a single line to do the whole thing:

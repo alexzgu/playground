@@ -1,0 +1,47 @@
+334
+11. GOD SPIKED THE INTEGERS
+Figure 11.2. Chimpanzee prosociality
+experiment, as seen from the perspective
+of the focal animal.
+The left and right
+levers are indicated in the foreground.
+Pulling either expands an accordion de-
+vice in the center, pushing the food trays
+towards both ends of the table. Both food
+trays close to the focal animal have food
+in them. Only one of the food trays on the
+other side contains food. The partner con-
+dition means another animal, as pictured,
+sits on the other end of the table. Other-
+wise, the other end was empty.
+R code
+11.1
+library(rethinking)
+data(chimpanzees)
+d <- chimpanzees
+Take a look at the built-in help, ?chimpanzees, for details on all of the available variables.
+We’re going to focus on pulled_left as the outcome to predict, with prosoc_left and
+condition as predictor variables. The outcome pulled_left is a 0 or 1 indicator that the
+focal animal pulled the left-hand lever. The predictor prosoc_left is a 0/1 indicator that
+the left-hand lever was (1) or was not (0) attached to the prosocial option, the side with two
+pieces of food. The condition predictor is another 0/1 indicator, with value 1 for the partner
+condition and value 0 for the control condition.
+We’ll want to infer what happens in each combination of prosoc_left and condition.
+There are four combinations:
+(1) prosoc_left= 0 and condition= 0: Two food items on right and no partner.
+(2) prosoc_left= 1 and condition= 0: Two food items on left and no partner.
+(3) prosoc_left= 0 and condition= 1: Two food itemson rightandpartner present.
+(4) prosoc_left= 1 and condition= 1: Two food items on left and partner present.
+The conventional thing to do here is use these dummy variables to build a linear interaction
+model. We aren’t going to do that, for the reason discussed back in Chapter 5: Using dummy
+variables makes it hard to construct sensible priors. So instead let’s build an index variable
+containing the values 1 through 4, to index the combinations above. A very quick way to do
+this is:
+R code
+11.2
+d$treatment <- 1 + d$prosoc_left + 2*d$condition
+Now treatment contains the values 1 through 4, matching the numbers in the list above.
+You can verify by using cross-tabs:
+R code
+11.3
+xtabs( ~ treatment + prosoc_left + condition , d )

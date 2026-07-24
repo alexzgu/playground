@@ -1,0 +1,49 @@
+144
+5. THE MANY VARIABLES & THE SPURIOUS WAFFLES
+R code
+5.18
+N <- 100
+# number of cases
+x_real <- rnorm( N )
+# x_real as Gaussian with mean 0 and stddev 1
+x_spur <- rnorm( N , x_real )
+# x_spur as Gaussian with mean=x_real
+y <- rnorm( N , x_real )
+# y as Gaussian with mean=x_real
+d <- data.frame(y,x_real,x_spur) # bind all together in data frame
+Now the data frame d has 100 simulated cases. Because x_real influences both y and x_spur, you
+can think of x_spur as another outcome of x_real, but one which we mistake as a potential predictor
+of y. As a result, both xreal and xspur are correlated with y. You can see this in the scatterplots from
+pairs(d). But when you include both x variables in a linear regression predicting y, the posterior
+mean for the association between y and xspur will be close to zero, while the comparable mean for xreal
+will be closer to 1.
+5.1.5.3. Counterfactual plots. A second sort of inferential plot displays the implied pre-
+dictions of the model. I call these plots counterfactual, because they can be produced
+for any values of the predictor variables you like, even unobserved or impossible combina-
+tions like very high median age of marriage and very high marriage rate. There are no States
+with this combination, but in a counterfactual plot, you can ask the model for a prediction
+for such a State. This means you have take care not to plot nonsense. But used with clarity of
+purpose, counterfactual plots help you understand the model and generate predictions for
+imaginary interventions.
+The simplest use of a counterfactual plot is to see how the predictions change as you
+change only one predictor at a time. This means holding the values of all predictors constant,
+except for a single predictor of interest. A tension with such plots, however, is that they ignore
+the assumed causal structure. In the small world of the model, it is possible to change median
+age of marriage without also changing the marriage rate. But is this also possible in the large
+world of reality? Probably not. Suppose for example that you pay young couples to postpone
+marriage until they are 35 years old. Surely this will also decrease the number of couples who
+ever get married—some people will die before turning 35, among other reasons—decreasing
+the overall marriage rate. An extraordinary and evil degree of control over people would be
+necessary to really hold marriage rate constant while forcing everyone to marry at a later age.
+So let’s see how to generate plots of model predictions that take the causal structure into
+account. The basic recipe is:
+(1) Pick a variable to manipulate, the intervention variable.
+(2) Define the range of values to set the intervention variable to.
+(3) For each value of the intervention variable, and for each sample in posterior, use
+the causal model to simulate the values of other variables, including the outcome.
+In the end, you end up with a posterior distribution of counterfactual outcomes that you can
+plot and summarize in various ways, depending upon your goal.
+Let’s see how to do this for the divorce model. Again we take this DAG as given:
+A
+D
+M

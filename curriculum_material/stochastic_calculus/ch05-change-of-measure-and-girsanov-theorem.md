@@ -3,9 +3,7 @@
 
 ### PDF page 151 (book page 145)
 
-# Chapter 5
-
-# Change of measure and Girsanov theorem
+# Chapter 5 — Change of measure and Girsanov theorem
 
 **5.1 Absolutely continuous measures**
 
@@ -197,8 +195,6 @@ We claim that
 
 ### PDF page 157 (book page 151)
 
-*5.2. GIVING DRIFT TO A BROWNIAN MOTION*
-
 - The process $t \mapsto B_t$, *under the measure $Q$*, is a Brownian motion with drift $m$ and $\sigma^2 = 1$.
 
 We prove this by showing it satisfies the conditions to be a Brownian motion. The continuity of paths is immediate as well as $B_0 = 0$. To show the rest, it suffices to show that if $s, t \geq 0$, then $B_{t+s} - B_s$ is independent of $\mathcal{F}_s$ with a normal distribution with mean $mt$ and variance $t$. We can establish this by showing it has the (conditional) moment generating function
@@ -227,8 +223,6 @@ $$ dX_t = X_t \left[ m\, dt + \sigma\, dB_t \right], $$
 
 ### PDF page 158 (book page 152)
 
-*152 CHAPTER 5. CHANGE OF MEASURE AND GIRSANOV THEOREM*
-
 where $B_t$ is a standard Brownian motion defined on the probability space $(\Omega, \mathcal{F}, \mathbb{P})$. If $r \in \mathbb{R}$, then we can find a new probability measure $Q$ such that
 
 $$ dB_t = r\, dt + dW_t, $$
@@ -256,8 +250,6 @@ If the Brownian motion has drift $-m$, then
 $$ Q\{T_a < \infty\} = e^{-am}\, \mathbb{E} \left[ \exp\left\{ -\frac{m^2\, T_a}{2} \right\} \right] = e^{-2am}. $$
 
 ### PDF page 159 (book page 153)
-
-*5.3. GIRSANOV THEOREM*
 
 # 5.3 Girsanov theorem
 
@@ -902,8 +894,6 @@ $$ dM_t = \frac{r_t - m_t}{\sigma_t} \, M_t \, dB_t, \quad M_0 = 1. \tag{5.27} $
 
 ### PDF page 178 (book page 172)
 
-172CHAPTER 5. CHANGE OF MEASURE AND GIRSANOV THEOREM
-
 The solution to this last equation is a local martingale, but it not necessarily a martingale. If it is not a martingale, then some undesirable conclusions may result as in our examples above. Our first assumption will be that it is a martingale.
 
 - **Assumption 1.** The local martingale defined in (5.27) is actually a martingale.
@@ -933,8 +923,6 @@ Given a contingent claim, we can set
 $$ \tilde{V}_t = E_Q \left[ \tilde{V} \mid \mathcal{F}_t \right]. $$
 
 ### PDF page 179 (book page 173)
-
-5.6. MARTINGALE APPROACH TO PRICING
 
 This is a square integrable martingale and $\tilde{V}_T = \tilde{V}$. We would like to find a portfolio $(a_t, b_t)$ satisfying
 
@@ -977,8 +965,6 @@ Therefore, if
 $$ a_t = \frac{A_t}{\sigma_t \, \tilde{S}_t}, \quad b_t = \tilde{V}_t - \frac{A_t}{\sigma_t}, \tag{5.30} $$
 
 ### PDF page 180 (book page 174)
-
-174CHAPTER 5. CHANGE OF MEASURE AND GIRSANOV THEOREM
 
 the portfolio is self-financing and
 
@@ -1051,8 +1037,6 @@ Recalling that
 $$ dS_t = S_t \left[r(t, S_t) \, dt + \sigma(t, S_t) \, dW_t\right], $$
 
 ### PDF page 182 (book page 176)
-
-# CHAPTER 5. CHANGE OF MEASURE AND GIRSANOV THEOREM
 
 we see that
 
@@ -1318,9 +1302,5 @@ $$ \int_x^\infty (z - x)\,g(z)\,dz = e^{y+(a^2/2)}\,\Phi\left( \frac{y - \log x 
 3. Use these calculations to check the details of Example 5.5.1.
 
 ### PDF page 190 (book page 184)
-
-*(This page contains only the running header, reproduced below per book layout; the page body is blank.)*
-
-*[Running header: 184 CHAPTER 5. CHANGE OF MEASURE AND GIRSANOV THEOREM]*
 
 *(Blank page.)*

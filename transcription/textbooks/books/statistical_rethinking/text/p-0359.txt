@@ -1,0 +1,59 @@
+11.1. BINOMIAL REGRESSION
+343
+List of 4
+$ log_lik: num [1:2000, 1:504] -0.53 -0.381 -0.441 -0.475 -0.548 ...
+$ a
+: num [1:2000, 1:7] -0.3675 0.0123 -0.8544 -0.2473 -0.762 ...
+$ b
+: num [1:2000, 1:4] 0.00915 -0.78079 0.26441 -0.25036 0.44651 ...
+$ lp__
+: num [1:2000(1d)] -270 -273 -270 -268 -268 ...
+The log_lik matrix at the top contains all of the log-probabilities needed to calculate WAIC and
+PSIS. You can see the code that produces them by calling stancode(m11.4). Let’s review each piece
+of the model, so you can relate it to the ulam formula. First, there is the data block, naming and
+defining the size of each observed variable:
+data{
+int pulled_left[504];
+int treatment[504];
+int actor[504];
+}
+Next comes the parameters block, which does the same for unobserved variables:
+parameters{
+vector[7] a;
+vector[4] b;
+}
+Now the model block, which calculates the log-posterior. The log-posterior is used in turn to com-
+pute the shape of the surface that the Hamiltonian simulations glide around on. Note that this block
+executes in order, from top to bottom. The values of p must be computed before they are used in
+binomial( 1 , p ). This is unlike BUGS or JAGS where the lines can be in any order.
+model{
+vector[504] p;
+b ~ normal( 0 , 0.5 );
+a ~ normal( 0 , 1.5 );
+for ( i in 1:504 ) {
+p[i] = a[actor[i]] + b[treatment[i]];
+p[i] = inv_logit(p[i]);
+}
+pulled_left ~ binomial( 1 , p );
+}
+Finally, the reason we are here, the generated quantities block. This is an optional block that lets
+us compute anything we’d like returned in the posterior. It executes only after a sample is accepted, so
+it doesn’t slow down sampling much. This is unlike the model block, which is executed many times
+during each path needed to produce a sample.
+generated quantities{
+vector[504] log_lik;
+vector[504] p;
+for ( i in 1:504 ) {
+p[i] = a[actor[i]] + b[treatment[i]];
+p[i] = inv_logit(p[i]);
+}
+for ( i in 1:504 ) log_lik[i] = binomial_lpmf( pulled_left[i] | 1 , p[i] );
+}
+The log-probabilities are stored in a vector of the same length as the number of observations—504
+here. The linear model needs to be calculated again, because while the parameters are available in
+this block, any variables declared inside the model block, like p, are not. So we do all of that again.
+There is a trick for writing the p code only once, using another optional block called transformed
+parameters, but let’s not make things too complicated yet. Finally, we loop over the observations
+and calculate the binomial probability of each, conditional on the parameters. The helper functions
+LOO and WAIC expect to see this log_lik matrix in the posterior samples. You can write a raw Stan
+model, include these calculations, and still use LOO and WAIC as before. To run this model without

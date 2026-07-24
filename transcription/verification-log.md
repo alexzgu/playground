@@ -505,6 +505,7 @@ All checks run in Python (SymPy / fractions / SciPy). ✔ = matches booklet; ⚠
 | 185 | $\epsilon_0 L_0 = 1$ with $L_0=10$ gives $\epsilon_0=0.1$, and the revised $(\epsilon_0,L_0)=(0.05,20)$ preserves $\epsilon_0 L_0 = 1$. | auto (SymPy pipeline) | ✔ |
 | 185 | The four average acceptance probabilities 0.23, 0.59, 0.02, 0.57 all lie below the stated 65% threshold, as does their mean. | auto (SymPy pipeline) | ✔ |
 | 185 | The third round's acceptance probabilities (0.52, 0.68, 0.75, 0.51) are strictly "more stable" — smaller spread — than the second round's (0.72, 0.87, 0.33, 0.55), by both variance and range. | auto (SymPy pipeline) | ✔ |
+| 186 | Differentiating the transformed log posterior with respect to log τ gives −(J−1)+Σ(μ−αⱼ)²/τ². | auto (SymPy pipeline) | ✔ |
 | 188 | The inverse-temperature ladder from 0.1 to 1 in steps of 0.1 has exactly 10 rungs, with endpoints 0.1 and 1. | auto (SymPy pipeline) | ✔ |
 | 191 | The printed `mydat` output matches `cbind(weight, height)` for rows 1–4 and all heights, and row 5 of weight is the documented typo (typed 10, printed 140). | auto (SymPy pipeline) | ✔ |
 
@@ -515,4 +516,6 @@ No numerical errors found on PDF pages 1–22. Handwritten corrections incorpora
 
 
 
-Pipeline summary: 488 machine checks on PDF pages ≥ 23; 474 passed, 14 flagged. Details: transcribe/out/verify-results.json
+
+
+Pipeline summary: 489 machine checks on PDF pages ≥ 23; 475 passed, 14 flagged. Details: transcribe/out/verify-results.json

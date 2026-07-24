@@ -1,0 +1,57 @@
+11.2. POISSON REGRESSION
+357
+0
+20
+40
+60
+80
+100
+0.00
+0.02
+0.04
+0.06
+0.08
+mean number of tools
+Density
+a ~ dnorm(0,10)
+a ~ dnorm(3,0.5)
+Figure 11.7. Prior predictive distribution of
+the mean λ of a simple Poisson GLM, consid-
+ering only the intercept α. A flat conventional
+prior (black) creates absurd expectations on
+the outcome scale. The mean of this distri-
+bution is exp(50) ≈stupidly large. It is easy
+to do better by shifting prior mass above zero
+(blue).
+don’t want to. This is supposed to be a prior. We want the prior predictive distribution to
+live in the plausible outcome space, not fit the sample.
+Now we need a prior for β, the coefficient of log population. Again for dramatic effect,
+let’s consider first a conventional flat prior like β ∼Normal(0, 10). Conventional priors are
+even flatter. We’ll simulate together with the intercept and plot 100 prior trends of standard-
+ized log population against total tools:
+R code
+11.41
+N <- 100
+a <- rnorm( N , 3 , 0.5 )
+b <- rnorm( N , 0 , 10 )
+plot( NULL , xlim=c(-2,2) , ylim=c(0,100) )
+for ( i in 1:N ) curve( exp( a[i] + b[i]*x ) , add=TRUE , col=grau() )
+I display this prior predictive distribution as the top-left plot of Figure 11.8. The pivoting
+around zero makes sense—that’s just the average log population. The values on the horizontal
+axis are z-score, because the variables is standardized. So you can see that this prior thinks
+that the vast majority of prior relationships between log population and total tools embody
+either explosive growth just above the mean log population size or rather catastrophic decline
+right before the mean. This prior is terrible. Of course you will be able to confirm, once we
+start fitting models, that even 10 observations can overcome these terrible priors. But please
+remember that we are practicing for when it does matter. And in any particular application,
+it could matter.
+So let’s try something much tighter. I’m tempted actually to force the prior for β to be
+positive. But I’ll resist that temptation and let the data prove that to you. Instead let’s just
+damping the prior’s enthusiasm for impossibly explosive relationships. After some experi-
+mentation, I’ve settled on β ∼Normal(0, 0.2):
+R code
+11.42
+set.seed(10)
+N <- 100
+a <- rnorm( N , 3 , 0.5 )
+b <- rnorm( N , 0 , 0.2 )

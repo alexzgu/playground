@@ -1,0 +1,58 @@
+12.2. ZERO-INFLATED OUTCOMES
+391
+R code
+12.8
+simplehist( y , xlab="manuscripts completed" , lwd=4 )
+zeros_drink <- sum(drink)
+zeros_work <- sum(y==0 & drink==0)
+zeros_total <- sum(y==0)
+lines( c(0,0) , c(zeros_work,zeros_total) , lwd=4 , col=rangi2 )
+This plot is shown on the right-hand side of Figure 12.3. The zeros produced by drinking
+are shown in blue. Those from work are shown in black. The total number of zeros is inflated,
+relative to a typical Poisson distribution.
+And to fit the model, the rethinking package provides the zero-inflated Poisson like-
+lihood as dzipois. For more detail on how it relates to the mathematics above, see the
+Overthinking box at the end of this section. Using dzipois is straightforward. I’m also go-
+ing to nudge the prior for the probability of drinking so that there is more mass below 0.5
+than above it—the monks probably do not drink more often than not.
+R code
+12.9
+m12.3 <- ulam(
+alist(
+y ~ dzipois( p , lambda ),
+logit(p) <- ap,
+log(lambda) <- al,
+ap ~ dnorm( -1.5 , 1 ),
+al ~ dnorm( 1 , 0.5 )
+) , data=list(y=y) , chains=4 )
+precis( m12.3 )
+mean
+sd
+5.5% 94.5% n_eff Rhat
+ap -1.28 0.35 -1.89 -0.79
+657
+1
+al
+0.01 0.09 -0.14
+0.16
+759
+1
+On the natural scale, those posterior means are:
+R code
+12.10
+post <- extract.samples( m12.3 )
+mean( inv_logit( post$ap ) ) # probability drink
+mean( exp( post$al ) )
+# rate finish manuscripts, when not drinking
+[1] 0.2241255
+[1] 1.017643
+Notice that we can get an accurate estimate of the proportion of days the monks drink, even
+though we can’t say for any particular day whether or not they drank.
+This example is the simplest possible. In real problems, you might have predictor vari-
+ables that are associated with one or both processes inside the zero-inflated Poisson mixture.
+In that case, you add those variables and their parameters to either or both linear models.
+Overthinking: Zero-inflated Poisson calculations in Stan. The function dzipois is implemented
+in a way that guards against some kinds of numerical error. So its code looks confusing—just type
+“dzipois” at the R prompt and see. But really all it’s doing is implementing the likelihood formula
+defined in the section above. Let’s focus on how this is implemented in Stan. When you tell ulam to
+use dzipois, it understands it like this:

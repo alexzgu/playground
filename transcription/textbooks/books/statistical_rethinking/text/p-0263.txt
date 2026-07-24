@@ -1,0 +1,62 @@
+8.1. BUILDING AN INTERACTION
+247
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+0.6
+0.8
+1.0
+1.2
+1.4
+ruggedness
+log GDP (prop of mean)
+a ~ dnorm(1, 1)
+b ~ dnorm(0, 1)
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+0.6
+0.8
+1.0
+1.2
+1.4
+ruggedness
+log GDP (prop of mean)
+a ~ dnorm(1, 0.1)
+b ~ dnorm(0, 0.3)
+Figure 8.3. Simulating in search of reasonable priors for the terrain rugged-
+ness example. The dashed horizontal lines indicate the minimum and max-
+imum observed GDP values. Left: The first guess with very vague priors.
+Right: The improved model with much more plausible priors.
+Now for β, the slope. If we center it on zero, that indicates no bias for positive or negative,
+which makes sense. But what about the standard deviation? Let’s start with a guess at 1:
+β ∼Normal(0, 1)
+We’ll evaluate this guess by simulating prior predictive distributions. The last thing we need
+is a prior for σ. Let’s assign something very broad, σ ∼Exponential(1). In the problems at
+the end of the chapter, I’ll ask you to confront this prior as well. But we’ll ignore it for the
+rest of this example.
+All together, we have our first candidate model for fitting a line to the terrain ruggedness
+data:
+R code
+8.2
+m8.1 <- quap(
+alist(
+log_gdp_std ~ dnorm( mu , sigma ) ,
+mu <- a + b*( rugged_std - 0.215 ) ,
+a ~ dnorm( 1 , 1 ) ,
+b ~ dnorm( 0 , 1 ) ,
+sigma ~ dexp( 1 )
+) , data=dd )
+We’re not going to look at the posterior predictions yet, but rather at the prior predictions.
+Let’s extract the prior and plot the implied lines. We’ll do this using link, as in earlier chap-
+ters.
+R code
+8.3
+set.seed(7)
+prior <- extract.prior( m8.1 )

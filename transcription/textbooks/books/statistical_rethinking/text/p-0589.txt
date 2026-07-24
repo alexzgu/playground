@@ -1,0 +1,50 @@
+ENDNOTES
+573
+60. Rice (2010) presents an interesting construction of classical Fisherian testing through the adoption of loss
+functions. [61]
+61. See Hauer (2004) for three tales from transportation safety in which testing resulted in premature incorrect
+decisions and a demonstrable and continuing loss of human life. [61]
+62. It is poorly appreciated that coin tosses are very hard to bias, as long as you catch them in the air. Once they
+land and bounce and spin, however, it is very easy to bias them. [67]
+63. E. T. Jaynes (1922–1998) said all of this much more succinctly: Jaynes (1985), page 351, “It would be very
+nice to have a formal apparatus that gives us some ‘optimal’ way of recognizing unusual phenomena and
+inventing new classes of hypotheses that are most likely to contain the true one; but this remains an art for the
+creative human mind.” See also Box (1980) for a similar perspective. [68]
+Chapter 4
+64. Leo Breiman, at the start of Chapter 9 of his classic book on probability theory (Breiman, 1968), says “there
+is really no completely satisfying answer” to the question “why normal?” Many mathematical results remain
+mysterious, even after we prove them. So if you don’t quite get why the normal distribution is the limiting dis-
+tribution, you are in good company. [75]
+65. For the reader hungry for mathematical details, see Frank (2009) for a nicely illustrated explanation of this,
+using Fourier transforms. [76]
+66. Technically, the distribution of sums converges to normal only when the original distribution has finite vari-
+ance. What this means practically is that the magnitude of any newly sampled value cannot be so big as to
+overwhelm all of the previous values. There are natural phenomena with effectively infinite variance, but we
+won’t be working with any. Or rather, when we do, I won’t comment on it. [76]
+67. The most famous non-technical book about this topic is Taleb (2007). This book has had a large impact.
+There is also a quite large technical literature on the topic. Note that the terms heavy tail and fat tail sometimes
+have precise technical definitions. [78]
+68. A very nice essay by Pasquale Cirillo and Nassim Nicholas Taleb, “The Decline of Violent Conflicts: What
+Do The Data Really Say?,” focuses on this issue. [78]
+69. Howell (2010) and Howell (2000). See also Lee and DeVore (1976). Much more raw data is available for
+download from https://tspace.library.utoronto.ca/handle/1807/10395. [81]
+70. Jaynes (2003), page 21–22. See that book’s index for other mentions in various statistical arguments. [84]
+71. See Jaynes (1986) for an entertaining example concerning the beer preferences of left-handed kangaroos.
+There is an updated 1996 version of this paper available online. [84]
+72. The strategy is the same grid approximation strategy as before (page 40). But now there are two dimensions,
+and so there is a geometric (literally) increase in bother. The algorithm is mercifully short, however, if not trans-
+parent. Think of the code as being six distinct commands. The first two lines of code just establish the range of
+µ and σ values, respectively, to calculate over, as well as how many points to calculate in-between. The third line
+of code expands those chosen µ and σ values into a matrix of all of the combinations of µ and σ. This matrix
+is stored in a data frame, post. In the monstrous fourth line of code, shown in expanded form to make it easier
+to read, the log-likelihood at each combination of µ and σ is computed. This line looks so awful, because we
+have to be careful here to do everything on the log scale. Otherwise rounding error will quickly make all of the
+posterior probabilities zero. So what sapply does is pass the unique combination of µ and σ on each row of
+post to a function that computes the log-likelihood of each observed height, and adds all of these log-likelihoods
+together (sum). In the fifth line, we multiply the prior by the likelihood to get the product that is proportional
+to the posterior density. The priors are also on the log scale, and so we add them to the log-likelihood, which is
+equivalent to multiplying the raw densities by the likelihood. Finally, the obstacle for getting back on the proba-
+bility scale is that rounding error is always a threat when moving from log-probability to probability. If you use
+the obvious approach, like exp( post$prod ), you’ll get a vector full of zeros, which isn’t very helpful. This
+is a result of R’s rounding very small probabilities to zero. Remember, in large samples, all unique samples are
+unlikely. This is why you have to work with log-probability. The code in the box dodges this problem by scaling

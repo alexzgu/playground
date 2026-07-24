@@ -1,0 +1,44 @@
+7.1. THE PROBLEM WITH PARAMETERS
+205
+Rethinking: Model fitting as compression. Another perspective on the absurd model just above is to
+consider that model fitting can be considered a form of data compression. Parameters summarize
+relationships among the data. These summaries compress the data into a simpler form, although
+with loss of information (“lossy” compression) about the sample. The parameters can then be used
+to generate new data, effectively decompressing the data.
+When a model has a parameter to correspond to each datum, such as m7.6, then there is actually
+no compression. The model just encodes the raw data in a different form, using parameters instead.
+As a result, we learn nothing about the data from such a model. Learning about the data requires using
+a simpler model that achieves some compression, but not too much. This view of model selection is
+often known as Minimum Description Length (MDL).99
+7.1.2. Too few parameters hurts, too. The overfit polynomial models manage to fit the data
+extremely well, but they suffer for this within-sample accuracy by making nonsensical out-of-
+sample predictions. In contrast, underfitting produces models that are inaccurate both
+within and out of sample. They have learned too little, failing to recover regular features of
+the sample.
+Another way to conceptualize an underfit model is to notice that it is insensitive to the
+sample. We could remove any one point from the sample and get pretty much the same
+regression line. In contrast, the most complex model, m7.6, is very sensitive to the sample.
+The predicted mean would change course a lot, if we removed any one point from the sample.
+You can see the truth of this in Figure 7.4. In both plots in the figure what I’ve done is
+drop each row of the data, one at a time, and re-derive the posterior distribution. On the
+left, each line is a first-degree polynomial, m7.1, fit to one of the seven possible sets of data
+constructed from dropping one row. The curves on the right are instead different fourth-
+order polynomials, m7.4. Notice that the straight lines hardly vary, while the curves fly about
+wildly. This is a general contrast between underfit and overfit models: sensitivity to the exact
+composition of the sample used to fit the model.
+Overthinking: Dropping rows. The calculations needed to produce Figure 7.4 are made easy by a
+trick of R’s index notation. To drop a row i from a data frame d, just use:
+R code
+7.11
+d_minus_i <- d[ -i , ]
+This means drop the i-th row and keep all of the columns. Repeating the regression is then just a matter
+of looping over the rows. Look inside the function brain_loo_plot in the rethinking package to
+see how the figure was drawn and explore other models. There will be a loop near the end of the
+function that does the hard work.
+Rethinking: Bias and variance. The underfitting/overfitting dichotomy is often described as the
+bias-variance trade-off.100 While not exactly the same distinction, the bias-variance trade-off
+addresses the same problem. “Bias” is related to underfitting, while “variance” is related to overfitting.
+These terms are confusing though, because they are used in many different ways in different contexts,
+even within statistics. The term “bias” also sounds like a bad thing, even though increasing bias often
+leads to better predictions. For these reasons, this book prefers underfitting/overfitting, but you should
+expect to see similar examples discussed as bias/variance.

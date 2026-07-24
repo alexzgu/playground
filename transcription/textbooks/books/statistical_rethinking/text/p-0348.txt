@@ -1,0 +1,25 @@
+332
+11. GOD SPIKED THE INTEGERS
+Figure 11.1. William Thomson’s third tide prediction design.
+(Image
+source: https://en.wikipedia.org/wiki/Tide-predicting_machine)
+All of the examples in this chapter, and the chapters to come, use all of the tools intro-
+duced in previous chapters. Regularizing priors, information criteria, and MCMC estima-
+tion are woven into the data analysis examples. So as you work through the examples that
+introduced each new type of GLM, you’ll also get to practice and better understand previous
+lessons.
+11.1. Binomial regression
+Think back to the early chapters, the globe tossing model. That model was a binomial
+model. The outcome was a count of water samples. But it wasn’t yet a generalized linear
+model, because there were no predictor variables to relate to the outcome. That’s our work
+now—to mate observed counts to variables that are associated with different average counts.
+The binomial distribution is denoted:
+y ∼Binomial(n, p)
+where y is a count (zero or a positive whole number), p is the probability any particular “trial”
+is a success, and n is the number of trials. As proved in the previous chapter, as the basis for
+a generalized linear model, the binomial distribution has maximum entropy when each trial
+must result in one of two events and the expected value is constant. There is no other pre-
+observation probability assumption for such a variable that will have higher entropy. It is the
+flattest data prior we can use, given the known constraints on the values.
+There are two common flavors of GLM that use binomial probability functions, and they
+are really the same model, just with the data organized in different ways.

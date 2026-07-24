@@ -1,0 +1,49 @@
+556
+16. GENERALIZED LINEAR MADNESS
+let’s see how far we can get with this model, a biological one in which the parameters mean
+something. Failures teach us.
+This particular model is a famous one, the Lotka-Volterra model.228 It models sim-
+ple predator-prey interactions and demonstrates several important things about ecological
+dynamics. Lots can be proved about it without using any data at all. For example, the pop-
+ulation tends to be unstable, cycling up and down like in Figure 16.6. This is interesting,
+because it suggests that, while nature is more complicated, all that is necessary to see cyclical
+population dynamics is captured in a stupidly simple model.
+The previous section also used a differential equation model. In that case we could ex-
+plicitly solve it to get an expression for the value of the variable at any time t. We can’t do
+that here. These equations have no explicit solution that tells us which Ht and Lt to expect
+at any time t. So how do we use them? We solve them numerically, through simulation. Let
+me show you how. Then we’ll turn to making this into a statistical model.
+A differential equation is just a way to update a variable. The equation dH/dt tells us how
+to update H after each tiny unit of passing time dt. This means that once we have a value for
+H, we can update it by just applying the equation dH/dt over and over again. Specifically, we
+update like this:
+Ht+dt = Ht + dtdH
+dt = Ht + dtHt(bH −LtmH)
+We do have to be careful how we do this, because math in a computer is tricky, as you’ve seen
+before. In particular, the value we choose for dt needs to be small enough to provide a good
+approximation of continuous time. But this tactic really does work. And it allows us to see
+what the model implies, before we’ve fit it to data.
+Let’s write a function to simulate lynx-hare dynamics. This function just needs to apply
+the strategy above to both H and L. Here’s some code that is hopefully easy to read:
+R code
+16.14
+sim_lynx_hare <- function( n_steps , init , theta , dt=0.002 ) {
+L <- rep(NA,n_steps)
+H <- rep(NA,n_steps)
+L[1] <- init[1]
+H[1] <- init[2]
+for ( i in 2:n_steps ) {
+H[i] <- H[i-1] + dt*H[i-1]*( theta[1] - theta[2]*L[i-1] )
+L[i] <- L[i-1] + dt*L[i-1]*( theta[3]*H[i-1] - theta[4] )
+}
+return( cbind(L,H) )
+}
+We tell this function how long to simulate with n_steps, which initial population sizes to
+use with init, and which values of the parameters to use with theta. The time interval is
+dt. I’ve set it to default to 0.002, which works in this example. But the right value in general
+depends upon the model and the parameters.
+Now let’s use the function to simulate.
+R code
+16.15
+theta <- c( 0.5 , 0.05 , 0.025 , 0.5 )
+z <- sim_lynx_hare( 1e4 , as.numeric(Lynx_Hare[1,2:3]) , theta )

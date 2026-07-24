@@ -1,0 +1,53 @@
+170
+6. THE HAUNTED DAG & THE CAUSAL TERROR
+And the posterior distribution in this simulated example has done exactly that: It has
+produced a good estimate of the sum of bl and br. Here’s how you can compute the posterior
+distribution of their sum, and then plot it:
+R code
+6.6
+sum_blbr <- post$bl + post$br
+dens( sum_blbr , col=rangi2 , lwd=2 , xlab="sum of bl and br" )
+And the resulting density plot is shown on the right-hand side of Figure 6.2. The posterior
+mean is in the right neighborhood, a little over 2, and the standard deviation is much smaller
+than it is for either component of the sum, bl or br. If you fit a regression with only one of
+the leg length variables, you’ll get approximately the same posterior mean:
+R code
+6.7
+m6.2 <- quap(
+alist(
+height ~ dnorm( mu , sigma ) ,
+mu <- a + bl*leg_left,
+a ~ dnorm( 10 , 100 ) ,
+bl ~ dnorm( 2 , 10 ) ,
+sigma ~ dexp( 1 )
+) ,
+data=d )
+precis(m6.2)
+mean
+sd 5.5% 94.5%
+a
+1.00 0.28 0.54
+1.45
+bl
+1.99 0.06 1.89
+2.09
+sigma 0.62 0.04 0.55
+0.69
+That 1.99 is almost identical to the mean value of sum_blbr.
+You’ll get slightly different results in your own simulation, due to random variation
+across simulations. But the basic lesson remains intact across different simulations: When
+two predictor variables are very strongly correlated, including both in a model may lead to con-
+fusion. The posterior distribution isn’t wrong, in such cases. It’s telling you that the question
+you asked cannot be answered with these data. And that’s a great thing for a model to say,
+that it cannot answer your question. And if you are just interested in prediction, you’ll find
+that this leg model makes fine predictions. It just doesn’t make any claims about which leg
+is more important.
+This leg example is clear and cute. But it is also purely statistical. We aren’t asking any
+serious causal questions here. Let’s try a more causally interesting example next.
+6.1.2. Multicollinear milk. In the leg length example, it’s easy to see that including both legs
+in the model is a little silly. But the problem that arises in real data sets is that we may not
+anticipate a clash between highly correlated predictors. And therefore we may mistakenly
+read the posterior distribution to say that neither predictor is important. In this section, we
+look at an example of this issue with real data.
+Let’s return to the primate milk data from earlier in the chapter. Let’s get back the original
+data again:

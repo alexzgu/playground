@@ -1,0 +1,69 @@
+494
+14. ADVENTURES IN COVARIANCE
+where B is a vector of species brain sizes and S is a covariance matrix with as many rows and
+columns as there are species. In an ordinary regression, this matrix takes the form:
+S = σ2I
+where σ is the same standard deviation you’ve used since Chapter 4 and I is an identity
+matrix, which is just a matrix with 1 along the diagonal and zeros everywhere else. You can
+think of it as a correlation matrix in which all of the correlations are zero. So multiplying the
+variance into it just gives each species the same (residual) variance. It’s an ordinary linear
+regression, but thought of as having a single, multi-variate outcome.
+Let’s fit this model to the primate data. First we need to trim down to the species for
+which we have group size, brain size, and body size data:
+R code
+14.48
+d <- Primates301
+d$name <- as.character(d$name)
+dstan <- d[ complete.cases( d$group_size , d$body , d$brain ) , ]
+spp_obs <- dstan$name
+You should have 151 species left. Now to make a list with standardized logged variables and
+pass it all to ulam:
+R code
+14.49
+dat_list <- list(
+N_spp = nrow(dstan),
+M = standardize(log(dstan$body)),
+B = standardize(log(dstan$brain)),
+G = standardize(log(dstan$group_size)),
+Imat = diag(nrow(dstan)) )
+m14.9 <- ulam(
+alist(
+B ~ multi_normal( mu , SIGMA ),
+mu <- a + bM*M + bG*G,
+matrix[N_spp,N_spp]: SIGMA <- Imat * sigma_sq,
+a ~ normal( 0 , 1 ),
+c(bM,bG) ~ normal( 0 , 0.5 ),
+sigma_sq ~ exponential( 1 )
+), data=dat_list , chains=4 , cores=4 )
+precis( m14.9 )
+mean
+sd
+5.5% 94.5% n_eff Rhat
+a
+0.00 0.02 -0.03
+0.03
+1859
+1
+bG
+0.12 0.02
+0.09
+0.16
+1572
+1
+bM
+0.89 0.02
+0.86
+0.93
+1481
+1
+sigma_sq 0.05 0.01
+0.04
+0.06
+2040
+1
+Looks like a reliably positive association between brain size and group size, as well as a strong
+association between body mass and brain size. There is no basis yet to interpret these asso-
+ciations causally, because we know these data are swirling with confounds.
+Now we’ll conduct two different kinds of phylogenetic regression. In both, all we have
+to do is replace the covariance matrix S above with a different matrix that encodes some
+phylogenetic information. The first regression is one of the oldest and most conservative,

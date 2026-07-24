@@ -1,0 +1,46 @@
+2.3. COMPONENTS OF THE MODEL
+35
+doesn’t resolve the problem of providing a prior, because at the dawn of time, when N = 0,
+the machine still had an initial state of information for the parameter p: a flat line specifying
+equal plausibility for every possible value.
+So where do priors come from? They are both engineering assumptions, chosen to help
+the machine learn, and scientific assumptions, chosen to reflect what we know about a phe-
+nomenon. The flat prior in Figure 2.5 is very common, but it is hardly ever the best prior.
+Later chapters will focus on prior choice a lot more.
+There is a school of Bayesian inference that emphasizes choosing priors based upon the
+personal beliefs of the analyst.47 While this subjective Bayesian approach thrives in some
+statistics and philosophy and economics programs, it is rare in the sciences. Within Bayesian
+data analysis in the natural and social sciences, the prior is considered to be just part of
+the model. As such it should be chosen, evaluated, and revised just like all of the other
+components of the model. In practice, the subjectivist and the non-subjectivist will often
+analyze data in nearly the same way.
+None of this should be understood to mean that any statistical analysis is not inherently
+subjective, because of course it is—lots of little subjective decisions are involved in all parts
+of science. It’s just that priors and Bayesian data analysis are no more inherently subjective
+than are likelihoods and the repeat sampling assumptions required for significance testing.48
+Anyone who has visited a statistics help desk at a university has probably experienced this
+subjectivity—statisticians do not in general exactly agree on how to analyze anything but the
+simplest of problems. The fact that statistical inference uses mathematics does not imply that
+there is only one reasonable or useful way to conduct an analysis. Engineering uses math as
+well, but there are many ways to build a bridge.
+Beyond all of the above, there’s no law mandating we use only one prior. If you don’t
+have a strong argument for any particular prior, then try different ones. Because the prior is
+an assumption, it should be interrogated like other assumptions: by altering it and checking
+how sensitive inference is to the assumption. No one is required to swear an oath to the
+assumptions of a model, and no set of assumptions deserves our obedience.
+Overthinking: Prior as probability distribution. You could write the prior in the example here as:
+Pr(p) =
+1
+1 −0 = 1.
+The prior is a probability distribution for the parameter. In general, for a uniform prior from a to b, the
+probability of any point in the interval is 1/(b −a). If you’re bothered by the fact that the probability
+of every value of p is 1, remember that every probability distribution must sum (integrate) to 1. The
+expression 1/(b −a) ensures that the area under the flat line from a to b is equal to 1. There will be
+more to say about this in Chapter 4.
+Rethinking: Datum or parameter? It is typical to conceive of data and parameters as completely
+different kinds of entities. Data are measured and known; parameters are unknown and must be
+estimated from data. Usefully, in the Bayesian framework the distinction between a datum and a
+parameter is not so fundamental. Sometimes we observe a variable, but sometimes we do not. In that
+case, the same distribution function applies, even though we didn’t observe the variable. As a result,
+the same assumption can look like a “likelihood” or a “prior,” depending upon context, without any
+change to the model. Much later in the book (Chapter 15), you’ll see how to exploit this deep identity

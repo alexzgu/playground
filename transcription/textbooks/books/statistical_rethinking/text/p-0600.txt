@@ -1,0 +1,58 @@
+584
+Bibliography
+Box, G. E. P. and Tiao, G. C. (1973). Bayesian Inference in Statistical Analysis. Addison-Wesley Pub.
+Co., Reading, Mass.
+Brakenhoff, T. B., van Smeden, M., Visseren, F. L. J., and Groenwold, R. H. H. (2018). Random
+measurement error: Why worry? an example of cardiovascular risk factors. PLOS ONE, 13(2):1–
+8.
+Breen, R. (2018). Some methodological problems in the study of multigenerational mobility. Euro-
+pean Sociological Review, 34:603–611.
+Breiman, L. (1968). Probability. Addison-Wesley Pub. Co.
+Brooks, S., Gelman, A., Jones, G. L., and Meng, X., editors (2011). Handbook of Markov Chain Monte
+Carlo. Handbooks of Modern Statistical Methods. Chapman & Hall/CRC.
+Burnham, K. and Anderson, D. (2002).
+Model Selection and Multimodel Inference: A Practical
+Information-Theoretic Approach. Springer-Verlag, 2nd edition.
+Bürkner, P. C. and Charpentier, E. (2018).
+Modeling monotonic effects of ordinal predictors in
+bayesian regression models. doi:10.31234/osf.io/9qkhj.
+Bürkner, P. C. and Vuorre, M. (2018).
+Ordinal regression models in psychology: A tutorial.
+doi:10.31234/osf.io/x8swp.
+Campbell, D. T. (1985). Toward an epistemologically-relevant sociology of science. Science, Technol-
+ogy, & Human Values, 10(1):38–48.
+Caniglia, E. C., Zash, R., Swanson, S. A., Wirth, K. E., Diseko, M., Mayondi, G., Lockman, S.,
+Mmalane, M., Makhema, J., Dryden-Peterson, S., Kponee-Shovein, K. Z., John, O., Murray, E. J.,
+and Shapiro, R. L. (2019). Methodological Challenges When Studying Distance to Care as an Ex-
+posure in Health Research. American Journal of Epidemiology, 188(9):1674–1681.
+Casella, G. and George, E. I. (1992).
+Explaining the Gibbs sampler.
+The American Statistician,
+46(3):167–174.
+Caticha, A. and Griffin, A. (2007). Updating probabilities. In Mohammad-Djafari, A., editor, Bayesian
+Inference and Maximum Entropy Methods in Science and Engineering, volume 872 of AIP Conf. Proc.
+Cho, A. (2011). Superluminal neutrinos: Where does the time go? Science, 334(6060):1200–1201.
+Clark, J. S. (2012). The coherence problem with the unified neutral theory of biodiversity. Trends in
+Ecology and Evolution, 27:198–2002.
+Cohen, L. and Malloy, C. J. (2014). Friends in high places. American Economic Journal: Economic
+Policy, 6:63–91.
+Collins, H. M. and Pinch, T. (1998). The Golem: What You Should Know about Science. Cambridge
+University Press, 2nd edition.
+Cooper, N., Thomas, G. H., Venditti, C., Meade, A., and Freckleton, R. P. (2016). A cautionary note
+on the use of ornstein uhlenbeck models in macroevolutionary studies. Biological Journal of the
+Linnean Society, 118(1):64–77.
+Cox, R. T. (1946). Probability, frequency and reasonable expectation. American Journal of Physics,
+14:1–10.
+Cushman, F., Young, L., and Hauser, M. (2006). The role of conscious reasoning and intuition in
+moral judgment: Testing three principles of harm. Psychological Science, 17(12):1082–1089.
+Daston, L. J. and Galison, P. (2007). Objectivity. MIT Press, Cambridge, MA.
+Dawes, R. (1975). Graduate admission variables and future success. Science, 28:721–723.
+Elias, P. (1958). Two famous papers. IRE Transactions: on Information Theory, 4:99.
+Fahrmeir, L., Kneib, T., Lang, S., and Marx, B. (2013). Regression. Springer.
+Fanelli, D. (2012). Negative results are disappearing from most disciplines and countries. Scientomet-
+rics, 90(3):891–904.
+Felsenstein, J. (1985). Phylogenies and the comparative method. The American Naturalist, 125(1):1–
+15.
+Ferguson, C. J. and Heene, M. (2012). A vast graveyard of undead theories: Publication bias and
+psychological science’s aversion to the null. Perspectives on Psychological Science, 7(6):555–561.
+Feynman, R. (1967). The character of physical law. MIT Press.

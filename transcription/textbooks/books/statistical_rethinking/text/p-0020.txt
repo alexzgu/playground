@@ -1,0 +1,45 @@
+4
+1. THE GOLEM OF PRAGUE
+They only understand association. Without our guidance and skepticism, pre-manufactured
+golems may do nothing useful at all. Worse, they might wreck Prague.
+Whatresearchers need is some unified theory of golem engineering, a set of principles for
+designing, building, and refining special-purpose statistical procedures. Every major branch
+of statistical philosophy possesses such a unified theory. But the theory is never taught in
+introductory—and often not even in advanced—courses. So there are benefits in rethinking
+statistical inference as a set of strategies, instead of a set of pre-made tools.
+1.2. Statistical rethinking
+A lot can go wrong with statistical inference, and this is one reason that beginners are
+so anxious about it. When the framework is to choose a pre-made test from a flowchart,
+then the anxiety can mount as one worries about choosing the “correct” test. Statisticians,
+for their part, can derive pleasure from scolding scientists, making the psychological battle
+worse.
+But anxiety can be cultivated into wisdom. That is the reason that this book insists on
+working with the computational nuts and bolts of each golem. If you don’t understand how
+the golem processes information, then you can’t interpret the golem’s output. This requires
+knowing the statistical model in greater detail than is customary, and it requires doing the
+computations the hard way, at least until you are wise enough to use the push-button solu-
+tions.
+There are conceptual obstacles as well, obstacles with how scholars define statistical ob-
+jectives and interpret statistical results. Understanding any individual golem is not enough,
+in these cases. Instead, we need some statistical epistemology, an appreciation of how sta-
+tistical models relate to hypotheses and the natural mechanisms of interest. What are we
+supposed to be doing with these little computational machines, anyway?
+The greatest obstacle that I encounter among students and colleagues is the tacit belief
+that the proper objective of statistical inference is to test null hypotheses.3 This is the proper
+objective, the thinking goes, because Karl Popper argued that science advances by falsifying
+hypotheses. Karl Popper (1902–1994) is possibly the most influential philosopher of science,
+at least among scientists. He did persuasively argue that science works better by developing
+hypotheses that are, in principle, falsifiable. Seeking out evidence that might embarrass our
+ideas is a normative standard, and one that most scholars—whether they describe themselves
+as scientists or not—subscribe to. So maybe statistical procedures should falsify hypotheses,
+if we wish to be good statistical scientists.
+But the above is a kind of folk Popperism, an informal philosophy of science common
+among scientists but not among philosophers of science. Science is not described by the falsi-
+fication standard, and Popper recognized that.4 In fact, deductive falsification is impossible
+in nearly every scientific context. In this section, I review two reasons for this impossibility.
+(1) Hypotheses are not models. The relations among hypotheses and different kinds of
+models are complex. Many models correspond to the same hypothesis, and many
+hypotheses correspond to a single model. This makes strict falsification impossible.
+(2) Measurement matters. Even when we think the data falsify a model, another ob-
+server will debate our methods and measures. They don’t trust the data. Sometimes
+they are right.

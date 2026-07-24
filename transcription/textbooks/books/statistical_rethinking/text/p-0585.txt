@@ -1,0 +1,38 @@
+Endnotes
+Chapter 1
+1. I draw this metaphor from Collins and Pinch (1998), The Golem: What You Should Know about Science. It is
+very similar to E. T. Jaynes’ 2003 metaphor of statistical models as robots, although with a less precise and more
+monstrous implication. [1]
+2. There are probably no algorithms nor machines that never break, bend, or malfunction. A common citation
+for this observation is Wittgenstein (1953), Philosophical Investigations, section 193. Malfunction will interest
+us, later in the book, when we consider more complex models and the procedures needed to fit them to data. [2]
+3. See Mulkay and Gilbert (1981). I sometimes teach a PhD core course that includes some philosophy of sci-
+ence, and PhD students are nearly all shocked by how little their causal philosophy resembles that of Popper or
+any other philosopher of science. The first half of Ian Hacking’s Representing and Intervening (1983) is probably
+the quickest way into the history of the philosophy of science. It’s getting out of date, but remains readable and
+broad minded. [4]
+4. Maybe best to begin with Popper’s last book, The Myth of the Framework (1996). I also recommend interested
+readers to go straight to a modern translation of Popper’s earlier Logic of Scientific Discovery. Chapters 6, 8, 9
+and 10 in particular demonstrate that Popper appreciated the difficulties with describing science as an exercise
+in falsification. Other later writings, many collected in Objective knowledge: An evolutionary approach, show
+that Popper viewed the generation of scientific knowledge as an evolutionary process that admits many different
+methods. [4]
+5. Meehl (1967) observed that this leads to a methodological paradox, as improvements in measurement make
+it easier to reject the null. But since the research hypothesis has not made any specific quantitative prediction,
+more accurate measurement doesn’t lead to stronger corroboration. See also Andrew Gelman’s comments in a
+September 5, 2014 blog post: http://andrewgelman.com/2014/09/05/confirmationist-falsificationist-paradigms-
+science/. [5]
+6. George E. P. Box is famous for this dictum. As far as I can tell, his first published use of it was as a section
+heading in a 1979 paper (Box, 1979). Population biologists like myself are more familiar with a philosophically
+similar essay about modeling in general by Richard Levins, “The Strategy of Model Building in Population Biol-
+ogy” (Levins, 1966). [5]
+7. Ohta and Gillespie (1996). [5]
+8. Hubbell (2001). The theory has been productive in that it has forced greater clarity of modeling and under-
+standing of relations between theory and data. But the theory has had its difficulties. See Clark (2012). For a
+more general skeptical attitude towards “neutrality,” see Proulx and Adler (2010). [5]
+9. For direct application of Kimura’s model to cultural variation, see for example Hahn and Bentley (2003). All
+of the same epistemic problems reemerge here, but in a context with much less precision of theory. Hahn and
+Bentley have since adopted a more nuanced view of the issue. See their comment to Lansing and Cox (2011), as
+well as the similar comment by Feldman. [5]
+10. Gillespie (1977). [5]
+569

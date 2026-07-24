@@ -2,9 +2,7 @@
 *(PDF pages 41–88; book pages 35–82)*
 
 ### PDF page 41 (book page 35)
-# Chapter 2
-
-# Brownian motion
+# Chapter 2 — Brownian motion
 
 **2.1 Limits of sums of independent variables**
 
@@ -568,8 +566,6 @@ $$ M_s = \mathbb{E}(Y \mid \mathcal{F}_s). $$
 
 ### PDF page 61 (book page 55)
 
-*2.6. UNDERSTANDING BROWNIAN MOTION*
-
 Indeed, if we define $M_s$ as above and $r < s$, then the tower property for conditional expectation implies that
 
 $$ E(M_s \mid \mathcal{F}_r) = E(E(Y \mid \mathcal{F}_s) \mid \mathcal{F}_r) = E(Y \mid \mathcal{F}_r) = M_r. $$
@@ -624,8 +620,6 @@ then the conditional distribution of $\{Y_s\}$ given $\mathcal{F}_t$ is that of 
 $$ \hat{B}_s = B_{t+s} - B_t, $$
 
 ### PDF page 63 (book page 57)
-
-*2.6. UNDERSTANDING BROWNIAN MOTION*
 
 then $\hat{B}_s$ is a Brownian motion that is independent of $\mathcal{F}_t$. There is a stronger notion of this called the *strong Markov property* that we will discuss in Section 2.7.
 

@@ -1,0 +1,65 @@
+13.4. DIVERGENT TRANSITIONS AND NON-CENTERED PRIORS
+437
+R code
+13.27
+m13.7nc <- ulam(
+alist(
+v ~ normal(0,3),
+z ~ normal(0,1),
+gq> real[1]:x <<- z*exp(v)
+), data=list(N=1) , chains=4 )
+precis( m13.7nc )
+mean
+sd
+5.5% 94.5% n_eff Rhat
+v -0.04
+2.88
+-4.63
+4.58
+1612
+1
+z
+0.01
+0.99
+-1.57
+1.62
+1555
+1
+x -3.70 260.03 -25.35 23.12
+1511
+1
+All is well. If you plot x against v, you will see the funnel. We managed to sample it by
+sampling a different variable and then transforming it. That is the non-centered parameteri-
+zation. It’s used often when working with multilevel models. However, there are times when
+the centered prior is better. So it pays to be comfortable with both.
+13.4.2. Non-centered chimpanzees. For a real example, Llet’s return to the chimpanzees.
+In model m13.4, the adaptive priors that make it a multilevel model have parameters inside
+them. These are causing regions of steep curvature and generating divergent transitions. We
+can fix that though.
+Before reparameterizing, the first thing you can try is to increase Stan’s target acceptance
+rate. This is controlled by the adapt_delta control parameter. The ulam default is 0.95,
+which means that it aims to attain a 95% acceptance rate. It tries this during the warmup
+phase, adjusting the step size of each leapfrog step (go back to Chapter 9 if these terms aren’t
+familiar). When adapt_delta is set high, it results in a smaller step size, which means a
+more accurate approximation of the curved surface. It can also mean slower exploration of
+the distribution.
+Increasing adapt_delta will often, but not always, help with divergent transitions. For
+example, model m13.4 in the previous section presented a few divergent transitions. We can
+re-run the model, using a higher target acceptance rate, with:
+R code
+13.28
+set.seed(13)
+m13.4b <- ulam( m13.4 , chains=4 , cores=4 , control=list(adapt_delta=0.99) )
+divergent(m13.4b)
+[1] 2
+So that did help. But sometimes this won’t be enough. And while the divergences are gone,
+the chain still isn’t very efficient—look at the precis output and notice that many of the
+n_eff values are still far below the true number of samples (2000 in this case: 4 chains, 500
+from each).
+We can do much better with the non-centered version of the model. What we want is a
+version of m13.4 (page 429) in which we get the parameters out of the adaptive priors and
+instead into the linear model. There are two adaptive priors to transform:
+αj ∼Normal(¯α, σα)
+[Intercepts for actors]
+γj ∼Normal(0, σγ)
+[Intercepts for blocks]

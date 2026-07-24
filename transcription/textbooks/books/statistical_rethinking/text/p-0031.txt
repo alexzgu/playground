@@ -1,0 +1,48 @@
+1.3. TOOLS FOR GOLEM ENGINEERING
+15
+We will be interested in multilevel models primarily because they help us deal with over-
+fitting. Cross-validation and information criteria measure overfitting risk and help us to
+recognize it. But multilevel models actually do something about it. What they do is exploit
+an amazing statistical trick known as partial pooling that pools information across units
+in the data in order to produce better estimates for all units. The details will wait until Chap-
+ter 13.
+Partial pooling is the key technology, and the contexts in which it is appropriate are
+diverse. Here are four commonplace examples.
+(1) To adjust estimates for repeat sampling. When more than one observation arises
+from the same individual, location, or time, then traditional, single-level models
+may mislead us.
+(2) To adjust estimates for imbalance in sampling. When some individuals, locations, or
+times are sampled more than others, we may also be misled by single-level models.
+(3) To study variation. If our research questions include variation among individuals
+or other groups within the data, then multilevel models are a big help, because they
+model variation explicitly.
+(4) To avoid averaging. Frequently, scholars pre-average some data to construct vari-
+ables for a regression analysis. This can be dangerous, because averaging removes
+variation. It therefore manufactures false confidence. Multilevel models allow us
+to preserve the uncertainty in the original, pre-averaged values, while still using
+the average to make predictions.
+All four apply to contexts in which the researcher recognizes clusters or groups of measure-
+ments that may differ from one another. These clusters or groups may be individuals such
+as different students, locations such as different cities, or times such as different years. Since
+each cluster may well have a different average tendency or respond differently to any treat-
+ment, clustered data often benefit from being modeled by a golem that expects such variation.
+But the scope of multilevel modeling is much greater than these examples. Diverse
+model types turn out to be multilevel: models for missing data (imputation), measurement
+error, factor analysis, some time series models, types of spatial and network regression, and
+phylogenetic regressions all are special applications of the multilevel strategy. Grasping the
+concept of multilevel modeling may lead to a perspective shift. Suddenly single-level models
+end up looking like mere components of multilevel models. The multilevel strategy provides
+an engineering principle to help us to introduce these components into a particular analysis,
+exactly where we think we need them.
+I want to convince the reader of something that appears unreasonable: multilevel regres-
+sion deserves to be the default form of regression. Papers that do not use multilevel models
+should have to justify not using a multilevel approach. Certainly some data and contexts do
+not need the multilevel treatment. But most contemporary studies in the social and natural
+sciences, whether experimental or not, would benefit from it. Perhaps the most important
+reason is that even well-controlled treatments interact with unmeasured aspects of the indi-
+viduals, groups, or populations studied. This leads to variation in treatment effects, in which
+individuals or groups vary in how they respond to the same circumstance. Multilevel mod-
+els attempt to quantify the extent of this variation, as well as identify which units in the data
+responded in which ways.
+These benefits don’t come for free, however. Fitting and interpreting multilevel mod-
+els can be considerably harder than fitting and interpreting a traditional regression model.

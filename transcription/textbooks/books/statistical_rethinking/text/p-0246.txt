@@ -1,0 +1,49 @@
+230
+7. ULYSSES’ COMPASS
+are large and sometimes they are small. Just as relative posterior probability provides ad-
+vice about how confident we might be about parameters (conditional on the model), relative
+model accuracy provides advice about how confident we might be about models (conditional
+on the set of models compared).
+Another reason to never select models based upon WAIC/CV/PSIS alone is that we
+might care about causal inference. Maximizing expected predictive accuracy is not the same
+as inferring causation. Highly confounded models can still make good predictions, at least
+in the short term. They won’t tell us the consequences of an intervention, but they might
+help us forecast. So we need to be clear about our goals and not just toss variables into the
+causal salad and let WAIC select our meal.
+So what good are these criteria then? They measure expected predictive value of a vari-
+able on the right scale, accounting for overfitting. They also provide a way to measure the
+overfitting tendency of a model, and that helps us both design models and understand how
+statistical inference works. Finally, minimizing a criterion like WAIC can help in designing
+models, especially in tuning parameters in multilevel models.
+So instead of model selection, we’ll focus on model comparison. This is a more general
+approach that uses multiple models to understand both how different variables influence pre-
+dictions and, in combination with a causal model, implied conditional indendencies among
+variables help us infer causal relationships.
+We’ll work through two examples. The first emphasizes the distinction between compar-
+ing models for predictive performance versus comparing them in order to infer causation.
+The second emphasizes the pointwise nature of model comparison and what inspecting in-
+dividual points can reveal about model performance and mis-specification. This second ex-
+ample also introduces a more robust alternative to Gaussian regression.
+7.5.1. Model mis-selection. We must keep in mind the lessons of the previous chapters: In-
+ferring cause and making predictions are different tasks. Cross-validation and WAIC aim
+to find models that make good predictions. They don’t solve any causal inference problem.
+If you select a model based only on expected predictive accuracy, you could easily be con-
+founded. The reason is that backdoor paths do give us valid information about statistical
+associations in the data. So they can improve prediction, as long as we don’t intervene in the
+system and the future is like the past. But recall that our working definition of knowing a
+cause is that we can predict the consequences of an intervention. So a good PSIS or WAIC
+score does not in general indicate a good causal model.
+For example, recall the plant growth example from the previous chapter. The model that
+conditions on fungus will make better predictions than the model that omits it. If you return
+to that section (page 175) and run models m6.6, m6.7, and m6.8 again, we can compare their
+WAIC values. To remind you, m6.6 is the model with just an intercept, m6.7 is the model
+that include both treatment and fungus (the post-treatment variable), and m6.8 is the model
+that includes treatment but omits fungus. It’s m6.8 that allows us to correctly infer the causal
+influence of treatment.
+To begin, let’s use the WAIC convenience function to calculate WAIC for m6.7:
+R code
+7.25
+set.seed(11)
+WAIC( m6.7 )
+[1] 361.4511
+attr(,"lppd")

@@ -1,0 +1,47 @@
+ENDNOTES
+577
+129. Wald (1943). See Mangel and Samaniego (1984) for a more accessible presentation and historical context.
+[241]
+130. Wald (1950). Wald’s foundational paper is Wald (1939). Fienberg (2006) is a highly recommended read
+for historical context. For more technical discussions, see Berger (1985), Robert (2007), and Jaynes (2003)
+page 406. [243]
+131. GDP is Gross Domestic Product. It’s the most common measure of economic performance, but also one
+of the silliest. Using GDP to measure the health of an economy is like using heat to measure the quality of a
+chemical reaction. [243]
+132. Riley et al. (1999). [243]
+133. From Nunn and Puga (2011). [246]
+134. A good example is the extensive modern tunnel system in the Faroe Islands. The natural geology of the
+islands is very rugged, such that it has historically been much easier to travel by water than by land. But in the
+late 20th century, the Danish government invested heavily in tunnel construction, greatly reducing the effective
+ruggedness of the islands. [256]
+135. Modified example from Grafen and Hails (2002), which is a great non-Bayesian applied statistics book you
+might also enjoy. It has a rather unique geometric presentation of some of the standard linear models. [257]
+136. Data from Nettle (1998). [266]
+Chapter 9
+137. See the introduction of Gigerenzer et al. (1990) for more on this history. See also Rao (1997) for an example
+page from a book of random numbers, with similar commentary on the cultural shift. [269]
+138. The traveling individual metaphor is one of two common metaphors. The other is of a mountain climber
+who maps a mountain range by random jumps. See Kruscke (2011) for a very similar story-based explanation
+about a politician who raises funds at different locations. Kruschke’s book is excellent. It has a rather different
+style and coverage than this one, so may bring a lot of added value to the reader, in terms of getting a different
+perspective and a different set of examples. [270]
+139. Metropolis et al. (1953). The algorithm has been named after the first author of this paper, however it’s not
+clear how each co-author participated in discovery and implementation of the algorithm. Among the other au-
+thors were Edward Teller, most famous as the father of the hydrogen bomb, and Marshall Rosenbluth, a renown
+physicist in his own right, as well as their wives Augusta and Arianna (respectively), who did much of the com-
+puter programming. Nicholas Metropolis lead the research group. Their work was in turn based on earlier work
+with Stanislaw Ulam: Metropolis and Ulam (1949). [273]
+140. Hastings (1970). [273]
+141. Geman and Geman (1984) is the original. See Casella and George (1992) as well. Note that Gibbs sampling
+is named after physicist and mathematician J. W. Gibbs, one of the founders of statistical physics. However,
+Gibbs died in the year 1903, long before even the Metropolis algorithm was invented. Instead the strategy is
+named after Gibbs, both to honor him and in light of the algorithm’s connections to statistical physics. [273]
+142. Chapter 16 of Jaynes (2003). [276]
+143. See Neal (2012) and Betancourt (2017). [279]
+144. Not actually the total, but rather the sum of squared momentums: K = ∑
+i p2
+i /2, where p is a vector of
+momentum values. This expression takes its form from energy conservation, which is something we’ll discuss
+later on under the topic of divergent transitions. [280]
+145. See Hoffman and Gelman (2011), as well as additional details in the Stan user manual. [280]
+146. See the code in Neal (2012). [283]

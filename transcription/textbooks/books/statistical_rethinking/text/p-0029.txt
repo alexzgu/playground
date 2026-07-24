@@ -1,0 +1,46 @@
+1.3. TOOLS FOR GOLEM ENGINEERING
+13
+branches of applied mathematics. So while everyone subscribes to the same axioms of probability,
+not everyone agrees in all contexts about how to interpret probability.
+Before moving on to describe the next two tools, it’s worth emphasizing an advantage of
+Bayesian data analysis, at least when scholars are learning statistical modeling. This entire
+book could be rewritten to remove any mention of “Bayesian.” In places, it would become
+easier. In others, it would become much harder. But having taught applied statistics both
+ways, I have found that the Bayesian framework presents a distinct pedagogical advantage:
+many people find it more intuitive. Perhaps best evidence for this is that very many scientists
+interpret non-Bayesian results in Bayesian terms, for example interpreting ordinary p-values
+as Bayesian posterior probabilities and non-Bayesian confidence intervals as Bayesian ones
+(you’ll learn posterior probability and confidence intervals in Chapters 2 and 3). Even sta-
+tistics instructors make these mistakes.26 In this sense then, Bayesian models lead to more
+intuitive interpretations, the ones scientists tend to project onto statistical results. The oppo-
+site pattern of mistake—interpreting a posterior probability as a p-value—seems to happen
+only rarely.
+None of this ensures that Bayesian analyses will be more correct than non-Bayesian anal-
+yses. It just means that the scientist’s intuitions will less commonly be at odds with the actual
+logic of the framework. This simplifies some of the aspects of teaching statistical modeling.
+Rethinking: A little history. Bayesian statistical inference is much older than the typical tools of in-
+troductory statistics, most of which were developed in the early 20th century. Versions of the Bayesian
+approach were applied to scientific work in the late 1700s and repeatedly in the 19th century. But af-
+ter World War I, anti-Bayesian statisticians, like Sir Ronald Fisher, succeeded in marginalizing the
+approach. All Fisher said about Bayesian analysis (then called inverse probability) in his influential
+1925 handbook was:
+[...] the theory of inverse probability is founded upon an error, and must be wholly
+rejected.27
+Bayesian data analysis became increasingly accepted within statistics during the second half of the
+20th century, because it proved not to be founded upon an error. All philosophy aside, it worked.
+Beginning in the 1990s, new computational approaches led to a rapid rise in application of Bayesian
+methods.28 Bayesian methods remain computationally expensive, however. And so as data sets have
+increased in scale—millions of rows is common in genomic analysis, for example—alternatives to or
+approximations to Bayesian inference remain important, and probably always will.
+1.3.2. Model comparison and prediction. Bayesian data analysis provides a way for models
+to learn from data. But when there is more than one plausible model—and in most mature
+fields there should be—how should we choose among them? One answer is to prefer models
+that make good predictions. This answer creates a lot of new questions, since knowing which
+model will make the best predictions seems to require knowing the future. We’ll look deeply
+at two related tools, neither of which knows the future: cross validation and informa-
+tion criteria. These tools aim to let us compare models based upon expected predictive
+accuracy.
+Comparing models by predictive accuracy can be useful in itself. And it will be even
+more useful because it leads to the discovery of an amazing fact: Complex models often make
+worse predictions than simpler models. The primary paradox of prediction is overfitting:
+Fitting is easy; prediction is hard.29 Future data will not be exactly like past data, and so any

@@ -1,0 +1,70 @@
+358
+11. GOD SPIKED THE INTEGERS
+-2
+-1
+0
+1
+2
+0
+20
+40
+60
+80
+100
+log population (std)
+total tools
+b ~ dnorm( 0 , 10 )
+-2
+-1
+0
+1
+2
+0
+20
+40
+60
+80
+100
+log population (std)
+total tools
+b ~ dnorm( 0 , 0.2 )
+6
+8
+10
+12
+0
+100
+200
+300
+400
+500
+log population
+total tools
+b ~ dnorm(3,0.5), b ~ dnorm(0,0.2)
+0
+50000
+100000
+150000
+200000
+0
+100
+200
+300
+400
+500
+population
+total tools
+b ~ dnorm(3,0.5), b ~ dnorm(0,0.2)
+Figure 11.8. Struggling with slope priors in a Poisson GLM. Top-left: A
+flat prior produces explosive trends on the outcome scale. Top-right: A reg-
+ularizing prior remains mostly within the space of outcomes. Bottom-left:
+Horizontal axis now on unstandardized scale. Bottom-right: Horizontal
+axis on natural scale (raw population size).
+plot( NULL , xlim=c(-2,2) , ylim=c(0,100) )
+for ( i in 1:N ) curve( exp( a[i] + b[i]*x ) , add=TRUE , col=grau() )
+This plot is displayed in the top-right of Figure 11.8. Strong relationships are still possible,
+but most of the mass is for rather flat relationships between total tools and log population.
+It will also help to view these priors on more natural outcome scales. The standardized
+log population variable is good for fitting. But it is bad for thinking. Population size has a
+natural zero, and we want to keep that in sight. Standardizing the variable destroys that. First,
+here are 100 prior predictive trends between total tools and un-standardized log population:

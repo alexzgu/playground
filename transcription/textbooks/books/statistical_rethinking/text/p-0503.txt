@@ -1,0 +1,70 @@
+14.5. CONTINUOUS CATEGORIES AND THE GAUSSIAN PROCESS
+487
+0
+2
+4
+6
+8
+10
+0.0
+0.5
+1.0
+1.5
+2.0
+distance (thousand km)
+covariance
+Gaussian process prior
+0
+2
+4
+6
+8
+10
+0.0
+0.5
+1.0
+1.5
+2.0
+distance (thousand km)
+covariance
+Gaussian process posterior
+Figure 14.11. Let: Prior distribution of spatial covariance functions. Each
+curve shows a joint sample from the prior of ρ2 and η2. Right: Posterior
+distribution of the spatial covariance. The dark curve displays the poste-
+rior mean covariance at each distance. The thin curves show 50 functions
+sampled from the joint posterior distribution of ρ2 and η2.
+as well. There’s a lot of uncertainty about how strong the spatial effect is, but the majority of
+posterior curves decline to zero covariance before 4000 kilometers.
+It’s hard to interpret these covariances directly, because they are on the log-count scale,
+just like everything else in a Poisson GLM. So let’s consider the correlations among societies
+that are implied by the posterior median. First, we push the parameters back through the
+function for K, the covariance matrix:
+R code
+14.42
+# compute posterior median covariance among societies
+K <- matrix(0,nrow=10,ncol=10)
+for ( i in 1:10 )
+for ( j in 1:10 )
+K[i,j] <- median(post$etasq) *
+exp( -median(post$rhosq) * islandsDistMatrix[i,j]^2 )
+diag(K) <- median(post$etasq) + 0.01
+Second, we convert K to a correlation matrix:
+R code
+14.43
+# convert to correlation matrix
+Rho <- round( cov2cor(K) , 2 )
+# add row/col names for convenience
+colnames(Rho) <- c("Ml","Ti","SC","Ya","Fi","Tr","Ch","Mn","To","Ha")
+rownames(Rho) <- colnames(Rho)
+Rho
+Ml
+Ti
+SC
+Ya
+Fi
+Tr
+Ch
+Mn
+To Ha
+Ml 1.00 0.79 0.70 0.00 0.31 0.05 0.00 0.00 0.08
+0

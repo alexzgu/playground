@@ -1,0 +1,50 @@
+158
+5. THE MANY VARIABLES & THE SPURIOUS WAFFLES
+“female.” The purpose of the male variable is to indicate when a person in the sample is
+“male.” So it takes the value 1 whenever the person is male, but it takes the value 0 when
+the person is female (or any other category). It doesn’t matter which category—“male” or
+“female”—is indicated by the 1. The model won’t care. But correctly interpreting the model
+will demand that you remember, so it’s a good idea to name the variable after the category
+assigned the 1 value.
+There are two ways to make a model with this information. The first is to use the indicator
+variable directly inside the linear model, as if it were a typical predictor variable. The effect of
+an indicator variable is to turn a parameter on for those cases in the category. Simultaneously,
+the variable turns the same parameter off for those cases in another category. This will make
+more sense, once you see it in the mathematical definition of the model. Consider again a
+linear model of height, as in Chapter 4. Now we’ll ignore weight and the other variables and
+focus only on sex.
+hi ∼Normal(µi, σ)
+µi = α + βmmi
+α ∼Normal(178, 20)
+βm ∼Normal(0, 10)
+σ ∼Uniform(0, 50)
+where h is height and m is the dummy variable indicating a male individual. The parameter
+βm influences prediction only for those cases where mi = 1. When mi = 0, it has no effect
+on prediction, because it is multiplied by zero inside the linear model, α+βmmi, canceling it
+out, whatever its value. This is just to say that, when mi = 1, the linear model is µi = α+βm.
+And when mi = 0, the linear model is simply µi = α.
+Using this approach means that βm represents the expected difference between males
+and females in height. The parameter α is used to predict both female and male heights. But
+male height gets an extra βm. This also means that α is no longer the average height in the
+sample, but rather just the average female height. This can make assigning sensible priors a
+little harder. If you don’t have a sense of the expected difference in height—what would be
+reasonable before seeing the data?—then this approach to including a category can be too
+much bother.
+Furthermore, this approach necessarily assumes there is more uncertainty about one of
+the categories—“male” in this case—than the other. Why? Because a prediction for a male
+includes two parameters and therefore two priors. We can simulate this directly from the
+priors. The prior distributions for µ for females and males are:
+R code
+5.45
+mu_female <- rnorm(1e4,178,20)
+mu_male <- rnorm(1e4,178,20) + rnorm(1e4,0,10)
+precis( data.frame( mu_female , mu_male ) )
+'data.frame': 10000 obs. of 2 variables:
+mean
+sd
+5.5%
+94.5% histogram
+mu_female 178.41 20.04 146.30 209.94
+▁▁▃▇▇▂▁▁
+mu_male
+177.97 22.40 142.39 214.82 ▁▁▁▃▇▇▂▁▁

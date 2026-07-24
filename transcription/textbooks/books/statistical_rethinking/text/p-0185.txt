@@ -1,0 +1,45 @@
+6.1. MULTICOLLINEARITY
+169
+1.8
+1.9
+2.0
+2.1
+2.2
+2.3
+0
+1
+2
+3
+4
+5
+6
+sum of bl and br
+Density
+Figure 6.2. Left: Posterior distribution of the association of each leg with
+height, from model m6.1. Since both variables contain almost identical in-
+formation, the posterior is a narrow ridge of negatively correlated values.
+Right: The posterior distribution of the sum of the two parameters is cen-
+tered on the proper association of either leg with height.
+R code
+6.5
+post <- extract.samples(m6.1)
+plot( bl ~ br , post , col=col.alpha(rangi2,0.1) , pch=16 )
+The resulting plot is shown on the left of Figure 6.2. The posterior distribution for these
+two parameters is very highly correlated, with all of the plausible values of bl and br lying
+along a narrow ridge. When bl is large, then br must be small. What has happened here
+is that since both leg variables contain almost exactly the same information, if you insist on
+including both in a model, then there will be a practically infinite number of combinations
+of bl and br that produce the same predictions.
+One way to think of this phenomenon is that you have approximated this model:
+yi ∼Normal(µi, σ)
+µi = α + β1xi + β2xi
+The variable y is the outcome, like height in the example, and x is a single predictor, like the leg
+lengths in the example. Here x is used twice, which is a perfect example of the problem caused
+by using the almost-identical leg lengths. From the computer’s perspective, this model is
+simply:
+yi ∼Normal(µi, σ)
+µi = α + (β1 + β2)xi
+All I’ve done is factor xi out of each term. The parameters β1 and β2 cannot be pulled apart,
+because they never separately influence the mean µ. Only their sum, β1+β2, influences µ. So
+this means the posterior distribution ends up reporting the very large range of combinations
+of β1 and β2 that make their sum close to the actual association of x with y.

@@ -1,0 +1,73 @@
+480
+14. ADVENTURES IN COVARIANCE
+0
+2
+4
+6
+8
+0
+2
+4
+6
+8
+generalized giving
+generalized receiving
+-2
+-1
+0
+1
+2
+3
+-1
+0
+1
+2
+3
+household A in dyad
+household B in dyad
+Figure 14.9. Left: Expected giving and receiving, absent any dyad-specific
+effects. Each point is a household and the ellipses show 50% compatibility
+regions. There is a negative relationship between average giving and aver-
+age receiving across households. Right: Dyad-specific effects, absent gener-
+alized giving and receiving. After accounting for overall rates of giving and
+receiving, residual gifts are strongly correlated within dyads.
+points( Eg_mu , Er_mu , pch=21 , bg="white" , lwd=1.5 )
+The left side of Figure 14.9 shows the result. Note the negative relationship between giving
+on the horizontal and receiving on the vertical. The dashed line shows where the two rates
+would be equal. The households with the lowest rates of giving have some of the highest rates
+of receiving. This likely reflects need-based gifts. Likewise the households with the highest
+rates of giving have some of the lowest rates of receiving. That is the negative correlation we
+saw in the precis output. Note also the greater variation in giving rates. That corresponds
+to the standard deviation parameters.
+Now what about the dyad effects? Let’s look at that covariance matrix:
+R code
+14.35
+precis( m14.7 , depth=3 , pars=c("Rho_d","sigma_d") )
+mean
+sd 5.5% 94.5% n_eff Rhat
+Rho_d[1,1] 1.00 0.00 1.00
+1.00
+NaN
+NaN
+Rho_d[1,2] 0.88 0.03 0.83
+0.93
+1287
+1
+Rho_d[2,1] 0.88 0.03 0.83
+0.93
+1287
+1
+Rho_d[2,2] 1.00 0.00 1.00
+1.00
+NaN
+NaN
+sigma_d
+1.11 0.06 1.02
+1.20
+1583
+1
+The correlation here is positive and strong. And there is more variation among dyads than
+there isamong household in giving rates. This implies thatpairsof householdsarebalanced—
+if one household gives less than average (after accounting for generalized giving and receiv-
+ing), then the other probably gives less as well. We can plot the raw dyad effects to see how
+strong this pattern is:

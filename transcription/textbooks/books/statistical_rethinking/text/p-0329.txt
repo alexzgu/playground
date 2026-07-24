@@ -1,0 +1,59 @@
+10.1. MAXIMUM ENTROPY
+313
+-4
+-2
+0
+2
+4
+0.0
+0.2
+0.4
+0.6
+value
+Density
+1.0
+1.5
+2.0
+2.5
+3.0
+3.5
+4.0
+1.36
+1.38
+1.40
+1.42
+shape
+entropy
+Figure 10.2. Maximum entropy and the Gaussian distribution. Left: Com-
+parison of Gaussian (blue) and several other continuous distributions with
+the same variance. Right: Entropy is maximized when curvature of a gen-
+eralized normal distribution matches the Gaussian, where shape is equal to
+2.
+those other distributions in nature? Because for every sequence of coin flips that can produce
+such an imbalanced outcome, there are vastly many more that can produce an approximately
+balanced outcome. The bell curve emerges, empirically, because there are so many different
+detailed states of the physical system that can produce it. Whatever does happen, it’s bound
+to produce an ensemble that is approximately Gaussian. So if all you know about a collection
+of continuous values is its variance (or that it has a finite variance, even if you don’t know
+it yet), the safest bet is that the collection ends up in one of these vastly many bell-shaped
+configurations.158
+And maximum entropy just seeks the distribution that can arise the largest number of
+ways, so it does a good job of finding limiting distributions like this. But since entropy is
+maximized when probability is spread out as evenly as possible, maximum entropy also seeks
+the distribution that is most even, while still obeying its constraints. In order to visualize how
+the Gaussian is the most even distribution for any given variance, let’s consider a family of
+generalized distributions with equal variance. A generalized normal distribution is defined
+by the probability density:
+Pr(y|µ, α, β) =
+β
+2αΓ(1/β)e−
+( |y−µ|
+α
+)β
+We want to compare a regular Gaussian distribution with variance σ2 to several generalized
+normals with the same variance.159
+The left-hand plot in Figure 10.2 presents one Gaussian distribution, in blue, together
+with three generalized normal distributions with the same variance. All four distributions
+have variance σ2 = 1. Two of the generalized distributions are more peaked, and have
+thicker tails, than the Gaussian. Probability has been redistributed from the middle to the
+tails, keeping the variance constant. The third generalized distribution is instead thicker

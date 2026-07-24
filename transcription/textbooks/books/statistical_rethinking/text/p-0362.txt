@@ -1,0 +1,58 @@
+346
+11. GOD SPIKED THE INTEGERS
+lever. As a result, the counts for actor 2 are all 18—there were 18 trials for each animal for
+each treatment. Now we can get exactly the same inferences as before, just by defining the
+following model:
+R code
+11.25
+dat <- with( d_aggregated , list(
+left_pulls = left_pulls,
+treatment = treatment,
+actor = actor,
+side = side,
+cond = cond ) )
+m11.6 <- ulam(
+alist(
+left_pulls ~ dbinom( 18 , p ) ,
+logit(p) <- a[actor] + b[treatment] ,
+a[actor] ~ dnorm( 0 , 1.5 ) ,
+b[treatment] ~ dnorm( 0 , 0.5 )
+) , data=dat , chains=4 , log_lik=TRUE )
+Take note of the 18 in the spot where a 1 used to be. Now there are 18 trials on each row, and
+the likelihood defines the probability of each count left_pulls out of 18 trials. Inspect the
+precis output. You’ll see that the posterior distribution is the same as the one from model
+m11.4.
+However, the PSIS (and WAIC) scores are very different between the 0/1 and aggregated
+models. Let’s compare them:
+R code
+11.26
+compare( m11.6 , m11.4 , func=PSIS )
+Some Pareto k values are high (>0.5).
+PSIS
+SE dPSIS
+dSE pPSIS weight
+m11.6 113.5
+8.41
+0.0
+NA
+8.1
+1
+m11.4 532.1 18.97 418.6 9.44
+8.5
+0
+Warning message:
+In compare(m11.6, m11.4, func = PSIS) :
+Different numbers of observations found for at least two models.
+Model comparison is valid only for models fit to exactly the same observations.
+Number of observations for each model:
+m11.6 28
+m11.4 504
+There’s a lot of output here. But let’s take it slowly, top to bottom. First, the PSIS summary ta-
+ble shows very different scores for the two models, even though they have the same posterior
+distribution. Why is this? The major reason is the the aggregated model, m11.6, contains
+an extra factor in its log-probabilities, because of the way the data are organized. When cal-
+culating dbinom(6,9,0.2), for example, the dbinom function contains a term for all the
+orders the 6 successes could appear in 9 trials. You’ve seen this term before:
+Pr(6|9, p) =
+6!
+6!(9 −6)!p6(1 −p)9−6

@@ -1,0 +1,48 @@
+1.2. STATISTICAL RETHINKING
+9
+believe that the Ivory-billed Woodpecker is extinct will always be suspicious of a claimed
+falsification. Those who believe it is still alive will tend to count the vaguest evidence as
+falsification.
+Another example, this one from physics, focuses on the detection of faster-than-light
+(FTL) neutrinos.12 In September 2011, a large and respected team of physicists announced
+detection of neutrinos—small, neutral sub-atomic particles able to pass easily and harm-
+lessly through most matter—that arrived from Switzerland to Italy in slightly faster-than-
+lightspeed time. According to Einstein, neutrinos cannot travel faster than the speed of light.
+So this seems to be a falsification of special relativity. If so, it would turn physics on its head.
+The dominant reaction from the physics community was not “Einstein was wrong!” but
+instead “How did the team mess up the measurement?” The team that made the measure-
+ment had the same reaction, and asked others to check their calculations and attempt to
+replicate the result.
+What could go wrong in the measurement? You might think measuring speed is a sim-
+ple matter of dividing distance by time. It is, at the scale and energy you live at. But with
+a fundamental particle like a neutrino, if you measure when it starts its journey, you stop
+the journey. The particle is consumed by the measurement. So more subtle approaches are
+needed. The detected difference from light-speed, furthermore, is quite small, and so even
+the latency of the time it takes a signal to travel from a detector to a control room can be
+orders of magnitude larger. And since the “measurement” in this case is really an estimate
+from a statistical model, all of the assumptions of the model are now suspect. By 2013, the
+physics community was unanimous that the FTL neutrino result was measurement error.
+They found the technical error, which involved a poorly attached cable.13 Furthermore, neu-
+trinos clocked from supernova events are consistent with Einstein, and those distances are
+much larger and so would reveal differences in speed much better.
+In both the woodpecker and neutrino dramas, the key dilemma is whether the falsifi-
+cation is real or spurious. Measurement is complicated in both cases, but in quite different
+ways, rendering both true-detection and false-detection plausible. Popper himself was aware
+of this limitation inherent in measurement, and it may be one reason that Popper himself
+saw science as being broader than falsification. But the probabilistic nature of evidence rarely
+appears when practicing scientists discuss the philosophy and practice of falsification.14 My
+reading of the history of science is that these sorts of measurement problems are the norm,
+not the exception.15
+1.2.2.2. Continuous hypotheses. Another problem for the swan story is that most inter-
+esting scientific hypotheses are not of the kind “all swans are white” but rather of the kind:
+H0: 80% of swans are white.
+Or maybe:
+H0: Black swans are rare.
+Now what are we to conclude, after observing a black swan? The null hypothesis doesn’t
+say black swans do not exist, but rather that they have some frequency. The task here is
+not to disprove or prove a hypothesis of this kind, but rather to estimate and explain the
+distribution of swan coloration as accurately as we can. Even when there is no measurement
+error of any kind, this problem will prevent us from applying the modus tollens swan story
+to our science.16
+You might object that the hypothesis above is just not a good scientific hypothesis, be-
+cause it isn’t easy to disprove. But if that’s the case, then most of the important questions

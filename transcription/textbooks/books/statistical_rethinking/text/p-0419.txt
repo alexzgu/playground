@@ -1,0 +1,52 @@
+12.4. ORDERED CATEGORICAL PREDICTORS
+403
+I’ve included these histograms in the bottom row of Figure 12.6. The black line segments are
+the simulated frequencies when intention is 0. The blue segments are the frequencies when
+intention is 1. Notice the weight given to the middle response, 5, and the end responses
+in each case. You can see this fact as well in the top-row plots, but the histograms make it
+much more obvious. This is a general feature of ordered categories—some of the values are
+much more salient than others. This is one of the reasons they are better than treating the
+outcome as an ordinary metric variable.
+Rethinking: Staring into the abyss. The plotting code for ordered logistic models is complicated,
+compared to that of models from previous chapters. But as models become more monstrous, so too
+does the code needed to compute predictions and display them. With power comes hardship. It’s
+better to see the guts of the machine than to live in awe or fear of it. Software can be and often is
+written to hide all the monstrosity from us. But this doesn’t make it go away. Instead, it just makes
+the models forever mysterious. For some users, mystery translates into awe. For others, it translates
+into skepticism. Neither condition is necessary, as long as we’re willing to learn the structure of the
+models we are using. And if you aren’t willing to learn the structure of the models, then don’t do your
+own statistics. Instead, collaborate with or hire a statistician.
+12.4. Ordered categorical predictors
+We can handle ordered outcome variables using a categorical model with a cumulative
+link. That was the previous section. What about ordered predictor variables? We could
+just include them as continuous predictors like in any linear model. But this isn’t ideal. Just
+like with ordered outcomes, we don’t really want to assume that the distance between each
+ordinal value is the same. Luckily, we don’t have to. We can construct ordered effects as well
+as ordered outcomes.182
+The Trolley data from the previous section contains a good example. Let’s look at the
+edu variable, which contains levels of completed education for each individual:
+R code
+12.30
+library(rethinking)
+data(Trolley)
+d <- Trolley
+levels(d$edu)
+[1] "Bachelor's Degree"
+"Elementary School"
+"Graduate Degree"
+[4] "High School Graduate" "Master's Degree"
+"Middle School"
+[7] "Some College"
+"Some High School"
+There are 8 different levels of completed education in the sample. Unfortunately, they aren’t
+actually in order, from lowest to highest. This is typical with R, when it constructs a factor
+variable from character data. So the first step is to code these into an ordered variable, with
+the lowest level being 1 and the highest 8. Then we’ll think about constructing ordered ef-
+fects out of it. The proper order is: [2] Elementary School, [6] Middle School, [8] Some High
+School, [4] High School Graduate, [7] Some College, [1] Bachelor’s Degree, [5] Master’s De-
+gree, and [3] Graduate Degree. We can just make a vector of new values to map onto those,
+like this:
+R code
+12.31
+edu_levels <- c( 6 , 1 , 8 , 4 , 7 , 2 , 5 , 3 )
+d$edu_new <- edu_levels[ d$edu ]

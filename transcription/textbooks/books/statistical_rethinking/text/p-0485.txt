@@ -1,0 +1,44 @@
+14.3. INSTRUMENTS AND CAUSAL DESIGNS
+469
+to an outcome. Some of those paths are causal, so we want to leave them open. Other paths
+are non-causal, for example back-door paths. We want to close those, as well as not acciden-
+tally open them by including the wrong variables in the model.
+Of course sometimes it won’t be possible to close all of the non-causal paths. What
+can be done in that case? More than nothing. If you are lucky, there are ways to exploit a
+combination of natural experiments and clever modeling that allow causal inference even
+when non-causal paths cannot be closed.
+We’ll start with the most famous, and possibly least intuitive, example. Then we’ll move
+on to describe some other approaches.
+14.3.1. Instrumental variables. Consider the impact of education E on wages W. Does
+more school improve future wages? If we just regress wages on achieved education, we expect
+the inference to be biased by factors that influence both wages and education. For example,
+industrious people may both complete more education and earn higher wages, generating a
+correlation between education and wages. But that doesn’t necessarily mean that education
+causes higher wages. It is often difficult to measure, or even imagine, all of the possible
+confounds of this kind. We end up with a DAG like this:
+E
+U
+W
+The back-door path E ←U →W ruins our day.
+Even though we cannot condition on U, since we haven’t observed it, there might be
+something we can do. If we can find a suitable instrumental variable. In causal terms,
+an instrumental variable is a variable that acts like a natural experiment on the exposure E.
+In technical terms, an instrumental variable Q is a variable that satisfies these criteria:
+(1) Independent of U (Q ⊥⊥U)
+(2) Not independent of E (Q̸⊥⊥E)
+(3) Q cannot influence W except through E
+This last line is sometimes called the exclusion restriction. It cannot be tested, and it
+is often implausible. Similarly, the first line above cannot be tested. But if you have a strong
+understanding of the system, so that you believe these criteria, then magic can happen.
+It is much easier to understand instruments with a DAG. In our education and wages
+example, the simplest instrument for education looks like this:
+E
+Q
+U
+W
+The instrument here is Q. Given this DAG, Q satisfies all of the criteria for a valid instru-
+mental variable. Note that valid instruments can be embedded in much more complicated
+graphs. If you can condition on other variables, in order to satisfy the criteria listed above,
+then you have an instrument.
+How do we use Q in a model? You cannot just add it to a regression like any other
+predictor variable. Why not? Suppose we regress W on E. This is the relationship we’d like

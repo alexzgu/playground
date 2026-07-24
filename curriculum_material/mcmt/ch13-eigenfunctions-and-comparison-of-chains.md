@@ -369,9 +369,7 @@ Recall that in Section 5.3.3 we used coupling to show that for lazy simple rando
 
 ### PDF page 204 (book page 188)
 
-*[Figure: a 5×5 grid of unit squares (a subset of a box in $\mathbb{Z}^2$) with several internal horizontal edges removed at various rows, leaving an irregular lattice.]*
-
-FIGURE 13.1. A subset of a box in $\mathbb{Z}^2$ with some edges removed.
+**FIGURE 13.1.** A subset of a box in $\mathbb{Z}^2$ with some edges removed. *[Figure: a 5×5 grid of unit squares (a subset of a box in $\mathbb{Z}^2$) with several internal horizontal edges removed at various rows, leaving an irregular lattice.]*
 
 be exploited later when we study site Glauber dynamics via comparison with block dynamics in Section 15.5 and some further shuffling methods in Chapter 16.
 
@@ -754,9 +752,7 @@ REMARK 13.39. In fact, as $n$ tends to $\infty$, the probability that $G_n$ is a
 
 ### PDF page 214 (book page 198)
 
-*[Figure: two graph diagrams side by side. Left: two vertices connected by two curved arcs forming a lens shape, with a straight edge extending to the left of the left vertex and to the right of the right vertex. Right: a similar lens shape between a left and right vertex, but with a vertical edge added through the middle connecting a top vertex to a bottom vertex, and horizontal edges extending outward from the left and right vertices.]*
-
-FIGURE 13.2. Modifying a 3-regular multigraph to get a 3-regular graph.
+**FIGURE 13.2.** Modifying a 3-regular multigraph to get a 3-regular graph. *[Figure: two graph diagrams side by side. Left: two vertices connected by two curved arcs forming a lens shape, with a straight edge extending to the left of the left vertex and to the right of the right vertex. Right: a similar lens shape between a left and right vertex, but with a vertical edge added through the middle connecting a top vertex to a bottom vertex, and horizontal edges extending outward from the left and right vertices.]*
 
 **Exercises**
 

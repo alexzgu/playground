@@ -1,0 +1,54 @@
+6.4. CONFRONTING CONFOUNDING
+189
+The Fork
+The Pipe
+The Collider
+The Descendant
+X
+Y
+Z
+X
+Y
+Z
+X
+Y
+Z
+D
+X
+Y
+Z
+Figure 6.6. The four elemental confounds. Any directed acyclic graph is
+built from these elementary relationships.
+sense in which condition on U blocks the path—it makes E and W independent, conditional
+on U.
+6.4.1. Shutting the backdoor. Blocking all confounding paths between some predictor X
+and some outcome Y is known as shutting the backdoor. The metaphor in play is that we
+don’t want any spurious correlation sneaking in through a non-causal path, which is one that
+enters the back of the predictor X. In the example above, the path E ←U →W is a backdoor
+path, because it enters E with an arrow and also connects E to W. This path is confounding.
+Now for some good news. Given a causal DAG, it is always possible to say which, if any,
+variables one must control for in order to shut all the backdoor paths. It is also possible to
+say which variables one must not control for, in order to leave the path of interest open.
+And—some more good news—there are only four types of variable relations that com-
+bine to form all possible paths. So you really only need to understand four things and how
+information flows in each of them. I’ll define the four types of relations. Then we’ll work
+through some examples.
+Figure 6.6 shows DAGs for each elemental relation. Every DAG, no matter how big and
+complicated, is built out of these four relations. Let’s consider each, going left to right.
+(1) The first type of relation is the one we worked with just above, a fork: X ←Z →Y.
+This is the classic confounder. In a fork, some variable Z is a common cause of X
+and Y, generating a correlation between them. If we condition on Z, then learning
+X tells us nothing about Y. X and Y are independent, conditional on Z.
+(2) The second type of relation is a pipe: X →Z →Y. We saw this when we discussed
+the plant growth example and post-treatment bias: The treatment X influences fun-
+gus Z which influences growth Y. If we condition on Z now, we also block the path
+from X to Y. So in both a fork and a pipe, conditioning of the middle variable
+blocks the path.
+(3) The third type of relation is a collider: X →Z ←Y. You met colliders earlier
+in this chapter. Unlike the other two types of relations, in a collider there is no
+association between X and Y unless you condition on Z. Conditioning on Z, the
+collider variable, opens the path. Once the path is open, information flows between
+X and Y.
+(4) The fourth bit of knowledge you need is that conditioning on a descendent vari-
+able is like conditioning on the variable itself, but weaker. A descendent is a variable
+influenced by another variable. In the far right DAG in Figure 6.6, controlling for

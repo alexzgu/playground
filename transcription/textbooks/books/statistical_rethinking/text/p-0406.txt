@@ -1,0 +1,44 @@
+390
+12. MONSTERS AND MIXTURES
+With these assumptions, the likelihood of observing a zero is:
+Pr(0|p, λ) = Pr(drink|p) + Pr(work|p) × Pr(0|λ)
+= p + (1 −p) exp(−λ)
+Since the Poisson likelihood of y is Pr(y|λ) = λy exp(−λ)/y!, the likelihood of y = 0 is just
+exp(−λ). The above is just the mathematics for:
+The probability of observing a zero is the probability that the monks didn’t
+drink OR (+) the probability that the monks worked AND (×) failed to
+finish anything.
+And the likelihood of a non-zero value y is:
+Pr(y|y > 0, p, λ) = Pr(drink|p)(0) + Pr(work|p) Pr(y|λ) = (1 −p)λy exp(−λ)
+y!
+Since drinking monks never produce y > 0, the expression above is just the chance the
+monks both work, 1 −p, and finish y manuscripts.
+Define ZIPoisson as the distribution above, with parameters p (probability of a zero) and
+λ (mean of Poisson) to describe its shape. Then a zero-inflated Poisson regression takes the
+form:
+yi ∼ZIPoisson(pi, λi)
+logit(pi) = αp + βpxi
+log(λi) = αλ + βλxi
+Notice that there are two linear models and two link functions, one for each process in the
+ZIPoisson. The parameters of the linear models differ, because any predictor such as x may
+be associated differently with each part of the mixture. In fact, you don’t even have to use
+the same predictors in both models—you can construct the two linear models however you
+wish, depending upon your hypothesis.
+We have everything we need now, except for some data. So let’s simulate the monks’
+drinking and working. Then you’ll see the code used to recover the parameter values used
+in the simulation.
+R code
+12.7
+# define parameters
+prob_drink <- 0.2 # 20% of days
+rate_work <- 1
+# average 1 manuscript per day
+# sample one year of production
+N <- 365
+# simulate days monks drink
+set.seed(365)
+drink <- rbinom( N , 1 , prob_drink )
+# simulate manuscripts completed
+y <- (1-drink)*rpois( N , rate_work )
+The outcome variable we get to observe is y, which is just a list of counts of completed
+manuscripts, one count for each day of the year. Take a look at the outcome variable:

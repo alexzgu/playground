@@ -1,0 +1,53 @@
+11.1. BINOMIAL REGRESSION
+341
+proportion left lever
+0
+0.5
+1
+actor 1
+actor 2
+actor 3
+actor 4
+actor 5
+actor 6
+actor 7
+R/N
+L/N
+R/P
+L/P
+observed proportions
+proportion left lever
+0
+0.5
+1
+actor 1
+actor 2
+actor 3
+actor 4
+actor 5
+actor 6
+actor 7
+posterior predictions
+Figure 11.4. Observed data (top) and posterior predictions (bottom) for
+the chimpanzee data. Data are grouped by actor. Open points are no-
+partner treatments. Filled points are partner treatments. The right R and left
+L sides of the prosocial option are labeled in the top figure. Both left treat-
+ments and both right treatments are connected by a line segment, within
+each actor. The bottom plot shows 89% compatibility intervals for each pro-
+portion for each actor.
+p_ci <- apply( p_post , 2 , PI )
+The model expects almost no change when adding a partner. Most of the variation in pre-
+dictions comes from the actor intercepts. Handedness seems to be the big story of this ex-
+periment.
+The data themselves show additional variation—some of the actors possibly respond
+more to the treatments than others do. We might consider a model that allows each unique
+actor to have unique treatment parameters. But we’ll leave such a model until we arrive at
+multilevel models, because we’ll need some additional tricks to do the model well.
+We haven’t considered a model that splits into separate index variables the location of the
+prosocial option and the presence of a partner. Why not? Because the driving hypothesis of
+the experiment is that the prosocial option will be chosen more when the partner is present.
+That is an interaction effect—the effect of the prosocial option depends upon a partner being
+present. But we could build a model without the interaction and the use PSIS or WAIC to
+compare it to m11.4. You can guess from the posterior distribution of m11.4 what would
+happen: The simpler model will do just fine, because there doesn’t seem to be any evidence
+of an interaction between location of the prosocial option and the presence of the partner.

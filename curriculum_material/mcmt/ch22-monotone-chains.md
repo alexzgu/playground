@@ -35,8 +35,6 @@ and bounds on the single coupling time $\tau$ bound the mixing time. Note the ex
 
 EXAMPLE 22.2 (Ising Model). Consider Glauber dynamics for the Ising model on a finite graph $G = (V, E)$, introduced in Section 3.3. Simultaneously, for each starting state $\sigma \in \mathcal{X} = \{-1, 1\}^V$, we can construct Markov chains $(X_t^\sigma)$ evolving together. This is achieved as follows: Select the same vertex $v$ to update in each chain, and generate a single uniform $[0, 1]$ random variable $U$. The probability of
 
-305
-
 ### PDF page 322 (book page 306)
 
 updating to $+1$ at $v$ when in state $\theta$ is
@@ -517,9 +515,7 @@ THEOREM 22.25. *The Glauber dynamics for the Ising model on the ladder graph of 
 
 ### PDF page 333 (book page 317)
 
-*[Figure: A ladder graph drawn as a cylinder — two concentric rings of vertices (top rim and bottom rim) connected by vertical "rung" edges, forming a ladder wrapped into a ring. A dashed rectangular box in the front encloses a small group of vertices, marking one block.]*
-
-FIGURE 22.1. The ladder graph with $n = 32$. The set of vertices enclosed in the dashed box is a block of length $\ell = 2$.
+**FIGURE 22.1.** The ladder graph with $n = 32$. The set of vertices enclosed in the dashed box is a block of length $\ell = 2$. *[Figure: A ladder graph drawn as a cylinder — two concentric rings of vertices (top rim and bottom rim) connected by vertical "rung" edges, forming a ladder wrapped into a ring. A dashed rectangular box in the front encloses a small group of vertices, marking one block.]*
 
 In fact, the proof can be modified to yield an $O(n \log n)$ bound on $t_{\mathrm{mix}}$. The couplings in the proof are monotone, and thus they can be combined and extended to a monotone grand coupling, which then bounds the distance from the worst-case starting position.
 

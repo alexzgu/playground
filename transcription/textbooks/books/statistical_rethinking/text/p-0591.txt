@@ -1,0 +1,44 @@
+ENDNOTES
+575
+91. See Pearl (2014). [187]
+92. This definition is actually a little too narrow. Experimental manipulation is not required, just blocking of
+non-causal paths. [188]
+93. See Pearl (2000), as well as Pearl and MacKenzie (2018). [193]
+Chapter 7
+94. De Revolutionibus, Book 1, Chapter 10. [195]
+95. See e.g. Akaike (1978), as well as discussion in Burnham and Anderson (2002). [197]
+96. When priors are flat and models are simple, this will always be true. But later in the book, you’ll work with
+other types of models, like multilevel regressions, for which adding parameters does not necessarily lead to bet-
+ter fit to sample. [198]
+97. Data from Table 1 of McHenry and Coffing (2000). [199]
+98. Gauss 1809, Theoria motus corporum coelestium in sectionibus conicis solem ambientum. [200]
+99. See Grünwald (2007) for a book-length treatment of these ideas. [205]
+100. There are many discussions of bias and variance in the literature, some much more mathematical than
+others. For a broad treatment, I recommend Chapter 7 of Hastie, Tibshirani and Friedman’s 2009 book, which
+explores BIC, AIC, cross-validation and other measures, all in the context of the bias-variance trade-off. [205]
+101. I first encountered this kind of example in Jaynes (1976), page 246. Jaynes himself credits G. David Forney’s
+1972 information theory course notes. Forney is an important figure in information theory, having won several
+awards for his contributions. [207]
+102. Shannon (1948). For a more accessible introduction, see the venerable textbook Elements of Information
+Theory, by Cover and Thomas. Slightly more advanced, but having lots of added value, is Jaynes’ (2003, Chapter
+11) presentation. A foundational book in applying information theory to statistical inference is Kullback (1959),
+but it’s not easy reading. [209]
+103. See two famous editorials on the topic: Shannon (1956) and Elias (1958). Elias’ editorial is a clever work
+of satire and remains as current today as it was in 1958. Both of these one-page editorials are readily available
+online. [209]
+104. I really wish I could say there is an accessible introduction to maximum entropy, at the level of most natural
+and social scientists’ math training. If there is, I haven’t found it yet. Jaynes (2003) is an essential source, but if
+your integral calculus is rusty, progress will be very slow. Better might be Steven Frank’s papers (2009; 2011)
+that explain the approach and relate it to common distributions in nature. You can mainly hum over the maths
+in these and still get the major concepts. See also Harte (2011), for a textbook presentation of applications in
+ecology. [211]
+105. Kullback and Leibler (1951). Note however that Kullback and Leibler did not name this measure after
+themselves. See Kullback (1987) for Solomon Kullback’s reflections on the nomenclature. For what it’s worth,
+Kullback and Leibler make it clear in their 1951 paper that Harold Jeffreys had used this measure already in the
+development of Bayesian statistics. [211]
+106. In non-Bayesian statistics, under somewhat general conditions, a difference between two deviances has a
+chi-squared distribution. The factor of 2 is there to scale it the proper way. Wilks (1938) is the usually primordial
+citation. [214]
+107. See Zhang and Yang (2015). [221]
+108. Gelfand (1996). [221]
+109. Vehtari et al. (2016). [221]

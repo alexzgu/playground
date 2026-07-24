@@ -1,0 +1,48 @@
+414
+13. MODELS WITH MEMORY
+from the data. This means the robot tracks a parameter for each café as well as at least two
+parameters to describe the population of cafés: an average and a standard deviation. As the
+robot observes waiting times, it updates everything: the estimates for each café as well as the
+estimates for the population. If the population seems highly variable, then the prior is flat
+and uninformative and, as a consequence, the observations at any one café do very little to
+the estimate at another. If instead the population seems to contain little variation, then the
+prior is narrow and highly informative. An observation at any one café will have a big impact
+on estimates at any other café.
+In this chapter, you’ll see the formal version of this argument and how it leads us to mul-
+tilevel models. These models remember features of each cluster in the data as they learn
+about all of the clusters. Depending upon the variation among clusters, which is learned
+from the data as well, the model pools information across clusters. This pooling tends to
+improve estimates about each cluster. This improved estimation leads to several, more prag-
+matic sounding, benefits of the multilevel approach. I mentioned them in Chapter 1. They
+are worth repeating.
+(1) Improved estimates for repeat sampling. When more than one observation arises
+from the same individual, location, or time, then traditional, single-level models
+either maximally underfit or overfit the data.
+(2) Improved estimates for imbalance in sampling. When some individuals, locations,
+or times are sampled more than others, multilevel models automatically cope with
+differing uncertainty across these clusters. This prevents over-sampled clusters
+from unfairly dominating inference.
+(3) Estimates of variation. If our research questions include variation among individu-
+als or other groups within the data, then multilevel models are a big help, because
+they model variation explicitly.
+(4) Avoid averaging, retain variation. Frequently, scholars pre-average some data to
+construct variables. This can be dangerous, because averaging removes variation,
+and there are also typically several different ways to perform the averaging. Aver-
+aging therefore both manufactures false confidence and introduces arbitrary data
+transformations. Multilevel models allow us to preserve the uncertainty and avoid
+data transformations.
+All of these benefits flow out of the same strategy and model structure. You learn one basic
+design and you get all of this for free.
+When it comes to regression, multilevel regression deserves to be the default approach.
+There are certainly contexts in which it would be better to use an old-fashioned single-level
+model. But the contexts in which multilevel models are superior are much more numer-
+ous. It is better to begin to build a multilevel analysis, and then realize it’s unnecessary, than
+to overlook it. And once you grasp the basic multilevel strategy, it becomes much easier
+to incorporate related tricks such as allowing for measurement error in the data and even
+modeling missing data itself (Chapter 15).
+There are costs of the multilevel approach. The first is that we have to make some new
+assumptions. We have to define the distributions from which the characteristics of the clus-
+ters arise. Luckily, conservative maximum entropy distributions do an excellent job in this
+context. Second, there are new estimation challenges that come with the full multilevel ap-
+proach. These challenges lead us headfirst into MCMC estimation. Third, multilevel models
+can be hard to understand, because they make predictions at different levels of the data. In

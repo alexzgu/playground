@@ -311,11 +311,135 @@
   "front_matter_end": 11
  },
  {
+  "key": "statistical_rethinking",
+  "pdf": "Statistical Rethinking 2nd Edition.pdf",
+  "title": "Statistical Rethinking: A Bayesian Course with Examples in R and Stan (2nd ed.)",
+  "author": "Richard McElreath",
+  "npages": 617,
+  "printed_offset": 16,
+  "text_layer": "good",
+  "transcription_model": "GPT-5.6",
+  "chapters": [
+   {
+    "num": "",
+    "title": "Preface to the Second Edition",
+    "pdf_start": 7
+   },
+   {
+    "num": "",
+    "title": "Preface",
+    "pdf_start": 9
+   },
+   {
+    "num": "1",
+    "title": "The Golem of Prague",
+    "pdf_start": 17
+   },
+   {
+    "num": "2",
+    "title": "Small Worlds and Large Worlds",
+    "pdf_start": 35
+   },
+   {
+    "num": "3",
+    "title": "Sampling the Imaginary",
+    "pdf_start": 65
+   },
+   {
+    "num": "4",
+    "title": "Geocentric Models",
+    "pdf_start": 89
+   },
+   {
+    "num": "5",
+    "title": "The Many Variables & The Spurious Waffles",
+    "pdf_start": 143
+   },
+   {
+    "num": "6",
+    "title": "The Haunted DAG & The Causal Terror",
+    "pdf_start": 181
+   },
+   {
+    "num": "7",
+    "title": "Ulysses' Compass",
+    "pdf_start": 211
+   },
+   {
+    "num": "8",
+    "title": "Conditional Manatees",
+    "pdf_start": 257
+   },
+   {
+    "num": "9",
+    "title": "Markov Chain Monte Carlo",
+    "pdf_start": 285
+   },
+   {
+    "num": "10",
+    "title": "Big Entropy and the Generalized Linear Model",
+    "pdf_start": 323
+   },
+   {
+    "num": "11",
+    "title": "God Spiked the Integers",
+    "pdf_start": 347
+   },
+   {
+    "num": "12",
+    "title": "Monsters and Mixtures",
+    "pdf_start": 397
+   },
+   {
+    "num": "13",
+    "title": "Models With Memory",
+    "pdf_start": 429
+   },
+   {
+    "num": "14",
+    "title": "Adventures in Covariance",
+    "pdf_start": 465
+   },
+   {
+    "num": "15",
+    "title": "Missing Data and Other Opportunities",
+    "pdf_start": 517
+   },
+   {
+    "num": "16",
+    "title": "Generalized Linear Madness",
+    "pdf_start": 553
+   },
+   {
+    "num": "17",
+    "title": "Horoscopes",
+    "pdf_start": 581
+   },
+   {
+    "num": "",
+    "title": "Endnotes",
+    "pdf_start": 585
+   },
+   {
+    "num": "",
+    "title": "Bibliography",
+    "pdf_start": 599
+   },
+   {
+    "num": "",
+    "title": "Citation index",
+    "pdf_start": 611
+   }
+  ],
+  "front_matter_end": 16
+ },
+ {
   "key": "montgomery_doe",
-  "pdf": "546_textbook.pdf",
-  "title": "Design and Analysis of Experiments (8th ed.)",
-  "author": "Douglas C. Montgomery",
-  "npages": 757,
+    "pdf": "546_textbook.pdf",
+    "title": "Design and Analysis of Experiments (8th ed.)",
+    "author": "Douglas C. Montgomery",
+    "transcription_model": "mixed (Claude Fable and GPT-5.6; see per-page manifest)",
+    "npages": 757,
   "printed_offset": 16,
   "text_layer": "usable (ligatures fi/ff/fl dropped)",
   "chapters": [

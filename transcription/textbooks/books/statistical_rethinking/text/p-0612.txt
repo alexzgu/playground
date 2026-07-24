@@ -1,0 +1,112 @@
+596
+CITATION INDEX
+Gilad and Mizrahi-Man (2015), 582, 586
+Gillespie (1977), 569, 586
+Glenn (2009), 574, 586
+Grafen and Hails (2002), 574, 577, 586
+Grafen (1989), 580, 586
+Griffin (2008), 578, 586
+Gronau and Wagenmakers (2019), 576, 586
+Grosberg (1998), 578, 586
+Grünwald (2007), 575, 576, 586
+Hacking (1983), 569, 586
+Hahn and Bentley (2003), 569, 586
+Harte (1988), 581, 586
+Harte (2011), 575, 586
+Hastie et al. (2009), 575, 586
+Hastings (1970), 577, 586
+Hauer (2004), 573, 586
+Henrion and Fischoff (1986), 572, 586
+Herndon et al. (2014), 582, 586
+Hernán and Cole (2009), 581, 587
+Hewitt (1921), 581, 587
+Hilbe (2011), 579, 587
+Hinde and Milligan (2011), 574, 587
+Hoffman and Gelman (2011), 577, 587
+Horton (2015), 582, 587
+Howell (2000), 573, 587
+Howell (2010), 573, 587
+Hubbell (2001), 569, 587
+Huffaker (1958), 581, 587
+Hull (1988), 582, 587
+Ioannidis (2005), 572, 582, 587
+Ioannidis (2012), 582, 587
+Jaynes (1976), 575, 587
+Jaynes (1984), 570, 587
+Jaynes (1985), 572, 573, 587
+Jaynes (1986), 573, 587
+Jaynes (1988), 578, 587
+Jaynes (2003), 569, 571, 573, 575, 577, 578, 587
+Jones and Moriarty (2013), 580, 587
+Jung et al. (2014), 579, 587
+Kadane (2011), 572, 587
+Kitcher (2000), 582, 587
+Kitcher (2011), 570, 587
+Kleibergen and Zivot (2003), 580, 587
+Kline and Boyd (2010), 579, 587
+Koster and Leckie (2014), 580, 587
+Koster and McElreath (2017), 579, 587
+Kruscke (2011), 577, 587
+Kullback and Leibler (1951), 575, 588
+Kullback (1959), 575, 588
+Kullback (1987), 575, 588
+Lambert (1992), 579, 588
+Landis et al. (2013), 580, 588
+Lansing and Cox (2011), 569, 570, 588
+Laudan (1981), 582, 588
+Lee and DeVore (1976), 573, 588
+Leigh and Shea (1996), 581, 588
+Levins (1966), 569, 581, 588
+Lewandowski et al. (2009), 580, 588
+Liddell and Kruschke (2018), 579, 588
+Lightsey et al. (2006), 576, 588
+Lin et al. (2014), 582, 588
+Lindley (1971), 570, 588
+Loken and Gelman (2017), 581, 588
+Lotka (1925), 581, 588
+Lunn et al. (2013), 576, 588
+MacKenzie et al. (2017), 581, 588
+Magnusson et al. (2019), 576, 588
+Mangel and Samaniego (1984), 577, 588
+Marin and Robert (2007), 570, 588
+McCullagh and Nelder (1989), 578, 579, 588
+McCullagh (1980), 579, 588
+McElreath and Smaldino (2015), 582, 588
+McGrayne (2011), 571, 588
+McHenry and Coffing (2000), 575, 589
+Meagher et al. (2018), 580, 589
+Meehl (1956), 582, 589
+Meehl (1967), 569, 589
+Meehl (1990), 574, 589
+Metropolis and Ulam (1949), 577, 589
+Metropolis et al. (1953), 577, 589
+Molenberghs et al. (2014), 581, 589
+Morison (1942), 571, 589
+Mulkay and Gilbert (1981), 569, 570, 589
+Muñoz-Rodríguez et al. (2018), 578, 589
+Neal (1998), 580, 589
+Neal (2003), 580, 589
+Neal (2012), 577, 589
+Nelder and Wedderburn (1972), 578, 589
+Nettle (1998), 577, 589
+Nieuwenhuis et al. (2011), 574, 589
+Nunn and Puga (2011), 577, 589
+Nuzzo (2014), 578, 589
+O’Rourke and Detsky (1989), 582, 589
+Ohta and Gillespie (1996), 569, 589
+Papaspiliopoulos et al. (2007), 580, 589
+Pearl and MacKenzie (2018), 571, 575, 590
+Pearl (2000), 571, 575, 589
+Pearl (2011), 580, 589
+Pearl (2014), 574, 575, 579, 589
+Pearl (2016), 574, 589
+Pearson (1911), 571, 590
+Pfanzagl and Sheynin (1996), 576, 590
+Popper (1963), 582, 590
+Popper (1996), 569, 582, 590
+Proulx and Adler (2010), 569, 590
+Rao (1997), 577, 590
+Reilly and Zeringue (2004), 574, 590
+Reinhart and Rogoff (2010), 582, 590
+Rice (2010), 573, 590
+Riley et al. (1999), 577, 590

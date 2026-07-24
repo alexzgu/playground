@@ -1,0 +1,62 @@
+154
+5. THE MANY VARIABLES & THE SPURIOUS WAFFLES
+Now let’s see what happens when we add both predictor variables at the same time to the
+regression. This is the multivariate model, in math form:
+Ki ∼Normal(µi, σ)
+µi = α + βNNi + βMMi
+α ∼Normal(0, 0.2)
+βn ∼Normal(0, 0.5)
+βm ∼Normal(0, 0.5)
+σ ∼Exponential(1)
+Approximating the posterior requires no new tricks:
+R code
+5.38
+m5.7 <- quap(
+alist(
+K ~ dnorm( mu , sigma ) ,
+mu <- a + bN*N + bM*M ,
+a ~ dnorm( 0 , 0.2 ) ,
+bN ~ dnorm( 0 , 0.5 ) ,
+bM ~ dnorm( 0 , 0.5 ) ,
+sigma ~ dexp( 1 )
+) , data=dcc )
+precis(m5.7)
+mean
+sd
+5.5% 94.5%
+a
+0.07 0.13 -0.15
+0.28
+bN
+0.68 0.25
+0.28
+1.07
+bM
+-0.70 0.22 -1.06 -0.35
+sigma
+0.74 0.13
+0.53
+0.95
+By incorporating both predictor variables in the regression, the posterior association of both
+with the outcome has increased. Visually comparing this posterior to those of the previous
+two models helps:
+R code
+5.39
+plot( coeftab( m5.5 , m5.6 , m5.7 ) , pars=c("bM","bN") )
+m5.5
+m5.6
+m5.7
+m5.5
+m5.6
+m5.7
+bM
+bN
+-1.0
+-0.5
+0.0
+0.5
+1.0
+Estimate
+The posterior mean for the association of neocortex percent has increased fivefold, and its
+89% interval is now entirely above zero. The posterior mean for log body mass has increased
+2.5 times in magnitude.

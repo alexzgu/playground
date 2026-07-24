@@ -1,0 +1,46 @@
+17. HOROSCOPES
+567
+(4) Quality of data analysis: The topic of this book, but still much broader than it has
+indicated. Many common practices in the sciences exacerbate false discovery.240 If
+you are not designing your analysis before you see the data, then your analysis may
+overfit the data in ways that regularization cannot reliably address.
+(5) Quality of peer review: Good pre-publication peer review is invaluable. But much
+of it is not so good. Many mistakes get through, and many brilliant papers do not.
+Peer review selects for hyperbole, since honestly admitting limitations of work only
+hurts a paper’s chances. Is this nevertheless the best system we can devise? Let’s
+hope not.
+(6) Publication: We agonize over bias in measurement and statistical analysis, but then
+allow it all back in during publication.241 Incentives for positive findings and news-
+worthy results distort the design of research and how it is summarized.242
+(7) Post-publication peer review: What happens to a finding after publication is just
+as important as what happens before. It is common for invalid analyses to be pub-
+lished in top-tier journals, only to be torn apart on blogs.243 But there is no system
+for linking published papers to later peer criticism, and there are few formal incen-
+tives to conduct it. Even retracted papers continue to be cited.
+(8) Replication and meta-analysis: The most important aspects of science are repeti-
+tion and synthesis.244 No single study is definitive, but incentives to replicate and
+summarize are weaker than incentives to produce novel findings. Top-tier journals
+prioritize news.
+We tend to focus on the statistical analysis, perhaps because it is the only piece for which we
+have formulas and theorems. But every piece deserves attention and improvement. Sadly,
+many pieces are not under individual control, so social solutions are needed.
+But there is an aspect of science that you do personally control: openness. Pre-plan your
+research together with the statistical analysis. Doing so will improve both the research design
+and the statistics. Document it in the form of a mock analysis that you would not be ashamed
+to share with a colleague. Register it publicly, perhaps in a simple repository, like Github or
+any other. But your webpage will do just fine, as well. Then collect the data. Then analyze
+the data as planned. If you must change the plan, that’s fine. But document the changes and
+justify them. Provide all of the data and scripts necessary to repeat your analysis. Do not
+provide scripts and data “on request,” but rather put them online so reviewers of your paper
+can access them without your interaction. There are of course cases in which full data cannot
+be released, due to privacy concerns. But the bulk of science is not of that sort.
+The data and its analysis are the scientific product. The paper is just an advertisement.
+If you do your honest best to design, conduct, and document your research, so that others
+can build directly upon it, you can make a difference.
+Rethinking: Statistics is to math as cooking is to chemistry. In a uniquely valuable essay,245 Terry
+Speed stated that “statistics is no closer to mathematics than cooking is to chemistry.” What this means
+is that while each field has a basis in another, each is sufficiently abstracted from its base to make its
+practice mostly depend upon other factors. In cooking, abstract heuristics are more useful than the
+chemical laws that explain them, and human psychology and culture can dominate. In statistics,
+context is king. General mathematical considerations always matter, but mathematical foundations
+solve few, if any, of the contingent problems that we confront in the context of a study.

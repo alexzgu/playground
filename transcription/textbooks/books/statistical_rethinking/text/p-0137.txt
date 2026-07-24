@@ -1,0 +1,50 @@
+4.5. CURVES FROM LINES
+121
+800
+1000
+1200
+1400
+1600
+1800
+2000
+year
+basis value
+0
+1
+800
+1000
+1200
+1400
+1600
+1800
+2000
+year
+basis * weight
+0
+800
+1000
+1200
+1400
+1600
+1800
+2000
+5
+6
+7
+8
+year
+March temperature
+Figure 4.13. A cubic spline with 15 knots. The top plot is, just like in the
+previous figure, the basis functions. However now more of these overlap.
+The middle plot is again each basis weighted by its corresponding parameter.
+And the sum of these weighted basis function, at each point, produces the
+spline shown at the bottom, displayed as a 97% posterior interval of µ.
+R code
+4.75
+plot( NULL , xlim=range(d2$year) , ylim=c(0,1) , xlab="year" , ylab="basis value" )
+for ( i in 1:ncol(B) ) lines( d2$year , B[,i] )
+I show these cubic basis functions in the top plot of Figure 4.13.
+Now to get the parameter weights for each basis function, we need to actually define the
+model and make it run. This is just a linear regression, at this point. We’ll use each column
+of the matrix B as a variable. We’ll also have an intercept to capture the average temperature.
+This will make it easier to define priors on the basis weights, because thenwe canjust conceive

@@ -1,0 +1,46 @@
+530
+15. MISSING DATA AND OTHER OPPORTUNITIES
+cat <- rbern( N_houses , k )
+notes <- rpois( N_houses , alpha + beta*cat )
+R_C <- rbern( N_houses , r )
+cat_obs <- cat
+cat_obs[R_C==1] <- (-9L)
+dat <- list(
+notes = notes,
+cat = cat_obs,
+RC = R_C,
+N = as.integer(N_houses) )
+At the end, I’ve replaced each unknown value of cat_obs with −9. There is nothing special
+about this value. The model will skip them. But it is usually good to use some invalid value,
+so that if you make a mistake in coding, an error will result. In this case, since cat has
+a Bernoulli distribution, if the model ever asks for the probability of observing −9, there
+should be an error, because −9 is impossible.
+To program this model, we cannot declare a parameter for each unobserved cat. So
+instead we’ll just average over our uncertainty in whether the cat was there or not. What this
+means, precisely, is that the likelihood of observing Ni notes, unconditional on Ci, is:
+Pr(Ni) = (probability of a cat)(probability of Ni when there is a cat)
++ (probability of no cat)(probability of Ni when there is no cat)
+Pr(Ni) = Pr(Ci = 1) Pr(Ni|Ci = 1) + Pr(Ci = 0) Pr(Ni|Ci = 0)
+When we don’t know Ci, we compute the likelihood of Ni for each possible value of Ci—here
+one or zero—and then average these likelihoods using the probabilities that Ci takes on each
+value. The above expression is what we need to code into the model. We can do this either by
+using Stan directly or by using custom distribution in ulam(). Let me show you the ulam()
+code. Then I’ll explain it.
+R code
+15.30
+m15.6 <- ulam(
+alist(
+# singing bird model
+## cat known present/absent:
+notes|RC==0 ~ poisson( lambda ),
+log(lambda) <- a + b*cat,
+## cat NA:
+notes|RC==1 ~ custom( log_sum_exp(
+log(k) + poisson_lpmf( notes | exp(a + b) ),
+log(1-k) + poisson_lpmf( notes | exp(a) )
+) ),
+# priors
+a ~ normal(0,1),
+b ~ normal(0,0.5),
+# sneaking cat model
+cat|RC==0 ~ bernoulli(k),

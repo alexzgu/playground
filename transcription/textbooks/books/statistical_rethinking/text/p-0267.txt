@@ -1,0 +1,46 @@
+8.1. BUILDING AN INTERACTION
+251
+R code
+8.11
+post <- extract.samples(m8.2)
+diff_a1_a2 <- post$a[,1] - post$a[,2]
+PI( diff_a1_a2 )
+5%
+94%
+-0.1990056 -0.1378378
+The difference is reliably below zero.
+Let’s plot the posterior predictions for m8.2, so you can see how, despite it’s predictive
+superiority to m8.1, it still doesn’t manage different slopes inside and outside of Africa. To
+sample from the posterior and compute the predicted means and intervals for both African
+and non-African nations:
+R code
+8.12
+rugged.seq <- seq( from=-0.1 , to=1.1 , length.out=30 )
+# compute mu over samples, fixing cid=2
+mu.NotAfrica <- link( m8.2 ,
+data=data.frame( cid=2 , rugged_std=rugged.seq ) )
+# compute mu over samples, fixing cid=1
+mu.Africa <- link( m8.2 ,
+data=data.frame( cid=1 , rugged_std=rugged.seq ) )
+# summarize to means and intervals
+mu.NotAfrica_mu <- apply( mu.NotAfrica , 2 , mean )
+mu.NotAfrica_ci <- apply( mu.NotAfrica , 2 , PI , prob=0.97 )
+mu.Africa_mu <- apply( mu.Africa , 2 , mean )
+mu.Africa_ci <- apply( mu.Africa , 2 , PI , prob=0.97 )
+I show these posterior predictions (retrodictions) in Figure 8.4. African nations are shown
+in blue, while nations outside Africa are shown in gray. What you’ve ended up with here
+is a rather weak negative relationship between economic development and ruggedness. The
+African nations do have lower overall economic development, and so the blue regression line
+is below, but parallel to, the black line. All including a dummy variable for African nations
+has done is allow the model to predict a lower mean for African nations. It can’t do anything
+to the slope of the line. The fact that WAIC tells you that the model with the dummy variable
+is hugely better only indicates that African nations on average do have lower GDP. It’s still a
+bad model.
+Rethinking: Why 97%? In the code block just above, and therefore also in Figure 8.4, I used 97%
+intervals of the expected mean. This is a rather non-standard percentile interval. So why use 97%? In
+this book, I use non-standard percents to constantly remind the reader that conventions like 95% and
+5% are arbitrary. Furthermore, boundaries are meaningless. There is continuous change in probabil-
+ity as we move away from the expected value. So one side of the boundary is almost equally probable
+as the other side. Also, 97 is a prime number. That doesn’t mean it is a better choice than any other
+number here, but it’s no less silly than using a multiple of 5, just because we have five digits on each
+hand. Resist the tyranny of the Tetrapoda.

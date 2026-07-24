@@ -1,0 +1,57 @@
+5.3. CATEGORICAL VARIABLES
+159
+The prior for males is wider, because it uses both parameters. While in a regression this
+simple, these priors will wash out very quickly, in general we should be careful. We aren’t
+actually more unsure about male height than female height, a priori. Is there another way?
+Another approach available to us, using the same information, is to use an index vari-
+able instead. An index variable contains integers that correspond to different categories.
+The integers are just names, but they also let us reference a list of corresponding parameters,
+one for each category. In this case, we can construct our index like this:
+R code
+5.46
+d$sex <- ifelse( d$male==1 , 2 , 1 )
+str( d$sex )
+num [1:544] 2 1 1 2 1 2 1 2 1 2 ...
+Now “1” means female and “2” means male. No order is implied. These are just labels. And
+the mathematical version of the model becomes:
+hi ∼Normal(µi, σ)
+µi = αsex[i]
+αj ∼Normal(178, 20)
+, for j = 1..2
+σ ∼Uniform(0, 50)
+What this does is create a list of α parameters, one for each unique value in the index variable.
+So in this case we end up with two α parameters, named α1 and α2. The numbers correspond
+to the values in the index variable sex. I know this seems overly complicated, but it solves
+our problem with the priors. Now the same prior can be assigned to each, corresponding to
+the notion that all the categories are the same, prior to the data. Neither category has more
+prior uncertainty than the other. And as you’ll see a bit later, this approach extends really
+nicely to contexts with more than two categories.
+Let’s approximate the posterior for the above model, the one using an index variable.
+R code
+5.47
+m5.8 <- quap(
+alist(
+height ~ dnorm( mu , sigma ) ,
+mu <- a[sex] ,
+a[sex] ~ dnorm( 178 , 20 ) ,
+sigma ~ dunif( 0 , 50 )
+) , data=d )
+precis( m5.8 , depth=2 )
+mean
+sd
+5.5%
+94.5%
+a[1]
+134.91 1.61 132.34 137.48
+a[2]
+142.58 1.70 139.86 145.29
+sigma
+27.31 0.83
+25.98
+28.63
+Note the depth=2 that I added to precis. This tells it to show any vector parameters, like
+our new a vector. Vector (and matrix) parameters are hidden by precies by default, because
+sometimes there are lots of these and you don’t want to inspect their individual values. You’ll
+see what I mean in later chapters.
+Interpreting these parameters is easy enough—they are the expected heights in each cat-
+egory. But often we are interested in differences between categories. In this case, what is

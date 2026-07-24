@@ -1,0 +1,47 @@
+7.5. MODEL COMPARISON
+229
+between the models that is useful, not the absolute value of the deviance. Nor do cross-validation and
+information criteria require that the data generating model be one of the models being considered.
+That was true in our simulations. But it isn’t a requirement for them to help in identifying good
+models for prediction.
+But the train-test prediction task is not representative of everything we might wish to do with
+models. For example, some statisticians prefer to evaluate predictions using a prequential frame-
+work, in which models are judged on their accumulated learning error over the training sample.122
+And once you start using multilevel models, “prediction” is no longer uniquely defined, because the
+test sample can differ from the training sample in ways that forbid use of some the parameter esti-
+mates. We’ll worry about that issue in Chapter 13.
+Perhaps a larger concern is that our train-test thought experiment pulls the test sample from
+exactly the same process as the training sample. This is a kind of uniformitarian assumption, in which
+future data are expected to come from the same process as past data and have the same rough range of
+values. This can cause problems. For example, suppose we fit a regression that predicts height using
+body weight. The training sample comes from a poor town, in which most people are pretty thin.
+The relationship between height and weight turns out to be positive and strong. Now also suppose
+our prediction goal is to guess the heights in another, much wealthier, town. Plugging the weights
+from the wealthy individuals into the model fit to the poor individuals will predict outrageously tall
+people. The reason is that, once weight becomes large enough, it has essentially no relationship with
+height. WAIC will not automatically recognize nor solve this problem. Nor will any other isolated
+procedure. But over repeated rounds of model fitting, attempts at prediction, and model criticism, it
+is possible to overcome this kind of limitation. As always, statistics is no substitute for science.
+7.5. Model comparison
+Let’s review the original problem and the road so far. When there are several plausible
+(and hopefully un-confounded) models for the same set of observations, how should we com-
+pare the accuracy of these models? Following the fit to the sample is no good, because fit will
+always favor more complex models. Information divergence is the right measure of model
+accuracy, but even it will just lead us to choose more and more complex and wrong models.
+We need to somehow evaluate models out-of-sample. How can we do that? A meta-model of
+forecasting tells us two important things. First, flat priors produce bad predictions. Regular-
+izing priors—priors which are skeptical of extreme parameter values—reduce fit to sample
+but tend to improve predictive accuracy. Second, we can get a useful guess of predictive ac-
+curacy with the criteria CV, PSIS, and WAIC. Regularizing priors and CV/PSIS/WAIC are
+complementary. Regularization reduces overfitting, and predictive criteria measure overfit-
+ting.
+That’s the road so far, the conceptual journey. And that’s the hardest part. Using tools
+like PSIS and WAIC is much easier than understanding them. Which makes them quite
+dangerous. That is why this chapter has spent so much time on foundations, without doing
+any actual data analysis.
+Now let’s do some analysis. How do we use regularizing priors and CV/PSIS/WAIC?
+A very common use of cross-validation and information criteria is to perform model se-
+lection, which means choosing the model with the lowest criterion value and then dis-
+carding the others. But you should never do this. This kind of selection procedure dis-
+cards the information about relative model accuracy contained in the differences among the
+CV/PSIS/WAIC values. Why are the differences useful? Because sometimes the differences

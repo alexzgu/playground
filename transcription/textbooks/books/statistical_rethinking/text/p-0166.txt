@@ -1,0 +1,62 @@
+150
+5. THE MANY VARIABLES & THE SPURIOUS WAFFLES
+missing values in the N variable. Take a look inside the original variable and see for yourself:
+R code
+5.30
+d$neocortex.perc
+[1] 55.16
+NA
+NA
+NA
+NA 64.54 64.54 67.64
+NA 68.85 58.85 61.69
+[13] 60.32
+NA
+NA 69.97
+NA 70.41
+NA 73.40
+NA 67.53
+NA 71.26
+[25] 72.60
+NA 70.24 76.30 75.49
+Each NA in the output is a missing value. If you pass a vector like this to a likelihood func-
+tion like dnorm, it doesn’t know what to do. After all, what’s the probability of a missing
+value? Whatever the answer, it isn’t a number, and so dnorm returns a NaN. Unable to even
+get started, quap (or rather optim, which does the real work) gives up and barks about some
+weird thing called vmmin not being finite. This kind of opaque error message is unfortunately
+the norm in R. The additional part of the message suggesting NA values might be responsible
+is just quap taking a guess.
+This is easy to fix. What you need to do here is manually drop all the cases with missing
+values. This is known as a complete case analysis. More automated model fitting com-
+mands, like lm and glm, will silently drop such cases for you. But this isn’t always a good
+thing. In later chapters, you’ll see a few reasons why. Please indulge me for now. It’s worth
+learning how to do this yourself. To make a new data frame with only complete cases in it,
+just use:
+R code
+5.31
+dcc <- d[ complete.cases(d$K,d$N,d$M) , ]
+This makes a new data frame, dcc, that consists of the 17 rows from d that have values in all
+columns. Now let’s work with the new data frame. All that is new in the code is using dcc
+instead of d:
+R code
+5.32
+m5.5_draft <- quap(
+alist(
+K ~ dnorm( mu , sigma ) ,
+mu <- a + bN*N ,
+a ~ dnorm( 0 , 1 ) ,
+bN ~ dnorm( 0 , 1 ) ,
+sigma ~ dexp( 1 )
+) , data=dcc )
+Before considering the posterior predictions, let’s consider those priors. As in many simple
+linear regression problems, these priors are harmless. But are they reasonable? It is impor-
+tant to build reasonable priors, because as the model becomes less simple, the priors can
+be very helpful, but only if they are scientifically reasonable. To simulate and plot 50 prior
+regression lines:
+R code
+5.33
+prior <- extract.prior( m5.5_draft )
+xseq <- c(-2,2)
+mu <- link( m5.5_draft , post=prior , data=list(N=xseq) )
+plot( NULL , xlim=xseq , ylim=xseq )
+for ( i in 1:50 ) lines( xseq , mu[i,] , col=col.alpha("black",0.3) )

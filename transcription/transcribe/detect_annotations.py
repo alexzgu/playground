@@ -62,7 +62,7 @@ def detect_page(path: Path, crops_dir: Path) -> dict:
 def main():
     ap = argparse.ArgumentParser()
     here = Path(__file__).resolve().parent
-    ap.add_argument("--pages-dir", default=str(here.parent / "pages"))
+    ap.add_argument("--pages-dir", default=str(here / "pages"))
     ap.add_argument("--out", default=str(here / "out"))
     args = ap.parse_args()
 

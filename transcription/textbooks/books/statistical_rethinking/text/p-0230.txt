@@ -1,0 +1,61 @@
+214
+7. ULYSSES’ COMPASS
+All of this also means that all we need to know is a model’s average log-probability:
+E log(qi) for q and E log(ri) for r. These expressions look a lot like log-probabilities of out-
+comes you’ve been using already to simulate implied predictions of a fit model. Indeed, just
+summing the log-probabilities of each observed case provides an approximation of E log(qi).
+We don’t have to know the p inside the expectation.
+So we can compare the average log-probability from each model to get an estimate of the
+relative distance of each model from the target. This also means that the absolute magnitude
+of these values will not be interpretable—neither E log(qi) nor E log(ri) by itself suggests a
+good or bad model. Only the difference E log(qi)−E log(ri) informs us about the divergence
+of each model from the target p.
+To put all this into practice, it is conventional to sum over all the observations i, yielding
+a total score for a model q:
+S(q) =
+X
+i
+log(qi)
+This kind of score is a log-probability score, and it is the gold standard way to compare the
+predictive accuracy of different models. It is an estimate of E log(qi), just without the final
+step of dividing by the number of observations.
+To compute this score for a Bayesian model, we have to use the entire posterior distribu-
+tion. Otherwise, vengeful angels will descend upon you. Why will they be angry? If we don’t
+use the entire posterior, we are throwing away information. Because the parameters have dis-
+tributions, the predictions also have a distribution. How can we use the entire distribution of
+predictions? We need to find the log of the average probability for each observation i, where
+the average is taken over the posterior distribution. Doing this calculation correctly requires
+a little subtlety. The rethinking package has a function called lppd—log-pointwise-
+predictive-density—to do this calculation for quap models. If you are interested in the
+subtle details, however, see the box at the end of this section. To compute For the first model
+we fit in this chapter:
+R code
+7.13
+set.seed(1)
+lppd( m7.1 , n=1e4 )
+[1]
+0.6098668
+0.6483438
+0.5496093
+0.6234934
+0.4648143
+0.4347605 -0.8444633
+Each of these values is the log-probability score for a specific observation. Recall that there
+were only 7 observations in those data. If you sum these values, you’ll have the total log-
+probability score for the model and data. What do these values mean? Larger values are
+better, because that indicates larger average accuracy. It also quite common to see something
+called the deviance, which is like a lppd score, but multiplied by −2 so that smaller values
+are better. The 2 is there for historical reasons.106
+Overthinking: Computing the lppd. The Bayesian version of the log-probability score is called the
+log-pointwise-predictive-density. For some data y and posterior distribution Θ:
+lppd(y, Θ) =
+X
+i
+log 1
+S
+X
+s
+p(yi|Θs)
+where S is the number of samples and Θs is the s-th set of sampled parameter values in the posterior
+distribution. While in principle this is easy—you just need to compute the probability (density) of
+each observation i for each sample s, take the average, and then the logarithm—in practice it is not

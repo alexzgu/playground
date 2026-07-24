@@ -1,0 +1,50 @@
+52
+3. SAMPLING THE IMAGINARY
+compute the posterior:
+Pr(true|pos) = Pr(pos|true) Pr(true)
+Pr(pos)
+=
+Pr(pos|true) Pr(true)
+Pr(pos|true) Pr(true) + Pr(pos|false) Pr(false)
+Plug in the appropriate values, and the answer is approximately Pr(true|pos) = 0.16. So a positive
+finding corresponds to a 16% chance that the hypothesis is true. This is the same low base-rate phe-
+nomenon that applies in medical (and vampire) testing. You can shrink the false-positive rate to 1%
+and get this posterior probability up to 0.5, only as good as a coin flip. The most important thing to
+do is to improve the base rate, Pr(true), and that requires thinking, not testing.52
+3.1. Sampling from a grid-approximate posterior
+Before beginning to work with samples, we need to generate them. Here’s a reminder
+for how to compute the posterior for the globe tossing model, using grid approximation.
+Remember, the posterior here means the probability of p conditional on the data.
+R code
+3.2
+p_grid <- seq( from=0 , to=1 , length.out=1000 )
+prob_p <- rep( 1 , 1000 )
+prob_data <- dbinom( 6 , size=9 , prob=p_grid )
+posterior <- prob_data * prob_p
+posterior <- posterior / sum(posterior)
+Now we wish to draw 10,000 samples from this posterior. Imagine the posterior is a bucket
+full of parameter values, numbers such as 0.1, 0.7, 0.5, 1, etc. Within the bucket, each value
+exists in proportion to its posterior probability, such that values near the peak are much more
+common than those in the tails. We’re going to scoop out 10,000 values from the bucket.
+Provided the bucket is well mixed, the resulting samples will have the same proportions as
+the exact posterior density. Therefore the individual values of p will appear in our samples
+in proportion to the posterior plausibility of each value.
+Here’s how you can do this in R, with one line of code:
+R code
+3.3
+samples <- sample( p_grid , prob=posterior , size=1e4 , replace=TRUE )
+The workhorse here is sample, which randomly pulls values from a vector. The vector in
+this case is p_grid, the grid of parameter values. The probability of each value is given by
+posterior, which you computed just above.
+The resulting samples are displayed in Figure 3.1. On the left, all 10,000 (1e4) random
+samples are shown sequentially.
+R code
+3.4
+plot( samples )
+In this plot, it’s as if you are flying over the posterior distribution, looking down on it. There
+are many more samples from the dense region near 0.6 and very few samples below 0.25. On
+the right, the plot shows the density estimate computed from these samples.
+R code
+3.5
+library(rethinking)
+dens( samples )

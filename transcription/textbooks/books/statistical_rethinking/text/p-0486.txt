@@ -1,0 +1,51 @@
+470
+14. ADVENTURES IN COVARIANCE
+to know. The association is however confounded by the back-door path through U. What
+happens if we then add Q to the model as another predictor? Bad stuff happens. There is
+no back-door path through Q, as you can see. But there is a non-causal path from Q to W
+through U: Q →E ←U →W. This is a non-causal path, because changing Q doesn’t result
+in any change in W through this path. But since we are conditioning on E in the same model,
+and E is a collider of Q and U, the non-causal path is open. This confounds the coefficient
+on Q. It won’t be zero, because it’ll pick up the association between U and W. And then, as a
+result, the coefficient on E can get even more confounded. Used this way, an instrument like
+Q might be called a bias amplifier.196
+This is all very confusing. Consider this example. Suppose Q indicates which quarter
+of the year—winter, spring, summer, fall—a person was born in. Why might this influence
+education? Because people born earlier in the year tend to get less schooling. This is both
+because they are biologically older when they start school and because they become eligible
+to drop out of school earlier. Now, if it is true that Q influences W only through E, and
+Q is also not influenced by confounds U, then Q is one of these mysterious instrumental
+variables. This means we can use it in a special way to make a valid causal inference about
+E →W without measuring U.
+This example is based on a real study,197 but let’s simulate the data, both to keep it simple
+and to be sure what the right answer is. Remember: With real data, you never know what the
+right answer is. That is why studying simulated examples is so important, both for verifying
+that algorithms work and for schooling our intuition. Here are 500 simulated people:
+R code
+14.23
+set.seed(73)
+N <- 500
+U_sim <- rnorm( N )
+Q_sim <- sample( 1:4 , size=N , replace=TRUE )
+E_sim <- rnorm( N , U_sim + Q_sim )
+W_sim <- rnorm( N , U_sim + 0*E_sim )
+dat_sim <- list(
+W=standardize(W_sim) ,
+E=standardize(E_sim) ,
+Q=standardize(Q_sim) )
+The instrument Q varies from 1 to 4. Largest values are associated with more education,
+through the addition of Q_sim to the mean of E_sim. I’ve assumed that the true influence
+of education on wages is zero. This is just for the sake of the example. But the instrument Q
+does influence education, so it can serve as an instrument for discovering E →W.
+Let’s consider three models. First, if we naively regress wages on education, the model
+will be confident that education causes higher wages:
+R code
+14.24
+m14.4 <- ulam(
+alist(
+W ~ dnorm( mu , sigma ),
+mu <- aW + bEW*E,
+aW ~ dnorm( 0 , 0.2 ),
+bEW ~ dnorm( 0 , 0.5 ),
+sigma ~ dexp( 1 )
+) , data=dat_sim , chains=4 , cores=4 )

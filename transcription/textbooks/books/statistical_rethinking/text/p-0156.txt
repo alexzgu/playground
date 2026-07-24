@@ -1,0 +1,83 @@
+140
+5. THE MANY VARIABLES & THE SPURIOUS WAFFLES
+-2
+-1
+0
+1
+2
+3
+-1
+0
+1
+2
+Age at marriage (std)
+Marriage rate (std)
+DC
+HI
+ME
+ND
+WY
+-1
+0
+1
+2
+-2
+-1
+0
+1
+2
+3
+Marriage rate (std)
+Age at marriage (std)
+DC
+HI
+ID
+-1.5
+-1.0
+-0.5
+0.0
+0.5
+1.0
+1.5
+-2
+-1
+0
+1
+2
+Marriage rate residuals
+Divorce rate (std)
+DC
+HI
+ME
+ND
+WY
+-1
+0
+1
+2
+-2
+-1
+0
+1
+2
+Age at marriage residuals
+Divorce rate (std)
+DC
+HI
+ID
+Figure 5.4. Understanding multiple regression through residuals. The top
+row shows each predictor regressed on the other predictor. The lengths of
+the line segments connecting the model’s expected value of the outcome,
+the regression line, and the actual value are the residuals. In the bottom row,
+divorce rate is regressed on the residuals from the top row. Bottom left: The
+residual variation in marriage rate shows no association with divorce rate.
+Bottom right: Divorce rate on age at marriage residuals, showing remaining
+variation among the residuals, and this variation is associated with divorce
+rate.
+R code
+5.14
+mu <- link(m5.4)
+mu_mean <- apply( mu , 2 , mean )
+mu_resid <- d$M - mu_mean
+When a residual is positive, that means that the observed rate was in excess of what the model
+expects, given the median age at marriage in that State. When a residual is negative, that

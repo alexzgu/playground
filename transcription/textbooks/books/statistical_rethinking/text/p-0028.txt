@@ -1,0 +1,33 @@
+12
+1. THE GOLEM OF PRAGUE
+Figure 1.3. Saturn, much like Galileo must have seen it. The true shape
+is uncertain, but not because of any sampling variation. Probability theory
+can still help.
+golems aren’t justifying their inferences with imagined repeat sampling. More generally,
+Bayesian golems treat “randomness” as a property of information, not of the world. Nothing
+in the real world—excepting controversial interpretations of quantum physics—is actually
+random. Presumably, if we had more information, we could exactly predict everything. We
+just use randomness to describe our uncertainty in the face of incomplete knowledge. From
+the perspective of our golem, the coin toss is “random,” but it’s really the golem that is ran-
+dom, not the coin.
+Note that the preceding description doesn’t invoke anyone’s “beliefs” or subjective opin-
+ions. Bayesian data analysis is just a logical procedure for processing information. There is
+a tradition of using this procedure as a normative description of rational belief, a tradition
+called Bayesianism.25 But this book neither describes nor advocates it. In fact, I’ll argue
+that no statistical approach, Bayesian or otherwise, is by itself sufficient.
+Rethinking: Probability is not unitary. It will make some readers uncomfortable to suggest that
+there is more than one way to define “probability.” Aren’t mathematical concepts uniquely correct?
+They are not. Once you adopt some set of premises, or axioms, everything does follow logically in
+mathematical systems. But the axioms are open to debate and interpretation. So not only is there
+“Bayesian” and “frequentist” probability, but there are different versions of Bayesian probability even,
+relying upon different arguments to justify the approach. In more advanced Bayesian texts, you’ll
+come across names like Bruno de Finetti, Richard T. Cox, and Leonard “Jimmie” Savage. Each of
+these figures is associated with a somewhat different conception of Bayesian probability. There are
+others. This book mainly follows the “logical” Cox (or Laplace-Jeffreys-Cox-Jaynes) interpretation.
+This interpretation is presented beginning in the next chapter, but unfolds fully only in Chapter 10.
+How can different interpretations of probability theory thrive? By themselves, mathematical en-
+tities don’t necessarily “mean” anything, in the sense of real world implication. What does it mean to
+take the square root of a negative number? What does mean to take a limit as something approaches
+infinity? These are essential and routine concepts, but their meanings depend upon context and an-
+alyst, upon beliefs about how well abstraction represents reality. Mathematics doesn’t access the real
+world directly. So answering such questions remains a contentious and entertaining project, in all

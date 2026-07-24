@@ -1,0 +1,60 @@
+316
+10. BIG ENTROPY AND THE GENERALIZED LINEAR MODEL
+ww
+bw
+wb
+bb
+ww
+bw
+wb
+bb
+ww
+bw
+wb
+bb
+ww
+bw
+wb
+bb
+A
+B
+C
+D
+Figure 10.3. Four different distributions
+with the same expected value, 1 blue marble
+in 2 draws. The outcomes on the horizontal
+axes correspond to 2 white marbles (ww), 1
+blue and then 1 white (bw), 1 white and then
+1 blue (wb), and 2 blue marbles (bb).
+Distribution A is the binomial distribution with n = 2 and p = 0.5. The outcomes bw
+and wb are usually collapsed into the same outcome type. But in principle they are differ-
+ent outcomes, whether we care about the order of outcomes or not. So the corresponding
+binomial probabilities are Pr(ww) = (1 −p)2, Pr(bw) = p(1 −p), Pr(wb) = (1 −p)p, and
+Pr(bb) = p2. Since p = 0.5 in this example, all four probabilities evaluate to 1/4.
+The other distributions—B, C, and D—have the same expected value, but none of them
+is binomial. We can expediently verify this by placing them inside a list and passing each
+to an expected value formula:
+R code
+10.5
+# build list of the candidate distributions
+p <- list()
+p[[1]] <- c(1/4,1/4,1/4,1/4)
+p[[2]] <- c(2/6,1/6,1/6,2/6)
+p[[3]] <- c(1/6,2/6,2/6,1/6)
+p[[4]] <- c(1/8,4/8,2/8,1/8)
+# compute expected value of each
+sapply( p , function(p) sum(p*c(0,1,1,2)) )
+[1] 1 1 1 1
+And likewise we can quickly compute the entropy of each distribution:
+R code
+10.6
+# compute entropy of each distribution
+sapply( p , function(p) -sum( p*log(p) ) )
+[1] 1.386294 1.329661 1.329661 1.213008
+Distribution A, the binomial distribution, has the largest entropy among the four. To ap-
+preciate why, consider that information entropy increases as a probability distribution be-
+comes more even. Distribution A is a flat line, as you can see in Figure 10.3. It can’t be
+made any more even, and each of the other distributions is clearly less even. That’s why
+they have smaller entropies. And since distribution A is consistent with the constraint that
+the expected value be 1, it follows that distribution A, which is binomial, has the maximum
+entropy of any distribution with these constraints.

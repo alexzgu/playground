@@ -1,0 +1,52 @@
+276
+9. MARKOV CHAIN MONTE CARLO
+0
+5
+10
+15
+20
+25
+30
+35
+0.0
+0.2
+0.4
+0.6
+0.8
+Radial distance from mode
+Density
+1
+10
+100
+1000
+Figure 9.4. Concentration of measure and the curse of high dimensions.
+The horizontal axis shows radial distance from the mode in parameter
+space. Each density is a random sample of 1000 points. The number above
+each density is the number of dimensions. As the number of parameters
+increases, the mode is further away from the values we want to sample.
+Rd <- sapply( 1:T , function(i) rad_dist( Y[i,] ) )
+dens( Rd )
+I display this density, as well as the corresponding densities for distributions with 1, 100, and
+1000 dimensions, in Figure 9.4. The horizontal axis here is radial distance of the point from
+the mode. So the value 0 is the peak of probability. You can see that an ordinary Gaussian
+distribution with only 1 dimension, on the left, samples most of its points right next to this
+peak, as you’d expect. But with 10 dimensions, already there are no samples next to the
+peak at zero. With 100 dimensions, we’ve moved very far from the peak. And with 1000
+dimensions, even further. The sampled points are in a thin, high-dimensional shell very far
+from the mode. Inside this shell, pairs of parameters curve dramatically against one another,
+creating very hard paths for a sampler to follow.
+This is why we need MCMC algorithms other than Metropolis and Gibbs that focus on
+the entire posterior at once, instead of one or a few dimensions at a time. Otherwise we get
+stuck in a narrow, highly curving region of parameter space.
+9.3. Hamiltonian Monte Carlo
+It appears to be a quite general principle that, whenever there is a random-
+ized way of doing something, then there is a nonrandomized way that deliv-
+ers better performance but requires more thought. —E. T. Jaynes142
+The Metropolis algorithm and Gibbs sampling are highly random procedures. They try
+out new parameter values—proposals—and see how good they are, compared to the cur-
+rent values. Gibbs sampling gains efficiency by reducing the randomness of proposals by
+exploiting knowledge of the target distribution. This seems to fit Jaynes’ suggestion, quoted
+above, that when there is a random way of accomplishing some calculation, there is probably
+a less random way that is better. This less random way may require a lot more thought. The
+Gibbs strategy has limitations, but it gets its improvement over plain Metropolis by being
+less random, not more.

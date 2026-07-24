@@ -1,0 +1,59 @@
+86
+4. GEOCENTRIC MODELS
+0.000
+0.010
+0.020
+mu
+Density
+mu ~ dnorm( 178 , 20 )
+100
+178
+250
+0.000
+0.010
+0.020
+sigma
+Density
+sigma ~ dunif( 0 , 50 )
+0
+50
+0.000
+0.004
+0.008
+0.012
+height
+Density
+h ~ dnorm(mu,sigma)
+0
+73
+178
+283
+0.000
+0.002
+0.004
+height
+Density
+h ~ dnorm(mu,sigma)
+ mu ~ dnorm(178,100)
+-128
+0
+178
+484
+Figure 4.3. Prior predictive simulation for the height model. Top row:
+Prior distributions for µ and σ. Bottom left: The prior predictive simulation
+for height, using the priors in the top row. Values at 3 standard deviations
+shown on horizontal axis. Bottom right: Prior predictive simulation using
+µ ∼Normal(178, 100).
+expects some giants. One of the tallest people in recorded history, Robert Pershing Wadlow
+(1918–1940) stood 272cm tall. In our prior predictive simulation, 18% of people (right of
+solid line) are taller than this.
+Does this matter? It is true is this case that we have so much data that even this silly
+prior is harmless. But that won’t always be the case. There are plenty of inference problems
+for which the data alone are not sufficient, no matter how numerous. Bayes lets us proceed
+in these cases. But only if we use our scientific knowledge to construct sensible priors.
+Rethinking: A farewell to epsilon. Some readers will have already met an alternative notation for a
+Gaussian linear model:
+hi = µ + ϵi
+ϵi ∼Normal(0, σ)
+This is equivalent to the hi ∼Normal(µ, σ) form, with the ϵ standing in for the Gaussian density. But
+this ϵ form is poor form. The reason is that it does not usually generalize to other types of models.

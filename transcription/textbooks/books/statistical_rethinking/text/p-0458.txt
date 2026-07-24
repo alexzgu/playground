@@ -1,0 +1,49 @@
+442
+13. MODELS WITH MEMORY
+At some point, you will have to work with a model that link will mangle. At that time, you
+can return to this section and peer hard at the code above and still make progress. No matter
+what the model is, if it is a Bayesian model, then it is generative. This means that predictions
+are made by pushing samples up through the model to get distributions of predictions. Then
+you summarize the distributions to summarize the predictions.
+13.5.2. Posterior prediction for new clusters. The problem of making predictions for new
+clusters is really a problem of generalizing from the sample. In general, there is no unique
+procedure for generalizing predictions outside of a sample. The right thing to do depends
+upon the causal model, the statistical model, and your goals. But if you have a generative
+model, then you can often think your way through it. The key idea is to use the posterior to
+parameterize a simulation that embodies the target generalization.
+Let’s consider some simple examples.
+Suppose you want to predict how chimpanzees in another population would respond
+to our lever pulling experiment. The particular 7 chimpanzees in the sample allowed us to
+estimate 7 unique intercepts. But these individual actor intercepts aren’t of interest, because
+none of these 7 individuals is in the new population.
+One way to grasp the task of constructing posterior predictions for new clusters is to
+imagine leaving out one of the clusters when you fit the model to the data. For example,
+suppose we leave out actor number 7 when we fit the chimpanzees model. Now how can we
+assess the model’s accuracy for predicting actor number 7’s behavior? We can’t use any of the
+a parameter estimates, because those apply to other individuals. But we can make good use
+of the a_bar and sigma_a parameters. These parameters describe a statistical population of
+actors, and we can simulate new actors from it.
+First, let’s see how to construct posterior predictions for a new, previously unobserved
+average actor. By “average,” I mean an individual chimpanzee with an intercept exactly at
+a_bar (¯α), the population mean. Since there is uncertainty about the population mean, there
+is still uncertainty about this average individual’s intercept. But as you’ll see, the uncertainty
+is much smaller than it really should be, if we wish to honestly represent the problem of what
+to expect from a new individual.
+What we need is our own link function, but now with twist:
+R code
+13.36
+p_link_abar <- function( treatment ) {
+logodds <- with( post , a_bar + b[,treatment] )
+return( inv_logit(logodds) )
+}
+Notice that the function ignores block. This is because we are extrapolating to new blocks,
+so we assume the average block effect is about zero (which it was in the sample). Call this
+function and summarize just as before:
+R code
+13.37
+post <- extract.samples(m13.4)
+p_raw <- sapply( 1:4 , function(i) p_link_abar( i ) )
+p_mu <- apply( p_raw , 2 , mean )
+p_ci <- apply( p_raw , 2 , PI )
+plot( NULL , xlab="treatment" , ylab="proportion pulled left" ,
+ylim=c(0,1) , xaxt="n" , xlim=c(1,4) )

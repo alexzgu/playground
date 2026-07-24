@@ -1,0 +1,50 @@
+10.1. MAXIMUM ENTROPY
+317
+This example is too special to demonstrate the general case, however. It’s special because
+when the expected value is 1, the distribution over outcomes can be flat and remain consistent
+with the constraint. But what about when the expected value constraint is not 1? Suppose for
+our second example that the expected value must be instead 1.4 blue marbles in two draws.
+This corresponds to p = 0.7. So you can think of this as 7 blue marbles and 3 white marbles
+hidden inside the bag. The binomial distribution with this expected value is:
+R code
+10.7
+p <- 0.7
+( A <- c( (1-p)^2 , p*(1-p) , (1-p)*p , p^2 ) )
+[1] 0.09 0.21 0.21 0.49
+This distribution is definitely not flat. So to appreciate how this distribution has maximum
+entropy—is the flattest distribution with expected value 1.4—we’ll simulate a bunch of dis-
+tributions with the same expected value and then compare entropies. The entropy of the
+distribution above is just:
+R code
+10.8
+-sum( A*log(A) )
+[1] 1.221729
+So if we randomly generate thousands of distributions with expected value 1.4, we expect
+that none will have a larger entropy than this.
+We can use a short R function to simulate random probability distributions that have any
+specified expected value. The code below will do the job. Don’t worry about how it works
+(unless you want to161).
+R code
+10.9
+sim.p <- function(G=1.4) {
+x123 <- runif(3)
+x4 <- ( (G)*sum(x123)-x123[2]-x123[3] )/(2-G)
+z <- sum( c(x123,x4) )
+p <- c( x123 , x4 )/z
+list( H=-sum( p*log(p) ) , p=p )
+}
+This function generates a random distribution with expected value G and then returns its
+entropy along with the distribution. We want to invoke this function a large number of times.
+Here is how to call it 100000 times and then plot the distribution of resulting entropies:
+R code
+10.10
+H <- replicate( 1e5 , sim.p(1.4) )
+dens( as.numeric(H[1,]) , adj=0.1 )
+The list H now holds 100000 probability distributions and their calculated entropies. The
+distribution of entropies is shown in the left-hand plot in Figure 10.4. The letters A, B, C,
+and D mark different example entropies. The distributions corresponding to each are shown
+in the right-hand part of the figure. The distribution A with the largest observed entropy is
+nearly identical to the binomial we calculated earlier. And its entropy is nearly identical as
+well.
+You don’t have to take my word for it. Let’s split out the entropies and distributions, so
+that it’s easier to work with them:

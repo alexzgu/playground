@@ -1,0 +1,48 @@
+16.1. GEOMETRIC PEOPLE
+541
+But suppose you couldn’t look it up. What then? A very useful trick is to instead get rid of
+the measurement scales altogether—measurement scales are arbitrary human inventions—
+and then use the known biological constraints to locate the prior. How do we get rid of
+measurement scale? We can divide the observed variables by some reference values. This
+will divide out the units. For example, suppose that we divide both height and weight by
+their mean values.
+R code
+16.1
+library(rethinking)
+data(Howell1)
+d <- Howell1
+# scale observed variables
+d$w <- d$weight / mean(d$weight)
+d$h <- d$height / mean(d$height)
+The new variables w and h have means of 1. There is nothing special about using the means
+here. We just need some reference value to divide out the units. Now consider what a plausi-
+ble value of k might be, under this scaling. Suppose we have an individual of average height
+and weight. In that case wi = 1 and hi = 1. Plugging these into the formula:
+1 = kπp213
+Assuming p < 0.5, then k must be greater than 1. I suggest we constrain k to be positive (it
+has to be) and give it a prior mean around 2.
+k ∼Exponential(0.5)
+We could certainly do better than this, with some prior predictive simulation. But this will
+get us started.
+Now let’s pull all the threads together into a tapestry of code.
+R code
+16.2
+m16.1 <- ulam(
+alist(
+w ~ dlnorm( mu , sigma ),
+exp(mu) <- 3.141593 * k * p^2 * h^3,
+p ~ beta( 2 , 18 ),
+k ~ exponential( 0.5 ),
+sigma ~ exponential( 1 )
+), data=d , chains=4 , cores=4 )
+Take a look at the precis() output. Can you make sense of the posterior distributions of p
+and k? How were the priors updated?
+While you think of answers to those questions, Let’s inspect what the posterior does with
+the lack of identifiability of k and p. The pairs(m16.1) plot is the easiest way to appreciate
+it. I show this plot in Figure 16.2, on the left. There is a narrow curved ridge in the posterior
+where combinations of k and p produce the same product kp2. This results in a strong nega-
+tive correlation between the two parameters—if one gets bigger, the other has to get smaller
+to maintain the same product. Because we used informative priors, we were able to fit this
+model anyway. But there is still no independent information about these parameters in the
+data itself. At least not with this model. There’s no reason in principle that k and p aren’t
+also functions of height (or age). For example, muscle and far have very different densities.

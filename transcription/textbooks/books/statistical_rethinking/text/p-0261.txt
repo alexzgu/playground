@@ -1,0 +1,45 @@
+8.1. BUILDING AN INTERACTION
+245
+the data into two data frames, one for Africa and one for all the other continents. But it’s not
+a good idea to split the data in this way. Here are four reasons.
+First, there are usually some parameters, such as σ, that the model says do not depend
+in any way upon continent. By splitting the data table, you are hurting the accuracy of the es-
+timates for these parameters, because you are essentially making two less-accurate estimates
+instead of pooling all of the evidence into one estimate. In effect, you have accidentally as-
+sumed that variance differs between African and non-African nations. Now, there’s nothing
+wrong with that sort of assumption. But you want to avoid accidental assumptions.
+Second, in order to acquire probability statements about the variable you used to split
+the data, cont_africa in this case, you need to include it in the model. Otherwise, you
+have only the weakest sort of statistical argument. Isn’t there uncertainty about the predictive
+value of distinguishing between African and non-African nations? Of course there is. Unless
+you analyze all of the data in a single model, you can’t easily quantify that uncertainty. If you
+just let the posterior distribution do the work for you, you’ll have a useful measure of that
+uncertainty.
+Third, we may want to use information criteria or another method to compare models.
+In order to compare a model that treats all continents the same way to a model that allows
+different slopes in different continents, we need models that use all of the same data (as
+explained in Chapter 7). This means we can’t split the data, but have to make the model split
+the data.
+Fourth, once you begin using multilevel models (Chapter 13), you’ll see that there are
+advantages to borrowing information across categories like “Africa” and “not Africa.” This is
+especially true when sample sizes vary across categories, such that overfitting risk is higher
+within some categories. In other words, what we learn about ruggedness outside of Africa
+should have some effect on our estimate within Africa, and visa versa. Multilevel models
+(Chapter 13) borrow information in this way, in order to improve estimates in all categories.
+When we split the data, this borrowing is impossible.
+Overthinking: Not so simple causation. The terrain ruggedness DAG in the preceding section is
+simple. But the truth isn’t so simple. Continent isn’t really the cause of interest. Rather there are
+hypothetical historical exposures to colonialism and the slave trade that have persistent influences
+on economic performance. Terrain features, like ruggedness, that causally reduced those historical
+factors may indirectly influence economy. Like this:
+C
+G
+H
+R
+U
+H stands for historical factors like exposure to slave trade. The total causal influence of R contains
+both a direct path R →G (this is presumably always negative) and an indirect path R →H →G. The
+second path is the one that covaries with continent C, because H is strongly associated with C. Note
+that the confounds U could influence any of these variables (except for C). If for example distance to
+coast is really what influenced H in the past, not terrain ruggedness, then the association of terrain
+ruggedness with GDP is non-causal. The data contain a large number of potential confounds that

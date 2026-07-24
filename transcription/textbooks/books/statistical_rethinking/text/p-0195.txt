@@ -1,0 +1,48 @@
+6.2. POST-TREATMENT BIAS
+179
+T, but only when we condition on F. Conditioning on F effectively blocks the directed path
+T →F →H1, making T and H1 independent (d-separated). In the previous chapter, you saw
+the notation H1 ⊥⊥T|F for this kind of statement, when we discussed implied conditional
+independencies. Why does this happen? There is no information in T about H1 that is not
+also in F. So once we know F, learning T provides no additional information about H1. You
+can query the implied conditional independencies for this DAG:
+R code
+6.19
+impliedConditionalIndependencies(plant_dag)
+F _||_ H0
+H0 _||_ T
+H1 _||_ T | F
+There are three. The third one is the focus of our discussion. But the other two implications
+provide ways to test the DAG. What F ⊥⊥H0 and H0 ⊥⊥T say is that the original plant
+height, H0, should not be associated with the treatment T or fungus F, provided we do not
+condition on anything.
+Obviously the problem of post-treatment variables applies just as well to observational
+studies as it does to experiments. But in experiments, it can be easier to tell which variables
+are pre-treatment, like h0, and which are post-treatment, like fungus. In observational stud-
+ies, it is harder to know. But there are some subtle traps in experiments as well.
+For example, conditioning on a post-treatment variable can not only fool you into think-
+ing the treatment doesn’t work. It can also fool you into thinking it does work. Consider the
+DAG below:
+F
+H0
+H1
+M
+T
+In this graph, the treatment T influences fungus F, but fungus doesn’t influence plant growth.
+Maybe the plant species just isn’t bothered by this particular fungus. The new variable M is
+moisture. It influences both H1 and F. M is circled to indicate that it is unobserved. Any
+unobserved common cause of H1 and F will do—it doesn’t have to be moisture of course.
+A regression of H1 on T will show no association between the treatment and plant growth.
+But if we include F in the model, suddenly there will be an association. Let’s try it. I’ll just
+modify the plant growth simulation so that fungus has no influence on growth, but moisture
+M influences both H1 and F:
+R code
+6.20
+set.seed(71)
+N <- 1000
+h0 <- rnorm(N,10,2)
+treatment <- rep( 0:1 , each=N/2 )
+M <- rbern(N)
+fungus <- rbinom( N , size=1 , prob=0.5 - treatment*0.4 + 0.4*M )
+h1 <- h0 + rnorm( N , 5 + 3*M )
+d2 <- data.frame( h0=h0 , h1=h1 , treatment=treatment , fungus=fungus )

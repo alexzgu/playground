@@ -1,0 +1,54 @@
+588
+Bibliography
+Kruscke, J. K. (2011). Doing Bayesian Data Analysis. Academic Press, Burlington, MA.
+Kullback, S. (1959). Information theory and statistics. John Wiley and Sons, NY.
+Kullback, S. (1987). The Kullback-Leibler distance. The American Statistician, 41(4):340.
+Kullback, S. and Leibler, R. A. (1951). On information and sufficiency. Annals of Mathematical
+Statistics, 22(1):79–86.
+Lambert, D. (1992). Zero-inflated Poisson regression, with an application to defects in manufactur-
+ing. Technometrics, 34:1–14.
+Landis, M. J., Schraiber, J. G., and Liang, M. (2013). Phylogenetic analysis using Lévy processes:
+finding jumps in the evolution of continuous traits. Syst. Biol., 62(2):193–204.
+Lansing, J. S. and Cox, M. P. (2011). The domain of the replicators: Selection, neutrality, and cultural
+evolution (with commentary). Current Anthropology, 52:105–125.
+Laudan, L. (1981). A confutation of convergent realism. Philosophy of Science, 48(1):19–49.
+Lee, R. B. and DeVore, I., editors (1976). Kalahari Hunter-Gatherers: Studies of the !Kung San and
+Their Neighbors. Harvard University Press, Cambridge.
+Leigh, S. R. and Shea, B. T. (1996). Ontogeny of body size variation in African apes. Am. J. Phys.
+Anthropol., 99(1):43–65.
+Levins, R. (1966). The strategy of model building in population biology. American Scientist, 54.
+Lewandowski, D., Kurowicka, D., and Joe, H. (2009). Generating random correlation matrices based
+on vines and extended onion method. Journal of Multivariate Analysis, 100:1989–2001.
+Liddell, T. M. and Kruschke, J. K. (2018). Analyzing ordinal data with metric models: What could
+possibly go wrong? Journal of Experimental Social Psychology, 79:328 – 348.
+Lightsey, J. D., Rommel, S. A., Costidis, A. M., and Pitchford, T. D. (2006). Methods used during gross
+necropsy to determine watercraft-related mortality in the Florida manatee (Trichechus manatus
+latirostris). Journal of Zoo and Wildlife Medicine, 37(3):262–275.
+Lin, S., Lin, Y., Nery, J. R., Urich, M. A., Breschi, A., Davis, C. A., Dobin, A., Zaleski, C., Beer,
+M. A., Chapman, W. C., Gingeras, T. R., Ecker, J. R., and Snyder, M. P. (2014). Comparison of
+the transcriptional landscapes between human and mouse tissues. Proc. Natl. Acad. Sci. U.S.A.,
+111(48):17224–17229.
+Lindley, D. V. (1971). Estimation of many parameters. In Godambe, V. P. and Sprott, D. A., editors,
+Foundations of Statistical Inference. Holt, Rinehart and Winston, Toronto.
+Loken, E. and Gelman, A. (2017).
+Measurement error and the replication crisis.
+Science,
+355(6325):584–585.
+Lotka, A. J. (1925). Principles of physical biology. Waverly, Baltimore.
+Lunn, D., Jackson, C., Best, N., Thomas, A., and Spiegelhalter, D. (2013). The BUGS Book. CRC Press.
+MacKenzie, D., Nichols, J., Royle, J., Pollock, K., Bailey, L., and Hines, J. (2017). Occupancy Estimation
+and Modeling: Inferring Patterns and Dynamics of Species Occurrence (2nd edition). Academic
+Press.
+Magnusson, M., Andersen, M., Jonasson, J., and Vehtari, A. (2019). Bayesian leave-one-out cross-
+validation for large data. Proceedings of the 36th International Conference on Machine Learning,
+97:4244–4253.
+Mangel, M. and Samaniego, F. (1984). Abraham Wald’s work on aircraft survivability. Journal of the
+American Statistical Association, 79:259–267.
+Marin, J.-M. and Robert, C. (2007). Bayesian Core: A Practical Approach to Computational Bayesian
+Statistics. Springer.
+McCullagh, P. (1980). Regression models for ordinal data. Journal of the Royal Statistical Society,
+Series B, 42:109–142.
+McCullagh, P. and Nelder, J. A. (1989). Generalized Linear Models. Chapman & Hall/CRC, Boca
+Raton, Florida, 2nd edition.
+McElreath, R. and Smaldino, P. (2015). Replication, communication, and the population dynamics
+of scientific discovery. PLoS One, 10(8):e0136088. doi:10.1371/journal.pone.0136088.

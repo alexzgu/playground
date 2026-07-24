@@ -1,0 +1,46 @@
+4.3. GAUSSIAN MODEL OF HEIGHT
+83
+chapter, I’ll ask you to tackle the age problem. But for now, better to postpone it. You can
+filter the data frame down to individuals of age 18 or greater with:
+R code
+4.11
+d2 <- d[ d$age >= 18 , ]
+We’ll be working with the data frame d2 now. It should have 352 rows (individuals) in it.
+Overthinking: Index magic. The square bracket notation used in the code above is index notation.
+It is very powerful, but also quite compact and confusing. The data frame d is a matrix, a rectangular
+grid of values. You can access any value in the matrix with d[row,col], replacing row and col with
+row and column numbers. If row or col are lists of numbers, then you get more than one row or
+column. If you leave the spot for row or col blank, then you get all of whatever you leave blank. For
+example, d[ 3 , ] gives all columns at row 3. Typing d[,] just gives you the entire matrix, because
+it returns all rows and all columns.
+So what d[ d$age >= 18 , ] does is give you all of the rows in which d$age is greater-than-
+or-equal-to 18. It also gives you all of the columns, because the spot after the comma is blank. The
+result is stored in d2, the new data frame containing only adults. With a little practice, you can use
+this square bracket index notion to perform custom searches of your data, much like performing a
+database query.
+4.3.2. The model. Our goal is to model these values using a Gaussian distribution. First, go
+ahead and plot the distribution of heights, with dens(d2$height). These data look rather
+Gaussian in shape, as is typical of height data. This may be because height is a sum of many
+small growth factors. As you saw at the start of the chapter, a distribution of sums tends
+to converge to a Gaussian distribution. Whatever the reason, adult heights from a single
+population are nearly always approximately normal.
+So it’s reasonable for the moment to adopt the stance that the model should use a Gauss-
+ian distribution for the probability distribution of the data. But be careful about choosing
+the Gaussian distribution only when the plotted outcome variable looks Gaussian to you.
+Gawking at the raw data, to try to decide how to model them, is usually not a good idea. The
+data could be a mixture of different Gaussian distributions, for example, and in that case
+you won’t be able to detect the underlying normality just by eyeballing the outcome distribu-
+tion. Furthermore, as mentioned earlier in this chapter, the empirical distribution needn’t
+be actually Gaussian in order to justify using a Gaussian probability distribution.
+So which Gaussian distribution? There are an infinite number of them, with an infinite
+number of different means and standard deviations. We’re ready to write down the general
+model and compute the plausibility of each combination of µ and σ. To define the heights
+as normally distributed with a mean µ and standard deviation σ, we write:
+hi ∼Normal(µ, σ)
+In many books you’ll see the same model written as hi ∼N(µ, σ), which means the same
+thing. The symbol h refers to the list of heights, and the subscript i means each individual
+element of this list. It is conventional to use i because it stands for index. The index i takes on
+row numbers, and so in this example can take any value from 1 to 352 (the number of heights
+in d2$height). As such, the model above is saying that all the golem knows about each
+height measurement is defined by the same normal distribution, with mean µ and standard
+deviation σ. Before long, those little i’s are going to show up on the right-hand side of the

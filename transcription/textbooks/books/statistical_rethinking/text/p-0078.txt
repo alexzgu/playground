@@ -1,0 +1,48 @@
+62
+3. SAMPLING THE IMAGINARY
+(4) Research design. If you can simulate observations from your hypothesis, then you
+can evaluate whether the research design can be effective. In a narrow sense, this
+means doing power analysis, but the possibilities are much broader.
+(5) Forecasting. Estimates can be used to simulate new predictions, for new cases and
+future observations. These forecasts can be useful as applied prediction, but also
+for model criticism and revision.
+In this final section of the chapter, we’ll look at how to produce simulated observations and
+how to perform some simple model checks.
+3.3.1. Dummy data. Let’s summarize the globe tossing model that you’ve been working
+with for two chapters now. A fixed true proportion of water p exists, and that is the target of
+our inference. Tossing the globe in the air and catching it produces observations of “water”
+and “land” that appear in proportion to p and 1 −p, respectively.
+Now note that these assumptions not only allow us to infer the plausibility of each possi-
+ble value of p, after observation. That’s what you did in the previous chapter. These assump-
+tions also allow us to simulate the observations that the model implies. They allow this,
+because likelihood functions work in both directions. Given a realized observation, the like-
+lihood function says how plausible the observation is. And given only the parameters, the
+likelihood defines a distribution of possible observations that we can sample from, to simu-
+late observation. In this way, Bayesian models are always generative, capable of simulating
+predictions. Many non-Bayesian models are also generative, but many are not.
+We will call such simulated data dummy data, to indicate that it is a stand-in for actual
+data. With the globe tossing model, the dummy data arises from a binomial likelihood:
+Pr(W|N, p) =
+N!
+W!(N −W)!pW(1 −p)N−W
+where W is an observed count of “water” and N is the number of tosses. Suppose N = 2, two
+tosses of the globe. Then there are only three possible observations: 0 water, 1 water, 2 water.
+You can quickly compute the probability of each, for any given value of p. Let’s use p = 0.7,
+which is just about the true proportion of water on the Earth:
+R code
+3.20
+dbinom( 0:2 , size=2 , prob=0.7 )
+[1] 0.09 0.42 0.49
+This means that there’s a 9% chance of observing w = 0, a 42% chance of w = 1, and a 49%
+chance of w = 2. If you change the value of p, you’ll get a different distribution of implied
+observations.
+Now we’re going to simulate observations, using these probabilities. This is done by
+sampling from the distribution just described above. You could use sample to do this, but
+R provides convenient sampling functions for all the ordinary probability distributions, like
+the binomial. So a single dummy data observation of W can be sampled with:
+R code
+3.21
+rbinom( 1 , size=2 , prob=0.7 )
+[1] 1
+That 1 means “1 water in 2 tosses.” The “r” in rbinom stands for “random.” It can also
+generate more than one simulation at a time. A set of 10 simulations can be made by:

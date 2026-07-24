@@ -1,0 +1,41 @@
+532
+15. MISSING DATA AND OTHER OPPORTUNITIES
+a ~ normal(0,1),
+b ~ normal(0,0.5),
+# sneaking cat model
+cat|RC==0 ~ bernoulli(k),
+k ~ beta(2,2),
+# imputed values
+gq> vector[N]:PrC1 <- exp(lpC1)/(exp(lpC1)+exp(lpC0)),
+gq> vector[N]:lpC1 <- log(k) + poisson_lpmf( notes[i] | exp(a+b) ),
+gq> vector[N]:lpC0 <- log(1-k) + poisson_lpmf( notes[i] | exp(a) )
+), data=dat , chains=4 , cores=4 )
+Those three lines that begin with gq> perform the calculations for Pr(Ci = 1|Ni). The first
+one defines a vector to hold the probabilities, and the formula is just the mathematical expres-
+sion from before, Bayes rule. The exp stuff is necessary because we do the other calculations
+on the log scale, as always. The next two lines are just the same likelihood calculations as
+before, the likelihoods of Ni conditional on the cat being present (lpC1) or absent (lpC0).
+In the practice problems at the end, I’ll ask you to compare the posterior probabilities
+in PrC1 to the true values from the simulation. You can process these samples just like any
+other parameter, even though we computed them in an unusual way.
+The strategy presented here extrapolates to discrete variables with more than two possi-
+ble values. In that case, you just need more than two terms in your average likelihood. For
+example, if houses can have up to two cats, then cats might be instead binomially distributed
+across houses. Then the code for the likelihood might be instead:
+notes|RC==1 ~ custom( log_sum_exp(
+binomial_lpmf(2|2,k) + poisson_lpmf( notes | exp(a + b*2) ),
+binomial_lpmf(1|2,k) + poisson_lpmf( notes | exp(a + b*1) ),
+binomial_lpmf(0|2,k) + poisson_lpmf( notes | exp(a + b*0) )
+) )
+Read each line above as the log probability of a specific number of cats, assuming cats are
+binomially distributed with maximum 2 and probability k, plus the log probability of a cer-
+tain number of notes, assuming that specific number of cats. Unordered categories work the
+same way, but the leading terms would be from some simplex of probabilities.
+The same approach also works when you have more than one discrete variable with miss-
+ing values. In that case, you need a different average likelihood (custom() distribution) for
+each combination of missing values. For example, suppose we also classify each house i by
+whether or not a dog (Di) lives there. So a house can have one of four possible observed
+combinations: (1) a cat and a dog, (2) a cat, (3) a dog, (4) neither a cat nor a dog (sad). Again
+for some fraction of houses, we were unable to learn whether or not they have a dog. Now
+in the data, a house can have either or both the cat variable and the dog variable NA. If both
+are NA, then we must average over all four possibilities listed above, with terms for both the

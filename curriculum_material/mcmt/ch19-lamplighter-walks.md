@@ -18,9 +18,7 @@ We now construct a Markov chain on $G^\diamond$. Let $\Upsilon$ denote the trans
 - For $v \neq w$, $\Upsilon[(f, v), (h, w)] = P(v, w)/4$ if $f$ and $h$ agree outside of $\{v, w\}$.
 - When $v = w$, $\Upsilon[(f, v), (h, v)] = P(v, v)/2$ if $f$ and $h$ agree off of $\{v\}$.
 
-*[Figure: an octagonal ring (an 8-cycle) of eight lampposts, each with a lantern, with a stick-figure lamplighter standing at the top of the cycle.]*
-
-FIGURE 19.1. A lamplighter on an 8-cycle.
+**FIGURE 19.1.** A lamplighter on an 8-cycle. *[Figure: an octagonal ring (an 8-cycle) of eight lampposts, each with a lantern, with a stick-figure lamplighter standing at the top of the cycle.]*
 
 ### PDF page 289 (book page 273)
 

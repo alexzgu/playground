@@ -1,0 +1,41 @@
+10.2. GENERALIZED LINEAR MODELS
+323
+sum
+large mean
+count events
+low rate
+count
+events
+low probability
+many trials
+dnorm
+dgamma
+dpois
+dbinom
+dexp
+Z ∼/PSNBM(µ, σ)
+Z ∼#JOPNJBM(O, Q)
+Z ∼1PJTTPO(λ)
+Z ∼(BNNB(λ, L)
+Z ∼&YQPOFOUJBM(λ)
+Figure 10.6. Some of the exponential family distributions, their notation,
+and some of their relationships. Center: exponential distribution. Clock-
+wise, from top-left: gamma, normal (Gaussian), binomial and Poisson dis-
+tributions.
+The gamma distribution (top-left) is also constrained to be zero or positive. It too
+is a fundamental distribution of distance and duration. But unlike the exponential distribu-
+tion, the gamma distribution can have a peak above zero. If an event can only happen after
+two or more exponentially distributed events happen, the resulting waiting times will be
+gamma distributed. For example, age of cancer onset is approximately gamma distributed,
+since multiple events are necessary for onset.163 The gamma distribution has maximum en-
+tropy among all distributions with the same mean and same average logarithm. Its shape
+is described by two parameters, but there are at least three different common descriptions
+of these parameters, so some care is required when working with it. The gamma distribu-
+tion is common in survival and event history analysis, as well as some contexts in which a
+continuous measurement is constrained to be positive.
+The Poisson distribution (bottom-left) is a count distribution like the binomial. It
+is actually a special case of the binomial, mathematically. If the number of trials n is very
+large (and usually unknown) and the probability of a success p is very small, then a binomial
+distribution converges to a Poisson distribution with an expected rate of events per unit time
+of λ = np. Practically, the Poisson distribution is used for counts that never get close to any
+theoretical maximum. As a special case of the binomial, it has maximum entropy under

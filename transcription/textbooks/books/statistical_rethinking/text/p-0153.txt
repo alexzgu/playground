@@ -1,0 +1,65 @@
+5.1. SPURIOUS ASSOCIATION
+137
+5.1.4. Approximating the posterior. To fit this model to the divorce data, we just expand
+the linear model. Here’s the model definition again, with the code on the right-hand side:
+Di ∼Normal(µi, σ)
+D ~ dnorm(mu,sigma)
+µi = α + βMMi + βAAi
+mu <- a + bM*M + bA*A
+α ∼Normal(0, 0.2)
+a ~ dnorm(0,0.2)
+βM ∼Normal(0, 0.5)
+bM ~ dnorm(0,0.5)
+βA ∼Normal(0, 0.5)
+bA ~ dnorm(0,0.5)
+σ ∼Exponential(1)
+sigma ~ dexp(1)
+And here is the quap code to approximate the posterior distribution:
+R code
+5.10
+m5.3 <- quap(
+alist(
+D ~ dnorm( mu , sigma ) ,
+mu <- a + bM*M + bA*A ,
+a ~ dnorm( 0 , 0.2 ) ,
+bM ~ dnorm( 0 , 0.5 ) ,
+bA ~ dnorm( 0 , 0.5 ) ,
+sigma ~ dexp( 1 )
+) , data = d )
+precis( m5.3 )
+mean
+sd
+5.5% 94.5%
+a
+0.00 0.10 -0.16
+0.16
+bM
+-0.07 0.15 -0.31
+0.18
+bA
+-0.61 0.15 -0.85 -0.37
+sigma
+0.79 0.08
+0.66
+0.91
+The posterior mean for marriage rate, bM, is now close to zero, with plenty of probability
+of both sides of zero. The posterior mean for age at marriage, bA, is essentially unchanged.
+It will help to visualize the posterior distributions for all three models, focusing just on the
+slope parameters βA and βM:
+R code
+5.11
+plot( coeftab(m5.1,m5.2,m5.3), par=c("bA","bM") )
+m5.1
+m5.2
+m5.3
+m5.1
+m5.2
+m5.3
+bA
+bM
+-0.5
+0.0
+0.5
+Estimate
+posterior means shown by the points and the 89% compatibility intervals by the solid hori-
+zontal lines. Notice how bA doesn’t move, only grows a bit more uncertain, while bM is only

@@ -1,0 +1,51 @@
+284
+9. MARKOV CHAIN MONTE CARLO
+jumps over a bend. All that remains is clean up: ensure the proposal is symmetric so the Markov
+chain is valid and decide whether to accept or reject the proposal.
+R code
+9.10
+# Make a half step for momentum at the end
+p = p - epsilon * grad_U(q) / 2
+ptraj[L+1,] <- p
+# Negate momentum at end of trajectory to make the proposal symmetric
+p = -p
+# Evaluate potential and kinetic energies at start and end of trajectory
+current_U = U(current_q)
+current_K = sum(current_p^2) / 2
+proposed_U = U(q)
+proposed_K = sum(p^2) / 2
+# Accept or reject the state at end of trajectory, returning either
+# the position at the end of the trajectory or the initial position
+accept <- 0
+if (runif(1) < exp(current_U-proposed_U+current_K-proposed_K)) {
+new_q <- q
+# accept
+accept <- 1
+} else new_q <- current_q
+# reject
+return(list( q=new_q, traj=qtraj, ptraj=ptraj, accept=accept ))
+}
+The accept/reject decision at the bottom uses the fact that in Hamiltonian dynamics, the total energy
+of the system must be constant. So if the energy at the start of the trajectory differs substantially from
+the energy at the end, something has gone wrong. This is known as a divergent transition, and
+we’ll talk more about these in a later chapter.
+9.3.3. Limitations. As always, there are some limitations. HMC requires continuous pa-
+rameters. It can’t glide through a discrete parameter. In practice, this means that certain
+techniques, like the imputation of discrete missing data, have to be done differently with
+HMC. HMC can certainly sample from such models, often much more efficiently than a
+Gibbs sampler could. But you have to change how you code them. There will be examples
+in Chapter 15 and Chapter 16.
+It is also important to keep in mind that HMC is not magic. Some posterior distributions
+are just very difficult to sample from, for any algorithm. We’ll see examples in later chapters.
+In these cases, HMC will encounter something called a divergent transition. We’ll talk
+a lot about these, what causes them, and how to fix them, later on.
+Rethinking: The MCMC horizon. While the ideas behind Markov chain Monte Carlo are not new,
+widespread use dates only to the last decade of the 20th century.147 New variants of and improvements
+to MCMC algorithms arise all the time. We might anticipate that interesting advances are coming,
+and that the current crop of tools—Gibbs sampling and first-generation HMC for example—will look
+rather pedestrian in another 20 years. At least we can hope.
+9.4. Easy HMC: ulam
+The rethinking package provides a convenient interface, ulam, to compile lists of for-
+mulas, like the lists you’ve been using so far to construct quap estimates, into Stan HMC
+code. A little more housekeeping is needed to use ulam: You should preprocess any vari-
+able transformations, and you should construct a clean data list with only the variables you

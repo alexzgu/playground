@@ -1,0 +1,55 @@
+Bibliography
+587
+Herndon, T., Ash, M., and Pollin, R. (2014). Does high public debt consistently stifle economic
+growth? A critique of Reinhart and Rogoff. Cambridge Journal of Economics, 38(2):257–279.
+Hernán, M. A. and Cole, S. R. (2009). Invited Commentary: Causal diagrams and measurement bias.
+Am. J. Epidemiol., 170(8):959–962.
+Hewitt, C. G. (1921). The Conservation of the Wild Life of Canada. Charles Scribner’s Sons.
+Hilbe, J. M. (2011). Negative Binomial Regression. Cambridge University Press, Cambridge, 2nd
+edition.
+Hinde, K. and Milligan, L. M. (2011). Primate milk synthesis: Proximate mechanisms and ultimate
+perspectives. Evolutionary Anthropology, 20:9–23.
+Hoffman and Gelman (2011).
+The No-U-Turn Sampler:
+Adaptively setting path lengths in
+Hamiltonian Monte Carlo.
+Horton, R. (2015). What is medicine’s 5 sigma? The Lancet, 385(April 11):1380.
+Howell, N. (2000). Demography of the Dobe !Kung. Aldine de Gruyter, New York.
+Howell, N. (2010). Life Histories of the Dobe !Kung: Food, Fatness, and Well-being over the Life-span.
+Origins of Human Behavior and Culture. University of California Press.
+Hubbell, S. P. (2001). The Unified Neutral Theory of Biodiversity and Biogeography. Princeton Univer-
+sity Press, Princeton.
+Huffaker, C. B. (1958). Experimental studies on predation: Dispersion factor and predator-prey os-
+cillations. Hilgardia, 27:795–835.
+Hull, D. L. (1988). Science as a Process: An Evolutionary Account of the Social and Conceptual Devel-
+opment of Science. University of Chicago Press, Chicago, IL.
+Ioannidis, J. P. A. (2005). Why most published research findings are false. PLoS Medicine, 2(8):0696–
+0701.
+Ioannidis, J. P. A. (2012). Why science is not necessarily self-correction. Perspectives on Psychological
+Science, 7(6):645–654.
+Jaynes, E. T. (1976). Confidence intervals vs Bayesian intervals. In Harper, W. L. and Hooker, C. A.,
+editors, Foundations of Probability Theory, Statistical Inference, and Statistical Theories of Science,
+page 175.
+Jaynes, E. T. (1984). The intutive inadequancy of classical statistics. Epistemologia, 7:43–74.
+Jaynes, E. T. (1985). Highly informative priors. Bayesian Statistics, 2:329–360.
+Jaynes, E. T. (1986). Monkeys, kangaroos and N. In Justice, J. H., editor, Maximum-Entropy and
+Bayesian Methods in Applied Statistics, page 26. Cambridge University Press, Cambridge.
+Jaynes, E. T. (1988). The relation of Bayesian and maximum entropy methods. In Erickson, G. J.
+and Smith, C. R., editors, Maximum Entropy and Bayesian Methods in Science and Engineering,
+volume 1, pages 25–29. Kluwer Academic Publishers.
+Jaynes, E. T. (2003). Probability Theory: The Logic of Science. Cambridge University Press.
+Jones, N. S. and Moriarty, J. (2013). Evolutionary inference for function-valued traits: Gaussian
+process regression on phylogenies. J R Soc Interface, 10(78):20120616.
+Jung, K., Shavitt, S., Viswanathan, M., and Hilbe, J. M. (2014). Female hurricanes are deadlier than
+male hurricanes. Proceedings of the National Academy of Sciences USA, 111(24):8782–8787.
+Kadane, J. B. (2011). Principles of Uncertainty. Chapman & Hall/CRC.
+Kitcher, P. (2000). Reviving the sociology of science. Philosophy of Science, 67:S33–S44.
+Kitcher, P. (2011). Science in a Democratic Society. Prometheus Books, Amherst, New York.
+Kleibergen, F. and Zivot, E. (2003). Bayesian and classical approaches to instrumental variable re-
+gression. Journal of Econometrics, 114(1):29 – 72.
+Kline, M. A. and Boyd, R. (2010). Population size predicts technological complexity in Oceania. Proc.
+R. Soc. B, 277:2559–2564.
+Koster, J. and McElreath, R. (2017). Multinomial analysis of behavior: statistical methods. Behavioral
+Ecology and Sociobiology, 71(9):138.
+Koster, J. M. and Leckie, G. (2014). Food sharing networks in lowland nicaragua: An application of
+the social relations model to count data. Social Networks, 38:100 – 110.

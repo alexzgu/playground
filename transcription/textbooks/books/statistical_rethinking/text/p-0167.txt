@@ -1,0 +1,63 @@
+5.2. MASKED RELATIONSHIP
+151
+-2
+-1
+0
+1
+2
+-2
+-1
+0
+1
+2
+neocortex percent (std)
+kilocal per g (std)
+a ~ dnorm(0, 1)
+bN ~ dnorm(0, 1)
+-2
+-1
+0
+1
+2
+-2
+-1
+0
+1
+2
+neocortex percent (std)
+kilocal per g (std)
+a ~ dnorm(0, 0.2)
+bN ~ dnorm(0, 0.5)
+Figure 5.8. Prior predictive distributions for the first primate milk model,
+m5.5. Each plot shows a range of 2 standard deviations for each variable.
+Left: The vague first guess. These priors are clearly silly. Right: Slightly less
+silly priors that at least stay within the potential space of observations.
+The result is displayed on the left side of Figure 5.8. I’ve shown a range of 2 standard de-
+viations for both variables. So that is most of the outcome space. These lines are crazy. As
+in previous examples, we can do better by both tightening the α prior so that it sticks closer
+to zero. With two standardized variables, when predictor is zero, the expected value of the
+outcome should also be zero. And the slope βN needs to be a bit tighter as well, so that it
+doesn’t regularly produce impossibly strong relationships. Here’s an attempt:
+R code
+5.34
+m5.5 <- quap(
+alist(
+K ~ dnorm( mu , sigma ) ,
+mu <- a + bN*N ,
+a ~ dnorm( 0 , 0.2 ) ,
+bN ~ dnorm( 0 , 0.5 ) ,
+sigma ~ dexp( 1 )
+) , data=dcc )
+If you plot these priors, you’ll get what is shown on the right side of Figure 5.8. These are
+still very vague priors, but at least the lines stay within the high probability region of the
+observable data.
+Now let’s look at the posterior:
+R code
+5.35
+precis( m5.5 )
+mean
+sd
+5.5% 94.5%
+a
+0.04 0.15 -0.21
+0.29

@@ -1,0 +1,60 @@
+160
+5. THE MANY VARIABLES & THE SPURIOUS WAFFLES
+the expected difference between females and males? We can compute this using samples
+from the posterior. In fact, I’ll extract posterior samples into a data frame and insert our
+calculation directly into the same frame:
+R code
+5.48
+post <- extract.samples(m5.8)
+post$diff_fm <- post$a[,1] - post$a[,2]
+precis( post , depth=2 )
+quap posterior: 10000 samples from m5.8
+mean
+sd
+5.5%
+94.5%
+histogram
+sigma
+27.29 0.84
+25.95
+28.63 ▁▁▁▁▃▇▇▇▃▂▁▁▁
+a[1]
+134.91 1.59 132.37 137.42 ▁▁▁▂▅▇▇▅▂▁▁▁▁
+a[2]
+142.60 1.71 139.90 145.35
+▁▁▁▅▇▃▁▁▁
+diff_fm
+-7.70 2.33 -11.41
+-3.97
+▁▁▁▁▃▇▇▃▁▁▁
+Our calculation appears at the bottom, as if it were a new parameter in the posterior. This is
+the expected difference between a female and male in the sample. This kind of calculation is
+called a contrast. No matter how many categories you have, you can compute the contrast
+between any two by using samples from the posterior to compute their difference. Then you
+get the posterior distribution of the difference.
+5.3.2. Many categories. Binary categories are easy, whether you use an indicator variable
+or instead an index variable. But when there are more than two categories, the indicator
+variable approach explodes. You’ll need a new indicator variable for each new category. If
+you have k unique categories, you need k −1 indicator variables. Automated tools like R’s
+lm do in fact go this route, constructing k−1 indicator variables for you and returning k−1
+parameter estimates.
+But we’ll instead stick with the index variable approach. It does not change at all when
+you add more categories. You do get more parameters, of course, just as many as in the
+indicator variable approach. But the model specification looks just like it does in the binary
+case. And the priors continue to be easier, unless you really do have prior information about
+contrasts.
+Let’s explore an example using the primate milk data again. We’re interested now in the
+clade variable, which encodes the broad taxonomic membership of each species:
+R code
+5.49
+data(milk)
+d <- milk
+unique(d$clade)
+[1] Strepsirrhine
+New World Monkey Old World Monkey Ape
+Levels: Ape New World Monkey Old World Monkey Strepsirrhine
+We want an index value for each of these four categories. You could do this by hand, but just
+coercing the factor to an integer will do the job:
+R code
+5.50
+d$clade_id <- as.integer( d$clade )

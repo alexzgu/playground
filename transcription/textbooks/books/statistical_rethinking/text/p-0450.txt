@@ -1,0 +1,46 @@
+434
+13. MODELS WITH MEMORY
+13.4. Divergent transitions and non-centered priors
+With the models in the previous section, Stan reported warnings about divergent
+transitions. You first heard about these back in Chapter 9, and I promised to explain them
+later. Now is the time to learn what these things are and a few useful ways to fix them. When
+you work with multilevel models, divergent transitions are commonplace. So you need to
+know how to fix them, and that requires knowing something about what causes them.
+One of the best things about Hamiltonian Monte Carlo is that it provides internal checks
+of efficiency and accuracy. One of these checks comes free, arising from the constraints on
+the physics simulation. Recall that HMC simulates the frictionless flow of a particle on a
+surface. In any given transition, which is just a single flick of the particle, the total energy at
+the start should be equal to the total energy at the end. That’s how energy in a closed system
+works. And in a purely mathematical system, the energy is always conserved correctly. It’s
+just a fact about the physics.
+But in a numerical system, it might not be. Sometimes the total energy is not the same
+at the end as it was at the start. In these cases, the energy is divergent. How can this happen?
+It tends to happen when the posterior distribution is very steep in some region of parameter
+space. Steep changes in probability are hard for a discrete physics simulation to follow. When
+that happens, the algorithm notices by comparing the energy at the start to the energy at the
+end. When they don’t match, it indicates numerical problems exploring that part of the
+posterior distribution.
+Divergent transitions are rejected. They don’t directly damage your approximation of
+the posterior distribution. But they do hurt it indirectly, because the region where divergent
+transitions happen is hard to explore correctly. And even when there aren’t any divergent
+transitions, distributions with steep regions are hard to explore. The chains will be less effi-
+cient. And unfortunately this happens quite often in multilevel models.
+There are two easy tricks for reducing the impact of divergent transitions. The first is
+to tune the simulation so that it doesn’t overshoot the valley wall. This means doing more
+warmup with a higher target acceptance rate, Stan’s adapt_delta. But for many models, you
+can never tune the sampler enough to remove the divergent transitions. The second trick is
+to write the statistical model in a new way, to reparameterize it. For any given statistical
+model, it can be written in several forms that are mathematically identical but numerically
+different. Switching a model from one form to another is called reparameterization. Let’s
+work through two examples.
+Rethinking: No free samples. When Hamiltonian Monte Carlo complains about divergent transi-
+tions, it is tempting to fall back on some other sampler that complains less. This is a mistake. A Gibbs
+sampler, for example, will never complain. It will just silently fail. It is true that Gibbs sampling
+doesn’t have the same problem with steep curvature that HMC has. But Gibbs still has problems with
+the same posterior distributions. It just provides no warnings.
+The general issue—warnings of unreliable approximations—arises in all parts of computational
+statistics. The R package lme4 is a nice package for fitting multilevel models. It isn’t Bayesian, but
+instead uses a clever non-Bayesian algorithm. Sometimes that algorithm is unreliable, and lme4 is
+very good about warning the user. Alternative packages that try to fit the same multilevel models
+may not produce warnings nearly as often. But those packages are no more reliable. They are just less
+cautious.

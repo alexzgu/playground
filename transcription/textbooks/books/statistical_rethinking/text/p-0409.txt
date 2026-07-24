@@ -1,0 +1,49 @@
+12.3. ORDERED CATEGORICAL OUTCOMES
+393
+The conventional solution is to use a cumulative link function.180 The cumulative
+probability of a value is the probability of that value or any smaller value. In the context of
+ordered categories, the cumulative probability of 3 is the sum of the probabilities of 3, 2, and
+1. Ordered categories by convention begin at 1, so a result less than 1 has no probability at all.
+By linking a linear model to cumulative probability, it is possible to guarantee the ordering
+of the outcomes.
+I’ll explain why in two steps. Step 1 is to explain how to parameterize a distribution of
+outcomes on the scale of log-cumulative-odds. Step 2 is to introduce a predictor (or more
+than one predictor) to these log-cumulative-odds values, allowing you to model associations
+between predictors and the outcome while obeying the ordered nature of prediction.
+Both steps will unfold in context of a data example, to make the discussion more con-
+crete. So next you meet some data.
+12.3.1. Example: Moral intuition. The data for this example come from a series of experi-
+ments conducted by philosophers.181 Yes, philosophers do sometimes conduct experiments.
+In this case, the experiments aim to collect empirical evidence relevant to debates about
+moral intuition, the forms of reasoning through which people develop judgments about the
+moral goodness and badness of actions. These debates are relevant to all of the social sci-
+ences, because they touch on broader issues of reasoning, the role of emotions in decision
+making, and theories of moral development, both in individuals and groups.
+These experiments get measurements of moral judgment by using scenarios known as
+“trolley problems.” The classic version invokes a runaway trolley, but what these scenarios
+share is that they have proved vexing or paradoxical to moral philosophers. Here’s a tradi-
+tional example, using a “boxcar” in place of a “trolley”:
+Standing by the railroad tracks, Dennis sees an empty, out-of-control boxcar about
+to hit five people. Next to Dennis is a lever that can be pulled, sending the boxcar
+down a side track and away from the five people. But pulling the lever will also
+lower the railing on a footbridge spanning the side track, causing one person to fall
+off the footbridge and onto the side track, where he will be hit by the boxcar. If
+Dennis pulls the lever the boxcar will switch tracks and not hit the five people, and
+the one person to fall and be hit by the boxcar. If Dennis does not pull the lever the
+boxcar will continue down the tracks and hit five people, and the one person will
+remain safe above the side track.
+How morally permissible is it for Dennis to pull the lever?
+The reason these scenarios can be philosophically vexing is that the analytical content of
+two scenarios can be identical, and yet people reliably reach different judgments about the
+moral permissibility of the same action in the different scenarios. Before you jump to the
+conclusion that this stuff is silly, the moral intuitions people have in these experiments are
+similar to the reactions they have to laws and how behavior is classified as criminal or not.
+The law is full of moral paradoxes. We need to understand them.
+Previous research has lead to at least three important principles of unconscious reason-
+ing that may explain variations in judgment. These principles are:
+The action principle: Harm caused by action is morally worse than equivalent harm
+caused by omission.
+The intention principle: Harm intended as the means to a goal is morally worse than
+equivalent harm foreseen as the side effect of a goal.
+The contact principle: Using physical contact to cause harm to a victim is morally
+worse than causing equivalent harm to a victim without using physical contact.

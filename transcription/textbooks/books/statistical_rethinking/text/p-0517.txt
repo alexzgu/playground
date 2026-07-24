@@ -1,0 +1,33 @@
+15 Missing Data and Other Opportunities
+A big advantage of Bayesian inference is that it obviates the need to be clever. For ex-
+ample, there’s a classic probability puzzle known as Bertrand’s box paradox.210 The version
+that I prefer involves pancakes. Suppose I cook three pancakes. The first pancake is burnt
+on both sides (BB). The second pancake is burnt on only one side (BU). The third pancake
+is not burnt at all (UU). Now I serve you—at random—one of these pancakes, and the side
+facing up on your plate is burnt. What is the probability that the other side is also burnt?
+This is a hard problem, if we rely upon intuition. Most people say “one-half,” but that
+is quite wrong. And with no false modesty, my intuition is no better. But I have learned to
+solve these problems by cold hard ruthless application of conditional probability. There’s no
+need to be clever when you can be ruthless.
+So let’s get ruthless. Applying conditional probability means using what we do know to
+refine our knowledge about what we wish to know. In other words:
+Pr(want to know|already know)
+In this case, we know the up side is burnt. We want to know whether or not the down side
+is burnt. The definition of conditional probability tells us:
+Pr(burnt down|burnt up) = Pr(burnt up, burnt down)
+Pr(burnt up)
+This is just the definition of conditional probability, labeled with our pancake problem.
+We want to know if the down side is burnt, and the information we have is that the up
+side is burnt. We condition on the information, so we update our state of information in
+light of it. The definition tells us that the probability we want is just the probability of the
+burnt/burnt pancake divided by the probability of seeing a burnt side up. The probability
+of the burnt/burnt pancake is 1/3, because a pancake was selected at random. The probabil-
+ity the up side is burnt must average over each way we can get dealt a burnt top side of the
+pancake. This is:
+Pr(burnt up) = Pr(BB)(1) + Pr(BU)(0.5) + Pr(UU)(0) = (1/3) + (1/3)(1/2) = 0.5
+So all together:
+Pr(burnt down|burnt up) = 1/3
+1/2 = 2
+3
+If you don’t quite believe this answer, you can do a quick simulation to confirm it.
+501

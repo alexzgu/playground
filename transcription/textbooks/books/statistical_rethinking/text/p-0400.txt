@@ -1,0 +1,65 @@
+384
+12. MONSTERS AND MIXTURES
+), data=dat , chains=4 )
+I tagged theta with transpars> (transformed parameters) so that Stan will return it in the
+samples. Let’s take a quick look at the posterior means. But let’s also go ahead and compute
+the constrast between the two genders first:
+R code
+12.3
+post <- extract.samples( m12.1 )
+post$da <- post$a[,1] - post$a[,2]
+precis( post , depth=2 )
+ulam posterior: 2000 samples from m12.1
+mean
+sd 5.5% 94.5%
+histogram
+a[1]
+-0.45 0.41 -1.1
+0.21
+▁▁▇▇▂▁
+a[2]
+-0.34 0.40 -1.0
+0.27
+▁▁▃▇▂▁
+phi
+1.05 0.78
+0.1
+2.44 ▇▇▅▃▂▁▁▁▁▁▁
+theta
+3.05 0.78
+2.1
+4.44 ▇▇▅▃▂▁▁▁▁▁▁
+da
+-0.11 0.57 -1.0
+0.76
+▁▁▁▃▇▇▂▁▁▁
+The parameter a[1] is the log-odds of admission for male applicants. It is lower than a[2],
+the log-odds for female applicants. But the difference between the two, da, is highly un-
+certain. There isn’t much evidence here of a difference between male and female admission
+rates. Recall that in the previous chapter, a binomial model of these data that omitted depart-
+ment ended up misleading, because there is an indirect path from gender through depart-
+ment to admission. That confound resulted in a spurious indication that female applicants
+had lower odds of admission. But the model above is not confounded, despite not containing
+the department variable. How is this?
+The beta-binomial model allows each row in the data—each combination of department
+and gender—to have its own unobserved intercept. These unobserved intercepts are sampled
+from a beta distribution with mean ¯pi and dispersion θ. To see what this beta distribution
+looks like, we can just plot it.
+R code
+12.4
+gid <- 2
+# draw posterior mean beta distribution
+curve( dbeta2(x,mean(logistic(post$a[,gid])),mean(post$theta)) , from=0 , to=1 ,
+ylab="Density" , xlab="probability admit", ylim=c(0,3) , lwd=2 )
+# draw 50 beta distributions sampled from posterior
+for ( i in 1:50 ) {
+p <- logistic( post$a[i,gid] )
+theta <- post$theta[i]
+curve( dbeta2(x,p,theta) , add=TRUE , col=col.alpha("black",0.2) )
+}
+mtext( "distribution of female admission rates" )
+The result is shown on the left in Figure 12.1. Remember that a posterior distribution si-
+multaneously scores the plausibility of every combination of parameter values. This plot
+shows 50 combinations of ¯p and θ, sampled from the posterior. The thick curve is the beta
+distribution corresponding the posterior mean. The central tendency is for low probabili-
+ties of admission, less than 0.5. But the most plausible distributions allow for departments

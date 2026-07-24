@@ -1,0 +1,46 @@
+576
+ENDNOTES
+110. See Gelfand (1996). There is also a very clear presentation in Magnusson et al. (2019). [222]
+111. See Vehtari et al. (2019b). [222]
+112. Akaike (1973). See also Akaike (1974, 1978, 1981a), where AIC was further developed and related to
+Bayesian approaches. Ecologists tend to know about AIC from Burnham and Anderson (2002). [223]
+113. A common approximation in the case of small N is AICc = Dtrain +
+2k
+1−(k+1)/N. As N grows, this expression
+approaches AIC. See Burnham and Anderson (2002). [223]
+114. Lunn et al. (2013) contains a fairly understandable presentation of DIC, including a number of different
+ways to compute it. [223]
+115. Watanabe (2010). Gelman et al. (2013b) re-dub WAIC the “Watanabe-Akaike Information Criterion” to
+give explicit credit to Watanabe, in the same way people renamed AIC after Akaike. Gelman et al. (2013b) is
+worthwhile also for the broad perspective it takes on the inference problem. [223]
+116. Quote in Akaike (1981b). [223]
+117. There was a tribal exchange over this issue in 2018. See Gronau and Wagenmakers (2019) and Vehtari et al.
+(2019c). The exchange focused on comparing Bayes factors to PSIS, but it is relevant to WAIC as well. This
+exchange is reminiscent of similar debates over BIC and AIC from the 1990s. [225]
+118. Schwarz (1978). [225]
+119. Gelman and Rubin (1995). See also section 7.4, page 182, of Gelman et al. (2013a). [225]
+120. See Watanabe (2018b) and Watanabe (2018a). Watanabe has some useful material on his website. See
+http://watanabe-www.math.dis.titech.ac.jp/users/swatanab/psiscv.html. [227]
+121. See animations at http://watanabe-www.math.dis.titech.ac.jp/users/swatanab/mt_bs.html [227]
+122. This is closely related to minimum description length. See Grünwald (2007). [229]
+123. The first edition had a section on model averaging, but the topic has been dropped in this edition to save
+space. The approach is really focused on prediction, not inference, and so it doesn’t fit the flow of the second
+edition. But it is an important approach. The traditional approach is to use weights to average predictions (not
+parameters) of each model. But if the set of models isn’t carefully chosen, one can do better with model “stack-
+ing.” See Yao et al. (2018). [234]
+124. The distributions name comes from a 1908 paper by William Sealy Gosset, which he published under the
+pseudonym “Student.” One story told is that Gosset was required by his employer (Guinness Brewery) to publish
+anonymously, or rather he voluntarily hid his identity, to disguise that Guinness was using statistics to improve
+beer. Regardless, the distribution was derived earlier in 1876, within the Bayesian framework. See Pfanzagl and
+Sheynin (1996). [237]
+125. Specifically, if the variance has an inverse-gamma distribution σ2 ∼inverse-gamma(ν/2, ν/2), then the
+resulting distribution is Student-t with shape parameter (degrees of freedom) ν. [237]
+126. See “The Decline of Violent Conflicts: What Do The Data Really Say?” by Pasquale Cirillo and Nassim
+Nicholas Taleb, Nobel Foundation Symposium 161: The Causes of Peace. You can find it readily by searching
+online. [238]
+127. William Henry Harrison’s military history earned him the nickname “Old Tippecanoe.” Tippecanoe was
+the sight of a large battle between Native Americans and Harrison, in 1811. In popular imagination, Harrison
+was cursed by the Native Americans in the aftermath of the battle. [238]
+Chapter 8
+128. All manatee facts here taken from Lightsey et al. (2006); Rommel et al. (2007). Scar chart in figure from the
+free educational materials at http://www.learner.org/jnorth/tm/manatee/RollCall.html. [241]

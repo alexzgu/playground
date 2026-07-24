@@ -1,0 +1,43 @@
+554
+16. GENERALIZED LINEAR MADNESS
+0
+20
+40
+60
+80
+year
+thousands of pelts
+1900
+1910
+1920
+Lepus
+Lynx
+Figure 16.6. Twenty years of lynx (Lynx canadensis) and hare (Lepus amer-
+icanus) pelts, as recorded by the Hudson Bay Company.
+R code
+16.13
+library(rethinking)
+data(Lynx_Hare)
+plot( 1:21 , Lynx_Hare[,3] , ylim=c(0,90) , xlab="year" ,
+ylab="thousands of pelts" , xaxt="n" , type="l" , lwd=1.5 )
+at <- c(1,11,21)
+axis( 1 , at=at , labels=Lynx_Hare$Year[at] )
+lines( 1:21 , Lynx_Hare[,2] , lwd=1.5 , col=rangi2 )
+points( 1:21 , Lynx_Hare[,3] , bg="black" , col="white" , pch=21 , cex=1.4 )
+points( 1:21 , Lynx_Hare[,2] , bg=rangi2 , col="white" , pch=21 , cex=1.4 )
+text( 17 , 80 , "Lepus" , pos=2 )
+text( 19 , 50 , "Lynx" , pos=2 , col=rangi2 )
+Figure 16.6 displays this time series. These are odd data, records of pelts not live animals.227
+The number of hare pelts and number of lynx pelts seem to be related somehow. Both fluc-
+tuate, but they seem to fluctuate together.
+A common geocentric way to model a time series like this would be to use something
+called an autoregressive model. In an autoregressive model, the value of the outcome
+in the previous time step is called a lag variable and added as a predictor to the right side of
+a linear model. For example, we might model the mean number of hares at time t as:
+E(Ht) = α + β1Ht−1
+where Ht is the number of hares at time t. If β1 is less than 1, then hares tend to regress to
+some mean population size α. We could continue by adding an epicycle for the predator:
+E(Ht) = α + β1Ht−1 + β2Lt−1
+where Lt−1 is the number of lynx in the previous time period. Sometimes people add even
+deeper lags, like this:
+E(Ht) = α + β1Ht−1 + β2Lt−1 + β3Ht−2

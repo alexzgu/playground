@@ -1,0 +1,51 @@
+96
+4. GEOCENTRIC MODELS
+Here’s how it works, in the simplest case of only one predictor variable. We’ll wait until
+the next chapter to confront more than one predictor. Recall the basic Gaussian model:
+hi ∼Normal(µ, σ)
+[likelihood]
+µ ∼Normal(178, 20)
+[µ prior]
+σ ∼Uniform(0, 50)
+[σ prior]
+Now how do we get weight into a Gaussian model of height? Let x be the name for the
+column of weight measurements, d2$weight. Let the average of the x values be ¯x, “ex bar”.
+Now we have a predictor variable x, which is a list of measures of the same length as h. To get
+weight into the model, we define the mean µ as a function of the values in x. This is what it
+looks like, with explanation to follow:
+hi ∼Normal(µi, σ)
+[likelihood]
+µi = α + β(xi −¯x)
+[linear model]
+α ∼Normal(178, 20)
+[α prior]
+β ∼Normal(0, 10)
+[β prior]
+σ ∼Uniform(0, 50)
+[σ prior]
+Again, I’ve labeled each line on the right-hand side by the type of definition it encodes. We’ll
+discuss each in turn.
+4.4.1.1. Probability of the data. Let’s begin with just the probability of the observed
+height, the first line of the model. This is nearly identical to before, except now there is a
+little index i on the µ as well as the h. You can read hi as “each h” and µi as “each µ.” The
+mean µ now depends upon unique values on each row i. So the little i on µi indicates that
+the mean depends upon the row.
+4.4.1.2. Linear model. The mean µ is no longer a parameter to be estimated. Rather, as
+seen in the second line of the model, µi is constructed from other parameters, α and β, and
+the observed variable x. This line is not a stochastic relationship—there is no ∼in it, but
+rather an = in it—because the definition of µi is deterministic. That is to say that, once we
+know α and β and xi, we know µi with certainty.
+The value xi is just the weight value on row i. It refers to the same individual as the
+height value, hi, on the same row. The parameters α and β are more mysterious. Where did
+they come from? We made them up. The parameters µ and σ are necessary and sufficient to
+describe a Gaussian distribution. But α and β are instead devices we invent for manipulating
+µ, allowing it to vary systematically across cases in the data.
+You’ll be making up all manner of parameters as your skills improve. One way to under-
+stand these made-up parameters is to think of them as targets of learning. Each parameter is
+something that must be described in the posterior distribution. So when you want to know
+something about the data, you ask your golem by inventing a parameter for it. This will make
+more and more sense as you progress. Here’s how it works in this context. The second line
+of the model definition is just:
+µi = α + β(xi −¯x)
+What this tells the regression golem is that you are asking two questions about the mean of
+the outcome.

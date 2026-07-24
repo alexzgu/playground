@@ -1,0 +1,46 @@
+14.1. VARYING SLOPES BY CONSTRUCTION
+453
+# now matrix multiply to get covariance matrix
+Sigma <- diag(sigmas) %*% Rho %*% diag(sigmas)
+If you are not sure what diag(sigmas) accomplishes, then try typing just diag(sigmas)
+at the R prompt.
+Now we’re ready to simulate some cafés, each with its own intercept and slope. Let’s
+define the number of cafés:
+R code
+14.6
+N_cafes <- 20
+And to simulate their properties, we just sample randomly from the multivariate Gaussian
+distribution defined by Mu and Sigma:
+R code
+14.7
+library(MASS)
+set.seed(5) # used to replicate example
+vary_effects <- mvrnorm( N_cafes , Mu , Sigma )
+Note the set.seed(5) line above. That’s there so you can replicate the precise results in
+the example figures. The particular number, 5, produces a particular sequence of random
+numbers. Each unique number generates a unique sequence. Including a set.seed line
+like this in your code allows others to exactly replicate your analyses. Later you’ll want to
+repeat the example without repeating the set.seed call, or with a different number, so you
+can appreciate the variation across simulations.
+Look at the contents of vary_effects now. It should be a matrix with 20 rows and
+2 columns. Each row is a café. The first column contains intercepts. The second column
+contains slopes. For transparency, let’s split these columns apart into nicely named vectors:
+R code
+14.8
+a_cafe <- vary_effects[,1]
+b_cafe <- vary_effects[,2]
+To visualize these intercepts and slopes, go ahead and plot them against one another. This
+code will also show the distribution’s contours:
+R code
+14.9
+plot( a_cafe , b_cafe , col=rangi2 ,
+xlab="intercepts (a_cafe)" , ylab="slopes (b_cafe)" )
+# overlay population distribution
+library(ellipse)
+for ( l in c(0.1,0.3,0.5,0.8,0.99) )
+lines(ellipse(Sigma,centre=Mu,level=l),col=col.alpha("black",0.2))
+Figure 14.2 displays a typical result. In any particular simulation, the correlation may not
+be as obvious. But on average, the intercepts in a_cafe and the slopes in b_cafe will have a
+correlation of −0.7, and you’ll be able to see this in the scatterplot. The contour lines in the
+plot, produced by the ellipse package (make sure you install it), display the multivariate
+Gaussian population of intercepts and slopes that the 20 cafés were sampled from.

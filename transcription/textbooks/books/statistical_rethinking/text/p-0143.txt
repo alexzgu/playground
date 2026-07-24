@@ -1,0 +1,36 @@
+5 The Many Variables & The Spurious Waffles
+One of the most reliable sources of waffles in North America, if not the entire world, is
+a Waffle House diner. Waffle House is nearly always open, even just after a hurricane. Most
+diners invest in disaster preparedness, including having their own electrical generators. As a
+consequence, the United States’ disaster relief agency (FEMA) informally uses Waffle House
+as an index of disaster severity.77 If the Waffle House is closed, that’s a serious event.
+It is ironic then that steadfast Waffle House is associated with the nation’s highest divorce
+rates (Figure 5.1). States with many Waffle Houses per person, like Georgia and Alabama,
+also have some of the highest divorce rates in the United States. The lowest divorce rates are
+found where there are zero Waffle Houses. Could always-available waffles and hash brown
+potatoes put marriage at risk?
+Probably not. This is an example of a misleading correlation. No one thinks there is any
+plausible mechanism by which Waffle House diners make divorce more likely. Instead, when
+we see a correlation of this kind, we immediately start asking about other variables that are
+really driving the relationship between waffles and divorce. In this case, Waffle House began
+in Georgia in the year 1955. Over time, the diners spread across the Southern United States,
+remaining largely within it. So Waffle House is associated with the South. Divorce is not a
+uniquely Southern institution, but the Southern United States has some of the highest divorce
+rates in the nation. So it’s probably just an accident of history that Waffle House and high
+divorce rates both occur in the South.
+Such accidents are commonplace. It is not surprising that Waffle House is correlated
+with divorce, because correlation in general is not surprising. In large data sets, every pair
+of variables has a statistically discernible non-zero correlation.78 But since most correlations
+do not indicate causal relationships, we need tools for distinguishing mere association from
+evidence of causation. This is why so much effort is devoted to multiple regression, using
+more than one predictor variable to simultaneously model an outcome. Reasons given for
+multiple regression models include:
+(1) Statistical “control” for confounds. A confound is something that misleads us about
+a causal influence—there will be a more precise definition in the next chapter. The
+spurious waffles and divorce correlation is one possible type of confound, where the
+confound (southernness) makes a variable with no real importance (Waffle House
+density) appear to be important. But confounds are diverse. They can hide real
+important variables just as easily as they can produce false ones.
+(2) Multiple causation. A phenomenon may arise from multiple causes. Measurement
+of each cause is useful, so when we can use the same data to estimate more than one
+127

@@ -1,0 +1,52 @@
+11.1. BINOMIAL REGRESSION
+339
+behavioral sciences. Having repeat measurements, like in this experiment, and measuring
+them is very useful.
+Now let’s consider the treatment effects, hopefully estimated more precisely because the
+model could subtract out the handedness variation among actors. On the logit scale:
+R code
+11.13
+labs <- c("R/N","L/N","R/P","L/P")
+plot( precis( m11.4 , depth=2 , pars="b" ) , labels=labs )
+L/P
+R/P
+L/N
+R/N
+-0.5
+0.0
+0.5
+1.0
+Value
+I’ve added treatment labels in place of the parameter names. L/N means “prosocial on left /
+no partner.” R/P means ”prosocial on right / partner.” To understand these distributions, it’ll
+help to consider our expectations. What we are looking for is evidence that the chimpanzees
+choose the prosocial option more when a partner is present. This implies comparing the
+first row with the third row and the second row with the fourth row. You can probably see
+already that there isn’t much evidence of prosocial intention in these data. But let’s calculate
+the differences between no-partner/partner and make sure.
+R code
+11.14
+diffs <- list(
+db13 = post$b[,1] - post$b[,3],
+db24 = post$b[,2] - post$b[,4] )
+plot( precis(diffs) )
+db24
+db13
+-0.2
+0.0
+0.2
+0.4
+0.6
+0.8
+Value
+These are the constrasts between the no-partner/partner treatments. The scale is log-
+odds of pulling the left lever still. Remember the tide engine! db13 is the difference between
+no-partner/partner treatments when the prosocial option was on the right. So if there is
+evidence of more prosocial choice when partner is present, this will show up here as a larger
+difference, consistent with pulling right more when partner is present. There is indeed weak
+evidence that individuals pulled left more when the partner was absent, but the compatibility
+interval is quite wide. db24 is the same difference, but for when the prosocial option was on
+the left. Now negative differences would be consistent with more prosocial choice when
+partner is present. Clearly that is not the case. If anything, individuals chose prosocial more
+when partner was absent. Overall, there isn’t any compelling evidence of prosocial choice in
+this experiment.

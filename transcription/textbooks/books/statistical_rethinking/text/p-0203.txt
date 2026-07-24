@@ -1,0 +1,61 @@
+6.4. CONFRONTING CONFOUNDING
+187
+It exists because, once we know P, learning G invisibly tells us about the neighborhood
+U, and U is associated with the outcome C. I know this is confusing. As I keep saying, if you
+are confused, it is only because you are paying attention. So consider two different parents
+with the same education level, say for example at the median 50th centile. One of these
+parents has a highly educated grandparent. The other has a poorly educated grandparent.
+The only probable way, in this example, for these parents to have the same education is if
+they live in different types of neighborhoods. We can’t see these neighborhood effects—we
+haven’t measured them, recall—but the influence of neighborhood is still transmitted to the
+children C. So for our mythical two parents with the same education, the one with the highly
+educated grandparent ends up with a less well educated child. The one with the less educated
+grandparent ends up with the better educated child. G predicts lower C.
+The unmeasured U makes P a collider, and conditioning on P produces collider bias. So
+what can we do about this? You have to measure U. Here’s the regression that conditions
+also on U:
+R code
+6.28
+m6.12 <- quap(
+alist(
+C ~ dnorm( mu , sigma ),
+mu <- a + b_PC*P + b_GC*G + b_U*U,
+a ~ dnorm( 0 , 1 ),
+c(b_PC,b_GC,b_U) ~ dnorm( 0 , 1 ),
+sigma ~ dexp( 1 )
+), data=d )
+precis(m6.12)
+mean
+sd
+5.5% 94.5%
+a
+-0.12 0.07 -0.24 -0.01
+b_PC
+1.01 0.07
+0.91
+1.12
+b_GC
+-0.04 0.10 -0.20
+0.11
+b_U
+2.00 0.15
+1.76
+2.23
+sigma
+1.02 0.05
+0.94
+1.10
+And those are the slopes we simulated with.
+Rethinking: Statistical paradoxes and causal explanations. The grandparents example serves as
+an example of Simpson’s paradox: Including another predictor (P in this case) can reverse the
+direction of association between some other predictor (G) and the outcome (C). Usually, Simpson’s
+paradox is presented in cases where adding the new predictor helps us. But in this case, it misleads
+us. Simpson’s paradox is a statistical phenomenon. To know whether the reversal of the association
+correctly reflects causation, we need something more than just a statistical model.91
+6.4. Confronting confounding
+In this chapter and in the previous one, there have been several examples of how we can
+use multiple regression to deal with confounding. But we have also seen how multiple regres-
+sion can cause confounding—controlling for the wrong variables ruins inference. Hopefully
+I have succeeded in scaring you aware from just adding everything to a model and hoping
+regression will sort it out, as well as inspired you to believe that effective inference is possible,
+if we are careful enough and knowledgable enough.

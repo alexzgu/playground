@@ -32,6 +32,7 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
 OUT = HERE / "out"
+PAGES = HERE / "pages"
 DEFAULT_MODEL = "claude-opus-4-8"
 PAGE_TIMEOUT_S = 900
 
@@ -209,7 +210,7 @@ def main():
     ap.add_argument("--model", default=DEFAULT_MODEL)
     ap.add_argument("--workers", type=int, default=3)
     ap.add_argument("--force", action="store_true", help="re-run pages even if already transcribed")
-    ap.add_argument("--pages-dir", default=str(ROOT / "pages"))
+    ap.add_argument("--pages-dir", default=str(PAGES))
     args = ap.parse_args()
 
     OUT.mkdir(exist_ok=True)

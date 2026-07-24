@@ -1,0 +1,46 @@
+5.1. SPURIOUS ASSOCIATION
+139
+regression. None of these techniques is suitable for all jobs, and most do not generalize be-
+yond linear regression. So the approach I take here is to instead help you compute whatever
+you need from the model. I offer three examples of interpretive plots:
+(1) Predictor residual plots. These plots show the outcome against residual predictor
+values. They are useful for understanding the statistical model, but not much else.
+(2) Posterior prediction plots. These show model-based predictions against raw data,
+or otherwise display the error in prediction. They are tools for checking fit and
+assessing predictions. They are not causal tools.
+(3) Counterfactual plots. These show the implied predictions for imaginary experi-
+ments. These plots allow you to explore the causal implications of manipulating
+one or more variables.
+Each of these plot types has its advantages and deficiencies, depending upon the context and
+the question of interest. In the rest of this section, I show you how to manufacture each of
+these in the context of the divorce data.
+5.1.5.1. Predictor residual plots. A predictor variable residual is the average prediction
+error when we use all of the other predictor variables to model a predictor of interest. That’s
+a complicated concept, so we’ll go straight to the example, where it will make sense. The ben-
+efit of computing these things is that, once plotted against the outcome, we have a bivariate
+regression of sorts that has already “controlled” for all of the other predictor variables. It just
+leaves in the variation that is not expected by the model of the mean, µ, as a function of the
+other predictors.
+In our multivariate model of divorce rate, we have two predictors: (1) marriage rate (M)
+and (2) median age at marriage (A). To compute predictor residuals for either, we just use
+the other predictor to model it. So for marriage rate, this is the model we need:
+Mi ∼Normal(µi, σ)
+µi = α + βAi
+α ∼Normal(0, 0.2)
+β ∼Normal(0, 0.5)
+σ ∼Exponential(1)
+As before, M is marriage rate and A is median age at marriage. Note that since we standard-
+ized both variables, we already expect the mean α to be around zero, as before. So I’m reusing
+the same priors as earlier. This code will approximate the posterior:
+R code
+5.13
+m5.4 <- quap(
+alist(
+M ~ dnorm( mu , sigma ) ,
+mu <- a + bAM * A ,
+a ~ dnorm( 0 , 0.2 ) ,
+bAM ~ dnorm( 0 , 0.5 ) ,
+sigma ~ dexp( 1 )
+) , data = d )
+And then we compute the residuals by subtracting the observed marriage rate in each State
+from the predicted rate, based upon the model above:

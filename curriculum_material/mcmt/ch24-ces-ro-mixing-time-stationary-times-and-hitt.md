@@ -27,8 +27,6 @@ $$ t_{\mathrm{G}} = t_{\mathrm{G}}(1/4) = \min\{t \geq 1 \,:\, d_G(t) \leq 1/4\}
 
 Exercise 24.2 shows that $d_G(t)$ is monotone decreasing.
 
-335
-
 ### PDF page 352 (book page 336)
 
 The third parameter we consider in this chapter is the ***minimum expectation of a stationary time***, first introduced by Aldous (**1982**) in the continuous time case and later studied in discrete time by Lovász and Winkler (**1995b**, **1998**). It is defined as
@@ -49,9 +47,7 @@ where $\tau_A$ is the first time the chain hits the set $A \subset \mathcal{X}$.
 
 EXAMPLE 24.3. Consider simple random walk on two copies of $K_n$, the complete graph on $n > 2$ vertices, say $K_n$ and $K'_n$, joined by a single edge. See Figure 24.1.
 
-*[Figure: two clusters of densely-interconnected vertices (two copies of the complete graph $K_{10}$) joined by a single edge connecting them.]*
-
-FIGURE 24.1. Two copies of $K_{10}$ joined by a single edge.
+**FIGURE 24.1.** Two copies of $K_{10}$ joined by a single edge. *[Figure: two clusters of densely-interconnected vertices (two copies of the complete graph $K_{10}$) joined by a single edge connecting them.]*
 
 The mixing time satisfies $t_{\mathrm{mix}} = O(n^2)$. (See Exercise 24.5.) If $\alpha > 1/2$, then $t_H(\alpha) \leq n$, but otherwise $t_H(\alpha) \asymp n^2$. (In the first case, each copy of $K_n$ must intersect a set $A$ with $\pi(A) > 1/2$, whence the expected time to hit $A$ is at most $n$. In the case $\alpha \leq 1/2$, there is a set $A$ with $\pi(A) \geq \alpha$ contained entirely on one side. The time to hit such a set from the opposite side is of order $n^2$.)
 

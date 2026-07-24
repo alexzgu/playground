@@ -1,0 +1,44 @@
+13.1. EXAMPLE: MULTILEVEL TADPOLES
+419
+# also transform to probability with logistic
+d$propsurv.est <- logistic( apply( post$a , 2 , mean ) )
+# display raw proportions surviving in each tank
+plot( d$propsurv , ylim=c(0,1) , pch=16 , xaxt="n" ,
+xlab="tank" , ylab="proportion survival" , col=rangi2 )
+axis( 1 , at=c(1,16,32,48) , labels=c(1,16,32,48) )
+# overlay posterior means
+points( d$propsurv.est )
+# mark posterior mean probability across tanks
+abline( h=mean(inv_logit(post$a_bar)) , lty=2 )
+# draw vertical dividers between tank densities
+abline( v=16.5 , lwd=0.5 )
+abline( v=32.5 , lwd=0.5 )
+text( 8 , 0 , "small tanks" )
+text( 16+8 , 0 , "medium tanks" )
+text( 32+8 , 0 , "large tanks" )
+You can see the result in Figure 13.1. The horizontal axis is tank index, from 1 to 48.
+The vertical is proportion of survivors in a tank. The filled blue points show the raw pro-
+portions, computed from the observed counts. These values are already present in the data
+frame, in the propsurv column. The black circles are instead the varying intercept medi-
+ans. The horizontal dashed line at about 0.8 is the estimated median survival proportion in
+the population of tanks, α. It is not the same as the empirical mean survival. The vertical
+gray lines divide tanks with different initial counts of tadpoles—10 (left), 25 (middle), and
+35 (right).
+First, notice that in every case, the multilevel estimate is closer to the dashed line than
+the raw empirical estimate is. It’s as if the entire distribution of black circles has been shrunk
+towards the dashed line at the center of the data, leaving the blue points behind on the out-
+side. This phenomenon is sometimes called shrinkage, and it results from regularization
+(as in Chapter 7). Second, notice that the estimates for the smaller tanks have shrunk far-
+ther from the blue points. As you move from left to right in the figure, the initial densities
+of tadpoles increase from 10 to 25 to 35, as indicated by the vertical dividers. In the small-
+est tanks, it is easy to see differences between the open estimates and empirical blue points.
+But in the largest tanks, there is little difference between the blue points and open circles.
+Varying intercepts for the smaller tanks, with smaller sample sizes, shrink more. Third, note
+that the farther a blue point is from the dashed line, the greater the distance between it and
+the corresponding multilevel estimate. Shrinkage is stronger, the further a tank’s empirical
+proportion is from the global average α.
+All three of these phenomena arise from a common cause: pooling information across
+clusters (tanks) to improve estimates. What pooling means here is that each tank provides
+information that can be used to improve the estimates for all of the other tanks. Each tank
+helps in this way, because we made an assumption about how the varying log-odds in each
+tank related to all of the others. We assumed a distribution, the normal distribution in this

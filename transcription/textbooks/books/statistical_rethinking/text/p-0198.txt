@@ -1,0 +1,47 @@
+182
+6. THE HAUNTED DAG & THE CAUSAL TERROR
+0
+10
+20
+30
+40
+50
+60
+-2
+-1
+0
+1
+2
+age
+happiness
+married
+unmarried
+Figure 6.4. Simulated data, assuming that happiness is uniformly dis-
+tributed and never changes. Each point is a person. Married individuals
+are shown with filled blue points. At each age after 18, the happiest individ-
+uals are more likely to be married. At later ages, more individuals tend to be
+married. Marriage status is a collider of age and happiness: A →M ←H.
+If we condition on marriage in a regression, it will mislead us to believe that
+happiness declines with age.
+Suppose you come across these data and want to ask whether age is related to happiness.
+You don’t know the true causal model. But you reason, reasonably, that marriage status
+might be an important confound. If married people are more or less happy, on average, then
+you need to condition on marriage status in order to infer the relationship between age and
+happiness.
+So let’s consider a multiple regression model aimed at inferring the influence of age on
+happiness, while controlling for marriage status. This is just a plain multiple regression, like
+the others in this and the previous chapter. The linear model is this:
+µi = αmid[i] + βAAi
+where mid[i] is an index for the marriage status of individual i, with 1 meaning single and
+2 meaning married. This is just the categorical variable strategy from Chapter 4. It’s easier
+to make priors, when we use multiple intercepts, one for each category, than when we use
+indicator variables.
+Now we should do our duty and think about the priors. Let’s consider the slope βA first,
+because how we scale the predictor A will determine the meaning of the intercept. We’ll
+focus only on the adult sample, those 18 or over. Imagine a very strong relationship between
+age and happiness, such that happiness is at its maximum at age 18 and its minimum at age
+65. It’ll be easier if we rescale age so that the range from 18 to 65 is one unit. This will do it:
+R code
+6.22
+d2 <- d[ d$age>17 , ] # only adults
+d2$A <- ( d2$age - 18 ) / ( 65 - 18 )

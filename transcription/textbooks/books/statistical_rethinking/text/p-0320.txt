@@ -1,0 +1,57 @@
+304
+9. MARKOV CHAIN MONTE CARLO
+9H1. Run the model below and then inspect the posterior distribution and explain what it is accom-
+plishing.
+R code
+9.28
+mp <- map2stan(
+alist(
+a ~ dnorm(0,1),
+b ~ dcauchy(0,1)
+),
+data=list(y=1),
+start=list(a=0,b=0),
+iter=1e4, warmup=100 , WAIC=FALSE )
+Compare the samples for the parameters a and b. Can you explain the different trace plots, using
+what you know about the Cauchy distribution?
+9H2. Recall the divorce rate example from Chapter 5. Repeat that analysis, using ulam() this time,
+fitting models m5.1, m5.2, and m5.3. Use compare to compare the models on the basis of WAIC or
+PSIS. Explain the results.
+9H3. Sometimes changing a prior for one parameter has unanticipated effects on other parameters.
+This is because when a parameter is highly correlated with another parameter in the posterior, the
+prior influences both parameters. Here’s an example to work and think through.
+Go back to the leg length example in Chapter 5. Here is the code again, which simulates height
+and leg lengths for 100 imagined individuals:
+R code
+9.29
+N <- 100
+# number of individuals
+height <- rnorm(N,10,2)
+# sim total height of each
+leg_prop <- runif(N,0.4,0.5)
+# leg as proportion of height
+leg_left <- leg_prop*height +
+# sim left leg as proportion + error
+rnorm( N , 0 , 0.02 )
+leg_right <- leg_prop*height +
+# sim right leg as proportion + error
+rnorm( N , 0 , 0.02 )
+# combine into data frame
+d <- data.frame(height,leg_left,leg_right)
+And below is the model you fit before, resulting in a highly correlated posterior for the two beta
+parameters. This time, fit the model using ulam():
+R code
+9.30
+m5.8s <- ulam(
+alist(
+height ~ dnorm( mu , sigma ) ,
+mu <- a + bl*leg_left + br*leg_right ,
+a ~ dnorm( 10 , 100 ) ,
+bl ~ dnorm( 2 , 10 ) ,
+br ~ dnorm( 2 , 10 ) ,
+sigma ~ dexp( 1 )
+) ,
+data=d, chains=4,
+start=list(a=10,bl=0,br=0.1,sigma=1) )
+Compare the posterior distribution produced by the code above to the posterior distribution pro-
+duced when you change the prior for br so that it is strictly positive:

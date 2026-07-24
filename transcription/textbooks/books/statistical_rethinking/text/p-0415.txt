@@ -1,0 +1,48 @@
+12.3. ORDERED CATEGORICAL OUTCOMES
+399
+R code
+12.21
+sum( pk*(1:7) )
+[1] 4.198989
+And now subtracting 0.5 from each:
+R code
+12.22
+round( pk <- dordlogit( 1:7 , 0 , coef(m12.4)-0.5 ) , 2 )
+[1] 0.08 0.06 0.08 0.21 0.16 0.18 0.22
+Compare these to the probabilities just above and notice that the values on the left have
+diminished while the values on the right have increased. The expected value is now:
+R code
+12.23
+sum( pk*(1:7) )
+[1] 4.729394
+And that’s why we subtract ϕ, the linear model βxi, from each intercept, rather than add it.
+This way, a positive β value indicates that an increase in the predictor variable x results in an
+increase in the average response.
+Now we can turn back to our “trolley” data and include predictor variables to help ex-
+plain variation in responses. The predictor variables of interest are going to be action,
+intention, and contact, each an indicator variable corresponding to each principle out-
+lined earlier. There are several ways we could code these indicator variables into treatments.
+Consider that contact always implies action. The way that contact is coded here, it excludes
+action, treating the two features as mutually exclusive. But each can be combined with in-
+tention. This gives us 6 possible story combinations:
+(1) No action, contact, or intention
+(2) Action
+(3) Contact
+(4) Intention
+(5) Action and intention
+(6) Contact and intention
+The last two represent interactions—the influence of intention may depend upon the simulta-
+neous presence of action or contact. I’ll use the indicator variables directly this time, instead
+of an index variable. This will let me show you a useful trick for defining interactions that
+can make your models easier to read and debug.
+The log-cumulative-odds of each response k will now be:
+log
+Pr(yi ≤k)
+1 −Pr(yi ≤k) = αk −ϕi
+ϕi = βAAi + βCCi + BI,iIi
+BI,i = βI + βIAAi + βICCi
+where Ai indicates the value of action on row i, Ii indicates the value of intention on row i,
+and Ci indicates the value of contact on row i. What we’ve done here is define the log-odds
+of each possible response to be an additive model of the features of the story corresponding to
+each response. For the interactions of intention with action and contact, I used an accessory
+linear model, BI. This just makes the notation clearer, by defining the relationship between

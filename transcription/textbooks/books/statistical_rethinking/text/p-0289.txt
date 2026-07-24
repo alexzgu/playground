@@ -1,0 +1,47 @@
+9.2. METROPOLIS ALGORITHMS
+273
+didn’t know how many islands were in it. All he needs to know at any point in time is the
+population of the current island and the population of the proposal island. Then, without any
+forward planning or backwards record keeping, King Markov can satisfy his royal obligation
+to visit his people proportionally.
+9.2. Metropolis Algorithms
+The precise algorithm King Markov used is a special case of the general Metropolis
+algorithm from the real world.139 And this algorithm is an example of Markov chain
+Monte Carlo. In real applications, the goal is of course not to help an autocrat schedule
+his journeys, but instead to draw samples from an unknown and usually complex target
+distribution, like a posterior probability distribution.
+• The “islands” in our objective are parameter values, and they need not be discrete,
+but can instead take on a continuous range of values as usual.
+• The “population sizes” in our objective are the posterior probabilities at each pa-
+rameter value.
+• The “weeks” in our objective are samples taken from the joint posterior of the pa-
+rameters in the model.
+Provided the way we choose our proposed parameter values at each step is symmetric—so
+that there is an equal chance of proposing from A to B and from B to A—then the Metropolis
+algorithm will eventually give us a collection of samples from the joint posterior. We can then
+use these samples just like all the samples you’ve already used in this book.
+The Metropolis algorithm is the grandparent of several different strategies for getting
+samples from unknown posterior distributions. In the remainder of this section, I briefly
+explain the concept behind Gibbs sampling. Gibbs sampling is much better than plain Me-
+tropolis, and it continues to be common in applied Bayesian statistics. But it is rapidly being
+replaced by other algorithms.
+9.2.1. Gibbssampling. The Metropolis algorithm works wheneverthe probability ofpropos-
+ing a jump to B from A is equal to the probability of proposing A from B, when the pro-
+posal distribution is symmetric. There is a more general method, known as Metropolis-
+Hastings,140 that allows asymmetric proposals. This would mean, in the context of King
+Markov’s fable, that the King’s coin were biased to lead him clockwise on average.
+Why would we want an algorithm that allows asymmetric proposals? One reason is that
+it makes it easier to handle parameters, like standard deviations, that have boundaries at
+zero. A better reason, however, is that it allows us to generate savvy proposals that explore
+the posterior distribution more efficiently. By “more efficiently,” I mean that we can acquire
+an equally good image of the posterior distribution in fewer steps.
+The most common way to generate savvy proposals is a technique known as Gibbs sam-
+pling.141 Gibbs sampling is a variant of the Metropolis-Hastings algorithm that uses clever
+proposals and is therefore more efficient. By “efficient,” I mean that you can get a good
+estimate of the posterior from Gibbs sampling with many fewer samples than a comparable
+Metropolis approach. The improvement arises from adaptive proposals in which the distribu-
+tion of proposed parameter values adjusts itself intelligently, depending upon the parameter
+values at the moment.
+How Gibbs sampling computes these adaptive proposals depends upon using particu-
+lar combinations of prior distributions and likelihoods known as conjugate pairs. Conjugate
+pairs have analytical solutions for the posterior distribution of an individual parameter. And

@@ -1,0 +1,39 @@
+278
+9. MARKOV CHAIN MONTE CARLO
+0
+100
+200
+300
+time
+position
+0
+south
+north
+Figure 9.5. King Monty’s Royal Drive. The journey begins at time 1 on
+the far left. The vehicle is given a random momentum and a random direc-
+tion, either north (top) or south (bottom). The thickness of the path shows
+momentum at each moment. The vehicle travels, losing momentum uphill
+or gaining it downhill. After a fixed amount of time, they stop and make
+a visit, as shown by the points. Then a new random direction and momen-
+tum is chosen. In the long run, positions are visited in proportion to their
+population density.
+to adopt this Hamiltonian strategy, but he cannot: The islands are not continuous. Hamilton’s
+approach only works when all the locations are connected by dry land, because it requires
+that the vehicle be capable of stopping at any point.
+Rethinking: Hamiltonians. The Hamilton who gives his name to Hamiltonian Monte Carlo had
+nothing to do with the development of the method. Sir William Rowan Hamilton (1805–1865) was
+an Irish mathematician, arguably the greatest mathematician of his generation. Hamilton accomplish
+great things in pure mathematics, but he also dabbled in physics and reformulated Newtons laws of
+motion into a new system that we now call Hamiltonian mechanics (or dynamics). Hamiltonian
+Monte Carlo was originally called Hybrid Monte Carlo, but is now usually referred to by the
+Hamiltonian differential equations that drive it.
+9.3.2. Particles in space. This story of King Monty is analogous to how the actual Hamil-
+tonian Monte Carlo algorithm works. In statistical applications, the royal vehicle is the cur-
+rent vector of parameter values. Let’s consider the single parameter case, just to keep things
+simple. In that case, the log-posterior is like a bowl, with the point of highest posterior prob-
+ability at its nadir, in the center of the valley. Then we give the particle a random flick—give
+it some momentum—and simulate its path. It must obey the physics, gliding along until we
+stop the clock and take a sample.
+This is not another metaphor. HMC really does run a physics simulation, pretending
+the vector of parameters gives the position of a little frictionless particle. The log-posterior
+provides a surface for this particle to glide across. When the log-posterior is very flat, because

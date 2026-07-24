@@ -1,0 +1,60 @@
+252
+8. CONDITIONAL MANATEES
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+0.7
+0.8
+0.9
+1.0
+1.1
+1.2
+1.3
+ruggedness (standardized)
+log GDP (as proportion of mean)
+m8.4
+Africa
+Not Africa
+Figure
+8.4. Including
+an
+indicator
+for
+African nations has no effect on the slope.
+African nations are shown in blue.
+Non-
+African nations are shown in black. Regres-
+sion means for each subset of nations are
+shown in corresponding colors, along with
+97% intervals shown by shading.
+8.1.3. Adding an interaction does work. How can you recover the change in slope you saw
+at the start of this section? You need a proper interaction effect. This just means we also
+make the slope conditional on continent. The definition of µi in the model you just plotted,
+in math form, is:
+µi = αcid[i] + β(ri −¯r)
+And now we’ll double-down on our indexing to make the slope conditional as well:
+µi = αcid[i] + βcid[i](ri −¯r)
+And again, there is a conventional approach to specifying an interaction that uses an indica-
+tor variable and a new interaction parameter. It would look like this:
+µi = αcid[i] + (β + γAi)(ri −¯r)
+where Ai is a 0/1 indicator for African nations. This is equivalent to our index approach,
+but it is much harder to state sensible priors. Any prior we put on γ makes the slope inside
+Africa more uncertain than the slope outside Africa. And again that makes no sense. But
+in the indexing approach, we can easily assign the same prior to the slope, no matter which
+continent.
+To approximate the posterior of this new model, you can just use quap as before. Here’s
+the code that includes an interaction between ruggedness and being in Africa:
+R code
+8.13
+m8.3 <- quap(
+alist(
+log_gdp_std ~ dnorm( mu , sigma ) ,
+mu <- a[cid] + b[cid]*( rugged_std - 0.215 ) ,
+a[cid] ~ dnorm( 1 , 0.1 ) ,
+b[cid] ~ dnorm( 0 , 0.3 ) ,
+sigma ~ dexp( 1 )
+) , data=dd )
+Let’s inspect the marginal posterior distributions:

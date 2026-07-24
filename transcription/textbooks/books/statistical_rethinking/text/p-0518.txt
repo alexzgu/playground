@@ -1,0 +1,45 @@
+502
+15. MISSING DATA AND OTHER OPPORTUNITIES
+R code
+15.1
+# simulate a pancake and return randomly ordered sides
+sim_pancake <- function() {
+pancake <- sample(1:3,1)
+sides <- matrix(c(1,1,1,0,0,0),2,3)[,pancake]
+sample(sides)
+}
+# sim 10,000 pancakes
+pancakes <- replicate( 1e4 , sim_pancake() )
+up <- pancakes[1,]
+down <- pancakes[2,]
+# compute proportion 1/1 (BB) out of all 1/1 and 1/0
+num_11_10 <- sum( up==1 )
+num_11 <- sum( up==1 & down==1 )
+num_11/num_11_10
+[1] 0.6777889
+Two-thirds.
+If you want to derive some intuition now at the end, having seen the right answer, the
+trick is to count sides of the pancakes, not the pancakes themselves. Yes, there are 2 pancakes
+that have at least one burnt side. And only one of those has 2 burnt sides. But it is the sides,
+not the pancakes, that matter. Conditional on the up side being burnt, there are three sides
+that could be down. Two of those sides are burnt. So the probability is 2 out of 3.
+Probability theory is not difficult mathematically. It is just counting. But it is hard to
+interpret and apply. Doing so often seems to require some cleverness, and authors have an
+incentive to solve problems in clever ways, just to show off. But we don’t need that clever-
+ness, if we ruthlessly apply conditional probability. And that’s the real trick of the Bayesian
+approach: to apply conditional probability in all places, for data and parameters. The ben-
+efit is that once we define our information state—our assumptions—we can let the rules of
+probability do the rest. The work that gets done is the revelation of the implications of our
+assumptions. Model fitting, as we’ve been practicing it, is the same un-clever approach. We
+define the model and introduce the data, and conditional probability does the rest, revealing
+the implications of our assumptions, in light of the evidence.
+In this chapter, you’ll meet two commonplace applications of this assume-and-deduce
+strategy. The first is the incorporation of measurement error into our models. The sec-
+ond is the estimation of missing data through Bayesian imputation. You’ll see a fully
+worked, introductory example of each.
+In neither application do you have to intuit the consequences of measurement errors
+nor the implications of missing values in order to design the models. All you have to do
+is state your information about the error or about the variables with missing values. Logic
+does the rest. Well, your computer does the rest. But it’s just using fancy algorithms to
+perform Bayesian updating. It’s not at all clever. But the implications it reveals are both
+counterintuitive and valuable.

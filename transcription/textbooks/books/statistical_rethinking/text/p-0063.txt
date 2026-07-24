@@ -1,0 +1,47 @@
+2.6. PRACTICE
+47
+2E4. The Bayesian statistician Bruno de Finetti (1906–1985) began his book on probability theory
+with the declaration: “PROBABILITY DOES NOT EXIST.” The capitals appeared in the original, so
+I imagine de Finetti wanted us to shout this statement. What he meant is that probability is a device
+for describing uncertainty from the perspective of an observer with limited knowledge; it has no
+objective reality. Discuss the globe tossing example from the chapter, in light of this statement. What
+does it mean to say “the probability of water is 0.7”?
+Medium.
+2M1. Recall the globe tossing model from the chapter. Compute and plot the grid approximate
+posterior distribution for each of the following sets of observations. In each case, assume a uniform
+prior for p.
+(1) W, W, W
+(2) W, W, W, L
+(3) L, W, W, L, W, W, W
+2M2. Now assume a prior for p that is equal to zero when p < 0.5 and is a positive constant when
+p ≥0.5. Again compute and plot the grid approximate posterior distribution for each of the sets of
+observations in the problem just above.
+2M3. Suppose there are two globes, one for Earth and one for Mars. The Earth globe is 70% covered
+in water. The Mars globe is 100% land. Further suppose that one of these globes—you don’t know
+which—was tossed in the air and produced a “land” observation. Assume that each globe was equally
+likely to be tossed. Show that the posterior probability that the globe was the Earth, conditional on
+seeing “land” (Pr(Earth|land)), is 0.23.
+2M4. Suppose you have a deck with only three cards. Each card has two sides, and each side is either
+black or white. One card has two black sides. The second card has one black and one white side. The
+third card has two white sides. Now suppose all three cards are placed in a bag and shuffled. Someone
+reaches into the bag and pulls out a card and places it flat on a table. A black side is shown facing up,
+but you don’t know the color of the side facing down. Show that the probability that the other side is
+also black is 2/3. Use the counting method (Section 2 of the chapter) to approach this problem. This
+means counting up the ways that each card could produce the observed data (a black side facing up
+on the table).
+2M5. Now suppose there are four cards: B/B, B/W, W/W, and another B/B. Again suppose a card is
+drawn from the bag and a black side appears face up. Again calculate the probability that the other
+side is black.
+2M6. Imagine that black ink is heavy, and so cards with black sides are heavier than cards with white
+sides. As a result, it’s less likely that a card with black sides is pulled from the bag. So again assume
+there are three cards: B/B, B/W, and W/W. After experimenting a number of times, you conclude that
+for every way to pull the B/B card from the bag, there are 2 ways to pull the B/W card and 3 ways to
+pull the W/W card. Again suppose that a card is pulled and a black side appears face up. Show that
+the probability the other side is black is now 0.5. Use the counting method, as before.
+2M7. Assume again the original card problem, with a single card showing a black side face up. Before
+looking at the other side, we draw another card from the bag and lay it face up on the table. The face
+that is shown on the new card is white. Show that the probability that the first card, the one showing
+a black side, has black on its other side is now 0.75. Use the counting method, if you can. Hint: Treat
+this like the sequence of globe tosses, counting all the ways to see each observation, for each possible
+first card.
+Hard.

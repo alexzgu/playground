@@ -1,0 +1,46 @@
+416
+13. MODELS WITH MEMORY
+So we have repeat measures and heterogeneity across clusters. If we ignore the clusters,
+assigning the same intercept to each of them, then we risk ignoring important variation in
+baseline survival. This variation could mask association with other variables. If we instead
+estimate a unique intercept for each cluster, using a dummy variable for each tank, we in-
+stead practice anterograde amnesia. After all, tanks are different but each tank does help us
+estimate survival in the other tanks. So it doesn’t make sense to forget entirely, moving from
+one tank to another.
+A multilevel model, in which we simultaneously estimate both an intercept for each tank
+and the variation among tanks, is what we want. This will be a varying intercepts model.
+Varying intercepts are the simplest kind of varying effects.188 For each cluster in the data,
+we use a unique intercept parameter. This is no different than the categorical variable exam-
+ples from previous chapters, except now we also adaptively learn the prior that is common
+to all of these intercepts. This adaptive learning is the absence of amnesia discussed at the
+start of the chapter. When what we learn about each cluster informs all the other clusters,
+we learn the prior simultaneous to learning the intercepts.
+Here is a model for predicting tadpole mortality in each tank, using the regularizing
+priors of earlier chapters:
+Si ∼Binomial(Ni, pi)
+logit(pi) = αtank[i]
+[unique log-odds for each tank]
+αj ∼Normal(0, 1.5)
+, for j = 1..48
+And you can approximate this posterior using ulam as in previous chapters:
+R code
+13.2
+# make the tank cluster variable
+d$tank <- 1:nrow(d)
+dat <- list(
+S = d$surv,
+N = d$density,
+tank = d$tank )
+# approximate posterior
+m13.1 <- ulam(
+alist(
+S ~ dbinom( N , p ) ,
+logit(p) <- a[tank] ,
+a[tank] ~ dnorm( 0 , 1.5 )
+), data=dat , chains=4 , log_lik=TRUE )
+If you inspect the posterior, precis(m13.1,depth=2), you’ll see 48 different intercepts, one
+for each tank. To get each tank’s expected survival probability, just take one of the a values
+and then use the logistic transform. So far there is nothing new here.
+Now let’s do the multilevel model, which adaptively pools information across tanks. All
+that is required to enable adaptive pooling is to make the prior for the a parameters a func-
+tion of some new parameters. Here is the multilevel model, in mathematical form, with the

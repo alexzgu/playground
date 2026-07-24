@@ -1,0 +1,47 @@
+1.2. STATISTICAL RETHINKING
+7
+Unfortunately, other selection models (P1B) imply the same statistical model, MII, as the
+neutral model. They also produce power laws. So we’ve reached the uncomfortable lesson:
+(1) Any given statistical model (M) may correspond to more than one process model
+(P).
+(2) Any given hypothesis (H) may correspond to more than one process model (P).
+(3) Any given statistical model (M) may correspond to more than one hypothesis (H).
+Now look what happens when we compare the statistical models to data. The classical ap-
+proach is to take the “neutral” model as a null hypothesis. If the data are not sufficiently
+similar to the expectation under the null, then we say that we “reject” the null hypothesis.
+Suppose we follow the history of this subject and take P0A as our null hypothesis. This implies
+data corresponding to MII. But since the same statistical model corresponds to a selection
+model P1B, it’s not at all clear what we are to make of either rejecting or accepting the null.
+The null model is not unique to any process model nor hypothesis. If we reject the null,
+we can’t really conclude that selection matters, because there are other neutral models that
+predict different distributions of alleles. And if we fail to reject the null, we can’t really con-
+clude that evolution is neutral, because some selection models expect the same frequency
+distribution.
+This is a huge bother. Once we have the diagram in Figure 1.2, it’s easy to see the prob-
+lem. But few of us are so lucky. While population genetics has recognized this issue, scholars
+in other disciplines continue to test frequency distributions against power law expectations,
+arguing even that there is only one neutral model.11 Even if there were only one neutral
+model, there are so many non-neutral models that mimic the predictions of neutrality, that
+neither rejecting nor failing to reject the null model carries much inferential power.
+So what can be done? Well, if you have multiple process models, a lot can be done. If
+it turns out that all of the process models of interest make very similar predictions, then
+you know to search for a different description of the evidence, a description under which
+the processes look different. For example, while P0A and P1B make very similar power law
+predictions for the frequency distribution of alleles, they make very dissimilar predictions
+for the distribution of changes in allele frequency over time. Explicitly compare predictions
+of more than one model, and you can save yourself from some ordinary kinds of folly.
+Statistical models can be confused in other ways as well, such as the confusion caused by
+unobserved variables and sampling bias. Process models allow us to design statistical models
+with these problems in mind. The statistical model alone is not enough.
+Rethinking: Entropy and model identification. One reason that statistical models routinely corre-
+spond to many different detailed process models is because they rely upon distributions like the nor-
+mal, binomial, Poisson, and others. These distributions are members of a family, the exponential
+family. Nature loves the members of this family. Nature loves them because nature loves entropy,
+and all of the exponential family distributions are maximum entropy distributions. Taking the nat-
+ural personification out of that explanation will wait until Chapter 10. The practical implication is
+that one can no more infer evolutionary process from a power law than one can infer developmental
+process from the fact that height is normally distributed. This fact should make us humble about what
+typical regression models—the meat of this book—can teach us about mechanistic process. On the
+other hand, the maximum entropy nature of these distributions means we can use them to do useful
+statistical work, even when we can’t identify the underlying process. Not only can we not identify it,
+but we don’t have to.

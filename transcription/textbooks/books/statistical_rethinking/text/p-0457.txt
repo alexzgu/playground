@@ -1,0 +1,54 @@
+13.5. MULTILEVEL POSTERIOR PREDICTIONS
+441
+R code
+13.31
+chimp <- 2
+d_pred <- list(
+actor = rep(chimp,4),
+treatment = 1:4,
+block_id = rep(1,4)
+)
+p <- link( m13.4 , data=d_pred )
+p_mu <- apply( p , 2 , mean )
+p_ci <- apply( p , 2 , PI )
+And the plotting code is exactly the same as before (page ??).
+To construct the same calculations without using link, we just have to remember the
+model. The only difficulty is that when we work with the samples from the posterior, the
+varying intercepts will be a matrix of samples. Let’s take a look:
+R code
+13.32
+post <- extract.samples(m13.4)
+str(post)
+List of 6
+$ b
+: num [1:2000, 1:4] -0.107 -0.491 -0.644 -0.368 0.105 ...
+$ a
+: num [1:2000, 1:7] -0.0166 -0.2078 0.3102 0.1337 -0.191 ...
+$ g
+: num [1:2000, 1:6] -0.7116 -0.1728 -0.5689 -0.0299 0.0133 ...
+$ a_bar
+: num [1:2000(1d)] 1.2031 -0.0998 1.3569 0.6167 -0.0248 ...
+$ sigma_a: num [1:2000(1d)] 3.1 3.57 2.92 2.15 2.19 ...
+$ sigma_g: num [1:2000(1d)] 0.393 0.287 0.418 0.119 0.13 ...
+The a matrix has samples on the rows and actors on the columns. So to plot, for example,
+the density for actor 5:
+R code
+13.33
+dens( post$a[,5] )
+The [,5] means “all samples for actor 5.”
+To construct posterior predictions, we build our own link function. I’ll use the with
+function here, so we don’t have to keep typing post$ before every parameter name:
+R code
+13.34
+p_link <- function( treatment , actor=1 , block_id=1 ) {
+logodds <- with( post ,
+a[,actor] + g[,block_id] + b[,treatment] )
+return( inv_logit(logodds) )
+}
+The linear model is identical to the one used to define the model, but with a single comma
+added inside the brackets after a. Now to compute predictions:
+R code
+13.35
+p_raw <- sapply( 1:4 , function(i) p_link( i , actor=2 , block_id=1 ) )
+p_mu <- apply( p_raw , 2 , mean )
+p_ci <- apply( p_raw , 2 , PI )

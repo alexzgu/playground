@@ -1,0 +1,76 @@
+15.2. MISSING DATA
+527
+442 (84%) of 528 missing values are for non-literate polities. No writing means no evidence
+of any kind, in most cases. And as you can see in Figure 15.7, missing values are associated
+with smaller polities. This is possibly because smaller polities were (in the past) less likely
+to be literate. These data are structured by the strong association between literacy, moral-
+izing gods, and missing values. Beneath that mass of × symbols in Figure 15.7, belief in
+moralizing gods could be common or rare, depending on your theoretical preference.
+This situation cannot be saved by statistics, but it is useful to carefully reason out why.
+After all, in many cases missing data don’t block inference. The details matter. First we must
+consider whether we can just ignore the missing values, using a complete case analysis.
+But doing that in this context will almost certainly bias our inference, because the missing-
+ness is strongly associated with other variables, like writing, which are in turn strongly as-
+sociated with the outcome. It’ll help to consider the causal structure of missingness. Here’s
+my most optimistic guess:
+G*
+G
+P
+RG
+W
+Here P is rate of population growth (not the same as the population size variable in the
+data), G is the presence of belief in moralizing gods (which is unobserved), G∗is the observed
+variable with missing values, W is writing, and RG is the missing values indicator. This is an
+optimistic scenario, because it assumes there are no unobserved confounds among P, G, and
+W. These are purely observational data, recall. But the goal is to use this example to think
+through the impact of missing data. If we can’t recover from missing data with the DAG
+above, adding confounds isn’t going to help.
+Remember from the previous sections that the goal is to determine whether the outcome
+(here P) is independent of missingness (here RG). This is clearly not a dog-eats-homework-
+at-random situation, because RG is not completely random. It assumes missingness RG is
+explained entirely by an observed variable (W). Unfortunately, since P influences W, if we
+condition on W to try to separate P and RG, it just adds another confound. In the practice
+problems at the end, I’ll ask you to simulate from the DAG above to verify this claim.
+There is one last hope. If we could somehow condition on G instead of G∗, we’d be safe
+and clear. This is where imputation can help, by reconstructing G with appropriate uncer-
+tainty. This is not trivial, however, because successful imputation requires a good approx-
+imation of the generative model of the variable. How is G generated? There is no obvious
+answer. Consider for example the data for Hawaii, which by the time Europeans (Captain
+James Cook and his crew) finally made contact (in 1778) was a very large and complex polity
+with moralizing gods. Here is Hawaii:
+R code
+15.28
+haw <- which( Moralizing_gods$polity=="Big Island Hawaii" )
+columns <- c("year","writing","moralizing_gods")
+t( Moralizing_gods[ haw , columns ] )
+1
+2
+3
+4
+5
+6
+7
+8
+9
+year
+1000 1100 1200 1300 1400 1500 1600 1700 1800
+writing
+0
+0
+0
+0
+0
+0
+0
+0
+0
+moralizing_gods
+NA
+NA
+NA
+NA
+NA
+NA
+NA
+NA
+1

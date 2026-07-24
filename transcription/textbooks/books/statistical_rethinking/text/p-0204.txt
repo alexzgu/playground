@@ -1,0 +1,44 @@
+188
+6. THE HAUNTED DAG & THE CAUSAL TERROR
+But which principles explain why sometimes leaving out variables and sometimes adding
+them can produce the same phenomenon? Are there other causal monsters lurking out there,
+haunting our graphs? We require some coherence.
+Let’s define confounding as any context in which the association between an outcome
+Y and a predictor of interest X is not the same as it would be, if we had experimentally deter-
+mined the values of X.92 For example, suppose we are interested in the association between
+education E and wages W. The problem is that in a typical population there are many un-
+observed variables U that influence both E and W. Examples include where a person lives,
+who their parents are, and who their friends are. This is what the DAG looks like:
+E
+U
+W
+If we regress W on E, the estimate of the causal effect will be confounded by U. It is con-
+founded, because there are two paths connecting E and W: (1) E →W and (2) E ←U →W.
+A “path” here just means any series of variables you could walk through to get from one vari-
+able to another, ignoring the directions of the arrows. Both of these paths create a statistical
+association between E and W. But only the first path is causal. The second path is non-causal.
+Why? Because if only the second path existed, and we changed E, it would not change W.
+Any causal influence of E on W operates only on the first path.
+How can we isolate the causal path? The most famous solution is to run an experiment.
+If we could assign education levels at random, it changes the graph:
+E
+U
+W
+Manipulation removes the influence of U on E. The unobserved variables do not influence
+education when we ourselves determine education. With the influence of U removed from
+E, this then removes the path E ←U →W. It blocks the second path. Once the path is
+blocked, there is only one way for information to go between E and W, and then measuring
+the association between E and W would yield a useful measure of causal influence. Manipu-
+lation removes the confounding, because it blocks the other path between E and W.
+Luckily, there are statistical ways to achieve the same result, without actually manipulat-
+ing E. How? The most obvious is to add U to the model, to condition on U. Why does this
+also remove the confounding? Because it also blocks the flow of information between E and
+W through U. It blocks the second path.
+To understand why conditioning on U blocks the path E ←U →W, think of this path in
+isolation, as a complete model. Once you learn U, also learning E will give you no additional
+information about W. Suppose for example that U is the average wealth in a region. Regions
+with high wealth have better schools, resulting in more education E, as well as better paying
+jobs, resulting in higher wages W. If you don’t know the region a person lives in, learning
+the person’s education E will provide information about their wages W, because E and W are
+correlated across regions. But after you learn which region a person lives in, assuming there
+is no other path between E and W, then learning E tells you nothing about W. This is the

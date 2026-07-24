@@ -1,0 +1,64 @@
+9.5. CARE AND FEEDING OF YOUR MARKOV CHAIN
+297
+200
+400
+600
+800
+1000
+-2000
+0
+2000
+n_eff = 116
+alpha
+200
+400
+600
+800
+1000
+0
+10000
+n_eff = 179
+sigma
+n_eff = 116
+alpha
+n_eff = 179
+sigma
+200
+400
+600
+800
+1000
+-6
+-2
+2
+n_eff = 478
+alpha
+200
+400
+600
+800
+1000
+2
+4
+6
+8
+n_eff = 438
+sigma
+n_eff = 478
+alpha
+n_eff = 438
+sigma
+Figure 9.10. Diagnosing and healing a sick Markov chain. Top two rows:
+Trace and trank plots from three chains defined by model m9.2. These
+chains are not healthy and should not be used for inference. Bottom two
+rows: Adding weakly informative priors in m9.3 clears up the condition
+right away. Be sure to compare the vertical scales in the trace plots of the
+two models.
+It’s easy to tame this particular chain by using weakly informative priors. The reason
+the model above drifts wildly in both dimensions is that there is very little data, just two
+observations, and flat priors. The flat priors say that every possible value of the parameter
+is equally plausible, a priori. For parameters that can take a potentially infinite number of
+values, like alpha, this means the Markov chain needs to occasionally sample some pretty
+extreme and implausible values, like negative 30 million. These extreme drifts overwhelm
+the chain. If the likelihood were stronger, then the chain would be fine, because it would
+stick closer to zero.

@@ -1,0 +1,47 @@
+16.4. POPULATION DYNAMICS
+555
+Now not only does the most recent population size Ht−1 predict the present, but so too does
+the population size two time periods ago Ht−2. Everything from prices to temperature to
+wars has been modeled this way.
+There are several famous problems with autoregressive models, despite how often they
+are used. They are surely generalized linear madness. First, nothing that happened two time
+periods ago causes the present, except through its influence on the state of the system one
+time period ago. So no lag beyond one period makes any causal sense. It’s pure predictive
+epicycle. Of course some causal influences act slower than others. But that means you need
+another variable, not that the distance past can influence the present. Second, if the state of
+the system, Ht and Lt here, are measured with error, then the model is propagating error.
+It isn’t the observed Ht−1 that influences Ht, but rather the real unobserved Ht−1. In other
+words, what we really need is a state space model. Third, in most cases there is no bio-
+logical, economic, or physical interpretation of the parameters. Consider for example the α
+intercept in the equations above. It implies that even when there are no hares, Ht−1 = 0,
+there can be α hares in the next period. Sometimes all this nonsense is okay, if you care
+about is forecasting. But often these models don’t even make good forecasts, because getting
+the future right often depends upon have a decent causal model.
+It’s easy to do better, if you use a little science. In this section, we’ll model the hares and
+lynx using an incredibly basic ecological model. In the process, you’ll see how to fit systems
+of ordinary differential equations (ODEs) to data.
+16.4.1. The scientific model. The hare population reproduces at a rate that depends upon
+the plants. And it shrinks at a rate that depends upon predators. Let Ht be the number of
+hares at time t. Then we can assert that the rate of change in the hare population is:
+dH
+dt = Ht(birth rate) −Ht(death rate)
+Everything is multiplied by Ht, because if there are no hares, then there are no births or
+deaths. Reproduction and death are per capita processes. The simplest ecological model
+makes birth and death rates constant. Let’s call the birth rate bH and the mortality rate mH.
+This implies:
+dH
+dt = HtbH −HtmH = Ht(bH −mH)
+The per capita growth rate is the difference between the birth rate and the death rate. I think
+of this as the first law of ecology. Every model must include it in some form.
+The form we want to use here modifies the mortality rate so it also depends upon the
+presence of a predator, the clever lynx. Let Lt be the number of lynx at time t. Then we can
+write:
+dH
+dt = Ht(bH −LtmH)
+Similar logic gives us a similar equation for the rate of change in the lynx population:
+dL
+dt = Lt(HtbL −mL)
+In this case, it is birth that depends upon the other species and mortality that is a constant.
+Now we have a model in which the population dynamics of the two species are deter-
+mined by two coupled ordinary differential equations (ODEs). This isn’t a realistic model.
+The plants that hares eat are not constantly available, and lynx eat more than just hares. But

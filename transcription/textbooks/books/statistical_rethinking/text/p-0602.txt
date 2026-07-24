@@ -1,0 +1,53 @@
+586
+Bibliography
+Gelman, A. and Robert, C. P. (2013). “Not only defended but also applied”: The perceived absurdity
+of Bayesian inference. The American Statistician, 67(1):1–5.
+Gelman, A. and Rubin, D. (1992). Inference from iterative simulation using multiple sequences.
+Statistical Science, 7:457–511.
+Gelman, A. and Rubin, D. B. (1995). Avoiding model selection in Bayesian social research. Sociological
+Methodology, 25:165–173.
+Gelman, A. and Stern, H. (2006). The difference between “significant” and “not significant” is not
+itself statistically significant. The American Statistician, 60(4):328–331.
+Geman, S. and Geman, D. (1984). Stochastic relaxation, Gibbs distributions, and the Bayesian restora-
+tion of images. IEEE Transactions on Pattern Analysis and Machine Intelligence, 6(6):721–741.
+Gigerenzer, G. and Hoffrage, U. (1995). How to improve Bayesian reasoning without instruction:
+Frequency formats. Psychological Review, 102:684–704.
+Gigerenzer, G., Krauss, S., and Vitouch, O. (2004). The null ritual: What you always wanted to know
+about significance testing but were afraid to ask. In Kaplan, D., editor, The Sage handbook of quan-
+titative methodology for the social sciences, pages 391–408. Sage Publications, Inc., Thousand Oaks.
+Gigerenzer, G., Swijtink, Z., Porter, T., Daston, L., Beatty, J., and Kruger, L. (1990). The Empire of
+Chance: How Probability Changed Science and Everyday Life. Cambridge University Press.
+Gigerenzer, G., Todd, P., and The ABC Research Group (2000). Simple Heuristics That Make Us Smart.
+Oxford University Press, Oxford.
+Gilad, Y. and Mizrahi-Man, O. (2015). A reanalysis of mouse encode comparative gene expression
+data. F1000Research, 4(121).
+Gillespie, J. H. (1977). Sampling theory for alleles in a random environment. Nature, 266:443–445.
+Glenn, N. (2009). Is the apparent u-shape of well-being over the life course a result of inappropriate
+use of control variables? a commentary on blanchflower and oswald. Social Science and Medicine,
+69:481–485.
+Grafen, A. (1989). The phylogenetic regression. Philosophical Transactions of the Royal Society of
+London. Series B, Biological Sciences, 326(1233):119–157.
+Grafen, A. and Hails, R. (2002). Modern Statistics for the Life Sciences. Oxford University Press,
+Oxford.
+Griffin, A. (2008). Maximum Entropy: The Universal Method for Inference. PhD thesis, University of
+Albany, State University of New York, Department of Physics.
+Gronau, Q. F. and Wagenmakers, E.-J. (2019). Limitations of bayesian leave-one-out cross-validation
+for model selection. Computational Brain & Behavior, 2(1):1–11.
+Grosberg, A. (1998). Entropy of a knot: Simple arguments about difficult problem. In Stasiak, A.,
+Katrich, V., and Kauffman, L. H., editors, Ideal Knots, pages 129–142. World Scientific.
+Grünwald, P. D. (2007). The Minimum Description Length Principle. MIT Press, Cambridge MA.
+Hacking, I. (1983). Representing and Intervening: Introductory Topics in the Philosophy of Natural
+Science. Cambridge University Press, Cambridge.
+Hahn, M. W. and Bentley, R. A. (2003). Drift as a mechanism for cultural change: an example from
+baby names. Proceedings of the Royal Society B, 270:S120–S123.
+Harte, J. (1988). Consider A Spherical Cow: A Course in Environmental Problem Solving. University
+Science Books.
+Harte, J. (2011). Maximum Entropy and Ecology: A Theory of Abundance, Distribution, and Energetics.
+Oxford Series in Ecology and Evolution. Oxford University Press, Oxford.
+Hastie, T., Tibshirani, R., and Friedman, J. (2009). The Elements of Statistical Learning: Data Mining,
+Inference, and Prediction. Springer, 2nd edition.
+Hastings, W. (1970). Monte Carlo sampling methods using Markov chains and their applications.
+Biometrika, 57(1):97–109.
+Hauer, E. (2004). The harm done by tests of significance. Accident Analysis & Prevention, 36:495–500.
+Henrion, M. and Fischoff, B. (1986). Assessing uncertainty in physcial constants. American Journal
+of Physics, 54:791–798.

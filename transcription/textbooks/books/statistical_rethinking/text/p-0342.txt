@@ -1,0 +1,57 @@
+326
+10. BIG ENTROPY AND THE GENERALIZED LINEAR MODEL
+-1.0
+-0.5
+0.0
+0.5
+1.0
+-3
+-2
+-1
+0
+1
+2
+3
+x
+log measurement
+-1.0
+-0.5
+0.0
+0.5
+1.0
+x
+0
+2
+4
+6
+8
+10
+original measurement
+Figure 10.8. The log link transforms a linear model (left) into a strictly pos-
+itive measurement (right). This transform results in an exponential scaling
+of the linear model, with a unit change on the linear scale mapping onto
+increasingly larger changes on the outcome scale.
+event is almost guaranteed to happen, its probability cannot increase very much, no matter
+how important the predictor may be.
+You’ll find examples of this compression phenomenon in later chapters. The key lesson
+for now is just that no regression coefficient, such as β, from a GLM ever produces a constant
+change on the outcome scale. Recall that we defined interaction (Chapter 7) as a situation
+in which the effect of a predictor depends upon the value of another predictor. Well now
+every predictor essentially interacts with itself, because the impact of a change in a predictor
+depends upon the value of the predictor before the change. More generally, every predic-
+tor variable effectively interacts with every other predictor variable, whether you explicitly
+model them as interactions or not. This fact makes the visualization of counter-factual pre-
+dictions even more important for understanding what the model is telling you.
+The second very common link function is the log link. This link function maps a
+parameter that is defined over only positive real values onto a linear model. For example,
+suppose we want to model the standard deviation σ of a Gaussian distribution so it is a
+function of a predictor variable x. The parameter σ must be positive, because a standard
+deviation cannot be negative nor can it be zero. The model might look like:
+yi ∼Normal(µ, σi)
+log(σi) = α + βxi
+In this model, the mean µ is constant, but the standard deviation scales with the value xi.
+A log link is both conventional and useful in this situation. It prevents σ from taking on a
+negative value.
+What the log link effectively assumes is that the parameter’s value is the exponentiation
+of the linear model. Solving log(σi) = α + βxi for σi yields the inverse link:
+σi = exp(α + βxi)

@@ -1,0 +1,46 @@
+15.1. MEASUREMENT ERROR
+503
+15.1. Measurement error
+Back in Chapter 5, you met the divorce and marriage data for the United States. Those
+data demonstrated a simple spurious association among the predictors, as well as how mul-
+tiple regression can sort it out. What we ignored at the time is that both the divorce rate
+variable and the marriage rate variable are measured with substantial error, and that error is
+reported in the form of standard errors. Importantly, the amount of error varies a lot across
+States. Here, you’ll see a simple and useful way to incorporate that information into the
+model. Then we’ll let logic reveal the implications.
+Let’s begin by plotting the measurement error of the outcome as an error bar:
+R code
+15.2
+library(rethinking)
+data(WaffleDivorce)
+d <- WaffleDivorce
+# points
+plot( d$Divorce ~ d$MedianAgeMarriage , ylim=c(4,15) ,
+xlab="Median age marriage" , ylab="Divorce rate" )
+# standard errors
+for ( i in 1:nrow(d) ) {
+ci <- d$Divorce[i] + c(-1,1)*d$Divorce.SE[i]
+x <- d$MedianAgeMarriage[i]
+lines( c(x,x) , ci )
+}
+The plot is shown on the left in Figure 15.1. Notice that there is a lot of variation in how
+uncertain the observed divorce rate is, as reflected in varying lengths of the vertical line seg-
+ments. Why does the error vary so much? Large States provide better samples, so their
+measurement error is smaller. The data are displayed this way, to show the association be-
+tween the population size of each State and its measurement error, in the right-hand plot in
+Figure 15.1.
+Since the values in same States are more certain than in others, it makes sense for the
+more certain estimates to influence the regression more. There are all manner of ad hoc pro-
+cedures for weighting some points more than others, and these can help. But they leave a lot
+of information on the table. And they prevent a helpful phenomenon that arises automati-
+cally in the fully Bayesian approach: Information flows among the measurements to provide
+improved estimates of the data itself. So let’s see how to state the information as a model.
+Rethinking: Generative thinking, Bayesian inference. Bayesian models are generative, meaning they
+can be used to simulate observations just as well as they can be used to estimate parameters. One
+benefit of this fact is that a statistical model can be developed by thinking hard about how the data
+might have arisen. This includes sampling and measurement, as well as the nature of the process we
+are studying. Then let Bayesian updating discover the implications. These implications may include
+the inability to infer the generative process from data. Bayes is an honest partner. It is not afraid to
+hurt your feelings.
+15.1.1. Error on the outcome. To incorporate measurement error, let’s begin by thinking
+generatively. If we were to simulate measurement error, what would it look like? The first

@@ -1,0 +1,68 @@
+6.3. COLLIDER BIAS
+183
+Now this new variable A ranges from 0 to 1, where 0 is age 18 and 1 is age 65. Happiness
+is on an arbitrary scale, in these data, from −2 to +2. So our imaginary strongest rela-
+tionship, taking happiness from maximum to minimum, has a slope with rise over run of
+(2 −(−2))/1 = 4. Remember that 95% of the mass of a normal distribution is contained
+within 2 standard deviations. So if we set the standard deviation of the prior to half of 4, we
+are saying that we expect 95% of plausible slopes to be less than maximally strong. That isn’t
+a very strong prior, but again, it at least helps bound inference to realistic ranges. Now for
+the intercepts. Each α is the value of µi when Ai = 0. In this case, that means at age 18. So
+we need to allow α to cover the full range of happiness scores. Normal(0, 1) will put 95% of
+the mass in the −2 to +2 interval.
+Finally, let’s approximate the posterior. We need to construct the marriage status index
+variable, as well. I’ll do that, and then immediate present the quap code.
+R code
+6.23
+d2$mid <- d2$married + 1
+m6.9 <- quap(
+alist(
+happiness ~ dnorm( mu , sigma ),
+mu <- a[mid] + bA*A,
+a[mid] ~ dnorm( 0 , 1 ),
+bA ~ dnorm( 0 , 2 ),
+sigma ~ dexp(1)
+) , data=d2 )
+precis(m6.9,depth=2)
+mean
+sd
+5.5% 94.5%
+a[1]
+-0.23 0.06 -0.34 -0.13
+a[2]
+1.26 0.08
+1.12
+1.40
+bA
+-0.75 0.11 -0.93 -0.57
+sigma
+0.99 0.02
+0.95
+1.03
+The model is quite sure that age is negatively associated with happiness. We’d like to compare
+the inferences from this model to a model that omits marriage status. Here it is, followed by
+a comparison of the marginal posterior distributions:
+R code
+6.24
+m6.10 <- quap(
+alist(
+happiness ~ dnorm( mu , sigma ),
+mu <- a + bA*A,
+a ~ dnorm( 0 , 1 ),
+bA ~ dnorm( 0 , 2 ),
+sigma ~ dexp(1)
+) , data=d2 )
+precis(m6.10)
+mean
+sd
+5.5% 94.5%
+a
+0.00 0.08 -0.12
+0.12
+bA
+0.00 0.13 -0.21
+0.21
+sigma 1.21 0.03
+1.17
+1.26
+This model, in contrast, finds no association between age and happiness.

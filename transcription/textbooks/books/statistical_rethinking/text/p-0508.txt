@@ -1,0 +1,45 @@
+492
+14. ADVENTURES IN COVARIANCE
+confounds. This depends upon having both a good phylogeny and a good model of the rela-
+tionship between phylogenetic distance and trait evolution. Neither is a trivial problem. But
+the approach is justified in theory, if not always possible in practice.
+It will help to draw this approach and then use it in an actual model.
+B
+G
+M
+P
+U
+There’s a lot going on here, but we can take it one piece at a time. Again, we’re interested in
+G →B. There is one confound we know for sure, body mass (M). It possibly influences both
+G and B. So we’ll include that in the model. The unobserved confounds U could potentially
+influence all three variables. Finally, we let the phylogenetic relationships (P) influence U.
+How is P causal? If we traveled back in time and delayed a split between two species, it could
+influence the expected differences in their traits. So it is really the timing of the split that is
+causal, not the phylogeny. Of course P may also influence G and B and M directly. But those
+arrows aren’t our concern right now, so I’ve omitted them for clarity.
+We want to be sure any association between group size G and brain size B is not through a
+backdoor. As always, we look for all the paths between G and B, identify which are backdoors,
+and consider if there are any methods for closing the backdoor paths. In the DAG above,
+there are backdoor paths through M and through U. We can condition on M to block that
+confound. But we can’t condition on U. But if we can use P to somehow reconstruct the
+covariation that U induces between G and B, that could be enough.
+That’s the strategy. Now implementing that strategy is famously hard. GLMs that try to
+include phylogenetic distance often go by the name phylogenetic regression. The orig-
+inal phylogenetic regression approach treats phylogenetic distance in a highly constrained
+and unrealistic way, based on a neutral model of divergence with time.207 There are many
+variants. But all of them use some function of phylogenetic distance to model the covari-
+ation among species. So learning the basic phylogenetic regression model helps bootstrap
+your understanding, even though you really should use something better in your own anal-
+yses. After introducing the basic phylogenetic regression, I’ll show you how to more flexibly
+model phylogenetic distance. There is no universally correct function that maps phylogeny
+onto the confounds that matter. So flexibility is needed.
+To begin, load the primates data and its phylogeny as well:
+R code
+14.47
+library(rethinking)
+data(Primates301)
+data(Primates301_nex)
+# plot it using ape package - install.packages('ape') if needed
+library(ape)
+plot( ladderize(Primates301_nex) , type="fan" , font=1 , no.margin=TRUE ,
+label.offset=1 , cex=0.5 )

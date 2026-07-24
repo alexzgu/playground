@@ -1,0 +1,39 @@
+270
+9. MARKOV CHAIN MONTE CARLO
+Figure 9.1. Good King Markov’s island king-
+dom. Each of the 10 islands has a population
+proportional to its number, 1 through 10. The
+King’s goal is to visit each island, in the long
+run, in proportion to its population size. This
+can be accomplished by the Metropolis algo-
+rithm.
+Rethinking: Stan was a man. The Stan programming language is not an abbreviation or acronym.
+Rather, it is named after Stanislaw Ulam (1909–1984). Ulam is credited as one of the inventors of
+Markov chain Monte Carlo. Together with Ed Teller, Ulam applied it to designing fusion bombs. But
+he and others soon applied the general Monte Carlo method to diverse problems of less monstrous
+nature. Ulam made important contributions in pure mathematics, chaos theory, and molecular and
+theoretical biology, as well.
+9.1. Good King Markov and His island kingdom
+For the moment, forget about posterior densities and MCMC. Consider instead the tale
+of Good King Markov.138 King Markov was a benevolent autocrat of an island kingdom,
+a circular archipelago, with 10 islands. Each island was neighbored by two others, and the
+entire archipelago formed a ring. The islands were of different sizes, and so had different
+sized populations living on them. The second island was about twice as populous as the first,
+the third about three times as populous as the first, and so on, up to the largest island, which
+was 10 times as populous as the smallest. The good king’s island kingdom is displayed in
+Figure 9.1, with the islands numbered by their relative population sizes.
+The Good King was an autocrat, but he did have a number of obligations to His people.
+Among these obligations, King Markov agreed to visit each island in His kingdom from time
+to time. Since the people love their king, each island would prefer that he visit them more
+often. And so everyone agreed that the king should visit each island in proportion to its
+population size, visiting the largest island 10 times as often as the smallest, for example.
+The Good King Markov, however, wasn’t one for schedules or bookkeeping, and so he
+wanted a way to fulfill his obligation without planning his travels months ahead of time. Also,
+since the archipelago was a ring, the King insisted that he only move among adjacent islands,
+to minimize time spent on the water—like many citizens of his kingdom, the king believes
+there are sea monsters in the middle of the archipelago.
+The king’s advisor, a Mr Metropolis, engineered a clever solution to these demands. We’ll
+call this solution the Metropolis algorithm. Here’s how it works.
+(1) Wherever the King is, each week he decides between staying put for another week
+or moving to one of the two adjacent islands. To decide his next move, he flips a
+coin.

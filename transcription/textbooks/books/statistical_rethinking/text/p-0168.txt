@@ -1,0 +1,62 @@
+152
+5. THE MANY VARIABLES & THE SPURIOUS WAFFLES
+bN
+0.13 0.22 -0.22
+0.49
+sigma 1.00 0.16
+0.74
+1.26
+From this summary, you can possibly see that this is neither a strong nor very precise asso-
+ciation. The standard deviation is almost twice the posterior mean. But as always, it’s much
+easier to see this if we draw a picture. Tables of numbers are golem speak, and we are not
+golems. We can plot the predicted mean and 89% compatibility interval for the mean to see
+this more easily:
+R code
+5.36
+xseq <- seq( from=min(dcc$N)-0.15 , to=max(dcc$N)+0.15 , length.out=30 )
+mu <- link( m5.5 , data=list(N=xseq) )
+mu_mean <- apply(mu,2,mean)
+mu_PI <- apply(mu,2,PI)
+plot( K ~ N , data=dcc )
+lines( xseq , mu_mean , lwd=2 )
+shade( mu_PI , xseq )
+I display this plot in the upper-left of Figure 5.9. The posterior mean line is weakly positive,
+but it is highly imprecise. A lot of mildly positive and negative slopes are plausible, given this
+model and these data.
+Now consider another predictor variable, adult female body mass, mass in the data
+frame. Let’s use the logarithm of mass, log(mass), as a predictor as well. Why the logarithm
+of mass instead of the raw mass in kilograms? It is often true that scaling measurements like
+body mass are related by magnitudes to other variables. Taking the log of a measure trans-
+lates the measure into magnitudes. So by using the logarithm of body mass here, we’re saying
+that we suspect that the magnitude of a mother’s body mass is related to milk energy, in a
+linear fashion.
+Now we construct a similar model, but consider the bivariate relationship between kilo-
+calories and body mass:
+R code
+5.37
+m5.6 <- quap(
+alist(
+K ~ dnorm( mu , sigma ) ,
+mu <- a + bM*M ,
+a ~ dnorm( 0 , 0.2 ) ,
+bM ~ dnorm( 0 , 0.5 ) ,
+sigma ~ dexp( 1 )
+) , data=dcc )
+precis(m5.6)
+mean
+sd
+5.5% 94.5%
+a
+0.05 0.15 -0.20
+0.29
+bM
+-0.28 0.19 -0.59
+0.03
+sigma
+0.95 0.16
+0.70
+1.20
+Log-mass is negatively correlated with kilocalories. This influence does seem stronger than
+that of neocortex percent, although in the opposite direction. It is quite uncertain though,
+with a wide confidence interval that is consistent with a wide range of both weak and stronger
+relationships. This regression is shown in the upper-right of Figure 5.9. You should modify

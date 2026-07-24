@@ -1,0 +1,47 @@
+394
+12. MONSTERS AND MIXTURES
+The experimental context within which we’ll explore these principles comprises stories
+that vary the principles, while keeping many of the basic objects and actors the same. For
+example, the version of the boxcar story quoted just above implies the action principle, but
+not the others. Since the actor (Dennis) had to do something to create the outcome, rather
+than remain passive, this is an action scenario. However, the harm caused to the one man
+who will fall is not necessary, or intended, in order to save the five. Thus it is not an example
+of the intention principle. And there is no direct contact, so it is also not an example of the
+contact principle.
+You can construct a boxcar story with the same outline, but now with both the action
+principle and the intention principle. That is, in this version, the actor both does something
+to change the outcome and the action must cause harm to the one person in order to save
+the other five:
+Standing by the railroad tracks, Evan sees an empty, out-of-control boxcar about
+to hit five people. Next to Evan is a lever that can be pulled, lowering the railing
+on a footbridge that spans the main track, and causing one person to fall off the
+footbridge and onto the main track, where he will be hit by the boxcar. The boxcar
+will slow down because of the one person, therefore preventing the five from being
+hit. If Evan pulls the lever the one person will fall and be hit by the boxcar, and
+therefore the boxcar will slow down and not hit the five people. If Evan does not
+pull the lever the boxcar will continue down the tracks and hit the five people, and
+the one person will remain safe above the main track.
+Most people judge that, if Even pulls the lever, it is morally worse (less permissible) than
+when Dennis pulls the lever. You’ll see by how much, as we analyze these data. Load the
+data:
+R code
+12.12
+library(rethinking)
+data(Trolley)
+d <- Trolley
+There are 12 columns and 9930 rows, comprising data for 331 unique individuals. The out-
+come we’ll be interested in is response, which is an integer from 1 to 7 indicating how
+morally permissible the participant found the action to be taken (or not) in the story. Since
+this type of rating is categorical and ordered, it’s exactly the right type of problem for our
+ordered model.
+12.3.2. Describing an ordered distribution with intercepts. First, let’s see how to describe a
+distribution of discrete ordered values. Take a look at the overall distribution, the histogram,
+of the outcome variable.
+R code
+12.13
+simplehist( d$response , xlim=c(1,7) , xlab="response" )
+The result is shown in the left-hand plot in Figure 12.4.
+Our goal is to re-describe this histogram on the log-cumulative-odds scale. This just
+means constructing the odds of a cumulative probability and then taking a logarithm. Why
+do this arcane thing? Because this is the cumulative analog of the logit link we used in pre-
+vious chapters. The logit is log-odds, and cumulative logit is log-cumulative-odds. Both are

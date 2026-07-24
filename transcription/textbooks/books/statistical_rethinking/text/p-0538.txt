@@ -1,0 +1,77 @@
+522
+15. MISSING DATA AND OTHER OPPORTUNITIES
+We can improve this model by changing the imputation model to estimate the relation-
+ship between the two predictors. This really just means that we use the entire generative
+model. In the DAG, B and M are associated as a result of U. If we can include that fact in the
+model, we might make better imputations and therefore better inferences. The technique is
+only to change the imputation line of the model from the simple:
+Bi ∼Normal(ν, σB)
+to a bivariate normal that includes both M and B:
+(Mi, Bi) ∼MVNormal((µM, µB), S)
+The S matrix is another covariance matrix, and it will measure the correlation between M
+and B, using the observed cases, and then use that correlation to infer the missing B values.
+Note that this is the simplest model we could have of the association between M and B. It
+assumes that the covariance is sufficient to describe their relationship. That will not always
+be the case, as many different bivariate relationships can produce the same covariance. If you
+have a better idea, then you should use that instead.
+Here’s the ulam implementation. This is complex code, because we have to construct
+a variable that includes both the observed M values and the merged list of observed and
+imputed B values. I’ll also do the merging more explicitly. In the Overthinking box at the
+end, I walk through the Stan code, explaining some of the coding details.
+R code
+15.22
+m15.5 <- ulam(
+alist(
+# K as function of B and M
+K ~ dnorm( mu , sigma ),
+mu <- a + bB*B_merge + bM*M,
+# M and B correlation
+MB ~ multi_normal( c(muM,muB) , Rho_BM , Sigma_BM ),
+matrix[29,2]:MB <<- append_col( M , B_merge ),
+# define B_merge as mix of observed and imputed values
+vector[29]:B_merge <- merge_missing( B , B_impute ),
+# priors
+c(a,muB,muM) ~ dnorm( 0 , 0.5 ),
+c(bB,bM) ~ dnorm( 0, 0.5 ),
+sigma ~ dexp( 1 ),
+Rho_BM ~ lkj_corr(2),
+Sigma_BM ~ dexp(1)
+) , data=dat_list , chains=4 , cores=4 )
+precis( m15.5 , depth=3 , pars=c("bM","bB","Rho_BM" ) )
+mean
+sd
+5.5% 94.5% n_eff Rhat
+bM
+-0.65 0.22 -1.00 -0.30
+1262
+1
+bB
+0.58 0.26
+0.16
+0.99
+1048
+1
+Rho_BM[1,1]
+1.00 0.00
+1.00
+1.00
+NaN
+NaN
+Rho_BM[1,2]
+0.60 0.13
+0.37
+0.78
+1592
+1
+Rho_BM[2,1]
+0.60 0.13
+0.37
+0.78
+1592
+1
+Rho_BM[2,2]
+1.00 0.00
+1.00
+1.00
+1981
+1

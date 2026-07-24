@@ -1,0 +1,47 @@
+16.2. HIDDEN MINDS AND OBSERVED BEHAVIOR
+545
+About two-thirds of the choices are for the majority color, but only half the children are
+actually following the majority. The above is only one simulation, but it demonstrates the
+problem. When different hidden strategies can produce the same behavior, inference about
+strategy is more complicated than just counting behavior.
+We’ll consider 5 different strategies children might use.
+(1) Follow the Majority: Copy the majority demonstrated color.
+(2) Follow the Minority: Copy the minority demonstrated color.
+(3) Maverick: Choose the color that no demonstrator chose.
+(4) Random: Choose a color at random, ignoring the demonstrators.
+(5) Follow First: Copy the color that was demonstrated first. This was either the ma-
+jority color (when majority_first equals 1) or the minority color (when 0).
+Each strategy entails a vector of three probabilities, one for each choice. For example, Ran-
+dom is [1/3, 1/3, 1/3]. The complicated one is Follow First, which depends upon the order
+of presentation.
+An obvious question is: Why these strategies? The equally obvious answer is: Because
+they seem a priori plausible. If there are some that you think are not plausible, or yet more
+strategies that you feel should be added, the same generative framework can accomodate
+them.
+16.2.2. The statistical model. Now we need a statistical model that reflects the generative
+model above. Remember, statistical models run in reverse of generative models. In the gen-
+erative model, we assume strategies and simulate observed behavior. In the statistical model,
+we instead assume observed behavior (the data) and simulate strategies (parameters).
+In this example, we can’t directly measure each child’s strategy. It is an unobserved vari-
+able. But each strategy has a specific probability of producing each choice. We can use that
+fact to compute the probability of each choice, given parameters which specify the proba-
+bility of each strategy. Then we let Bayes loose and get the posterior distribution of each
+strategy back. Before we can let Bayes loose, we’ll need to enumerate the parameters, assign
+priors to each, and also figure out some technical issues for coding. I’ll move through these
+tasks slowly.
+The unobserved variables are the probabilities that a child uses each of the five strategies.
+This means five values, but since these must sum to one, we need only four parameters. There
+is a variable type called a simplex that handles this for us. A simplex is a vector of values
+that must sum to some constant, usually one. Stan allows us to declare a vector of parameters
+as a simplex, and then Stan handles the bookkeeping of the constant sum for us. We can
+give this simplex a Dirichlet prior, which is a prior for probability distributions. We used
+both Dirichlet and a simplex already back in Chapter 12 to construct ordered categorical
+predictors (page 405). We’ll use a weak uniform prior on the simplex of strategy probabilities,
+which we’ll label p:
+p ∼Dirichlet([4, 4, 4, 4, 4])
+As you saw back in Chapter 12, this prior doesn’t mean that we expect the strategies to be
+equally probable. Instead it means that we expect that any one of them could be more or less
+probable than any other. If you make those 4s larger, the prior starts to say that we expect
+them to be actually equal.
+Now how to express the probability of the data, the likelihood? For each observed choice
+yi, each strategy s implies a probability of seeing yi. Call this Pr(yi|s), the probability of the

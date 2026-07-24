@@ -1,0 +1,45 @@
+572
+ENDNOTES
+43. I first encountered this globe tossing strategy in Gelman and Nolan (2002). Since I’ve been using it in class-
+rooms, several people have told me that they have seen it in other places, but I’ve been unable to find a primeval
+citation, if there is one. [28]
+44. There is actually a set of theorems, the No Free Lunch theorems. These theorems—and others which are
+similar but named and derived separately—effectively state that there is no optimal way to pick priors (for
+Bayesians) or select estimators or procedures (for non-Bayesians).
+See Wolpert and Macready (1997) for
+example. [31]
+45. This is a subtle point that will be expanded in other places. On the topic of accuracy of assumptions versus in-
+formation processing, see e.g. Appendix A of Jaynes (1985): The Gaussian, or normal, error distribution needn’t
+be physically correct in order to be the most useful assumption. [32]
+46. Kronecker (1823–1891), an important number theorist, was quoted as stating “God made the integers, all
+else is the work of humans” (Die ganzen Zahlen hat der liebe Gott gemacht, alles andere ist Menschenwerk).
+There appears to be no consensus among mathematicians about which parts of mathematics are discovered
+rather than invented. But all admit that applied mathematical models are “the work of humans.” [32]
+47. This approach is usually identified with Bruno de Finetti and L. J. Savage. See Kadane (2011) for review and
+explanation. [35]
+48. See Berger and Berry (1988), for example, for further exploration of these ideas. [35]
+Chapter 3
+49. Gigerenzer and Hoffrage (1995). There is a large empirical literature, which you can find by searching for-
+ward on the Gigerenzer and Hoffrage paper. [50]
+50. Feynman (1967) provides a good defense of this device in scientific discovery. [50]
+51. For a binary outcome problem of this kind, the posterior density is given by dbeta(p,w+1,n-w+1), where
+p is the proportion of interest, w is the observed count of water, and n is the number of tosses. If you’re curious
+about how to prove this fact, look up “beta-binomial conjugate prior.” I avoid discussing the analytical approach
+in this book, because very few problems are so simple that they have exact analytical solutions like this. [51]
+52. See Ioannidis (2005) for another narrative of the same idea. The problem is possibly worse than the simple
+calculation suggests. On the other hand, real scientific inference is more subtle than mere truth or falsehood of
+an hypothesis. I personally don’t like to frame scientific discovery in this way. But many, if not most, scientists
+tend to think in such binary terms, so this calculation should be disturbing. [52]
+53. I learned this term from Sander Greenland and his collaborators. See Amrhein et al. (2019) and Gelman and
+Greenland (2019). [54]
+54. Fisher (1925), in Chapter III within section 12 on the normal distribution. There are a couple of other places
+in the book in which the same resort to convenience or convention is used. Fisher seems to indicate that the 5%
+mark was already widely practiced by 1925 and already without clear justification. [57]
+55. Fisher (1956). [57]
+56. See Box and Tiao (1973), page 84 and then page 122 for a general discussion. [56]
+57. Gelman et al. (2013a), page 33, comment on differences between percentile intervals and HPDIs. [58]
+58. See Henrion and Fischoff (1986) for examples from the estimation of physical constants, such as the speed
+of light. [58]
+59. Robert (2007) provides concise proofs of optimal estimators under several standard loss functions, like this
+one. It also covers the history of the topic, as well as many related issues in deriving good decisions from statis-
+tical procedures. [59]

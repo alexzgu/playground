@@ -1,0 +1,58 @@
+4.3. GAUSSIAN MODEL OF HEIGHT
+91
+on the right-hand margin:
+hi ∼Normal(µ, σ)
+height ~ dnorm(mu,sigma)
+µ ∼Normal(178, 20)
+mu ~ dnorm(156,10)
+σ ∼Uniform(0, 50)
+sigma ~ dunif(0,50)
+Now place the R code equivalents into an alist. Here’s an alist of the formulas above:
+R code
+4.27
+flist <- alist(
+height ~ dnorm( mu , sigma ) ,
+mu ~ dnorm( 178 , 20 ) ,
+sigma ~ dunif( 0 , 50 )
+)
+Note the commas at the end of each line, except the last. These commas separate each line
+of the model definition.
+Fit the model to the data in the data frame d2 with:
+R code
+4.28
+m4.1 <- quap( flist , data=d2 )
+After executing this code, you’ll have a fit model stored in the symbol m4.1. Now take a look
+at the posterior distribution:
+R code
+4.29
+precis( m4.1 )
+Mean StdDev
+5.5%
+94.5%
+mu
+154.61
+0.41 153.95 155.27
+sigma
+7.73
+0.29
+7.27
+8.20
+These numbers provide Gaussian approximations for each parameter’s marginal distribution.
+This means the plausibility of each value of µ, after averaging over the plausibilities of each
+value of σ, is given by a Gaussian distribution with mean 154.6 and standard deviation 0.4.
+The 5.5% and 94.5% quantiles are percentile interval boundaries, corresponding to an
+89% compatibility interval. Why 89%? It’s just the default. It displays a quite wide interval,
+so it shows a high-probability range of parameter values. If you want another interval, such
+as the conventional and mindless 95%, you can use precis(m4.1,prob=0.95). But I don’t
+recommend 95% intervals, because readers will have a hard time not viewing them as signif-
+icance tests. 89 is also a prime number, so if someone asks you to justify it, you can stare at
+them meaningfully and incant, “Because it is prime.” That’s no worse justification than the
+conventional justification for 95%.
+I encourage you to compare these 89% boundaries to the compatibility intervals from
+the grid approximation earlier. You’ll find that they are almost identical. When the posterior
+is approximately Gaussian, then this is what you should expect.
+Overthinking: Start values for quap. quap estimates the posterior by climbing it like a hill. To do
+this, it has to start climbing someplace, at some combination of parameter values. Unless you tell it
+otherwise, quap starts at random values sampled from the prior. But it’s also possible to specify a
+starting value for any parameter in the model. In the example in the previous section, that means the
+parameters µ and σ. Here’s a good list of starting values in this case:

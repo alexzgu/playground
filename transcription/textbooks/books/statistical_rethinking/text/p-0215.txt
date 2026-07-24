@@ -1,0 +1,47 @@
+7.1. THE PROBLEM WITH PARAMETERS
+199
+Here’s an example of overfitting. The data displayed in Figure 7.2 are average brain
+volumes and body masses for seven hominin species.97 Let’s get these data into R, so you
+can work with them. I’m going to build these data from direct input, rather than loading a
+pre-made data frame, just so you see an example of how to build a data frame from scratch.
+R code
+7.1
+sppnames <- c( "afarensis","africanus","habilis","boisei",
+"rudolfensis","ergaster","sapiens")
+brainvolcc <- c( 438 , 452 , 612, 521, 752, 871, 1350 )
+masskg <- c( 37.0 , 35.5 , 34.5 , 41.5 , 55.5 , 61.0 , 53.5 )
+d <- data.frame( species=sppnames , brain=brainvolcc , mass=masskg )
+Now you have a data frame, d, containing the brain size and body size values. It’s not un-
+usual for data like this to be highly correlated—brain size is correlated with body size, across
+species. A standing question, however, is to what extent particular species have brains that
+are larger than we’d expect, after taking body size into account. A common solution is to fit a
+linear regression that models brain size as a linear function of body size. Then the remaining
+variation in brain size can be modeled as a function of other variables, like ecology or diet.
+This is the same “statistical control” strategy explained in previous chapters.
+Controlling for body size however depends upon having a good functional mapping of
+the association between body size and brain size. We’ve just used linear functions so far.
+But why use a line to relate body size to brain size? It’s not clear why nature demands that
+the relationship among species be a straight line. Why not consider a curved model, like a
+parabola? Indeed, why not a cubic function of body size, or even a quintic model? I agree
+that there’s no reason yet given to suppose a priori that brain size scales only linearly with
+body size. Indeed, many readers will prefer to model a linear relationship between log brain
+volume and log body mass (an exponential relationship). But that’s not the direction I’m
+headed with this example. The lesson here will arise, no matter how we transform the data.
+Even after a log transform of both variables, there’s no reason to insist that linear is the only
+imaginable relationship.
+Let’s fit a series of increasingly complex model families and see which function fits the
+data best. We’ll use polynomial regressions, so review Section 4.5 (page 113) if necessary.
+Importantly, recall that polynomial regressions are common, but usually a bad idea. In this
+example, I will show you that they can be a very bad idea when used blindly.
+The simplest model that relates brain size to body size is the linear one. It will be the
+first model we consider. Before writing out the model, let’s rescale the variables. Recall from
+earlier chapters that rescaling predictor and outcome variables is often helpful in getting the
+model to fit and in specifying and understanding the priors. In this case, we want to stan-
+dardize body mass—give it mean zero and standard deviation one—and rescale the outcome,
+brain volume, so that the largest observed value is 1. Why not standardize brain volume as
+well? Because we want to preserve zero as a reference point: No brain at all. You can’t have
+negative brain. I don’t think.
+R code
+7.2
+d$mass_std <- (d$mass - mean(d$mass))/sd(d$mass)
+d$brain_std <- d$brain / max(d$brain)

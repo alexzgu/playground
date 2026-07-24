@@ -1,0 +1,42 @@
+500
+14. ADVENTURES IN COVARIANCE
+14M4. Use WAIC to compare the Gaussian process model of Oceanic tools to the models fit to the
+same data in Chapter 11. Pay special attention to the effective numbers of parameters, as estimated
+by WAIC.
+14M5. Modify the phylogenetic distance example to use group size as the outcome and brain size as
+a predictor. Assuming brain size influences group size, what is your estimate of the effect? How does
+phylogeny influence the estimate?
+Hard.
+14H1. Let’s revisit the Bangladesh fertility data, data(bangladesh), from the practice problems for
+Chapter 13. Fit a model with both varying intercepts by district_id and varying slopes of urban
+by district_id. You are still predicting use.contraception. Inspect the correlation between the
+intercepts and slopes. Can you interpret this correlation, in terms of what it tells you about the pattern
+of contraceptive use in the sample? It might help to plot the mean (or median) varying effect estimates
+for both the intercepts and slopes, by district. Then you can visualize the correlation and maybe more
+easily think through what it means to have a particular correlation. Plotting predicted proportion of
+women using contraception, with urban women on one axis and rural on the other, might also help.
+14H2. Varying effects models are useful for modeling time series, as well as spatial clustering. In a
+time series, the observations cluster by entities that have continuity through time, such as individuals.
+Since observations within individuals are likely highly correlated, the multilevel structure can help
+quite a lot. You’ll use the data in data(Oxboys), which is 234 height measurements on 26 boys from
+an Oxford Boys Club (I think these were like youth athletic leagues?), at 9 different ages (centered and
+standardized) per boy. You’ll be interested in predicting height, using age, clustered by Subject
+(individual boy).
+Fit a model with varying intercepts and slopes (on age), clustered by Subject. Present and in-
+terpret the parameter estimates. Which varying effect contributes more variation to the heights, the
+intercept or the slope?
+14H3. Now consider the correlation between the varying intercepts and slopes. Can you explain its
+value? How would this estimated correlation influence your predictions about a new sample of boys?
+14H4. Use mvrnorm (in library(MASS)) or rmvnorm (in library(mvtnorm)) to simulate a new
+sample of boys, based upon the posterior mean values of the parameters. That is, try to simulate
+varying intercepts and slopes, using the relevant parameter estimates, and then plot the predicted
+trends of height on age, one trend for each simulated boy you produce. A sample of 10 simulated
+boys is plenty, to illustrate the lesson. You can ignore uncertainty in the posterior, just to make the
+problem a little easier. But if you want to include the uncertainty about the parameters, go for it.
+Note that you can construct an arbitrary variance-covariance matrix to pass to either mvrnorm
+or rmvnorm with something like:
+R code
+14.54
+S <- matrix( c( sa^2 , sa*sb*rho , sa*sb*rho , sb^2 ) , nrow=2 )
+where sa is the standard deviation of the first variable, sb is the standard deviation of the second
+variable, and rho is the correlation between them.

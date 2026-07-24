@@ -1,0 +1,46 @@
+356
+11. GOD SPIKED THE INTEGERS
+The model that conforms to the research hypothesis includes an interaction between log-
+population and contact rate. In math form, this is:
+Ti ∼Poisson(λi)
+log λi = αcid[i] + βcid[i] log Pi
+αj ∼to be determined
+βj ∼to be determined
+where P is population and cid is contact_id.
+We need to figure out some sensible priors. As with binomial models, the transformation
+of scale between the scale of the linear model and the count scale of the outcome means that
+something flat on the linear model scale will not be flat on the outcome scale. Let’s consider
+for example just a model with an intercept and a vague Normal(0,10) prior on it:
+Ti ∼Poisson(λi)
+log λi = α
+α ∼Normal(0, 10)
+What does this prior look like on the outcome scale, λ? If α has a normal distribution, then
+λ has a log-normal distribution. So let’s plot a log-normal with these values for the (normal)
+mean and standard deviation:
+R code
+11.38
+curve( dlnorm( x , 0 , 10 ) , from=0 , to=100 , n=200 )
+The distribution is shown in Figure 11.7 as the black curve. I’ve used a range from 0 to 100
+on the horizontal axis, reflecting the notion that we know all historical tool kits in the Pacific
+were in this range. For the α ∼Normal(0, 10) prior, there is a huge spike right around
+zero—that means zero tools on average—and a very long tail. How long? Well the mean of
+a log-normal distribution is exp(µ+σ2/2), which evaluates to exp(50), which is impossibly
+large. If you doubt this, just simulate it:
+R code
+11.39
+a <- rnorm(1e4,0,10)
+lambda <- exp(a)
+mean( lambda )
+[1] 9.622994e+12
+That’s a lot of tools, enough to cover an entire island. We can do better than this.
+I encourage you to play around with the curve code above, trying different means and
+standard deviations. The fact to appreciate is that a log link puts half of the real numbers—
+the negative numbers—between 0 and 1 on the outcome scale. So if your prior puts half
+its mass below zero, then half the mass will end up between 0 and 1 on the outcome scale.
+For Poisson models, flat priors make no sense and can wreck Prague. Here’s my weakly
+informative suggestion:
+R code
+11.40
+curve( dlnorm( x , 3 , 0.5 ) , from=0 , to=100 , n=200 )
+I’ve displayed this distribution as well in Figure 11.7, as the blue curve. The mean is now
+exp(3 + 0.52/2) ≈20. We haven’t looked at the mean of the total_tools column, and we

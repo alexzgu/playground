@@ -1,0 +1,52 @@
+476
+14. ADVENTURES IN COVARIANCE
+0
+20
+40
+60
+80
+100
+0
+20
+40
+60
+80
+100
+gifts household A to household B
+gifts B to A
+Figure 14.8. Distribution of dyadic gifts
+in data(KosterLeckie).
+25 households
+present 300 dyads, with an overall correlation
+of 0.24. But to get a sensible measure of bal-
+ance of gift giving, we need to make a model
+that deals with the repeat presence of specific
+households across dyads.
+household IDs in each dyad, and did is a unique dyad ID number. We’ll ignore the other
+variables for now.
+Figure 14.8 shows the raw distribution of gifts across dyads. The overall correlation here
+is 0.24. But taking this as a measure of balance of exchange would be a bad idea. First, the
+correlation changes if we switch the A/B labels. Since the labels are arbitrary, that means the
+measured correlation is also somewhat arbitrary. Second, the generative model in the back-
+ground is that gifts can be explained both by the special relationship in each dyad—some
+households tend to exchange gifts frequently—as well as by the fact that some households
+give or receive a lot across all dyads, without regard to any special relationships among house-
+holds. For example, if a household is poor, it might not give many gifts, but it might receive
+many. In order to statistically separate balanced exchange from generalized differences in
+giving and receiving, we need a model that treats these as separate. The type of model we’ll
+consider is often called a social relations model, or SRM.
+Specifically, we’ll model gifts from household A to household B as a combination of vary-
+ing effects specific to the household and the dyad. The outcome variables, the gift counts, are
+Poisson variables—they are counts with no obvious upper bound. We’ll attach our varying
+effects to these counts with a log link, as in the previous chapters. This gives us the first part
+of the model:
+yA→B ∼Poisson(λAB)
+log λAB = α + gA + rB + dAB
+The linear model has an intercept α that represent the average gifting rate (on the log scale)
+across all dyads. The other effects will be offsets from this average. Then gA is a varying effect
+parameter for the generalized giving tendency of household A, regardless of dyad. The effect
+rB is the generalized receiving of household B, regardless of dyad. Finally the effect dAB is
+the dyad-specific rate that A gives to B. There is a corresponding linear model for the other
+direction within the same dyad:
+yB→A ∼Poisson(λBA)
+log λBA = α + gB + rA + dBA

@@ -1,0 +1,47 @@
+9.1. GOOD KING MARKOV AND HIS ISLAND KINGDOM
+271
+(2) If the coin turns up heads, the King considers moving to the adjacent island clock-
+wise around the archipelago. If the coin turns up tails, he considers instead moving
+counterclockwise. Call the island the coin nominates the proposal island.
+(3) Now, to see whether or not he moves to the proposal island, King Markov counts
+out a number of seashells equal to the relative population size of the proposal is-
+land. So for example, if the proposal island is number 9, then he counts out 9
+seashells. Then he also counts out a number of stones equal to the relative popula-
+tion of the current island. So for example, if the current island is number 10, then
+King Markov ends up holding 10 stones, in addition to the 9 seashells.
+(4) When there are more seashells than stones, King Markov always moves to the pro-
+posal island. But if there are fewer shells than stones, he discards a number of stones
+equal to the number of shells. So for example, if there are 4 shells and 6 stones, he
+ends up with 4 shells and 6 −4 = 2 stones. Then he places the shells and the re-
+maining stones in a bag. He reaches in and randomly pulls out one object. If it is a
+shell, he moves to the proposal island. Otherwise, he stays put another week. As a
+result, the probability that he moves is equal to the number of shells divided by the
+original number of stones.
+This procedure may seem baroque and, honestly, a bit crazy. But it does work. The king will
+appear to move around the islands randomly, sometimes staying on one island for weeks,
+other times bouncing around without apparent pattern. But in the long run, this procedure
+guarantees that the king will be found on each island in proportion to its population size.
+You can prove this to yourself, by simulating King Markov’s journey. Here’s a short piece
+of code to do this, storing the history of the king’s island positions in the vector positions:
+R code
+9.1
+num_weeks <- 1e5
+positions <- rep(0,num_weeks)
+current <- 10
+for ( i in 1:num_weeks ) {
+# record current position
+positions[i] <- current
+# flip coin to generate proposal
+proposal <- current + sample( c(-1,1) , size=1 )
+# now make sure he loops around the archipelago
+if ( proposal < 1 ) proposal <- 10
+if ( proposal > 10 ) proposal <- 1
+# move?
+prob_move <- proposal/current
+current <- ifelse( runif(1) < prob_move , proposal , current )
+}
+I’ve added comments to this code, to help you decipher it. The first three lines just define
+the number of weeks to simulate, an empty history vector, and a starting island position (the
+biggest island, number 10). Then the for loop steps through the weeks. Each week, it records
+the king’s current position. Then it simulates a coin flip to nominate a proposal island. The
+only trick here lies in making sure that a proposal of “11” loops around to island 1 and a

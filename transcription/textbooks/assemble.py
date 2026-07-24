@@ -102,6 +102,30 @@ def write_readme(book, dest, manifest, done_pages):
     missing = [p for p in range(1, N + 1) if p not in done_pages]
     lowqa = sorted(int(k.split("-")[1]) for k, v in manifest.items()
                    if v.get("status") == "transcribed-lowqa")
+    provenance_counts = {}
+    for entry, _ in done_pages.values():
+        model = entry.get("model")
+        if model:
+            key = (model, entry.get("effort"))
+            provenance_counts[key] = provenance_counts.get(key, 0) + 1
+    if provenance_counts:
+        provenance = "; ".join(
+            f"`{model}`"
+            + (f" at {effort} effort" if effort else "")
+            + f" ({count} page{'s' if count != 1 else ''})"
+            for (model, effort), count in sorted(
+                provenance_counts.items(), key=lambda item: (-item[1], item[0])
+            )
+        )
+        model_line = (
+            f"- Page transcription provenance: {provenance}. Per-page provenance "
+            "is recorded in the pipeline manifest"
+        )
+    else:
+        model_line = (
+            "- Transcribed from page images by "
+            f"`{book.get('transcription_model', 'claude-opus-4-8')}`"
+        )
     lines = [
         f"# {book['title']} — Transcript",
         "",
@@ -113,7 +137,7 @@ def write_readme(book, dest, manifest, done_pages):
         "- Math in LaTeX (`$...$` / `$$...$$`), equation numbers as `\\tag{}`; tables as "
         "markdown tables; figures as verbatim captions plus an italic description; "
         "code in fenced blocks.",
-        "- Transcribed from page images by `claude-opus-4-8`"
+        model_line
         + (", cross-checked against the PDF text layer (per-page QA score in the "
            "pipeline manifest)." if not book["text_layer"].startswith("unusable")
            else "; this book's PDF text layer is unusable (cipher fonts), so pages were "

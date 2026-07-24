@@ -1,0 +1,27 @@
+242
+8. CONDITIONAL MANATEES
+Figure 8.1. top: Dorsal scars for 5 adult Florida manatees. Rows of short
+scars, for example on the individuals Africa and Flash, are indicative of pro-
+peller laceration. bottom: Three exemplars of damage on A.W.38 bombers
+returning from missions.
+Simple linear models frequently fail to provide enough conditioning, however. Every
+model so far in this book has assumed that each predictor has an independent association
+with the mean of the outcome. What if we want to allow the association to be conditional?
+For example, in the primate milk data from the previous chapters, suppose the relationship
+between milk energy and brain size varies by taxonomic group (ape, monkey, prosimian).
+This is the same as suggesting that the influence of brain size on milk energy is conditional
+on taxonomic group. The linear models of previous chapters cannot address this question.
+To model deeper conditionality—where the importance of one predictor depends upon
+another predictor—we need interaction (also known as moderation). Interaction is
+a kind of conditioning, a way of allowing parameters (really their posterior distributions)
+to be conditional on further aspects of the data. The simplest kind of interaction, a linear
+interaction, is built by extending the linear modeling strategy to parameters within the lin-
+ear model. So it is akin to placing epicycles on epicycles in the Ptolemaic and Kopernikan
+models. It is descriptive, but very powerful.
+More generally, interactions are central to most statistical models beyond the cozy world
+of Gaussian outcomes and linear models of the mean. In generalized linear models (GLMs,
+Chapter 10 and onwards), even when one does not explicitly define variables as interacting,
+they will always interact to some degree. Multilevel models induce similar effects. Common
+sorts of multilevel models are essentially massive interaction models, in which estimates (in-
+tercepts and slopes) are conditional on clusters (person, genus, village, city, galaxy) in the
+data. Multilevel interaction effects are complex. They’re not just allowing the impact of a

@@ -1,0 +1,61 @@
+166
+6. THE HAUNTED DAG & THE CAUSAL TERROR
+-2
+-1
+0
+1
+2
+3
+-3
+-2
+-1
+0
+1
+2
+3
+newsworthiness
+trustworthiness
+selected
+rejected
+Figure 6.1. Why the most newsworthy stud-
+ies might be the least trustworthy.
+200 re-
+search proposals are ranked by combined
+trustworthiness and newsworthiness. The top
+10% are selected for funding. While there is
+no correlation before selection, the two crite-
+ria are strongly negatively correlated after se-
+lection. The correlation here is −0.77.
+out spurious correlations and clear up masking effects. This may encourage the view that,
+when in doubt, just add everything to the model and let the oracle of regression sort it out.
+Regression will not sort it out. Regression is indeed an oracle, but a cruel one. It speaks
+in riddles and delights in punishing us for asking bad questions. The selection-distortion
+effect can happen inside of a multiple regression, because the act of adding a predictor in-
+duces statistical selection within the model, a phenomenon that goes by the unhelpful name
+collider bias. This can mislead us into believing, for example, that there is a negative as-
+sociation between newsworthiness and trustworthiness in general, when in fact it is just a
+consequence of conditioning on some variable. This is both a deeply confusing fact and one
+that is important to understand in order to regress responsibly.
+This chapter and the next are both about terrible things that can happen when we simply
+add variables to a regression, without a clear idea of a causal model. In this chapter, we’ll ex-
+plore three different hazards: multicollinearity, post-treatment bias, and collider bias. We’ll
+end by tying all of these examples together in a framework that can tell us which variables we
+must and must not add to a model in order to arrive at valid inferences. But this framework
+does not do the most important step for us: It will not give us a valid model.
+Overthinking: Simulated science distortion. Simulations like this one are easy to do in R, or in any
+other scripting language, once you have seen a few examples. In this simulation, we just draw some
+random Gaussian criteria for a sample of proposals and then select the top 10% combined scores.
+R code
+6.1
+set.seed(1914)
+N <- 200 # num grant proposals
+p <- 0.1 # proportion to select
+# uncorrelated newsworthiness and trustworthiness
+nw <- rnorm(N)
+tw <- rnorm(N)
+# select top 10% of combined scores
+s <- nw + tw
+# total score
+q <- quantile( s , 1-p ) # top 10% threshold
+selected <- ifelse( s >= q , TRUE , FALSE )
+cor( tw[selected] , nw[selected] )

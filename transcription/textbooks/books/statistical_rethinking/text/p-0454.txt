@@ -1,0 +1,58 @@
+438
+13. MODELS WITH MEMORY
+There are three embedded (“centered”) parameters to smuggle out of these priors: ¯α, σα, σγ.
+As before with the funnel, we’ll define some new variables that are given standard Normal dis-
+tributions, and then we’ll reconstruct the original variables by undoing the transformation.
+This time, we’ll do that reconstruction in the linear model. The completed non-centered
+model looks like this (with altered bits in blue):
+Li ∼Binomial(1, pi)
+logit(pi) = ¯α + zactor[i]σα
+|
+{z
+}
+αactor[i]
++ xblock[i]σγ
+|
+{z
+}
+γblock[i]
++ βtreatment[i]
+βj ∼Normal(0, 0.5)
+, for j = 1..4
+zj ∼Normal(0, 1)
+[Standardized actor intercepts]
+xj ∼Normal(0, 1)
+[Standardized block intercepts]
+¯α ∼Normal(0, 1.5)
+σα ∼Exponential(1)
+σγ ∼Exponential(1)
+The vector z gives the standardized intercept for each actor, and the vector x gives the stan-
+dardized intercept for each block. Inside the linear model logit(pi), all of the previously
+embedded parameters reappear. Each actor intercept is defined by
+αj = ¯α + zjσα
+and each block intercept by
+γj = xjσγ
+So these expressions appear now in the linear model.
+Let’s sample from this posterior now and see what the reparameterization gains us.
+R code
+13.29
+set.seed(13)
+m13.4nc <- ulam(
+alist(
+pulled_left ~ dbinom( 1 , p ) ,
+logit(p) <- a_bar + z[actor]*sigma_a + # actor intercepts
+x[block_id]*sigma_g +
+# block intercepts
+b[treatment] ,
+b[treatment] ~ dnorm( 0 , 0.5 ),
+z[actor] ~ dnorm( 0 , 1 ),
+x[block_id] ~ dnorm( 0 , 1 ),
+a_bar ~ dnorm( 0 , 1.5 ),
+sigma_a ~ dexp(1),
+sigma_g ~ dexp(1),
+gq> vector[actor]:a <<- a_bar + z*sigma_a,
+gq> vector[block_id]:g <<- x*sigma_g
+) , data=dat_list , chains=4 , cores=4 )
+Now let’s compare the n_eff, numbers of effective samples, for these two forms. To do this
+fairly, we should ignore the z and x parameters and instead compare a and g parameters.
+That is why I added those gq> lines at the bottom of the formula above, so that Stan would

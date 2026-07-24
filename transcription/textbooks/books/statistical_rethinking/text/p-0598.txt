@@ -1,0 +1,44 @@
+582
+ENDNOTES
+231. A related phenomenon in popular culture and in science is the Forer effect or Barnum effect. See Forer
+(1949) and Meehl (1956). [565]
+232. There have been a few attempts to model these mutual interactions. See McElreath and Smaldino (2015).
+[565]
+233. Horton (2015). [565]
+234. Perhaps it is better to say “especially those in the best journals.” See Ioannidis (2005) for a very highly cited
+review and argument. See also Ioannidis (2012) and citations therein. There is a lot of recent work in this area,
+including the Many Labs Replication Projects for social psychology, which have both confirmed and rejected
+famous textbook findings. [565]
+235. A particularly infamous example of an un-replicable economic finding that had a big impact on policy is
+Reinhart and Rogoff (2010). Although apparently, if not actually, influential in national and international bud-
+get debates, the finding was based on odd inclusion criteria and an Excel spreadsheet error. See Herndon et al.
+(2014). Many other false findings result from no error at all, just misleading samples. The answer is not always
+in the data, remember. But if you torture the data long enough, it will confess. [566]
+236. Fontani et al. (2014). This is a fantastic book which catalogs and explains hundreds of false discoveries in
+elemental chemistry and physics. [566]
+237. Laudan (1981). To be fair, there are several ways to interpret the pessimistic induction. Newtonian mechan-
+ics, for example, is strictly wrong. But it’s an amazingly successful theory nevertheless. I made a similar point
+about the geocentric model of the solar system, back in Chapter 4. But there are plenty of less successful theories
+that have also turned out to be false, despite being held to be true for decades or generations. [566]
+238. This is the standard view in history and philosophy of science. See for introduction Campbell (1985); Hull
+(1988); Kitcher (2000); Popper (1963, 1996). [566]
+239. See Sedlemeier and Gigerenzer (1989) and more recent publications on the same topic. [566]
+240. See for examples relevant to the process of discovery: Gelman and Loken (2013, 2014); Simmons et al. (2011,
+2013). [567]
+241. See Fanelli (2012); Franco et al. (2014); Rosenthal (1979). This one has the best title of the genre: Ferguson
+and Heene (2012). [567]
+242. Ecologist Art Shapiro published his satirical “Laws of Field Ecology Research” in Bulletin of the Entomologi-
+cal Society of Canada in the early 1980s. I can’t find the original citation, but a copy provided by Art reads: “Law
+#4: Never state explicitly the limits on generalizing from your results. The referees will take you at your word
+and recommend rejection.” Sadly that has always been my experience as well. [567]
+243. Two excellent examples of this phenomenon occurred in 2014 and 2015. First, Lin et al. (2014) published an
+analysis of gene expression that was terribly confounded by batch effects. Basically, they ran a bad experiment.
+Yoav Gilad discovered this and released a reanalysis on Twitter, later published as Gilad and Mizrahi-Man (2015).
+The original authors continue to deny the results were in error, and the saga continues. The second involves a
+competition held by Lior Pachtor on his blog: https://liorpachter.wordpress.com/2015/05/26/pachters-p-value-
+prize/. I recommend reading the whole thing, including the comments, which is where the action is. [567]
+244. Replication and meta-analysis obviously interact strongly with all the other forces. For a unique article ad-
+dressing replication and meta-analysis for the incentives they provide in the quality of research, see O’Rourke
+and Detsky (1989). [567]
+245. Speed (1986), “Questions, answers and statistics.” You can find a copy of this essay online with a quick
+internet search. [567]

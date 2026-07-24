@@ -1,0 +1,58 @@
+456
+14. ADVENTURES IN COVARIANCE
+These lines state that each café has an intercept αcafé and slope βcafé with a prior distribution
+defined by the two-dimensional Gaussian distribution with means α and β and covariance
+matrix S. This statement of prior will adaptively regularize the individual intercepts, slopes,
+and the correlation among them. The second line above defines how we’re constructing the
+covariance matrix S, by factoring it into separate standard deviations, σα and σβ, and a corre-
+lation matrix R. There are other ways to go about this, but by splitting the covariance up into
+standard deviations and correlations, it’ll be easier to later understand the inferred structure
+of the varying effects.
+And then come the hyper-priors, the priors that define the adaptive varying effects prior:
+α ∼Normal(5, 2)
+[prior for average intercept]
+β ∼Normal(−1, 0.5)
+[prior for average slope]
+σ ∼Exponential(1)
+[prior stddev within cafés]
+σα ∼Exponential(1)
+[prior stddev among intercepts]
+σβ ∼Exponential(1)
+[prior stddev among slopes]
+R ∼LKJcorr(2)
+[prior for correlation matrix]
+The final line probably looks unfamiliar. The correlation matrix R needs a prior. It isn’t easy
+to conceptualize what a distribution of matrices means. But in this introductory case, it isn’t
+so hard. This particular correlation matrix is only 2-by-2 in size. So it looks like this:
+R =
+
+1
+ρ
+ρ
+1
+
+where ρ is the correlation between intercepts and slopes. So there’s just one parameter to
+define a prior for. In larger matrices, with additional varying slopes, it gets more complicated.
+So whatever is the LKJcorr distribution? What LKJcorr(2) does is define a weakly infor-
+mative prior on ρ that is skeptical of extreme correlations near −1 or 1.194 You can think of
+it as a regularizing prior for correlation matrices. This distribution has a single parameter,
+η, that controls how skeptical the prior is of large correlations in the matrix. When we use
+LKJcorr(1), the prior is flat over all valid correlation matrices. When the value is greater
+than 1, such as the 2 we used above, then extreme correlations are less likely. To visualize
+this family of priors, it will help to sample random matrices from it:
+R code
+14.11
+R <- rlkjcorr( 1e4 , K=2 , eta=2 )
+dens( R[,1,2] , xlab="correlation" )
+This is shown in Figure 14.3, along with two other η values. When the matrix is larger, there
+are more correlations inside it, but the nature of the distribution remains the same. There is
+an example density for a 3-by-3 matrix in the help page examples, ?rlkjcorr.
+To fit the model, we use a list of formulas that closely mirrors the model definition above.
+Note the use of c() to combine parameters into a vector.
+R code
+14.12
+set.seed(867530)
+m14.1 <- ulam(
+alist(
+wait ~ normal( mu , sigma ),
+mu <- a_cafe[cafe] + b_cafe[cafe]*afternoon,

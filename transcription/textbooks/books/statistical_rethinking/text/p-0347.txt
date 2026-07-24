@@ -1,0 +1,36 @@
+11 God Spiked the Integers
+The cold of space is named Kelvin, about 3 degrees Kelvin, or 3 degrees centigrade above
+absolute zero. Kelvin is also the name of a river in Scotland, near Glasgow. The same river
+gave its name to William Thomson, the Lord Kelvin (born 1824, died 1907), the first scientist
+in the United Kingdom to be granted a noble title. Thomson studied thermodynamics in his
+laboratory in Glasgow, and now the cold of space bears the name of a Scottish river.
+Lord Kelvin befittingly also researched water. He invented several tide prediction en-
+gines. These were essentially mechanical computers that calculated the tides (Figure 11.1).
+All the gears and cables comprised a set of oscillators that produced accurate tide predic-
+tions. But when you look at such a machine, most of it is internal states, not the predictions.
+It would be quite hard to inspect any one of the gears at the bottom and know when to expect
+the tide, because the predictions emerge from the combination of internal states.
+Generalized linear models (GLMs) are a lot like these early mechanical computers.
+The moving pieces within them, the parameters, interact to produce non-obvious predic-
+tions. But we can’t read the parameters directly to understand the predictions. This is quite
+different than the Gaussian linear models of previous chapters, where individual parameters
+had clear meanings on the prediction scale. Mastering GLMs requires a little more attention.
+They are always confusing, when you first try to grasp how they operate.
+The most common and useful generalized linear models are models for counts. Counts
+are non-negative integers—0, 1, 2, and so on. They are the basis of all mathematics, the first
+bits that children learn. But they are also intoxicatingly complicated to model—hence the
+apocryphal slogan that titles this chapter166. The essential problem is this: When what we
+wish to predict is a count, the scale of the parameters is never the same as the scale of the
+outcome. A count golem, like a tide prediction engine, has a whirring machinery underneath
+that doesn’t resemble the output. Keeping the tide engine in mind, you can master these
+models and use them responsibly.
+We will engineer complete examples of the two most common types of count model. Bi-
+nomial regression is the name we’ll use for a family of related procedures that all model
+a binary classification—alive/dead, accept/reject, left/right—for which the total of both cat-
+egories is known. This is like the marble and globe tossing examples from Chapter 2. But
+now you get to incorporate predictor variables. Poisson regression is a GLM that models
+a count with an unknown maximum—number of elephants in Kenya, number of applica-
+tions to a PhD program, number of significance tests in an issue of Psychological Science. As
+described in Chapter 10, the Poisson model is a special case of binomial. At the end, the
+chapter describes some other count regressions.
+331

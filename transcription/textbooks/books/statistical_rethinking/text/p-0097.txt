@@ -1,0 +1,46 @@
+4.3. GAUSSIAN MODEL OF HEIGHT
+81
+R code
+4.6
+w <- 6; n <- 9;
+p_grid <- seq(from=0,to=1,length.out=100)
+posterior <- dbinom(w,n,p_grid)*dunif(p_grid,0,1)
+posterior <- posterior/sum(posterior)
+Compare to the calculations in earlier chapters.
+4.3. Gaussian model of height
+Let’s build a linear regression model now. Well, it’ll be a “regression” once we have a
+predictor variable in it. For now, we’ll get the scaffold in place and construct the predictor
+variable in the next section.
+We’ll work through this material by using real sets of data. In this case, we want a single
+measurement variable to model as a Gaussian distribution. There will be two parameters
+describing the distribution’s shape, the mean µ and the standard deviation σ. Bayesian up-
+dating will allow us to consider every possible combination of values for µ and σ and to score
+each combination by its relative plausibility, in light of the data. These relative plausibilities
+are the posterior probabilities of each combination of values µ, σ.
+Another way to say the above is this. There are an infinite number of possible Gaussian
+distributions. Some have small means. Others have large means. Some are wide, with a large
+σ. Others are narrow. We want our Bayesian machine to consider every possible distribution,
+each defined by a combination of µ and σ, and rank them by posterior plausibility. Posterior
+plausibility provides a measure of the logical compatibility of each possible distribution with
+the data and model.
+In practice we’ll use approximations to the formal analysis. So we won’t really consider
+every possible value of µ and σ. But that won’t cost us anything in most cases. Instead the
+thing to worry about is keeping in mind that the “estimate” here will be the entire posterior
+distribution, not any point within it. And as a result, the posterior distribution will be a
+distribution of Gaussian distributions. Yes, a distribution of distributions. If that doesn’t
+make sense yet, then that just means you are being honest with yourself. Hold on, work
+hard, and it will make plenty of sense before long.
+4.3.1. The data. The data contained in data(Howell1) are partial census data for the Dobe
+area !Kung San, compiled from interviews conducted by Nancy Howell in the late 1960s.69
+For the non-anthropologists reading along, the !Kung San are the most famous foraging
+population of the 20th century, largely because of detailed quantitative studies by people like
+Howell.
+Load the data and place them into a convenient object with:
+R code
+4.7
+library(rethinking)
+data(Howell1)
+d <- Howell1
+What you have now is a data frame named simply d. I use the name d over and over again
+in this book to refer to the data frame we are working with at the moment. I keep its name
+short to save you typing. A data frame is a special kind of object in R. It is a table with

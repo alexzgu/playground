@@ -1,0 +1,56 @@
+14.1. VARYING SLOPES BY CONSTRUCTION
+457
+-1.0
+-0.5
+0.0
+0.5
+1.0
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+correlation
+Density
+eta=4
+eta=2
+eta=1
+Figure 14.3. LKJcorr(η) probability density.
+The plot shows the distribution of correla-
+tion coefficients extracted from random 2-by-
+2 correlation matrices, for three values of η.
+When η = 1, all correlations are equally plau-
+sible. As η increases, extreme correlations be-
+come less plausible.
+c(a_cafe,b_cafe)[cafe] ~ multi_normal( c(a,b) , Rho , sigma_cafe ),
+a ~ normal(5,2),
+b ~ normal(-1,0.5),
+sigma_cafe ~ exponential(1),
+sigma ~ exponential(1),
+Rho ~ lkj_corr(2)
+) , data=d , chains=4 , cores=4 )
+The distribution multi_normal is a multivariate Gaussian notation that takes a vector of
+means, c(a,b), a correlation matrix, Rho, and a vector of standard deviations, sigma_cafe.
+It constructs the covariance matrix internally. If you are interested in the details, you can
+peek at the raw Stan code with stancode(m14.1). The name multi_normal is what Stan
+uses in its raw code. The similar R functions are dmvnorm and dmvnorm2.
+Now instead of looking at the marginal posterior distributions in the precis output, let’s
+go straight to inspecting the posterior distribution of varying effects. First, let’s examine the
+posterior correlation between intercepts and slopes.
+R code
+14.13
+post <- extract.samples(m14.1)
+dens( post$Rho[,1,2] , xlim=c(-1,1) ) # posterior
+R <- rlkjcorr( 1e4 , K=2 , eta=2 )
+# prior
+dens( R[,1,2] , add=TRUE , lty=2 )
+The result is shown in Figure 14.4, with some additional decoration and the addition of
+the prior for comparison. The blue density is the posterior distribution of the correlation
+between intercepts and slopes. The posterior is concentrated on negative values, because the
+model has learned the negative correlation you can see in Figure 14.2. Keep in mind that
+the model did not get to see the true intercepts and slopes. All it had to work from was the
+observed wait times in morning and afternoon.
+If you are curious about the impact of the prior, then you should change the prior and
+repeat the analysis. I suggest trying a flat prior, LKJcorr(1), and then a more strongly regu-
+larizing prior like LKJcorr(4) or LKJcorr(5).

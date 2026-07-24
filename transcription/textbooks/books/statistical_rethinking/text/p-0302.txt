@@ -1,0 +1,49 @@
+286
+9. MARKOV CHAIN MONTE CARLO
+9.4.1. Preparation. But now we’ll also fit this model using Hamiltonian Monte Carlo. This
+means there will be no more quadratic approximation—if the posterior distribution is non-
+Gaussian, then we’ll get whatever non-Gaussian shape it has. You can use exactly the same
+formula list as before, but you should do two additional things.
+(1) Preprocess all variable transformations. If the outcome is transformed somehow,
+like by taking the logarithm, then do this before fitting the model by constructing a
+new variable in the data frame. Likewise, if any predictor variables are transformed,
+including squaring and cubing and such to build polynomial models, then compute
+these transformed values before fitting the model. It’s a waste of computing power
+to do these transformations repeatedly in every step of the Markov chain.
+(2) Once you’ve got all the variables ready, make a new trimmed down data frame that
+contains only the variables you will actually use to fit the model. Technically, you
+don’t have to do this. But doing so avoids common problems. For example, if any
+of the unused variables have missing values, NA, then Stan will refuse to work.
+We’ve already pre-transformed all the variables. Now we need a slim list of the variables we
+will use:
+R code
+9.13
+dat_slim <- list(
+log_gdp_std = dd$log_gdp_std,
+rugged_std = dd$rugged_std,
+cid = as.integer( dd$cid )
+)
+str(dat_slim)
+List of 3
+$ log_gdp_std: num [1:170] 0.88 0.965 1.166 1.104 0.915 ...
+$ rugged_std : num [1:170] 0.138 0.553 0.124 0.125 0.433 ...
+$ cid
+: int [1:170] 1 2 2 2 2 2 2 2 2 1 ...
+It is better to use a list than a data.frame, because the elements in a list can be any
+length. In a data.frame, all the elements must be the same length. With some models to
+come later, like multilevel models, it isn’t unusual to have variables of different lengths.
+9.4.2. Sampling from the posterior. Now provided you have the rstan package installed
+(mc-stan.org), you can get samples from the posterior distribution with this code:
+R code
+9.14
+m9.1 <- ulam(
+alist(
+log_gdp_std ~ dnorm( mu , sigma ) ,
+mu <- a[cid] + b[cid]*( rugged_std - 0.215 ) ,
+a[cid] ~ dnorm( 1 , 0.1 ) ,
+b[cid] ~ dnorm( 0 , 0.3 ) ,
+sigma ~ dexp( 1 )
+) , data=dat_slim , chains=1 )
+All that ulam does is translate the formula above into a Stan model, and then Stan defines
+the sampler and does the hard part. Stan models look very similar, but require some more
+explicit definitions. This also makes them much more flexible. If you’d rather start working

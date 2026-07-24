@@ -1,0 +1,46 @@
+5.1. SPURIOUS ASSOCIATION
+141
+means the observed rate was below what the model expects. In simpler terms, States with
+positive residuals have high marriage rates for their median age of marriage, while States
+with negative residuals have low rates for their median age of marriage. It’ll help to plot
+the relationship between these two variables, and show the residuals as well. In Figure 5.4,
+upper left, I show m5.4 along with line segments for each residual. Notice that the residuals
+are variation in marriage rate that is left over, after taking out the purely linear relationship
+between the two variables.
+Now to use these residuals, let’s put them on a horizontal axis and plot them against the
+actual outcome of interest, divorce rate. In Figure 5.4 also (lower left), I plot these residu-
+als against divorce rate, overlaying the linear regression of the two variables. You can think
+of this plot as displaying the linear relationship between divorce and marriage rates, having
+statistically “controlled” for median age of marriage. The vertical dashed line indicates mar-
+riage rate that exactly matches the expectation from median age at marriage. So States to
+the right of the line have higher marriage rates than expected. States to the left of the line
+have lower rates. Average divorce rate on both sides of the line is about the same, and so the
+regression line demonstrates little relationship between divorce and marriage rates.
+The same procedure works for the other predictor. The top right plot in Figure 5.4 shows
+the regression of A on M and the residuals. In the lower right, these residuals are used to
+predict divorce rate. States to the right of the vertical dashed line have older-than-expected
+median age at marriage, while those to the left have younger-than-expected median age at
+marriage. Now we find that the average divorce rate on the right is lower than the rate on the
+left, as indicated by the regression line. States in which people marry older than expected for
+a given rate of marriage tend to have less divorce.
+So what’s the point of all of this? There’s conceptual value in seeing the model-based
+predictions displayed against the outcome, after subtracting out the influence of other pre-
+dictors. The plots in Figure 5.4 do this. But this procedure also brings home the message
+that regression models measure the remaining association of each predictor with the out-
+come, after already knowing the other predictors. In computing the predictor residual plots,
+you had to perform those calculations yourself. In the unified multivariate model, it all hap-
+pens automatically. Nevertheless, it is useful to keep this fact in mind, because regressions
+can behave in surprising ways as a result. We’ll have an example soon.
+Linear regression models do all of this simultaneous measurement with a very specific
+additive model of how the variables relate to one another. But predictor variables can be
+related to one another in non-additive ways. The basic logic of statistical control does not
+change in those cases, but the details definitely do, and these residual plots cease to be useful.
+Luckily there are other ways to understand a model. That’s where we turn next.
+Rethinking: Never use residuals as data. There is a tradition, especially in parts of biology, of using
+residuals from one model as data in another model. For example, a biologist might regress brain size
+on body size and then use the brain size residuals as data in another model. This procedure is always
+a mistake. Residuals are not known. They are parameters, variables with unobserved values. Treating
+them as known values throws away uncertainty. The right way to control for body size is to include
+it in the same model, preferably a model designed with an explicit causal identification strategy.81
+5.1.5.2. Posterior prediction plots. It’s important to check the model’s implied predic-
+tions against the observed data. This is what you did in Chapter 3, when you simulated

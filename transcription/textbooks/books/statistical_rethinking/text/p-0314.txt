@@ -1,0 +1,72 @@
+298
+9. MARKOV CHAIN MONTE CARLO
+-15
+-10
+-5
+0
+5
+10
+15
+0.0
+0.1
+0.2
+0.3
+0.4
+alpha
+Density
+posterior
+prior
+0
+2
+4
+6
+8
+10
+0.0
+0.1
+0.2
+0.3
+0.4
+0.5
+0.6
+0.7
+sigma
+Density
+Figure 9.11. Prior (dashed) and posterior (blue) for the model with weakly
+informative priors, m9.3. Even with only two observations, the likelihood
+easily overcomes these priors. Yet the posterior cannot be successfully ap-
+proximated without them.
+But it doesn’t take much information in the prior to stop this foolishness, even without
+more data. Let’s use this model:
+yi ∼Normal(µ, σ)
+µ = α
+α ∼Normal(1, 10)
+σ ∼Exponential(1)
+I’ve just added weakly informative priors for α and σ. We’ll plot these priors in a moment,
+so you will be able to see just how weak they are. But let’s re-approximate the posterior first:
+R code
+9.24
+set.seed(11)
+m9.3 <- ulam(
+alist(
+y ~ dnorm( mu , sigma ) ,
+mu <- alpha ,
+alpha ~ dnorm( 1 , 10 ) ,
+sigma ~ dexp( 1 )
+) , data=list(y=y) , chains=3 )
+precis( m9.3 )
+mean
+sd
+5.5% 94.5% n_eff Rhat
+alpha 0.10 1.13 -1.60
+1.97
+478
+1
+sigma 1.52 0.72
+0.67
+2.86
+438
+1
+That’s much better. Take a look at the bottom portion of Figure 9.10. The trace and trank
+plots look healthy. Both chains are stationary around the same values, and mixing is good.
+No more wild detours into the thousands. And those divergent transitions are gone.

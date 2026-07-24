@@ -1,0 +1,321 @@
+14.5. CONTINUOUS CATEGORIES AND THE GAUSSIAN PROCESS
+493
+Allenopithecus nigroviridis
+Cercopithecus albogularis
+Cercopithecus ascanius
+Cercopithecus campbelli
+Cercopithecus campbelli lowei
+Cercopithecus cephus
+Cercopithecus cephus cephus
+Cercopithecus cephus ngottoensis
+Cercopithecus diana
+Cercopithecus erythrogaster
+Cercopithecus erythrogaster erythrogaster
+Cercopithecus erythrotis
+Cercopithecus hamlyni
+Cercopithecus lhoesti
+Cercopithecus mitis
+Cercopithecus mona
+Cercopithecus neglectus
+Cercopithecus nictitans
+Cercopithecus petaurista
+Cercopithecus pogonias
+Cercopithecus preussi
+Cercopithecus solatus
+Cercopithecus wolfi
+Chlorocebus aethiops
+Chlorocebus pygerythrus
+Chlorocebus pygerythrus cynosurus
+Chlorocebus sabaeus
+Chlorocebus tantalus
+Erythrocebus patas
+Miopithecus talapoin
+Allocebus trichotis
+Archaeolemur majori
+Avahi cleesei
+Avahi laniger
+Avahi occidentalis
+Avahi unicolor
+Cheirogaleus crossleyi
+Cheirogaleus major
+Cheirogaleus medius
+Daubentonia madagascariensis
+Eulemur coronatus
+Eulemur fulvus albifrons
+Eulemur fulvus albocollaris
+Eulemur fulvus collaris
+Eulemur fulvus fulvus
+Eulemur fulvus mayottensis
+Eulemur fulvus rufus
+Eulemur fulvus sanfordi
+Eulemur macaco flavifrons
+Eulemur macaco macaco
+Eulemur mongoz
+Eulemur rubriventer
+Hapalemur aureus
+Hapalemur griseus
+Hapalemur griseus alaotrensis
+Hapalemur griseus griseus
+Hapalemur griseus meridionalis
+Hapalemur griseus occidentalis
+Hapalemur simus
+Indri indri
+Lemur catta
+Lepilemur aeeclis
+Lepilemur ankaranensis
+Lepilemur dorsalis
+Lepilemur edwardsi
+Lepilemur hubbardorum
+Lepilemur leucopus
+Lepilemur manasamody
+Lepilemur microdon
+Lepilemur mitsinjoensis
+Lepilemur mustelinus
+Lepilemur otto
+Lepilemur randrianasoli
+Lepilemur ruficaudatus
+Lepilemur sahamalazensis
+Lepilemur seali
+Lepilemur septentrionalis
+Microcebus berthae
+Microcebus bongolavensis
+Microcebus danfossi
+Microcebus griseorufus
+Microcebus jollyae
+Microcebus lehilahytsara
+Microcebus lokobensis
+Microcebus macarthurii
+Microcebus mamiratra
+Microcebus mittermeieri
+Microcebus murinus
+Microcebus myoxinus
+Microcebus ravelobensis
+Microcebus rufus
+Microcebus sambiranensis
+Microcebus simmonsi
+Microcebus tavaratra
+Mirza coquereli
+Mirza zaza
+Phaner furcifer
+Phaner furcifer pallescens
+Propithecus coquereli
+Propithecus deckenii
+Propithecus diadema
+Propithecus edwardsi
+Propithecus tattersalli
+Propithecus verreauxi
+Varecia rubra
+Varecia variegata variegata
+Alouatta belzebul
+Alouatta caraya
+Alouatta guariba
+Alouatta palliata
+Alouatta pigra
+Alouatta sara
+Alouatta seniculus
+Ateles belzebuth
+Ateles fusciceps
+Ateles geoffroyi
+Ateles paniscus
+Brachyteles arachnoides
+Lagothrix lagotricha
+Aotus azarai
+Aotus azarai boliviensis
+Aotus brumbacki
+Aotus infulatus
+Aotus lemurinus
+Aotus lemurinus griseimembra
+Aotus nancymaae
+Aotus nigriceps
+Aotus trivirgatus
+Aotus vociferans
+Callimico goeldii
+Callithrix argentata
+Callithrix aurita
+Callithrix emiliae
+Callithrix geoffroyi
+Callithrix humeralifera
+Callithrix jacchus
+Callithrix kuhli
+Callithrix mauesi
+Callithrix penicillata
+Callithrix pygmaea
+Cebus albifrons
+Cebus apella
+Cebus capucinus
+Cebus olivaceus
+Cebus xanthosternos
+Leontopithecus chrysomelas
+Leontopithecus chrysopygus
+Leontopithecus rosalia
+Saguinus bicolor
+Saguinus fuscicollis
+Saguinus fuscicollis melanoleucus
+Saguinus geoffroyi
+Saguinus imperator
+Saguinus leucopus
+Saguinus midas
+Saguinus mystax
+Saguinus niger
+Saguinus oedipus
+Saguinus tripartitus
+Saimiri boliviensis
+Saimiri oerstedii
+Saimiri sciureus
+Saimiri ustus
+Arctocebus aureus
+Arctocebus calabarensis
+Loris lydekkerianus
+Loris tardigradus
+Nycticebus bengalensis
+Nycticebus coucang
+Nycticebus javanicus
+Nycticebus menagensis
+Nycticebus pygmaeus
+Perodicticus potto
+Bunopithecus hoolock
+Gorilla beringei
+Gorilla gorilla gorilla
+Gorilla gorilla graueri
+Homo sapiens
+Homo sapiens neanderthalensis
+Hylobates agilis
+Hylobates klossii
+Hylobates lar
+Hylobates moloch
+Hylobates muelleri
+Hylobates pileatus
+Nomascus concolor
+Nomascus gabriellae
+Nomascus leucogenys
+Nomascus nasutus
+Nomascus siki
+Pan paniscus
+Pan troglodytes schweinfurthii
+Pan troglodytes troglodytes
+Pan troglodytes vellerosus
+Pan troglodytes verus
+Pongo abelii
+Pongo pygmaeus
+Symphalangus syndactylus
+Cacajao calvus
+Cacajao melanocephalus
+Callicebus donacophilus
+Callicebus hoffmannsi
+Callicebus moloch
+Callicebus personatus
+Callicebus torquatus
+Chiropotes satanas
+Pithecia irrorata
+Pithecia pithecia
+Cercocebus agilis
+Cercocebus galeritus
+Cercocebus torquatus
+Cercocebus torquatus atys
+Lophocebus albigena
+Lophocebus aterrimus
+Macaca arctoides
+Macaca assamensis
+Macaca brunnescens
+Macaca cyclopis
+Macaca fascicularis
+Macaca fuscata
+Macaca hecki
+Macaca leonina
+Macaca maura
+Macaca mulatta
+Macaca munzala
+Macaca nemestrina
+Macaca nemestrina leonina
+Macaca nemestrina siberu
+Macaca nigra
+Macaca nigrescens
+Macaca ochreata
+Macaca pagensis
+Macaca radiata
+Macaca silenus
+Macaca sinica
+Macaca sylvanus
+Macaca thibetana
+Macaca tonkeana
+Mandrillus leucophaeus
+Mandrillus sphinx
+Papio anubis
+Papio cynocephalus
+Papio hamadryas
+Papio papio
+Papio ursinus
+Rungwecebus kipunji
+Theropithecus gelada
+Colobus angolensis
+Colobus angolensis palliatus
+Colobus guereza
+Colobus polykomos
+Colobus satanas
+Colobus vellerosus
+Nasalis larvatus
+Piliocolobus badius
+Piliocolobus foai
+Piliocolobus gordonorum
+Piliocolobus kirkii
+Piliocolobus pennantii
+Piliocolobus preussi
+Piliocolobus rufomitratus
+Piliocolobus tephrosceles
+Piliocolobus tholloni
+Presbytis comata
+Presbytis melalophos
+Procolobus verus
+Pygathrix cinerea
+Pygathrix nemaeus
+Rhinopithecus avunculus
+Rhinopithecus bieti
+Rhinopithecus brelichi
+Rhinopithecus roxellana
+Semnopithecus entellus
+Trachypithecus auratus
+Trachypithecus cristatus
+Trachypithecus delacouri
+Trachypithecus francoisi
+Trachypithecus geei
+Trachypithecus germaini
+Trachypithecus johnii
+Trachypithecus laotum
+Trachypithecus obscurus
+Trachypithecus phayrei
+Trachypithecus pileatus
+Trachypithecus poliocephalus
+Trachypithecus vetulus
+Euoticus elegantulus
+Galago alleni
+Galago gallarum
+Galago granti
+Galago matschiei
+Galago moholi
+Galago senegalensis
+Galagoides demidoff
+Galagoides zanzibaricus
+Otolemur crassicaudatus
+Otolemur garnettii
+Tarsius bancanus
+Tarsius dentatus
+Tarsius lariang
+Tarsius syrichta
+Figure 14.13. Consensus phylogeny for 301 primate species. See the cita-
+tions in ?Primates301 for sources.
+I’ve plotted this phylogeny as Figure 14.13. We’re going to use this tree as a way to model
+unobserved confounds. At the same time, we’d like to deal with the fact that some groups
+of closely related species may be over-represented in nature. There are lots of lemurs for
+example. This produces an imbalance in sampling issue, analogous to an ordinary multilevel
+modeling context. And varying effects can help us here as well. But we’ll get the varying
+effects, as it were, from the phylogenetic tree structure.
+Before we do anything with the tree, however, let’s run an ordinary regression analyzing
+(log) group size as a function of (log) brain size and (log) body size. But I want to build this
+ordinary regression in an un-ordinary style, because it will help you understand the next
+step, where we stick the phylogenetic information inside. Think of all of the species as a
+single variable, a vector of 301 trait values. Of course some of these values are more similar
+to one another. In a typical regression, we model those similarities using predictor variables.
+After conditioning on the predictor variables, the model expects correlations. So we can
+write such a model using a big, multi-variate outcome distribution. It looks like this:
+B ∼MVNormal(µ, S)
+µi = α + βGGi + βMMi

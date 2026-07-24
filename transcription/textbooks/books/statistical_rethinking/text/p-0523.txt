@@ -1,0 +1,78 @@
+15.1. MEASUREMENT ERROR
+507
+0.2
+0.4
+0.6
+0.8
+1.0
+1.2
+1.4
+-1.0
+-0.5
+0.0
+0.5
+1.0
+1.5
+D_sd
+D_est – D_obs
+AL
+AK
+AR
+DC
+ID
+ME
+NH
+ND
+RI
+SD
+UT
+VT
+WY
+-2
+-1
+0
+1
+2
+3
+-2
+-1
+0
+1
+2
+median age marriage (std)
+divorce rate (std)
+AR
+ID
+ME
+MN
+ND
+RI
+WY
+Figure 15.2. Left: Shrinkage resulting from modeling the measurement er-
+ror. The less error in the original measurement, the less shrinkage in the pos-
+terior estimate. Right: Comparison of regression that ignores measurement
+error (dashed line and gray shading) with regression that incorporates mea-
+surement error (blue line and shading). The points and line segments show
+the posterior means and standard deviations for each posterior divorce rate,
+Dest,i.
+friend shrinkage from the previous two chapters. Less certain estimates are improved by
+pooling information from more certain estimates.
+This shrinkage results in pulling divorce rates towards the regression line, as seen in
+the right-hand plot in the same figure. This plot shows the posterior mean divorce rate for
+each State against its observed median age at marriage. The vertical line segments show the
+posterior standard deviations of each divorce rate—the estimates have moved, but they are
+still uncertain.
+As a result of their movement, however, the regression trend has moved. The old no-
+error regression is shown in gray. The fancy new with-error regression is shown in blue.
+Well, really both the estimates and the trend have moved one another at the same time. For
+a State with an uncertain divorce rate, the trend has strongly influenced the new estimate of
+divorce rate. For a State with a fairly certain divorce rate—a small standard error—the State
+has instead strongly influenced the trend. The balance of all of this information is the shift
+in both the estimated divorce rates and the regression relationship.
+15.1.2. Error on both outcome and predictor. What happens when there is measurement
+error on predictor variables as well? The basic approach is the same. Again, consider the
+problem generatively: Each observed predictor value is a draw from a distribution with an
+unknown mean, the true value, but known standard deviation. So we define a vector of
+parameters, one for each unknown true value, and then make those parameters the means
+of a family of Gaussian distributions with known standard deviations. Here’s the updated
+DAG:

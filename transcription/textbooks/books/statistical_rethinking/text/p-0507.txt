@@ -1,0 +1,45 @@
+14.5. CONTINUOUS CATEGORIES AND THE GAUSSIAN PROCESS
+491
+14.5.2. Example: Phylogenetic distance. Species, like islands, are more or less distance
+from one another. However their distance is not physical but rather temporal—how long
+since a common ancestor? Evolutionary biologists investigate how phylogenetic relation-
+ships influence patterns of variation in the bodies and brains of different species. It’s a fact
+that species with more recent common ancestors have higher trait correlations. Do these
+correlations matter?
+Phylogenetic distance can have two important causal influences. The first is that two
+species that only recently separated tend to be more similar, assuming their traits are not
+maintained by selection but rather drifting neutrally around. The second causal influence
+is indirect. Phylogenetic distance is a proxy for unobserved variables that generate covaria-
+tion among species, even when selection matters. Closely related species likely share more
+of these, but distantly related species share many fewer. For example, all mammals nurse
+their young with milk. Flight in birds similarly influences many traits. These discrete, life
+history altering traits can have strong causal influence on other traits. When not observed,
+phylogenetic distance is a potentially useful proxy for these variables. But only if the trait
+model captures the right details.206 These methods do not just work automatically, as they
+are too often ritually presented in journals.
+Consider as an example the causal influence of group size (G) on brain size (B). Hypothe-
+ses connecting these variables are popular, because primates (including humans) are unusual
+in both. Most primates live in social groups. Most mammals do not. Second, primates have
+relatively large brains. There is a family of hypotheses linking these two features. Suppose
+for example that group living, whatever its cause, could select for larger brains, because once
+you live with others, a larger brain helps to cope with the complexity of cooperation and
+manipulation. This hypothesis implies a causal time series. Let’s draw it:
+B1
+B2
+G1
+G2
+U1
+U2
+The subscripts are time points in the evolutionary history of different populations. So G1 and
+group size at time 1 and G2 is group size in the next time point. There are plausibly many
+potential confounds, shown here as U1 and U2. Each variable influences itself in the next time
+step, as you might expect in anevolving system. There is also a causal influencesof G1 on B2—
+a species’ recent group size influenced its current brain size. This is what we’d like to estimate.
+However the confounds U1 also possibly influence everything. As in previous examples,
+circled variables are unobserved. So we can’t just condition on U1 to block confounding. We
+also don’t even have G1 to use in a model, but only its descendant G2. But note that if we did
+have measurements of G1 and U1, we could use these and not worry at all about phylogeny.
+Since we haven’t observed the past, we need some way to estimate its influence. This
+is where the branching history of the species might help. Phylogeny is associated with the
+patterns of covariation across species, because recently diverged species tend to be more sim-
+ilar. So phylogenetic relationships, expressed as distance, can be used to partially reconstruct

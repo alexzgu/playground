@@ -1,0 +1,57 @@
+460
+14. ADVENTURES IN COVARIANCE
+2
+3
+4
+5
+6
+-2.5
+-2.0
+-1.5
+-1.0
+-0.5
+0.0
+intercept
+slope
+2
+3
+4
+5
+6
+1
+2
+3
+4
+5
+morning wait
+afternoon wait
+Figure 14.5. Shrinkage in two dimensions. Left: Raw unpooled intercepts
+and slopes (filled blue) compared to partially pooled posterior means (open
+circles). The gray contours show the inferred population of varying effects.
+Right: The same estimates on the outcome scale.
+To add the contour, we need the variances and covariance. We could use a formula—there
+are some simple relations among Gaussian random variables. But to make this lesson more
+general, let’s simulate instead, so you can see how to compute anything of interest.
+R code
+14.17
+# now shrinkage distribution by simulation
+v <- mvrnorm( 1e4 , Mu_est , Sigma_est )
+v[,2] <- v[,1] + v[,2] # calculate afternoon wait
+Sigma_est2 <- cov(v)
+Mu_est2 <- Mu_est
+Mu_est2[2] <- Mu_est[1]+Mu_est[2]
+# draw contours
+library(ellipse)
+for ( l in c(0.1,0.3,0.5,0.8,0.99) )
+lines(ellipse(Sigma_est2,centre=Mu_est2,level=l),
+col=col.alpha("black",0.5))
+The horizontal axis in the plot shows the expected morning wait, in minutes, for each café.
+The vertical axis shows the expected afternoon wait. Again the blue points are unpooled em-
+pirical estimates from the data. The open points are posterior predictions, using the pooled
+estimates. The diagonal dashed line shows where morning wait is equal to afternoon wait.
+What I want you to appreciate in this plot is that shrinkage on the parameter scale naturally
+produces shrinkage where we actually care about it: on the outcome scale. And it also implies
+a population of wait times, shown by the gray contours. That population is now positively
+correlated—cafés with longer morning waits also tend to have longer afternoon waits. They
+are popular, after all. But the population lies mostly below the dashed line where the waits
+are equal. You’ll wait less in the afternoon, on average.

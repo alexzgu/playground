@@ -1,0 +1,41 @@
+562
+16. GENERALIZED LINEAR MADNESS
+axis( 1 , at=at , labels=Lynx_Hare$Year[at] )
+for ( s in 1:21 ) {
+lines( 1:21 , post$pop[s,,2] , col=col.alpha("black",0.2) , lwd=2 )
+lines( 1:21 , post$pop[s,,1] , col=col.alpha(rangi2,0.4) , lwd=2 )
+}
+The result is the bottom plot in Figure 16.9. Compared to the pelt time series, these popu-
+lation dynamics are smooth. There is a lot of uncertainty about population size, of course.
+But each trajectory connects smoothly, because there is no measurement error at this level.
+The differential equation model is deterministic, so it shows no stochasticity.
+16.4.3. Lynx lessons. There are good reasons to doubt that this model is a perfect expla-
+nation of the population dynamics of hares and lynx. While lynx really do depend almost
+exclusively on hares at times, hares are eaten by lots of predators. So the hare cycles are
+probably not caused by the lynx. In other words, there is a confound lurking here. Real
+ecologies are complicated. In the practice problems at the end, I’ll ask you to use this model
+on an experimental predator-prey system that lacks all those complexities. I’ll also ask you
+to compare an autoregressive model and see how many epicycles you need to approach the
+forecasting quality of the simple predator-prey model.
+16.5. Summary
+This chapter demonstrated four analyses in which a statistical model is motived directly
+by a scientific model. This approach stands in contrast to the customary approach of going
+directly from a vague scientific model, whether a DAG or just a bowl of variables, to a general-
+ized linear model. The goal was to illustrate both the advantages and challenges of translating
+scientifically informed structural causal models into statistical machines. The goal was not
+to persuade you to never use a generalized linear model. But hopefully it inspires you to see
+the use of a GLM as a decision in itself, not an obligation.
+16.6. Practice
+Easy.
+16E1. x
+Medium.
+16M1. Modify the cylinder height model, m16.1, so that the exponent 3 on height is instead a free
+parameter. Do you recover the value of 3 or not? Plot the posterior predictions for the new model.
+How do they differ from those of m16.1?
+16M2. Conduct a prior predictive simulation for the cylinder height model. Begin with the priors
+in the chapter. Do these produce reasonable prior height distributions? If not, which modifications
+do you suggest?
+16M3. Use prior predictive simulations to investigate the Lynx-hare model. Begin with the priors
+in the chapter. Which population dynamics do these produce? Can you suggest any improvements
+to the priors, on the basis of your simulations?
+Hard.

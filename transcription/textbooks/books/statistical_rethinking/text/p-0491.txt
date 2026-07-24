@@ -1,0 +1,48 @@
+14.4. SOCIAL RELATIONS AS CORRELATED VARYING EFFECTS
+475
+by other causes. Everything has a mechanism. Z in the DAG above is such a mechanism. If
+you have a believable Z variable, then the causal effect of X on Y is estimated by expressing
+the generative model as a statistical model, similar to the instrumental variable example be-
+fore. In special cases, such as when everything is linear and Gaussian, there is a formula. But
+we don’t need formulas. We just need to think generatively and use Bayes.
+The front-door criterion isn’t used much. This may be because it is relatively new or
+rather that believable Z variables are rare. A possible example is the influence of social ties
+formed in college on voting behavior in the United States Senate.201 The question is whether
+senators who went to the same college vote more similarly, because their social ties produce
+coordinated votes. The pure association between attending the same college and voting the
+same way is obviously confounded by lots of things. The front-door trick is to find some
+mechanism through which social ties must act. In the case of the United States Senate, a
+mechanism could be who sits next to who. It is easier to talk to and coordinate with people
+sitting nearby. And since junior members are often assigned seats effectively at random,
+seating is unlikely to share the same confounds as college attendance. Now consider some
+senators who attended UCLA. Some of them end up seated near one another. Others end up
+seated next to dreadful UC Berkeley alums. If the ones seated near one another vote more
+similarly to one another than to the UCLA alums seated elsewhere, that could be causal
+evidence that social ties influence voting, as mediated by proximity on the Senate floor.
+A much more common design is regression discontinuity (or RDD). This is really
+a special kind of instrumental variable design. Suppose for example that we want to estimate
+the effect of winning an academic award on future success.202 This is confounded by unob-
+served factors, like ability, that influence both the award and later success. But if we compare
+individuals who were just below the cutoff for the award to those who were just above the
+cutoff, these individuals should be more similar in the unobserved factors. It’s as if the award
+is applied at random, for individuals close to the cutoff. This is key idea behind regression
+discontinuity. In practice, one regression is fit for individuals above the cutoff and another
+to those below the cutoff. Then an estimate of the causal effect is the average difference be-
+tween individuals just above and just below the cutoff. While the difference near the cutoff is
+of interest, the entire function influences this difference. So some care is needed in choosing
+functions for the overall relationship between the exposure and the outcome.203
+14.4. Social relations as correlated varying effects
+Once you grasp the basic strategy of using covariance matrixes to represent populations
+of correlated effects, you can accomplish a lot of different and scientifically relevant modeling
+goals. In this section, I present an example that constructs a custom covariance matrix with
+special scientific meaning.
+The data we’ll work with are data(KosterLeckie), which loads two different tables,
+kl_dyads and kl_households. See ?KosterLeckie for more details.204
+R code
+14.30
+library(rethinking)
+data(KosterLeckie)
+For now, we want to use the variables in kl_dyads. Each row in this table is a dyad of
+households from a community in Nicaragua. We are interested in modeling gift exchanges
+among these households. The outcome variables giftsAB and giftsBA in each row are the
+count of gifts in each direction within each dyad. The variables hidA and hidB tell us the

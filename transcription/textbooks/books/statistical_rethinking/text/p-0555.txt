@@ -1,0 +1,45 @@
+16.1. GEOMETRIC PEOPLE
+539
+h
+r
+V = πr2h
+Figure 16.1. The “Vitruvian Can” model of
+human weight as a function of height. If Vit-
+ruvian Man were a cylinder, we could estimate
+his weight by calculating his volume V as a
+function of his height h and radius r.
+p of height. This means r = ph. Substituting this into the formula:
+V = π(ph)2h = πp2h3
+Finally, weight is some proportion of volume—how many kilograms are there per cubic
+centimeter? So we need a parameter k that expresses this translation between volume and
+weight.
+W = kV = kπp2h3
+And this is our formula for expected weight, given an individual’s height h. This is not ob-
+viously an ordinary generalized linear model. But that’s okay. It makes predictions, and we
+can fit it to data.
+Rethinking: Spherical cows. Useful mathematical modelling typically involves ridiculous assump-
+tions. For example, the assumption above that people are shaped like cylinders. This type of as-
+sumption can be called a spherical cow, after the book Consider a Spherical Cow: A Course in
+Environmental Problem Solving.220 Strategic, simplifying assumptions are features of all useful mod-
+els. By first understanding the simplified model, it is easier to later add in relevant detail, where the
+flaws in the simpler model help us decide which details are relevant. Non-mathematical models are
+also simplifications, but usually the simplifications are not explicit. This makes it harder to identify
+their flaws.221
+16.1.2. The statistical model. We can use the cylinder formula in a statistical model. To do
+so however, we need to make some more choices. Here’s the model outline. I’ll explain each
+piece afterwards.
+Wi ∼Log-Normal(µi, σ)
+[Distribution for weight]
+exp(µi) = kπp2h3
+i
+[expected median of weight]
+k ∼some prior
+[prior relation between weight and volume]
+p ∼some prior
+[prior proportionality of radius to height]
+σ ∼Exponential(1)
+[our old friend, sigma]
+From the top, the first thing to decide is the distribution for the observed outcome variable,
+weight Wi. This variable is positive—weight can’t be negative—and continuous. So I’ve cho-
+sen a Log-Normal distribution. The Log-Normal distribution is parameterized by the mean
+of the logarithm, which is called µi. The median of the Log-Normal is exp(µi). In the model

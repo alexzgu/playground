@@ -1,0 +1,86 @@
+Citation index
+Akaike (1973), 576, 583
+Akaike (1974), 576, 583
+Akaike (1978), 575, 576, 583
+Akaike (1981a), 576, 583
+Akaike (1981b), 576, 583
+Amrhein et al. (2019), 572, 583
+Angrist and Krueger (1991), 580, 583
+Angrist and Krueger (1995), 580, 583
+Baker (1994), 579, 583
+Beheim et al. (2019), 581, 583
+Berger and Berry (1988), 572, 583
+Berger (1985), 577, 583
+Berkson (1946), 574, 583
+Betancourt and Girolami (2013), 580, 583
+Betancourt (2017), 577, 583
+Bickel et al. (1975), 578, 583
+Binmore (2009), 571, 583
+Boesch et al. (2019), 581, 583
+Bolker (2008), 579, 583
+Box and Tiao (1973), 572, 583
+Box (1979), 569, 583
+Box (1980), 573, 583
+Brakenhoff et al. (2018), 581, 584
+Breen (2018), 574, 584
+Breiman (1968), 573, 584
+Brooks et al. (2011), 578, 584
+Burnham and Anderson (2002), 575, 576, 584
+Bürkner and Charpentier (2018), 579, 584
+Bürkner and Vuorre (2018), 579, 584
+Campbell (1985), 582, 584
+Caniglia et al. (2019), 580, 584
+Casella and George (1992), 577, 584
+Caticha and Griffin (2007), 578, 584
+Cho (2011), 570, 584
+Clark (2012), 569, 584
+Cohen and Malloy (2014), 580, 584
+Collins and Pinch (1998), 569, 570, 584
+Cooper et al. (2016), 580, 584
+Cox (1946), 571, 584
+Cushman et al. (2006), 579, 584
+Daston and Galison (2007), 570, 584
+Dawes (1975), 574, 584
+Elias (1958), 575, 584
+Fahrmeir et al. (2013), 574, 584
+Fanelli (2012), 582, 584
+Felsenstein (1985), 580, 584
+Ferguson and Heene (2012), 582, 584
+Feynman (1967), 572, 584
+Feyrer and Sacerdote (2009), 580, 584
+Fienberg (2006), 571, 577, 585
+Fisher (1925), 571, 572, 585
+Fisher (1955), 570, 585
+Fisher (1956), 570, 572, 585
+Fontani et al. (2014), 582, 585
+Forer (1949), 582, 585
+Franco et al. (2014), 582, 585
+Frank (2007), 578, 585
+Frank (2009), 573, 575, 585
+Frank (2011), 575, 585
+Freckleton (2002), 574, 585
+Fullerton (2009), 579, 585
+Galton (1989), 574, 585
+Gao et al. (2019), 580, 585
+Gelfand et al. (1995), 580, 585
+Gelfand (1996), 575, 576, 585
+Gelman and Greenland (2019), 572, 585
+Gelman and Hill (2007), 574, 585
+Gelman and Imbens (2019), 580, 585
+Gelman and Little (1997), 580, 585
+Gelman and Loken (2013), 582, 585
+Gelman and Loken (2014), 582, 585
+Gelman and Nolan (2002), 572, 585
+Gelman and Robert (2013), 571, 585
+Gelman and Rubin (1992), 578, 586
+Gelman and Rubin (1995), 576, 586
+Gelman and Stern (2006), 574, 586
+Gelman et al. (2013a), 572, 576, 585
+Gelman et al. (2013b), 576, 585
+Gelman (2005), 579, 585
+Geman and Geman (1984), 577, 586
+Gigerenzer and Hoffrage (1995), 572, 586
+Gigerenzer et al. (1990), 577, 586
+Gigerenzer et al. (2000), 571, 586
+Gigerenzer et al. (2004), 571, 586
+595

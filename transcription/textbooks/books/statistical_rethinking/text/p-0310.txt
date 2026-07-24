@@ -1,0 +1,47 @@
+294
+9. MARKOV CHAIN MONTE CARLO
+Second, what do you want to know? If all you want are posterior means, it doesn’t take
+many samples at all to get very good estimates. Even a couple hundred samples will do. But
+if you care about the exact shape in the extreme tails of the posterior, the 99th percentile or
+so, then you’ll need many more. So there is no universally useful number of samples to aim
+for. In most typical regression applications, you can get a very good estimate of the posterior
+mean with as few as 200 effective samples. And if the posterior is approximately Gaussian,
+then all you need in addition is a good estimate of the variance, which can be had with one
+order of magnitude more, in most cases. For highly skewed posteriors, you’ll have to think
+more about which region of the distribution interests you. Stan will sometimes warn you
+about “tail ESS,” which means the effective sample size in the tails of the posterior. In those
+cases, it is nervous about the quality of extreme intervals, like 95%. Sampling more usually
+helps.
+The warmup setting is more subtle. On the one hand, you want to have the shortest
+warmup period necessary, so you can get on with real sampling. But on the other hand, more
+warmup can mean more efficient sampling. With Stan models, typically you can devote as
+much as half of your total samples, the iter value, to warmup and come out very well. But
+for simple models like those you’ve fit so far, much less warmup is really needed. Models
+can vary a lot in the shape of their posterior distributions, so again there is no universally
+best answer. But if you are having trouble, you might try increasing the warmup. If not, you
+might try reducing it. There’s a practice problem at the end of the chapter that guides you in
+experimenting with the amount of warmup.
+Rethinking: Warmup is not burn-in. Other MCMC algorithms and software often discuss burn-
+in. With a sampling strategy like ordinary Metropolis, it is conventional and useful to trim off the
+front of the chain, the “burn-in” phase. This is done because it is unlikely that the chain has reached
+stationarity within the first few samples. Trimming off the front of the chain hopefully removes any
+influence of which starting value you chose for a parameter.149
+But Stan’s sampling algorithms use a different approach. What Stan does during warmup is quite
+different from what it does after warmup. The warmup samples are used to adapt sampling, to find
+good values for the step size and the number of steps. Warmup samples are not representative of
+the target posterior distribution, no matter how long warmup continues. They are not burning in,
+but rather more like cycling the motor to heat things up and get ready for sampling. When real
+sampling begins, the samples will be immediately from the target distribution, assuming adaptation
+was successful.
+9.5.2. How many chains do you need? It is very common to run more than one Markov
+chain, when estimating a single model. To do this with ulam or stan itself, the chains
+argument specifies the number of independent Markov chains to sample from. And the
+optional cores argument lets you distribute the chains across different processors, so they
+can run simultaneously, rather than sequentially. All of the non-warmup samples from each
+chain will be automatically combined in the resulting inferences.
+So the question naturally arises: How many chains do we need? There are three answers
+to this question. First, when initially debugging a model, use a single chain. There are some
+error messages that don’t display unless you use only one chain. The chain will fail with
+more than one chain, but the reason may not be displayed. This is why the ulam default is
+chains=1. Second, when deciding whether the chains are valid, you need more than one
+chain. Third, when you begin the final run that you’ll make inferences from, you only really

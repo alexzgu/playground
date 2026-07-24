@@ -1,0 +1,55 @@
+11.3. MULTINOMIAL AND CATEGORICAL MODELS
+371
+parameters{
+vector[K-1] a; // intercepts
+vector[K-1] b; // coefficients on family income
+}
+model{
+vector[K] p;
+vector[K] s;
+a ~ normal(0,1.5);
+b ~ normal(0,1);
+for ( i in 1:N ) {
+for ( j in 1:(K-1) ) s[j] = a[j] + b[j]*family_income[i];
+s[K] = 0; // the pivot
+p = softmax( s );
+career[i] ~ categorical( p );
+}
+}
+"
+dat_list <- list( N=N , K=3 , career=career , family_income=family_income )
+m11.14 <- stan( model_code=code_m11.14 , data=dat_list , chains=4 )
+precis( m11.14 , 2 )
+mean
+sd
+5.5% 94.5% n_eff Rhat
+a[1] -1.41 0.28 -1.88 -0.97
+2263
+1
+a[2] -0.64 0.20 -0.96 -0.33
+2163
+1
+b[1] -2.72 0.60 -3.69 -1.79
+2128
+1
+b[2] -1.72 0.39 -2.32 -1.10
+2183
+1
+Again, computing implied predictions is the safest way to interpret these models. They do
+a great job of classifying discrete, unordered events. But the parameters are on a scale that
+is very hard to interpret. In this case, b[2] ended up negative, because it is relative to the
+pivot, for which family income has a positive effect. If you produce posterior predictions on
+the probability scale, you’ll see this.
+11.3.3. Multinomial in disguise as Poisson. Another way to fit a multinomial/categorical
+model is to refactor it into a series of Poisson likelihoods.173 That should sound a bit crazy.
+But it’s actually both principled and commonplace to model multinomial outcomes this way.
+It’s principled, because the mathematics justifies it. And it’s commonplace, because it is usu-
+ally computationally easier to use Poisson rather than multinomial likelihoods. Here I’ll give
+an example of an implementation. For the mathematical details of the transformation, see
+the Overthinking box at the end.
+I appreciate that this kind of thing—modeling the same data different ways but getting
+the same inferences—is exactly the kind of thing that makes statistics maddening for sci-
+entists. So I’ll begin by taking a binomial example from earlier in the chapter and doing it
+over as a Poisson regression. Since the binomial is just a special case of the multinomial,
+the approach extrapolates to any number of event types. Think again of the UC Berkeley
+admissions data. Let’s load it again:

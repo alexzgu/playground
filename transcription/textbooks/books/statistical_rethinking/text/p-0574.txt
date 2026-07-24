@@ -1,0 +1,52 @@
+558
+16. GENERALIZED LINEAR MADNESS
+0
+1
+2
+3
+4
+5
+0.0
+0.2
+0.4
+0.6
+thousand of pelts
+Density
+Figure 16.8. Simulated distribution for the
+observation model in which trapping proba-
+bility varies from year to year. In this case, a
+wide range of pelt counts are consistent with
+the same true population size. This makes in-
+ference about population size difficult.
+R code
+16.16
+N <- 1e4
+Ht <- 1e4
+p <- rbeta(N,2,18)
+h <- rbinom( N , size=Ht , prob=p )
+h <- round( h/1000 , 2 )
+dens( h , xlab="thousand of pelts" , lwd=2 )
+I show this density in Figure 16.8. The variation in pt leads to a skewed error distribution.
+Try changing Ht and the distribution of p in the code above and see how the distribution
+changes.
+There are several reasonable ways to approximate this distribution. We could for example
+just use a Log-Normal distribution. It has the right constraints and skew. For example, we
+could assign:
+ht ∼Log-Normal(log(pHt), σH)
+This gives ht a median of pHt, the expected proportion of the hare population that is trapped.
+The parameter σH controls the dispersion. An important fact about this measurement pro-
+cess is that there is no good way to estimate p, not without lots of data at least. So we’re going
+to just fix it with a strong prior. If this makes you uncomfortable, notice that the model has
+forced us to realize that we cannot do any better than relative population estimates, unless
+we have a good way to know p. A typical time series model would just happily spin on its
+epicycles, teaching us nothing this useful.
+We will ignore rounding error, since it is at most 50/4000 = 0.0125 = 1.25% of the pelt
+count. But if you are curious how to incorporate rounding into a statistical model, see the
+Overthinking box later on. It isn’t hard to do—we just think generatively and that provides
+the solution.
+Let’s lay out the full statistical model now. First we have the probabilities of the observed
+variables, the pelts:
+ht ∼Log-Normal(log(pHHt), σH)
+[Prob observed hare pelts]
+ℓt ∼Log-Normal(log(pLLt), σL)
+[Prob observed lynx pelts]

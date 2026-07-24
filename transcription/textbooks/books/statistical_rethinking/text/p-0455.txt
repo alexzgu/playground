@@ -1,0 +1,49 @@
+13.4. DIVERGENT TRANSITIONS AND NON-CENTERED PRIORS
+439
+500
+1000
+1500
+2000
+500
+1000
+1500
+2000
+n_eff (centered)
+n_eff (non-centered)
+Figure 13.6. Comparing the centered (hori-
+zonal) and non-centered (vertical) parameter-
+izations of the multilevel chimpanzees model,
+m13.4. Each point is a parameter. All but two
+parameters lie above the diagonal, indicating
+better sampling for the non-centered parame-
+terization.
+do the calculations for us while it ran. The code below pulls the matching n_eff values out
+of the precis tables for both models. Then it plots them against one another.
+R code
+13.30
+precis_c <- precis( m13.4 , depth=2 )
+precis_nc <- precis( m13.4nc , depth=2 )
+pars <- c( paste("a[",1:7,"]",sep="") , paste("g[",1:6,"]",sep="") ,
+paste("b[",1:4,"]",sep="") , "a_bar" , "sigma_a" , "sigma_g" )
+neff_table <- cbind( precis_c[pars,"n_eff"] , precis_nc[pars,"n_eff"] )
+plot( neff_table , xlim=range(neff_table) , ylim=range(neff_table) ,
+xlab="n_eff (centered)" , ylab="n_eff (non-centered)" , lwd=2 )
+abline( a=0 , b=1 , lty=2 )
+The result is displayed in Figure 13.6. The diagonal shows where both models produce the
+same effective number of samples. For all but two parameters, the non-centered parameter-
+ization performs much better.
+So should we always use the non-centered parameterization? No. Sometimes the cen-
+tered form is better. It could even be true that the centered form is better for one cluster in
+a model while the non-centered form is better for another cluster in the same model. It all
+depends upon the details. Typically, a cluster with low variation, like the blocks in m13.4,
+will sample better with a non-centered prior. And if you have a large number of units inside
+a cluster, but not much data for each unit, then the non-centered is also usually better. But
+being able to switch back and forth as needed is very useful.
+We can reparameterize distributions other than the Gaussian. For example, an exponen-
+tial distribution has a single scale parameter, usually called λ, that can be factored out and
+smuggled into a linear model:
+x = zλ
+z ∼Exponential(1)
+This is the same as x ∼Exponential(λ). And in the next chapter, I’ll show you how to
+reparameterize multivariate distributions so to place an entire correlation matrix inside a
+linear model. Algebra makes many things possible.

@@ -1,0 +1,78 @@
+506
+15. MISSING DATA AND OTHER OPPORTUNITIES
+D_sd = d$Divorce.SE / sd( d$Divorce ),
+M = standardize( d$Marriage ),
+A = standardize( d$MedianAgeMarriage ),
+N = nrow(d)
+)
+m15.1 <- ulam(
+alist(
+D_obs ~ dnorm( D_true , D_sd ),
+vector[N]:D_true ~ dnorm( mu , sigma ),
+mu <- a + bA*A + bM*M,
+a ~ dnorm(0,0.2),
+bA ~ dnorm(0,0.5),
+bM ~ dnorm(0,0.5),
+sigma ~ dexp(1)
+) , data=dlist , chains=4 , cores=4 )
+Consider the posterior means (abbreviating the precis output below):
+R code
+15.4
+precis( m15.1 , depth=2 )
+mean
+sd
+5.5% 94.5% n_eff Rhat
+D_true[1]
+1.18 0.37
+0.60
+1.78
+1696 1.00
+D_true[2]
+0.68 0.58 -0.20
+1.63
+2137 1.00
+D_true[3]
+0.43 0.34 -0.09
+0.96
+1953 1.00
+...
+D_true[48]
+0.55 0.46 -0.15
+1.30
+2564 1.00
+D_true[49] -0.64 0.27 -1.09 -0.20
+3153 1.00
+D_true[50]
+0.84 0.59 -0.13
+1.77
+1815 1.00
+a
+-0.06 0.10 -0.21
+0.11
+1314 1.00
+bA
+-0.61 0.16 -0.86 -0.37
+1021 1.01
+bM
+0.05 0.17 -0.21
+0.31
+936 1.01
+sigma
+0.60 0.11
+0.44
+0.78
+628 1.00
+If you look back at Chapter 5, you’ll see that the former estimate for bA was about −1. Now
+it’s almost half that, but still reliably negative. So compared to the original regression that
+ignores measurement error, the association between divorce and age at marriage has been
+reduced. The effect that measurement error has depends upon the context. Sometimes it
+exaggerates effects, as in this example. Other times it hides them. But you can’t safely assume
+that measurement error makes estimates conservative.211
+If you look again at Figure 15.1, you can see a hint of why this has happened. States with
+extremely low and high ages at marriage tend to also have more uncertain divorce rates. As
+a result those rates have been shrunk towards the expected mean defined by the regression
+line. Figure 15.2 displays this shrinkage phenomenon. On the left of the figure, the differ-
+ence between the observed and estimated divorce rates is shown on the vertical axis, while
+the standard error of the observed is shown on the horizontal. The dashed line at zero indi-
+cates no change from observed to estimated. Notice that States with more uncertain divorce
+rates—farther right on the plot—have estimates more different from observed. This is your

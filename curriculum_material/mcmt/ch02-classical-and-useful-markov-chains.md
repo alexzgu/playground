@@ -37,9 +37,7 @@ For (2.2), again we try to solve for all the values at once. To this end, write 
 
 ### PDF page 38 (book page 22)
 
-*[Figure: a horizontal path with four filled vertices labeled 0, 1, 2, and n from left to right; a solid line connects 0–1–2, and a dashed line connects 2 to n. A small stick figure stands above vertex 1.]*
-
-FIGURE 2.1. How long until the walk reaches either 0 or $n$? What is the probability of each?
+**FIGURE 2.1.** How long until the walk reaches either 0 or $n$? What is the probability of each? *[Figure: a horizontal path with four filled vertices labeled 0, 1, 2, and n from left to right; a solid line connects 0–1–2, and a dashed line connects 2 to n. A small stick figure stands above vertex 1.]*
 
 $f_0 = f_n = 0$; the walk is started at one of the absorbing states. For $1 \le k \le n - 1$, it is true that
 
@@ -107,9 +105,7 @@ The simple random walk on the hypercube moves from a vertex $(x^1, x^2, \ldots, 
 
 ### PDF page 40 (book page 24)
 
-*[Figure: a three-dimensional cube (the hypercube graph on $\{0,1\}^3$), with the eight vertices labeled by bitstrings. Front face lower-left to upper-left-back etc.: vertices labeled 011, 111 (top), 001, 101 (upper middle), 010, 110 (lower middle), 000, 100 (bottom). Edges connect bitstrings differing in a single coordinate.]*
-
-FIGURE 2.2. The three-dimensional hypercube.
+**FIGURE 2.2.** The three-dimensional hypercube. *[Figure: a three-dimensional cube (the hypercube graph on $\{0,1\}^3$), with the eight vertices labeled by bitstrings. Front face lower-left to upper-left-back etc.: vertices labeled 011, 111 (top), 001, 101 (upper middle), 010, 110 (lower middle), 000, 100 (bottom). Edges connect bitstrings differing in a single coordinate.]*
 
 Unfortunately, the simple random walk on the hypercube is periodic, since every move flips the parity of the number of 1's. The **lazy random walk**, which does not have this problem, remains at its current position with probability $1/2$ and moves as above with probability $1/2$. This chain can be realized by choosing a coordinate uniformly at random and *refreshing* the bit at this coordinate by replacing it with an unbiased random bit independent of time, current state, and coordinate chosen.
 
@@ -374,7 +370,7 @@ $$ \mathbf{P}_k\{\tau_0 = s, X_r = j\} = \mathbf{P}_k\{\tau_0 = s\}\mathbf{P}_0\
 
 ### PDF page 47 (book page 31)
 
-FIGURE 2.3. A path hitting zero and ending above zero can be transformed, by reflection, into a path ending below zero. *[Figure: a piecewise-linear random-walk path plotted against a horizontal zero axis; the solid path starts above zero, oscillates down to touch/cross zero, then rises to end above zero. After the first time it hits zero, the continuation is reflected across the axis (shown dotted) to produce a path that instead descends to end below zero.]*
+**FIGURE 2.3.** A path hitting zero and ending above zero can be transformed, by reflection, into a path ending below zero. *[Figure: a piecewise-linear random-walk path plotted against a horizontal zero axis; the solid path starts above zero, oscillates down to touch/cross zero, then rises to end above zero. After the first time it hits zero, the continuation is reflected across the axis (shown dotted) to produce a path that instead descends to end below zero.]*
 
 The distribution of $X_t$ is symmetric when started at $0$, so the right-hand side is equal to
 
@@ -450,9 +446,7 @@ $$ \mathbf{P}_0\{X_{2r+1} = 2k+1\} \leq \frac{4}{\sqrt{\pi}}\frac{1}{\sqrt{2r+1}
 
 ### PDF page 49 (book page 33)
 
-*[Figure: An up-right (staircase) path in the first quadrant starting at the origin, rising in unit steps to the point $(a,b)$. A dashed diagonal line $x=y$ runs through the plot. After the first time the path meets the diagonal, its remaining portion is reflected across the diagonal (shown dashed), ending at the point $(b,a)$ below the line.]*
-
-**FIGURE 2.4.** For the Ballot Theorem: reflecting a "bad" path after the first time the vote counts are equal yields a path to $(b, a)$.
+**FIGURE 2.4.** For the Ballot Theorem: reflecting a "bad" path after the first time the vote counts are equal yields a path to $(b, a)$. *[Figure: An up-right (staircase) path in the first quadrant starting at the origin, rising in unit steps to the point $(a,b)$. A dashed diagonal line $x=y$ runs through the plot. After the first time the path meets the diagonal, its remaining portion is reflected across the diagonal (shown dashed), ending at the point $(b,a)$ below the line.]*
 
 Putting together (2.21) and (2.22) establishes (2.20), since $4/\sqrt{\pi} \le 3$. $\blacksquare$
 

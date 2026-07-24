@@ -1,0 +1,56 @@
+592
+Bibliography
+Vehtari, A., Simpson, D., Gelman, A., Yao, Y., and Gabry, J. (2019b). Pareto smoothed importance
+sampling.
+Vehtari, A., Simpson, D. P., Yao, Y., and Gelman, A. (2019c). Limitations of “limitations of bayesian
+leave-one-out cross-validation for model selection”. Computational Brain & Behavior, 2(1):22–27.
+Venn, J. (1876). The Logic of Chance. Macmillan and co, New York, 2nd edition.
+Volterra, V. (1926). Fluctuations in the abundance of a species considered mathematically1. Nature,
+118(2972):558–560.
+von Bertalanffy, L. (1934). Untersuchungen über die gesetzlichkeit des wachstums. Wilhelm Roux’
+Archiv für Entwicklungsmechanik der Organismen, 131(4):613–652.
+Vonesh, J. R. and Bolker, B. M. (2005). Compensatory larval responses shift trade-offs associated with
+predator-induced hatching plasticity. Ecology, 86:1580–1591.
+Wald, A. (1939). Contributions to the theory of statistical estimation and testing hypotheses. Annals
+of Mathematical Statistics, 10(4):299–326.
+Wald, A. (1943). A method of estimating plane vulnerability based on damage of survivors. Technical
+report, Statistical Research Group, Columbia University.
+Wald, A. (1950). Statistical Decision Functions. J. Wiley, New York.
+Walker, R., Hill, K., Burger, O., and Hurtado, A. M. (2006). Life in the slow lane revisited: Ontoge-
+netic separation between chimpanzees and humans. American Journal of Physical Anthropology,
+129(4):577–583.
+Wang, W., Rothschild, D., Goel, S., and Gelman, A. (2015).
+Forecasting elections with non-
+representative polls. International Journal of Forecasting, 31(3):980–991.
+Watanabe, S. (2010). Asymptotic equivalence of Bayes cross validation and Widely Applicable Infor-
+mation Criterion in singular learning theory. Journal of Machine Learning Research, 11:3571–3594.
+Watanabe, S. (2018a).
+Higher order equivalence of bayes cross validation and waic.
+In Ay, N.,
+Gibilisco, P., and Matúš, F., editors, Information Geometry and Its Applications, pages 47–73,
+Cham. Springer International Publishing.
+Watanabe, S. (2018b). Mathematical Theory of Bayesian Statistics. CRC Press.
+Wearing, D. (2005). Forever Today: A True Story of Lost Memory and Never-Ending Love. Doubleday.
+Welsh, Jr., H. H. and Lind, A. (1995). Habitat correlates of the Del Norte salamander, Plethodon
+elongatus (Caudata: Plethodontidae) in northwestern California. Journal of Herpetology, 29:198–
+210.
+Whitehouse, H., Francois, P., Savage, P. E., Currie, T. E., Feeney, K. C., Cioni, E., Purcell, R., Ross,
+R. M., Larson, J., Baines, J., Ter Haar, B., Covey, A., and Turchin, P. (2019). Complex societies
+precede moralizing gods throughout world history. Nature, 568(7751):226–229.
+Wilks, S. S. (1938). The large-sample distribution of the likelihood ratio for testing composite hy-
+potheses. The Annals of Mathematical Statistics, 9:60–62.
+Williams, D. A. (1975). The analysis of binary responses from toxicological experiments involving
+reproduction and teratogenicity. Biometrics, 31:949–952.
+Williams, D. A. (1982). Extra-binomial variation in logistic linear models. Journal of the Royal Sta-
+tistical Society, Series C, 31(2):144–148.
+Williams, P. M. (1980).
+Bayesian conditionalisation and the principle of minimum information.
+British Journal for the Philosophy of Science, 31:131–144.
+Wimsatt, W. (2002). Using false models to elaborate constraints on processes: Blending inheritance
+in organic and cultural evolution. Philosophy of Science, 69(S3):S12–S24.
+Wittgenstein, L. (1953). Philosophical Investigations.
+Wolpert, D. and Macready, W. (1997). No free lunch theorems for optimization. IEEE Transactions
+on Evolutionary Computation, page 67.
+Wood, S. N. (2017). Generalized Additive Models: an introduction with R (2nd ed). CRC/Taylor and
+Francis.
+Wright, S. (1921). Correlation and causation. Agricultural Research, 20:557–585.

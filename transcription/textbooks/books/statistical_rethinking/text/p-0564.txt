@@ -1,0 +1,54 @@
+548
+16. GENERALIZED LINEAR MADNESS
+the top, we declare a vector to hold probability calculations for each strategy. We’ll reuse this vector
+on each row of the data, to compute different probabilities.
+model{
+vector[5] phi;
+Next we assign the prior.
+// prior
+p ~ dirichlet( rep_vector(4,5) );
+Now the heart of the matter. We loop over all rows. For each row i, we compute the log-probability
+of the observed y[i]. Each strategy has its own if...then to assign the probability of the data, con-
+ditional on that strategy. This gives us:
+// probability of data
+for ( i in 1:N ) {
+if ( y[i]==2 ) phi[1]=1; else phi[1]=0; // majority
+if ( y[i]==3 ) phi[2]=1; else phi[2]=0; // minority
+if ( y[i]==1 ) phi[3]=1; else phi[3]=0; // maverick
+phi[4]=1.0/3.0;
+// random
+if ( majority_first[i]==1 )
+// follow first
+if ( y[i]==2 ) phi[5]=1; else phi[5]=0;
+else
+if ( y[i]==3 ) phi[5]=1; else phi[5]=0;
+Now we need to include the p parameters. We do this by adding each log(ps) to the log-probabilities
+computed above. Then we add the average probability to the target, which is just Stan’s name for
+the total log-probability.
+// compute log( p_s * Pr(y_i|s) )
+for ( s in 1:5 ) phi[s] = log(p[s]) + log(phi[s]);
+// compute average log-probability of y_i
+target += log_sum_exp( phi );
+That log_sum_exp function computes the marginal log-probability of the data, log Pr(yi), as defined
+in the main text. log_sum_exp takes the phi vector, which contains the individual log-probabilities
+for each strategy, and returns the logarithm of their sum on the probability scale. It’s used a lot in
+Stan models like this, models with discrete parameters.
+To modify the model to include predictor variables, there are many options. So falling back again
+on some real theory will help to focus the effort. The simplest sort of modification is to allow the p
+simplex to vary by some discrete category, like gender. In that case, we add the variable gender to
+the data block and add a dimension to p in the parameters block, like this:
+simplex[5] p[2];
+And then in the model block, just index p by both strategy and gender with p[gender[i],s]:
+for ( s in 1:5 ) phi[s] = log(p[gender[i],s]) + log(phi[s]);
+This model is in the rethinking package as data(Boxes_model_gender). A continuous covariate
+like age presents many more choices. Gaussian processes, splines, polynomials can all manage the
+job. Each must be coded a different way. The Stan model data(Boxes_model_age) shows a simple
+linear age trend example, in which each p is assigned a linear model on the logit scale, and these are
+transformed with multi-inverse-logit to the simplex scale. This is entirely geocentric. If you have a
+stronger theory, it helps.
+16.2.4. State space models. The Boxes model above resembles a broader class of model
+known as a state space model. These models posit multiple hidden states that produce
+observations. Typically the states are dynamic, changing over time. When the states are dis-
+crete categories, the model may be called a hidden Markov model (HMM). Many time
+series models are state space models, since the true state of the time series is not observed,
+only the noisy measures. There is an example later in this chapter.

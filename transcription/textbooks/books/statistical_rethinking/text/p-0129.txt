@@ -1,0 +1,46 @@
+4.5. CURVES FROM LINES
+113
+because they depend upon different model assumptions. Furthermore, it’s possible to view the Gauss-
+ian likelihood as a purely epistemological assumption (a device for estimating the mean and variance
+of a variable), rather than an ontological assumption about what future data will look like. In that
+case, it may not make complete sense to simulate outcomes.
+Overthinking: Rolling your own sim. Just like with link, it’s useful to know a little about how
+sim operates. For every distribution like dnorm, there is a companion simulation function. For the
+Gaussian distribution, the companion is rnorm, and it simulates sampling from a Gaussian distribu-
+tion. What we want R to do is simulate a height for each set of samples, and to do this for each value
+of weight. The following will do it:
+R code
+4.63
+post <- extract.samples(m4.3)
+weight.seq <- 25:70
+sim.height <- sapply( weight.seq , function(weight)
+rnorm(
+n=nrow(post) ,
+mean=post$a + post$b*( weight - xbar ) ,
+sd=post$sigma ) )
+height.PI <- apply( sim.height , 2 , PI , prob=0.89 )
+The values in height.PI will be practically identical to the ones computed in the main text and
+displayed in Figure 4.10.
+4.5. Curves from lines
+In the next chapter, you’ll see how to use linear models to build regressions with more
+than one predictor variable. But before then, it helps to see how to model the outcome as
+a curved function of a single predictor. The models so far all assume that a straight line
+describes the relationship. But there’s nothing special about straight lines, aside from their
+simplicity.
+We’ll consider to commonplace methods that use the same essential linear regression
+approach to build curves. The first is polynomial regression. The second is b-splines.
+Both approaches work by transforming a single predictor variable into several variables, us-
+ing a parameter for the weight of each. But splines have some clear advantages. Neither
+approach aims to do much more than describe the function that relates one variable to an-
+other. Causal inference, which we’ll consider much more beginning in the next chapter,
+needs more.
+4.5.1. Polynomial regression. Polynomial regression uses powers of a variable—squares
+and cubes—as extra predictors. This is an easy way to build curved associations. Polyno-
+mial regressions are very common, and understanding how they work will help scaffold later
+models. To understand how polynomial regression works, let’s work through an example,
+using the full !Kung data, not just the adults:
+R code
+4.64
+library(rethinking)
+data(Howell1)
+d <- Howell1

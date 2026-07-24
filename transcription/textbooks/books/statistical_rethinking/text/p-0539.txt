@@ -1,0 +1,60 @@
+15.2. MISSING DATA
+523
+-2.0
+-1.5
+-1.0
+-0.5
+0.0
+0.5
+1.0
+1.5
+-1.0
+-0.5
+0.0
+0.5
+1.0
+1.5
+2.0
+neocortex percent (std)
+kcal milk (std)
+-2
+-1
+0
+1
+2
+-2.0
+-1.0
+0.0
+0.5
+1.0
+1.5
+log body mass (std)
+neocortex percent (std)
+Figure 15.6. Same relationships as shown in Figure 15.5, but now for the
+imputation model that estimates the association between the predictors.
+The information in the association between predictors has been used to in-
+fer a stronger relationship between milk energy and the imputed values.
+The slopes bM and bB haven’t changed much, although bM is perhaps a little more precise now.
+We’re interested in that correlation and how it has influenced the imputed values. The pos-
+terior correlation is quite strong, 0.6 on average. This shows the strong positive relationship
+between M and B that we already knew existed.
+What does this correlation do to the imputed values? You can use the same plotting
+code as before. Figure 15.6 displays the same kind of plots as before, but now for the new
+imputation model. On the right, you can see now that the model has imputed in a way to
+preserve the positive association between neocortex and log mass. Although in this example
+this doesn’t make a big difference in the inferred relationships with the outcome, it is clearly
+better. Doing better is good.
+Rethinking: Multiple imputations. Missing data imputation has a messy history. There are many
+forms of imputation, and most of them are ad hoc devices without a strong basis in probability the-
+ory: Hot-deck imputation, cold-deck imputation, mean substitution, stochastic imputation, among
+others. None of these procedures is considered respectable today. A common non-Bayesian pro-
+cedure is multiple imputation.216 Multiple imputation was developed in the context of survey
+non-response, and it actually has a Bayesian justification. But it was invented when Bayesian imputa-
+tion on the desktop was impractical, so it tries to approximate the full Bayesian solution to a “missing
+at random” missingness model. If you aren’t comfortable dropping incomplete cases, then you should
+be comfortable using multiple imputation either. The procedure performs multiple draws from an ap-
+proximate posterior distribution of the missing values, performs separate analyses with these draws,
+and then combines the analyses in a way that approximates full Bayesian imputation. Multiple im-
+putation is more limited than full Bayesian imputation, so now we just use the real thing. But lots
+of non-Bayesian analyses still use multiple imputation. Remember that frequentist statistics isn’t a
+theory of how to produce estimates but rather just a theory of how to evaluate them.

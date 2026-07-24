@@ -1,0 +1,50 @@
+238
+7. ULYSSES’ COMPASS
+in the thick tail of war casualties.126 A reasonable estimate depends upon either a longer
+time series or judicious use of a thick tailed distribution.
+Let’s re-estimate the divorce model using a Student-t distribution with ν = 2. All that’s
+really needed is to replace dnorm with dstudent:
+R code
+7.35
+m5.3t <- quap(
+alist(
+D ~ dstudent( 2 , mu , sigma ) ,
+mu <- a + bM*M + bA*A ,
+a ~ dnorm( 0 , 0.2 ) ,
+bM ~ dnorm( 0 , 0.5 ) ,
+bA ~ dnorm( 0 , 0.5 ) ,
+sigma ~ dexp( 1 )
+) , data = d )
+When you compute PSIS now, PSIS(m5.3t), you won’t get any warnings about Pareto k
+values. The relative influence of Idaho has been much reduced. How does this impact the
+posterior distribution of the association between age at marriage and divorce? If you com-
+pare models m5.3t and m5.3, you’ll see that the coefficient bA has gotten farther from zero
+when we introduce the Student-t distribution. This is because Idaho has a low divorce rate
+and a low median age at marriage. When it was influential, it reduced the association be-
+tween age at marriage and divorce. Now it is less influential, so the association is estimate to
+be slightly larger. But the consequence of using robust regression is not always to increase
+an association. It depends upon the details.
+Rethinking: The Curse of Tippecanoe. One concern with model comparison is, if we try enough
+combinations and transformations of predictor variables, we might eventually find a model that fits
+any particular sample very well. But this fit will be a peculiar case of overfitting, unlikely to generalize
+to new data. And WAIC and similar metrics will be fooled. So it’s common to advise against trying
+every possible model.
+Consider by analogy the Curse of Tippecanoe.127 From the year 1840 until 1960, every United
+States president who was elected in a year ending in the digit 0 (which happens every 20 years, given
+4 year terms) has died in office. William Henry Harrison was the first, being elected in 1840 and dying
+of pneumonia the next year. John F. Kennedy was the last, elected in 1960 and assassinated in 1963.
+Seven American presidents died in sequence in this pattern. Ronald Reagan was elected in 1980, but
+despite at least one attempt on his life, he managed to live long after his term was up, breaking the
+curse. Given enough time and data, a pattern like this can be found for almost any body of data.
+But without any compelling reason to believe this pattern is meaningful, it is hardly compelling that
+such patterns exist. Most large sets of data will contain patterns of correlation that are strong and
+surprising. If we search hard enough, we are bound to find a Curse of Tippecanoe.
+Fiddling with and constructing many predictor variables is a great way to find coincidences, but
+not necessarily a great way to evaluate hypotheses. However, fitting many possible models isn’t always
+a dangerous idea, provided some judgment is exercised in weeding down the list of variables at the
+start. There are two scenarios in which this strategy appears defensible. First, sometimes all one wants
+to do is explore a set of data, because there are no clear hypotheses to evaluate. This is rightly labeled
+pejoratively as data dredging, when one does not admit to it. But when used together with model
+averaging, and freely admitted, it can be a way to stimulate future investigation. Second, sometimes
+we need to convince an audience that we have tried all of the combinations of predictors, because
+none of the variables seem to help much in prediction.

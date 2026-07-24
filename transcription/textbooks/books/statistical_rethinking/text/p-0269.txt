@@ -1,0 +1,78 @@
+8.1. BUILDING AN INTERACTION
+253
+R code
+8.14
+precis( m8.5 , depth=2 )
+mean
+sd
+5.5% 94.5%
+a[1]
+0.89 0.02
+0.86
+0.91
+a[2]
+1.05 0.01
+1.03
+1.07
+b[1]
+0.13 0.07
+0.01
+0.25
+b[2]
+-0.14 0.05 -0.23 -0.06
+sigma
+0.11 0.01
+0.10
+0.12
+The slope is essentially reversed inside Africa, 0.13 instead of −0.14.
+How much does allowing the slope to vary improve expected prediction? Let’s use PSIS
+to compare this new model to the previous two. You could use WAIC here as well. It’ll give
+almost identical results. But it won’t give us a sweet Pareto k warning.
+R code
+8.15
+compare( m8.1 , m8.2 , m8.3 , func=PSIS )
+Some Pareto k values are high (>0.5).
+PSIS pPSIS dPSIS weight
+SE
+dSE
+m8.3 -258.7
+5.4
+0.0
+0.97 15.40
+NA
+m8.2 -251.5
+4.6
+7.2
+0.03 15.47
+6.84
+m8.1 -188.6
+2.8
+70.2
+0.00 13.33 15.56
+Model family m8.3 has more than 95% of the model weight. That’s very strong support for
+including the interaction effect, if prediction is our goal. But the modicum of weight given
+to m8.2 suggests that the posterior means for the slopes in m8.3 are a little overfit. And the
+standard error of the difference in PSIS between the top two models is almost the same as
+the difference itself. If you plot PSIS Pareto k values for m8.3, you’ll notice some influential
+countries.
+R code
+8.16
+plot( PSIS( m8.3 , pointwise=TRUE )$k )
+You’ll explore this in the practice problems at the end of the chapter. This is possibly a good
+context for robust regression, like the Student-t regression we did in Chapter 7.
+Remember that these comparisons are not reliable guides to causal inference. They just
+tell us how important features are for prediction. Real causal effects may not be important for
+overall prediction in any given sample. Prediction and inference are just different questions.
+Still, overfitting always happens. So anticipating and measuring it matters for inference as
+well.
+8.1.4. Plotting the interaction. Plotting this model doesn’t really require any new tricks.
+The goal is to make two plots. In the first, we’ll display nations in Africa and overlay the
+posterior mean regression line and the 97% interval of that line. In the second, we’ll display
+nations outside of Africa instead.
+R code
+8.17
+# plot Africa - cid=1
+d.A1 <- dd[ dd$cid==1 , ]
+plot( d.A1$rugged_std , d.A1$log_gdp_std , pch=16 , col=rangi2 ,
+xlab="ruggedness (standardized)" , ylab="log GDP (as proportion of mean)" ,
+xlim=c(0,1) )

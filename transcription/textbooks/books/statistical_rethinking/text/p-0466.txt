@@ -1,0 +1,68 @@
+450
+14. ADVENTURES IN COVARIANCE
+2
+4
+6
+8
+wait time (minutes)
+M
+A
+M
+A
+M
+A
+M
+A
+M
+A
+2
+4
+6
+8
+wait time (minutes)
+M
+A
+M
+A
+M
+A
+M
+A
+M
+A
+Figure 14.1. Waiting times at two cafés.
+Top: A busy café at which wait times nearly
+always improve in the afternoon. Bottom:
+An unpopular café where wait times are
+nearly always short.
+In a population of
+cafés like these, long morning waits (in-
+tercepts) covary with larger differences be-
+tween morning and afternoon (slopes).
+it’s not busy—but there isn’t much improvement in the afternoon. In the entire population
+of cafés, including both the popular and the unpopular, intercepts and slopes covary.
+This covariation is information that the robot can use. If we can figure out a way to
+pool information across parameter types—intercepts and slopes—what the robot learns in
+the morning can improve learning about afternoons, and vice versa. Suppose for example
+that the robot arrives at a new café in the morning. It observes a long wait for its coffee. Even
+before it orders a coffee at the same café in the afternoon, it can update its expectation for
+how long it will wait. In the population of cafés, a long wait in the morning is associated with
+a shorter wait in the afternoon.
+In this chapter, you’ll see how to really do this, to specify varying slopes in combina-
+tion with the varying intercepts of the previous chapter. This will enable pooling that will im-
+prove estimates of how different units respond to or are influenced by predictor variables. It
+will also improve estimates of intercepts, by borrowing information across parameter types.
+Essentially, varying slopes models are massive interaction machines. They allow every unit
+in the data to have its own unique response to any treatment or exposure or event, while also
+improving estimates via pooling. When the variation in slopes is large, the average slope is
+of less interest. Sometimes, the pattern of variation in slopes provides hints about omitted
+variables that explain why some units respond more or less. We’ll see an example in this
+chapter.
+The machinery that makes such complex varying effects possible will be used later in the
+chapter to extend the varying effects strategy to more subtle model types, including the use
+of continuous categories, using Gaussian processes. Ordinary varying effects work only
+with discrete, unordered categories, such as individuals, countries, or ponds. In these cases,
+each category is equally different from all of the others. But it is possible to use pooling with
+categories such as age or location. In these cases, some ages and some locations are more
+similar than others. You’ll see how to model covariation among continuous categories of
+this kind, as well as how to generalize the strategy to seemingly unrelated types of models

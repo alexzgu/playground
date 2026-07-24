@@ -1,0 +1,48 @@
+80
+4. GEOCENTRIC MODELS
+We won’t do any mathematical manipulation of them. Instead, they provide an unambigu-
+ous way to define and communicate our models. Once you get comfortable with their gram-
+mar, when you start reading these mathematical descriptions in other books or in scientific
+journals, you’ll find them less obtuse.
+The approach above surely isn’t the only way to describe statistical modeling, but it is a
+widespread and productive language. Once a scientist learns this language, it becomes easier
+to communicate the assumptions of our models. We no longer have to remember seemingly
+arbitrary lists of bizarre conditions like homoscedasticity (constant variance), because we can
+just read these conditions from the model definitions. We will also be able to see natural ways
+to change these assumptions, instead of feeling trapped within some procrustean model type,
+like regression or multiple regression or ANOVA or ANCOVA or such. These are all the
+same kind of model, and that fact becomes obvious once we know how to talk about models
+as mappings of one set of variables through a probability distribution onto another set of
+variables. Fundamentally, these models define the ways values of some variables can arise,
+given values of other variables (Chapter 2).
+4.2.1. Re-describing the globe tossing model. It’s good to work with examples. Recall the
+proportion of water problem from previous chapters. The model in that case was always:
+W ∼Binomial(N, p)
+p ∼Uniform(0, 1)
+where W was the observed count of water, N was the total number of tosses, and p was the
+proportion of water on the globe. Read the above statement as:
+The count W is distributed binomially with sample size N and probability p.
+The prior for p is assumed to be uniform between zero and one.
+Once we know the model in this way, we automatically know all of its assumptions. We
+know the binomial distribution assumes that each sample (globe toss) is independent of the
+others, and so we also know that the model assumes that sample points are independent of
+one another.
+For now, we’ll focus on simple models like the above. In these models, the first line de-
+fines the likelihood function used in Bayes’ theorem. The other lines define priors. Both of
+the lines in this model are stochastic, as indicated by the ∼symbol. A stochastic relation-
+ship is just a mapping of a variable or parameter onto a distribution. It is stochastic because
+no single instance of the variable on the left is known with certainty. Instead, the mapping is
+probabilistic: Some values are more plausible than others, but very many different values are
+plausible under any model. Later, we’ll have models with deterministic definitions in them
+as well.
+Overthinking: From model definition to Bayes’ theorem. To relate the mathematical format above
+to Bayes’ theorem, you could use the model definition to define the posterior distribution:
+Pr(p|w, n) =
+Binomial(w|n, p)Uniform(p|0, 1)
+R
+Binomial(w|n, p)Uniform(p|0, 1)dp
+That monstrous denominator is just the average likelihood again. It standardizes the posterior to sum
+to 1. The action is in the numerator, where the posterior probability of any particular value of p is
+seen again to be proportional to the product of the likelihood and prior. In R code form, this is the
+same grid approximation calculation you’ve been using all along. In a form recognizable as the above
+expression:

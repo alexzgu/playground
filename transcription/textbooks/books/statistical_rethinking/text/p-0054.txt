@@ -1,0 +1,59 @@
+38
+2. SMALL WORLDS AND LARGE WORLDS
+posterior
+0
+0.5
+1
+likelihood
+0
+0.5
+1
+prior
+0
+0.5
+1
+⇥
+/
+posterior
+0
+0.5
+1
+prior
+0
+0.5
+1
+⇥
+/
+⇥
+/
+likelihood
+0
+0.5
+1
+prior
+0
+0.5
+1
+likelihood
+0
+0.5
+1
+posterior
+0
+0.5
+1
+Figure 2.6. The posterior distribution, as a product of the prior distribu-
+tion and likelihood. Top row: A flat prior constructs a posterior that is sim-
+ply proportional to the likelihood. Middle row: A step prior, assigning zero
+probability to all values less than 0.5, resulting in a truncated posterior. Bot-
+tom row: A peaked prior that shifts and skews the posterior, relative to the
+likelihood.
+through the garden of forking data is the product of the prior number of paths and the new
+number of paths. Multiplication is just compressed counting. The average probability on
+the bottom just standardizes the counts so they sum to one. So while Bayes’ theorem looks
+complicated, because the relationship with counting paths is obscured, it just expresses the
+counting that logic demands.
+Figure 2.6 illustrates the multiplicative interaction of a prior and a probability of data.
+On each row, a prior on the left is multiplied by the probability of data in the middle to
+produce a posterior on the right. The probability of data in each case is the same. The priors
+however vary. As a result, the posterior distributions vary.

@@ -1,0 +1,43 @@
+6.4. CONFRONTING CONFOUNDING
+191
+U [unobserved]
+X -> Y
+X <- U <- A -> C -> Y
+U -> B <- C
+}")
+adjustmentSets( dag_6.1 , exposure="X" , outcome="Y" )
+{ C }
+{ A }
+Conditioning on either C or A would suffice. Conditioning on C is the better idea, from
+the perspective of efficiency, since it could also help with the precision of the estimate of
+X →Y. Notice that conditioning on U would also work. But since we told dagitty that U
+is unobserved (see the code above), it didn’t suggest it in the adjustment sets.
+Now consider the second path, passing through B. This path does containa collider, U →
+B ←C. It is therefore already closed. It is not a backdoor, and that is why adjustmentSets
+above did not mention B. You don’t need to control for B. But if we do condition on B, it is not
+harmless. It will open the path, creating a confound. Then our inference about X →Y will
+change, but without the DAG, we won’t know whether that change is helping us or rather
+misleading us. The fact that including a variable changes the X →Y coefficient does not
+always mean that the coefficient is better now. You could have just conditioned on a collider.
+6.4.3. Backdoor waffles. As a final example, let’s return to the Waffle House and divorce rate
+correlation from the introduction to Chapter 5. We’ll make a DAG, use it to find a minimal
+set of covariates, and use it as well to derive the testable implications of the DAG. This is
+important, because sometimes you really can test whether your DAG is consistent with the
+evidence. The data alone can never tell us when a DAG is right. But the data can tell us when
+a DAG is wrong.
+We’re interested in the total causal effect of the number of Waffle Houses on divorce rate
+in each State. Presumably, the naive correlation between these two variables is spurious.
+What is the minimal adjustment set that will block backdoor paths from Waffle House to
+divorce? Let’s make a graph:
+A
+D
+M
+S
+W
+In this graph, S is whether or not a State is in the southern United States, A is median age
+at marriage, M is marriage rate, W is number of Waffle Houses, and D is divorce rate. This
+graph assumes that southern States have lower ages of marriage (S →A), higher rates of
+marriage both directly (S →M) and mediated through age of marriage (S →A →M), as
+well as more waffles (S →W). Age of marriage and marriage rate both influence divorce.
+There are three open backdoor paths between W and D. Just trace backwards, starting
+at W and ending up at D. But notice that all of them pass first through S. So we can close

@@ -1,0 +1,48 @@
+7.4. PREDICTING PREDICTIVE ACCURACY
+221
+7.4. Predicting predictive accuracy
+All of the preceding suggests one way to navigate overfitting and underfitting: Evaluate
+our models out-of-sample. But we do not have the out-of-sample, by definition, so how can
+we evaluate our models on it? There are two families of strategies: cross-validation and
+information criteria. These strategies try to guess how well models will perform, on
+average, in predicting new data. We’ll consider both approaches in more detail. Despite
+subtle differences in their mathematics, they produce extremely similar approximations.
+7.4.1. Cross-validation. A popular strategy for estimating predictive accuracy is to actually
+test the model’s predictive accuracy on a small part of the sample. This is known as cross-
+validation, leaving out a small chunk of observations from our sample and evaluating the
+model on the observations that were left out. Of course we don’t want to leave out data.
+So what is usually done is to divide the sample in a number of chunks, called “folds.” The
+model is asked to predict each fold, after training on all the others. We then average over
+the score for each fold to get an estimate of out-of-sample accuracy. The minimum number
+of folds is 2. At the other extreme, you could make each point observation a fold and fit
+as many models as you have individual observations. You can perform cross-validation on
+quap models using the cv_quap function in the rethinking package.
+How many folds should you use? This is an understudied question. A lot of advice states
+that both too few and too many folds produce less reliable approximations of out-of-sample
+performance. But simulation studies do not reliably find that this is the case.107 It is ex-
+tremely common to use the maximum number of folds, resulting in leaving out one unique
+observation in each fold. This is called leave-one-out cross-validation (often abbrevi-
+ated as LOOCV). Leave-one-out cross-validation is what we’ll consider in this chapter, and
+it is the default in cv_quap.
+The key trouble with leave-one-out cross-validation is that, if we have 1000 observations,
+that means computing 1000 posterior distributions. That can be time consuming. Luckily,
+there are clever ways to approximate the cross-validation score without actually running the
+model over and over again. One approach is to use the “importance” of each observation to
+the posterior distribution. What “importance” means here is that some observations have
+a larger impact on the posterior distribution—if we remove an important observation, the
+posterior changes more. Other observations have less impact. It is a benign aspect of the uni-
+verse that this importance can be estimated without refitting the model.108 The key intuition
+is that an observation that is relatively unlikely is more important than one that is relatively
+expected. When your expectations are violated, you should change your expectation more.
+Bayesian inference works the same way. This importance is often called a weight, and these
+weights can be used to estimate a model’s out-of-sample accuracy.
+Smuggling a bunch of mathematical details under the carpet, this strategy results in a
+fantastic approximation of the cross-validation score. The approximation goes by the awk-
+ward name of Pareto-smoothed importance sampling cross-validation.109 We’ll
+call it PSIS for short. You’ll also read it as PSIS-LOO, but since the word “loo” means a toilet,
+let’s try to use a more noble name for this noble estimator. PSIS uses importance sampling,
+which just means that it uses the importance weights approach described in the previous
+paragraph. The Pareto-smoothing is a technique for making the importance weights more
+reliable. Pareto is the name of a small town in northern Italy. But it is also the name of
+an Italian scientist, Vilfredo Pareto (1848–1923), who made many important contributions.
+One of these is known as the Pareto distribution. PSIS uses this distribution to derive

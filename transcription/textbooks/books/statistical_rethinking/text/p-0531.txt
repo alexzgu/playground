@@ -1,0 +1,55 @@
+15.2. MISSING DATA
+515
+a
+1.80 0.04 1.74
+1.85
+1051
+1
+bS 0.83 0.03 0.78
+0.88
+1060
+1
+The estimate for bS is still biased, but not as badly. This is only one example, but you can run
+thousands of simulations like this one (I show you how in the Overthinking box at the end
+of the section), and you’ll get this pattern on average. How has dropping students helped our
+estimate? The homework that is missing is from noisy houses. And it is noisy houses that
+mess up our estimate of bS, through omitted variable bias. So when we delete those houses
+from the data, the estimate actually gets better.
+Note that this improvement is not a general property of missing data in such a DAG. For
+example, if you change the missingness rule instead to:
+R code
+15.14
+D <- ifelse( abs(X) < 1 , 1 , 0 )
+now missingness actually makes the estimate worse. Give it a try. What happens under
+missingness depends upon the details of the functions in the full structural causal model.
+The DAG isn’t enough to say what will happen. But the DAG is enough to say that we should
+be wary.
+Just one more set of dogs remain. In Figure 15.4 (d), there is no X, but there is a path
+from H →D. Now dogs prefer to eat bad homework. This is possibly because their owners
+feed it to them, but maybe it somehow tastes better too. To simulate from this DAG:
+R code
+15.15
+N <- 100
+S <- rnorm(N)
+H <- rbinom( N , size=10 , inv_logit(S) )
+D <- ifelse( H < 5 , 1 , 0 )
+Hm <- H
+Hm[D==1] <- NA
+Go ahead and try to estimate the causal effect S →H. You won’t be able to do a good job.
+And there is nothing to do here, because there is nothing we can condition on to block the
+non-causal path S →H →D →H∗. This type of missingness, in which the variable causes
+its own missing values, is the worst. Unless you know the mechanism that produces the
+missingness (D in this case), there is little hope. And if you do you know the mechanism,
+even then it might be hopeless. Sometimes measurement is all we have. We have to do it
+better.
+The point of these examples is not to give you nightmares. The point is to illustrate
+that the consequences of missing data are diverse. But the diversity is explicable causally,
+in terms of which variables cause missing values in which other variables. And the point of
+emphasizing simulation in these examples is to empower you to explore your own scenarios,
+the ones relevant to your own research. Even when we cannot completely eliminate the
+impact of missing data, we might be able to show, through simulation, that the expected
+impact is rather small.
+Rethinking: Naming completely at random. Statistical terminology can be very confusing. The
+field uses ordinary words in highly technical ways. The everyday meanings of words like likelihood,
+significant, and confidence barely resemble their statistical definitions. The topic of missing data is
+no better. The dog-homework scenarios (Figure 15.4) sometimes go by the unhelpful names (a)

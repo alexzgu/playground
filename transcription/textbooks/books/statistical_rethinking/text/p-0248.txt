@@ -1,0 +1,53 @@
+232
+7. ULYSSES’ COMPASS
+R code
+7.27
+set.seed(91)
+waic_m6.7 <- WAIC( m6.7 , pointwise=TRUE )$WAIC
+waic_m6.8 <- WAIC( m6.8 , pointwise=TRUE )$WAIC
+n <- length(waic_m6.7)
+diff_m6.7_m6.8 <- waic_m6.7 - waic_m6.8
+sqrt( n*var( diff_m6.7_m6.8 ) )
+[1] 10.35785
+This is the value in the second row of the compare table. It’s slightly different, only because
+of simulation variance. The difference between the models is 40.9 and the standard error
+about 10.4. If we imagine the 99% (corresponding to a z-score of about 2.6) interval of the
+difference, it’ll be about:
+R code
+7.28
+40.0 + c(-1,1)*10.4*2.6
+[1] 12.96 67.04
+So yes, these models are very easy to distinguish by expected out-of-sample accuracy. Model
+m6.7 is a lot better. You might be able to see all of this better, if we plot the compare table:
+R code
+7.29
+plot( compare( m6.6 , m6.7 , m6.8 ) )
+m6.6
+m6.8
+m6.7
+360
+370
+380
+390
+400
+410
+420
+deviance
+WAIC
+The filled points are the in-sample deviance values. The open points are the WAIC values.
+Notice that naturally each model does better in-sample than it is expected to do out-of-
+sample. The line segments show the standard error of each WAIC. These are the values in
+the column labeled SE in the table above. So you can probably see how much better m6.7
+is than m6.8. What we really want however is the standard error of the difference in WAIC
+between the two models. That is shown by the lighter line segment with the triangle on it,
+between m6.7 and m6.8.
+What does this all of this mean? It means that WAIC cannot be used to infer causation.
+We know, because we simulated these data, that the treatment matters. But because fungus
+mediates treatment—it is on a pipe between treatment and the outcome—once we condition
+on fungus, treatment provides no additional information. And since fungus is more highly
+correlated with the outcome, a model using it is likely to predict better. WAIC did its job. It’s
+job is not to infer causation. It’s job is to guess predictive accuracy.
+That doesn’t mean that WAIC (or CV or PSIS) is useless here. It does provide a useful
+measure of the expected improvement in prediction that comes from conditioning on the
+fungus. Although the treatment works, it isn’t 100% effective, and so knowing the treatment
+is no substitute for knowing whether fungus is present.

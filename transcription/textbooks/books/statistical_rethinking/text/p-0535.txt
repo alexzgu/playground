@@ -1,0 +1,124 @@
+15.2. MISSING DATA
+519
+d <- milk
+d$neocortex.prop <- d$neocortex.perc / 100
+d$logmass <- log(d$mass)
+dat_list <- list(
+K = standardize( d$kcal.per.g ),
+B = standardize( d$neocortex.prop ),
+M = standardize( d$logmass ) )
+The model code looks absolutely ordinary, except for defining a distribution for B.
+R code
+15.17
+m15.3 <- ulam(
+alist(
+K ~ dnorm( mu , sigma ),
+mu <- a + bB*B + bM*M,
+B ~ dnorm( nu , sigma_B ),
+c(a,nu) ~ dnorm( 0 , 0.5 ),
+c(bB,bM) ~ dnorm( 0, 0.5 ),
+sigma_B ~ dexp( 1 ),
+sigma ~ dexp( 1 )
+) , data=dat_list , chains=4 , cores=4 )
+When you start the model, it will notify you that it found 12 NA values and is trying to impute
+them. Once it finishes, take a look at the posterior summary:
+R code
+15.18
+precis( m15.3 , depth=2 )
+mean
+sd
+5.5% 94.5% n_eff Rhat
+nu
+-0.04 0.20 -0.35
+0.28
+2013
+1
+a
+0.03 0.16 -0.22
+0.28
+2319
+1
+bM
+-0.55 0.21 -0.88 -0.21
+1238
+1
+bB
+0.50 0.25
+0.09
+0.88
+909
+1
+sigma_B
+1.00 0.17
+0.77
+1.31
+1593
+1
+sigma
+0.84 0.15
+0.63
+1.11
+1266
+1
+B_impute[1]
+-0.56 0.91 -1.95
+0.95
+2602
+1
+B_impute[2]
+-0.69 0.91 -2.10
+0.79
+2025
+1
+B_impute[3]
+-0.68 0.94 -2.10
+0.84
+2086
+1
+B_impute[4]
+-0.25 0.87 -1.61
+1.15
+3091
+1
+B_impute[5]
+0.48 0.85 -0.93
+1.82
+2532
+1
+B_impute[6]
+-0.16 0.85 -1.50
+1.16
+2626
+1
+B_impute[7]
+0.19 0.85 -1.08
+1.58
+2640
+1
+B_impute[8]
+0.28 0.86 -1.06
+1.62
+3697
+1
+B_impute[9]
+0.52 0.87 -0.93
+1.84
+2574
+1
+B_impute[10] -0.46 0.89 -1.87
+0.93
+2092
+1
+B_impute[11] -0.27 0.86 -1.61
+1.09
+2650
+1
+B_impute[12]
+0.17 0.85 -1.21
+1.49
+2749
+1
+Each of the 12 imputed distributions for missing values is shown here, along with the ordi-
+nary regression parameters above them. To see how including all cases has impacted infer-
+ence, let’s do a quick comparison to the estimates that drop missing cases. I’ll drop the cases
+with missing values, but the model will be identical.

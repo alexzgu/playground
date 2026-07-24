@@ -1,0 +1,55 @@
+406
+12. MONSTERS AND MIXTURES
+1
+2
+3
+4
+5
+6
+7
+0.0
+0.1
+0.2
+0.3
+0.4
+index
+probability
+Figure 12.7. Simulated draws from a Dirich-
+let prior with α = {2, 2, 2, 2, 2, 2, 2}. The
+highlighted vector isn’t special but just serves
+to show how much variation can exist in a sin-
+gle vector. This prior doesn’t expect all the
+probabilities to be equal. Instead it expects
+that any of the probabilities could be bigger or
+smaller than the others.
+m12.6 <- ulam(
+alist(
+R ~ ordered_logistic( phi , kappa ),
+phi <- bE*sum( delta_j[1:E] ) + bA*action + bI*intention + bC*contact,
+kappa ~ normal( 0 , 1.5 ),
+c(bA,bI,bC,bE) ~ normal( 0 , 1 ),
+vector[8]: delta_j <<- append_row( 0 , delta ),
+simplex[7]: delta ~ dirichlet( alpha )
+), data=dat , chains=4 , cores=4 )
+The top part just builds the data list. This is familiar to you by now. Notice that the data
+list contains the alpha prior. We’re passing it in as “data,” but it is just the definition of
+the Dirichlet prior in the formula. The model itself is just like the models in the previous
+section, except for the bE term in the linear model and the last two lines of the formula,
+defining delta_j and delta. I’m also using some more advanced syntax in the model. But
+we can take this one piece at a time.
+In order to sum over the δ parameters, the linear model contains the term bE*sum(
+delta_j[1:E] ). This bit of code computes the expression βE
+PEi−1
+j=0 δj. In The vector
+delta_j has 8 values in it. The first one is δ0 = 0. The other 7 values are the other δ
+parameters. The [1:E] pulls out the first E values, where E is the education level of each
+individual.
+The code builds the delta_j vector by appending the actual delta parameter vector
+onto a zero: delta_j <<- append_row( 0 , delta ). The append_row function is not
+an R function, but rather a Stan function. It just glues together two vectors into one longer
+vector. It’s like doing c(0,delta) in R. Notice the vector[8]: in front of this line. That
+is an explicit type and dimension declaration. I’m telling Stan to make delta_j a vector of
+length 8. This kind of index fiddling is the joyless reality of statistical programming. You do
+have to be careful and keep track of what is going where. It gets easier the more you do it.
+Finally, we reach the prior distribution for the δ/delta parameters themselves. Recall
+that these delta values must sum to one. This kind of vector, in which all the values sum to

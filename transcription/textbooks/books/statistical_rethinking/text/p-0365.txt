@@ -1,0 +1,58 @@
+11.1. BINOMIAL REGRESSION
+349
+admit ~ dbinom( applications , p ) ,
+logit(p) <- a[gid] ,
+a[gid] ~ dnorm( 0 , 1.5 )
+) , data=dat_list , chains=4 )
+precis( m11.7 , depth=2 )
+mean
+sd
+5.5% 94.5% n_eff Rhat
+a[1] -0.22 0.04 -0.29 -0.16
+1232
+1
+a[2] -0.83 0.05 -0.91 -0.75
+1323
+1
+The posterior for male applicants, a[1], is higher than that of female applicants. How much
+higher? We need to compute the contrast. Let’s calculate the contrast on the logit scale
+(shark) as well as the contrast on the outcome scale (penguin):
+R code
+11.30
+post <- extract.samples(m11.7)
+diff_a <- post$a[,1] - post$a[,2]
+diff_p <- inv_logit(post$a[,1]) - inv_logit(post$a[,2])
+precis( list( diff_a=diff_a , diff_p=diff_p ) )
+'data.frame': 2000 obs. of 2 variables:
+mean
+sd 5.5% 94.5%
+histogram
+diff_a 0.61 0.07 0.50
+0.71 ▁▁▁▁▃▇▇▃▂▁▁▁
+diff_p 0.14 0.01 0.12
+0.16 ▁▁▁▂▃▇▇▅▂▁▁▁
+The log-odds difference is certainly positive, corresponding to a higher probability of admis-
+sion for male applicants. On the probability scale itself, the difference is somewhere between
+12% and 16%.
+Before moving on to speculate on the cause of the male advantage, let’s plot posterior pre-
+dictions for the model. We’ll use the default posterior validation check function, postcheck,
+and then dress it up a little by adding lines to connect data points from the same department.
+R code
+11.31
+postcheck( m11.7 )
+# draw lines connecting points from same dept
+for ( i in 1:6 ) {
+x <- 1 + 2*(i-1)
+y1 <- d$admit[x]/d$applications[x]
+y2 <- d$admit[x+1]/d$applications[x+1]
+lines( c(x,x+1) , c(y1,y2) , col=rangi2 , lwd=2 )
+text( x+0.5 , (y1+y2)/2 + 0.05 , d$dept[x] , cex=0.8 , col=rangi2 )
+}
+The result is shown as Figure 11.5. Those are pretty terrible predictions. There are only two
+departments in which females had a lower rate of admission than males (C and E), and yet
+the model says that females should expect to have a 14% lower chance of admission.
+Sometimes a fit this bad is the result of a coding mistake. In this case, it is not. The
+model did correctly answer the question we asked of it: What are the average probabilities
+of admission for females and males, across all departments? The problem in this case is that
+males and females do not apply to the same departments, and departments vary in their rates
+of admission. This makes the answer misleading. You can see the steady decline in admission

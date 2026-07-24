@@ -41,8 +41,6 @@ REMARK 14.1. It is sometimes convenient to describe couplings using probability 
 
 $$ q(\cdot \times \mathcal{X}) = \sum_{y \in \mathcal{X}} q(\cdot, y). $$
 
-201
-
 ### PDF page 218 (book page 202)
 
 Likewise, its **projection onto the second coordinate** is the distribution $q(\mathcal{X} \times \cdot)$.
@@ -187,7 +185,7 @@ $$
 \end{array}
 $$
 
-FIGURE 14.1. Two configurations differing at exactly two cards. . *[Figure: two rows labeled $\sigma$ and $\tau$, each a sequence of nine $+/-$ signs; the columns marked $i$ and $j$ are the two positions where the rows differ.]*
+**FIGURE 14.1.** Two configurations differing at exactly two cards. . *[Figure: two rows labeled $\sigma$ and $\tau$, each a sequence of nine $+/-$ signs; the columns marked $i$ and $j$ are the two positions where the rows differ.]*
 
 Consider the probability distribution $\theta := \sum_{x,y \in \mathcal{X}} \eta(x, y) \theta_{x,y}$ on $\mathcal{X} \times \mathcal{X}$. (This is a coupling of $\mu P$ with $\nu P$.) We have by (14.16) and (14.15) that
 
@@ -286,7 +284,7 @@ We extend the definition of Glauber dynamics for proper $q$-colorings of a graph
 
 Colors: $\{\cancel{1},\, 2,\, \cancel{3},\, 4,\, \cancel{5},\, 6\}$
 
-FIGURE 14.2. Updating at vertex $w$. The colors of the neighbors are not available, as indicated.
+**FIGURE 14.2.** Updating at vertex $w$. The colors of the neighbors are not available, as indicated.
 
 THEOREM 14.10. *Consider the Glauber dynamics chain for $q$-colorings of a graph with $n$ vertices and maximum degree $\Delta$. If $q > 2\Delta$, then the mixing time satisfies*
 
@@ -317,9 +315,7 @@ Generate a random color $U$ from $A_w(y)$ and use this to update $y$ at $w$. If 
 
 Colors: $\{1, 2, 3, 4, 5, 6\}$
 
-*[Figure: two side-by-side 3×3 grids of graph vertices. Left grid, labeled $x$ at top: top row 1, 5, 6; middle row 5, (center vertex "?" labeled $w$), 3 (labeled $v$); bottom row 2, 1, 5; annotated below "Available: {2,4,6}". Right grid, labeled $y$ at top: top row 1, 5, 6; middle row 5, (center vertex "?" labeled $w$), 1 (labeled $v$); bottom row 2, 1, 5; annotated below "Available: {2,4,6} and 3". Dashed arrows extend outward from boundary vertices in both grids.]*
-
-FIGURE 14.3. Jointly updating $x$ and $y$ when they differ only at vertex $v$ and $|A_w(x)| < |A_w(y)|$
+**FIGURE 14.3.** Jointly updating $x$ and $y$ when they differ only at vertex $v$ and $|A_w(x)| < |A_w(y)|$ *[Figure: two side-by-side 3×3 grids of graph vertices. Left grid, labeled $x$ at top: top row 1, 5, 6; middle row 5, (center vertex "?" labeled $w$), 3 (labeled $v$); bottom row 2, 1, 5; annotated below "Available: {2,4,6}". Right grid, labeled $y$ at top: top row 1, 5, 6; middle row 5, (center vertex "?" labeled $w$), 1 (labeled $v$); bottom row 2, 1, 5; annotated below "Available: {2,4,6} and 3". Dashed arrows extend outward from boundary vertices in both grids.]*
 
 that the two configurations do not update to the same color is $1/|A_w(y)|$, which is bounded above by $1/(q - \Delta)$.
 
@@ -347,9 +343,7 @@ $$ t_{\mathrm{mix}}(\varepsilon) \leq \left\lceil \frac{n}{c(q, \Delta)} \left( 
 
 ### PDF page 225 (book page 209)
 
-*[Figure: a horizontal path of 8 vertices labeled 1 through 8 left to right, connected by edges. Vertices 1, 3, 6, 8 are filled (black) circles; vertices 2, 4, 5, 7 are open (white) circles.]*
-
-FIGURE 14.4. A configuration of the hardcore model on the 8-vertex path. Filled circles correspond to occupied sites.
+**FIGURE 14.4.** A configuration of the hardcore model on the 8-vertex path. Filled circles correspond to occupied sites. *[Figure: a horizontal path of 8 vertices labeled 1 through 8 left to right, connected by edges. Vertices 1, 3, 6, 8 are filled (black) circles; vertices 2, 4, 5, 7 are open (white) circles.]*
 
 Some condition on $q$ and $\Delta$ is necessary to achieve the fast rate of convergence (order $n \log n$) established in Theorem 14.10, although the condition $q > 2\Delta$ is not the best known. Example 7.6 shows that if $\Delta$ is allowed to grow with $n$ while $q$ remains fixed, then the mixing time can be exponential in $n$.
 
@@ -371,7 +365,7 @@ For both models, both sampling and counting become more difficult on more compli
 
 **14.4.2. Approximately counting colorings.** Many innovations in the study of mixing times for Markov chains came from researchers motivated by the problem of *counting* combinatorial structures. While determining the exact size of a complicated set may be a "hard" problem, an approximate answer is often possible using Markov chains.
 
-In this section, we show how the number of proper colorings can be estimated using the Markov chain analyzed in the previous section. We adapt the method described in **Jerrum and Sinclair (1996**) to this setting.
+In this section, we show how the number of proper colorings can be estimated using the Markov chain analyzed in the previous section. We adapt the method described in **Jerrum and Sinclair (1996)** to this setting.
 
 THEOREM 14.14. *Let $\mathcal{X}$ be the set of all proper $q$-colorings of the graph $G$ of $n$ vertices and maximal degree $\Delta$. Fix $q > 2\Delta$, and set $c(q, \Delta) = 1 - \Delta/(q - \Delta)$. Given $\eta$ and $\varepsilon$, there is a random variable $W$ which can be simulated using no more than*
 
@@ -403,7 +397,7 @@ $\blacksquare$
 
 ### PDF page 227 (book page 211)
 
-PROOF OF THEOREM 14.14. This proof follows closely the argument of **Jerrum and Sinclair (1996**). Fix a proper coloring $x_0$, and let $\mathcal{X}_k$ be as defined above.
+PROOF OF THEOREM 14.14. This proof follows closely the argument of **Jerrum and Sinclair (1996)**. Fix a proper coloring $x_0$, and let $\mathcal{X}_k$ be as defined above.
 
 A random element of $\mathcal{X}_k$ can be generated using a slight modification to the Glauber dynamics introduced in Section 3.3.1 and analyzed in Section 14.3. The chain evolves as before, but only the colors at vertices $\{v_1, \ldots, v_k\}$ are updated. The other vertices are frozen in the configuration specified by $x_0$. The bound of Theorem 14.10 on $t_{\mathrm{mix}}(\varepsilon)$ still holds, with $k$ replacing $n$. In addition, (14.20) itself holds, since $k \leq n$. By definition of $t_{\mathrm{mix}}(\varepsilon)$, if
 

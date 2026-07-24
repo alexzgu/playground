@@ -1,0 +1,43 @@
+ENDNOTES
+579
+169. Simpson (1951). [353]
+170. See Pearl (2014), for example. So much has been written about Simpson’s paradox that you can find it
+explained in seemingly contradictory ways. [353]
+171. Kline and Boyd (2010). [354]
+172. See Koster and McElreath (2017) for a published Stan example with varying effects, applied to behavioral
+choice. [368]
+173. There seems to be no primordial citation for this transformation. A common citation is Baker (1994), who
+cites a lot of prior ad hoc use. McCullagh and Nelder (1989) explain the transformation beginning on page 209.
+[371]
+174. Welsh and Lind (1995). [379]
+Chapter 12
+175. Williams (1975, 1982). Bolker (2008) contains a clear presentation in the context of ecological data. [382]
+176. Another very common parameterization is α = ¯pθ and β = (1 −¯p)θ. The ¯p and θ version is more useful
+for modeling, because we typically want to attach a linear model to the beta distribution’s central tendency, one
+measure of which is ¯p. [383]
+177. Hilbe (2011) is an entire book devoted to gamma-Poisson regression. [385]
+178. See Lambert (1992) for the first presentation of this type of model. The basic zero-inflated approach is older,
+but Lambert presented the version we use here, with log and logit links to two separate linear models. [389]
+179. See Bürkner and Vuorre (2018) and Liddell and Kruschke (2018). [392]
+180. McCullagh (1980) is credited with introducing and popularizing this approach. See also Fullerton (2009)
+for an overview with comparison of different model types. [393]
+181. Cushman et al. (2006). [393]
+182. The construction in this section is based on the strategy in Bürkner and Charpentier (2018). This is the
+same technique that is built into the brms package, which also uses Stan to perform sampling. [403]
+183. Named after Peter Dirichlet (1805–1859), a German mathematician. His name, and the distribution, are of-
+ten pronounced either like diRIKlay or diRISHlay. Legend has it that Peter himself pronounced it with the hard
+K. Dirichlet had the best mathematical teachers and made great contributions in many areas of mathematics.
+He also married Rebecka Mendelssohn, who was Felix and Fanny Mendelssohn’s younger sister. [405]
+184. Jung et al. (2014). [410]
+Chapter 13
+185. Wearing’s wife Deborah has written a book about their life after the illness (Wearing, 2005). His story has
+also appeared in a number of documentaries. A quick internet search will turn up a number of news articles, as
+well. [413]
+186. See section 6, page 20, of Gelman (2005) for an entertaining list of wildly different definitions of “random
+effect.” [415]
+187. Vonesh and Bolker (2005). [415]
+188. I adopt the terminology of Gelman (2005), who argues that the common term random effects hardly aids
+with understanding, for most people. Indeed, it seems to encourage misunderstanding, partly because the terms
+fixed and random mean different things to different statisticians. See pages 20–21 of Gelman’s paper. I fully
+realize, however, that by trying to spread Gelman’s alternative jargon, I am essentially spitting into a very strong
+wind. [416]

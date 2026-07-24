@@ -1,0 +1,59 @@
+2.4. MAKING THE MODEL GO
+41
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+0.0
+0.1
+0.2
+0.3
+0.4
+0.5
+probability of water
+posterior probability
+5 points
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+0.00
+0.04
+0.08
+0.12
+probability of water
+posterior probability
+20 points
+Figure 2.7. Computing posterior distribution by grid approximation. In
+each plot, the posterior distribution for the globe toss data and model is
+approximated with a finite number of evenly spaced points. With only 5
+points (left), the approximation is terrible. But with 20 points (right), the
+approximation is already quite good. Compare to the analytically solved,
+exact posterior distribution in Figure 2.5 (page 30).
+You’ll get the right-hand plot in Figure 2.7. Try sparser grids (5 points) and denser grids
+(100 or 1000 points). The correct density for your grid is determined by how accurate you
+want your approximation to be. More points means more precision. In this simple example,
+you can go crazy and use 100,000 points, but there won’t be much change in inference after
+the first 100.
+Now to replicate the different priors in Figure 2.5, try these lines of code—one at a
+time—for the prior grid:
+R code
+2.5
+prior <- ifelse( p_grid < 0.5 , 0 , 1 )
+prior <- exp( -5*abs( p_grid - 0.5 ) )
+The rest of the code remains the same.
+Overthinking: Vectorization. One of R’s useful features is that it makes working with lists of numbers
+almost as easy as working with single values. So even though both lines of code above say nothing
+about how dense your grid is, whatever length you chose for the vector p_grid will determine the
+length of the vector prior. In R jargon, the calculations above are vectorized, because they work on
+lists of values, vectors. In a vectorized calculation, the calculation is performed on each element of
+the input vector—p_grid in this case—and the resulting output therefore has the same length. In
+other computing environments, the same calculation would require a loop. R can also use loops, but
+vectorized calculations are typically faster. They can however be much harder to read, when you are
+starting out with R. Be patient, and you’ll soon grow accustomed to vectorized calculations.
+2.4.4. Quadratic approximation. We’ll stick with the grid approximation to the globe toss-
+ing posterior, for the rest of this chapter and the next. But before long you’ll have to resort to

@@ -1,0 +1,51 @@
+6.1. MULTICOLLINEARITY
+167
+I chose a specific seed so you can replicate the result in Figure 6.1, but if you rerun the simulation
+without the set.seed line, you’ll see there is nothing special about the seed I used.
+6.1. Multicollinearity
+It is commonly true that there are many potential predictor variables to add to a regres-
+sion model. In the case of the primate milk data, for example, there are 7 variables available
+to predict any column we choose as an outcome. Why not just fit a model that includes all
+7? There are several hazards. The one we’ll focus on here is multicollinearity. Mul-
+ticollinearity means very strong correlation between two or more predictor variables. The
+consequence of it is that the posterior distribution will seem to suggest that none of the vari-
+ables is reliably associated with the outcome, even if all of the variables are in reality strongly
+associated with the outcome. This frustrating phenomenon arises from the details of how
+multiple regression works. In fact, there is nothing wrong with multicollinearity. The model
+will work fine for prediction. You will just be frustrated trying to understand it. The hope is
+that once you understand multicollinearity, you will better understand regression models in
+general.
+Let’s begin with a simple simulation. Then we’ll turn to the primate milk data again and
+see multicollinearity in a real data set.
+6.1.1. Multicollinear legs. The simulation example is predicting an individual’s height us-
+ing the length of his or her legs as predictor variables. Surely height is positively associated
+with leg length, or at least the simulation will assume it is. Nevertheless, once you put both
+leg lengths into the model, something vexing will happen.
+The code below will simulate the heights and leg lengths of 100 individuals. For each,
+first a height is simulated from a Gaussian distribution. Then each individual gets a simulated
+proportion of height for their legs, ranging from 0.4 to 0.5. Finally, each leg is salted with a
+little measurement or developmental error, so the left and right legs are not exactly the same
+length, as is typical in real populations. At the end, the code puts height and the two leg
+lengths into a common data frame.
+R code
+6.2
+N <- 100
+# number of individuals
+set.seed(909)
+height <- rnorm(N,10,2)
+# sim total height of each
+leg_prop <- runif(N,0.4,0.5)
+# leg as proportion of height
+leg_left <- leg_prop*height +
+# sim left leg as proportion + error
+rnorm( N , 0 , 0.02 )
+leg_right <- leg_prop*height +
+# sim right leg as proportion + error
+rnorm( N , 0 , 0.02 )
+# combine into data frame
+d <- data.frame(height,leg_left,leg_right)
+Now let’s analyze these data, predicting the outcome height with both predictors, leg_left
+and leg_right. Before approximating the posterior, however, consider what we expect. On
+average, an individual’s legs are 45% of their height (in these simulated data). So we should
+expect the beta coefficient that measures the association of a leg with height to end up around
+the average height (10) divided by 45% of the average height (4.5). This is 10/4.5 ≈2.2. Now

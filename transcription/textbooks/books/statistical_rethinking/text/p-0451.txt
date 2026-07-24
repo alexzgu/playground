@@ -1,0 +1,56 @@
+13.4. DIVERGENT TRANSITIONS AND NON-CENTERED PRIORS
+435
+13.4.1. The Devil’s Funnel. You don’t need a fancy model to experience divergent transi-
+tions. Suppose we have this joint distribution of two variables, v and x:
+v ∼Normal(0, 3)
+x ∼Normal(0, exp(v))
+There are no data here, just a joint distribution to sample from. This distribution might seem
+weird, but it represents a typical multilevel distribution, in which the scale of one variable
+(here x) depends upon another variable (here v). We’ll visualize it on the next page. You can
+try this in ulam():
+R code
+13.26
+m13.7 <- ulam(
+alist(
+v ~ normal(0,3),
+x ~ normal(0,exp(v))
+), data=list(N=1) , chains=4 )
+precis( m13.7 )
+mean
+sd
+5.5%
+94.5% n_eff Rhat
+v
+1.90
+2.08
+-1.49
+5.42
+39 1.06
+x 18.12 135.97 -31.78 123.84
+102 1.04
+This looks like an easy problem—only two parameters—but it’s a disaster. You should see
+lots of divergent transitions. And the n_eff and Rhat values are very poor. Take a glance at
+the trace plot, traceplot(m13.7), too.
+This example is The Devil’s Funnel.192 In the left panel of Figure 13.5, I show the distri-
+bution’s contours. At low values of v, the distribution of x contracts around zero. This forms
+a very steep valley that the Hamiltonian particle needs to explore. Steep surfaces are hard to
+simulate, because the simulation is not actually continuous. It happens in discrete steps. If
+the steps are too big, the simulation will overshoot. This error effectively changes the total
+energy in the system. What happens next is unpredictable.
+As in the examples in Chapter 9, the simulation in Figure 13.5 (left panel) starts at the
+×. The simulation finds the valley. But then it misses its turn and careens into space. The
+open point is a divergent transition, a proposal for which the energy at the start of the transi-
+tion is not the same as the energy at the end of the transition. When you try to sample from
+this distribution, you get lots of these divergent transitions and a very unreliable approxima-
+tion of the posterior distribution. We can prove that in this case, because it is a very simple
+distribution that we can compute with grid approximation.
+We can fix this problem by reparameterizing the funnel. There are two general ways
+to parameterize models in which the distribution of one parameter is a function of another
+parameter. In this example, the distribution of x is a function of v:
+x ∼Normal(0, exp(v))
+This is the source of the funnel: As v changes, the distribution of x changes in a very incon-
+venient way. This parameterization is known as the centered parameterization. This
+is not a very intuitive name. It just indicates that the distribution of x is conditional on one
+or more other parameters.
+The alternative is a non-centered parameterization. A non-centered parameter-
+ization moves the embedded parameter, v in this case, out of the definition of the other

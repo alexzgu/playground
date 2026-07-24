@@ -1,0 +1,43 @@
+ENDNOTES
+581
+211. There are several good articles on this topic, each with its own style and variation of notation. See Hernán
+and Cole (2009), Loken and Gelman (2017), Brakenhoff et al. (2018), van Smeden et al. (2019). [506]
+212. See Hernán and Cole (2009) for constructive complaints about this. [510]
+213. See Molenberghs et al. (2014) for an overview of contemporary approaches, Bayesian and otherwise. [511]
+214. See MacKenzie et al. (2017), which is a comprehensive book with applied intent. [511]
+215. See Rubin (1976); Rubin and Little (2002) for background and additional terminology. Section 4 of Rubin’s
+1976 article is valuable for the clear definitions of causes of missing data. [516]
+216. Rubin (1987). [523]
+217. Whitehouse et al. (2019). See raw data download in supplemental. The version here drops some variables,
+but otherwise is the same data necessary to replicate the results in the paper. These data were prepared as such
+by Bret Beheim. See full documentation and data at https://github.com/babeheim/moralizing-gods-reanalysis.
+[525]
+218. The moralizing gods data were originally published in Nature, which is a scientific publication of some
+prestige, and the authors did replace every NA with zero. The paper itself never mentions missing data in the
+moralizing gods variable, so it probably wasn’t noticed during peer review. But because the authors were respon-
+sible and provided all the data and analysis code, several people independently noticed the NA-to-zero issue
+after publication. The line of code is obvious: https://github.com/pesavage/moralizing-gods/commit/ff61f9c.
+The authors deserve much credit for their transparency. For the record, the original authors still don’t agree that
+replacing NA with zero was wrong. You can read the original report, the criticisms, and the authors responses for
+yourself: Whitehouse et al. (2019), Beheim et al. (2019), Savage et al. (2019). Note that there are two analyses in
+the original paper and both treat NA as zero. [528]
+Chapter 16
+219. “Vitruvian Can” pun donated by Clint Johns @DrClintonJohns via Twitter. [538]
+220. Harte (1988). [539]
+221. There are many good articles about the philosophy of model building. I’ll recommend three: Levins (1966),
+Wimsatt (2002), Smaldino (2017). [539]
+222. From van Leeuwen et al. (2018). [543]
+223. From Boesch et al. (2019). Data kindly provided by Roger Mundry, who designed the clever analysis in the
+paper. [549]
+224. von Bertalanffy (1934). [549]
+225. See Walker et al. (2006) and Leigh and Shea (1996). [553]
+226. This example is based ona Stan case studyby Bob Carpenter. https://mc-stan.org/users/documentation/case-
+studies/lotka-volterra-predator-prey.html [553]
+227. Hewitt (1921). Note that the lynx data and hare data come from different regions in most cases. While
+these data are often used to illustrate population dynamics, there is a deep literature suggesting they aren’t a
+great example. A little searching will turn up a lot. [554]
+228. Volterra (1926), Lotka (1925). [556]
+229. Data are from Huffaker (1958). [563]
+Chapter 17
+230. See Speed (1986) for extended comments like this, aimed at statisticians. You can find a copy of this essay
+online with a quick internet search. [565]

@@ -1,0 +1,77 @@
+30
+2. SMALL WORLDS AND LARGE WORLDS
+probability of water
+0
+0.5
+1
+n = 1
+W L W W W L W L W
+confidence
+probability of water
+0
+0.5
+1
+n = 2
+W L W W W L W L W
+probability of water
+0
+0.5
+1
+n = 3
+W L W W W L W L W
+probability of water
+0
+0.5
+1
+n = 4
+W L W W W L W L W
+confidence
+probability of water
+0
+0.5
+1
+n = 5
+W L W W W L W L W
+probability of water
+0
+0.5
+1
+n = 6
+W L W W W L W L W
+probability of water
+0
+0.5
+1
+n = 7
+W L W W W L W L W
+confidence
+probability of water
+0
+0.5
+1
+n = 8
+W L W W W L W L W
+probability of water
+0
+0.5
+1
+n = 9
+W L W W W L W L W
+plausibility
+plausibility
+plausibility
+proportion water
+proportion water
+proportion water
+Figure 2.5. How a Bayesian model learns. Each toss of the globe produces
+an observation of water (W) or land (L). The model’s estimate of the pro-
+portion of water on the globe is a plausibility for every possible value. The
+lines and curves in this figure are these collections of plausibilities. In each
+plot, previous plausibilities (dashed curve) are updated in light of the latest
+observation to produce a new set of plausibilities (solid curve).
+yet much evidence. So the differences in plausibility are not yet very large. In this way, the
+amount of evidence seen so far is embodied in the plausibilities of each value of p.
+In the remaining plots in Figure 2.5, the additional samples from the globe are intro-
+duced to the model, one at a time. Each dashed curve is just the solid curve from the previous
+plot, moving left to right and top to bottom. Every time a “W” is seen, the peak of the plausi-
+bility curve moves to the right, towards larger values of p. Every time an “L” is seen, it moves

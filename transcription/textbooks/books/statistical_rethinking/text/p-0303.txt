@@ -1,0 +1,70 @@
+9.4. EASY HMC: ULAM
+287
+directly with Stan code, I’ll present this same model in raw Stan a bit later. You can always
+extract the Stan code with stancode(m9.1).
+After messages about compiling, and sampling, ulam returns an object that contains a
+bunch of summary information, as well as samples from the posterior distribution. You can
+summarize just like a quap model:
+R code
+9.15
+precis( m9.1 , depth=2 )
+mean
+sd
+5.5% 94.5% n_eff Rhat
+a[1]
+0.89 0.02
+0.86
+0.91
+803 1.00
+a[2]
+1.05 0.01
+1.03
+1.07
+630 1.00
+b[1]
+0.14 0.08
+0.01
+0.26
+731 1.00
+b[2]
+-0.14 0.05 -0.23 -0.06
+563 1.00
+sigma
+0.11 0.01
+0.10
+0.12
+462 1.01
+These estimates are very similar to the quadratic approximation. But note that there are two
+new columns, n_eff and Rhat. These columns provide MCMC diagnostic criteria, to help
+you tell how well the sampling worked. We’ll discuss them in detail later in the chapter. For
+now, it’s enough to know that n_eff is a crude estimate of the number of independent sam-
+ples you managed to get. Rhat is a complicated estimate of the convergence of the Markov
+chains to the target distribution. It should approach 1.00 from above, when all is well.
+9.4.3. Sampling again, in parallel. The example so far is a very easy problem for MCMC. So
+even the default 1000 samples is enough for accurate inference. In fact, as few as 200 effective
+samples is usually plenty for a good approximation of the posterior. But we also want to run
+multiple chains, for reasons we’ll discuss in more depth in the next sections. There will be
+specific advice in Section 9.5 (page 293).
+For now, it’s worth noting that you can easily parallelize those chains, as well. They
+can all run at the same time, instead of in sequence. So as long as your computer has four
+cores (it probably does), it won’t take longer to run four chains than one chain. To run four
+independent Markov chains for the model above, and to distribute them across separate cores
+in your computer, just increase the number of chains and add a cores argument:
+R code
+9.16
+m9.1 <- ulam(
+alist(
+log_gdp_std ~ dnorm( mu , sigma ) ,
+mu <- a[cid] + b[cid]*( rugged_std - 0.215 ) ,
+a[cid] ~ dnorm( 1 , 0.1 ) ,
+b[cid] ~ dnorm( 0 , 0.3 ) ,
+sigma ~ dexp( 1 )
+) , data=dat_slim , chains=4 , cores=4 )
+There are a bunch of optional arguments that allow us to tune and customize the process.
+We’ll bring them up as they are needed. For now, keep in mind that show will remind you of
+the model formula and also how long each chain took to run:
+R code
+9.17
+show( m9.1 )
+Hamiltonian Monte Carlo approximation
+2000 samples from 4 chains

@@ -1,0 +1,43 @@
+352
+11. GOD SPIKED THE INTEGERS
+female 0.12 0.04 0.65 0.47 0.67 0.48
+These are the proportions of all applications in each department that are either male (top
+row) or female (bottom row). Department A receives 88% of its applications from males.
+Department E receives 33% from males. Now look back at the delta posterior means in the
+precis output from m11.8. The departments with a larger proportion of female applicants
+are also those with lower overall admissions rates.
+Department is probably a confound, in the sense that it misleads us about the direct
+causal effect. But it is not a confound, in the sense that it is probably a genuine causal path
+through gender influences admission. Gender influences choice of department, and depart-
+ment influences chance of admission. Controlling for department reveals a more plausible
+direct causal influence of gender. In DAG form:
+A
+D
+G
+The variable G is gender, D is department, and A is acceptance. There is an indirect causal
+path G →D →A from gender to acceptance. So to infer the direct effect G →A, we
+need to condition on D and close the indirect path. Model m11.8 does that. If you inspect
+postcheck(m11.8), you’ll see that the model lines up much better now with the variation
+among departments. This is another example of a mediation analysis.
+Don’t get too excited however that conditioning on department is sufficient to estimate
+the direct causal effect of gender on admissions. What if there are unobserved confounds
+influencing both department and admissions? Like this:
+A
+D
+G
+U
+What could U be? How about academic ability. Ability could influence choice of department
+and probability of admission. In that case, conditioning on department is conditioning on a
+collider, and it opens a non-causal path between gender and admissions, G →D ←U →A.
+I’ll ask you to explore some possibilities like this in the practice problems at the end.
+As a final note, you might have noticed that model m11.8 is over-parameterized. We
+don’t actually need one of the parameters, either a[1] or a[2]. Why? Because the indi-
+vidual delta parameters can stand for the acceptance rate of one of the genders in each
+department. Then we just need an average deviation across departments. If this were a non-
+Bayesian model, it wouldn’t work. But this kind of model is perfectly fine for us. The standard
+deviations are inflated, because there are many combinations of the a and delta parameters
+that can match the data. If you look at pairs(m11.8), you’ll see high posterior correlations
+among all of the parameters. But on the outcome scale, the predictions are much tighter, as
+you can see if you invoke postcheck(m11.8). It’s all good.
+Why might we want to over-parameterize the model? Because it makes it easier to as-
+sign priors. If we made one of the genders baseline and measured the other as a deviation

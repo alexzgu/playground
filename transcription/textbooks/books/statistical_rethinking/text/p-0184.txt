@@ -1,0 +1,63 @@
+168
+6. THE HAUNTED DAG & THE CAUSAL TERROR
+let’s see what happens instead. I’ll use very vague, bad priors here, just so we can be sure that
+the priors aren’t responsible for what is about to happen.
+R code
+6.3
+m6.1 <- quap(
+alist(
+height ~ dnorm( mu , sigma ) ,
+mu <- a + bl*leg_left + br*leg_right ,
+a ~ dnorm( 10 , 100 ) ,
+bl ~ dnorm( 2 , 10 ) ,
+br ~ dnorm( 2 , 10 ) ,
+sigma ~ dexp( 1 )
+) ,
+data=d )
+precis(m6.1)
+mean
+sd
+5.5% 94.5%
+a
+0.98 0.28
+0.53
+1.44
+bl
+0.21 2.53 -3.83
+4.25
+br
+1.78 2.53 -2.26
+5.83
+sigma 0.62 0.04
+0.55
+0.69
+Those posterior means and standard deviations look crazy. This is a case in which a graphical
+view of the precis output is more useful, because it displays the posterior means and 89%
+intervals in a way that allows us with a glance to see that something has gone wrong here:
+R code
+6.4
+plot(precis(m6.1))
+sigma
+br
+bl
+a
+-4
+-2
+0
+2
+4
+6
+Value
+Go ahead and try the simulate a few more times, omitting the set.seed line. If both legs
+have almost identical lengths, and height is so strongly associated with leg length, then why
+is this posterior distribution so weird? Did the posterior approximation work correctly?
+It did work correctly, and the posterior distribution here is the right answer to the ques-
+tion we asked. The problem is the question. Recall that a multiple linear regression answers
+the question: What is the value of knowing each predictor, after already knowing all of the
+other predictors? So in this case, the question becomes: What is the value of knowing each
+leg’s length, after already knowing the other leg’s length?
+The answer to this weird question is equally weird, but perfectly logical. The posterior
+distribution is the answer to this question, considering every possible combination of the
+parameters and assigning relative plausibilities to every combination, conditional on this
+model and these data. It might help to look at the bivariate posterior distribution for bl and
+br:

@@ -1,0 +1,52 @@
+8.3. CONTINUOUS INTERACTIONS
+257
+Africa’s unusually positive relationship with terrain ruggedness is due to historical causes,
+not contemporary terrain, then tunnels might improve economies in the present. At the
+same time, continent is not really a cause of economic activity. Rather there are historical
+and political factors associated with continents, and we use the continent variable as a proxy
+for those factors. It is manipulation of those other factors that would matter.
+8.3. Continuous interactions
+I want to convince the reader that interaction effects are difficult to interpret. They are
+nearly impossible to interpret, using only posterior means and standard deviations. Once
+interactions exist, multiple parameters are always in play at the same time. It is hard enough
+with the simple, categorical interactions from the terrain ruggedness example. Once we start
+modeling interactions among more than one continuous variables, it gets much harder. It’s
+one thing to make a slope conditional upon a category. In such a context, the model reduces
+to estimating a different slope for each category. But it’s quite a lot harder to understand that
+a slope varies in a continuous fashion with a continuous variable. Interpretation is much
+harder in this case, even though the mathematics of the model are essentially the same as in
+the categorical case.
+In pursuit of clarifying the construction and interpretation of continuous interac-
+tions among two or more continuous predictor variables, in this section I develop a simple
+regression example and show you a way to plot the two-way interaction between two contin-
+uous variables. The method I present for plotting this interaction is a triptych plot, a panel of
+three complementary figures that comprise a whole picture of the regression results. There’s
+nothing magic about having three figures—in other cases you might want more or less. In-
+stead, the utility lies in making multiple figures that allow one to see how the interaction
+alters a slope, across changes in a chosen variable.
+8.3.1. A winter flower. The data in this example are sizes of blooms from beds of tulips
+grown in greenhouses, under different soil and light conditions.135 Load the data with:
+R code
+8.19
+library(rethinking)
+data(tulips)
+d <- tulips
+str(d)
+'data.frame': 27 obs. of
+4 variables:
+$ bed
+: Factor w/ 3 levels "a","b","c": 1 1 1 1 1 1 1 1 1 2 ...
+$ water : int
+1 1 1 2 2 2 3 3 3 1 ...
+$ shade : int
+1 2 3 1 2 3 1 2 3 1 ...
+$ blooms: num
+0 0 111 183.5 59.2 ...
+The blooms column will be our outcome—what we wish to predict. The water and shade
+columns will be our predictor variables. water indicates one of three ordered levels of soil
+moisture, from low (1) to high (3). shade indicates one of three ordered levels of light ex-
+posure, from high (1) to low (3). The last column, bed, indicates a cluster of plants from the
+same section of the greenhouse.
+Since both light and water help plants grow and produce blooms, it stands to reason that
+the independent effect of each will be to produce bigger blooms. But we’ll also be interested
+in the interaction between these two variables. In the absence of light, for example, it’s hard

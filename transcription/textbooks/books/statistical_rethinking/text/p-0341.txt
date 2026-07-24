@@ -1,0 +1,53 @@
+10.2. GENERALIZED LINEAR MODELS
+325
+-1.0
+-0.5
+0.0
+0.5
+1.0
+-4
+-2
+0
+2
+4
+x
+log-odds
+-1.0
+-0.5
+0.0
+0.5
+1.0
+x
+0.0
+0.5
+1.0
+probability
+Figure 10.7. The logit link transforms a linear model (left) into a proba-
+bility (right). This transformation compresses the geometry far from zero,
+such that a unit change on the linear scale (left) means less and less change
+on the probability scale (right).
+So to figure out the definition of pi implied here, just do a little algebra and solve the above
+equation for pi:
+pi =
+exp(α + βxi)
+1 + exp(α + βxi)
+The above function is usually called the logistic. In this context, it is also commonly called
+the inverse-logit, because it inverts the logit transform.
+What all of this means is that when you use a logit link for a parameter, you are defining
+the parameter’s value to be the logistic transform of the linear model. Figure 10.7 illustrates
+the transformation that takes place when using a logit link. On the left, the geometry of the
+linear model is shown, with horizontal lines indicating unit changes in the value of the lin-
+ear model as the value of a predictor x changes. This is the log-odds space, which extends
+continuously in both positive and negative directions. On the right, the linear space is trans-
+formed and is now constrained entirely between zero and one. The horizontal lines have
+been compressed near the boundaries, in order to make the linear space fit within the proba-
+bility space. This compression produces the characteristic logistic shape of the transformed
+linear model shown in the right-hand plot.
+This compression does affect interpretation of parameter estimates, because no longer
+does a unit change in a predictor variable produce a constant change in the mean of the
+outcome variable. Instead, a unit change in xi may produce a larger or smaller change in
+the probability pi, depending upon how far from zero the log-odds are. For example, in
+Figure 10.7, when x = 0 the linear model has a value of zero on the log-odds scale. A half-
+unit increase in x results in about a 0.25 increase in probability. But each addition half-unit
+will produce less and less of an increase in probability, until any increase is vanishingly small.
+And if you think about it, a good model of probability needs to behave this way. When an

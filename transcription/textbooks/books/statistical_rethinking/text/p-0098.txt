@@ -1,0 +1,72 @@
+82
+4. GEOCENTRIC MODELS
+named columns, corresponding to variables, and numbered rows, corresponding to individ-
+ual cases. In this example, the cases are individuals. Inspect the structure of the data frame,
+the same way you can inspect the structure of any symbol in R:
+R code
+4.8
+str( d )
+'data.frame': 544 obs. of
+4 variables:
+$ height: num
+152 140 137 157 145 ...
+$ weight: num
+47.8 36.5 31.9 53 41.3 ...
+$ age
+: num
+63 63 65 41 51 35 32 27 19 54 ...
+$ male
+: int
+1 0 0 1 0 1 0 1 0 1 ...
+We can also use rethinking’s precis summary function, which we’ll also use to summarize
+posterior distributions later on:
+R code
+4.9
+precis( d )
+'data.frame': 544 obs. of 4 variables:
+mean
+sd
+5.5%
+94.5%
+histogram
+height 138.26 27.60 81.11 165.74 ▁▁▁▁▁▁▁▂▁▇▇▅▁
+weight
+35.61 14.72
+9.36
+54.50 ▁▂▃▂▂▂▂▅▇▇▃▂▁
+age
+29.34 20.75
+1.00
+66.13
+▇▅▅▃▅▂▂▁▁
+male
+0.47
+0.50
+0.00
+1.00
+▇▁▁▁▁▁▁▁▁▇
+If you cannot see the histograms on your system, use instead precis(d,hist=FALSE). This
+data frame contains four columns. Each column has 544 entries, so there are 544 individuals
+in these data. Each individual has a recorded height (centimeters), weight (kilograms), age
+(years), and “maleness” (0 indicating female and 1 indicating male).
+We’re going to work with just the height column, for the moment. The column con-
+taining the heights is really just a regular old R vector, the kind of list we have been working
+with in many of the code examples. You can access this vector by using its name:
+R code
+4.10
+d$height
+Read the symbol $ as extract, as in extract the column named height from the data frame d.
+All it does is give you the column that follows it.
+Overthinking: Data frames. It might seem like this whole data frame thing is kind of annoying, right
+now. If we’re working with only one column here, why bother with this d thing at all? You don’t have
+to use a data frame, as you can just pass raw vectors to every command we’ll use in this book. But
+keeping related variables in the same data frame is a huge convenience. Once we have more than one
+variable, and we wish to model one as a function of the others, you’ll better see the value of the data
+frame. You won’t have to wait long.
+More technically, a data frame is a special kind of list in R. So you access the individual variables
+with the usual list “double bracket” notation, like d[[1]] for the first variable or d[['x']] for the
+variable named x. Unlike regular lists, however, data frames force all variables to have the same
+length. That isn’t always a good thing. And that’s why some statistical packages, like the powerful
+Stan Markov chain sampler (mc-stan.org), accept plain lists of data, rather than proper data frames.
+All we want for now are heights of adults in the sample. The reason to filter out non-
+adults for now is that height is strongly correlated with age, before adulthood. Later in the

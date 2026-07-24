@@ -1,0 +1,48 @@
+8
+1. THE GOLEM OF PRAGUE
+1.2.2. Measurement matters. The logic of falsification is very simple. We have a hypothesis
+H, and we show that it entails some observation D. Then we look for D. If we don’t find it,
+we must conclude that H is false. Logicians call this kind of reasoning modus tollens, which
+is Latin shorthand for “the method of destruction.” In contrast, finding D tells us nothing
+certain about H, because other hypotheses might also predict D.
+A compelling scientific fable that employs modus tollens concerns the color of swans.
+Before discovering Australia, all swans that any European had ever seen had white feathers.
+This led to the belief that all swans are white. Let’s call this a formal hypothesis:
+H0: All swans are white.
+When Europeans reached Australia, however, they encountered swans with black feathers.
+This evidence seemed to instantly prove H0 to be false. Indeed, not all swans are white. Some
+are certainly black, according to all observers. The key insight here is that, before voyaging
+to Australia, no number of observations of white swans could prove H0 to be true. However
+it required only one observation of a black swan to prove it false.
+This is a seductive story. If we can believe that important scientific hypotheses can be
+stated in this form, then we have a powerful method for improving the accuracy of our the-
+ories: look for evidence that disconfirms our hypotheses. Whenever we find a black swan,
+H0 must be false. Progress!
+Seeking disconfirming evidence is important, but it cannot be as powerful as the swan
+story makes it appear. In addition to the correspondence problems among hypotheses and
+models, discussed in the previous section, most of the problems scientists confront are not so
+logically discrete. Instead, we most often face two simultaneous problems that make the swan
+fable misrepresentative. First, observations are prone to error, especially at the boundaries
+of scientific knowledge. Second, most hypotheses are quantitative, concerning degrees of
+existence, rather than discrete, concerning total presence or absence. Let’s briefly consider
+each of these problems.
+1.2.2.1. Observation error. All observers will agree under most conditions that a swan
+is either black or white. There are few intermediate shades, and most observers’ eyes work
+similarly enough that there will be little, if any, disagreement about which swans are white
+and which are black. But this kind of example is hardly commonplace in science, at least in
+mature fields. Instead, we routinely confront contexts in which we are not sure if we have
+detected a disconfirming result. At the edges of scientific knowledge, the ability to measure
+a hypothetical phenomenon is often in question as much as the phenomenon itself.
+Here are two examples.
+In 2005, a team of ornithologists from Cornell claimed to have evidence of an individual
+Ivory-billed Woodpecker (Campephilus principalis), a species thought extinct. The hypothe-
+sis implied here is:
+H0: The Ivory-billed Woodpecker is extinct.
+It would only take one observation to falsify this hypothesis. However, many doubted the
+evidence. Despite extensive search efforts and a $50,000 cash reward for information leading
+to a live specimen, no evidence satisfying all parties has yet (by 2015) emerged. Even if good
+physical evidence does eventually arise, this episode should serve as a counterpoint to the
+swan story. Finding disconfirming cases is complicated by the difficulties of observation.
+Black swans are not always really black swans, and sometimes white swans are really black
+swans. There are mistaken confirmations (false positives) and mistaken disconfirmations
+(false negatives). Against this background of measurement difficulties, scientists who already

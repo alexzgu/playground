@@ -1,0 +1,39 @@
+15.5. PRACTICE
+535
+These data comprise 11 cases, one of which has a missing predictor value. You can quickly confirm
+that a regression of y on x for only the complete cases indicates a strong positive relationship between
+the two variables. But now fit this model, imputing the one missing value for x:
+yi ∼Normal(µi, σ)
+µi = α + βxi
+xi ∼Normal(0, 1)
+α ∼Normal(0, 100)
+β ∼Normal(0, 100)
+σ ∼HalfCauchy(0, 1)
+What has happened to the posterior distribution of β? Be sure to inspect the full density. Can you
+explain the change in inference?
+15H4. Some lad named Andrew made an eight-sided spinner. He wanted to know if it is fair. So he
+spun it a bunch of times, recording the counts of each value. Then he accidentally spilled coffee over
+the 4s and 5s. The surviving data are summarized below.
+Value
+1
+2
+3
+4
+5
+6
+7
+8
+Frequency
+18
+19
+22
+?
+?
+19
+20
+22
+Your job is to impute the two missing values in the table above. Andrew doesn’t remember how many
+times he spun the spinner. So you will have to assign a prior distribution for the total number of spins
+and then marginalize over the unknown total. Andrew is not sure the spinner is fair (every value is
+equally likely), but he’s confident that none of the values is twice as likely as any other. Use a Dirichlet
+distribution to capture this prior belief. Plot the joint posterior distribution of 4s and 5s.

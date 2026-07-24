@@ -1,0 +1,48 @@
+15.2. MISSING DATA
+517
+In all three DAGs above, the variable B is circled now to indicate that it in unobserved. Each
+DAG is a different hypothesis about what causes the missing brain values RB. Let’s consider
+each, going from left to right.
+On the left, nothing influences RB. It is completely random. In this case, there is no
+new non-causal path introduced. Dropping the species with missing brain values wastes
+information—it means dropping all the observed mass values too—but it doesn’t necessarily
+bias inference.
+In the middle, now body mass M influences which species have missing values. This
+could happen, for example, if smaller primates like lemurs are less often studied than larger
+primates like gorillas. If M influences RB, it also creates a new non-causal path B∗←RB ←
+M →K. But luckily conditioning on M blocks this path, and we want to condition on M
+anyway. We still want to impute missing values, so that we don’t throw away information.
+How do we know if M influences RB? You could test this idea by trying to measure the
+causal influence of M on RB. But keep in mind that all that backdoor path stuff still applies.
+In a practice problem at the end of this chapter, I’ll ask you to estimate the causal influence
+of M on RB.
+The third example DAG, on the right, shows brain size B itself influencing RB. This could
+happen because anthropologists are more interested in large brained species. There is a lot
+more research on chimpanzees, for example, than on lemurs. This scenario is awful. If true,
+it means that estimation of B →K will be biased by a non-causal path through RB. It will
+also not be possible to test, with these data, whether B influences RB. Lots of different graphs
+can lead to this scenario. Here’s another possibility:
+B*
+B
+K
+M
+RB
+U
+V
+Now it isn’t the B values themselves that produce missingness. Rather there is an unobserved
+variable V that influences both B and RB. V could be for example phylogenetic similarity
+to humans. Humans have an unreasonable amount of neocortex—that is reason we pay
+attention to it—and other primates closely related to us also tend to have more neocortex.
+If those primates are studied more intensely, B values will be missing more as distance from
+humans increases. Just about the only hope in this scenario is the have detailed knowledge of
+the process that produces RB, allowing imputation of B. And that will nearly always require
+strong modeling assumptions, assumptions which usually cannot be tested with the data at
+hand.
+In every DAG described above, we want to impute missing values of B. In the first and
+second, we do so in order to not throw away corresponding values of M. In the third, we
+have to impute to hope for any sensible estimate of B →K. So let’s see how to actually do
+the imputation.
+The statistical trick with Bayesian imputation is to model the variable that has missing
+values. Each missing value is assigned a unique parameter. The observed values give us
+information about the distribution of the values. This distribution becomes a prior for the
+missing values. This prior will then be updated by full model. So there will be a posterior

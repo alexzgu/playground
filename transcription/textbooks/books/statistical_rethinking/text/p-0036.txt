@@ -1,0 +1,38 @@
+20
+2. SMALL WORLDS AND LARGE WORLDS
+Figure 2.1. Illustration of Martin Behaim’s
+1492 globe, showing the small world that
+Colombo anticipated. Europe lies on the right-
+hand side. Asia lies on the left. The big island
+labeled “Cipangu” is Japan.
+In this chapter, you will begin to build Bayesian models. The way that Bayesian models
+learn from evidence is arguably optimal in the small world. When their assumptions approx-
+imate reality, they also perform well in the large world. But large world performance has to
+be demonstrated rather than logically deduced. Passing back and forth between these two
+worlds allows both formal methods, like Bayesian inference, and informal methods, like peer
+review, to play an indispensable role.
+This chapter focuses on the small world. It explains probability theory in its essential
+form: counting the ways things can happen. Bayesian inference arises automatically from
+this perspective. Then the chapter presents the stylized components of a Bayesian statistical
+model, a model for learning from data. Then it shows you how to animate the model, to
+produce estimates.
+All this work provides a foundation for the next chapter, in which you’ll learn to sum-
+marize Bayesian estimates, as well as begin to consider large world obligations.
+Rethinking: Fast and frugal in the large world. The natural world is complex, as trying to do science
+serves to remind us. Yet everything from the humble tick to the industrious squirrel to the idle sloth
+manages to frequently make adaptive decisions. But it’s a good bet that most animals are not Bayesian,
+if only because being Bayesian is expensive and depends upon having a good model. Instead, animals
+use various heuristics that are fit to their environments, past or present. These heuristics take adaptive
+shortcuts and so may outperform a rigorous Bayesian analysis, once costs of information gathering
+and processing (and overfitting, Chapter 6) are taken into account.40 Once you already know which
+information to ignore or attend to, being fully Bayesian is a waste. It’s neither necessary nor sufficient
+for making good decisions, as real animals demonstrate. But for human animals, Bayesian analysis
+provides a general way to discover relevant information and process it logically. Just don’t think that
+it is the only way.
+2.1. The garden of forking data
+Our goal in this section will be to build Bayesian inference up from humble beginnings,
+so there is no superstition about it. Bayesian inference is really just counting and comparing
+of possibilities. Consider by analogy Jorge Luis Borges’ short story “The Garden of Forking
+Paths.” The story is about a man who encounters a book filled with contradictions. In most
+books, characters arrive at plot points and must decide among alternative paths. A protag-
+onist may arrive at a man’s home. She might kill the man, or rather take a cup of tea. Only

@@ -1,0 +1,55 @@
+436
+13. MODELS WITH MEMORY
+-4
+-2
+0
+2
+4
+-4
+-2
+0
+2
+4
+x
+v
+Centered parameterization
+-2
+-1
+0
+1
+2
+-4
+-2
+0
+2
+4
+z
+v
+Figure 13.5. Divergent transitions happen when the posterior is steep and
+the HMC simulation is too coarse to follow it. These numerical errors are
+detected automatically. Left: The posterior distribution here is a steep valley
+around x = 0 when v is small. The divergent transition (open point) over-
+shoots the wall of the valley and then careens wildly into space. Right: The
+same model, but with a non-centered parameterization that flattens the val-
+ley. See the model definitions in the text. See examples in ?HMC_2D_sample
+for code to reproduce these figures.
+parameter. For The Devil’s Funnel, we can accomplish that like this:
+v ∼Normal(0, 3)
+z ∼Normal(0, 1)
+x = z exp(v)
+This looks crazy. So to understand what just happened, consider the common procedure
+of standardizing a variable. Many times so far in this book, we’ve standardized data before
+running a model. The procedure is to subtract the mean and then divide by the standard
+deviation. The new, standardized variable has mean zero and standard deviation one. To get
+the original variable back, you would perform these steps in reverse. First you’d multiply the
+standardized variable by the original standard deviation. Then you’d add the original mean.
+The reparameterization above has just defined z as the standardized x. Since it is stan-
+dardized, it has mean zero and standard deviation one. Then to compute x, we reverse the
+standardization by multiplying z by the standard deviation, exp(v). There is no mean to add
+back, because the mean in both cases is zero. But if there were a different mean, we’d add
+it back in this step as well. The result is that x in the non-centered version has the same
+distribution as x in the original, centered version. It’s the same joint distribution of v and x.
+But when we run the Markov chain, it’s rather different. We don’t sample x directly
+now. Instead we sample z. The righthand panel of Figure 13.5 shows the non-centered
+distribution’s contours—it’s just a bivariate Gaussian now—and the HMC simulation on top.
+Let’s run the model again in ulam():

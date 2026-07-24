@@ -1,0 +1,48 @@
+16.2. HIDDEN MINDS AND OBSERVED BEHAVIOR
+547
+majority_first = Boxes$majority_first )
+# run the sampler
+m16.2 <- stan( model_code=Boxes_model , data=dat_list , chains=3 , cores=3 )
+# show marginal posterior for p
+p_labels <- c("1 Majority","2 Minority","3 Maverick","4 Random","5 Follow First")
+plot( precis(m16.2,2) , labels=p_labels )
+5 Follow First
+4 Random
+3 Maverick
+2 Minority
+1 Majority
+0.10
+0.15
+0.20
+0.25
+0.30
+Value
+Recall that 45% of the sample chose the majority color. But the posterior distribution is
+consistent with somewhere between 20% and 30% of children following the majority copying
+strategy. Conditional on this model, a similar proportion just copied the first color that was
+demonstrated. This is what hidden state models can do for us—prevent us from confusing
+behavior with strategy.
+This model can be extended to allow the probabilities of each strategy to vary by age,
+gender, or anything else. In principle, this is easy—you just make ps conditional on the pre-
+dictor variables. In practice, there are coding decisions to make. I say more about this in the
+Overthinking box below.
+Overthinking: Stan code for the Boxesmodel. A Stan model needs three “blocks” of code. I’ll explain
+each in order. The first block is the data block. This block just names the observed variables and
+declares their types. For this model, it looks like this:
+data{
+int N;
+int y[N];
+int majority_first[N];
+}
+The integer N is just a count of observed cases. It’s the number of rows in data(Boxes). Then the
+outcome y and predictor majority_first are declared as integer vectors of length N. You could
+hard-code the length as the number 629. But then you have to change the model code every time the
+number of cases changes. The second block a Stan model needs is the parameters block. This is
+like the data block, but for unobserved variables. These are the variables that we get posterior samples
+for. In this model, it contains only the simplex p:
+parameters{
+simplex[5] p;
+}
+The third block is the heart, the model block. This block calculates the log-probability of the vari-
+ables, both observed (data) and unobserved (parameters). This is the numerator in Bayes’ theorem,
+and Stan uses it to run the Hamiltonian simulation (see Chapter 9). I’ll take this block in pieces. At

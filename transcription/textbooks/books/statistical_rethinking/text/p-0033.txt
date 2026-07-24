@@ -1,0 +1,47 @@
+1.4. SUMMARY
+17
+comparing models on the basis of predictive accuracy—or p-values or anything else—will
+not necessarily produce it.
+So what can be done? What is needed is a causal model that can be used to design one or
+more statistical models for the purpose of causal identification. As I mentioned in the neu-
+tral molecular evolution example earlier in this chapter, a complete scientific model contains
+more information than a statistical model derived from it. And this additional information
+contains causal implications. Most scientists make informal use of these implications. But it
+is also possible to make formal use of them, demonstrating logically when an estimate iden-
+tifies a causal relationship. These formal methods date from the first half of the 20th century,
+but they have more recently been extended to the study of measurement, experimental de-
+sign, and the ability to generalize (or transport) results across samples.34
+And the very good news is that even when you don’t have a complete causal model, but
+only a heuristic one indicating which variables causally influence others, you can still make
+use of these logical tools. That is the strategy we will use in this book. We’ll use a graphical
+causal model to represent a causal hypothesis. The simplest graphical causal model is a
+directed acyclic graph, usually called a DAG. DAGs are heuristic—they are not detailed
+statistical models. But they allow us to deduce which statistical models can provide valid
+causal inferences, assuming the DAG is true. You don’t need to understand this right now.
+The later chapters build DAGs up through examples.
+But where does a DAG itself come from? The terrible truth about statistical inference
+is that its validity relies upon information outside the data. We require a causal model with
+which to design both the collection of data and the structure of our statistical models. But
+the construction of causal models is not a purely statistical endeavor, and statistical analysis
+can never verify all of our assumptions. There will never be a golem that accepts naked data
+and returns a reliable model of the causal relations among the variables. We’re just going to
+have to keep doing science.
+Rethinking: Causal salad. Causal inference requires a causal model that is separate from the statis-
+tical model. The data are not enough. Every philosophy agrees upon that much. Responses however
+are diverse. The most conservative response is to declare “causation” to be unprovable mental candy,
+like debating the nature of the afterlife.35 Slightly less conservative is to insist that cause can only be
+inferred under strict conditions of randomization and experimental control. This would be very lim-
+iting. Many scientific questions can never be studied experimentally—human evolution, for example.
+Many others could in principle be studied experimentally, but it would be unethical to do so. And
+many experiments are really just attempts at control—patients do not always take their medication.
+But the approach which dominates in many parts of biology and the social sciences is instead
+causal salad.36 Causal salad means tossing various “control” variables into a statistical model,
+observing changes in estimates, and then telling a story about causation. Causal salad seems founded
+on the notion that only omitted variables can mislead us about causation. But included variables can
+just as easily confound us. When tossing a causal salad, a model that makes good predictions may still
+mislead about causation. If we use the model to plan an intervention, it will get everything wrong.
+There will be examples in later chapters.
+1.4. Summary
+This first chapter has argued for a rethinking of popular statistical and scientific phi-
+losophy. Instead of choosing among various black-box tools for testing null hypotheses,
+we should learn to build and analyze multiple non-null models of natural phenomena. To

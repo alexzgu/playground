@@ -1,0 +1,47 @@
+6.1. MULTICOLLINEARITY
+173
+They are almost substitutes for one another. As a result, when you include both in a regres-
+sion, the posterior distribution ends up describing a long ridge of combinations of bF and
+bL that are equally plausible. In the case of the fat and lactose, these two variables form
+essentially a single axis of variation. The easiest way to see this is to use a pairs plot:
+R code
+6.11
+pairs( ~ kcal.per.g + perc.fat + perc.lactose , data=d , col=rangi2 )
+I display this plot in Figure 6.3. Along the diagonal, the variables are labeled. In each scat-
+terplot off the diagonal, the vertical axis variable is the variable labeled on the same row and
+the horizontal axis variable is the variable labeled in the same column. For example, the
+two scatterplots in the first row in Figure 6.3 are kcal.per.g (vertical) against perc.fat
+(horizontal) and then kcal.per.g (vertical) against perc.lactose (horizontal). Notice
+that percent fat is positively correlated with the outcome, while percent lactose is negatively
+correlated with it. Now look at the right-most scatterplot in the middle row. This plot is the
+scatter of percent fat (vertical) against percent lactose (horizontal). Notice that the points
+line up almost entirely along a straight line. These two variables are negatively correlated,
+and so strongly so that they are nearly redundant. Either helps in predicting kcal.per.g,
+but neither helps much once you already know the other.
+In the scientific literature, you might encounter a variety of dodgy ways of coping with
+multicollinearity. Few of them take a causal perspective. Some fields actually teach students
+to inspect pairwise correlations before fitting a model, to identify and drop highly correlated
+predictors. This is a mistake. Pairwise correlations are not the problem. It is the conditional
+associations—not correlations—that matter. And even then, the right thing to do will de-
+pend upon what is causing the collinearity. The associations within the data alone are not
+enough to decide what to do.
+What is likely going on in the milk example is that there is a core tradeoff in milk com-
+position that mammal mothers must obey. If a species nurses often, then the milk tends to
+be watery and low in energy. Such milk is high in sugar (lactose). If instead a species nurses
+rarely, in short bouts, then the milk needs to be higher in energy. Such milk is very high in
+fat. This implies a causal model something like this:
+D
+F
+K
+L
+The central tradeoff decides how dense, D, the milk needs to be. We haven’t observed this
+variable, so it’s shown circled. Then fat, F, and lactose, L, are determined. Finally, the com-
+position of F and L determines the kilocalories, K. If we could measure D, or had an evolu-
+tionary and economic model to predict it based upon other aspects of a species, that would
+be better than stumbling through regressions. We’d just regression K on D, ignoring the
+mediating L and F, to estimate the causal influence of density on energy.
+The problem of multicollinearity is a member of a family of problems with fitting models,
+a family sometimes known as non-identifiability. When a parameter is non-identifiable,
+it means that the structure of the data and model do not make it possible to estimate the
+parameter’s value. Sometimes this problem arises from mistakes in coding a model, but
+many important types of models present non-identifiable or weakly identifiable parameters,

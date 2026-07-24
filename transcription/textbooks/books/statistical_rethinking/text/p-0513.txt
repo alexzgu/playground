@@ -1,0 +1,73 @@
+14.5. CONTINUOUS CATEGORIES AND THE GAUSSIAN PROCESS
+497
+mu <- a + bM*M + bG*G,
+matrix[N_spp,N_spp]: SIGMA <- cov_GPL1( Dmat , etasq , rhosq , 0.01 ),
+a ~ normal(0,1),
+c(bM,bG) ~ normal(0,0.5),
+etasq ~ half_normal(1,0.25),
+rhosq ~ half_normal(3,0.25)
+), data=dat_list , chains=4 , cores=4 )
+precis( m14.11 )
+mean
+sd
+5.5% 94.5% n_eff Rhat
+a
+-0.07 0.08 -0.19
+0.06
+2168
+1
+bG
+0.05 0.02
+0.01
+0.09
+2634
+1
+bM
+0.83 0.03
+0.79
+0.88
+2280
+1
+etasq
+0.03 0.01
+0.03
+0.05
+2060
+1
+rhosq
+2.79 0.26
+2.36
+3.20
+2192
+1
+Now group size is seemingly associated with brain size again. The association is small, but
+most of the posterior mass is above zero. Why are the results different? The answer must be
+that the inferred covariance function looks rather different than the Brownian motion model.
+So let’s look at the posterior covariance functions implied by etasq and rhosq. Remember
+that these two parameters interact to produce the covariance function, and they are almost
+always strongly correlated in the posterior, so you can’t really see what’s going on by looking
+at them separately. We need to extract them and push them back through the Gaussian
+process covariance function:
+R code
+14.53
+post <- extract.samples(m14.11)
+plot( NULL , xlim=c(0,max(dat_list$Dmat)) , ylim=c(0,1.5) ,
+xlab="phylogenetic distance" , ylab="covariance" )
+# posterior
+for ( i in 1:30 )
+curve( post$etasq[i]*exp(-post$rhosq[i]*x) , add=TRUE , col=rangi2 )
+# prior mean and 89% interval
+eta <- abs(rnorm(1e3,1,0.25))
+rho <- abs(rnorm(1e3,3,0.25))
+d_seq <- seq(from=0,to=1,length.out=50)
+K <- sapply( d_seq , function(x) eta*exp(-rho*x) )
+lines( d_seq , colMeans(K) , lwd=2 )
+shade( apply(K,2,PI) , d_seq )
+text( 0.5 , 0.5 , "prior" )
+text( 0.2 , 0.1 , "posterior" , col=rangi2 )
+The result is show in Figure 14.14. The horizontal axis is the standardized phylogenetic
+distance—1 just means the longest distance in the sample. The vertical axis is covariance.
+The blue curves are 30 draws from the posterior distribution. The black curve is the prior
+mean. The posterior is pressed up against the bottom axis, indicating a very low covariance
+between species at any distance. There just isn’t a lot of phylogenetic covariance for brain
+sizes, at least according to this model and these data. As a result, the phylogenetic distance

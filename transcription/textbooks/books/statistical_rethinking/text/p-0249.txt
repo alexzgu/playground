@@ -1,0 +1,57 @@
+7.5. MODEL COMPARISON
+233
+Similarly, we can ask about the difference between models m6.8, the model with treat-
+ment only, and model m6.6, the intercept model. Model m6.8 provides pretty good evidence
+that the treatment works. You can inspect the posterior again, if you have forgotten. But
+WAIC thinks these two models are quite similar. There difference is only 3 units of deviance.
+Let’s calculate the standard error of the difference, to highlight the issue:
+R code
+7.30
+set.seed(92)
+waic_m6.6 <- WAIC( m6.6 , pointwise=TRUE )$WAIC
+diff_m6.6_m6.8 <- waic_m6.6 - waic_m6.8
+sqrt( n*var( diff_m6.6_m6.8 ) )
+[1] 4.858914
+The compare table doesn’t show this value, but it did calculate it. To see it, you need the dSE
+slot of the return:
+R code
+7.31
+set.seed(93)
+compare( m6.6 , m6.7 , m6.8 )@dSE
+m6.6
+m6.7
+m6.8
+m6.6
+NA 12.20638
+4.934353
+m6.7 12.206380
+NA 10.426576
+m6.8
+4.934353 10.42658
+NA
+This matrix contains all of the pairwise difference standard errors for the models you com-
+pared. Notice that the standard error of the difference for m6.6 and m6.8 is bigger than the
+difference itself. We really cannot easily distinguish these models on the basis of WAIC.
+Does this mean that the treatment doesn’t work? Of course not. We know that it works.
+We simulated the data. And the posterior distribution of the treatment effect, bt in m6.8,
+is reliably positive. But it isn’t especially large. So it doesn’t do much alone to improve pre-
+diction of plant height. There are just too many other sources of variation. This result just
+echoes the core fact about WAIC (and CV and PSIS): It guesses predictive accuracy, not
+causal truth. A variable can be causally related to an outcome, but have little relative im-
+pact on it, and WAIC will tell you that. That is what is happening in this case. We can use
+WAIC/CV/PSIS to measure how big a difference some variable makes in prediction. But we
+cannot use these criteria to decide whether or not some effect exists. We need the posterior
+distributions of multiple models, maybe examining the implied conditional independencies
+of a relevant causal graph, to do that.
+The last element of the compare table is the column we skipped over, weight. These
+values are a traditional way to summarize relative support for each model. They always sum
+to 1, within a set of compared models. The weight of a model i is computed as:
+wi =
+exp(−0.5∆i)
+P
+j exp(−0.5∆j)
+where ∆i is the difference between model i’s WAIC value and the best WAIC in the set.
+These are the dWAIC values in the table. These weights can be a quick way to see how big the
+differences are among models. But you still have to inspect the standard errors. Since the
+weights don’t reflect the standard errors, they are simply not sufficient for model comparison.
+Weights are also used in model averaging. Model averaging is a family of methods for

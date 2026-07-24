@@ -1,0 +1,48 @@
+208
+7. ULYSSES’ COMPASS
+7.2.1.2. Measuring accuracy. But even if we ignore costs and benefits of any actual deci-
+sion based upon the forecasts, there’s still ambiguity about which measure of “accuracy” to
+adopt. There’s nothing special about “hit rate.” The question to focus on is: Which definition
+of “accuracy” is maximized by knowing the true model generating the data? Surely we can’t
+do better than that.
+Consider computing the probability of predicting the exact sequence of days. This means
+computing the probability of a correct prediction for each day. Then multiply all of these
+probabilities together to get the joint probability of correctly predicting the observed se-
+quence. This is the same thing as the joint likelihood, which you’ve been using up to this
+point to fit models with Bayes’ theorem. This is the definition of accuracy that is maximized
+by the correct model.
+In this light, the newcomer looks even worse. The probability for the current weather-
+person is 13 × 0.47 ≈0.005. For the newcomer, it’s 03 × 17 = 0. So the newcomer has zero
+probability of getting the sequence correct. This is because the newcomer’s predictions never
+expect rain. So even though the newcomer has a high average probability of being correct
+(hit rate), he has a terrible joint probability of being correct.
+And the joint probability is the measure we want. Why? Because it appears in Bayes’ the-
+orem as the likelihood. It’s the unique measure that correctly counts up the relative number
+of ways each event (sequence of rain and shine) could happen. Another way to think of this
+is to consider what happens when we maximize average probability or joint probability. The
+true data-generating model will not have the highest hit rate. You saw this already with the
+weatherperson: Assigning zero probability to rain improves hit rate, but it is clearly wrong.
+In contrast, the true model will have the highest joint probability.
+In the statistics literature, you will sometimes see this measure of accuracy called the
+log scoring rule, because typically we compute the logarithm of the joint probability and
+report that. If you see an analysis using something else, either it is a special case of the log
+scoring rule or it is a mistake.
+Rethinking: What is a true model? It’s hard to define “true” probabilities, because all models are
+false. So what does “truth” mean in this context? It means the right probabilities, given our state
+of ignorance. Our state of ignorance is described by the model. The probability is in the model,
+not in the world. If we had all of the information relevant to producing a forecast, then rain or sun
+would be deterministic, and the “true” probabilities would be just 0’s and 1’s. Absent some relevant
+information, as in all modeling, outcomes in the small world are uncertain, even though they remain
+perfectly deterministic in the large world. Because of our ignorance, we can have “true” probabilities
+between zero and one.
+An example might help. Suppose you toss the globe, as in Chapter 2. Before you catch it, the
+outcome is uncertain. There is a “true” probability of observing water, conditional on our assumed
+model. But if we had enough information about the globe toss—initial conditions, angular momen-
+tum vector, and such—then the outcome would be knowable with certainty. No two tosses are ever
+exactly alike, so the “true” probability of observing water must average over the unknown differences
+to describe the relative plausibility of water compared to land. There is a right answer to the question
+this model poses—70% water. It’s our ignorance of the physics of the globe toss that leads us to use
+it as a way to estimate the amount of water on the surface.
+7.2.2. Information and uncertainty. So we want to use the log probability of the data to
+score the accuracy of competing models. The next problem is how to measure distance from
+perfect prediction. A perfect prediction would just report the true probabilities of rain on

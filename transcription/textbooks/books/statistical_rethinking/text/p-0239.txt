@@ -1,0 +1,45 @@
+7.4. PREDICTING PREDICTIVE ACCURACY
+223
+If you look back at Figure 7.8, there is a curious pattern in the distance between the
+points (showing the train-test pairs with flat priors): The difference is approximately twice
+the number of parameters in each model. The difference between training deviance and
+testing deviance is almost exactly 2 for the first model (with 1 parameter) and about 10 for
+the last (with 5 parameters). This is not a coincidence but rather one of the coolest results in
+machine learning: For ordinary linear regressions with flat priors, the expected overfitting
+penalty is about twice the number of parameters.
+This is the phenomenon behind information criteria. The best known information
+criterion is the Akaike information criterion, abbreviated AIC.112 AIC provides a sur-
+prisingly simple estimate of the average out-of-sample deviance:
+AIC = Dtrain + 2p = −2lppd + 2p
+where p is the number of free parameters in the posterior distribution. As the 2 is just there
+for scaling, what AIC tells us is that the dimensionality of the posterior distribution is a
+natural measure of the model’s overfitting tendency. More complex models tend to overfit
+more, directly in proportion to the number of parameters.
+AIC is of mainly historical interest now. Newer and more general approximations exist
+that dominate AIC is every context. But Akaike deserves tremendous credit for the initial
+inspiration. See the box further down for more details. AIC is an approximation that is
+reliable only when:
+(1) The priors are flat or overwhelmed by the likelihood.
+(2) The posterior distribution is approximately multivariate Gaussian.
+(3) The sample size N is much greater113 than the number of parameters k.
+Since flat priors are hardly ever the best priors, we’ll want something more general. And
+when you get to multilevel models, the priors are never flat by definition. There is a slightly
+more general criterion called the Deviance Information Criterion (DIC). DIC is okay
+with informative priors, but still assumes that the posterior is multivariate Gaussian and that
+N ≫k.114
+We’ll focus on a criterion that is more general than both AIC and DIC. The Widely Ap-
+plicable Information Criterion (WAIC) makes no assumption about the shape of the
+posterior.115 It provides an approximation of the out-of-sample deviance that converges to
+the cross-validation approximation in a large sample. But in a finite sample, it can disagree.
+It can disagree because it has a different target—it isn’t trying to approximate the cross-
+validation score, but rather guess the out-of-sample K-L Divergence. In the large-sample
+limit, these tend to be the same.
+Overthinking: The Akaike inspiration criterion. The Akaike Information Criterion is a truly elegant
+result. Hirotugu Akaike (赤池弘次, 1927–2009) explained how the insight came to him: “On the
+morning of March 16, 1971, while taking a seat in a commuter train, I suddenly realized that the
+parameters of the factor analysis model were estimated by maximizing the likelihood and that the
+mean value of the logarithmus of the likelihood was connected with the Kullback-Leibler information
+number.”116 What was at the heart of his realization? Mechanically, deriving AIC means writing down
+the goal, which is the expected K-L divergence, and then making approximations. The expected bias
+turns out to be proportional to the number of parameters, provided a number of assumptions are
+approximately correct.

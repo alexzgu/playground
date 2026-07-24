@@ -1,0 +1,44 @@
+4.5. CURVES FROM LINES
+117
+) ,
+data=d )
+Computing the curve and intervals is similarly a small modification of the previous code.
+This cubic curve is even more flexible than the parabola, so it fits the data even better.
+But it’s not clear that any of these models make a lot of sense. They are good geocentric
+descriptions of the sample, yes. But there are two clear problems. First, a better fit to the
+sample might not actually be a better model. That’s the subject of Chapter 7. Second, the
+model contains no biological information, so we aren’t learning anything about any causal
+relationship between height and weight. We’ll deal with this second problem much later in
+the book, in Chapter 16.
+Rethinking: Linear, additive, funky. The parabolic model of µi above is still a “linear model” of
+the mean, even though the equation is clearly not of a straight line. Unfortunately, the word “linear”
+means different things in different contexts, and different people use it differently in the same context.
+What “linear” means in this context is that µi is a linear function of any single parameter. Such models
+have the advantage of being easier to fit to data. They are also often easier to interpret, because they
+assume that parameters act independently on the mean. They have the disadvantage of being strongly
+conventional. They are often used thoughtlessly. When you have real knowledge of your study system,
+it is often easy to do better than a linear model. These models are geocentric engines, devices for
+describing partial correlations among variables. We should feel embarrassed to use them, just so we
+don’t become satisfied with the phenomenological explanations they provide.
+Overthinking: Converting back to natural scale. The plots in Figure 4.11 have standard units on
+the horizontal axis. These units are sometimes called z-scores. But suppose you fit the model using
+standardized variables, but want to plot the estimates on the original scale. All that’s really needed is
+first to turn off the horizontal axis when you plot the raw data:
+R code
+4.70
+plot( height ~ weight_s , d , col=col.alpha(rangi2,0.5) , xaxt="n" )
+The xaxt at the end there turns off the horizontal axis. Then you explicitly construct the axis, using
+the axis function.
+R code
+4.71
+at <- c(-2,-1,0,1,2)
+labels <- at*sd(d$weight) + mean(d$weight)
+axis( side=1 , at=at , labels=round(labels,1) )
+The first line above defines the location of the labels, in standardized units. The second line then takes
+those units and converts them back to the original scale. The third line draws the axis. Take a look at
+the help ?axis for more details.
+4.5.2. Splines. The second way to introduce a curve is to construct something known as
+a spline. The word spline originally referred to a long, thin piece of wood or metal that
+could be anchored in a few places in order to aid drafters or designers in drawing curves. In
+statistics, a spline is a smooth function built out of smaller, component functions. There are
+actually many types of splines. The b-spline we’ll look at here are the most common and

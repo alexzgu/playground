@@ -1,0 +1,51 @@
+508
+15. MISSING DATA AND OTHER OPPORTUNITIES
+A
+D
+Dobs
+M
+Mobs
+eD
+eM
+Now there is a Mobs to mirror Dobs. Likewise there is an error eM to match. This DAG
+assumes that the errors eD and eM are independent of one another. This is not necessarily
+the case.
+Here’s the updated model, with the new bits in blue:
+Dobs,i ∼Normal(Dtrue,i, Dse,i)
+[distribution for observed D values]
+Dtrue,i ∼Normal(µi, σ)
+[distribution for true D values]
+µi = α + βAAi + βMMtrue,i
+[linear model]
+Mobs,i ∼Normal(Mtrue,i, Mse,i)
+[distribution for observed M values]
+Mtrue,i ∼Normal(0, 1)
+[distribution for true M values]
+α ∼Normal(0, 0.2)
+βA ∼Normal(0, 0.5)
+βM ∼Normal(0, 0.5)
+σ ∼Exponential(1)
+The Mtrue parameters will hold the posterior distributions of the true marriage rates. And
+fitting the model is much like before:
+R code
+15.5
+dlist <- list(
+D_obs = standardize( d$Divorce ),
+D_sd = d$Divorce.SE / sd( d$Divorce ),
+M_obs = standardize( d$Marriage ),
+M_sd = d$Marriage.SE / sd( d$Marriage ),
+A = standardize( d$MedianAgeMarriage ),
+N = nrow(d)
+)
+m15.2 <- ulam(
+alist(
+D_obs ~ dnorm( D_true , D_sd ),
+vector[N]:D_true ~ dnorm( mu , sigma ),
+mu <- a + bA*A + bM*M_true[i],
+M_obs ~ dnorm( M_true , M_sd ),
+vector[N]:M_true ~ dnorm( 0 , 1 ),
+a ~ dnorm(0,0.2),
+bA ~ dnorm(0,0.5),
+bM ~ dnorm(0,0.5),
+sigma ~ dexp( 1 )
+) , data=dlist , chains=4 , cores=4 )

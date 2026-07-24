@@ -1,0 +1,38 @@
+8 Conditional Manatees
+The manatee (Trichechus manatus) is a slow-moving, aquatic mammal that lives in warm,
+shallow water. Manatees have no natural predators, but they do share their waters with motor
+boats. And motor boats have propellers. While manatees are related to elephants and have
+very thick skins, propeller blades can and do kill them. A majority of adult manatees bear
+some kind of scar earned in a collision with a boat (Figure 8.1, top).128
+The Armstrong Whitworth A.W.38 Whitley was a frontline Royal Air Force bomber.
+During the second World War, the A.W.38 carried bombs and pamphlets into German ter-
+ritory. Unlike the manatee, the A.W.38 has fierce natural enemies: artillery and interceptor
+fire. Many planes never returned from their missions. And those that survived had the scars
+to prove it (Figure 8.1, bottom).
+How is a manatee like an A.W.38 bomber? In both cases—manatee propeller scars and
+bomber bullet holes—we’d like to do something to improve the odds, to help manatees and
+bombers survive. Most observers intuit that helping manatees or bombers means reducing
+the kind of damage we see on them. For manatees, this might mean requiring propeller
+guards (on the boats, not the manatees). For bombers, it’d mean adding armor to the parts
+of the plane that show the most damage.
+But in both cases, the evidence misleads us. Propellers do not cause most of the injury
+and death caused to manatees. Rather autopsies confirm that collisions with blunt parts of
+the boat, like the keel, do far more damage. Similarly, up-armoring the damaged portions of
+returning bombers did little good. Instead, improving the A.W.38 bomber meant armoring
+the undamaged sections.129 The evidence from surviving manatees and bombers is mislead-
+ing, because it is conditional on survival. Manatees and bombers that perished look different.
+A manatee struck by a keel is less likely to live than another grazed by a propeller. So among
+the survivors, propeller scars are common. Similarly, bombers that returned home conspic-
+uously lacked damage to the cockpit and engines. They got lucky. Bombers that never re-
+turned home were less so. To get the right answer, in either context, we have to realize that
+the kind of damage seen is conditional on survival.
+Conditioning is one of the most important principles of statistical inference. Data,
+like the manatee scars and bomber damage, are conditional on how they get into our sample.
+Posterior distributions are conditional on the data. All model-based inference is conditional
+on the model. Every inference is conditional on something, whether we notice it or not.
+And a large part of the power of statistical modeling comes from creating devices that
+allow probability to be conditional of aspects of each case. The linear models you’ve grown to
+love are just crude devices that allow each outcome yi to be conditional on a set of predictors
+for each case i. Like the epicycles of the Ptolemaic and Kopernikan models (Chapters 4 and
+7), linear models give us a way to describe conditionality.
+241

@@ -1,0 +1,80 @@
+2.1. THE GARDEN OF FORKING DATA
+25
+Bayesian inference is justified that no other approach can also be justified. Golems come in many
+types, and some of all types are useful.
+2.1.2. Combining other information. We may have additional information about the rel-
+ative plausibility of each conjecture. This information could arise from knowledge of how
+the contents of the bag were generated. It could also arise from previous data. Whatever the
+source, it would help to have a way to combine different sources of information to update
+the plausibilities. Luckily there is a natural solution: Just multiply the counts.
+To grasp this solution, suppose we’re willing to say each conjecture is equally plausible
+at the start. So we just compare the counts of ways in which each conjecture is compatible
+with the observed data. This comparison suggests that [
+] is slightly more plausible
+than [
+], and both are about three times more plausible than [
+]. Since these
+are our initial counts, and we are going to update them next, let’s label them prior.
+Now suppose we draw another marble from the bag to get another observation:
+. Now
+you have two choices. You could start all over again, making a garden with four layers to trace
+out the paths compatible with the data sequence
+. Or you could take the previous
+counts—the prior counts—over conjectures (0, 3, 8, 9, 0) and just update them in light of the
+new observation. It turns out that these two methods are mathematically identical, as long
+as the new observation is logically independent of the previous observations.
+Here’s how to do it. First we count the numbers of ways each conjecture could produce
+the new observation,
+. Then we multiply each of these new counts by the prior numbers
+of ways for each conjecture. In table form:
+Ways to
+Prior
+Conjecture
+produce
+counts
+New count
+[
+]
+0
+0
+0 × 0 = 0
+[
+]
+1
+3
+3 × 1 = 3
+[
+]
+2
+8
+8 × 2 = 16
+[
+]
+3
+9
+9 × 3 = 27
+[
+]
+4
+0
+0 × 4 = 0
+The new counts in the right-hand column above summarize all the evidence for each conjec-
+ture. As new data arrive, and provided those data are independent of previous observations,
+then the number of logically possible ways for a conjecture to produce all the data up to that
+point can be computed just by multiplying the new count by the old count.
+This updating approach amounts to nothing more than asserting that (1) when we have
+previous information suggesting there are Wprior ways for a conjecture to produce a previous
+observation Dprior and (2) we acquire new observations Dnew that the same conjecture can
+produce in Wnew ways, then (3) the number of ways the conjecture can account for both
+Dprior as well as Dnew is just the product Wprior × Wnew. For example, in the table above the
+conjecture [
+] has Wprior = 8 ways to produce Dprior =
+. It also has Wnew = 2
+ways to produce the new observation Dnew =
+. So there are 8 × 2 = 16 ways for the
+conjecture to produce both Dprior and Dnew. Why multiply? Multiplication is just a shortcut
+to enumerating and counting up all of the paths through the garden that could produce all
+the observations.
+In this example, the prior data and new data are of the same type: marbles drawn from
+the bag. But in general, the prior data and new data can be of different types. Suppose for
+example that someone from the marble factory tells you that blue marbles are rare. So for

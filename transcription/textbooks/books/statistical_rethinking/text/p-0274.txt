@@ -1,0 +1,46 @@
+258
+8. CONDITIONAL MANATEES
+to see how water will help a plant—photosynthesis depends upon both light and water. Like-
+wise, in the absence of water, sunlight does a plant little good. One way to model such an
+interdependency is to use an interaction effect. In the absence of a good mechanistic model
+of the interaction, one that uses a theory about the plant’s physiology to hypothesize the
+functional relationship between light and water, then a simple linear two-way interaction is
+a good start. But ultimately it’s not close to the best that we could do.
+8.3.2. The models. I’m going to focus on just two models: (1) the model with both water
+and shade but no interaction and (2) the model that also contains the interaction of water
+with shade. You could also inspect models that contain only one of these variables, water
+or shade, and I encourage the reader to try that at the end and make sure you understand
+the full ensemble of models.
+The causal scenario is simply that water (W) and shade (S) both influence blooms (B):
+W →B ←S. As before, this DAG doesn’t tell us the function through which W and S jointly
+influence B, B = f(W, S). In principle, every unique combination of W and S could have a
+different mean S. The convention is to do something much simpler. We’ll start simple.
+The first model, containing no interaction at all (only “main effects”), begins this way:
+Bi ∼Normal(µi, σ)
+µi = α + βW(Wi −¯W) + βS(Si −¯S)
+where Bi is the value of blooms on row i, Wi is the value of water, and Si is the value of
+shade. The symbols ¯W and ¯S are the means of water and shade, respectively. All together,
+this is just a linear regression with two predictors, each centered by subtracting its mean.
+To make estimation easier, let’s center W and S and scale B by its maximum:
+R code
+8.20
+d$blooms_std <- d$blooms / max(d$blooms)
+d$water_cent <- d$water - mean(d$water)
+d$shade_cent <- d$shade - mean(d$shade)
+Now blooms_std ranges from 0 to 1, and both water_cent and shade_cent range from
+−1 to 1. I’ve scaled blooms by its maximum observed value, for three reasons. First, the
+large values on the raw scale will make optimization difficult. Second, it will be easier to
+assign a reasonable prior this way. Third, we don’t want to standardize blooms, because zero
+is a meaningful boundary we want to preserve.
+As always in rescaling variables, the goals are to create focal points that you might have
+prior information about, prior to seeing the actual data values. That way we can assign priors
+that are not obviously crazy, and in thinking about those priors, we might realize that the
+model makes no sense. But this is only possible if we think about the relationship between
+measurements and parameters, and the exercise of rescaling and assigning sensible priors
+helps us along that path. Even when there are enough data that choice of priors is not crucial,
+this thought exercise is useful.
+There are three parameters (aside from σ) in this model, so we need three priors. As a
+first, vague guess:
+α ∼Normal(0.5, 1)
+βW ∼Normal(0, 1)
+βS ∼Normal(0, 1)

@@ -1,0 +1,54 @@
+94
+4. GEOCENTRIC MODELS
+6 155.1772 7.974603
+You end up with a data frame, post, with 10,000 (1e4) rows and two columns, one column
+for µ and one for σ. Each value is a sample from the posterior, so the mean and standard
+deviation of each column will be very close to the MAP values from before. You can confirm
+this by summarizing the samples:
+R code
+4.35
+precis(post)
+quap posterior: 10000 samples from m4.1
+mean
+sd
+5.5%
+94.5%
+histogram
+mu
+154.61 0.41 153.95 155.27
+▁▁▁▅▇▂▁▁
+sigma
+7.72 0.29
+7.26
+8.18 ▁▁▁▂▅▇▇▃▁▁▁▁
+Compare these values to the output from precis(m4.1). And you can use plot(post)
+to see how much they resemble the samples from the grid approximation in Figure 4.4
+(page 88).
+These samples also preserve the covariance between µ and σ. This hardly matters right
+now, because µ and σ don’t covary at all in this model. But once you add a predictor variable
+to your model, covariance will matter a lot.
+Overthinking: Under the hood with multivariate sampling. The function extract.samples is
+for convenience. It is just running a simple simulation of the sort you conducted near the end of
+Chapter 3. Here’s a peak at the motor. The work is done by a multi-dimensional version of rnorm,
+mvrnorm. The function rnorm simulates random Gaussian values, while mvrnorm simulates random
+vectors of multivariate Gaussian values. Here’s how to use it directly to do what extract.samples
+does:
+R code
+4.36
+library(MASS)
+post <- mvrnorm( n=1e4 , mu=coef(m4.1) , Sigma=vcov(m4.1) )
+You don’t usually need to use mvrnorm directly like this, but sometimes you want to simulate multi-
+variate Gaussian outcomes. In that case, you’ll need to access mvrnorm directly. And of course it’s
+always good to know a little about how the machine operates. Later on, we’ll work with posterior
+distributions that cannot be correctly approximated this way.
+4.4. Linear prediction
+What we’ve done above is a Gaussian model of height in a population of adults. But it
+doesn’t really have the usual feel of “regression” to it. Typically, we are interested in modeling
+how an outcome is related to some other variable, a predictor variable. If the predictor
+variable has any statistical association with the outcome variable, then we can use it to predict
+the outcome. When the predictor variable is built inside the model in a particular way, we’ll
+have linear regression.
+So now let’s look at how height in these Kalahari foragers (the outcome variable) covaries
+with weight (the predictor variable). This isn’t the most thrilling scientific question, I know.
+But it is an easy relationship to start with, and if it seems dull, it’s because you don’t have
+a theory about growth and life history in mind. If you did, it would be thrilling. We’ll try

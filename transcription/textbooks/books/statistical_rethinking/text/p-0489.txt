@@ -1,0 +1,55 @@
+14.3. INSTRUMENTS AND CAUSAL DESIGNS
+473
+Sigma[2]
+0.81 0.02
+0.77
+0.85
+1768
+1
+There is a lot going on here. But we can take it one piece at a time. First look at bEW, the es-
+timated influence of education on wages. It is small and straddles both sides of zero. That is
+the correct causal inference. Second, the correlation Rho[1,2] between the two outcomes,
+wages and education, is reliably positive. That reflects the common influence of U. Remem-
+ber: This correlation is conditional on E (for W) and Q (for E). It isn’t the raw empirical
+correlation, but rather the residual correlation.
+It’s a good idea to adjust the simulation and try other scenarios. To speed up your play,
+you can avoid re-compiling the models as long as you keep N=500 and run these lines to
+sample from the posterior distributions:
+R code
+14.27
+m14.4x <- ulam( m14.4 , data=dat_sim , chains=4 , cores=4 )
+m14.6x <- ulam( m14.6 , data=dat_sim , chains=4 , cores=4 )
+To begin, you might try a scenario in which education has a positive influence but the con-
+found hides it:
+R code
+14.28
+set.seed(73)
+N <- 500
+U_sim <- rnorm( N )
+Q_sim <- sample( 1:4 , size=N , replace=TRUE )
+E_sim <- rnorm( N , U_sim + Q_sim )
+W_sim <- rnorm( N , -U_sim + 0.2*E_sim )
+dat_sim <- list(
+W=standardize(W_sim) ,
+E=standardize(E_sim) ,
+Q=standardize(Q_sim) )
+You should find that E and W have a negative correlation in their residual variance, because
+the confound positively influences one and negatively influences the other.
+Instrumental variables are hard to understand. But there are some excellent tools to help
+you. For example, the dagitty package contains a function instrumentalVariables that
+will find instruments, if they are present in a DAG. In this example, we could define the DAG
+and query the instrument this way:
+R code
+14.29
+library(dagitty)
+dagIV <- dagitty( "dag{ Q -> E <- U -> W <- E }" )
+instrumentalVariables( dagIV , exposure="E" , outcome="W" )
+Q
+This is no substitute for understanding, but it can help you develop understanding and check
+your intuitions.
+The hardest thing about instrumental variables is believing in any particular instrument.
+If you believe in your DAG, they can are easy to believe. But should you believe in your DAG?
+As an example, a study of islands employed wind direction as an instrument for inferring the
+impact of colonialism on economic development.198 Colonial history and economic perfor-
+mance are confounded by many things, like the natural resources of an island. If however
+wind direction influences date of colonization—because when ships used sails, trade winds

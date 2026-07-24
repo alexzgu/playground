@@ -2,9 +2,7 @@
 *(PDF pages 89–130; book pages 83–124)*
 
 ### PDF page 89 (book page 83)
-# Chapter 3
-
-# Stochastic integration
+# Chapter 3 — Stochastic integration
 
 **3.1 What is stochastic calculus?**
 

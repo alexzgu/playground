@@ -1,0 +1,57 @@
+92
+4. GEOCENTRIC MODELS
+R code
+4.30
+start <- list(
+mu=mean(d2$height),
+sigma=sd(d2$height)
+)
+m4.1 <- quap( flist , data=d2 , start=start )
+These start values are good guesses of the rough location of the MAP values.
+Note that the list of start values is a regular list, not an alist like the formula list is. The two
+functions alist and list do the same basic thing: allow you to make a collection of arbitrary R
+objects. They differ in one important respect: list evaluates the code you embed inside it, while
+alist does not. So when you define a list of formulas, you should use alist, so the code isn’t ex-
+ecuted. But when you define a list of start values for parameters, you should use list, so that code
+like mean(d2$height) will be evaluated to a numeric value.
+The priors we used before are very weak, both because they are nearly flat and because
+there is so much data. So I’ll splice in a more informative prior for µ, so you can see the
+effect. All I’m going to do is change the standard deviation of the prior to 0.1, so it’s a very
+narrow prior. I’ll also build the formula right into the call to quap, so you can see how to
+build it all at once.
+R code
+4.31
+m4.2 <- quap(
+alist(
+height ~ dnorm( mu , sigma ) ,
+mu ~ dnorm( 178 , 0.1 ) ,
+sigma ~ dunif( 0 , 50 )
+) , data=d2 )
+precis( m4.2 )
+Mean StdDev
+5.5%
+94.5%
+mu
+177.86
+0.10 177.70 178.02
+sigma
+24.52
+0.93
+23.03
+26.00
+Notice that the estimate for µ has hardly moved off the prior. The prior was very concentrated
+around 178. So this is not surprising. But also notice that the estimate for σ has changed quite
+a lot, even though we didn’t change its prior at all. Once the golem is certain that the mean
+is near 178—as the prior insists—then the golem has to estimate σ conditional on that fact.
+This results in a different posterior for σ, even though all we changed is prior information
+about the other parameter.
+4.3.6. Sampling from a quap. The above explains how to get a quadratic approximation of
+the posterior, using quap. But how do you then get samples from the quadratic approxi-
+mate posterior distribution? The answer is rather simple, but non-obvious, and it requires
+recognizing that a quadratic approximation to a posterior distribution with more than one
+parameter dimension—µ and σ each contribute one dimension—is just a multi-dimensional
+Gaussian distribution.
+As a consequence, when R constructs a quadratic approximation, it calculates not only
+standard deviations for all parameters, but also the covariances among all pairs of param-
+eters. Just like a mean and standard deviation (or its square, a variance) are sufficient to
+describe a one-dimensional Gaussian distribution, a list of means and a matrix of variances

@@ -1,0 +1,47 @@
+12.2. ZERO-INFLATED OUTCOMES
+389
+p
+1 – p
+observe y = 0
+observe y > 0
+Drink
+Work
+0
+1
+2
+3
+4
+5
+0
+50
+100
+150
+manuscripts completed
+Frequency
+Figure 12.3. Left: Structure of the zero-inflated likelihood calculation. Be-
+ginning at the top, the monks drink p of the time or instead work 1 −p of
+the time. Drinking monks always produce an observation y = 0. Working
+monks may produce either y = 0 or y > 0. Right: Frequency distribution of
+zero-inflated observations. The blue line segment over zero shows the y = 0
+observations that arose from drinking. In real data, we typically cannot see
+which zeros come from which process.
+but with a large number of trials and very low probability, so the distribution tends towards
+Poisson.
+Now imagine that the monks take breaks on some days. On those days, no manuscripts
+are completed. Instead, the wine cellar is opened and more earthly delights are practiced.
+As the monastery owner, you’d like to know how often the monks drink. The obstacle for
+inference is that there will be zeros on honest non-drinking days, as well, just by chance. So
+how can you estimate the number of days spent drinking?
+Let’s make a mixture to solve this problem.178 We want to consider that any zero in the
+data can arise from two processes: (1) the monks spent the day drinking and (2) they worked
+that day but nevertheless failed to complete any manuscripts. Let p be the probability the
+monks spend the day drinking. Let λ be the mean number of manuscripts completed, when
+the monks work.
+To get this model going, we need to define a likelihood function that mixes these two
+processes. To grasp how we can construct such a monster, think of the monks’ drinking as
+resulting from a coin flip (Figure 12.3). The “coin” shows a cask of wine on one side and a
+quill on the other. The probability the wine cask shows is p, which could be any value from
+0 to 1. Depending upon the outcome of the coin flip, the monks either begin drinking or
+rather begin copying. Drinking monks always produce zero completed manuscripts. Work-
+ing monks produce a Poisson number of completed manuscripts with some average rate λ.
+So it is possible still to observe a zero, even when the monks work.

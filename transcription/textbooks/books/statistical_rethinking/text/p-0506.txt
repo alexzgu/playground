@@ -1,0 +1,47 @@
+490
+14. ADVENTURES IN COVARIANCE
+the expectation, and being so close, is consistent with spatial covariance. The posterior cor-
+relations merely describe this feature of the data. Similarly, Manus and the Trobriands are
+geographically close, have a substantial posterior correlation, and fewer tools than expected
+for their population sizes. Tonga has more tools than expected for its population, and its
+proximity to Fiji counteracts some of the tug Fiji’s smaller neighbors—Malekula, Tikopia,
+and Santa Cruz—exert on it. So the model seems to think Fiji would have fewer tools, if it
+weren’t for Tonga.
+Of course the correlations that this model describes by geographic distance may be the
+result of other, unmeasured commonalities between geographically close societies. For ex-
+ample, Manus and the Trobriands are geologically and ecologically quite different from Fiji
+and Tonga. So it could be availability of, for example, tool stone that explains some of the
+correlations. The Gaussian process regression is a grand and powerful descriptive model. As
+a result, its output is always compatible with many different causal explanations.
+Rethinking: Dispersion by other names. The model in this section uses a Poisson likelihood, which
+is often sensitive to outliers, like the Hawaii data. You could use a gamma-Poisson likelihood instead,
+as explained in Chapter 12. But note that the varying effects in this example already induce additional
+dispersion around the Poisson mean. Adding Gaussian noise to each Poisson observation is another
+traditional way to handle over-dispersion in Poisson models. But do try the model with gamma-
+Poisson as well, so you can compare.
+Overthinking: Non-centered islands. To build a non-centered Gaussian Process, we can use the
+same general trick of converting the covariance matrix to a Cholesky factor and then multiplying
+that factor by the z-scores of each varying effect. The covariance matrix is defined the same way. We
+just end up with some intermediate steps. Here is the Oceanic societies Gaussian Process model in
+non-centered form:
+R code
+14.46
+m14.8nc <- ulam(
+alist(
+T ~ dpois(lambda),
+lambda <- (a*P^b/g)*exp(k[society]),
+# non-centered Gaussian Process prior
+transpars> vector[10]: k <<- L_SIGMA * z,
+vector[10]: z ~ normal( 0 , 1 ),
+transpars> matrix[10,10]: L_SIGMA <<- cholesky_decompose( SIGMA ),
+transpars> matrix[10,10]: SIGMA <- cov_GPL2( Dmat , etasq , rhosq , 0.01 ),
+c(a,b,g) ~ dexp( 1 ),
+etasq ~ dexp( 2 ),
+rhosq ~ dexp( 0.5 )
+), data=dat_list , chains=4 , cores=4 , iter=2000 )
+The new element above is the Stan function cholesky_decompose, which takes covariance (or corre-
+lation) matrix and returns its Cholesky factor. That Cholesky factor can then be mixed with z-scores
+as before to produce varying effects on the right scale. If you check the posterior, you’ll see this ver-
+sion samples more efficiently. As always, the cost is that the model is harder to read. With a very large
+SIGMA matrix, often there is no choice but to use the Cholesky (non-centered) parameterization. The
+next example, for example, is like this.

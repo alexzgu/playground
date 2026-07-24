@@ -1,0 +1,40 @@
+16.2. HIDDEN MINDS AND OBSERVED BEHAVIOR
+543
+Now since multiplication becomes addition on the log scale, we can rewrite this as:
+log wi = log(k) + log(π) + 2 log(p) + 3 log(hi)
+On the log scale, this is a linear regression. The first three terms above comprise the intercept.
+Then the term 3 log(hi) is a predictor variable with a fixed coefficient of 3. Theory gave us the
+value of that coefficient. We didn’t need to estimate it. But it still has the form of an ordinary
+linear regression term.
+I point this out to highlight one of the reasons that generalized linear models are so
+powerful. Lots of natural relationships are GLM relationships, on a speicfic scale of mea-
+surement. At the same time, the GLM approach wants to simply estimate parameters which
+may be informed by a proper theory, as in this case.
+16.2. Hidden minds and observed behavior
+One of the most basic problem in scientific inference is the so-called inverse problem:
+How to figure out causes from observations. It is a problem, because many different causes
+can produce the same evidence. So while it can be easy to go forward from a known cause
+to predicted observations, it can very hard to go backwards from observation to cause.
+Every branch of science has its own inverse problems. In this section, we’ll consider
+a simple example from developmental psychology. Children may possess many different
+cognitive strategies for making decisions. Given some observations of their behavior, which
+strategy was the cause? Let’s consider specifically an experiment in which 629 children aged
+4 to 14 saw four other children choose among three different colored boxes (Figure 16.3).
+Each child then made their own choice. In each trial, three demonstrators choose the same
+color. The fourth demonstrator chose a different color. So in each trial, one of the colors was
+the majority choice, another was the minority choice, and the final color was unchosen. How
+do we figure out from this experiment whether children are influenced by the majority?
+Let’s load the data222 and take a closer look.
+R code
+16.4
+library(rethinking)
+data(Boxes)
+precis(Boxes)
+Figure 16.3. The apparatus used in the ex-
+periment. The “choice box” has three tubes,
+each with a different color. When a ball is
+dropped into a tube, a toy comes out of the
+box. Four children demonstrated. Then the
+choice of a fifth child was recorded. How did
+the choices of the first four influence the fifth
+child’s choice?

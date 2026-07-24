@@ -1,4 +1,730 @@
 {
+ "p-0001": {
+  "chunk": "chunk-0001-0003",
+  "printed_page": null,
+  "qa": null,
+  "status": "transcribed"
+ },
+ "p-0002": {
+  "chunk": "chunk-0001-0003",
+  "printed_page": null,
+  "qa": null,
+  "status": "transcribed"
+ },
+ "p-0003": {
+  "chunk": "chunk-0001-0003",
+  "printed_page": null,
+  "qa": 0.989,
+  "status": "transcribed"
+ },
+ "p-0004": {
+  "chunk": "chunk-0004-0006",
+  "printed_page": "v",
+  "qa": 0.931,
+  "status": "transcribed"
+ },
+ "p-0005": {
+  "chunk": "chunk-0004-0006",
+  "printed_page": "vi",
+  "qa": 0.98,
+  "status": "transcribed"
+ },
+ "p-0006": {
+  "chunk": "chunk-0004-0006",
+  "printed_page": "vii",
+  "qa": 0.969,
+  "status": "transcribed"
+ },
+ "p-0007": {
+  "chunk": "chunk-0007-0009",
+  "printed_page": "viii",
+  "qa": 0.974,
+  "status": "transcribed"
+ },
+ "p-0008": {
+  "chunk": "chunk-0007-0009",
+  "printed_page": "ix",
+  "qa": 0.983,
+  "status": "transcribed"
+ },
+ "p-0009": {
+  "chunk": "chunk-0007-0009",
+  "printed_page": null,
+  "qa": null,
+  "status": "transcribed"
+ },
+ "p-0010": {
+  "chunk": "chunk-0010-0012",
+  "printed_page": "xi",
+  "qa": 0.967,
+  "status": "transcribed"
+ },
+ "p-0011": {
+  "chunk": "chunk-0010-0012",
+  "printed_page": "xii",
+  "qa": 0.968,
+  "status": "transcribed"
+ },
+ "p-0012": {
+  "chunk": "chunk-0010-0012",
+  "printed_page": "xiii",
+  "qa": 0.974,
+  "status": "transcribed"
+ },
+ "p-0013": {
+  "chunk": "chunk-0013-0015",
+  "printed_page": "xiv",
+  "qa": 0.988,
+  "status": "transcribed"
+ },
+ "p-0014": {
+  "chunk": "chunk-0013-0015",
+  "printed_page": "xv",
+  "qa": 0.919,
+  "status": "transcribed"
+ },
+ "p-0015": {
+  "chunk": "chunk-0013-0015",
+  "printed_page": "xvi",
+  "qa": 0.975,
+  "status": "transcribed"
+ },
+ "p-0016": {
+  "chunk": "chunk-0016-0018",
+  "printed_page": "xvii",
+  "qa": 0.957,
+  "status": "transcribed"
+ },
+ "p-0017": {
+  "chunk": "chunk-0016-0018",
+  "printed_page": "1",
+  "qa": 0.99,
+  "status": "transcribed"
+ },
+ "p-0018": {
+  "chunk": "chunk-0016-0018",
+  "printed_page": "2",
+  "qa": 0.963,
+  "status": "transcribed"
+ },
+ "p-0019": {
+  "chunk": "chunk-0019-0020",
+  "printed_page": "3",
+  "qa": 0.952,
+  "status": "transcribed"
+ },
+ "p-0020": {
+  "chunk": "chunk-0019-0020",
+  "printed_page": "4",
+  "qa": 0.973,
+  "status": "transcribed"
+ },
+ "p-0021": {
+  "chunk": "chunk-0021-0023",
+  "printed_page": "5",
+  "qa": 0.984,
+  "status": "transcribed"
+ },
+ "p-0022": {
+  "chunk": "chunk-0021-0023",
+  "printed_page": "6",
+  "qa": 0.978,
+  "status": "transcribed"
+ },
+ "p-0023": {
+  "chunk": "chunk-0021-0023",
+  "printed_page": "7",
+  "qa": 0.989,
+  "status": "transcribed"
+ },
+ "p-0024": {
+  "chunk": "chunk-0024-0026",
+  "printed_page": "8",
+  "qa": 0.963,
+  "status": "transcribed"
+ },
+ "p-0025": {
+  "chunk": "chunk-0024-0026",
+  "printed_page": "9",
+  "qa": 0.943,
+  "status": "transcribed"
+ },
+ "p-0026": {
+  "chunk": "chunk-0024-0026",
+  "printed_page": "10",
+  "qa": 0.941,
+  "status": "transcribed"
+ },
+ "p-0027": {
+  "chunk": "chunk-0027-0029",
+  "printed_page": "11",
+  "qa": 0.94,
+  "status": "transcribed"
+ },
+ "p-0028": {
+  "chunk": "chunk-0027-0029",
+  "printed_page": "12",
+  "qa": 0.965,
+  "status": "transcribed"
+ },
+ "p-0029": {
+  "chunk": "chunk-0027-0029",
+  "printed_page": "13",
+  "qa": 0.949,
+  "status": "transcribed"
+ },
+ "p-0030": {
+  "chunk": "chunk-0030-0032",
+  "printed_page": "14",
+  "qa": 0.949,
+  "status": "transcribed"
+ },
+ "p-0031": {
+  "chunk": "chunk-0030-0032",
+  "printed_page": "15",
+  "qa": 0.939,
+  "status": "transcribed"
+ },
+ "p-0032": {
+  "chunk": "chunk-0030-0032",
+  "printed_page": "16",
+  "qa": 0.924,
+  "status": "transcribed"
+ },
+ "p-0033": {
+  "chunk": "chunk-0033-0035",
+  "printed_page": "17",
+  "qa": 0.971,
+  "status": "transcribed"
+ },
+ "p-0034": {
+  "chunk": "chunk-0033-0035",
+  "printed_page": "18",
+  "qa": 0.97,
+  "status": "transcribed"
+ },
+ "p-0035": {
+  "chunk": "chunk-0033-0035",
+  "printed_page": "19",
+  "qa": 0.954,
+  "status": "transcribed"
+ },
+ "p-0036": {
+  "chunk": "chunk-0036-0038",
+  "printed_page": "20",
+  "qa": 0.961,
+  "status": "transcribed"
+ },
+ "p-0037": {
+  "chunk": "chunk-0036-0038",
+  "printed_page": "21",
+  "qa": 0.957,
+  "status": "transcribed"
+ },
+ "p-0038": {
+  "chunk": "chunk-0036-0038",
+  "printed_page": "22",
+  "qa": 0.955,
+  "status": "transcribed"
+ },
+ "p-0039": {
+  "chunk": "chunk-0039-0040",
+  "printed_page": "23",
+  "qa": 0.948,
+  "status": "transcribed"
+ },
+ "p-0040": {
+  "chunk": "chunk-0039-0040",
+  "printed_page": "24",
+  "qa": 0.93,
+  "status": "transcribed"
+ },
+ "p-0041": {
+  "chunk": "chunk-0041-0043",
+  "effort": "max",
+  "model": "Claude Fable",
+  "printed_page": "25",
+  "qa": 0.946,
+  "qa_order": 0.726,
+  "status": "transcribed"
+ },
+ "p-0042": {
+  "chunk": "chunk-0041-0043",
+  "effort": "max",
+  "model": "Claude Fable",
+  "printed_page": "26",
+  "qa": 0.932,
+  "qa_order": 0.771,
+  "status": "transcribed"
+ },
+ "p-0043": {
+  "chunk": "chunk-0041-0043",
+  "effort": "max",
+  "model": "Claude Fable",
+  "printed_page": "27",
+  "qa": 0.97,
+  "qa_order": 0.897,
+  "status": "transcribed"
+ },
+ "p-0044": {
+  "chunk": "chunk-0044-0046",
+  "effort": "max",
+  "model": "Claude Fable",
+  "printed_page": "28",
+  "qa": 0.963,
+  "qa_order": 0.669,
+  "status": "transcribed"
+ },
+ "p-0045": {
+  "chunk": "chunk-0044-0046",
+  "effort": "max",
+  "model": "Claude Fable",
+  "printed_page": "29",
+  "qa": 0.943,
+  "qa_order": 0.654,
+  "status": "transcribed"
+ },
+ "p-0046": {
+  "chunk": "chunk-0044-0046",
+  "effort": "max",
+  "model": "Claude Fable",
+  "printed_page": "30",
+  "qa": 0.913,
+  "qa_order": 0.874,
+  "status": "transcribed"
+ },
+ "p-0047": {
+  "chunk": "chunk-0047-0049",
+  "effort": "max",
+  "model": "Claude Fable",
+  "printed_page": "31",
+  "qa": 0.977,
+  "qa_order": 0.922,
+  "status": "transcribed"
+ },
+ "p-0048": {
+  "chunk": "chunk-0047-0049",
+  "effort": "high",
+  "model": "GPT-5.6",
+  "printed_page": "32",
+  "qa": 0.957,
+  "qa_order": 0.799,
+  "status": "transcribed"
+ },
+ "p-0049": {
+  "chunk": "chunk-0047-0049",
+  "effort": "max",
+  "model": "Claude Fable",
+  "printed_page": "33",
+  "qa": 0.924,
+  "qa_order": 0.831,
+  "status": "transcribed"
+ },
+ "p-0050": {
+  "chunk": "chunk-0050-0052",
+  "effort": "max",
+  "model": "Claude Fable",
+  "printed_page": "34",
+  "qa": 0.937,
+  "qa_order": 0.765,
+  "status": "transcribed"
+ },
+ "p-0051": {
+  "chunk": "chunk-0050-0052",
+  "effort": "max",
+  "model": "Claude Fable",
+  "printed_page": "35",
+  "qa": 0.921,
+  "qa_order": 0.696,
+  "status": "transcribed"
+ },
+ "p-0052": {
+  "chunk": "chunk-0050-0052",
+  "effort": "max",
+  "model": "Claude Fable",
+  "printed_page": "36",
+  "qa": 0.93,
+  "qa_order": 0.855,
+  "status": "transcribed"
+ },
+ "p-0053": {
+  "chunk": "chunk-0053-0055",
+  "effort": "max",
+  "model": "Claude Fable",
+  "printed_page": "37",
+  "qa": 0.938,
+  "qa_order": 0.763,
+  "status": "transcribed"
+ },
+ "p-0054": {
+  "chunk": "chunk-0053-0055",
+  "effort": "max",
+  "model": "Claude Fable",
+  "printed_page": "38",
+  "qa": 0.942,
+  "qa_order": 0.875,
+  "status": "transcribed"
+ },
+ "p-0055": {
+  "chunk": "chunk-0053-0055",
+  "effort": "max",
+  "model": "Claude Fable",
+  "printed_page": "39",
+  "qa": 0.915,
+  "qa_order": 0.714,
+  "status": "transcribed"
+ },
+ "p-0056": {
+  "chunk": "chunk-0056-0058",
+  "effort": "high",
+  "model": "GPT-5.6",
+  "printed_page": "40",
+  "qa": 0.905,
+  "qa_order": 0.917,
+  "status": "transcribed"
+ },
+ "p-0057": {
+  "chunk": "chunk-0056-0058",
+  "effort": "max",
+  "model": "Claude Fable",
+  "printed_page": "41",
+  "qa": 0.941,
+  "qa_order": 0.19,
+  "status": "transcribed-lowqa"
+ },
+ "p-0058": {
+  "chunk": "chunk-0056-0058",
+  "effort": "max",
+  "model": "Claude Fable",
+  "printed_page": "42",
+  "qa": 0.958,
+  "qa_order": 0.846,
+  "status": "transcribed"
+ },
+ "p-0059": {
+  "chunk": "chunk-0059-0061",
+  "effort": "high",
+  "model": "GPT-5.6",
+  "printed_page": "43",
+  "qa": 0.899,
+  "qa_order": 0.887,
+  "status": "transcribed"
+ },
+ "p-0060": {
+  "chunk": "chunk-0059-0061",
+  "effort": "high",
+  "model": "GPT-5.6",
+  "printed_page": "44",
+  "qa": 0.906,
+  "qa_order": 0.78,
+  "status": "transcribed"
+ },
+ "p-0061": {
+  "chunk": "chunk-0059-0061",
+  "effort": "high",
+  "model": "GPT-5.6",
+  "printed_page": "45",
+  "qa": 0.959,
+  "qa_order": 0.812,
+  "status": "transcribed"
+ },
+ "p-0062": {
+  "chunk": "chunk-0062-0064",
+  "effort": "max",
+  "model": "Claude Fable",
+  "printed_page": "46",
+  "qa": 0.949,
+  "qa_order": 0.938,
+  "status": "transcribed"
+ },
+ "p-0063": {
+  "chunk": "chunk-0062-0064",
+  "effort": "high",
+  "model": "GPT-5.6",
+  "printed_page": "47",
+  "qa": 0.949,
+  "qa_order": 0.54,
+  "status": "transcribed"
+ },
+ "p-0064": {
+  "chunk": "chunk-0062-0064",
+  "effort": "high",
+  "model": "GPT-5.6",
+  "printed_page": "48",
+  "qa": 0.898,
+  "qa_order": 0.845,
+  "status": "transcribed"
+ },
+ "p-0065": {
+  "chunk": "chunk-0065-0067",
+  "effort": "max",
+  "model": "Claude Fable",
+  "printed_page": "49",
+  "qa": 0.919,
+  "qa_order": 0.619,
+  "status": "transcribed"
+ },
+ "p-0066": {
+  "chunk": "chunk-0065-0067",
+  "effort": "high",
+  "model": "GPT-5.6",
+  "printed_page": "50",
+  "qa": 0.914,
+  "qa_order": 0.833,
+  "status": "transcribed"
+ },
+ "p-0067": {
+  "chunk": "chunk-0065-0067",
+  "effort": "max",
+  "model": "Claude Fable",
+  "printed_page": "51",
+  "qa": 0.936,
+  "qa_order": 0.865,
+  "status": "transcribed"
+ },
+ "p-0068": {
+  "chunk": "chunk-0068-0070",
+  "effort": "high",
+  "model": "GPT-5.6",
+  "printed_page": "52",
+  "qa": 0.86,
+  "qa_order": 0.254,
+  "status": "transcribed-lowqa"
+ },
+ "p-0069": {
+  "chunk": "chunk-0068-0070",
+  "effort": "max",
+  "model": "Claude Fable",
+  "printed_page": "53",
+  "qa": 0.965,
+  "qa_order": 0.959,
+  "status": "transcribed"
+ },
+ "p-0070": {
+  "chunk": "chunk-0068-0070",
+  "effort": "max",
+  "model": "Claude Fable",
+  "printed_page": "54",
+  "qa": 0.911,
+  "qa_order": 0.807,
+  "status": "transcribed"
+ },
+ "p-0071": {
+  "chunk": "chunk-0071-0073",
+  "effort": "max",
+  "model": "Claude Fable",
+  "printed_page": "55",
+  "qa": 0.923,
+  "qa_order": 0.68,
+  "status": "transcribed"
+ },
+ "p-0072": {
+  "chunk": "chunk-0071-0073",
+  "effort": "high",
+  "model": "GPT-5.6",
+  "printed_page": "56",
+  "qa": 0.961,
+  "qa_order": 0.93,
+  "status": "transcribed"
+ },
+ "p-0073": {
+  "chunk": "chunk-0071-0073",
+  "effort": "max",
+  "model": "Claude Fable",
+  "printed_page": "57",
+  "qa": 0.923,
+  "qa_order": 0.851,
+  "status": "transcribed"
+ },
+ "p-0074": {
+  "chunk": "chunk-0074-0076",
+  "effort": "high",
+  "model": "GPT-5.6",
+  "printed_page": "58",
+  "qa": 0.947,
+  "qa_order": 0.721,
+  "status": "transcribed"
+ },
+ "p-0075": {
+  "chunk": "chunk-0074-0076",
+  "effort": "high",
+  "model": "GPT-5.6",
+  "printed_page": "59",
+  "qa": 0.963,
+  "qa_order": 0.914,
+  "status": "transcribed"
+ },
+ "p-0076": {
+  "chunk": "chunk-0074-0076",
+  "effort": "high",
+  "model": "GPT-5.6",
+  "printed_page": "60",
+  "qa": 0.961,
+  "qa_order": 0.953,
+  "status": "transcribed"
+ },
+ "p-0077": {
+  "chunk": "chunk-0077-0079",
+  "effort": "high",
+  "model": "GPT-5.6",
+  "printed_page": "61",
+  "qa": 0.941,
+  "qa_order": 0.866,
+  "status": "transcribed"
+ },
+ "p-0078": {
+  "chunk": "chunk-0077-0079",
+  "effort": "high",
+  "model": "GPT-5.6",
+  "printed_page": "62",
+  "qa": 0.939,
+  "qa_order": 0.885,
+  "status": "transcribed"
+ },
+ "p-0079": {
+  "chunk": "chunk-0077-0079",
+  "effort": "high",
+  "model": "GPT-5.6",
+  "printed_page": "63",
+  "qa": 0.921,
+  "qa_order": 0.882,
+  "status": "transcribed"
+ },
+ "p-0080": {
+  "chunk": "chunk-0080-0082",
+  "effort": "high",
+  "model": "GPT-5.6",
+  "printed_page": "64",
+  "qa": 0.92,
+  "qa_order": 0.854,
+  "status": "transcribed"
+ },
+ "p-0081": {
+  "chunk": "chunk-0080-0082",
+  "effort": "high",
+  "model": "GPT-5.6",
+  "printed_page": "65",
+  "qa": 0.951,
+  "qa_order": 0.931,
+  "status": "transcribed"
+ },
+ "p-0082": {
+  "chunk": "chunk-0080-0082",
+  "effort": "max",
+  "model": "Claude Fable",
+  "printed_page": "66",
+  "qa": 0.945,
+  "qa_order": 0.822,
+  "status": "transcribed"
+ },
+ "p-0083": {
+  "chunk": "chunk-0083-0085",
+  "effort": "max",
+  "model": "Claude Fable",
+  "printed_page": "67",
+  "qa": 0.944,
+  "qa_order": 0.912,
+  "status": "transcribed"
+ },
+ "p-0084": {
+  "chunk": "chunk-0083-0085",
+  "effort": "max",
+  "model": "Claude Fable",
+  "printed_page": "68",
+  "qa": 0.934,
+  "qa_order": 0.758,
+  "status": "transcribed"
+ },
+ "p-0085": {
+  "chunk": "chunk-0083-0085",
+  "effort": "max",
+  "model": "Claude Fable",
+  "printed_page": "69",
+  "qa": 0.916,
+  "qa_order": 0.901,
+  "status": "transcribed"
+ },
+ "p-0086": {
+  "chunk": "chunk-0086-0088",
+  "effort": "max",
+  "model": "Claude Fable",
+  "printed_page": "70",
+  "qa": 0.929,
+  "qa_order": 0.839,
+  "status": "transcribed"
+ },
+ "p-0087": {
+  "chunk": "chunk-0086-0088",
+  "effort": "max",
+  "model": "Claude Fable",
+  "printed_page": "71",
+  "qa": 0.875,
+  "qa_order": 0.829,
+  "status": "transcribed"
+ },
+ "p-0088": {
+  "chunk": "chunk-0086-0088",
+  "effort": "max",
+  "model": "Claude Fable",
+  "printed_page": "72",
+  "qa": 0.867,
+  "qa_order": 0.772,
+  "status": "transcribed"
+ },
+ "p-0089": {
+  "chunk": "chunk-0089-0091",
+  "effort": "max",
+  "model": "Claude Fable",
+  "printed_page": "73",
+  "qa": 0.873,
+  "qa_order": 0.77,
+  "status": "transcribed"
+ },
+ "p-0090": {
+  "chunk": "chunk-0089-0091",
+  "effort": "high",
+  "model": "GPT-5.6",
+  "printed_page": "74",
+  "qa": 0.842,
+  "qa_order": 0.72,
+  "status": "transcribed"
+ },
+ "p-0091": {
+  "chunk": "chunk-0089-0091",
+  "effort": "max",
+  "model": "Claude Fable",
+  "printed_page": "75",
+  "qa": 0.883,
+  "qa_order": 0.704,
+  "status": "transcribed"
+ },
+ "p-0092": {
+  "chunk": "chunk-0092-0094",
+  "effort": "high",
+  "model": "GPT-5.6",
+  "printed_page": "76",
+  "qa": 0.94,
+  "qa_order": 0.763,
+  "status": "transcribed"
+ },
+ "p-0093": {
+  "chunk": "chunk-0092-0094",
+  "effort": "high",
+  "model": "GPT-5.6",
+  "printed_page": "77",
+  "qa": 0.926,
+  "qa_order": 0.836,
+  "status": "transcribed"
+ },
+ "p-0094": {
+  "chunk": "chunk-0092-0094",
+  "effort": "max",
+  "model": "Claude Fable",
+  "printed_page": "78",
+  "qa": 0.901,
+  "qa_order": 0.856,
+  "status": "transcribed"
+ },
  "p-0362": {
   "chunk": "chunk-0362-0364",
   "printed_page": "346",

@@ -1,0 +1,47 @@
+388
+12. MONSTERS AND MIXTURES
+mixture, because every binomial count is assumed to have its own independent beta-distributed prob-
+ability of success, and the beta distribution is continuous rather than discrete. So the parameters of
+the beta-binomial are just the number of draws in each case (the same as the “size” n of the ordinary
+binomial distribution) and the two parameters that describe the shape of the beta distribution. All of
+this implies that the probability of observing a number of successes y from a beta-binomial process
+is:
+f (y|n, ¯p, θ) =
+Z 1
+0
+g(y|n, p)h(p|¯p, θ)dp
+where f is the beta-binomial density, g is the binomial distribution, and h is the beta density. The
+integral above, like most integrals in applied probability, just computes an average: the probability
+of y, averaged over all values of p. The p values are drawn from the beta distribution with mean ¯p
+and scale θ. The probability of a success p is no longer a free parameter, as it is produced by the beta
+distribution. The gamma-Poisson density has a similar form, but averaging a Poisson probability over
+a gamma distribution of rates.
+In the case of the beta-binomial, as well as the gamma-Poisson, it is possible to close the integral
+above. You can look up the closed-form expressions anytime you need the analytic forms. The R
+functions dbetabinom and dgampois provide computations from them.
+12.2. Zero-inflated outcomes
+Very often, the things we can measure are not emissions from any pure process. Instead,
+they are mixtures of multiple processes. Whenever there are different causes for the same
+observation, then a mixture model may be useful. A mixture model uses more than one
+simple probability distribution to model a mixture of causes. In effect, these models use more
+than one likelihood for the same outcome variable.
+Count variables are especially prone to needing a mixture treatment. The reason is that a
+count of zero can often arise more than one way. A “zero” means that nothing happened, and
+nothing can happen either because the rate of events is low or rather because the process that
+generates events failed to get started. If we are counting scrub jays in the woods, we might
+record a zero because there were no scrub jays in the woods or rather because we scared
+them all off before we starting looking. Either way, the data contains a zero.
+So in this section you’ll see how to construct simple zero-inflated models. You’ll be able
+to use the same components from earlier models, but they’ll be assembled in a different way.
+So even if you never need to use or interpret a zero-inflated model, seeing how they are
+constructed should expand your modeling imagination.
+Rethinking: Breaking the law. In the sciences, there is sometimes a culture of anxiety surrounding
+statistical inference. It used tobe thatresearchers couldn’t easilyconstruct andstudy theirown custom
+models, because they had to rely upon statisticians to properly study the models first. This led to
+concerns about unconventional models, concerns about breaking the laws of statistics. But statistical
+computing is much more capable now. Now you can imagine your own generative process, simulate
+data from it, write the model, and verify that it recovers the true parameter values. You don’t have to
+wait for a mathematician to legalize the model you need.
+12.2.1. Example: Zero-inflated Poisson. Back in Chapter 11, I introduced Poisson GLMs
+by using the example of a monastery producing manuscripts. Each day, a large number of
+monks finish copying a small number of manuscripts. The process is essentially binomial,

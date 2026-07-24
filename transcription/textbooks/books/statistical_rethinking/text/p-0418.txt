@@ -1,0 +1,93 @@
+402
+12. MONSTERS AND MIXTURES
+0
+1
+0.0
+0.5
+1.0
+intention
+probability
+action=0, contact=0
+0
+1
+0.0
+0.5
+1.0
+intention
+probability
+action=1, contact=0
+0
+1
+0.0
+0.5
+1.0
+intention
+probability
+action=0, contact=1
+1
+2
+3
+4
+5
+6
+7
+0
+50
+100
+150
+200
+response
+Frequency
+action=0, contact=0
+1
+2
+3
+4
+5
+6
+7
+0
+50
+100
+200
+response
+Frequency
+action=1, contact=0
+1
+2
+3
+4
+5
+6
+7
+0
+50
+150
+250
+response
+Frequency
+action=0, contact=1
+Figure 12.6. Posterior predictions of the ordered categorical model with
+interactions, m12.5. Each plot shows how the distribution of predicted re-
+sponses varies by intention. The top row shows the distribution of poste-
+rior probabilities of each outcome across values of intention for different
+values of the other predictors. The bottom row shows the same interactions,
+but visualized as histograms of simulated outcomes. The black line seg-
+ments are intention equal to 0. The blue segments are when intention
+is equal to 1.
+impact of taking a story with contact and no-intention and adding intention to it. This plot
+shows the large interaction effect between contact and intention, the largest estimated
+effect in the model.
+Another plotting option is to show the implied histogram of outcomes. All we have to
+do is use sim to simulate posterior outcomes:
+R code
+12.29
+kA <- 0
+# value for action
+kC <- 1
+# value for contact
+kI <- 0:1
+# values of intention to calculate over
+pdat <- data.frame(A=kA,C=kC,I=kI)
+s <- sim( m12.5 , data=pdat )
+simplehist( s , xlab="response" )

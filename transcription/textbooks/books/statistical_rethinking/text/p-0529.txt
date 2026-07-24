@@ -1,0 +1,50 @@
+15.2. MISSING DATA
+513
+be benign is that the outcome is independent of (d-separated from) them. In this case, H is
+independent of D (H ⊥⊥D), because H∗is a collider.
+A more intuitive way to think about this scenario is the following. Since the missing val-
+ues are completely random, missingness doesn’t necessarily change the overall distribution
+of homework scores. It removes data, and that makes estimation less efficient. But missing
+homework doesn’t necessarily bias our estimate of the causal effect of studying. You should
+try to build a binomial model to estimate the causal effect of S on H, using both the com-
+pletely observed data and the data with missing values. There’s a practice problem at the end
+of this chapter that asks you to do this.
+Now consider DAG (b) in the upper right of Figure 15.4. Here studying influences
+whether a dog eats homework, S →D. Suppose for example that students who study a lot
+do not play with their dogs. Then the dogs take revenge by eating homework. Again let’s
+simulate:
+R code
+15.10
+D <- ifelse( S > 0 , 1 , 0 )
+Hm <- H
+Hm[D==1] <- NA
+Now every student who studies more than average (0) is missing homework. This scenario
+isn’t as benign as the previous. But it isn’t doom either. Notice that there is now a non-causal
+path (a backdoor path) from H →H∗←D ←S. If we don’t close this path, it will confound
+inference along S →H. Luckily, we can close the non-causal path by conditioning on S, and
+we want to condition on S anyway. So this scenario isn’t necessarily bad, as long as we can
+condition on the variable that influences missingness (the dogs D). Again there is a problem
+at the end that asks you to compare inference with all the homework and without missing
+homework.
+This doesn’t mean there is no danger here. If we get the functions or distributions wrong,
+then we may get the wrong answer and the missing data may prevent us from seeing the
+absurdity of it in posterior predictive checks. Suppose for example that studying doesn’t
+help at all until a student does more than the average amount (0). In that case, we never get
+to see homework from those students, so we can’t possibly figure out the function that relates
+study effort to homework score.
+The next scenario, Figure 15.4 (c), is more difficult. The basic situation is the same:
+There is a variable that influences both H and D. Previously this was S. Now it is a new
+variable X, the noisy level of the student’s house. In a noisy house, students produce worse
+homework, X →H. Simultaneously, dogs in noisy houses tend to misbehave, X →D. I’ve
+put a circle around X to signal that it is unobserved. Now when we regress H∗on S, a new
+non-causal path is in play: H∗←D ←X →H.
+The tricky question, however, is what effect this path has on our estimate of S →H. Let’s
+actually code this one out, using the simulated data. Here’s a complete data simulation for
+the DAG in Figure 15.4 (c):
+R code
+15.11
+set.seed(501)
+N <- 1000
+X <- rnorm(N)
+S <- rnorm(N)
+H <- rbinom( N , size=10 , inv_logit( 2 + S - 2*X ) )

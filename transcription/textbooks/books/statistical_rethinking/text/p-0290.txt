@@ -1,0 +1,66 @@
+274
+9. MARKOV CHAIN MONTE CARLO
+-1.5
+-1.0
+-0.5
+0.0
+0.5
+1.0
+1.5
+-1.5
+-1.0
+-0.5
+0.0
+0.5
+1.0
+1.5
+a1
+a2
+step size 0.1, accept rate 0.62
+-1.5
+-1.0
+-0.5
+0.0
+0.5
+1.0
+1.5
+-1.5
+-1.0
+-0.5
+0.0
+0.5
+1.0
+1.5
+a1
+a2
+step size 0.25, accept rate 0.34
+Figure 9.3. Metropolis chains under high correlation. Filled points indi-
+cate accepted proposals. Open points are rejected proposals. Both plots
+show 50 proposals under different proposal distribution step sizes. Left:
+With a small step size, the chain very slow makes its way down the valley. It
+rejects 40% of the proposals in the process, because most of the proposals
+are in silly places. Right: With a larger step size, the chain moves faster, but
+it now rejects 70% of the proposals, because they tend to be even sillier. In
+higher dimensions, it is essentially impossible to tune Metropolis or Gibbs
+to be efficient.
+these solutions are what allow Gibbs sampling to make smart jumps around the joint poste-
+rior distribution of all parameters.
+In practice, Gibbs sampling can be very efficient, and it’s the basis of popular Bayesian
+model fitting software like BUGS (Bayesian inference Using Gibbs Sampling) and JAGS (Just
+Another Gibbs Sampler). In these programs, you compose your statistical model using def-
+initions very similar to what you’ve been doing so far in this book. The software automates
+the rest, to the best of its ability.
+9.2.2. High-dimensional problems. But there are some severe limitations to Gibbs sam-
+pling. First, maybe you don’t want to use conjugate priors. Some conjugate priors are ac-
+tually pathological in shape, once you start building multilevel models and need priors for
+entire covariance matrixes. This will be something to discuss once we reach Chapter 14.
+Second, as models become more complex and contain hundreds or thousands or tens
+of thousands of parameters, both Metropolis and Gibbs sampling become shockingly ineffi-
+cient. The reason is that they tend to get stuck in small regions of the posterior for potentially
+a long time. The high number of parameters isn’t the problem so much as the fact that mod-
+els with many parameters nearly always have regions of high correlation in the posterior.
+This means that two or more parameters are highly correlated with one another in the pos-
+terior samples. You’ve seen this before with, for example, the two legs example in Chapter 6.
+Why is this a problem? Because high correlation means a narrow ridge of high probability
+combinations, and both Metropolis and Gibbs make too many dumb proposals of where to
+go next. So they get stuck.

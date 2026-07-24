@@ -1,0 +1,54 @@
+468
+14. ADVENTURES IN COVARIANCE
+model{
+vector[504] p;
+L_Rho_block ~ lkj_corr_cholesky( 2 );
+sigma_block ~ exponential( 1 );
+L_Rho_actor ~ lkj_corr_cholesky( 2 );
+sigma_actor ~ exponential( 1 );
+g ~ normal( 0 , 1 );
+to_vector( z_block ) ~ normal( 0 , 1 );
+to_vector( z_actor ) ~ normal( 0 , 1 );
+for ( i in 1:504 ) {
+p[i] = g[tid[i]] + alpha[actor[i], tid[i]] + beta[block_id[i], tid[i]];
+p[i] = inv_logit(p[i]);
+}
+L ~ binomial( 1 , p );
+}
+From top to bottom: The vector p is declared to hold our linear model calculations for each case, then
+the priors are defined in terms of Cholesky correlation factors and vectors of standard deviations.
+The z-score matrixes are assigned their prior using to_vector, because normal(0,1) applies to
+vectors, not matrixes. The z-scores are still stored in matrix format—this to_vector stuff is just
+needed to force the same normal(0,1) prior on each cell in the matrix. Finally the linear model is
+computed, using the alpha and beta matrixes form the transformed parameters block, and then
+the probability of the data is defined as usual.
+The last bit is generated quantities, where variables that are functions of each sample can be cal-
+culated. This block is used here to transform the Cholesky factors into ordinary correlation matrixes,
+so they can be interpreted as such, as well as to compute the log-probabilities needed to calculate
+WAIC or PSIS.
+generated quantities{
+vector[504] log_lik;
+vector[504] p;
+matrix[4,4] Rho_actor;
+matrix[4,4] Rho_block;
+Rho_block = multiply_lower_tri_self_transpose(L_Rho_block);
+Rho_actor = multiply_lower_tri_self_transpose(L_Rho_actor);
+for ( i in 1:504 ) {
+p[i] = g[tid[i]] + alpha[actor[i], tid[i]] + beta[block_id[i], tid[i]];
+p[i] = inv_logit(p[i]);
+}
+for ( i in 1:504 ) log_lik[i] = binomial_lpmf( L[i] | 1 , p[i] );
+}
+The function multiply_lower_tri_self_transpose is just a compact and efficient way to perform
+the matrix algebra needed to turn the Cholesky factor L into the corresponding matrix R = LL⊺.
+There is an obvious cost to these non-centered forms: They look a lot more confusing. Hard-
+to-read models and model code limit our ability to share implementations with our colleagues, and
+sharing is a principle goal of scientific computation.
+Finally, not all combinations of model structure and data benefit from the non-centered parame-
+terization. Sometimes the centered version—putting the means and standard deviations in the prior—
+is better. So you might try the form that is most natural for you personally. If it gives you trouble,
+try an alternative form. With some experience, different forms of the same model become familiar.
+There is a practice problem at the end of this chapter that may help.
+14.3. Instruments and causal designs
+Back in Chapter 6, you met a framework for deciding which variables to use in a regres-
+sion. The key idea is that, in a graphic model like a DAG, many paths may connect a variable

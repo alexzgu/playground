@@ -43,7 +43,7 @@ $$
 \tag{B.5}
 $$
 
-FIGURE B.1. Extracting unbiased bits from biased bit stream.
+**FIGURE B.1.** Extracting unbiased bits from biased bit stream.
 
 *[Figure: a table with four labeled rows — "original bits", "extracted unbiased", "discarded bits", and "XORed bits" — showing how the von Neumann procedure transforms a stream of bit-pairs.]*
 
@@ -200,13 +200,9 @@ $$ \Phi(x) = \int_{-\infty}^{x} \frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}t^2}dt, \tag
 
 ### PDF page 397 (book page 381)
 
-*[Figure: a plot over $x$ from 0 to 6 (y-axis ticks 0.1–0.7) showing two decreasing curves — the exponential-bound curve starting near 0.7 at $x=0$ and decaying monotonically, and the gamma density starting at 0, rising to a peak near $x=1$ around 0.37, then decaying; the two curves nearly coincide for large $x$.]*
+**FIGURE B.5.** The Gamma density for $\alpha = 2$ and $\lambda = 1$, along with $4e^{-1}$ times the exponential density of rate $1/2$. *[Figure: a plot over $x$ from 0 to 6 (y-axis ticks 0.1–0.7) showing two decreasing curves — the exponential-bound curve starting near 0.7 at $x=0$ and decaying monotonically, and the gamma density starting at 0, rising to a peak near $x=1$ around 0.37, then decaying; the two curves nearly coincide for large $x$.]*
 
-FIGURE B.5. The Gamma density for $\alpha = 2$ and $\lambda = 1$, along with $4e^{-1}$ times the exponential density of rate $1/2$.
-
-*[Figure: on the left, the standard normal bell curve over $x$ from $-3$ to $3$ (y-axis to about 0.4); on the right, a 3-D surface plot of the joint density of two independent standard normals, a bell-shaped hump over the plane with axes ranging roughly $-2$ to $2$ and height ticks 0.05, 0.1, 0.15.]*
-
-FIGURE B.6. The standard normal density on the left, and on the right the joint density of two independent standard normal variables.
+**FIGURE B.6.** The standard normal density on the left, and on the right the joint density of two independent standard normal variables. *[Figure: on the left, the standard normal bell curve over $x$ from $-3$ to $3$ (y-axis to about 0.4); on the right, a 3-D surface plot of the joint density of two independent standard normals, a bell-shaped hump over the plane with axes ranging roughly $-2$ to $2$ and height ticks 0.05, 0.1, 0.15.]*
 
 which cannot be evaluated in closed form. The inverse of $\Phi$ likewise cannot be expressed in terms of elementary functions. As a result the inverse distribution function method requires the numerical evaluation of $\Phi^{-1}$. We present here another method of simulating from $\Phi$ which does not require the evaluation of the inverse of $\Phi$.
 
@@ -262,9 +258,7 @@ A more serious issue is that computers do not produce truly random numbers at al
 
 ### PDF page 399 (book page 383)
 
-*[Figure: a self-avoiding lattice path drawn on $\mathbb{Z}^2$, shown as filled dots connected by horizontal and vertical segments in a staircase-like configuration.]*
-
-FIGURE B.7. A self-avoiding path
+**FIGURE B.7.** A self-avoiding path *[Figure: a self-avoiding lattice path drawn on $\mathbb{Z}^2$, shown as filled dots connected by horizontal and vertical segments in a staircase-like configuration.]*
 
 a pseudorandom number generator can pass a battery of these tests, it is considered an appropriate substitute for random numbers.
 
@@ -292,9 +286,7 @@ EXAMPLE B.4 (Domino tilings). Domino tilings, sometimes also called ***dimer sys
 
 ### PDF page 400 (book page 384)
 
-*[Figure: a $6 \times 6$ square region tiled by shaded dominoes (each a $2 \times 1$ or $1 \times 2$ rectangle) that partition the checkerboard, with some placed horizontally and some vertically.]*
-
-FIGURE B.8. A domino tiling of a $6 \times 6$ checkerboard.
+**FIGURE B.8.** A domino tiling of a $6 \times 6$ checkerboard. *[Figure: a $6 \times 6$ square region tiled by shaded dominoes (each a $2 \times 1$ or $1 \times 2$ rectangle) that partition the checkerboard, with some placed horizontally and some vertically.]*
 
 algorithms. A ***domino*** is a $2 \times 1$ or $1 \times 2$ rectangle, and, informally speaking, a ***domino tiling*** of a subregion of $\mathbb{Z}^2$ is a partition of the region into dominoes, disjoint except along their boundaries (see Figure B.8).
 
@@ -321,9 +313,7 @@ An example move is shown in Figure B.9.
 
 ### PDF page 401 (book page 385)
 
-*[Figure: two self-avoiding paths side by side, connected by a right arrow "$\rightarrow$". Left path labeled "current path" with a marked vertex "4" and a dashed circular arrow indicating a rotation, with origin "(0,0)" marked. Right path labeled "path after rotating by $\pi$ from vertex 4", with vertex "4" and origin "(0,0)" marked.]*
-
-FIGURE B.9. Example of a single move of pivot chain for self-avoiding walk.
+**FIGURE B.9.** Example of a single move of pivot chain for self-avoiding walk. *[Figure: two self-avoiding paths side by side, connected by a right arrow "$\rightarrow$". Left path labeled "current path" with a marked vertex "4" and a dashed circular arrow indicating a rotation, with origin "(0,0)" marked. Right path labeled "path after rotating by $\pi$ from vertex 4", with vertex "4" and origin "(0,0)" marked.]*
 
 We now show that this chain is irreducible by proving that any self-avoiding path can be unwound to a straight line by a sequence of possible transitions. Since the four straight paths starting at $(0, 0)$ are rotations of each other and since any transition can also be undone by a dual transition, any self-avoiding path can be transformed into another. The proof below follows **Madras and Slade (1993**, Theorem 9.4.4).
 
@@ -337,13 +327,9 @@ There are two cases which we will consider separately.
 
 ### PDF page 402 (book page 386)
 
-**FIGURE B.10** *[Figure: Left, a self-avoiding walk (SAW) drawn as a solid path inside a dashed bounding box, with the point (0,0) labeled at the bottom-left corner. An arrow "→" points to the right. Right, the transformed walk after being reflected across the side of the bounding box not containing both endpoints; the original bounding box is shown dashed and the reflected box dotted, with (0,0) labeled at the bottom. Below the right figure: "reflected across side not containing both endpoints".]*
+**FIGURE B.10.** A SAW without both endpoints in corners of bounding box. *[Figure: Left, a self-avoiding walk (SAW) drawn as a solid path inside a dashed bounding box, with the point (0,0) labeled at the bottom-left corner. An arrow "→" points to the right. Right, the transformed walk after being reflected across the side of the bounding box not containing both endpoints; the original bounding box is shown dashed and the reflected box dotted, with (0,0) labeled at the bottom. Below the right figure: "reflected across side not containing both endpoints".]*
 
-FIGURE B.10. A SAW without both endpoints in corners of bounding box.
-
-**FIGURE B.11** *[Figure: Left, a short self-avoiding walk drawn as a solid path inside a dashed bounding box. An arrow "→" points to the right. Right, the walk after the final straight segment has been rotated outside the box; the dashed box and dotted box indicate the new bounding region. Below the right figure: "rotated final straight segment outside box".]*
-
-FIGURE B.11. A SAW with endpoints in opposing corners.
+**FIGURE B.11.** A SAW with endpoints in opposing corners. *[Figure: Left, a short self-avoiding walk drawn as a solid path inside a dashed bounding box. An arrow "→" points to the right. Right, the walk after the final straight segment has been rotated outside the box; the dashed box and dotted box indicate the new bounding region. Below the right figure: "rotated final straight segment outside box".]*
 
 This operation reduces one dimension of the bounding box by at most the length of the rotated segment, but increases the other dimension by this length. This shows that $D(\xi') \geq D(\xi)$. Also, we have strictly increased the number of straight angles, so $D(\xi') + A(\xi') > D(\xi) + A(\xi)$.
 
@@ -395,9 +381,7 @@ Show that $(X_1, \ldots, X_n)$ is uniformly distributed on $\Delta_n$.
 
 ### PDF page 404 (book page 388)
 
-**FIGURE B.12** *[Figure: A rooted tree drawn with the root at the top, each vertex a circle containing a color label. The root is labeled 1. It has two children: left child labeled 2 and right child labeled 3. The vertex labeled 2 has two children labeled 3 and 1; the vertex labeled 3 has two children labeled 1 and 2.]*
-
-FIGURE B.12. A proper 3-coloring of a rooted tree. (As is common practice, we have placed the root at the top.)
+**FIGURE B.12.** A proper 3-coloring of a rooted tree. (As is common practice, we have placed the root at the top.) *[Figure: A rooted tree drawn with the root at the top, each vertex a circle containing a color label. The root is labeled 1. It has two children: left child labeled 2 and right child labeled 3. The vertex labeled 2 has two children labeled 3 and 1; the vertex labeled 3 has two children labeled 1 and 2.]*
 
 EXERCISE B.11. Let $U_1, U_2, \ldots, U_n$ be independent random variables, each uniform on the interval $[0,1]$. Let $U_{(k)}$ be the $k$-th **_order statistic_**, the $k$-th smallest among $\{U_1, \ldots, U_n\}$, so that
 

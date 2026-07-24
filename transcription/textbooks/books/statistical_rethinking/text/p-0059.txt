@@ -1,0 +1,49 @@
+2.4. MAKING THE MODEL GO
+43
+precis( globe.qa )
+To use quap, you provide a formula, a list of data. The formula defines the probability of the
+data and the prior. I’ll say much more about these formulas in Chapter 4. Now let’s see the
+output:
+Mean StdDev 5.5% 94.5%
+p 0.67
+0.16 0.42
+0.92
+The function precis presents a brief summary of the quadratic approximation. In this case,
+it shows the posterior mean value of p = 0.67, which it calls the “Mean.” The curvature is
+labeled “StdDev” This stands for standard deviation. This value is the standard deviation of
+the posterior distribution, while the mean value is its peak. Finally, the last two values in the
+precis output show the 89% percentile interval, which you’ll learn more about in the next
+chapter. You can read this kind of approximation like: Assuming the posterior is Gaussian, it
+is maximized at 0.67, and its standard deviation is 0.16.
+Since we already know the posterior, let’s compare to see how good the approximation
+is. I’ll use the analytical approach here, which uses dbeta. I won’t explain this calculation,
+but it ensures that we have exactly the right answer, with no approximations. You can find
+an explanation and derivation of it in just about any mathematical textbook on Bayesian
+inference.
+R code
+2.7
+# analytical calculation
+W <- 6
+L <- 3
+curve( dbeta( x , W+1 , L+1 ) , from=0 , to=1 )
+# quadratic approximation
+curve( dnorm( x , 0.67 , 0.16 ) , lty=2 , add=TRUE )
+You can see this plot (with a little extra formatting) on the left in Figure 2.8. The blue curve is
+the analytical posterior and the black curve is the quadratic approximation. The black curve
+does alright on its left side, but looks pretty bad on its right side. It even assigns positive
+probability to p = 1, which we know is impossible, since we saw at least one land sample.
+As the amount of data increases, however, the quadratic approximation gets better. In the
+middle of Figure 2.8, the sample size is doubled to n = 18 tosses, but with the same fraction
+of water, so that the mode of the posterior is in the same place. The quadratic approximation
+looks better now, although still not great. At quadruple the data, on the right side of the
+figure, the two curves are nearly the same now.
+This phenomenon, where the quadratic approximation improves with the amount of
+data, is very common. It’s one of the reasons that so many classical statistical procedures
+are nervous about small samples: Those procedures use quadratic (or other) approximations
+that are only known to be safe with infinite data. Often, these approximations are useful
+with less than infinite data, obviously. But the rate of improvement as sample size increases
+varies greatly depending upon the details. In some models, the quadratic approximation can
+remain terrible even with thousands of samples.
+Using the quadratic approximation in a Bayesian context brings with it all the same con-
+cerns. But you can always lean on some algorithm other than quadratic approximation, if
+you have doubts. Indeed, grid approximation works very well with small samples, because

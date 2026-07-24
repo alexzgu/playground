@@ -1,0 +1,46 @@
+190
+6. THE HAUNTED DAG & THE CAUSAL TERROR
+D will also control, to a lesser extent, for Z. The reason is that D has some informa-
+tion about Z. This will (partially) open the path from X to Y, because Z is a collider.
+The same holds for non-colliders. If you condition on a descendent of Z in the pipe,
+it’ll still be like (weakly) closing the pipe.
+No matter how complicated a causal DAG appears, it is always built out of these four
+types of relations. And since you know how to open and close each, you (or your computer)
+can figure out which variables you need to control—or not—in order to shut the backdoor.
+Here’s the recipe:
+(1) List all of the paths connecting X (the potential cause of interest) and Y (the out-
+come).
+(2) Classify each path by whether it is open or closed. A path is open unless it contains
+a collider.
+(3) Classify each path by whether it is a backdoor path. A backdoor path has an arrow
+entering X.
+(4) If there are any backdoor paths that are also open, decide which variable(s) to con-
+dition on to close it.
+Let’s consider some examples.
+6.4.2. Two roads. The DAG below contains an exposure of interest X, an outcome of interest
+Y, an unobserved variable U, and three observed covariates (A, B, and C).
+A
+B
+C
+U
+X
+Y
+We are interested in the blue path, the causal effect of X on Y. Which of the observed covari-
+ates do we need to add to the model, in order to correctly infer it? To figure this out, look
+for backdoor paths. Aside from the direct path, there are two paths from X to Y:
+(1) X ←U ←A →C →Y
+(2) X ←U →B ←C →Y
+These are both backdoor paths that could confound inference. Now ask which of these paths
+is open. If a backdoor path is open, then we must close it. If a backdoor path is closed already,
+then we must not accidentally open it and create a confound.
+Consider the first path, passing through A. This path is open, because there is no collider
+within it. There is just a fork at the top and two pipes, one on each side. Information will
+flow through this path, confounding X →Y. It is a backdoor. To shut this backdoor, we
+need to condition on one of its variables. We can’t condition on U, since it is unobserved.
+That leaves A or C. Either will shut the backdoor. You can ask your computer to reproduce
+this analysis, to analyze the graph and find the necessary variables to control for in order to
+block the backdoor. The dagitty R package provides adjustmentSets for this purpose:
+R code
+6.29
+library(dagitty)
+dag_6.1 <- dagitty( "dag {

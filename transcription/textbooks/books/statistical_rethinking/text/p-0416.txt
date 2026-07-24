@@ -1,0 +1,70 @@
+400
+12. MONSTERS AND MIXTURES
+intention and response as a function of the other variables. You could substitute BI into ϕi
+without changing anything.
+You fit this model just as you’d expect, by adding the slopes and predictor variables to
+the phi parameter inside dordlogit. Here’s a working model:
+R code
+12.24
+dat <- list(
+R = d$response,
+A = d$action,
+I = d$intention,
+C = d$contact )
+m12.5 <- ulam(
+alist(
+R ~ dordlogit( phi , cutpoints ),
+phi <- bA*A + bC*C + BI*I ,
+BI <- bI + bIA*A + bIC*C ,
+c(bA,bI,bC,bIA,bIC) ~ dnorm( 0 , 0.5 ),
+cutpoints ~ dnorm( 0 , 1.5 )
+) , data=dat , chains=4 , cores=4 )
+precis( m12.5 )
+6 vector or matrix parameters omitted in display. Use depth=2 to show them.
+mean
+sd
+5.5% 94.5% n_eff Rhat
+bIC -1.23 0.09 -1.38 -1.09
+1245
+1
+bIA -0.43 0.08 -0.55 -0.31
+1132
+1
+bC
+-0.35 0.07 -0.45 -0.24
+1229
+1
+bI
+-0.29 0.06 -0.38 -0.20
+1025
+1
+bA
+-0.47 0.05 -0.56 -0.39
+1064
+1
+I’ve suppressed the cutpoints. They aren’t of much interest at the moment. But look at the
+posterior distributions of the slopes. They are all reliably negative. Each of these story fea-
+tures reduces the rating—the acceptability of the story. Plotting the marginal posterior dis-
+tributions makes the relative effect sizes much clearer:
+R code
+12.25
+plot( precis(m12.5) , xlim=c(-1.4,0) )
+bA
+bI
+bC
+bIA
+bIC
+-1.4
+-1.2
+-1.0
+-0.8
+-0.6
+-0.4
+-0.2
+0.0
+Value
+The combination of intention and contact is the worst. This is curious, because it seems that
+neither intention nor contact by itself has a large impact on ratings.
+As always, this will all be even easier to see, if we plot the posterior predictions. There is
+no perfect way to plot the predictions of these log-cumulative-odds models. Why? Because
+each prediction is really a vector of probabilities, one for each possible outcome value. So

@@ -1,0 +1,48 @@
+404
+12. MONSTERS AND MIXTURES
+Now edu_new contains values from 1 to 8 in the right order of ascending education.
+Now for the fun part. The notion with ordered predictor variables is that each step up in
+value comes with its own incremental, or marginal, effect on the outcome. So that implies
+we want to infer, using a parameter, each of those incremental effects. With 8 education
+levels, we’ll need 7 parameters. The first level (Elementary School) will be absorbed into the
+intercept. Then the first increment comes from moving from Elementary School to Middle
+School. In that case we’ll add the first effect to the linear model:
+ϕi = δ1 + other stuff
+where the parameter δ1 is the effect of completing Middle School and “other stuff” is all of
+the other terms you want in your linear model. Another individual goes on to finish the third
+level, Some High School, and that individual’s linear model is:
+ϕi = δ1 + δ2 + other stuff
+where δ2 is the incremental effect of finishing some (but not all) High School. It goes on
+like this, adding another incremental effect for each completed level. An individual with a
+Graduate Degree, level 8, gets the linear model:
+ϕi =
+7
+X
+j=1
+δj + other stuff
+And this sum of all the δ parameters is the maximum education effect. It will be very con-
+venient for interpretation if we call this maximum sum an ordinary coefficient like βE and
+then let the δ parameters be fractions of it. If we also make a dummy δ0 = 0 then we can
+write it all very compactly. Like this:
+ϕi = βE
+Ei−1
+X
+j=0
+δj + other stuff
+where Ei is the completed education level of individual i. Now the sum of every δj is 1, and
+we can interpret the maximum education effect by looking at βE. In the case of an individual
+with Ei = 1, βE does’t appear in the linear model, because βEδ0 = 0.
+This βE move also helps us define priors. If the prior expectation is that all of the levels
+have the same incremental effect, then we want all the δj’s to have the same prior. We can do
+that now and still set a separate prior for maximum effect on βE. βE can be negative as well,
+in which case all of the incremental effects are incrementally negative.
+I appreciate that all of this is rather bizarre. We are deep inside the tide prediction en-
+gine (Chapter 11) now. Understanding always comes with use and practice. So let’s build
+education into the ordered logit model as an ordered predictor. First, here’s a mathematical
+version of the full model. The probability of the outcome and the linear model are:
+Ri ∼Ordered-logit(ϕi, κ)
+ϕi = βE
+Ei−1
+X
+j=0
+δj + βAAI + βIIi + βCCi

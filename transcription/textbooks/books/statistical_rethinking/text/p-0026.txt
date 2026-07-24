@@ -1,0 +1,46 @@
+10
+1. THE GOLEM OF PRAGUE
+about the world are not good scientific hypotheses. In that case, we should conclude that the
+definition of a “good hypothesis” isn’t doing us much good. Now, nearly everyone agrees
+that it is a good practice to design experiments and observations that can differentiate com-
+peting hypotheses. But in many cases, the comparison must be probabilistic, a matter of
+degree, not kind.17
+1.2.3. Falsification is consensual. The scientific community does come to regard some hy-
+potheses as false. The caloric theory of heat and the geocentric model of the universe are no
+longer taught in science courses, unless it’s to teach how they were falsified. And evidence
+often—but not always—has something to do with such falsification.
+But falsification is always consensual, not logical. In light of the real problems of measure-
+ment error and the continuous nature of natural phenomena, scientific communities argue
+towards consensus about the meaning of evidence. These arguments can be messy. After the
+fact, some textbooks misrepresent the history so it appears like logical falsification.18 Such
+historical revisionism may hurt everyone. It may hurt scientists, by rendering it impossible
+for their own work to live up to the legends that precede them. It may make science an easy
+target, by promoting an easily attacked model of scientific epistemology. And it may hurt
+the public, by exaggerating the definitiveness of scientific knowledge.19
+1.3. Tools for golem engineering
+So if attempting to mimic falsification is not a generally useful approach to statistical
+methods, what are we to do? We are to model. Models can be made into testing procedures—
+all statistical tests are also models20—but they can also be used to design, forecast, and argue.
+Doing research benefits from the ability to produce and manipulate models, both because
+scientific problems are more general than “testing” and because the pre-made golems you
+maybe met in introductory statistics courses are ill-fit to many research contexts. You may
+not even know which statistical model to use, unless you have a generative model in addition.
+If you want to reduce your chances of wrecking Prague, then some golem engineering
+know-how is needed. Make no mistake: You will wreck Prague eventually. But if you are a
+good golem engineer, at least you’ll notice the destruction. And since you’ll know a lot about
+how your golem works, you stand a good chance to figure out what went wrong. Then your
+next golem won’t be as bad. Without the engineering training, you’re always at someone
+else’s mercy.
+We want to use our models for several distinct purposes: designing inquiry, extraction
+information from data, and making predictions. In this book I’ve chosen to focus on tools
+help with each purpose. These tools are:
+(1) Bayesian data analysis
+(2) Model comparison
+(3) Multilevel models
+(4) Graphical causal models
+These tools are deeply related to one another, so it makes sense to teach them together. Un-
+derstanding of these tools comes, as always, only with implementation—you can’t compre-
+hend golem engineering until you do it. And so this book focuses mostly on code, how to
+do things. But in the remainder of this chapter, I provide introductions to these tools.
+1.3.1. Bayesian data analysis. Supposing you have some data, how should you use it to learn
+about the world? There is no uniquely correct answer to this question. Lots of approaches,

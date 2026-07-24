@@ -1,0 +1,70 @@
+11.2. POISSON REGRESSION
+355
+Figure 11.6. Locations of societies
+in the Kline data. The Equator and
+International Date Line are shown.
+5
+Lau Fiji
+7400
+high
+33
+5.0
+6
+Trobriand
+8000
+high
+19
+4.0
+7
+Chuuk
+9200
+high
+40
+3.8
+8
+Manus
+13000
+low
+28
+6.6
+9
+Tonga
+17500
+high
+55
+5.4
+10
+Hawaii
+275000
+low
+71
+6.6
+That’s the entire data set. You can see the location of these societies in the Pacific Ocean in
+Figure 11.6. Keep in mind that the number of rows is not clearly the same as the “sample
+size” in a count model. The relationship between parameters and “degrees of freedom” is not
+simple, outside of simple linear regressions. Still, there isn’t a lot of data here, because there
+just aren’t that many historic Oceanic societies for which reliable data can be gathered. We’ll
+want to use regularization to damp down overfitting, as always. But as you’ll see, a lot can
+still be learned from these data. Any rules you’ve been taught about minimum sample sizes
+for inference are just non-Bayesian superstitions. If you get the prior back, then the data
+aren’t enough. It’s that simple.
+The total_tools variable will be the outcome variable. We’ll model the idea that:
+(1) The number of tools increases with the log population size. Why log? Because
+that’s what the theory says, that it is the order of magnitude of the population that
+matters, not the absolute size of it. So we’ll look for a positive association between
+total_tools and log population. You can get some intuition for why a linear
+impact of population size can’t be right by thinking about mechanism. We’ll think
+about mechanism more at the end.
+(2) The number of tools increases with the contact rate among islands. No nation is
+an island, even when it is an island. Islands that are better networked may acquire
+or sustain more tool types.
+(3) The impact of population on tool counts is moderated by high contact. This
+is to say that the association between total_tools and log population depends
+upon contact. So we will look for a positive interaction between log population
+and contact rate.
+Let’s build now. First, we make some new columns with thestandardized log of population
+and an index variable for contact:
+R code
+11.37
+d$P <- scale( log(d$population) )
+d$contact_id <- ifelse( d$contact=="high" , 2 , 1 )

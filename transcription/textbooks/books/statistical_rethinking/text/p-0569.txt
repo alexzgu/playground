@@ -1,0 +1,46 @@
+16.4. POPULATION DYNAMICS
+553
+0.0
+0.5
+1.0
+1.5
+age
+nuts per second
+0
+4
+8
+12
+16
+Figure 16.5. Posterior predictive distribu-
+tion for the nut opening model. Blue points
+are raw data, number opened divided by sec-
+onds. Point size is proportional to the dura-
+tion of that observation. The curves are 30
+draws from the posterior distribution.
+16.3.3. Covariates and individual differences. The model here is stupidly simple. But it
+is a scientifically reasonable start. You could extend it to include covariates like sex and
+individual differences in strength. There are repeat observations of individuals, and even
+repeat observations across different years, that could be used to estimate individual varying
+effects. The practice problems at the end of the chapter explore these applications.
+Note for the moment that some of the model parameters make sense as varying by indi-
+vidual while others do not. The scaling parameter θ for example is a feature of the physics,
+not of an individual. Which parameters are allowed to vary by individual is something to
+be decided by scientific knowledge of the parameters. And this is another reason to avoid
+GLMs, so that the parameters have firmer scientific meaning.
+Yet another improvement to this model might be to use a more realistic model of chim-
+panzee growth. There are detailed published growth curves for chimpanzees.225 Male chim-
+panzees do experience a growth spurt around age 10. So their growth rate actually increases
+shortly before reaching maximum size. Incorporating this into the model might help im-
+prove predictions for males at least.
+16.4. Population dynamics
+It all starts with radiation released by fusion reactions inside a dwarf star in a minor arm
+of an insignificant spiral galaxy. Eight minutes away as the photon travels, on the third planet,
+that radiation allows clever plants to make sugar. Then the hare eats those clever plants and
+steals their sugar. The clever lynx eats the hare. Everyone is just eating starlight.
+The population of hares and lynx fluctuate over time, and understanding nature requires
+understanding such fluctuations. The numbers of hares and lynx at any time influence the
+numbers in the near future. You might say that the most important cause of hares is hares.
+But predators, like the lynx, are also causes. To model phenomena like this, variables at one
+time influence the values of those same variables in the next.
+In this section, we’ll model a time series of hare and lynx populations.226 Load the data
+and display it:

@@ -1,0 +1,55 @@
+226
+7. ULYSSES’ COMPASS
+Overthinking: WAIC calculations. To see how the WAIC calculations actually work, consider a
+simple regression fit with quap:
+R code
+7.19
+data(cars)
+m <- quap(
+alist(
+dist ~ dnorm(mu,sigma),
+mu <- a + b*speed,
+a ~ dnorm(0,100),
+b ~ dnorm(0,10),
+sigma ~ dexp(1)
+) , data=cars )
+set.seed(94)
+post <- extract.samples(m,n=1000)
+We’ll need the log-likelihood of each observation i at each sample s from the posterior:
+R code
+7.20
+n_samples <- 1000
+logprob <- sapply( 1:n_samples ,
+function(s) {
+mu <- post$a[s] + post$b[s]*cars$speed
+dnorm( cars$dist , mu , post$sigma[s] , log=TRUE )
+} )
+You end up with a 50-by-1000 matrix of log-likelihoods, with observations in rows and samples in
+columns. Now to compute lppd, the Bayesian deviance, we average the samples in each row, take
+the log, and add all of the logs together. However, to do this with precision, we need to do all of the
+averaging on the log scale. This is made easy with a function log_sum_exp, which computes the log
+of a sum of exponentiated terms. Then we can just subtract the log of the number of samples. This
+computes the log of the average.
+R code
+7.21
+n_cases <- nrow(cars)
+lppd <- sapply( 1:n_cases , function(i) log_sum_exp(logprob[i,]) - log(n_samples) )
+Typing sum(lppd) will give you lppd, as defined in the main text. Now for the penalty term, pWAIC.
+This is more straightforward, as we just compute the variance across samples for each observation,
+then add these together:
+R code
+7.22
+pWAIC <- sapply( 1:n_cases , function(i) var(logprob[i,]) )
+And sum(pWAIC) returns pWAIC, as defined in the main text. To compute WAIC:
+R code
+7.23
+-2*( sum(lppd) - sum(pWAIC) )
+[1] 423.3154
+Compare to the output of the WAIC function. There will be simulation variance, because of how the
+samples are drawn from the quap fit. But that variance remains much smaller than the standard error
+of WAIC itself. You can compute the standard error by computing the square root of number of cases
+multiplied by the variance over the individual observation terms in WAIC:
+R code
+7.24
+waic_vec <- -2*( lppd - pWAIC )
+sqrt( n_cases*var(waic_vec) )

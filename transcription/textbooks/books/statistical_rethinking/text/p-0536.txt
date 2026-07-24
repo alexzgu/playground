@@ -1,0 +1,82 @@
+520
+15. MISSING DATA AND OTHER OPPORTUNITIES
+R code
+15.19
+obs_idx <- which( !is.na(d$neocortex.prop) )
+dat_list_obs <- list(
+K = dat_list$K[obs_idx],
+B = dat_list$B[obs_idx],
+M = dat_list$M[obs_idx] )
+m15.4 <- ulam(
+alist(
+K ~ dnorm( mu , sigma ),
+mu <- a + bB*B + bM*M,
+B ~ dnorm( nu , sigma_B ),
+c(a,nu) ~ dnorm( 0 , 0.5 ),
+c(bB,bM) ~ dnorm( 0, 0.5 ),
+sigma_B ~ dexp( 1 ),
+sigma ~ dexp( 1 )
+) , data=dat_list_obs , chains=4 , cores=4 )
+precis( m15.4 )
+mean
+sd
+5.5% 94.5% n_eff Rhat
+nu
+0.00 0.22 -0.34
+0.37
+1821
+1
+a
+0.10 0.20 -0.21
+0.42
+1923
+1
+bM
+-0.63 0.25 -1.01 -0.21
+1276
+1
+bB
+0.59 0.27
+0.14
+1.01
+1244
+1
+sigma_B
+1.04 0.18
+0.79
+1.36
+1458
+1
+sigma
+0.88 0.19
+0.64
+1.20
+1145
+1
+Comparing this posterior to the previous will be easier with a plot:
+R code
+15.20
+plot( coeftab(m15.3,m15.4) , pars=c("bB","bM") )
+m15.3
+m15.4
+m15.3
+m15.4
+bB
+bM
+-1.0
+-0.5
+0.0
+0.5
+1.0
+Value
+The model that imputes the missing values, m15.3, has narrower marginal distributions for
+both effects. How could this happen? We used more information, the values of body mass
+that are not missing but are discarded by m15.4. These values suggest a slightly smaller
+influence of body mass, bM, and this also cascades into bB.
+Let’s do some plotting to visualize what’s happened here.
+R code
+15.21
+post <- extract.samples( m15.3 )
+B_impute_mu <- apply( post$B_impute , 2 , mean )
+B_impute_ci <- apply( post$B_impute , 2 , PI )
+# B vs K

@@ -1,0 +1,50 @@
+4.3. GAUSSIAN MODEL OF HEIGHT
+85
+Whatever the prior, it’s a very good idea to plot your priors, so you have a sense of the
+assumption they build into the model. In this case:
+R code
+4.12
+curve( dnorm( x , 178 , 20 ) , from=100 , to=250 )
+Execute that code yourself, to see that the golem is assuming that the average height (not
+each individual height) is almost certainly between 140 cm and 220 cm. So this prior carries
+a little information, but not a lot. The σ prior is a truly flat prior, a uniform one, that functions
+just to constrain σ to have positive probability between zero and 50cm. View it with:
+R code
+4.13
+curve( dunif( x , 0 , 50 ) , from=-10 , to=60 )
+A standard deviation like σ must be positive, so bounding it at zero makes sense. How should
+we pick the upper bound? In this case, a standard deviation of 50cm would imply that 95%
+of individual heights lie within 100cm of the average height. That’s a very large range.
+All this talk is nice, but it’ll help to really see what these priors imply about the distribu-
+tion of individual heights. This is an essential part of your modeling, the prior predictive
+simulation. Once you’ve chosen priors for h, µ, and σ, these imply a joint prior distribution
+of individual heights. By simulating from this distribution, you can see what your choices
+imply about observable height. This helps you diagnose bad choices. Lots of conventional
+choices are indeed bad ones, and we’ll be able to see this by conducting prior predictive sim-
+ulations.
+Okay, so how to do this? You can quickly simulate heights by sampling from the prior,
+like you sampled from the posterior back in Chapter 3. Remember, every posterior is also
+potentially a prior for a subsequent analysis, so you can process priors just like posteriors.
+R code
+4.14
+sample_mu <- rnorm( 1e4 , 178 , 20 )
+sample_sigma <- runif( 1e4 , 0 , 50 )
+prior_h <- rnorm( 1e4 , sample_mu , sample_sigma )
+dens( prior_h )
+This density, as well as the individual densities for µ and σ, as shown in Figure 4.3. It dis-
+plays a vaguely bell-shaped density with thick tails. It is the expected distribution of heights,
+averaged over the prior. Notice that the prior probability distribution of height is not itself
+Gaussian. This is okay. The distribution you see is not an empirical expectation, but rather
+the distribution of relative plausibilities of different heights, before seeing the data.
+Prior predictive simulation is very useful for assigning sensible priors, because it can
+be quite hard to anticipate how priors influence the observable variables. As an example,
+consider a much flatter and less informative prior for µ, like µ ∼Normal(178, 100). Priors
+with such large standard deviations are quite common in Bayesian models, but the are hardly
+ever sensible. Let’s use simulation again to see the implied heights:
+R code
+4.15
+sample_mu <- rnorm( 1e4 , 178 , 100 )
+prior_h <- rnorm( 1e4 , sample_mu , sample_sigma )
+dens( prior_h )
+The result is displayed in the lower right of Figure 4.3. Now the model, before seeing the
+data, expects 4% of people, those left of the dashed line, to have negative height. It also

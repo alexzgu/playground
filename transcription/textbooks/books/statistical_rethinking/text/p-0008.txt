@@ -1,0 +1,42 @@
+xii
+PREFACE TO THE SECOND EDITION
+well a more direct discussion of causal inference. This means that DAGs—directed acyclic
+graphs—make an appearance. The chapter on overfitting, Chapter 7 now, is also more di-
+rect in cautioning about the predictive nature of information criteria and cross-validation.
+Cross-validation and importance sampling approximations of it (PSIS-LOO) are now dis-
+cussed explicitly.
+Now model types. Chapter 4 now ends with B-splines. The chapter on count models, Chap-
+ter 11, now includes an item-response (factor analytic) example. Chapter 12 contains a sur-
+vival analysis with censoring. Chapter 14 has an example of a phylogenetic distance regres-
+sion. And there is an entirely new chapter, Chapter 16, that focuses on models that are not
+easily conceived of as GLMMs.
+Some new data examples. There are some new data examples, such as the Japanese cherry
+blossoms historical time series and a larger primate evolution data set with 300 species and
+a matching phylogeny.
+More presentation of raw Stan models. There are several places now where raw Stan model
+code is explained, inside optional boxes. I hope this makes a transition to working directly
+in Stan easier. But the main text remains R script, using the rethinking package’s teaching
+tools.
+Kindness and persistence. As in the first edition, I have tried to make the material as kind as
+possible. None of this stuff is easy, and the journey into understanding is long and haunted.
+It is important that readers expect that confusion and partial understanding are normal. This
+is also the reason that I have not changed the basic modeling strategy in the book.
+First, I force the reader to explicitly specify every assumption of the model. Some readers
+of the first edition lobbied me to use simplified formula tools like brms or rstanarm. Those
+are fantastic packages, and graduating to use them after this book is recommended. But
+I don’t see how a person can come to understand the model when using those tools. The
+priors being hidden isn’t the most limiting part. Instead, since linear model formulas like
+y ~ (1|x) + z don’t show the parameters, nor even all of the terms, it is not easy to see
+how the mathematical model relates to the code. It is ultimately kinder to be a bit cruel and
+require more work. So the formula lists remain. In this book, you are programming the log-
+posterior, down to the exact relationship between each variable and coefficient. You’ll thank
+me later.
+Second, half the book goes by before MCMC appears. Some readers of the first edition
+wanted me to start instead with MCMC. I do not do this because Bayes is not about MCMC.
+We seek the posterior distribution, but there are many legitimate approximations of it, and
+MCMC is just one set of strategies. Using quadratic approximation in the first half also allows
+a clearer tie to non-Bayesian algorithms. And since finding the quadratic approximation is
+fast, it means readers don’t have to struggle with too many things at once. Again, it is about
+being kind.
+Richard McElreath
+Leipzig, 10 August 2019

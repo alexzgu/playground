@@ -1,0 +1,110 @@
+CITATION INDEX
+597
+Robert and Casella (2011), 578, 590
+Roberts and Sahu (1997), 580, 590
+Robert (2007), 571, 572, 577, 590
+Rohrer (2017), 574, 590
+Rommel et al. (2007), 576, 590
+Rosenbaum (1984), 574, 590
+Rosenthal (1979), 582, 590
+Rubin and Little (2002), 581, 590
+Rubin (1974), 571, 590
+Rubin (1976), 581, 590
+Rubin (1987), 581, 590
+Rubin (2005), 574, 590
+Sankararaman et al. (2012), 571, 590
+Savage et al. (2019), 581, 590
+Savage (1962), 571, 590
+Schwarz (1978), 576, 590
+Sedlemeier and Gigerenzer (1989), 582, 591
+Senn (2003), 578, 591
+Shannon (1948), 575, 591
+Shannon (1956), 575, 591
+Silk et al. (2005), 578, 591
+Silver (2012), 571, 591
+Simmons et al. (2011), 578, 582, 591
+Simmons et al. (2013), 582, 591
+Simon (1969), 571, 591
+Simpson (1951), 579, 591
+Skilling and Knuth (2019), 571, 591
+Smaldino (2017), 581, 591
+Sober (2008), 570, 591
+Speed (1986), 581, 582, 591
+Stein (1955), 580, 591
+Taleb (2007), 573, 591
+Theobald (2010), 571, 591
+Thistlethwaite and Campbell (1960), 580, 591
+Uhlenbeck and Ornstein (1930), 580, 591
+Uyeda et al. (2018), 580, 591
+Van Horn (2003), 571, 591
+Vehtari et al. (2016), 575, 591
+Vehtari et al. (2019a), 578, 591
+Vehtari et al. (2019b), 576, 591
+Vehtari et al. (2019c), 576, 592
+Venn (1876), 570, 592
+Volterra (1926), 581, 592
+Vonesh and Bolker (2005), 579, 592
+Wald (1939), 577, 592
+Wald (1943), 577, 592
+Wald (1950), 577, 592
+Walker et al. (2006), 581, 592
+Wang et al. (2015), 571, 592
+Watanabe (2010), 576, 592
+Watanabe (2018a), 576, 592
+Watanabe (2018b), 576, 592
+Wearing (2005), 579, 592
+Welsh and Lind (1995), 579, 592
+Whitehouse et al. (2019), 581, 592
+Wilks (1938), 575, 592
+Williams (1975), 579, 592
+Williams (1980), 578, 592
+Williams (1982), 579, 592
+Wimsatt (2002), 581, 592
+Wittgenstein (1953), 569, 592
+Wolpert and Macready (1997), 572, 592
+Wood (2017), 574, 592
+Wright (1921), 571, 592
+Yao et al. (2018), 576, 592
+Zhang and Yang (2015), 575, 593
+van Leeuwen et al. (2018), 581, 591
+von Bertalanffy (1934), 581, 592
+van Smeden et al. (2019), 581, 591
+absolute effects, 344
+aggregated binomial regression, 333
+AIC, 223
+Akaike information criterion, 223
+ape package, 492, 495
+autocorrelation, 277
+autocorrelation, of samples, 293
+automatic differentiation, 293
+autoregressive model, 554, 563
+axis, 117
+b-spline, 117
+b-splines, 113
+backdoor, 189
+backpropagation, 293
+basis function, 118
+Bayes factor, 225
+Bayes’ theorem, 37
+Bayesian imputation, 502
+Bayesian information criterion, 197, 225
+Bayesian updating, 29
+Bayesianism, 12
+Berkson’s paradox, 165
+Bertrand’s box paradox, 501
+beta distribution, 405
+beta-binomial, 382
+bias amplifier, 470
+bias-variance trade-off, 205
+bias-variance tradeoff, see also overfitting
+binomial distribution, 315
+binomial regression, 331
+bivariate normal distribution, 522
+Brownian motion, 495
+Buridan’s ass, 254
+burn-in, 294
+categorical, 367
+categorical variable, 157
+categorical variables, 128
+causal analysis, 16
+causal inference, 128

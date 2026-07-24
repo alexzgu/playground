@@ -2,9 +2,7 @@
 *(PDF pages 131–150; book pages 125–144)*
 
 ### PDF page 131 (book page 125)
-# Chapter 4
-
-# More stochastic calculus
+# Chapter 4 — More stochastic calculus
 
 **4.1 Martingales and local martingales**
 

@@ -1,0 +1,47 @@
+7.2. ENTROPY AND ACCURACY
+209
+each day. So when either weatherperson provides a prediction that differs from the target,
+we can measure the distance of the prediction from the target. But what kind of distance
+should we adopt? It’s not obvious how to go about answering this question. But there turns
+out to be a unique and optimal answer.
+Getting to the answer depends upon appreciating what an accuracy metric needs to do.
+It should appreciate that some targets are just easier to hit than other targets. For example,
+suppose we extend the weather forecast into the winter. Now there are three types of days:
+rain, sun, and snow. Now there are three ways to be wrong, instead of just two. This has to be
+reflected in any reasonable measure of distance from the target, because by adding another
+type of event, the target has gotten harder to hit.
+It’s like taking a two-dimensional archery bullseye and forcing the archer to hit the tar-
+get at the right time—a third dimension—as well. Now the possible distance between the
+best archer and the worst archer has grown, because there’s another way to miss. And with
+another way to miss, one might also say that there is another way for an archer to impress.
+As the potential distance between the target and the shot increases, so too does the potential
+improvement and ability of a talented archer to impress us.
+The solution to the problem of how to measure distance of a model’s accuracy from a
+target was provided in the late 1940s.102 Originally applied to problems in communication
+of messages, such as telegraph, the field of information theory is now important across
+the basic and applied sciences, and it has deep connections to Bayesian inference. And like
+many successful fields, information theory has spawned many bogus applications, as well.103
+The basic insight is to ask: How much is our uncertainty reduced by learning an outcome?
+Consider the weather forecasts again. Forecasts are issued in advance and the weather is
+uncertain. When the actual day arrives, the weather is no longer uncertain. The reduction
+in uncertainty is then a natural measure of how much we have learned, how much “infor-
+mation” we derive from observing the outcome. So if we can develop a precise definition of
+“uncertainty,” we can provide a baseline measure of how hard it is to predict, as well as how
+much improvement is possible. The measured decrease in uncertainty is the definition of
+information in this context.
+Information: The reduction in uncertainty when we learn an outcome.
+To use this definition, what we need is a principled way to quantify the uncertainty in-
+herent in a probability distribution. So suppose again that there are two possible weather
+events on any particular day: Either it is sunny or it is rainy. Each of these events occurs
+with some probability, and these probabilities add up to one. What we want is a function
+that uses the probabilities of shine and rain and produces a measure of uncertainty.
+There are many possible ways to measure uncertainty. The most common way begins
+by naming some properties a measure of uncertainty should possess. These are the three
+intuitive desiderata:
+(1) The measure of uncertainty should be continuous. If it were not, then an arbitrarily
+small change in any of the probabilities, for example the probability of rain, would
+result in a massive change in uncertainty.
+(2) The measure of uncertainty should increase as the number of possible events in-
+creases. For example, suppose there are two cities that need weather forecasts. In
+the first city, it rains on half of the days in the year and is sunny on the others. In
+the second, it rains, shines, and hails, each on 1 out of every 3 days in the year. We’d

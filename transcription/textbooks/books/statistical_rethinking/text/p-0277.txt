@@ -1,0 +1,44 @@
+8.3. CONTINUOUS INTERACTIONS
+261
+have zero effect. That implies:
+γW,i = βw + βWSSi = 0
+If we set Si = 1 (the maximum in the sample), then this means the interaction needs to be the
+same magnitude as the main effect, but reversed: βWS = −βW. That is largest conceivable
+interaction. So if we set the prior for βWS to have the same standard deviation as βW, maybe
+that isn’t ridiculous. All together now, in code form:
+R code
+8.24
+m8.5 <- quap(
+alist(
+blooms_std ~ dnorm( mu , sigma ) ,
+mu <- a + bw*water_cent + bs*shade_cent + bws*water_cent*shade_cent ,
+a ~ dnorm( 0.5 , 0.25 ) ,
+bw ~ dnorm( 0 , 0.25 ) ,
+bs ~ dnorm( 0 , 0.25 ) ,
+bws ~ dnorm( 0 , 0.25 ) ,
+sigma ~ dexp( 1 )
+) , data=d )
+And that’s the structure of a simple, continuous interaction. Next, let’s figure out how to plot
+these creatures.
+Overthinking: How is interaction formed? As in the main text, if you substitute γW,i into µi above
+and expand:
+µi = α + (βW + βWSSi)Wi + βSSi = α + βWWi + βSSi + βWSSiWi
+Now it’s possible to refactor this to construct a γS,i that makes the association of shade with blooms
+depend upon water:
+µi = α + βWWi + γS,iSi
+γS,i = βS + βSWWi
+So both interpretations are simultaneously true. You could even put both γ definitions into µ at the
+same time:
+µi = α + γW,iWi + γS,iSi
+γW,i = βW + βWSSi
+γS,i = βS + βSWWi
+Note that I defined two different interaction parameters: βWS and βSW. Now let’s substitute the γ
+definitions into µ and start factoring:
+µi = α + (βW + βWSSi)Wi + (βS + βSWWi)Si
+= α + βWWi + βSSi + (βWS + βSW)WiSi
+The only thing we can identify in such a model is the sum βWS + βSW, so really the sum is a single
+parameter (dimension in the posterior). It’s the same interaction model all over again. We just cannot
+tell the difference between water depending upon shade and shade depending upon water.
+8.3.3. Plotting posterior predictions. Golems (models) have awesome powers of reason,
+but terrible people skills. The golem provides a posterior distribution of plausibility for com-
+binations of parameter values. But for us humans to understand its implications, we need to

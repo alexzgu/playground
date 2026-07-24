@@ -1,0 +1,54 @@
+13.1. EXAMPLE: MULTILEVEL TADPOLES
+415
+many cases, we are interested in only one or a few of those levels, and as a consequence,
+model comparison using metrics like DIC and WAIC becomes more subtle. The basic logic
+remains unchanged, but now we have to make more decisions about which parameters in
+the model we wish to focus on.
+This chapter has the following progression. First, we’ll work through an extended exam-
+ple of building and fitting a multilevel model for clustered data. Then we’ll simulate clustered
+data, to demonstrate the improved accuracy the approach delivers. This improved accuracy
+arises from the same underfitting and overfitting trade-off you met in Chapter 7. Then we’ll
+finish by looking at contexts in which there is more than one type of clustering. All of this
+work lays a foundation for more advanced multilevel examples in the next two chapters.
+Rethinking: A model by any other name. Multilevel models go by many different names, and some
+statisticians use the same names for different specialized variants, while others use them all inter-
+changeably. The most common synonyms for “multilevel” are hierarchical and mixed effects.
+The type of parameters that appear in multilevel models are most commonly known as random ef-
+fects, which itself can mean very different things to different analysts and in different contexts.186
+And even the innocent term “level” can mean different things to different people. There’s really no
+cure for this swamp of vocabulary aside from demanding a mathematical or algorithmic definition
+of the model. Otherwise, there will always be ambiguity.
+13.1. Example: Multilevel tadpoles
+The heartwarming focus of this example are experiments exploring Reed frog (Hyper-
+olius spinigularis) tadpole mortality.187 The natural history background to these data is very
+interesting. Take a look at the full paper, if amphibian life history dynamics interests you.
+But even if it doesn’t, load the data and acquaint yourself with the variables:
+R code
+13.1
+library(rethinking)
+data(reedfrogs)
+d <- reedfrogs
+str(d)
+'data.frame': 48 obs. of
+5 variables:
+$ density : int
+10 10 10 10 10 10 10 10 10 10 ...
+$ pred
+: Factor w/ 2 levels "no","pred": 1 1 1 1 1 1 1 1 2 2 ...
+$ size
+: Factor w/ 2 levels "big","small": 1 1 1 1 2 2 2 2 1 1 ...
+$ surv
+: int
+9 10 7 10 9 9 10 9 4 9 ...
+$ propsurv: num
+0.9 1 0.7 1 0.9 0.9 1 0.9 0.4 0.9 ...
+For now, we’ll only be interested in number surviving, surv, out of an initial count, density.
+In the practice at the end of the chapter, you’ll consider the other variables, which are exper-
+imental manipulations.
+There is a lot of variation in these data. Some of the variation comes from experimen-
+tal treatment. But a lot of it comes from other sources. Think of each row as a “tank,” an
+experimental environment that contains tadpoles. There are lots of things peculiar to each
+tank that go unmeasured, and these unmeasured factors create variation in survival across
+tanks, even when all the predictor variables have the same value. These tanks are an example
+of a cluster variable. Multiple observations, the tadpoles in this case, are made within each
+cluster.

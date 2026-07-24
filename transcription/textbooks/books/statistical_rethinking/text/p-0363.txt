@@ -1,0 +1,48 @@
+11.1. BINOMIAL REGRESSION
+347
+That ugly fraction in front is the multiplicity that was so important in the first half of the
+previous chapter. It just counts all the ways you could see 6 successes in 9 trials. When we
+instead split the 6 success apart into 9 different 0/1 trials, like in a logistic regression, there
+is no multiplicity term to compute. So the joint probably of all 9 trials is instead:
+Pr(1, 1, 1, 1, 1, 1, 0, 0, 0|p) = p6(1 −p)9−6
+This makes the aggregated probabilities larger—there are more ways to see the data. So the
+PSIS/WAIC scores end up being smaller. Go ahead and try it with the simple example here:
+R code
+11.27
+# deviance of aggregated 6-in-9
+-2*dbinom(6,9,0.2,log=TRUE)
+# deviance of dis-aggregated
+-2*sum(dbern(c(1,1,1,1,1,1,0,0,0),0.2,log=TRUE))
+[1] 11.79048
+[1] 20.65212
+But this difference is entirely meaningless. It is just a side effect of how we organized the
+data. The posterior distribution for the probability of success on each trial will end up the
+same, either way.
+Continuing with the compare output, there are two warnings. The first is just to flag the
+fact that the two models have different numbers of observations. Never compare models fit
+to different sets of observations. The other warning is the Pareto k message at the top:
+Some Pareto k values are high (>0.5).
+This is the Pareto k warning you met way back in Chapter 7. The value in these warnings is
+more that they inform us about the presence of highly influential observations. Observations
+with these high Pareto k values are usually influential—the posterior changes a lot when they
+are dropped from the sample. As with the example from Chapter 7, looking at individual
+points is very helpful for understanding why the model behaves as it does. And the penalty
+terms from WAIC contain similar information about relative influence of each observation.
+Before looking at the Pareto k values, you might have noticed already that we didn’t get
+a similar warning before in the disaggregated logistic models of the same data. Why not?
+Because when we aggregated the data by actor-treatment, we forced PSIS (and WAIC) to
+imagine cross-validation that leaves out all 18 observations in each actor-treatment combi-
+nation. So instead of leave-one-out cross-validation, it is more like leave-eighteen-out. This
+makes some observations more influential, because they are really now 18 observations.
+What’s the bottom line? If you want to calculate WAIC or PSIS, you should use a logistic
+regression data format, not an aggregated format. Otherwise you are implicitly assuming
+that only large chunks of the data are separable. There are times when this makes sense, like
+with multilevel models. But it doesn’t in most ordinary binomial regressions. If you did into
+the Stan code that computes the individual log-likelihood terms that WAIC and PSIS use,
+you can aggregate at any level you like, computing effect scores that are relevant to the level
+you want to predict at, whether that is 0/1 events or rather new individuals with many 0/1
+events.
+11.1.4. Aggregated binomial: Graduate school admissions. In the aggregated binomial ex-
+ample above, the number of trials was always 18 on every row. This is often not the case. The
+way to handle this is to insert a variable from the data in place of the “18”. Let’s work through
+an example. First, load the data:

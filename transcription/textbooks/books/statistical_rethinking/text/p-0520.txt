@@ -1,0 +1,58 @@
+504
+15. MISSING DATA AND OTHER OPPORTUNITIES
+23
+24
+25
+26
+27
+28
+29
+4
+6
+8
+10
+12
+14
+Median age marriage
+Divorce rate
+0
+1
+2
+3
+4
+6
+8
+10
+12
+14
+log population
+Divorce rate
+Figure 15.1. Left: Divorce rate by median age of marriage, States of the
+United States. Vertical bars show plus and minus one standard deviation
+of the Gaussian uncertainty in measured divorce rate. Right: Divorce rate,
+again with standard deviations, against log population of each State. Smaller
+States produce more uncertain estimates.
+step would be to generate the true values of the variables. Then we simulate the observation
+process itself, where the measurement error arises. It is just part of the statistical model and
+likewise part of the causal model.
+Recall the causal model of the divorce example from Chapter 5. Let’s take that same
+model and now add observation error on the outcome:
+A
+D
+Dobs
+M
+eD
+There’s a lotgoing on here. But we can proceed one step ata time. The left triangle of this DAG
+is the same system that we worked with back in Chapter 5. Age at marriage (A) influences
+divorce (D) both directly and indirectly, passing through marriage rate (M). Then we have
+the observation model. The true divorce rate D cannot be observed, so it is circled as an
+unobserved node. However we do get to observe Dobs, which is a function of both the true
+rate D and some unobserved error eD.
+What are we supposed to do now? Note that Dobs is a descendent of D. Using it in place of
+D doesn’t necessarily introduce confounding. Probably the majority of regressions are really
+using proxies like Dobs, because most variables are measurements with some error. But even
+though it doesn’t necessarily open a non-causal path, using a proxy can introduce systematic
+bias, distorting the estimates. Since the extent of measurement error varies across States in
+a way that is associated with variables of interest, that is likely in this example.
+We could do better by using D instead of Dobs. But we don’t have D. However we can
+try to reconstruct it, respecting the uncertainty to avoid false confidence. In these data, the

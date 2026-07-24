@@ -1,0 +1,49 @@
+8.3. CONTINUOUS INTERACTIONS
+259
+Centering the prior for α at 0.5 implies that, when both water and shade are at their mean
+values, the model expects blooms to be halfway to the observed maximum. The two slopes
+are centered on zero, implying no prior information about direction. This is obviously less
+information than we have—basic botany informs us that water should have a positive slope
+and shade a negative slope. But these priors allow us to see which trend the sample shows,
+while still bounding the slopes to reasonable values. In the problems at the end of the chapter,
+I’ll ask you to use your botany instead.
+The prior bounds on the parameters come from the prior standard deviations, all set to
+1 here. These are surely too broad. The intercept α must be greater than zero and less than
+one, for example. But this prior assigns most of the probability outside that range:
+R code
+8.21
+a <- rnorm( 1e4 , 0.5 , 1 )
+sum( a < 0 | a > 1 ) / length( a )
+[1] 0.6126
+If it’s 0.5 units from the mean to zero, then a standard deviation of 0.25 should put only 5%
+of the mass outside the valid internal. Let’s see:
+R code
+8.22
+a <- rnorm( 1e4 , 0.5 , 0.25 )
+sum( a < 0 | a > 1 ) / length( a )
+[1] 0.0486
+Much better.
+What about those slopes? What would a very strong effect of water and shade look like?
+How big could those slopes be in theory? The range of both water and shade is 2—from
+−1 to 1 is 2 units. To take us from the theoretical minimum of zero blooms on one end to
+the observed maximum of 1—a range of 1 unit—on the other would require a slope of 0.5
+from either variable—0.5 × 2 = 1. So if we assign a standard deviation of 0.25 to each, then
+95% of the prior slopes are from −0.5 to 0.5, so either variable could in principle account
+for the entire range, but it would be unlikely. Remember, the goals here are to assign weakly
+informative priors to discourage overfitting—impossibly large effects should be assigned low
+prior probability—and also to force ourselves to think about what the model means.
+All together now, in code form:
+R code
+8.23
+m8.4 <- quap(
+alist(
+blooms_std ~ dnorm( mu , sigma ) ,
+mu <- a + bw*water_cent + bs*shade_cent ,
+a ~ dnorm( 0.5 , 0.25 ) ,
+bw ~ dnorm( 0 , 0.25 ) ,
+bs ~ dnorm( 0 , 0.25 ) ,
+sigma ~ dexp( 1 )
+) , data=d )
+It’s a good idea at this point to simulate lines from the prior. But before doing that, let’s
+define the interaction model as well. Then we can talk about how to plot predictions from
+interactions and see both prior and posterior predictions together.

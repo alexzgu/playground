@@ -1,4 +1,4 @@
-# Transcription conventions (all four textbooks)
+# Transcription conventions (all textbooks)
 
 These transcripts are the permanent markdown record of each book's pages, in the same
 spirit as the completed `bayesian_booklet` transcript. Source pages are **typeset,

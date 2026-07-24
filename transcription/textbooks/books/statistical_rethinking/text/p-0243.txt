@@ -1,0 +1,48 @@
+7.4. PREDICTING PREDICTIVE ACCURACY
+227
+[1] 17.81628
+As models get more complicated, all that usually changes is how the log-probabilities, logprob, are
+computed.
+Note that each individual observation has its own penalty term in the pWAIC vector we calculated
+above. This provides an interesting opportunity to study how different observations contribute to
+overfitting. You can get the same vectorized pointwise output from the WAIC function by using the
+pointwise=TRUE argument.
+7.4.3. Comparing CV, PSIS, and WAIC. With definitions of cross-validation, PSIS, and
+WAIC in hand, let’s conduct another simulation exercise. This will let us visualize the esti-
+mates of out-of-sample deviance that these criteria provide, in the same familiar context as
+earlier sections. Our interest is in seeing how well the criteria approximate out-of-sample
+accuracy. Can they guess the overfitting risk?
+Figure 7.9 shows the results of 1000 simulations each for the five familiar models with
+between 1 and 5 parameters, simulated under two different sets of priors and two different
+sample sizes. The plot is complicated. But taking it one piece at a time, all the parts are
+already familiar. Focus for now just on the top-left plot, where N = 20. The vertical axis
+is the out-of-sample deviance (−2lppd). The open points show the average out-of-sample
+deviance for models fit with flat priors. The filled points show the average out-of-sample
+deviance for models fit with regularizing priors with a standard deviation of 0.5. Notice that
+the regularizing priors overfit less, just as you saw in the previous section about regularizing
+priors. So that isn’t new.
+We are interested now in how well CV, PSIS, and WAIC approximate these points. Still
+focusing on the top-left plot in Figure 7.9, there are trend lines for each criterion. Solid
+black trends show WAIC. Solid blue trends show full cross-validation, computed by fitting
+the model N times. The dashed blue trends are PSIS. Notice that all three criteria do a good
+job of guessing the average out-of-sample score, whether the models used flat (upper trends)
+or regularizing (lower trends) priors. Provided the process generating data remains the same,
+it really is possible to use a single sample to guess the accuracy of our predictions.
+While all three criteria get the expected out-of-sample deviance approximately correct,
+it is also true that in any particular sample they usually miss it by some amount. So we should
+look at the average error in addition to the average value. The upper-right plot makes the
+average error of each measure easier to see. Now the vertical axis is the average absolute
+difference between the out-of-sample deviance and each criterion. WAIC (black trend) is
+slightly better on average. The bottom row repeats these plots but for a larger sample size,
+N = 100. With a sample this large, in a family of models this simple, all three criteria become
+identical.
+WAIC is unsurprisingly a little better at predicting out-of-sample deviance, because that
+is what it aims to predict. Cross-validation (CV) is a trick that estimates out-of-sample de-
+viance as the sample size increases, but it doesn’t aim for the right target at small sample
+sizes. And since PSIS approximates CV, it has the same issue. All three do a very good job
+on average (bottom left), and all three have the same error (bottom right).
+PSIS and WAIC perform very similarly in the context of ordinary linear models.120 If
+there are important differences, they lie in other model types, where the posterior distribu-
+tion is not approximately Gaussian or in the presence of observations that strongly influence
+the posterior. CV and PSIS have higher variance as estimators of the K-L Divergence, and so
+we should expect WAIC to be better in many cases.121 However, in practice the advantage

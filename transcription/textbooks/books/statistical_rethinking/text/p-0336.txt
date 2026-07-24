@@ -1,0 +1,96 @@
+320
+10. BIG ENTROPY AND THE GENERALIZED LINEAR MODEL
+the probability assignments that maximize entropy. But instead we’ll extend the strategy used in the
+overthinking box on page 314. As a bonus, this strategy will allow us to derive the constraints that
+are necessary for a distribution, in this case the binomial, to be a maximum entropy distribution.
+Let p be the binomial distribution, and let pi be the probability of a sequence of observations i
+with number of successes xi and number of failures n −xi. Let q be some other discrete distribution
+defined over the same set of observable sequences. As before, KL divergence tells us that:
+−H(q, p) ≥H(q) =⇒−
+X
+i
+qi log pi ≥−
+X
+i
+qi log qi
+What we’re going to do now is work with H(q, p) and simplify it until we can isolate the constraint
+that defines the class of distributions for which p has maximum entropy. Let λ = P
+i pixi be the
+expected value of p. Then from the definition of H(q, p):
+−H(q, p) = −
+X
+i
+qi log
+"λ
+n
+xi 
+1 −λ
+n
+n−xi#
+= −
+X
+i
+qi
+
+xi log
+λ
+n
+
++ (n −xi) log
+
+1 −λ
+n
+
+After some algebra:
+−H(q, p) = −
+X
+i
+qi
+
+xi log
+
+λ
+n −λ
+
++ n log
+n −λ
+n
+
+= −n log
+n −λ
+n
+
+−log
+
+λ
+n −λ
+ X
+i
+qixi
+| {z }
+¯q
+The term on the far right labeled ¯q is the expected value of the distribution q. If we knew it, we could
+complete the calculation, because no other term depends upon qi. This means that expected value is
+the constraint that defines the class of distributions for which the binomial p has maximum entropy.
+If we now set the expected value of q equal to λ, then H(q) = H(p). For any other expected value of
+q, H(p) > H(q).
+Finally, notice the term log[λ/(n −λ)]. This term is the log of the ratio of the expected number
+of successes to the expected number of failures. That ratio is the “odds” of a success, and its logarithm
+is called “log odds.” This quantity will feature prominently in models we construct from the binomial
+distribution, in Chapter 12.
+10.2. Generalized linear models
+The Gaussian models of previous chapters worked by first assuming a Gaussian distribu-
+tion over outcomes. Then, we replaced the parameter that defines the mean of that distribu-
+tion, µ, with a linear model. This resulted in likelihood definitions of the sort:
+yi ∼Normal(µi, σ)
+µi = α + βxi
+For an outcome variable that is continuous and far from any theoretical maximum or mini-
+mum, this sort of Gaussian model has maximum entropy.
+But when the outcome variable is either discrete or bounded, a Gaussian likelihood is
+not the most powerful choice. Consider for example a count outcome, such as the number
+of blue marbles pulled from a bag. Such a variable is constrained to be zero or a positive
+integer. Using a Gaussian model with such a variable won’t result in a terrifying explosion.
+But it can’t be trusted to do much more than estimate the average count. It certainly can’t
+be trusted to produce sensible predictions, because while you and I know that counts can’t
+be negative, a linear regression model does not. So it would happily predict negative values,
+whenever the mean count is close to zero.

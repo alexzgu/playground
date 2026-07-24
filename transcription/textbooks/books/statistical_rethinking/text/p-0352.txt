@@ -1,0 +1,65 @@
+336
+11. GOD SPIKED THE INTEGERS
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+0
+5
+10
+15
+prior prob pull left
+Density
+a ~ dnorm(0,10)
+a ~ dnorm(0,1.5)
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+0
+2
+4
+6
+8
+10
+12
+14
+prior diff between treatments
+Density
+b ~ dnorm(0,10)
+b ~ dnorm(0,0.5)
+Figure 11.3. Prior predictive simulations for the most basic logistic regres-
+sion. Black density: A flat Normal(0,10) prior on the intercept produces a
+very non-flat prior distribution on the outcome scale. Blue density: A more
+concentrated Normal(0,1.5) prior produces something more reasonable.
+R code
+11.6
+p <- inv_logit( prior$a )
+dens( p , adj=0.1 )
+I’ve displayed the resulting prior distribution in the left hand plot of Figure 11.3. Notice
+that most of the probability mass is piled up near zero and one. The model thinks, before
+it sees the data, that chimpanzees either never or always pull the left lever. This is clearly
+silly, and will generate unnecessary inference error. A flat prior in the logit space is not a
+flat prior in the outcome probability space. The blue distribution in the same plot shows the
+same model but now with ω = 1.5. You can modify the code above to reproduce this. Now
+the prior probability on the outcome scale is rather flat. This is probably much flatter than
+is optimal, since probabilities near the center are more plausible. But this is better than the
+default priors most people use most of the time. We’ll use it.
+Now we need to determine a prior for the treatment effects, the β parameters. We could
+default to using the same Normal(0,1.5) prior for the treatment effects, on the reasoning
+that they are also just intercepts, one intercept for each treatment. But to drive home the
+weirdness of conventionally flat priors, let’s see what Normal(0,10) looks like.
+R code
+11.7
+m11.2 <- quap(
+alist(
+pulled_left ~ dbinom( 1 , p ) ,
+logit(p) <- a + b[treatment] ,
+a ~ dnorm( 0 , 1.5 ),
+b[treatment] ~ dnorm( 0 , 10 )
+) , data=d )
+set.seed(1999)

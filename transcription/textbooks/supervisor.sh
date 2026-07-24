@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# Supervises the four-textbook transcription end-to-end, one book at a time
-# (smallest first, so complete books accumulate):
-#   stochastic_calculus (260 pp) -> mcmt (461) -> islp (613) -> montgomery_doe (757)
+# Supervises textbook transcription end-to-end, one book at a time. The book
+# list comes from books.json and is sorted smallest first, so complete books
+# accumulate without this script needing updates when a book is registered.
 #
 #   - renders page images once per book (idempotent)
 #   - (re)starts transcribe_books.py while pages are pending
@@ -15,7 +15,12 @@
 set -u
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$HERE"
-BOOKS="stochastic_calculus mcmt islp montgomery_doe"
+BOOKS=$(python3 - <<'PY'
+import json
+books = json.load(open("books.json"))
+print(" ".join(b["key"] for b in sorted(books, key=lambda b: b["npages"])))
+PY
+)
 LOG=supervisor.log
 exec 9> supervisor.lock
 flock -n 9 || exit 0          # another supervisor is already running
@@ -82,9 +87,17 @@ for BOOK in $BOOKS; do
   fi
 done
 
-if ls books/*/out/COMPLETE 2>/dev/null | wc -l | grep -q '^4$'; then
+ALL_DONE=$(python3 - <<'PY'
+import json
+from pathlib import Path
+books = json.load(open("books.json"))
+print(int(all((Path("books") / b["key"] / "out" / "COMPLETE").exists()
+              for b in books)))
+PY
+)
+if [ "$ALL_DONE" -eq 1 ]; then
   date > ALL-COMPLETE
-  log "all four books COMPLETE"
+  log "all books COMPLETE"
 else
   log "supervisor finished with unfinished books — see run.log"
 fi

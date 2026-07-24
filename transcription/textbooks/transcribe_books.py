@@ -10,6 +10,8 @@ Run render_pages.py first. Examples:
   python3 transcribe_books.py --book mcmt                      # everything pending
 """
 import argparse
+from collections import Counter
+from difflib import SequenceMatcher
 import json
 import os
 import re
@@ -20,9 +22,11 @@ import threading
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
+import fcntl
 
 HERE = Path(__file__).resolve().parent
-DEFAULT_MODEL = "claude-opus-4-8"
+DEFAULT_MODEL = "opus"
+DEFAULT_EFFORT = "max"
 CHUNK_TIMEOUT_S = 2400
 DONE = ("transcribed", "transcribed-lowqa")
 
@@ -44,7 +48,31 @@ def load_manifest(out: Path) -> dict:
 
 
 def save_manifest(out: Path, m: dict):
-    (out / "manifest.json").write_text(json.dumps(m, indent=1, sort_keys=True))
+    path = out / "manifest.json"
+    tmp = out / f".{path.name}.{os.getpid()}.tmp"
+    tmp.write_text(json.dumps(m, indent=1, sort_keys=True))
+    os.replace(tmp, path)
+
+
+def merge_manifest_entries(out: Path, results: dict[int, dict]) -> dict:
+    """Cross-process-safe per-page manifest merge.
+
+    Multiple detached book runners and manual repair agents may work on disjoint
+    pages. Reading and rewriting a whole in-memory manifest would otherwise erase
+    entries written by another process after this runner started.
+    """
+    out.mkdir(parents=True, exist_ok=True)
+    with (out / "manifest.lock").open("a+") as lock:
+        fcntl.flock(lock.fileno(), fcntl.LOCK_EX)
+        current = load_manifest(out)
+        for page, result in results.items():
+            name = f"p-{page:04d}"
+            entry = current.get(name, {})
+            entry.update(result)
+            current[name] = entry
+        save_manifest(out, current)
+        fcntl.flock(lock.fileno(), fcntl.LOCK_UN)
+    return current
 
 
 def find_claude() -> str:
@@ -94,8 +122,9 @@ def build_prompt(book: dict, pages: list[int]) -> str:
                .replace("{STYLE_GUIDE}", style))
 
 
-def run_cli(prompt: str, model: str, claude_bin: str) -> str:
+def run_cli(prompt: str, model: str, effort: str, claude_bin: str) -> str:
     cmd = [claude_bin, "-p", prompt, "--model", model,
+           "--effort", effort,
            "--allowedTools", "Read", "--output-format", "text", "--max-turns", "24"]
     r = subprocess.run(cmd, capture_output=True, text=True,
                        timeout=CHUNK_TIMEOUT_S, cwd=HERE)
@@ -105,15 +134,31 @@ def run_cli(prompt: str, model: str, claude_bin: str) -> str:
     return r.stdout
 
 
-def qa_score(transcript: str, text_layer_path: Path) -> float | None:
-    """Fraction of text-layer word tokens that appear in the transcript (advisory)."""
+def qa_scores(transcript: str, text_layer_path: Path) -> tuple[float | None, float | None]:
+    """Advisory text-layer coverage and order scores.
+
+    ``coverage`` is multiset recall, so repeating one occurrence of a word no longer
+    earns credit for every occurrence on the source page. ``order`` is a token
+    sequence similarity score. Images remain authoritative, especially for math,
+    tables, and multi-column layouts.
+    """
     if not text_layer_path.exists():
-        return None
+        return None, None
     toks = re.findall(r"[A-Za-z]{3,}", text_layer_path.read_text().lower())
     if len(toks) < 20:
-        return None
-    have = set(re.findall(r"[a-z]{3,}", transcript.lower()))
-    return round(sum(1 for t in toks if t in have) / len(toks), 3)
+        return None, None
+    have = re.findall(r"[a-z]{3,}", transcript.lower())
+    source_counts, transcript_counts = Counter(toks), Counter(have)
+    matched = sum(min(count, transcript_counts[token])
+                  for token, count in source_counts.items())
+    coverage = matched / len(toks)
+    order = SequenceMatcher(None, toks, have, autojunk=False).ratio()
+    return round(coverage, 3), round(order, 3)
+
+
+def qa_score(transcript: str, text_layer_path: Path) -> float | None:
+    """Backward-compatible coverage-only helper used by older tooling."""
+    return qa_scores(transcript, text_layer_path)[0]
 
 
 HEADING = re.compile(r"### PDF page (\d+) \((?:book page ([^)]+)|no printed page number)\)")
@@ -126,7 +171,7 @@ def transcribe_chunk(book: dict, pages: list[int], args, claude_bin: str) -> dic
     last_err = None
     for attempt in (1, 2):
         try:
-            raw = run_cli(prompt, args.model, claude_bin)
+            raw = run_cli(prompt, args.model, args.effort, claude_bin)
             break
         except Exception as e:
             last_err = e
@@ -154,10 +199,13 @@ def transcribe_chunk(book: dict, pages: list[int], args, claude_bin: str) -> dic
                           "error": f"missing/invalid section in {tag}"}
             continue
         (out / "pages" / f"p-{p:04d}.md").write_text(body + "\n")
-        qa = qa_score(body, text_dir / f"p-{p:04d}.txt")
-        status = "transcribed" if qa is None or qa >= 0.55 else "transcribed-lowqa"
+        qa, qa_order = qa_scores(body, text_dir / f"p-{p:04d}.txt")
+        lowqa = ((qa is not None and qa < 0.70)
+                 or (qa_order is not None and qa_order < 0.45))
+        status = "transcribed-lowqa" if lowqa else "transcribed"
         results[p] = {"status": status, "printed_page": hm.group(2), "qa": qa,
-                      "chunk": tag}
+                      "qa_order": qa_order, "chunk": tag, "model": args.model,
+                      "effort": args.effort}
     return results
 
 
@@ -180,6 +228,8 @@ def main():
     ap.add_argument("--book", required=True)
     ap.add_argument("--pages", default="all", help='e.g. "7-30", "7,9,140", or "all"')
     ap.add_argument("--model", default=DEFAULT_MODEL)
+    ap.add_argument("--effort", choices=("low", "medium", "high", "xhigh", "max"),
+                    default=DEFAULT_EFFORT)
     ap.add_argument("--workers", type=int, default=3)
     ap.add_argument("--chunk", type=int, default=3)
     ap.add_argument("--force", action="store_true")
@@ -211,7 +261,8 @@ def main():
 
     claude_bin = find_claude()
     print(f"[{args.book}] {len(todo)} page(s) in {len(chunks)} chunk(s), "
-          f"model={args.model}, workers={args.workers}", flush=True)
+          f"model={args.model}, effort={args.effort}, workers={args.workers}",
+          flush=True)
 
     done_chunks = 0
     consec_fail = 0
@@ -225,11 +276,7 @@ def main():
             except Exception as e:
                 results = {p: {"status": "failed", "error": str(e)[:500]} for p in ch}
             with manifest_lock:
-                for p, res in results.items():
-                    entry = manifest.get(f"p-{p:04d}", {})
-                    entry.update(res)
-                    manifest[f"p-{p:04d}"] = entry
-                save_manifest(out, manifest)
+                manifest = merge_manifest_entries(out, results)
             done_chunks += 1
             n_ok = sum(1 for r in results.values() if r["status"] in DONE)
             consec_fail = consec_fail + 1 if n_ok == 0 else 0

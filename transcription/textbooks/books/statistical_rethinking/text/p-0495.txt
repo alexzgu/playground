@@ -1,0 +1,50 @@
+14.4. SOCIAL RELATIONS AS CORRELATED VARYING EFFECTS
+479
+As in other models with covariance matrixes, since the diagonal cells are always 1, you can ig-
+nore those lines in the output. The parameters Rho_gr[1,2] and Rho_gr[2,1] are actually
+the same parameter, because the matrix is symmetric. The correlated between general giving
+and receiving is negative, with an 89% compatibility interval from about −0.7 to −0.1. This
+implies that individuals who give more across all dyads tend to receive less. The standard de-
+viation parameters sigma_gr[1] and sigma_gr[2] show clear evidence that rates of giving
+are more variable than rates of receiving.
+Let’s plot these giving and receiving effects, so you can see this covariance structure in
+the parameters. We want to calculate, for each household, its posterior predictive giving and
+receiving rates, across all dyads. We can do this by using the linear model directly to add the
+intercept a to each giving or receiving parameter:
+R code
+14.33
+post <- extract.samples( m14.7 )
+g <- sapply( 1:25 , function(i) post$a + post$gr[,i,1] )
+r <- sapply( 1:25 , function(i) post$a + post$gr[,i,2] )
+Eg_mu <- apply( exp(g) , 2 , mean )
+Er_mu <- apply( exp(r) , 2 , mean )
+If you look at str(g), you’ll see a matrix with 4000 rows (samples) and 25 columns (house-
+holds). These are the posterior distributions of giving for each household. The matrix r is
+the same for receiving. Eg_mu and Er_mu holds the means on the outcome scale. That’s why
+they were exponentiated.
+Before plotting those points, I’d like to also show the uncertainty around each. How
+can we do that? There is uncertainty in both directions, because there is a distribution
+with some correlation structure here. We could just plot the columns in g and r. Try
+plot(exp(g[,1]),exp(r[,1])) for example to show the posterior distribution of giv-
+ing/receiving for household number 1. That is messy, but it does show the uncertainty in
+each household’s values.
+We can produce a cleaner visualization with some contours. On the latent scale of the
+linear model, the bivariate distribution of each g and r is approximately Gaussian. So we can
+describe its shape with an ellipse. If we then project this ellipse onto the outcome scale, we’ll
+have a clean contour for the uncertainty.
+R code
+14.34
+plot( NULL , xlim=c(0,8.6) , ylim=c(0,8.6) , xlab="generalized giving" ,
+ylab="generalized receiving" , lwd=1.5 )
+abline(a=0,b=1,lty=2)
+# ellipses
+library(ellipse)
+for ( i in 1:25 ) {
+Sigma <- cov( cbind( g[,i] , r[,i] ) )
+Mu <- c( mean(g[,i]) , mean(r[,i]) )
+for ( l in c(0.5) ) {
+el <- ellipse( Sigma , centre=Mu , level=l )
+lines( exp(el) , col=col.alpha("black",0.5) )
+}
+}
+# household means

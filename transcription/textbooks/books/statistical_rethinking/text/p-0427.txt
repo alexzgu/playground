@@ -1,0 +1,10 @@
+12.6. PRACTICE
+411
+example in the chapter, there is a process that determines who is fishing (working) and another pro-
+cess that determines fish per hour (manuscripts per day), conditional on fishing (working). We want
+to model both. Otherwise we’ll end up with an underestimate of rate of fish extraction from the park.
+You will model these data using zero-inflated Poisson GLMs. Predict fish_caught as a function
+of any of the other variables you think are relevant. One thing you must do, however, is use a proper
+Poisson offset/exposure in the Poisson portion of the zero-inflated model. Then use the hours vari-
+able to construct the offset. This will adjust the model for the differing amount of time individuals
+spent in the park.

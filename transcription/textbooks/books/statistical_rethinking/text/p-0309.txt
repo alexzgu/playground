@@ -1,0 +1,47 @@
+9.5. CARE AND FEEDING OF YOUR MARKOV CHAIN
+293
+Finally, the model block is where the action is. This block computes the log-probability of the
+data. It runs from top to bottom, like R code does, adding mathematical terms to the log-probability.
+So when Stan sees sigma ~ exponential( 1 ), it doesn’t do any sampling at that moment. Instead,
+it adds a probability term to the log-probability. This term is just dexp( sigma , 1 ). The same
+goes for the other lines with ~ in them. Note that the last line, for log_gdp_std, is vectorized just
+like R code. There are 170 outcomes values and 170 corresponding mu values. That last statement
+processes all of them.
+Stan then uses the analytical gradient—derivative—of all these terms to define the physics simula-
+tion under Hamiltonian Monte Carlo. How does Stan do this? It uses a technique called automatic
+differentiation, or simply “autodiff,” to build an analytical gradient. If you know much about ma-
+chine learning, you may have also heard about backpropagation. It’s the same thing as autodiff.
+This is much more accurate than a gradient approximated numerically. If you know some calculus,
+really all that is going on is ruthless application of the chain rule. But the algorithm is actually quite
+clever. See the Stan manual for more details.
+That’s all there is to a Stan program, in the basic case. I’ll break out into boxes like this in later
+chapters, to show more of the raw Stan code. Tools like ulam are bridges. They can do a lot of useful
+work, but the extra control you get from working directly in Stan is worthwhile. Especially since it
+won’t tie you to R or any other specific scripting language.
+9.5. Care and feeding of your Markov chain
+Markov chain Monte Carlo is a highly technical and usually automated procedure. You
+might write your own MCMC code, for the sake of learning. But it is very easy to introduce
+subtle biases. A package like Stan, in contrast, is continuously tested against expected output.
+Most people who use Stan don’t really understand what it is doing, under the hood. That’s
+okay. Science requires division of labor, and if every one of us had to write our own Markov
+chains from scratch, a lot less research would get done in the aggregate.
+But as with many technical and powerful procedures, it’s natural to feel uneasy about
+MCMC and maybe even a little superstitious. Something magical is happening inside the
+computer, and unless we make the right sacrifices and say the right words, an ancient evil
+might awake. So we do need to understand enough to know when the evil stirs. The good
+news is that HMC, unlike Gibbs sampling and ordinary Metropolis, makes it easy to tell
+when the magic goes wrong. Its best feature is not how efficient it is. Rather the best feature
+is that it complains loudly when things aren’t right. Let’s look at some complaints and along
+the way establish some guidelines for running chains.
+9.5.1. How many samples do you need? You can control the number of samples from the
+chain by using the iter and warmup parameters. The defaults are 1000 for iter and warmup
+is set to iter/2, which gives you 500 warmup samples and 500 real samples to use for infer-
+ence. But these defaults are just meant to get you started, to make sure the chain gets started
+okay. Then you can decide on other values for iter and warmup.
+So how many samples do we need for accurate inference about the posterior distribu-
+tion? It depends. First, what really matters is the effective number of samples, not the raw
+number. The effective number of samples is an estimate of the number of independent sam-
+ples from the posterior distribution. Markov chains are typically autocorrelated, so that se-
+quential samples are not entirely independent. This reduces the effective number of samples.
+As you saw earlier in the chapter, Stan provides an estimate of effective number of samples as
+n_eff. It is only an estimate, but it is usually better to use it than the raw number of samples.

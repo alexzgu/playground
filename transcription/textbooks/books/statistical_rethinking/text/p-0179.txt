@@ -1,0 +1,41 @@
+5.5. PRACTICE
+163
+5E1. Which of the linear models below are multiple linear regressions?
+(1) µi = α + βxi
+(2) µi = βxxi + βzzi
+(3) µi = α + β(xi −zi)
+(4) µi = α + βxxi + βzzi
+5E2. Write down a multiple regression to evaluate the claim: Animal diversity is linearly related to
+latitude, but only after controlling for plant diversity. You just need to write down the model definition.
+5E3. Write down a multiple regression to evaluate the claim: Neither amount of funding nor size
+of laboratory is by itself a good predictor of time to PhD degree; but together these variables are both
+positively associated with time to degree. Write down the model definition and indicate which side of
+zero each slope parameter should be on.
+5E4. Suppose you have a single categorical predictor with 4 levels (unique values), labeled A, B, C
+and D. Let Ai be an indicator variable that is 1 where case i is in category A. Also suppose Bi, Ci,
+and Di for the other categories. Now which of the following linear models are inferentially equivalent
+ways to include the categorical variable in a regression? Models are inferentially equivalent when it’s
+possible to compute one posterior distribution from the posterior distribution of another model.
+(1) µi = α + βAAi + βBBi + βDDi
+(2) µi = α + βAAi + βBBi + βCCi + βDDi
+(3) µi = α + βBBi + βCCi + βDDi
+(4) µi = αAAi + αBBi + αCCi + αDDi
+(5) µi = αA(1 −Bi −Ci −Di) + αBBi + αCCi + αDDi
+Medium.
+5M1. Invent your own example of a spurious correlation. An outcome variable should be correlated
+with both predictor variables. But when both predictors are entered in the same model, the correlation
+between the outcome and one of the predictors should mostly vanish (or at least be greatly reduced).
+5M2. Invent your own example of a masked relationship. An outcome variable should be correlated
+with both predictor variables, but in opposite directions. And the two predictor variables should be
+correlated with one another.
+5M3. It is sometimes observed that the best predictor of fire risk is the presence of firefighters—
+States and localities with many firefighters also have more fires. Presumably firefighters do not cause
+fires. Nevertheless, this is not a spurious correlation. Instead fires cause firefighters. Consider the
+same reversal of causal inference in the context of the divorce and marriage data. How might a high
+divorce rate cause a higher marriage rate? Can you think of a way to evaluate this relationship, using
+multiple regression?
+5M4. In the divorce data, States with high numbers of Mormons (members of The Church of Jesus
+Christ of Latter-day Saints, LDS) have much lower divorce rates than the regression models expected.
+Find a list of LDS population by State and use those numbers as a predictor variable, predicting di-
+vorce rate using marriage rate, median age at marriage, and percent LDS population (possibly stan-
+dardized). You may want to consider transformations of the raw percent LDS variable.

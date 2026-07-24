@@ -1,0 +1,61 @@
+204
+7. ULYSSES’ COMPASS
+body mass (kg)
+brain volume (cc)
+35
+47
+60
+450
+900
+1300
+m7.1: R^2 = 0.51
+body mass (kg)
+brain volume (cc)
+35
+47
+60
+450
+900
+1300
+m7.2: R^2 = 0.54
+body mass (kg)
+brain volume (cc)
+35
+47
+60
+450
+900
+1300
+m7.3: R^2 = 0.69
+body mass (kg)
+brain volume (cc)
+35
+47
+60
+450
+900
+1300
+m7.4: R^2 = 0.82
+body mass (kg)
+brain volume (cc)
+35
+47
+60
+450
+900
+1300
+m7.5: R^2 = 0.99
+body mass (kg)
+brain volume (cc)
+35
+47
+60
+0
+450
+1300
+m7.6: R^2 = 1
+Figure 7.3. Polynomial linear models of increasing degree for the hominin
+data. Each plot shows the posterior mean in black, with 89% interval of
+the mean shaded. R2, is displayed above each plot. In order from top-left:
+First-degree polynomial, second-degree, third-degree, fourth-degree, fifth-
+degree, and sixth-degree.

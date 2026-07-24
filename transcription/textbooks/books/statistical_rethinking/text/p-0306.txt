@@ -1,0 +1,78 @@
+290
+9. MARKOV CHAIN MONTE CARLO
+200
+400
+600
+800
+1000
+0.82
+0.86
+0.90
+0.94
+n_eff = 2671
+a[1]
+200
+400
+600
+800
+1000
+1.02
+1.04
+1.06
+1.08
+n_eff = 3109
+a[2]
+200
+400
+600
+800
+1000
+-0.1
+0.1
+0.3
+n_eff = 2153
+b[1]
+200
+400
+600
+800
+1000
+-0.3
+-0.2
+-0.1
+0.0
+0.1
+n_eff = 2027
+b[2]
+200
+400
+600
+800
+1000
+0.10
+0.12
+n_eff = 2885
+sigma
+Figure 9.8. Trace plot of the Markov chain from the ruggedness model,
+m9.1. This is a clean, healthy Markov chain, both stationary and well-
+mixing. The gray region is warmup, during which the Markov chain was
+adapting to improve sampling efficiency. The white region contains the sam-
+ples used for inference.
+chain, quick checks of trace plots provide a lot of peace of mind. A trace plot isn’t the last
+thing analysts do to inspect MCMC output. But it’s often the first.
+In the terrain ruggedness example, the trace plot shows a very healthy chain.
+R code
+9.20
+traceplot( m9.1 )
+The result is shown in Figure 9.8. Actually, the figure shows the trace of just the first chain.
+You can get this by adding chains=1 to the call. You can think of the zig-zagging trace
+of each parameter as the path the chain took through each dimension of parameter space.
+The gray region in each plot, the first 500 samples, marks the adaptation samples. Dur-
+ing adaptation, the Markov chain is learning to more efficiently sample from the posterior
+distribution. So these samples are not reliable to use for inference. They are automatically
+discarded by extract.samples, which returns only the samples shown in the white regions
+of Figure 9.8.
+Now, how is this chain a healthy one? Typically we look for three things in these trace
+plots: (1) stationarity, (2) good mixing, and (3) convergence. Stationarity refers to the path
+of each chain staying within the same high-probability portion of the posterior distribution.
+Notice that these traces, for example, all stick around a very stable central tendency, the

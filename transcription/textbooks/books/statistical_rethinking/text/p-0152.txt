@@ -1,0 +1,53 @@
+136
+5. THE MANY VARIABLES & THE SPURIOUS WAFFLES
+Examples are always necessary, so here is the model that predicts divorce rate, using both
+marriage rate and age at marriage.
+Di ∼Normal(µi, σ)
+[probability of data]
+µi = α + βMMi + βAAi
+[linear model]
+α ∼Normal(0, 0.2)
+[prior for α]
+βM ∼Normal(0, 0.5)
+[prior for βM]
+βA ∼Normal(0, 0.5)
+[prior for βA]
+σ ∼Exponential(1)
+[prior for σ]
+You can use whatever symbols you like for the parameters and variables, but here I’ve chosen
+R for marriage rate and A for age at marriage, reusing these symbols as subscripts for the
+corresponding parameters. But feel free to use whichever symbols reduce the load on your
+own memory.
+So what does it mean to assume µi = α + βMMi + βAAi? It means that the expected
+outcome for any State with marriage rate Mi and median age at marriage Ai is the sum of three
+independent terms. The first term is a constant, α. Every State gets this. The second term is
+the product of the marriage rate, Mi, and the coefficient, βM, that measures the association
+between marriage rate and divorce rate. The third term is similar, but for the association
+with median age at marriage instead.
+If you are like most people, this is still pretty mysterious. So it might help to read the +
+symbols as “or” and then say: A State’s divorce rate can be a function of its marriage rate or its
+median age at marriage. The “or” indicates independent associations, which may be purely
+statistical or rather causal.
+Overthinking: Compact notation and the design matrix. Often, linear models are written using a
+compact form like:
+µi = α +
+n
+X
+j=1
+βjxji
+where j is an index over predictor variables and n is the number of predictor variables. The same
+model may also be abbreviated:
+µi = α + β1x1i + β2x2i + ... + βnxni
+Both of these forms may be read as the mean is a modeled as the sum of an intercept and an additive
+combination of the products of parameters and predictors. Even more compactly, using matrix notation:
+m = Xb
+where m is a vector of predicted means, one for each row in the data, b is a (column) vector of param-
+eters, one for each predictor variable, and X is a matrix. This matrix is called a design matrix. It has
+as many rows as the data, and as many columns as there are predictors plus one. So X is basically a
+data frame, but with an extra first column. The extra column is filled with 1s. These 1s are multiplied
+by the first parameter, which is the intercept, and so return the unmodified intercept. When X is
+matrix-multiplied by b, you get the predicted means. In R notation, this operation is X %*% b.
+We’re not going to use the design matrix approach in this book. And in general you don’t need
+to. But it’s good to recognize it, and sometimes it can save you a lot of work. For example, for linear
+regressions, there is a nice matrix formula for the maximum likelihood (or least squares) estimates.
+Most statistical software exploits that formula, which requires using a design matrix.

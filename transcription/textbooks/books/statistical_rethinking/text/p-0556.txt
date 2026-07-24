@@ -1,0 +1,44 @@
+540
+16. GENERALIZED LINEAR MADNESS
+above, I’ve assigned this median to be the cylinder function. Finally, we need priors for the
+three parameters k, p, and σ.
+One of the major advantages of having a scientifically inspired model is that the param-
+eters have meanings. These meanings constitute prior information that we can use to chose
+informative distributions. This is especially useful in these contexts, because often there are
+more scientifically-required parameters than can be directly identified by the data. We can
+nevertheless do useful estimation, given some scientific constraints on the parameters. That
+is the case in this example.
+The first thing to notice about the parameters k and p is that they are multiplied in the
+model and the data have no way to estimate anything except their product. The technical
+way this problem could be described is that k and p, given this model and these data, are not
+identifiable. We could just replace the product kp2 with a new parameter θ and estimate
+that instead. Like this:
+exp(µi) = πθh3
+i
+We’ll get the same predictions. What we won’t get is an easy way to assign a prior to θ. So
+even if we are going to use θ = kp2 trick, we’ll need to think still about k and p.
+Let’s think about the parameter p. It is the ratio of the radius to the height, p = r/h. So
+it must be greater than zero. It must also be less than one, because few people are wider than
+they are tall. It is almost certainly less than one-half, because a person as wide as they are
+tall would have 2r = h, making p = (h/2)/h = 0.5. So p is probably much less than 0.5.
+Putting all of this together, what we want is a distribution bounded between zero and one
+with most of the prior mass below 0.5. A beta distribution will do:
+p ∼Beta(2, 18)
+This prior will have mean 2/(2 + 18) = 0.1. We really need to do some prior predictive
+simulations to do better (see the practice problems at the end of this chapter). But that takes
+care of p for the moment.
+The parameter k is the proportion of volume that is weight. It really just translates mea-
+surement scales, because changing the units of volume or weight will change its value. For
+example, if height is measured in centimeters and weight is measured in kilograms, then
+volume has units cm3, and so k must have units kg/cm3. The definition of k, in that case, is
+just how many kilograms there are per cubic centimeter. So to scale the prior right, we need
+to have some information about how heavy a cubic centimeter of person is. We could look
+that up, or maybe use our own bodies to get a prior.
+Rethinking: Priors are never arbitrary. It’s commonplace to hear the fearful claim that Bayes is
+untrustworthy because priors are arbitrary. It is true that people sometimes treat priors that way. But
+priors are only arbitrary when scientists ignore domain knowledge. Even when we stick with GLMs,
+prior predictive simulations force us to engage with background knowledge to produce useful, non-
+arbitrary priors. When we have a more scientifically grounded model, the parameters have even
+more meaning. The p and k parameters in the cylinder example have scientific meanings that let us
+assign priors that could even be measured physically. Using flat priors in this example, out of some
+metaphysical commitment to ignorance, would be a mistake.

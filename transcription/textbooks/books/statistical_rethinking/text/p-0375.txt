@@ -1,0 +1,49 @@
+11.2. POISSON REGRESSION
+359
+R code
+11.43
+x_seq <- seq( from=log(100) , to=log(200000) , length.out=100 )
+lambda <- sapply( x_seq , function(x) exp( a + b*x ) )
+plot( NULL , xlim=range(x_seq) , ylim=c(0,500) , xlab="log population" ,
+ylab="total tools" )
+for ( i in 1:N ) lines( x_seq , lambda[i,] , col=grau() , lwd=1.5 )
+This plot appears in the bottom-left of Figure 11.8. Notice that 100 total tools is probably
+the most we expect to ever see in these data. While most the of trends are in that range,
+some explosive options remain. And finally let’s also view these same curves on the natural
+population scale:
+R code
+11.44
+plot( NULL , xlim=range(exp(x_seq)) , ylim=c(0,500) , xlab="population" ,
+ylab="total tools" )
+for ( i in 1:N ) lines( exp(x_seq) , lambda[i,] , col=grau() , lwd=1.5 )
+This plot lies in the bottom-right of Figure 11.8. On the raw population scale, these curves
+bend the other direction. This is the natural consequence of putting the log of population
+inside the linear model. Poisson models with log links create log-linear relationships with
+their predictor variables. When a predictor variable is itself logged, this means we are assum-
+ing diminishing returns for the raw variable. You can see this by comparing the two plots
+in the bottom of Figure 11.8. The curves on the left would be linear if you log them. On
+the natural population scale, the model imposes diminishing returns on population: Each
+addition person contributes a smaller increase in the expected number of tools. The curves
+bend down and level off. Lots of predictor variables are better used as logarithms, for this
+reason. Simulating prior predictive distributions like these is a useful way to think through
+these issues.
+Okay, finally we can approximate some posterior distributions. I’m going to code both
+the interaction model presented above as well as a very simple intercept-only model. The
+intercept only model is here because I want to show you something interesting about Poisson
+models and how parameters relate to model complexity. Here’s the code for both models:
+R code
+11.45
+dat <- list(
+T = d$total_tools ,
+P = d$P ,
+cid = d$contact_id )
+# intercept only
+m11.9 <- ulam(
+alist(
+T ~ dpois( lambda ),
+log(lambda) <- a,
+a ~ dnorm(3,0.5)
+), data=dat , chains=4 , log_lik=TRUE )
+# interaction model
+m11.10 <- ulam(
+alist(

@@ -1,0 +1,60 @@
+220
+7. ULYSSES’ COMPASS
+1
+2
+3
+4
+5
+48
+50
+52
+54
+56
+58
+60
+number of parameters
+deviance
+N = 20
+N(0,1)
+N(0,0.5)
+N(0,0.2)
+1
+2
+3
+4
+5
+260
+265
+270
+275
+280
+285
+number of parameters
+deviance
+N = 100
+Figure 7.8. Regularizing priors and out-of-sample deviance. The points in
+both plots are the same as in Figure 7.6. The lines show training (blue)
+and testing (black) deviance for the three regularizing priors in Figure 7.7.
+Dashed: Each beta-coefficient is given a Normal(0, 1) prior. Thin solid:
+Normal(0, 0.5). Thick solid: Normal(0, 0.2).
+parameters are barely worse than the correct model with 3 parameters. If you can tune the
+regularizing prior right, then overfitting can be greatly reduced.
+Now focus on the right-hand plot, where sample size is N = 100. The priors have much
+less of an effect here, because there is so much more evidence. The priors do help. But
+overfitting was less of a concern to begin with, and there is enough information in the data
+to overwhelm even the Normal(0, 0.2) prior (thick line).
+Regularizing priors are great, because they reduce overfitting. But if they are too skep-
+tical, they prevent the model from learning from the data. When you encounter multilevel
+models in Chapter 13, you’ll see that their central device is to learn the strength of the prior
+from the data itself. So you can think of multilevel models as adaptive regularization, where
+the model itself tries to learn how skeptical it should be.
+Rethinking: Ridge regression. Linear models in which the slope parameters use Gaussian priors,
+centered at zero, are sometimes known as ridge regression. Ridge regression typically takes as
+input a precision λ that essentially describes the narrowness of the prior. λ > 0 results in less over-
+fitting. However, just as with the Bayesian version, if λ is too large, we risk underfitting. While not
+originally developed as Bayesian, ridge regression is another example of how a statistical procedure
+can be understood from both Bayesian and non-Bayesian perspectives. Ridge regression does not
+compute a posterior distribution. Instead it uses a modification of OLS that stitches λ into the usual
+matrix algebra formula for the estimates. The function lm.ridge, built into R’s MASS library, will
+fit linear models this way. Despite how easy it is to use regularization, most traditional statistical
+methods use no regularization at all.

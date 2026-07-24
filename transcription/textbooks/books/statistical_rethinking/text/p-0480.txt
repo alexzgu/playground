@@ -1,0 +1,78 @@
+464
+14. ADVENTURES IN COVARIANCE
+0
+200
+400
+600
+800
+1000
+1000
+1400
+1800
+2200
+centered (default)
+non-centered (cholesky)
+Figure
+14.6. Distributions
+of
+effective
+samples,
+n_eff,
+for
+the
+centered
+and
+non-centered parameterizations of the cross-
+classified varying slopes model, m14.2 and
+m14.3, respectively.
+Both models arrive at
+equivalent inferences, but the non-centered
+version samples much more efficiently.
+n_eff values for m14.2 are much larger, and it sampled more quickly in real time. Let’s show
+the difference in effective samples visually, using a simple scatterplot:
+R code
+14.20
+# extract n_eff values for each model
+neff_nc <- precis(m14.3,3,pars=c("alpha","beta"))$n_eff
+neff_c <- precis(m14.2,3,pars=c("alpha","beta"))$n_eff
+plot( neff_c , neff_nc , xlab="centered (default)" ,
+ylab="non-centered (cholesky)" , lwd=1.5 )
+abline(a=0,b=1,lty=2)
+Figure 14.6 displays the result. The non-centered version of the model samples much more
+efficiently, producing more effective samples per parameter. In practice, this means you don’t
+need as many actual iterations, iter, to arrive at an equally good portrait of the posterior
+distribution. For larger data sets, the savings can mean hours of time. And in some problems,
+the centered version of the model just won’t give you a useful posterior.
+This model has 76 parameters: 4 average treatment effects, 4×7 varying effects on actor,
+4×6 varying effects on block, 8 standard deviations, and 12 free correlation parameters. You
+can check them all for yourself with precis(m14.3,depth=3). But effectively the model
+has only about 27 parameters—check WAIC(m14.3). The two varying effects populations,
+one for actors and one for blocks, regularize the varying effects themselves. So as usual, each
+varying intercept or slope counts less than one effective parameter.
+We can inspect the standard deviation parameters to get a sense of how aggressively the
+varying effects are being regularized:
+R code
+14.21
+precis( m14.3 , depth=2 , pars=c("sigma_actor","sigma_block") )
+mean
+sd 5.5% 94.5% n_eff Rhat
+sigma_actor[1] 1.37 0.47 0.77
+2.20
+832
+1
+sigma_actor[2] 0.91 0.40 0.42
+1.62
+1108
+1
+sigma_actor[3] 1.85 0.55 1.12
+2.82
+961
+1
+sigma_actor[4] 1.58 0.58 0.87
+2.58
+1109
+1
+sigma_block[1] 0.40 0.32 0.04
+0.98
+1112
+1

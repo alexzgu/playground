@@ -10,6 +10,6 @@ Source: `MCMT.pdf` — David A. Levin, Yuval Peres. 461 PDF pages, typeset digit
 
 ## STATUS OF THIS TRANSCRIPT
 
-**Transcribed:** 452/461 PDF pages (1–6, 13–371, 375–461). **Missing:** 7–12, 372–374.
+**Complete:** all 461 PDF pages transcribed.
 
 Produced by the pipeline in `transcription/textbooks/` (see its README).

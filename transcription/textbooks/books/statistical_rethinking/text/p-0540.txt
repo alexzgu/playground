@@ -1,0 +1,51 @@
+524
+15. MISSING DATA AND OTHER OPPORTUNITIES
+Overthinking: Stan imputation algorithm. In principle, imputation is just using the same model but
+replacing data with parameters. Data are observed variables. Parameters are unobserved variables.
+The same generative model allows us to learn about both. But in practice, additional programming
+is necessary. It’s necessary, because we have to construct a new variable that is a mix of observed and
+unobserved values. The ulam code for m15.3 automates this. But it is worth seeing the guts of the
+machine, because it will increase understanding and teach you how to do this manually, in raw Stan
+code.
+If you inspect the Stan code stancode(m15.3), you’ll a functions block at the top. This is
+where you can put special code that you don’t want cluttering up the model block. In this case:
+functions{
+vector merge_missing( int[] miss_indexes , vector x_obs , vector x_miss ) {
+int N = dims(x_obs)[1];
+int N_miss = dims(x_miss)[1];
+vector[N] merged;
+merged = x_obs;
+for ( i in 1:N_miss )
+merged[ miss_indexes[i] ] = x_miss[i];
+return merged;
+}
+}
+This code exists only to merge a vector of observed values with a vector of parameters to stand in
+place of missing values. It is called in the model block. Here are the important lines:
+B_merge = merge_missing(B_missidx, to_vector(B), B_impute);
+B_merge ~ normal( nu , sigma_B );
+for ( i in 1:29 ) {
+mu[i] = a + bB * B_merge[i] + bM * M[i];
+}
+K ~ normal( mu , sigma );
+The first line above merges the observed data B with the imputation parameters in B_impute. The
+vector B_missidx is just a list of the index positions of the missing values. If you use ulam, it builds
+B_missidx for you. But if you use Stan directly, you’ll need to build it yourself. One line is enough:
+R code
+15.23
+B_missidx <- which( is.na( dat_list$B ) )
+You pass B_missidx to the Stan model as data. The function merge_missing replaces each missing
+value with the value of each corresponding parameter in B_impute. This is a bit awkward—it is joyless
+index shuffling. But it gets the job done, and in the end we have a vector B_merge that contains both
+observed values and imputation parameters in all the right places. The next lines of code then use
+B_merge. The second line above is just the probability of the brain (neocortex percent) values, as
+stated by the model. Then the loop constructs the linear predictor mu for each species, which B_merge
+appearing, so that both observed values and imputation parameters are used as appropriate.
+You can use merge_missing directly in ulam models as well. It will declare the merged vector
+and the vector of imputation parameters. The model m15.5 contains an example. Even m15.3 in-
+serts merge_missing behind the scenes. See: m15.3@formula_parsed$formula. If you use Stan
+directly, you’ll need to declare all of this yourself. You can see the necessary declarations in the
+parameters and model blocks of stancode(m15.3).
+15.2.3. Where is your god now? Sometimes there are no statistical solutions to scientific
+problems. But even then, careful statistical thinking can be useful because it will tell us that
+there is no statistical solution. Here’s an example involving missing data.

@@ -1,0 +1,48 @@
+120
+4. GEOCENTRIC MODELS
+In the middle plot in Figure 4.12, I show each basis function multiplied by its corre-
+sponding weight parameter. I got these weights by fitting the model to the data. I’ll show
+you how to do that in a moment. But focus on the figure for now. Weight parameters can
+be positive or negative. So for example basis functions 2 and 4 end up below the zero line.
+They have negative weights. To construct a prediction for any given year, say for example
+1306 again, we just add up these weighted basis functions at that year. In the year 1306, only
+basis functions 2 and 3 influence prediction.
+Finally, in the bottom plot of Figure 4.12, I display the spline, as a 97% posterior interval
+for µ, over the raw temperature data. This isn’t yet a very good approximation. There are
+two things we can do to improve it. First, we can use more knots. The more knots, the
+more flexible the spline. Second, instead of linear approximations, we can use higher degree
+polynomials.
+Let’s build up the code that will let you reproduce the plots in Figure 4.12, but also let
+you change the knots and degree to anything you like. First, we choose the knots. Remem-
+ber, the knots are just values of year that serve as pivots for our spline. Where should the
+knots go? There are different ways to answer this question.76 You can, in principle, put the
+knots wherever you like. Their locations are part of the model, and you are responsible for
+them. Let’s do something simple. It is often useful to place knots at different evenly-spaced
+quantiles of the predictor variable. For example, you might use 0%, 25%, 50%, 75%, and
+100%. This gives you more knots where there are more observations. In the temperature
+data, the variable year is uniformly distributed. So using even quantiles will give us evenly
+spaced years. We used only 5 knots in the first example. Now let’s go for 15. This code will
+define a list of knot positions:
+R code
+4.73
+d2 <- d[ complete.cases(d$temp) , ] # complete cases on temp
+num_knots <- 15
+knot_list <- quantile( d2$year , probs=seq(0,1,length.out=num_knots) )
+Go ahead and inspect knot_list to see that it contains 15 evenly spaced dates, covering the
+full range of the data.
+The next choice is polynomial degree. This determines how basis functions combine,
+which determines how the parameters interact to produce the spline. For degree one, as in
+Figure 4.12, two basis functions combine at each point. For degree two, three functions
+combine at each point. For degree 3, four combine. R already has a nice function that will
+build you basis functions for any list of knots and degree you choose. This code will construct
+the necessary basis functions for a degree 3, cubic, spline:
+R code
+4.74
+library(splines)
+B <- bs(d2$year,
+knots=knot_list[-c(1,num_knots)] ,
+degree=3 , intercept=TRUE )
+The matrix B should have 1124 rows and 17 columns. Each row is a year, corresponding to
+the rows in the d2 data frame. Each column is a basis function, one of our synthetic variables
+defining a span of years within which a corresponding parameter will influence prediction.
+To display the basis functions, just plot each column against year:

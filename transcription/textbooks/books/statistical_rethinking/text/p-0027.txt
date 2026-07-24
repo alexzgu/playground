@@ -1,0 +1,49 @@
+1.3. TOOLS FOR GOLEM ENGINEERING
+11
+both formal and heuristic, can be effective. But one of the most effective and general answers
+is to use Bayesian data analysis. Bayesian data analysis takes a question in the form of a model
+and uses logic to produce an answer in the form of probability distributions.
+In modest terms, Bayesian data analysis is no more than counting the numbers of ways
+the data could happen, according to our assumptions. Things that can happen more ways
+are more plausible. Probability theory is relevant because probability is just a calculus for
+counting. This allows us to use probability theory as a general way to represent plausibility,
+whether in reference to countable events in the world or rather theoretical constructs like
+parameters. The rest follows logically. Once we have defined the statistical model, Bayesian
+data analysis forces a purely logical way of processing the data to produce inference.
+Chapter 2 explains this in depth. For now, it will help to have another approach to com-
+pare. Bayesian probability is a very general approach to probability, and it includes as a
+special case another important approach, the frequentist approach. The frequentist ap-
+proach requires that all probabilities be defined by connection to the frequencies of events
+in very large samples.21 This leads to frequentist uncertainty being premised on imaginary
+resampling of data—if we were to repeat the measurement many many times, we would end
+up collecting a list of values that will have some pattern to it. It means also that parameters
+and models cannot have probability distributions, only measurements can. The distribution
+of these measurements is called a sampling distribution. This resampling is never done,
+and in general it doesn’t even make sense—it is absurd to consider repeat sampling of the
+diversification of song birds in the Andes. As Sir Ronald Fisher, one of the most important
+frequentist statisticians of the 20th century, put it:
+[...] the only populations that can be referred to in a test of significance
+have no objective reality, being exclusively the product of the statistician’s
+imagination [...]22
+But in many contexts, like controlled greenhouse experiments, it’s a useful device for describ-
+ing uncertainty. Whatever the context, it’s just part of the model, an assumption about what
+the data would look like under resampling. It’s just as fantastical as the Bayesian gambit of
+using probability to describe all types of uncertainty, whether empirical or epistemological.23
+But these different attitudes towards probability do enforce different trade-offs. Con-
+sider this simple example where the difference between Bayesian and frequentist probability
+matters. In the year 1610, Galileo turned a primitive telescope to the night sky and became
+the first human to see Saturn’s rings. Well, he probably saw a blob, with some smaller blobs
+attached to it (Figure 1.3). Since the telescope was primitive, it couldn’t really focus the im-
+age very well. Saturn always appeared blurred. This is a statistical problem, of a sort. There’s
+uncertainty about the planet’s shape, but notice that none of the uncertainty is a result of vari-
+ation in repeat measurements. We could look through the telescope a thousand times, and
+it will always give the same blurred image (for any given position of the Earth and Saturn).
+So the sampling distribution of any measurement is constant, because the measurement is
+deterministic—there’s nothing “random” about it. Frequentist statistical inference has a lot
+of trouble getting started here. In contrast, Bayesian inference proceeds as usual, because
+the deterministic “noise” can still be modeled using probability, as long as we don’t identify
+probability with frequency. As a result, the field of image reconstruction and processing is
+dominated by Bayesian algorithms.24
+In more routine statistical procedures, like linear regression, this difference in proba-
+bility concepts has less of an effect. However, it is important to realize that even when a
+Bayesian procedure and frequentist procedure give exactly the same answer, our Bayesian

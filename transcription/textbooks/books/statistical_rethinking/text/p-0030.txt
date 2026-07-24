@@ -1,0 +1,47 @@
+14
+1. THE GOLEM OF PRAGUE
+model that is unaware of this fact tends to make worse predictions than it could. And more
+complex models tend towards more overfitting than simple ones—the smarter the golem,
+the dumber its predictions. So if we wish to make good predictions, we cannot judge our
+models simply on how well they fit our data.
+Cross-validation and information criteria help us in three related ways. First, they pro-
+vide useful expectations of predictive accuracy, rather than merely fit to sample. So they
+compare models where it matters. Second, they give us an estimate of the tendency of a
+model to overfit the data. This will help us to understand how models and data interact,
+which in turn helps us to design better models. We’ll take this point up again in the next sec-
+tion. Third, cross-validation and information criteria can help us to spot highly influential
+observations.
+Bayesian data analysis has been worked on for centuries. Information criteria are com-
+paratively very young and the field is evolving quickly. Many statisticians have never used
+information criteria in an applied problem, and there is no consensus about which metrics
+are best and how best to use them. Still, information criteria are already in frequent use
+in the sciences, appearing in prominent publications and featuring in prominent debates30.
+Their power is often exaggerated, and we will be careful to note what they cannot do as well
+as what they can.
+Rethinking: The Neanderthal in you. Even simple models need alternatives. In 2010, a draft genome
+of a Neanderthal demonstrated more DNA sequences in common with non-African contemporary
+humans than with African ones. This finding is consistent with interbreeding between Neanderthals
+and modern humans, as the latter dispersed from Africa. However, just finding DNA in common
+between modern Europeans and Neanderthals is not enough to demonstrate interbreeding. It is also
+consistent with ancient structure in the African continent.31 In short, if ancient north-east Africans
+had unique DNA sequences, then both Neanderthals and modern Europeans could possess these
+sequences from a common ancestor, rather than from direct interbreeding. So even in the seemingly
+simple case of estimating whether Neanderthals and modern humans share unique DNA, there is
+more than one process-based explanation. Model comparison is necessary.
+1.3.3. Multilevel models. In an apocryphal telling of Hindu cosmology, it is said that the
+Earth rests on the back of a great elephant, who in turn stands on the back of a massive turtle.
+When asked upon what the turtle stands, a guru is said to reply, “it’s turtles all the way down.”
+Statistical models don’t contain turtles, but they do contain parameters. And parameters
+support inference. Upon what do parameters themselves stand? Sometimes, in some of
+the most powerful models, it’s parameters all the way down. What this means is that any
+particular parameter can be usefully regarded as a placeholder for a missing model. Given
+some model of how the parameter gets its value, it is simple enough to embed the new model
+inside the old one. This results in a model with multiple levels of uncertainty, each feeding
+into the next—a multilevel model.
+Multilevel models—also known as hierarchical, random effects, varying effects, or mixed
+effects models—are becoming de rigueur in the biological and social sciences. Fields as di-
+verse as educational testing and bacterial phylogenetics now depend upon routine multilevel
+models to process data. Like Bayesian data analysis, multilevel modeling is not particularly
+new, but it has only been available on desktop computers for a few decades. And since such
+models have a natural Bayesian representation, they have grown hand-in-hand with Bayesian
+data analysis.

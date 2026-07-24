@@ -16,7 +16,7 @@ $$ t_{\mathrm{cov}} = \max_{x \in \mathcal{X}} \mathbf{E}_x \tau_{\mathrm{cov}}.
 
 Cover times have been studied extensively by computer scientists. For example, random walks can be used to verify the connectivity of a network, and the cover time provides an estimate of the running time.
 
-EXAMPLE 11.1 (Cover time of cycle). **Lovász (1993**) gives an elegant computation of the cover time $t_{\mathrm{cov}}$ of simple random walk on the $n$-cycle. This walk is simply the remainder modulo $n$ of a simple random walk on $\mathbb{Z}$. The walk on the remainders has covered all $n$ states exactly when the walk on $\mathbb{Z}$ has first visited $n$ distinct states.
+EXAMPLE 11.1 (Cover time of cycle). **Lovász (1993)** gives an elegant computation of the cover time $t_{\mathrm{cov}}$ of simple random walk on the $n$-cycle. This walk is simply the remainder modulo $n$ of a simple random walk on $\mathbb{Z}$. The walk on the remainders has covered all $n$ states exactly when the walk on $\mathbb{Z}$ has first visited $n$ distinct states.
 
 Let $c_n$ be the expected value of the time when a simple random walk on $\mathbb{Z}$ has first visited $n$ distinct states, and consider a walk which has just reached its $(n-1)$-st new state. The visited states form a subsegment of the number line and the walk must be at one end of that segment. Reaching the $n$-th new state is now a gambler's ruin situation: the walker's position corresponds to a fortune of 1 (or $n-1$), and we are waiting for her to reach either 0 or $n$. Either way, the expected time is $(1)(n-1) = n-1$, as shown in Exercise 2.1. It follows that
 $$ c_n = c_{n-1} + (n-1) \quad \text{for} \quad n \geq 1. $$
@@ -28,8 +28,6 @@ Fix an irreducible chain with state space $\mathcal{X}$. Recall the definition (
 $$ t_{\mathrm{hit}} = \mathbf{E}_x \tau_y \leq \mathbf{E}_x \tau_{\mathrm{cov}} \leq t_{\mathrm{cov}}. \tag{11.2} $$
 
 It is more interesting to give an upper bound on cover times in terms of hitting times. A walk covering all the states can visit them in many different orders, and this indeterminacy can be exploited. Randomizing the order in which we check whether states have been visited (which, following **Aldous and Fill (1999)**, we will call the Matthews method—see **Matthews (1988a)** for the original version)
-
-150
 
 ### PDF page 167 (book page 151)
 

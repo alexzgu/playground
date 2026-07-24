@@ -1,0 +1,49 @@
+3.3. SAMPLING TO SIMULATE PREDICTION
+63
+0
+2
+4
+6
+8
+0
+5000
+15000
+25000
+dummy water count
+Frequency
+Figure 3.5. Distribution of simulated sample
+observations from 9 tosses of the globe. These
+samples assume the proportion of water is 0.7.
+R code
+3.22
+rbinom( 10 , size=2 , prob=0.7 )
+[1] 2 2 2 1 2 1 1 1 0 2
+Let’s generate 100,000 dummy observations, just to verify that each value (0, 1, or 2) appears
+in proportion to its likelihood:
+R code
+3.23
+dummy_w <- rbinom( 1e5 , size=2 , prob=0.7 )
+table(dummy_w)/1e5
+dummy_w
+0
+1
+2
+0.08904 0.41948 0.49148
+And those values are very close to the analytically calculated likelihoods further up. You will
+see slightly different values, due to simulation variance. Execute the code above multiple
+times, to see how the exact realized frequencies fluctuate from simulation to simulation.
+Only two tosses of the globe isn’t much of a sample, though. So now let’s simulate the
+same sample size as before, 9 tosses.
+R code
+3.24
+dummy_w <- rbinom( 1e5 , size=9 , prob=0.7 )
+simplehist( dummy_w , xlab="dummy water count" )
+The resulting plot is shown in Figure 3.5. Notice that most of the time the expected obser-
+vation does not contain water in its true proportion, 0.7. That’s the nature of observation:
+There is a one-to-many relationship between data and data-generating processes. You should
+experiment with sample size, the size input in the code above, as well as the prob, to see
+how the distribution of simulated samples changes shape and location.
+So that’s how to perform a basic simulation of observations. What good is this? There
+are many useful jobs for these samples. In this chapter, we’ll put them to use in examining
+the implied predictions of a model. But to do that, we’ll have to combine them with samples
+from the posterior distribution. That’s next.

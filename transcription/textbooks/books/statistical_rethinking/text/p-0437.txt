@@ -1,0 +1,59 @@
+13.1. EXAMPLE: MULTILEVEL TADPOLES
+421
+-3
+-2
+-1
+0
+1
+2
+3
+4
+0.00
+0.10
+0.20
+0.30
+log-odds survive
+Density
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+0.0
+0.5
+1.0
+1.5
+2.0
+2.5
+3.0
+3.5
+probability survive
+Density
+Figure 13.2. The inferred population of survival across tanks. Left: 100
+Gaussian distributions of the log-odds of survival, sampled from the poste-
+rior of m13.2. Right: Survival probabilities for 8000 new simulated tanks,
+averaging over the posterior distribution on the left.
+# transform to probability and visualize
+dens( inv_logit(sim_tanks) , lwd=2 , adj=0.1 )
+The results are displayed in Figure 13.2. Notice that there is uncertainty about both the
+location, α, and scale, σ, of the population distribution of log-odds of survival. All of this
+uncertainty is propagated into the simulated probabilities of survival.
+Rethinking: Varying intercepts as over-dispersion. In the previous chapter (page 381), the beta-
+binomial and gamma-Poisson models were presented as ways for coping with over-dispersion
+of count data. Varying intercepts accomplish the same thing, allowing count outcomes to be over-
+dispersed. They accomplish this, because when each observed count gets its own unique intercept, but
+these intercepts are pooled through a common distribution, the predictions expect over-dispersion
+just like a beta-binomial or gamma-Poisson model would. Compared to a beta-binomial or gamma-
+Poisson model, a binomial or Poisson model with a varying intercept on every observed outcome will
+often be easier to estimate and easier to extend. There will be an example of this approach, later in
+this chapter.
+Overthinking: Priors for variance components. The examples in this book use weakly regularizing
+exponential priors for variance components, the σ parameters that estimate the variation across clus-
+ters in the data. These exponential priors work very well in routine multilevel modeling. They express
+only a rough notion of an average standard deviation and regularize towards zero. But there are two
+common contexts in which they can be problematic. First, sometimes there isn’t much information
+in the data with which to estimate the variance. For example, if you only have 5 clusters, then that’s
+something like trying to estimate a variance with 5 data points. In that case, you might need some-
+thing much more informative. Second, in non-linear models with logit and log links, floor and ceiling
+effects sometimes render extreme values of the variance equally plausible as more realistic values. In

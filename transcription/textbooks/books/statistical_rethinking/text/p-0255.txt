@@ -1,0 +1,37 @@
+7.7. PRACTICE
+239
+7.6. Summary
+This chapter has been a marathon. It began with the problem of overfitting, a univer-
+sal phenomenon by which models with more parameters fit a sample better, even when the
+additional parameters are meaningless. Two common tools were introduced to address over-
+fitting: regularizing priors and estimates of out-of-sample accuracy (WAIC and PSIS). Reg-
+ularizing priors reduce overfitting during estimation, and WAIC and PSIS help estimate the
+degree of overfitting. Practical functions compare in the rethinking package were intro-
+duced to help analyze collections of models fit to the same data. If you are after causal esti-
+mates, then these tools will mislead you. So models must be designed through some other
+method, not selected on the basis of out-of-sample predictive accuracy. But any causal esti-
+mate will still overfit the sample. So you always have to worry about overfitting, measuring
+it with WAIC/PSIS and reducing it with regularization.
+7.7. Practice
+Easy.
+7E1. State the three motivating criteria that define information entropy. Try to express each in your
+own words.
+7E2. Suppose a coin is weighted such that, when it is tossed and lands on a table, it comes up heads
+70% of the time. What is the entropy of this coin?
+7E3. Suppose a four-sided die is loaded such that, when tossed onto a table, it shows “1” 20%, “2”
+25%, ”3” 25%, and ”4” 30% of the time. What is the entropy of this die?
+7E4. Suppose another four-sided die is loaded such that it never shows “4”. The other three sides
+show equally often. What is the entropy of this die?
+Medium.
+7M1. Write down and compare the definitions of AIC and WAIC. Which of these criteria is most
+general? Which assumptions are required to transform the more general criterion into a less general
+one?
+7M2. Explain the difference between model selection and model comparison. What information is
+lost under model selection?
+7M3. When comparing models with an information criterion, why must all models be fit to exactly
+the same observations? What would happen to the information criterion values, if the models were
+fit to different numbers of observations? Perform some experiments, if you are not sure.
+7M4. What happens to the effective number of parameters, as measured by PSIS or WAIC, as a prior
+becomes more concentrated? Why? Perform some experiments, if you are not sure.
+7M5. Provide an informal explanation of why informative priors reduce overfitting.
+7M6. Provide an informal explanation of why overly informative priors result in underfitting.

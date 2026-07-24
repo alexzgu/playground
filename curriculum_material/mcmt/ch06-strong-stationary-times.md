@@ -11,9 +11,7 @@ CHAPTER 6
 
 We begin this chapter with an example. Consider the following (slow) method of shuffling a deck of $n$ cards: take the top card and insert it uniformly at random in the deck. This process will eventually mix up the deck—the successive arrangements of the deck are a random walk on the group $\mathcal{S}_n$ of $n!$ possible permutations of the cards, which by Proposition 2.12 has uniform stationary distribution.
 
-*[Figure: A stack of hatched cards fanned diagonally; the top card is being lifted and moved along a curved arrow to be reinserted into the deck, where a hand holds a card poised to slide into one of the slots. Label "Original bottom card" points to the lowest card in the stack; label "Next card to be placed in one of the slots under the original bottom card" points to the card held by the hand, with arrows indicating candidate insertion slots.]*
-
-FIGURE 6.1. The top-to-random shuffle.
+**FIGURE 6.1.** The top-to-random shuffle. *[Figure: A stack of hatched cards fanned diagonally; the top card is being lifted and moved along a curved arrow to be reinserted into the deck, where a hand holds a card poised to slide into one of the slots. Label "Original bottom card" points to the lowest card in the stack; label "Next card to be placed in one of the slots under the original bottom card" points to the card held by the hand, with arrows indicating candidate insertion slots.]*
 
 How long must we shuffle using this method until the arrangement of the deck is close to random?
 
@@ -211,9 +209,7 @@ $$ \frac{P^{2t}(x, y)}{\pi(y)} = \sum_{z \in \mathcal{X}} \frac{P^t(x, z)P^t(z, 
 
 ### PDF page 97 (book page 81)
 
-*[Figure: Two identical "flower" clusters joined edge-to-edge, sharing a central vertex. Each cluster is a complete graph on 4 solid-black vertices (drawn as filled circles) with all six edges present, and every vertex has several small loops (petals) attached, giving the flower appearance. The two clusters meet at the middle vertex, which sits between them.]*
-
-**FIGURE 6.2.** Two complete graphs (on 4 vertices), "glued" at a single vertex. Loops have been added so that every vertex has the same degree (count each loop as one edge).
+**FIGURE 6.2.** Two complete graphs (on 4 vertices), "glued" at a single vertex. Loops have been added so that every vertex has the same degree (count each loop as one edge). *[Figure: Two identical "flower" clusters joined edge-to-edge, sharing a central vertex. Each cluster is a complete graph on 4 solid-black vertices (drawn as filled circles) with all six edges present, and every vertex has several small loops (petals) attached, giving the flower appearance. The two clusters meet at the middle vertex, which sits between them.]*
 
 Applying Cauchy-Schwarz to the right-hand side above, we have
 

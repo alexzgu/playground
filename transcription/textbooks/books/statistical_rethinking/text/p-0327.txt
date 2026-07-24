@@ -1,0 +1,48 @@
+10.1. MAXIMUM ENTROPY
+311
+already extremely good, for just 10 pebbles. Information entropy is a way of counting how
+many unique arrangements correspond to a distribution.
+This is useful, because the distribution that can happen the greatest number of ways is the
+most plausible distribution. Call this distribution the maximum entropy distribution.
+As you might guess from the pebble example, the number of ways corresponding to the
+maximum entropy distribution eclipses that of any other distribution. And the numbers of
+ways for each distribution most similar to the maximum entropy distribution eclipse those
+of less similar distributions. And so on, such that the vast majority of unique arrangements
+of pebbles produce either the maximum entropy distribution or rather a distribution very
+similar to it. And that is why it’s often effective to bet on maximum entropy: It’s the center
+of gravity for the highly plausible distributions.
+Its high plausibility is conditional on our assumptions, of course. To grasp the role
+of assumptions—constraints and data—in maximum entropy, we’ll explore two examples.
+First, we’ll derive the Gaussian distribution as the solution to an entropy maximization prob-
+lem. Second, we’ll derive the binomial distribution, which we used way back in Chapter 2
+to draw marbles and toss globes, as the solution to a different entropy maximization prob-
+lem. These derivations will not be mathematically rigorous. Rather, they will be graphical
+and aim to deliver a conceptual appreciation for what this thing called entropy is doing. The
+Overthinking boxes in this section provide connections to the mathematics, for those who
+are interested.
+But the most important thing is to be patient with yourself. Understanding of and in-
+tuition for probability theory comes with experience. You can usefully apply the principle
+of maximum entropy before you fully understand it. Indeed, it may be that no one fully
+understands it. Over time, and within the contexts that you find it useful, the principle will
+become more intuitive.
+Rethinking: What good is intuition? Like many aspects of information theory, maximum entropy
+is not very intuitive. But note that intuition is just a guide to developing methods. When a method
+works, it hardly matters whether our intuition agrees. This point is important, because some people
+still debate statistical approaches on the basis of philosophical principles and intuitive appeal. Philos-
+ophy does matter, because it influences development and application. But it is a poor way to judge
+whether or not an approach is useful. Results are what matter. For example, the three criteria used to
+derive information entropy, back in Chapter 6, are not also the justification for using information en-
+tropy. The justification is rather that it has worked so well on so many problems where other methods
+have failed.
+Overthinking: The Wallis derivation. Intuitively, we can justify maximum entropy just based upon
+the definition of information entropy. But there’s another derivation, attributed to Graham Wallis,155
+that doesn’t invoke “information” at all. Here’s a short version of the argument. Suppose there are M
+observable events, and we wish to assign a plausibility to each. We know some constraints about the
+process that produces these events, such as its expected value or variance. Now imagine setting up M
+buckets and tossing a large number N of individual stones into them at random, in such a way that
+each stone is equally likely to land in any of the M buckets. After all the stones have landed, we count
+up the number of stones in each bucket i and use these counts ni to construct a candidate probability
+distribution defined by pi = ni/N. If this candidate distribution is consistent with our constraints, we
+add it to a list. If not, we empty the buckets and try again. After many rounds of this, the distribution
+that has occurred the most times is the fairest—in the sense that no bias was involved in tossing the
+stones into buckets—that still obeys the constraints that we imposed.

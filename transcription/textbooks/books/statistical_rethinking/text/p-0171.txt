@@ -1,0 +1,52 @@
+5.2. MASKED RELATIONSHIP
+155
+What happened here? Why did adding neocortex and body mass to the same model
+lead to larger estimated effects of both? This is a context in which there are two variables
+correlated with the outcome, but one is positively correlated with it and the other is negatively
+correlated with it. In addition, both of the explanatory variables are positively correlated with
+one another. Try a simple pairs plot to appreciate this correlation: pairs( ~K + M + N ,
+dcc ). As a result, they tend to cancel one another out.
+This is another case in which multiple regression automatically finds the most revealing
+cases and uses them to produce inferences. What the regression model does is ask if species
+that have high neocortex percent for their body mass have higher milk energy. Likewise, the
+model asks if species with high body mass for their neocortex percent have higher milk energy.
+Bigger species, like apes, have milk with less energy. But species with more neocortex tend
+to have richer milk. The fact that these two variables, body size and neocortex, are correlated
+across species makes it hard to see these relationships, unless we account for both.
+Some DAGs will help. There are at least three graphs consistent with the pattern in these
+data. Here they are, and then I’ll explain each.
+K
+M
+N
+K
+M
+N
+K
+M
+N
+U
+Beginning on the left, the first possibility is that body mass (M) influences neocortex percent
+(N). Both then influence kilocalories in milk (K). Second, in the middle, neocortex could
+instead influence body mass. The two variables still end up correlated in the sample. Finally,
+on the right, there could be an unobserved variable U that influences both M and N, produc-
+ing a correlation between them. In this book, I’ll circle variables that are unobserved. One
+of the great threats to causal inference is that there are potentially very many unobserved
+variables that influence an outcome. We’ll consider this more in the next chapter.
+Which of these graphs is right? We can’t tell from the data alone, because these graphs
+imply the same set of conditional independencies. In this case, there are no conditional
+independencies—each DAG above implies that all pairs of variables are associated, regardless
+of what we condition on. A set of DAGs with the same conditional independencies is known
+as a Markov equivalence set. In the Overthinking box further down, I’ll show you how
+to simulate observations consistent with each of these DAGs show that each can produce the
+masking phenomenon, and use the dagitty package to compute the complete set of Markov
+equivalent DAGs. Remember that while the data alone can never tell you which causal model
+is correct, your scientific knowledge of the variables will eliminate a large number of silly, but
+Markov equivalent, DAGs.
+The final thing we’d like to do with these models is to finish Figure 5.9. Let’s make
+counterfactual plots to show how the model sees the problem. Once we have multiple pre-
+dictor variables, we can conduct counterfactual experiments that vary one predictor while
+holding the others constant. In the real world, such experiments are typically impossible.
+If we change an animal’s body size, natural selection will then change the other features to
+match it. But these counterfactual plots do help us see how the model views the association
+between each predictor and the outcome. Here is the code to produce the lower-left plot in
+Figure 5.9 (page 153).

@@ -1,0 +1,43 @@
+578
+ENDNOTES
+147. See Robert and Casella (2011) for a concise history of MCMC that covers both computation and
+mathematical foundations. [284]
+148. See Vehtari et al. (2019a), https://arxiv.org/abs/1903.08008. [291]
+149. For some more detail and background citations, see Chapter 6 in Brooks et al. (2011). [294]
+150. Gelman and Rubin (1992). [295]
+151. Gelman 2008: https://andrewgelman.com/2008/05/13/the_folk_theore/ [299]
+152. As an example, a 2018 paper published in a high impact journal based its conclusions on chains of 5-million
+samples with effective sample sizes (n_eff) of 66. See Muñoz-Rodríguez et al. (2018) and critical analysis at
+https://github.com/mmatschiner/kumara. [302]
+Chapter 10
+153. Grosberg (1998). For topological perspective, see https://doi.org/10.1073/pnas.0611320104 . [307]
+154. Williams (1980). See also Caticha and Griffin (2007); Griffin (2008) for a clearer argument with some
+worked examples. See Jaynes (1988) for historical context. [308]
+155. Jaynes (2003), page 351. [311]
+156. Williams (1980). [312]
+157. Williams (1980). See also Caticha and Griffin (2007); Griffin (2008) for a clearer argument with some
+worked examples. See Jaynes (1988) for historical context. [312]
+158. E. T. Jaynes called this phenomenon “entropy concentration.” See Jaynes (2003), pages 365–370. [313]
+159. A generalized normal distribution has variance α2Γ(3/β)/Γ(1/β). We can define a family of such distri-
+butions with equal variance by choosing the shape β and solving for the α that makes the variance expression
+equal to any chosen σ2. The solution is α = σ
+√
+Γ(1/β)
+Γ(3/β). This density is provided by rethinking as dgnorm, in
+case you want to play around with it. [313]
+160. I learned this proof from Keith Conrad’s “Probability distributions and maximum entropy” notes, found
+online. [314]
+161. The first line of the function just samples 3 uniform random numbers, with no joint constraint. The second
+line then solves for the relative value of the 4th value, by using the stated expected value G. The rest of the function
+just normalizes to a probability distribution and computes entropy. [317]
+162. McCullagh and Nelder (1989) is the central citation for the conventional generalized linear models. The
+term “generalized linear model” is due to Nelder and Wedderburn (1972). The terminology can be confusing, be-
+cause there is also the “general linear model.” Nelder later regretted the choice. See Senn (2003), page 127. [321]
+163. Frank (2007). [323]
+164. Not a real distribution. [324]
+165. Nuzzo (2014). See also Simmons et al. (2011). [327]
+Chapter 11
+166. Leopold Kroneker was supposed to have said, “God made the integers, all else is the work of man.” (Die
+ganzen Zahlen hat der liebe Gott gemacht, alles andere ist Menschenwerk. [331]
+167. Silk et al. (2005). [333]
+168. Bickel et al. (1975). [348]

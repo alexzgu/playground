@@ -3,9 +3,7 @@
 
 ### PDF page 9 (book page 3)
 
-# Chapter 1
-
-# Martingales in discrete time
+# Chapter 1 — Martingales in discrete time
 
 A martingale is a mathematical model of a fair game. To understand the definition, we need to define *conditional expectation*. The concept of conditional expectation will permeate this book.
 
@@ -1005,8 +1003,6 @@ Suppose that $\mathbb{E}[|\phi(Y)|] < \infty$. Show that $E(\phi(Y) \mid X) \ge 
 - Show that if $M_n$ is a martingale with respect to $\{\mathcal{F}_n\}$ and $r \ge 1$, then $Y_n = |M_n|^r$ is a submartingale.
 
 ---
-
-All three pages transcribed. Note page 39 has two horizontal rules bracketing Exercise 1.15 (a boxed exercise in the original), which I've preserved with `---`.
 
 ### PDF page 40 (book page 34)
 *(Blank page.)*

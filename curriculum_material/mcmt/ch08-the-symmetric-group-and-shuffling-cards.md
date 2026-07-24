@@ -155,7 +155,7 @@ Aligning three cards:
 
 $$ \begin{matrix} 2 & 3 & 1 \\ 3 & 1 & 2 \end{matrix} \implies \begin{matrix} 1 & 3 & 2 \\ 1 & 3 & 2 \end{matrix} $$
 
-FIGURE 8.1. Aligning cards using coupled random transpositions. In each example, $X_t = 1$ and $Y_t = 1$, so card 1 is transposed with the card in position 1 in both decks.
+**FIGURE 8.1.** Aligning cards using coupled random transpositions. In each example, $X_t = 1$ and $Y_t = 1$, so card 1 is transposed with the card in position 1 in both decks.
 
 *[Figure: three worked examples, each showing a pair of two-row card arrangements (top row = one deck, bottom row = the other deck) transformed by an arrow into a new pair, illustrating how one coupled transposition can align one, two, or three cards between the decks.]*
 
@@ -289,7 +289,7 @@ A ***rising sequence*** of a permutation $\sigma$ is a maximal set of consecutiv
 | 5 | 7 | 1 | 8 | 11 | 12 | 2 | 6 | 3 | 13 | 9 | 4 | 10 |
 |---|---|---|---|----|----|---|---|---|----|---|---|----|
 
-FIGURE 8.2. Riffle shuffling a 13-card deck, twice.
+**FIGURE 8.2.** Riffle shuffling a 13-card deck, twice.
 
 We claim that *methods* (1) *and* (2) *generate the same distribution Q on permutations, where*
 
@@ -330,7 +330,7 @@ Consider repeated inverse riffle shuffles using method (3). For the first shuffl
 | round 1 | 0 | 0 | 0 | 1 | 1 | 1 | 0 | 0 | 0 | 1 | 1 | 1 | 1 |
 | round 2 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
 
-FIGURE 8.3. When inverse riffle shuffling, we first assign bits for each round, then sort bit by bit.
+**FIGURE 8.3.** When inverse riffle shuffling, we first assign bits for each round, then sort bit by bit.
 
 card will be labeled with a string of $k$ bits, and cards with different labels will be in lexicographic order (cards with the same label will be in their original relative order).
 
@@ -386,9 +386,7 @@ Is it possible, using only legal moves, to switch the positions of tiles 14 and 
 
 ### PDF page 127 (book page 111)
 
-*[Figure: a 4×4 grid of tiles. Rows: (1, 2, 3, 4), (5, 6, 7, 8), (9, 10, 11, 12), (13, 15, 14, [blank]).]*
-
-FIGURE 8.4. The "fifteen puzzle".
+**FIGURE 8.4.** The "fifteen puzzle". *[Figure: a 4×4 grid of tiles. Rows: (1, 2, 3, 4), (5, 6, 7, 8), (9, 10, 11, 12), (13, 15, 14, [blank]).]*
 
 (a) Show that the answer is "no."
 (b) Describe the set of all configurations of tiles that can be reached using only legal moves.
@@ -435,7 +433,7 @@ $$ 2 \mid 6 \mid 8 \mid 10 \mid 11 \mid 12 \mid 4 \mid 7 \mid 9 \mid 1 \mid 3 \m
 (a) Let $a$ and $b$ be positive integers. Show that an inverse $a$-shuffle followed by an inverse $b$-shuffle is the same as an inverse $ab$-shuffle.
 (b) Describe how to perform a *forward $a$-shuffle*, and show that its increment distribution gives weight $\binom{a+n-r}{n}/a^n$ to every $\sigma \in \mathcal{S}_n$ with exactly $r$ rising sequences. (This is a generalization of (8.5).)
 
-REMARK 8.14. Exercise 8.10(b), due to **Bayer and Diaconis (1992**), is the key to numerically computing the total variation distance from stationarity. A permutation has $r$ rising sequences if and only if its inverse has $r - 1$ descents. The number of permutations in $\mathcal{S}_n$ with $r - 1$ descents is the ***Eulerian number*** $\left\langle {n \atop r-1} \right\rangle$. The Eulerian numbers satisfy a simple recursion (and are built into modern symbolic computation software); see p. 267 of **Graham, Knuth, and Patashnik (1994**) for details. It follows from Exercise 8.10 that the total variation distance from uniformity after $t$ Gilbert-Shannon-Reeds shuffles of an $n$-card deck is
+REMARK 8.14. Exercise 8.10(b), due to **Bayer and Diaconis (1992)**, is the key to numerically computing the total variation distance from stationarity. A permutation has $r$ rising sequences if and only if its inverse has $r - 1$ descents. The number of permutations in $\mathcal{S}_n$ with $r - 1$ descents is the ***Eulerian number*** $\left\langle {n \atop r-1} \right\rangle$. The Eulerian numbers satisfy a simple recursion (and are built into modern symbolic computation software); see p. 267 of **Graham, Knuth, and Patashnik (1994)** for details. It follows from Exercise 8.10 that the total variation distance from uniformity after $t$ Gilbert-Shannon-Reeds shuffles of an $n$-card deck is
 
 $$ \sum_{r=1}^{n} \left\langle {n \atop r-1} \right\rangle \left| \frac{\binom{2^t+n-r}{n}}{2^{nt}} - \frac{1}{n!} \right| . $$
 
@@ -443,11 +441,11 @@ See Figure 8.5 for the values when $n = 52$ and $t \leq 12$.
 
 **Notes**
 
-See any undergraduate abstract algebra book, e.g. **Herstein (1975**) or Artin (**1991**), for more on the basic structure of the symmetric group $\mathcal{S}_n$.
+See any undergraduate abstract algebra book, e.g. **Herstein (1975)** or Artin (**1991**), for more on the basic structure of the symmetric group $\mathcal{S}_n$.
 
-**Thorp (1965**) proposed Exercise 8.6 as an "Elementary Problem" in the *American Mathematical Monthly*.
+**Thorp (1965)** proposed Exercise 8.6 as an "Elementary Problem" in the *American Mathematical Monthly*.
 
-**Random transpositions.** The strong stationary time defined in Proposition 8.6 and used to prove the upper bound on the mixing time for random transpositions (Corollary 8.10) is due to A. Broder (see **Diaconis (1988a**)). This upper bound is off by a factor of 4. **Matthews (1988b**) gives an improved strong stationary time whose upper bound matches the lower bound. Here is how it works: again, let $R_t$ and $L_t$ be the cards chosen by the right and left hands, respectively, at time $t$. Assume that when $t = 0$, no cards have been marked. As long as at most $\lceil n/3 \rceil$ cards have been marked, use this rule: at time $t$, mark card $R_t$ if both $R_t$ and $L_t$ are unmarked. When $k > \lceil n/3 \rceil$ cards have been marked, the rule is more complicated. Let $l_1 < l_2 < \cdots < l_k$ be the marked cards, and enumerate the ordered pairs of marked cards in lexicographic order:
+**Random transpositions.** The strong stationary time defined in Proposition 8.6 and used to prove the upper bound on the mixing time for random transpositions (Corollary 8.10) is due to A. Broder (see **Diaconis (1988a)**). This upper bound is off by a factor of 4. **Matthews (1988b)** gives an improved strong stationary time whose upper bound matches the lower bound. Here is how it works: again, let $R_t$ and $L_t$ be the cards chosen by the right and left hands, respectively, at time $t$. Assume that when $t = 0$, no cards have been marked. As long as at most $\lceil n/3 \rceil$ cards have been marked, use this rule: at time $t$, mark card $R_t$ if both $R_t$ and $L_t$ are unmarked. When $k > \lceil n/3 \rceil$ cards have been marked, the rule is more complicated. Let $l_1 < l_2 < \cdots < l_k$ be the marked cards, and enumerate the ordered pairs of marked cards in lexicographic order:
 
 $$ (l_1, l_1), (l_1, l_2), \ldots, (l_1, l_k), (l_2, l_1), \ldots, (l_k, l_k). \tag{8.8} $$
 
@@ -463,7 +461,7 @@ $$ (l_1, l_1), (l_1, l_2), \ldots, (l_1, l_k), (l_2, l_1), \ldots, (l_k, l_k). \
 |---|---|---|---|----|----|----|
 | 0.3341 | 0.1672 | 0.0854 | 0.0429 | 0.0215 | 0.0108 |
 
-FIGURE 8.5. The total variation distance from stationarity (with 4 digits of precision) after $t$ riffle shuffles of a 52-card deck, for $t = 1, \ldots, 12$.
+**FIGURE 8.5.** The total variation distance from stationarity (with 4 digits of precision) after $t$ riffle shuffles of a 52-card deck, for $t = 1, \ldots, 12$.
 
 Also list the unmarked cards in order: $u_1 < u_n < \cdots < u_{n-k}$. At time $t$, if there exists an $i$ such that $1 \leq i \leq n - k$ and one of the three conditions below is satisfied, then mark card $i$.
 
@@ -475,7 +473,7 @@ Also list the unmarked cards in order: $u_1 < u_n < \cdots < u_{n-k}$. At time $
 
 **Semi-random transpositions.** Consider shuffling by transposing cards. However, we allow only one hand (the right) to choose a uniform random card. The left hand picks a card according to some other rule—perhaps deterministic, perhaps randomized—and the two cards are switched. Since only one of the two cards switched is fully random, it is reasonable to call examples of this type shuffles by ***semi-random transpositions***. (Note that for this type of shuffle, the distribution of allowed moves can depend on time.)
 
-One particularly interesting variation first proposed by **Thorp (1965**) and mentioned as an open problem in **Aldous and Diaconis (1986**) is the ***cyclic-to-random*** shuffle: at step $t$, the left hand chooses card $t \pmod{n}$, the right hand chooses a uniform random card, and the two chosen cards are transposed. This chain has the property that every position is given a chance to be randomized once
+One particularly interesting variation first proposed by **Thorp (1965)** and mentioned as an open problem in **Aldous and Diaconis (1986)** is the ***cyclic-to-random*** shuffle: at step $t$, the left hand chooses card $t \pmod{n}$, the right hand chooses a uniform random card, and the two chosen cards are transposed. This chain has the property that every position is given a chance to be randomized once
 
 ### PDF page 130 (book page 114)
 

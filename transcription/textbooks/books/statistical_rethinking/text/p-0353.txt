@@ -1,0 +1,48 @@
+11.1. BINOMIAL REGRESSION
+337
+prior <- extract.prior( m11.2 , n=1e4 )
+p <- sapply( 1:4 , function(k) inv_logit( prior$a + prior$b[,k] ) )
+The code just above computes the prior probability of pulling left for each treatment. We are
+interested in what the priors imply about the prior differences among treatments. So let’s plot
+the absolute prior difference between the first two treatments.
+R code
+11.8
+dens( abs( p[,1] - p[,2] ) , adj=0.1 )
+I show this distribution on the right in Figure 11.3. Just like with α, a flat prior on the logit
+scale piles up nearly all of the prior probability on zero and one—the model believes, before it
+sees that data, that the treatments are either completely alike or completely different. Maybe
+there are contexts in which such a prior makes sense. But they don’t make sense here. Typical
+behavioral treatments have modest effects on chimpanzees and humans alike.
+The blue distribution in the same figure shows the code above repeated using a Nor-
+mal(0,0.5) prior instead. This prior is now concentrated on low absolute differences. While
+a difference of zero has the highest prior probability, the average prior difference is:
+R code
+11.9
+m11.3 <- quap(
+alist(
+pulled_left ~ dbinom( 1 , p ) ,
+logit(p) <- a + b[treatment] ,
+a ~ dnorm( 0 , 1.5 ),
+b[treatment] ~ dnorm( 0 , 0.5 )
+) , data=d )
+set.seed(1999)
+prior <- extract.prior( m11.3 , n=1e4 )
+p <- sapply( 1:4 , function(k) inv_logit( prior$a + prior$b[,k] ) )
+mean( abs( p[,1] - p[,2] ) )
+[1] 0.09838663
+About 10%. Extremely large differences are less plausible. However this is not a strong prior.
+If the data contain evidence of large differences, they will shine through. And keep in mind
+the lessons of Chapter 7: We want our priors to be skeptical of large differences, so that we
+reduce overfitting. Good priors hurt fit to sample but are expected to improve prediction.
+Finally, we have our complete model and are ready to add in all the individual chim-
+panzee parameters. Let’s turn to Hamiltonian Monte Carlo to approximate the posterior, so
+you can get some practice with it. quap will actually do a fine job with this posterior, but
+only because the priors are sufficiently regularizing. In the problems at the end of chapter,
+you’ll compare the two engines on less regularized models. First prepare the data list:
+R code
+11.10
+# prior trimmed data list
+dat_list <- list(
+pulled_left = d$pulled_left,
+actor = d$actor,
+treatment = as.integer(d$treatment) )

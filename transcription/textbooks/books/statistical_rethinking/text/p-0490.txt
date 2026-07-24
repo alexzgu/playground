@@ -1,0 +1,46 @@
+474
+14. ADVENTURES IN COVARIANCE
+made some islands easier to reach—but not economic performance directly, then it could
+serve as an instrument. This is a very clever idea. But it is easy to imagine that wind in-
+fluences many things about an island, including its pre-colonial history of contact and its
+ecology, and that these variables will influence current economies.
+A much more common type of instrument is distance to some service. If for example we
+want to estimate the influence of health care on the wellbeing of mothers, we cannot easily
+randomize health care among mothers. It would be unethical, for starters. But if mothers
+naturally vary in distance to care centers, and these distances are random with respect to
+pre-existing health variables, then distance might be an instrument that influences use of
+health care but does not influence health directly. However. it’s not hard to think of ways
+that distance from a hospital could be associated with factors influencing health, violating
+the exclusion restriction.199
+In general, it is not possible to statistical prove whether a variable is a good instrument.
+As always, we need scientific knowledge outside of the data to make sense of the data.
+Rethinking: Two-stage worst squares. The instrumental variable model is often discussed with an
+estimation procedure known as two-stage least squares (2SLS). This procedure involves two
+linear regressions. The predicted values of the first regression are fed into the second as data, and then
+adjustments are made so that the standard errors make sense. Amazingly, when the weather is nice,
+this procedure works. It relies upon large-sample approximations and has well-known problems.200
+Like all golems, you just have to use it responsibly. Sometimes people mistake the procedure of 2SLS
+for the model of instrumental variables. They are not the same thing. Any model can be estimated
+through a number of different procedures, each with its own benefits and costs. 2SLS is very limiting.
+If we have count outcomes, measurement errors, missing values, or need varying effects, 2SLS is
+dubious. Now that more capable procedures exist, it is easier to fit instrumental variable models.
+But it can still be difficult. There are no guarantees that an effect can be estimated, just because the
+DAG says it is possible. Another issue that will always remain, no matter how you approximate the
+posterior, is that it is very hard to be sure the instrumental variable is any good.
+14.3.2. Other designs. Instrumental variables are natural experiments that impersonate
+randomized experiments. In the example in the previous section, quarter of birth Q is like
+an external manipulation of education E. That external shock to education is like an exper-
+imental manipulation, in the sense that it allows us to estimate the impact of that external
+shock and thereby derive a causal estimate.
+There are potentially many ways to find natural experiments. Not all of them are strictly
+instrumental variables. But they can provide theoretically correct designs for causal infer-
+ence, if you can believe the assumptions. Let’s consider two more.
+In addition to the back-door criterion you met in Chapter 6, there is something called
+the front-door criterion. It is relevant in a DAG like this:
+U
+X
+Y
+Z
+We are interest, as usual, in the causal influence of X on Y. But there is an unobserved con-
+found U, again as usual. It turns out that, if we can find a perfect mediator Z, then we can
+possibly estimate the causal effect of X on Y. It isn’t crazy to think that causes are mediated

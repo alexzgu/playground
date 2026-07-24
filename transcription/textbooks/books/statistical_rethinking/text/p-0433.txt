@@ -1,0 +1,50 @@
+13.1. EXAMPLE: MULTILEVEL TADPOLES
+417
+changes from the previous model highlighted in blue:
+Si ∼Binomial(Ni, pi)
+logit(pi) = αtank[i]
+αj ∼Normal(¯α, σ)
+[adaptive prior]
+¯α ∼Normal(0, 1.5)
+[prior for average tank]
+σ ∼Exponential(1)
+[prior for standard deviation of tanks]
+Notice that the prior for the tank intercepts is now a function of two parameters, ¯α and
+σ. You can say ¯α like “bar alpha.” The bar means average. These two parameters inside the
+prior is where the “multi” in multilevel arises.189 The Gaussian distribution with mean ¯α and
+standard deviation σ is the prior for each tank’s intercept. But that prior itself has priors for ¯α
+and σ. So there are two levels in the model, each resembling a simpler model. In the top level,
+the outcome is S, the parameters are the vector α, and the prior is αj ∼Normal(¯α, σ). In the
+second level, the “outcome” variable is the vector of intercept parameters, α. The parameters
+are ¯α and σ, and their priors are ¯α ∼Normal(0, 1.5) and σ ∼Exponential(1).
+These two parameters, ¯α and σ, are often referred to as hyperparameters. They are
+parameters for parameters. And their priors are often called hyperpriors. In principle,
+there is no limit to how many “hyper” levels you can install in a model. For example, different
+populations of tanks could be embedded within different regions of habitat. But in practice
+there are limits, both because of computation and our ability to understand the model.
+Rethinking: Why Gaussian tanks? In the multilevel tadpole model, the population of tanks is as-
+sumed to be Gaussian. Why? The least satisfying answer is “convention.” The Gaussian assumption
+is extremely common. A more satisfying answer is “pragmatism.” The Gaussian assumption is easy
+to work with, and it generalizes easily to more than one dimension. This generalization will be impor-
+tant for handling varying slopes in the next chapter. But my preferred answer is instead “entropy.” If
+all we are willing to say about a distribution is the mean and variance, then the Gaussian is the most
+conservative assumption (Chapter 10). Using a Gaussian here does not force the resulting posterior
+distribution of α parameters to be symmetric or have a Gaussian shape. The only information in a
+Gaussian prior (or likelihood) is finite variance. The distribution looks symmetric, because if you
+don’t say how it is skewed, then symmetric is the maximum entropy shape. Above all, there is no rule
+requiring the Gaussian distribution of varying effects. So if you have a good reason to use another
+distribution, then do so. The practice problems at the end of the chapter provide an example.
+Computing the posterior computes both levels simultaneously, in the same way that our
+robot at the start of the chapter learned both about each café and the variation among cafés.
+But you cannot fit this model with quap. Why? Because the probability of the data must now
+average over the level 2 parameters ¯α and σ. But quap just hill climbs, using static values for
+all of the parameters. It can’t see the levels. For more explanation, see the Overthinking box
+further down. You can however fit this model with ulam:
+R code
+13.3
+m13.2 <- ulam(
+alist(
+S ~ dbinom( N , p ) ,
+logit(p) <- a[tank] ,
+a[tank] ~ dnorm( a_bar , sigma ) ,
+a_bar ~ dnorm( 0 , 1.5 ) ,

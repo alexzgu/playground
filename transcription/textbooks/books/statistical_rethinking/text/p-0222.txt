@@ -1,0 +1,47 @@
+206
+7. ULYSSES’ COMPASS
+body mass (kg)
+brain volume (cc)
+35
+47
+60
+450
+900
+1300
+m7.1
+body mass (kg)
+brain volume (cc)
+35
+47
+60
+0
+900
+2000
+m7.4
+Figure 7.4. Underfitting and overfitting as under-sensitivity and over-
+sensitivity to sample. In both plots, a regression is fit to the seven sets of
+data made by dropping one row from the original data. Left: An underfit
+model is insensitive to the sample, changing little as individual points are
+dropped. Right: An overfit model is sensitive to the sample, changing dra-
+matically as points are dropped.
+7.2. Entropy and accuracy
+So how do we navigate between the hydra of overfitting and the vortex of underfitting?
+Whether you end up using regularization or information criteria or both, the first thing you
+must do is pick a criterion of model performance. What do you want the model to do well
+at? We’ll call this criterion the target, and in this section you’ll see how information theory
+provides a common and useful target.
+The path to out-of-sample deviance is twisty, however. Here are the steps ahead. First,
+we need to establish a measurement scale for distance from perfect accuracy. This will re-
+quire a little information theory, as it will provide a natural measurement scale for the dis-
+tance between two probability distributions. Second, we need to establish deviance as an
+approximation of relative distance from perfect accuracy. Finally, we must establish that it
+is only deviance out-of-sample that is of interest. Once you have deviance in hand as a mea-
+sure model performance, in the sections to follow you’ll see how both regularizing priors and
+information criteria help you improve and estimate the out-of-sample deviance of a model.
+This material is complicated. You don’t have to understand everything at first.
+7.2.1. Firing the weatherperson. Accuracy depends upon the definition of the target, and
+there is no universally best target. In defining a target, there are two major dimensions to
+worry about:
+(1) Cost-benefit analysis. How much does it cost when we’re wrong? How much do we
+win when we’re right? Most scientists never ask these questions in any formal way,
+but applied scientists must routinely answer them.

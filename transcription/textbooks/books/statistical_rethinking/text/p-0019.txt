@@ -1,0 +1,49 @@
+1.1. STATISTICAL GOLEMS
+3
+And so it remains a triumph of statistical science that there are now so many diverse golems,
+each useful in a particular context. Viewed this way, statistics is neither mathematics nor a
+science, but rather a branch of engineering. And like engineering, a common set of design
+principles and constraints produces a great diversity of specialized applications.
+This diversity of applications helps to explain why introductory statistics courses are so
+often confusing to the initiates. Instead of a single method for building, refining, and cri-
+tiquing statistical models, students are offered a zoo of pre-constructed golems known as
+“tests.” Each test has a particular purpose. Decision trees, like the one in Figure 1.1, are
+common. By answering a series of sequential questions, users choose the “correct” proce-
+dure for their research circumstances.
+Unfortunately, while experienced statisticians grasp the unity of these procedures, stu-
+dents and researchers rarely do. Advanced courses in statistics do emphasize engineering
+principles, but most scientists never get that far. Teaching statistics this way is somewhat
+like teaching engineering backwards, starting with bridge building and ending with basic
+physics. So students and many scientists tend to use charts like Figure 1.1 without much
+thought to their underlying structure, without much awareness of the models that each proce-
+dure embodies, and without any framework to help them make the inevitable compromises
+required by real research. It’s not their fault.
+For some, the toolbox of pre-manufactured golems is all they will ever need. Provided
+they stay within well-tested contexts, using only a few different procedures in appropriate
+tasks, a lot of good science can be completed. This is similar to how plumbers can do a lot
+of useful work without knowing much about fluid dynamics. Serious trouble begins when
+scholars move on to conducting innovative research, pushing the boundaries of their spe-
+cialties. It’s as if we got our hydraulic engineers by promoting plumbers.
+Why aren’t the tests enough for research? The classical procedures of introductory sta-
+tistics tend to be inflexible and fragile. By inflexible, I mean that they have very limited ways
+to adapt to unique research contexts. By fragile, I mean that they fail in unpredictable ways
+when applied to new contexts. This matters, because at the boundaries of most sciences,
+it is hardly ever clear which procedure is appropriate. None of the traditional golems has
+been evaluated in novel research settings, and so it can be hard to choose one and then to
+understand how it behaves. A good example is Fisher’s exact test, which applies (exactly) to
+an extremely narrow empirical context, but is regularly used whenever cell counts are small.
+I have personally read hundreds of uses of Fisher’s exact test in scientific journals, but aside
+from Fisher’s original use of it, I have never seen it used appropriately. Even a procedure like
+ordinary linear regression, which is quite flexible in many ways, being able to encode a large
+diversity of interesting hypotheses, is sometimes fragile. For example, if there is substan-
+tial measurement error on prediction variables, then the procedure can fail in spectacular
+ways. But more importantly, it is nearly always possible to do better than ordinary linear
+regression, largely because of a phenomenon known as overfitting (Chapter 7).
+The point isn’t that statistical tools are specialized. Of course they are. The point is that
+classical tools are not diverse enough to handle many common research questions. Every
+active area of science contends with unique difficulties of measurement and interpretation,
+converses with idiosyncratic theories in a dialect barely understood by other scientists from
+other tribes. Statistical experts outside the discipline can help, but they are limited by lack of
+fluency in the empirical and theoretical concerns of the discipline.
+Furthermore, no statistical tool does anything on its own to address the basic problem
+of inferring causes from evidence. Statistical golems do not understand cause and effect.

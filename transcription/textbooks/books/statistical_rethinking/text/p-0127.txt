@@ -1,0 +1,45 @@
+4.4. LINEAR PREDICTION
+111
+4.4.3.5. Prediction intervals. Now let’s walk through generating an 89% prediction in-
+terval for actual heights, not just the average height, µ. This means we’ll incorporate the
+standard deviation σ and its uncertainty as well. Remember, the first line of the statistical
+model here is:
+hi ∼Normal(µi, σ)
+What you’ve done so far is just use samples from the posterior to visualize the uncertainty
+in µi, the linear model of the mean. But actual predictions of heights depend also upon the
+distribution in the first line. The Gaussian distribution on the first line tells us that the model
+expects observed heights to be distributed around µ, not right on top of it. And the spread
+around µ is governed by σ. All of this suggests we need to incorporate σ in the predictions
+somehow.
+Here’s how you do it. Imagine simulating heights. For any unique weight value, you sam-
+ple from a Gaussian distribution with the correct mean µ for that weight, using the correct
+value of σ sampled from the same posterior distribution. If you do this for every sample
+from the posterior, for every weight value of interest, you end up with a collection of simu-
+lated heights that embody the uncertainty in the posterior as well as the uncertainty in the
+Gaussian distribution of heights. There is a tool called sim which does this:
+R code
+4.59
+sim.height <- sim( m4.3 , data=list(weight=weight.seq) )
+str(sim.height)
+num [1:1000, 1:46] 140 131 136 137 142 ...
+This matrix is much like the earlier one, mu, but it contains simulated heights, not distribu-
+tions of plausible average height, µ.
+We can summarize these simulated heights in the same way we summarized the distri-
+butions of µ, by using apply:
+R code
+4.60
+height.PI <- apply( sim.height , 2 , PI , prob=0.89 )
+Now height.PI contains the 89% posterior prediction interval of observable (according to
+the model) heights, across the values of weight in weight.seq.
+Let’s plot everything we’ve built up: (1) the average line, (2) the shaded region of 89%
+plausible µ, and (3) the boundaries of the simulated heights the model expects.
+R code
+4.61
+# plot raw data
+plot( height ~ weight , d2 , col=col.alpha(rangi2,0.5) )
+# draw MAP line
+lines( weight.seq , mu.mean )
+# draw HPDI region for line
+shade( mu.HPDI , weight.seq )
+# draw PI region for simulated heights
+shade( height.PI , weight.seq )

@@ -1,0 +1,45 @@
+32
+2. SMALL WORLDS AND LARGE WORLDS
+that order is irrelevant to inference. When something is irrelevant to the machine, it won’t
+affect the inference directly. But it may affect it indirectly, because the data will depend upon
+order. So it is important to check the model’s inferences in light of aspects of the data it does
+not know about. Such checks are an inherently creative enterprise, left to the analyst and the
+scientific community. Golems are very bad at it.
+In Chapter 3, you’ll see some examples of such checks. For now, note that the goal is
+not to test the truth value of the model’s assumptions. We know the model’s assumptions
+are never exactly right, in the sense of matching the true data generating process. Therefore
+there’s no point in checking if the model is true. Failure to conclude that a model is false
+must be a failure of our imagination, not a success of the model. Moreover, models do not
+need to be exactly true in order to produce highly precise and useful inferences. All manner
+of small world assumptions about error distributions and the like can be violated in the large
+world, but a model may still produce a perfectly useful estimate. This is because models
+are essentially information processing machines, and there are some surprising aspects of
+information that cannot be easily captured by framing the problem in terms of the truth of
+assumptions.45
+Instead, the objective is to check the model’s adequacy for some purpose. This usually
+means asking and answering additional questions, beyond those that originally constructed
+the model. Both the questions and answers will depend upon the scientific context. So it’s
+hard to provide general advice. There will be many examples, throughout the book, and
+of course the scientific literature is replete with evaluations of the suitability of models for
+different jobs—prediction, comprehension, measurement, and persuasion.
+Rethinking: Deflationary statistics. It may be that Bayesian inference is the best general purpose
+method of inference known. However, Bayesian inference is much less powerful than we’d like it
+to be. There is no approach to inference that provides universal guarantees. No branch of applied
+mathematics has unfettered access to reality, because math is not discovered, like the proton. Instead
+it is invented, like the shovel.46
+2.3. Components of the model
+Now that you’ve seen how the Bayesian model behaves, it’s time to open up the machine
+and learn how it works. Consider three different kinds of things we counted in the previous
+sections.
+(1) The number of ways each conjecture could produce an observation
+(2) The accumulated number of ways each conjecture could produce the entire data
+(3) The initial plausibility of each conjectured cause of the data
+Each of these things has a direct analog in conventional probability theory. And so the usual
+way we build a statistical model involves choosing distributions and devices for each that
+represent the relative numbers of ways things can happen.
+In this section, you’ll meet these components in some detail and see how each relates to
+the counting you did earlier in the chapter. The job in front of us is really nothing more than
+naming all of the variables and defining each. We’ll take these tasks in turn.
+2.3.1. Variables. Variables are just symbols that can take on different values. In a scientific
+context, variables include things we wish to infer, such as proportions and rates, as well as
+things we might observe, the data. In the globe tossing model, there are three variables.

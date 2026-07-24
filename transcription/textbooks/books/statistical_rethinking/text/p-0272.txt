@@ -1,0 +1,61 @@
+256
+8. CONDITIONAL MANATEES
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+-0.3
+-0.2
+-0.1
+0.0
+0.1
+0.2
+ruggedness
+expected difference log GDP
+Africa higher GDP
+Africa lower GDP
+Figure 8.6. The other side of the interaction
+between ruggedness and continent. The ver-
+tical axis is the difference in expected propor-
+tional log GDP for a nation in Africa and one
+outside Africa. At low ruggedness, we expect
+“moving” a nation to Africa to hurt its econ-
+omy. But at high ruggedness, the opposite is
+true. The association between continent and
+economy depends upon ruggedness, just as
+much as the association between ruggedness
+and economy depends upon continent.
+a nation in Africa and outside Africa, holding its ruggedness constant. To do this, you can
+just run link twice and then subtract the second result from the first:
+R code
+8.18
+rugged_seq <- seq(from=-0.2,to=1.2,length.out=30)
+muA <- link( m8.3 , data=data.frame(cid=1,rugged_std=rugged_seq) )
+muN <- link( m8.3 , data=data.frame(cid=2,rugged_std=rugged_seq) )
+delta <- muA - muN
+Then you can summarize and plot the difference in expected log GDP contained in delta.
+The result is shown in Figure 8.6. This plot is counter-factual. There is no raw data here.
+Instead we are seeing through the model’s eyes and imagining comparisons between iden-
+tical nations inside and outside Africa, as if we could independently manipulate continent
+and also terrain ruggedness. Below the horizontal dashed line, African nations have lower
+expected GDP. This is the case for most terrain ruggedness values. But at the highest rugged-
+ness values, a nation is possibly better off inside Africa than outside it. Really it is hard to
+find any reliable difference inside and outside Africa, at high ruggedness values. It is only in
+smooth nations that being in Africa is a liability for the economy.
+This perspective on the GDP and terrain ruggedness is completely consistent with the
+previous perspective. It’s simultaneously true in these data (and with this model) that (1) the
+influence of ruggedness depends upon continent and (2) the influence of continent depends
+upon ruggedness. Indeed, something is gained by looking at the data in this symmetrical
+perspective. Just inspecting the first view of the interaction, back on page 255, it’s not obvi-
+ous that African nations are on average nearly always worse off. It’s just at very high values
+of rugged that nations inside and outside of Africa have the same expected log GDP. This
+second way of plotting the interaction makes this clearer.
+Simple interactions are symmetric, just like the choice facing Buridan’s ass. Within the
+model, there’s no basis to prefer one interpretation over the other, because in fact they are the
+same interpretation. But when we reason causally about models, our minds tend to prefer
+one interpretation over the other, because it’s usually easier to imagine manipulating one of
+the predictor variables instead of the other. In this case, it’s hard to imagine manipulating
+which continent a nation is on. But it’s easy to imagine manipulating terrain ruggedness,
+by flattening hills or blasting tunnels through mountains.134 If in fact the explanation for

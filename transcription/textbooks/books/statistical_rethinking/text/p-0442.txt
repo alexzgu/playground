@@ -1,0 +1,74 @@
+426
+13. MODELS WITH MEMORY
+R code
+13.14
+precis( m13.3 , depth=2 )
+mean
+sd
+5.5% 94.5% n_eff Rhat
+a_pond[1]
+0.29 0.81 -0.97
+1.59
+3225 1.00
+a_pond[2]
+2.76 1.15
+1.13
+4.78
+2050 1.00
+...
+a_pond[59]
+1.87 0.46
+1.17
+2.66
+3579 1.00
+a_pond[60]
+2.38 0.55
+1.58
+3.32
+2829 1.00
+a_bar
+1.82 0.22
+1.48
+2.19
+1706 1.00
+sigma
+1.41 0.21
+1.11
+1.78
+708 1.01
+I’ve abbreviated the output, since there are 60 intercept parameters, one for each pond.
+Now let’s compute the predicted survival proportions and add those proportions to our
+growing simulation data frame. To indicate that it contains the partial pooling estimates, I’ll
+call the column p_partpool.
+R code
+13.15
+post <- extract.samples( m13.3 )
+dsim$p_partpool <- apply( inv_logit(post$a_pond) , 2 , mean )
+If we want to compare to the true per-pond survival probabilities used to generate the data,
+then we’ll also need to compute those, using the true_a column:
+R code
+13.16
+dsim$p_true <- inv_logit( dsim$true_a )
+The last thing we need to do, before we can plot the results and realize the point of this lesson,
+is to compute the absolute error between the estimates and the true varying effects. This is
+easy enough, using the existing columns:
+R code
+13.17
+nopool_error <- abs( dsim$p_nopool - dsim$p_true )
+partpool_error <- abs( dsim$p_partpool - dsim$p_true )
+Now we’re ready to plot. This is enough to get the basic display:
+R code
+13.18
+plot( 1:60 , nopool_error , xlab="pond" , ylab="absolute error" ,
+col=rangi2 , pch=16 )
+points( 1:60 , partpool_error )
+I’ve decorated this plot with some additional information, displayed in Figure 13.3. The
+filled blue points in Figure 13.3 display the no-pooling estimates. The black circles show
+the varying effect estimates. The horizontal axis is the pond index, from 1 through 60. The
+vertical axis is the distance between the mean estimated probability of survival and the ac-
+tual probability of survival. So points close to the bottom had low error, while those near
+the top had a large error, more than 20% off in some cases. The vertical lines divide the
+groups of ponds with different initial densities of tadpoles. And finally, the horizontal blue
+and black line segments show the average error of the no-pooling and partial pooling esti-
+mates, respectively, for each group of ponds with the same initial size. You can calculate
+these average error rates using aggregate:

@@ -1,0 +1,77 @@
+398
+12. MONSTERS AND MIXTURES
+The posterior distribution of the cutpoints is on the log-cumulative-odds scale:
+R code
+12.18
+precis( m12.4 , depth=2 )
+mean
+sd
+5.5% 94.5% n_eff Rhat
+cutpoints[1] -1.92 0.03 -1.96 -1.87
+1460
+1
+cutpoints[2] -1.27 0.02 -1.31 -1.23
+2091
+1
+cutpoints[3] -0.72 0.02 -0.75 -0.68
+2480
+1
+cutpoints[4]
+0.25 0.02
+0.22
+0.28
+2701
+1
+cutpoints[5]
+0.89 0.02
+0.85
+0.92
+2373
+1
+cutpoints[6]
+1.77 0.03
+1.72
+1.81
+2345
+1
+Since there is a lot of data here, the posterior for each intercept is quite precisely estimated,
+as you can see from the tiny standard deviations. To get cumulative probabilities back:
+R code
+12.19
+round( inv_logit(coef(m12.4)) , 3 )
+cutpoints[1] cutpoints[2] cutpoints[3] cutpoints[4] cutpoints[5] cutpoints[6]
+0.128
+0.220
+0.328
+0.562
+0.709
+0.854
+And of course those are the same as the values in cum_pr_k that we computed earlier. But
+now we also have a posterior distribution around these values, which provides a measure of
+uncertainty. And we’re ready to add predictor variables in the next section.
+12.3.3. Adding predictor variables. This flurry of computation has gotten us very little so
+far, aside from a Bayesian representation of a histogram. But all of it has been necessary
+in order to prepare the model for the addition of predictor variables that obey the ordered
+constraint on the outcomes.
+To include predictor variables, we define the log-cumulative-odds of each response k as
+a sum of its intercept αk and a typical linear model. Suppose for example we want to add
+a predictor x to the model. We’ll do this by defining a linear model ϕi = βxi. Then each
+cumulative logit becomes:
+log
+Pr(yi ≤k)
+1 −Pr(yi ≤k) = αk −ϕi
+ϕi = βxi
+This form automatically ensures the correct ordering of the outcome values, while still mor-
+phing the likelihood of each individual value as the predictor xi changes value. Why is the
+linear model ϕ subtracted from each intercept? Because if we decrease the log-cumulative-
+odds of every outcome value k below the maximum, this necessarily shifts probability mass
+upwards towards higher outcome values. So then positive values of β mean increasing x also
+increases the mean y. You could add ϕ instead like αk + ϕi. But then β > 0 would indicate
+increasing x decreases the mean.
+For example, suppose we take the posterior means from m12.4 and subtract 0.5 from
+each. The function dordlogit makes the calculation of the probabilities straightforward:
+R code
+12.20
+round( pk <- dordlogit( 1:7 , 0 , coef(m12.4) ) , 2 )
+[1] 0.13 0.09 0.11 0.23 0.15 0.15 0.15
+These probabilities imply an average outcome value of:

@@ -1,0 +1,38 @@
+15.5. PRACTICE
+533
+prior probability of a cat and a dog, like this:
+Pr(Ni) = Pr(Ci = 1) Pr(Di = 1) Pr(Ni|Ci = 1, Di = 1)
++ Pr(Ci = 1) Pr(Di = 0) Pr(Ni|Ci = 1, Di = 0)
++ Pr(Ci = 0) Pr(Di = 1) Pr(Ni|Ci = 0, Di = 1)
++ Pr(Ci = 0) Pr(Di = 0) Pr(Ni|Ci = 0, Di = 0)
+If only the cat is NA and the dog is known present (Di = 1), then we only have to average
+over possibilities (1) and (3), like this:
+Pr(Ni) = Pr(Ci = 1) Pr(Ni|Ci = 1, Di = 1) + Pr(Ci = 0) Pr(Ni|Ci = 0, Di = 1)
+If only the dog is NA and the cat is known absent (Ci = 0), we average over possibilities (3)
+and (4), like this:
+Pr(Ni) = Pr(Di = 1) Pr(Ni|Ci = 0, Di = 1) + Pr(Di = 0) Pr(Ni|Ci = 0, Di = 0)
+In principle, this is algorithmic and easy. In practice, it makes for complicated code, because
+you have to account all combinations of missingness and assign each a different average like-
+lihood.
+We’ll see this general technique again in the next chapter, where we’ll encounter a state
+space model. State space models can have a large number of discrete (or continuous) un-
+observed variables. Typical we don’t write out each possibility in the code, but instead use
+an algorithm to work over all of the possibilities and compute the necessary average likeli-
+hood. For example, in a hidden Markov model, an algorithm known as the forward
+algorithm is used to do the averaging. The Stan user manual provides an example.
+15.3.2. Discrete error. The example above concerned missing data. But when the data are
+measured instead with error, the procedure is very similar. Suppose for example that in the
+example above each house is assigned a probability of a cat being present. Call this probability
+ki. When we are sure there is a cat there, ki = 1. When we are sure there is no cat, ki = 0.
+When we think it is a coin flip, ki = 0.5. These ki values replace the parameter k in the
+previous model, becoming the weights for averaging over our uncertainty.
+15.4. Summary
+This chapter has been a quick introduction to the design and implementation of meas-
+urement error and missing data models. Measurement error and missing data have causes.
+Incorporating those causes into the generative model helps us decide how error and missing-
+ness impact inference as well as how to design a statistical procedure. This chapter highlights
+the general principles of the book, that effective statistical modeling requires both careful
+thought about how the data were generated and delicate attention to numerical algorithms.
+Neither can lift inference alone.
+15.5. Practice
+Easy.

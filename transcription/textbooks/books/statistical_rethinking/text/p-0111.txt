@@ -1,0 +1,45 @@
+4.4. LINEAR PREDICTION
+95
+later on to add some of that thrill, when we reconsider this example from a more causal per-
+spective. Right now, I ask only that you focus on the mechanics of estimating an association
+between two variables.
+Go ahead and plot height and weight against one another to get an idea of how strongly
+they covary:
+R code
+4.37
+plot( d2$height ~ d2$weight )
+The resulting plot is not shown here. You really should do it yourself. Once you can see
+the plot, you’ll see that there’s obviously a relationship: Knowing a person’s weight helps you
+predict height.
+To make this vague observation into a more precise quantitative model that relates values
+of weight to plausible values of height, we need some more technology. How do we take
+our Gaussian model from the previous section and incorporate predictor variables?
+Rethinking: What is “regression”? Many diverse types of models are called “regression.” The term
+has come to mean using one or more predictor variables to model the distribution of one or more
+outcome variables. The original use of term, however, arose from anthropologist Francis Galton’s
+(1822–1911) observation that the sons of tall and short men tended to be more similar to the popula-
+tion mean, hence regression to the mean.73
+The causal reasons for regression to the mean are diverse. In the case of height, the causal expla-
+nation is a key piece of the foundation of population genetics. But this phenomenon arises statistically
+whenever individual measurements are assigned a common distribution, leading to shrinkage as each
+measurement informs the others. In the context of Galton’s height data, attempting to predict each
+son’s height on the basis of only his father’s height is folly. Better to use the population of fathers.
+This leads to a prediction for each son which is similar to each father but “shrunk” towards the over-
+all mean. Such predictions are routinely better. This same regression/shrinkage phenomenon applies
+at higher levels of abstraction and forms one basis of multilevel modeling (Chapter 13).
+4.4.1. The linear model strategy. The strategy is to make the parameter for the mean of
+a Gaussian distribution, µ, into a linear function of the predictor variable and other, new
+parameters that we invent. This strategy is often simply called the linear model. The linear
+model strategy instructs the golem to assume that the predictor variable has a constant and
+additive relationship to the mean of the outcome. The golem then computes the posterior
+distribution of this constant relationship.
+What this means, recall, is that the machine considers every possible combination of the
+parameter values. With a linear model, some of the parameters now stand for the strength
+of association between the mean of the outcome, µ, and the value of some other variable.
+For each combination of values, the machine computes the posterior probability, which is
+a measure of relative plausibility, given the model and data. So the posterior distribution
+ranks the infinite possible combinations of parameter values by their logical plausibility. As
+a result, the posterior distribution provides relative plausibilities of the different possible
+strengths of association, given the assumptions you programmed into the model. We ask
+the golem: “Consider all the lines that relate one variable to the other. Rank all of these lines
+by plausibility, given these data.” The golem answers with a posterior distribution.

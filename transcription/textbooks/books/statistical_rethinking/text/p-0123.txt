@@ -1,0 +1,54 @@
+4.4. LINEAR PREDICTION
+107
+158.0
+158.5
+159.0
+159.5
+160.0
+160.5
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+1.2
+mu|weight=50
+Density
+Figure 4.8. The quadratic approximate poste-
+rior distribution of the mean height, µ, when
+weight is 50 kg. This distribution represents
+the relative plausibility of different values of
+the mean.
+The code to the right of the <- above takes its form from the equation for µi:
+µi = α + β(xi −¯x)
+The value of xi in this case is 50. Go ahead and take a look inside the result, mu_at_50. It’s a
+vector of predicted means, one for each random sample from the posterior. Since joint a and
+b went into computing each, the variation across those means incorporates the uncertainty
+in and correlation between both parameters. It might be helpful at this point to actually plot
+the density for this vector of means:
+R code
+4.51
+dens( mu_at_50 , col=rangi2 , lwd=2 , xlab="mu|weight=50" )
+I reproduce this plot in Figure 4.8. Since the components of µ have distributions, so too
+does µ. And since the distributions of α and β are Gaussian, so to is the distribution of µ
+(adding Gaussian distributions always produces a Gaussian distribution).
+Since the posterior for µ is a distribution, you can find intervals for it, just like for any
+posterior distribution. To find the 89% compatibility interval of µ at 50 kg, just use the PI
+command as usual:
+R code
+4.52
+PI( mu_at_50 , prob=0.89 )
+5%
+94%
+158.5860 159.6706
+What these numbers mean is that the central 89% of the ways for the model to produce the
+data place the average height between about 159 cm and 160 cm (conditional on the model
+and data), assuming the weight is 50 kg.
+That’s good so far, but we need to repeat the above calculation for every weight value
+on the horizontal axis, not just when it is 50 kg. We want to draw 89% intervals around the
+average slope in Figure 4.6.
+This is made simple by strategic use of the link function, a part of the rethinking
+package. What link will do is take your quap approximation, sample from the posterior
+distribution, and then compute µ for each case in the data and sample from the posterior
+distribution. Here’s what it looks like for the data you used to fit the model:

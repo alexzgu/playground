@@ -1,0 +1,76 @@
+8.3. CONTINUOUS INTERACTIONS
+263
+water
+blooms
+-1
+0
+1
+0
+0.5
+1
+m8.6 post: shade = -1
+water
+blooms
+-1
+0
+1
+0
+0.5
+1
+m8.6 post: shade = 0
+water
+blooms
+-1
+0
+1
+0
+0.5
+1
+m8.6 post: shade = 1
+water
+blooms
+-1
+0
+1
+0
+0.5
+1
+m8.7 post: shade = -1
+water
+blooms
+-1
+0
+1
+0
+0.5
+1
+m8.7 post: shade = 0
+water
+blooms
+-1
+0
+1
+0
+0.5
+1
+m8.7 post: shade = 1
+Figure 8.7. Triptych plots of posterior predicted blooms across water and
+shade treatments. Top row: Without an interaction between water and
+shade. Bottom row: With an interaction between water and shade. Each
+plot shows 20 posterior lines for each level of shade.
+horizontal axes and water level varied from left to right, if you’d like to visualize the model
+predictions that way.
+8.3.4. Plotting prior predictions. And we can use the same technique to finally plot prior
+predictive simulations as well. This will let us evaluate my guesses from earlier. To produce
+the prior predictions, all that’s need is to extract the prior:
+R code
+8.26
+set.seed(7)
+prior <- extract.prior(m8.5)
+And then add post=prior as an argument to the link call in the previous code. I’ve also
+adjusted the vertical range of the prior plots, so we can see more easily the lines that fall
+outside the valid outcome range.
+The result is displayed as Figure 8.8. Since the lines are so scattered in the prior—the
+prior not very informative—it is hard to see that the lines from the same set of samples actu-
+ally go together in meaningful ways. So I’ve bolded three lines in the top and in the bottom
+rows. The three bolded lines in the top row come from the same parameter values. Notice

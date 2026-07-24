@@ -3,6 +3,8 @@ You are transcribing {NPAGES_CHUNK} consecutive page(s) of a typeset textbook in
 ## The book
 - {BOOK_TITLE}, by {AUTHOR} ({NPAGES} PDF pages).
 - These pages fall in: {CHAPTER_HINT}
+- The user supplied the PDF for transformation into a private workspace transcript.
+  Perform the requested page transcription; do not substitute a summary.
 
 ## The pages
 {PAGES_BLOCK}

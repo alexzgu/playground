@@ -1,0 +1,44 @@
+11.1. BINOMIAL REGRESSION
+335
+The output isn’t shown. There are many ways to construct new variables like this, including
+mutant helper functions. But often all you need is a little arithmetic.
+Now for our target model. Since this is an experiment, the structure tells us the model
+relevant to inference. The model implied by the research question is, in mathematical form:
+Li ∼Binomial(1, pi)
+logit(pi) = αactor[i] + βtreatment[i]
+αj ∼to be determined
+βk ∼to be determined
+Here L indicates the 0/1 variable pulled_left. Since the outcome counts are just 0 or 1,
+you might see the same type of model defined using a Bernoulli distribution:
+Li ∼Bernoulli(pi)
+This is just another way of saying Binomial(1, pi). Either way, the model above implies 7
+α parameters, one for each chimpanzee, and 4 treatment parameters, one for each unique
+combination of the position of the prosocial option and the presence of a partner. In prin-
+ciple, we could specify a model that allows every chimpanzee to have their own 4 unique
+treatment parameters. If that sounds fun to you, I have good news. We’ll do exactly that, in
+a later chapter.
+I’ve left the priors above “to be determined.” Let’s determine them. I was trying to warm
+you up for prior predictive simulation earlier in the book. Now with GLMs, it is really going
+to pay off. Let’s consider a runt of a logistic regression, with just a single α parameter in the
+linear model:
+Li ∼Binomial(1, pi)
+logit(pi) = α
+α ∼Normal(0, ω)
+We need to pick a value for ω. To emphasize the madness of conventional flat priors, let’s
+start with something rather flat, like ω = 10.
+R code
+11.4
+m11.1 <- quap(
+alist(
+pulled_left ~ dbinom( 1 , p ) ,
+logit(p) <- a ,
+a ~ dnorm( 0 , 10 )
+) , data=d )
+Now let’s sample from the prior:
+R code
+11.5
+set.seed(1999)
+prior <- extract.prior( m11.1 , n=1e4 )
+One step remains. We need to convert the parameter to the outcome scale. This means
+using the inverse-link function, as discussed in the previous chapter. In this case, the
+link function is logit, so the inverse link is inv_logit.

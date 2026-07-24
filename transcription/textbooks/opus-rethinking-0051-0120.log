@@ -1,0 +1,18 @@
+[statistical_rethinking] 70 page(s) in 24 chunk(s), model=opus, effort=max, workers=2
+[1/24] p54-56: 3/3 ok
+[2/24] p51-53: 3/3 ok
+[3/24] p57-59: 0/3 ok claude exited 1: API Error: Output blocked by content filtering policy
+[4/24] p63-65: 3/3 ok
+[5/24] p60-62: 0/3 ok claude exited 1: API Error: Output blocked by content filtering policy
+[6/24] p69-71: 3/3 ok
+[7/24] p66-68: 3/3 ok
+[8/24] p72-74: 3/3 ok
+[9/24] p78-80: 3/3 ok
+[10/24] p75-77: 3/3 ok
+[11/24] p81-83: 3/3 ok
+[12/24] p87-89: 3/3 ok
+[13/24] p90-92: 3/3 ok
+[14/24] p84-86: 3/3 ok
+[15/24] p93-95: 0/3 ok claude exited 1: API Error: Output blocked by content filtering policy
+[16/24] p96-98: 3/3 ok
+[17/24] p99-101: 3/3 ok

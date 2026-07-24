@@ -5,11 +5,11 @@ Source: `ISLP_Textbook.pdf` — James, Witten, Hastie, Tibshirani, Taylor. 613 P
 **Conventions**
 - One markdown file per chapter; every page appears under a heading `### PDF page N (book page M)`.
 - Math in LaTeX (`$...$` / `$$...$$`), equation numbers as `\tag{}`; tables as markdown tables; figures as verbatim captions plus an italic description; code in fenced blocks.
-- Transcribed from page images by `claude-opus-4-8`, cross-checked against the PDF text layer (per-page QA score in the pipeline manifest).
+- Page transcription provenance: `claude-opus-4-8` at max effort (89 pages); `gpt-5.6` at high effort (65 pages). Per-page provenance is recorded in the pipeline manifest, cross-checked against the PDF text layer (per-page QA score in the pipeline manifest).
 - Unlike `bayesian_booklet`, quantitative results are **not** SymPy-verified.
 
 ## STATUS OF THIS TRANSCRIPT
 
-**Transcribed:** 3/613 PDF pages (298–300). **Missing:** 1–297, 301–613.
+**Transcribed:** 154/613 PDF pages (1–150, 297–300). **Missing:** 151–296, 301–613.
 
 Produced by the pipeline in `transcription/textbooks/` (see its README).

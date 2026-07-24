@@ -1,0 +1,49 @@
+202
+7. ULYSSES’ COMPASS
+a ~ dnorm( 0.5 , 1 ),
+b ~ dnorm( 0 , 10 ),
+log_sigma ~ dnorm( 0 , 1 )
+), data=d , start=list(b=rep(0,2)) )
+The next four models are constructed in similar fashion. The models m7.3 through m7.6
+are just third-degree, fourth-degree, fifth-degree, and sixth-degree polynomials. Here is the
+code for each of them:
+R code
+7.8
+m7.3 <- quap(
+alist(
+brain_std ~ dnorm( mu , exp(log_sigma) ),
+mu <- a + b[1]*mass_std + b[2]*mass_std^2 +
+b[3]*mass_std^3,
+a ~ dnorm( 0.5 , 1 ),
+b ~ dnorm( 0 , 10 ),
+log_sigma ~ dnorm( 0 , 1 )
+), data=d , start=list(b=rep(0,3)) )
+m7.4 <- quap(
+alist(
+brain_std ~ dnorm( mu , exp(log_sigma) ),
+mu <- a + b[1]*mass_std + b[2]*mass_std^2 +
+b[3]*mass_std^3 + b[4]*mass_std^4,
+a ~ dnorm( 0.5 , 1 ),
+b ~ dnorm( 0 , 10 ),
+log_sigma ~ dnorm( 0 , 1 )
+), data=d , start=list(b=rep(0,4)) )
+m7.5 <- quap(
+alist(
+brain_std ~ dnorm( mu , exp(log_sigma) ),
+mu <- a + b[1]*mass_std + b[2]*mass_std^2 +
+b[3]*mass_std^3 + b[4]*mass_std^4 +
+b[5]*mass_std^5,
+a ~ dnorm( 0.5 , 1 ),
+b ~ dnorm( 0 , 10 ),
+log_sigma ~ dnorm( 0 , 1 )
+), data=d , start=list(b=rep(0,5)) )
+That last model, m7.6, has one trick in it. The standard deviation is replaced with a constant
+value 0.001. The model will not work otherwise, for a very important reason that will become
+clear as we plot these monsters. Here’s the last model:
+R code
+7.9
+m7.6 <- quap(
+alist(
+brain_std ~ dnorm( mu , 0.001 ),
+mu <- a + b[1]*mass_std + b[2]*mass_std^2 +
+b[3]*mass_std^3 + b[4]*mass_std^4 +

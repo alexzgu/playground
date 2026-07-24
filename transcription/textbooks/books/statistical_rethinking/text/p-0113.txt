@@ -1,0 +1,43 @@
+4.4. LINEAR PREDICTION
+97
+(1) What is the expected height when xi = ¯x? The parameter α answers this question,
+because when xi = ¯x, µi = α. For this reason, α is often called the intercept. But we
+should think not in terms of some abstract line, but rather in terms of the meaning
+with respect to the observable variables.
+(2) What is the change in expected height, when xi changes by 1 unit? The parameter
+β answers this question. It is often called a “slope,” again because of the abstract
+line. Better to think of it as a rate of change in expectation.
+Jointly these two parameters ask the golem to find a line that relates x to h, a line that passes
+through α when xi = ¯x and has slope β. That is a task that golems are very good at. It’s up
+to you, though, to be sure it’s a good question.
+Rethinking: Nothing special or natural about linear models. Note that there’s nothing special about
+the linear model, really. You can choose a different relationship between α and β and µ. For example,
+the following is a perfectly legitimate definition for µi:
+µi = α exp(−βxi)
+This does not define a linear regression, but it does define a regression model. The linear relationship
+we are using instead is conventional, but nothing requires that you use it. It is very common in some
+fields, like ecology and demography, to use functional forms for µ that come from theory, rather than
+the geocentrism of linear models. Models built out of substantive theory can dramatically outperform
+linear models of the same phenomena.74 We’ll revisit this point later in the book.
+Overthinking: Units and regression models. Readers who had a traditional training in physical
+sciences will know how to carry units through equations of this kind. For their benefit, here’s the
+model again (omitting priors for brevity), now with units of each symbol added.
+hicm ∼Normal(µicm, σcm)
+µicm = αcm + β cm
+kg (xikg −¯xkg)
+So you can see that β must have units of cm/kg in order for the mean µi to have units of cm. One of
+the facts that labeling with units clears up is that a parameter like β is a kind of rate—centimeters per
+kilogram. There’s also a tradition called dimensionless analysis that advocates constructing variables
+so that they are unit-less ratios. In this context, for example, we might divide height by a reference
+height, removing its units. Measurement scales are arbitrary human constructions, and sometimes
+the unit-less analysis is more natural and general.
+4.4.1.3. Priors. The remaining lines in the modeldefine distributionsfor theunobserved
+variables. These variables are commonly known as parameters, and their distributions as pri-
+ors. There are three parameters: α, β, and σ. You’ve seen priors for α and σ before, although
+α was called µ back then.
+The prior for β deserves explanation. Why have a Gaussian prior with mean zero? This
+prior places just as much probability below zero as it does above zero, and when β = 0,
+weight has no relationship to height. To figure out what this prior implies, we have to simulate
+the prior predictive distribution. There is no other reliable way to understand.
+The goal is to simulate heights from the model, using only the priors. First, let’s consider
+a range of weight values to simulate over. The range of observed weights will do fine. Then

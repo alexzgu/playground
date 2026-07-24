@@ -1,0 +1,57 @@
+350
+11. GOD SPIKED THE INTEGERS
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+case
+admit
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+Posterior validation check
+A
+B
+C
+D
+E
+F
+Figure 11.5. Posterior validation for model m11.7. Blue points are ob-
+served proportions admitted for each row in the data, with points from the
+same department connected by a blue line. Open points, the tiny vertical
+black lines within them, and the crosses are expected proportions, 89% in-
+tervals of the expectation, and 89% interval of simulated samples, respec-
+tively.
+probability for both males and females from department A to department F. Females in these
+data tended not to apply to departments like A and B, which had high overall admission rates.
+Instead they applied in large numbers to departments like F, which admitted less than 10%
+of applicants.
+So while it is true overall that females had a lower probability of admission in these data,
+it is clearly not true within most departments. And note that just inspecting the posterior
+distribution alone would never have revealed that fact to us. We had to appeal to something
+outside the fit model. In this case, it was a simple posterior validation check.
+Instead of asking “What are the average probabilities of admission for females and males
+across all departments?” we want to ask “What is the average difference in probability of admis-
+sion between females and males within departments?” In order to ask the second question, we
+estimate unique female and male admission rates in each department. Here’s a model that
+asks this new question:
+Ai ∼Binomial(Ni, pi)
+logit(pi) = αgid[i] + δdept[i]
+αj ∼Normal(0, 1.5)
+δk ∼Normal(0, 1.5)
+where dept indexes department in k = 1..6. So now each department k gets its own log-odds
+of admission, δk, but the model still estimates universal adjustments—samein all departments—
+for male and female applications.
+Fitting this model is straightforward. We’ll use the indexing notation again to construct
+an intercept for each department. But first, we also need to construct a numerical index that

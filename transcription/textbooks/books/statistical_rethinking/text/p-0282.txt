@@ -1,0 +1,49 @@
+266
+8. CONDITIONAL MANATEES
+8H3. Consider again the data(rugged) data on economic development and terrain ruggedness,
+examined in this chapter. One of the African countries in that example, Seychelles, is far outside
+the cloud of other nations, being a rare country with both relatively high GDP and high ruggedness.
+Seychelles is also unusual, in that it is a group of islands far from the coast of mainland Africa, and
+its main economic activity is tourism.
+(a) Focus on model m8.5 from the chapter. Use WAIC pointwise penalties and PSIS Pareto k
+values to measure relative influence of each country. By these criteria, is Seychelles influencing the
+results? Are there other nations that are relatively influential? If so, can you explain why?
+(b) Now use robust regression, as described in the previous chapter. Modify m8.5 to use a
+Student-t distribution with ν = 2. Does this change the results in a substantial way?
+8H4. The values in data(nettle) are data on language diversity in 74 nations.136 The meaning of
+each column is given below.
+(1) country: Name of the country
+(2) num.lang: Number of recognized languages spoken
+(3) area: Area in square kilometers
+(4) k.pop: Population, in thousands
+(5) num.stations: Number of weather stations that provided data for the next two columns
+(6) mean.growing.season: Average length of growing season, in months
+(7) sd.growing.season: Standard deviation of length of growing season, in months
+Use these data to evaluate the hypothesis that language diversity is partly a product of food se-
+curity. The notion is that, in productive ecologies, people don’t need large social networks to buffer
+them against risk of food shortfalls. This means ethnic groups can be smaller and more self-sufficient,
+leading to more languages per capita. In contrast, in a poor ecology, there is more subsistence risk,
+and so human societies have adapted by building larger networks of mutual obligation to provide
+food insurance. This in turn creates social forces that help prevent languages from diversifying.
+Specifically, you will try to model the number of languages per capita as the outcome variable:
+R code
+8.27
+d$lang.per.cap <- d$num.lang / d$k.pop
+Use the logarithm of this new variable as your regression outcome. (A count model would be better
+here, but you’ll learn those later, in Chapter 11.)
+This problem is open ended, allowing you to decide how you address the hypotheses and the
+uncertain advice the modeling provides. If you think you need to use WAIC anyplace, please do. If
+you think you need certain priors, argue for them. If you think you need to plot predictions in a
+certain way, please do. Just try to honestly evaluate the main effects of both mean.growing.season
+and sd.growing.season, as well as their two-way interaction, as outlined in parts (a), (b), and (c)
+below. If you are not sure which approach to use, try several.
+(a) Evaluate the hypothesis that language diversity, as measured by log(lang.per.cap), is pos-
+itively associated with the average length of the growing season, mean.growing.season. Consider
+log(area) in your regression(s) as a covariate (not an interaction). Interpret your results.
+(b) Now evaluate the hypothesis that language diversity is negatively associated with the stan-
+dard deviation of length of growing season, sd.growing.season. This hypothesis follows from
+uncertainty in harvest favoring social insurance through larger social networks and therefore fewer
+languages. Again, consider log(area) as a covariate (not an interaction). Interpret your results.
+(c) Finally, evaluate the hypothesis that mean.growing.season and sd.growing.season in-
+teract to synergistically reduce language diversity. The idea is that, in nations with longer average
+growing seasons, high variance makes storage and redistribution even more important than it would

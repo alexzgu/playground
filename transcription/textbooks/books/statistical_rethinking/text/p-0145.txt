@@ -1,0 +1,44 @@
+5.1. SPURIOUS ASSOCIATION
+129
+Marriage rate
+Divorce rate
+13
+20
+30
+6
+10
+13
+Median age marriage
+Divorce rate
+23
+26
+29
+6
+10
+13
+Figure 5.2. Divorce rate is associated with both marriage rate (left) and
+median age at marriage (right). Both predictor variables are standardized in
+this example. The average marriage rate across States is 20 per 1000 adults,
+and the average median age at marriage is 26 years.
+5.1. Spurious association
+Let’s leave waffles behind, at least for the moment. An example that is easier to under-
+stand is the correlation between divorce rate and marriage rate (Figure 5.2). The rate at
+which adults marry is a great predictor of divorce rate, as seen in the left-hand plot in the
+figure. But does marriage cause divorce? In a trivial sense it obviously does: One cannot
+get a divorce without first getting married. But there’s no reason high marriage rate must
+be correlated with divorce. It’s easy to imagine high marriage rate indicating high cultural
+valuation of marriage and therefore being associated with low divorce rate. So something is
+suspicious here.
+Another predictor associated with divorce is the median age at marriage, displayed in
+the right-hand plot in Figure 5.2. Age at marriage is also a good predictor of divorce rate—
+higher age at marriage predicts less divorce. Let’s load these data and standardize the vari-
+ables of interest:
+R code
+5.1
+# load data and copy
+library(rethinking)
+data(WaffleDivorce)
+d <- WaffleDivorce
+# standardize variables
+d$A <- scale( d$MedianAgeMarriage )
+d$D <- scale( d$Divorce )

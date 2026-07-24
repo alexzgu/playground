@@ -1,0 +1,48 @@
+382
+12. MONSTERS AND MIXTURES
+Models that assume a thin tail, like a pure Gaussian model, can be easily excited. Using
+something like a Student’s t instead can help produce better inferences and out-of-sample
+predictions.
+The same goes for count models. When counts arise from a mixture of different pro-
+cesses, then there may be more variation—thicker tails—than a pure count model expects.
+This can again lead to overly excited models. When counts are more variable than a pure
+process, they exhibit over-dispersion. The variance of a variable is sometimes called its
+dispersion. For a counting process like a binomial, the variance is a function of the same
+parameters as the expected value. For example, the expected value of a binomial is Np and
+its variance is Np(1 −p). When the observed variance exceeds this amount—after condi-
+tioning on all the predictor variables—this implies that some omitted variable is producing
+additional dispersion in the observed counts.
+That isn’t necessarily bad. Such a model could still produce perfectly good inferences.
+But ignoring over-dispersion can also lead to all of the same problems as ignoring any pre-
+dictor variable. Heterogeneity in counts can be a confound, hiding effects of interest or
+producing spurious inferences. So it’s worth trying grappling with over-dispersion. The best
+solution would of course be to discover the omitted source of dispersion and include it in
+the model. But even when no additional variables are available, it is possible to mitigate the
+effects of over-dispersion. We’ll consider two common and useful strategies.
+In this chapter, we’ll consider continuous mixture models in which a linear model
+is attached not to the observations themselves but rather to a distribution of observations.
+We’ll spend the rest of this section outlining this kind of model, using the common beta-
+binomial and gamma-Poisson (negative-binomial) models of this type. These models were
+mentioned at the end of the previous chapter, but now we’ll actually define them.
+In the next chapters, we’ll see how to employ multilevel models that estimate both the
+residuals of each observation and the distribution of those residuals. In practice, it is often
+easier to use multilevel models (GLMMs, Chapter 13) in place of continuous mixtures. The
+reason is that multilevel models are much more flexible. They can handle over-dispersion
+and other kinds of heterogeneity at the same time.
+12.1.1. Beta-binomial. A beta-binomial model assumes that each binomial count obser-
+vation has its own probability of a success.175 The model estimates the distribution of proba-
+bilities of success across cases, instead of a single probability of success. And predictor vari-
+ables change the shape of this distribution, instead of directly determining the probability of
+each success.
+This will be easier to understand in thecontext of an example. Forexample, the UCBadmit
+data that you met last chapter is quite over-dispersed, as long as we ignore department. This
+is because the departments vary a lot in baseline admission rates. You’ve already seen that
+ignoring this variation leads to an incorrect inference about applicant gender. Now let’s fit
+a beta-binomial model, ignoring department, and see how it picks up on the variation that
+arises from the omitted variable.
+What a beta-binomial model of these data will assume is that each observed count on
+each row of the data table has its own unique, unobserved probability of admission. These
+probabilities of admission themselves have a common distribution. This distribution is de-
+scribed using a beta distribution, which is a probability distribution for probabilities. Why
+use a beta distribution? Because it makes the mathematics easy. When we use a beta, it is
+mathematically possible to solve for a closed form likelihood function that averages over the

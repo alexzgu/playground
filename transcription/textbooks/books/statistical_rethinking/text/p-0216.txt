@@ -1,0 +1,47 @@
+200
+7. ULYSSES’ COMPASS
+Now here’s the mathematical version of the first linear model:
+bi ∼Normal(µi, σ)
+µi = α + βmi
+α ∼Normal(0.5, 1)
+β ∼Normal(0, 10)
+σ ∼Log-Normal(0, 1)
+This simply says that the average brain volume bi of species i is a linear function of its body
+mass mi. Now consider what the priors imply. The prior for α is just centered on the mean
+brain volume (rescaled) in the data. So it says that the average species with an average body
+mass has a brain volume with an 89% credible interval from about −1 to 2. That is ridicu-
+lously wide and includes impossible (negative) values. The prior for β is very flat and cen-
+tered on zero. It allows for absurdly large positive and negative relationships. These priors
+allow for absurd inferences, especially as the model gets more complex. And that’s part of
+the lesson, so let’s continue to fit the model now:
+R code
+7.3
+m7.1 <- quap(
+alist(
+brain_std ~ dnorm( mu , exp(log_sigma) ),
+mu <- a + b*mass_std,
+a ~ dnorm( 0.5 , 1 ),
+b ~ dnorm( 0 , 10 ),
+log_sigma ~ dnorm( 0 , 1 )
+), data=d )
+Before pausing to plot the posterior distribution, like we did in previous chapters, let’s focus
+on the R2, the proportion of variance “explained” by the model. What is really meant here is
+that the linear model retrodicts some proportion of the total variation in the outcome data
+it was fit to. The remaining variation is just the variation of the residuals (page 139).
+Rethinking: OLS and Bayesian anti-essentialism. It would be possible to use the non-Bayesian strat-
+egy of ordinary least squares (OLS) to get posterior distributions for these brain size models.
+For example, you could use R’s simple lm function to get the posterior distribution for m6.1. You
+won’t get a posterior for sigma however.
+R code
+7.4
+m7.1_OLS <- lm( brain_std ~ mass_std , data=d )
+post <- extract.samples( m7.1_OLS )
+As long as the priors are vague, minimizing the sum of squared deviations to the regression line is
+equivalent to finding the posterior mean. In fact, Carl Friedrich Gauss originally derived the OLS
+procedure in a Bayesian framework.98 Back then, nearly all probability was Bayesian, although the
+term “Bayesian” wouldn’t be used much until the 20th century. In most cases, a non-Bayesian proce-
+dure will have an approximate Bayesian interpretation. This fact is powerful in both directions. The
+Bayesian interpretation of a non-Bayesian procedure recasts assumptions in terms of information,
+and this can be very useful for understanding why a procedure works. Likewise, a Bayesian model
+can be embodied in a more efficient, but approximate, non-Bayesian procedure. Bayesian inference
+means approximating the posterior distribution. It does not specify how that approximation is done.

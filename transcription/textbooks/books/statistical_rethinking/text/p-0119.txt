@@ -1,0 +1,51 @@
+4.4. LINEAR PREDICTION
+103
+Let’s focus on b (β), because it’s the new parameter. Since β is a slope, the value 0.90
+can be read as a person 1 kg heavier is expected to be 0.90 cm taller. 89% of the posterior
+probability lies between 0.84 and 0.97. That suggests that β values close to zero or greatly
+above one are highly incompatible with these data and this model. It is most certainly not
+evidence that the relationship between weight and height is linear, because the model only
+considered lines. It just says that, if you are committed to a line, then lines with a slope
+around 0.9 are plausible ones.
+Remember, the numbers in the default precis output aren’t sufficient to describe the
+quadratic posterior completely. For that, we also require the variance-covariance matrix.
+You can see the covariances among the parameters with vcov:
+R code
+4.45
+round( vcov( m4.3 ) , 3 )
+a
+b sigma
+a
+0.073 0.000 0.000
+b
+0.000 0.002 0.000
+sigma 0.000 0.000 0.037
+Very little covariation among the parameters in this case. Using pairs(m4.3) shows both
+the marginal posteriors and the covariance. In the problems at the end of the chapter, you’ll
+see that the lack of covariance among the parameters results from the something called cen-
+tering.
+4.4.3.2. Plotting posterior inference against the data. It’s almost always much more use-
+ful to plot the posterior inference against the data. Not only does plotting help in interpret-
+ing the posterior, but it also provides an informal check on model assumptions. When the
+model’s predictions don’t come close to key observations or patterns in the plotted data,
+then you might suspect the model either did not fit correctly or is rather badly specified. But
+even if you only treat plots as a way to help in interpreting the posterior, they are invaluable.
+For simple models like this one, it is possible (but not always easy) to just read the table of
+numbers and understand what the model says. But for even slightly more complex models,
+especially those that include interaction effects (Chapter 8), interpreting posterior distribu-
+tions is hard. Combine with this the problem of incorporating the information in vcov into
+your interpretations, and the plots are irreplaceable.
+We’re going to start with a simple version of that task, superimposing just the posterior
+mean values over the height and weight data. Then we’ll slowly add more and more infor-
+mation to the prediction plots, until we’ve used the entire posterior distribution.
+We’ll start with just the raw data and a single line. The code below plots the raw data,
+computes the posterior mean values for a and b, then draws the implied line:
+R code
+4.46
+plot( height ~ weight , data=d2 , col=rangi2 )
+post <- extract.samples( m4.3 )
+a_map <- mean(post$a)
+b_map <- mean(post$b)
+curve( a_map + b_map*(x - xbar) , add=TRUE )
+You can see the resulting plot in Figure 4.6. Each point in this plot is a single individual.
+The black line is defined by the mean slope β and mean intercept α. This is not a bad line. It
