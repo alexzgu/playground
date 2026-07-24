@@ -40,15 +40,19 @@ digitally-produced PDFs** (no handwriting).
   block (no language tag) when the book shows it.
 
 ## Fidelity
-- Transcribe faithfully, typos included, flagging with `[sic]`. Do not "improve"
-  wording, reorder content, or complete truncated sentences — pages may begin or end
-  mid-sentence; leave them so.
+- Transcribe faithfully, typos included. Preserve source typos silently: **never add
+  `[sic]` or any other editorial correction marker unless that marker is visibly
+  printed in the source itself**. Do not "improve" wording, reorder content, or
+  complete truncated sentences — pages may begin or end mid-sentence; leave them so.
 - Footnotes: transcribe at the bottom of the page as `[^N]: ...` with the reference
   marker `[^N]` in the text.
 - Exercises/problems: transcribe fully, keeping their numbering.
 - Marginal labels the book uses (e.g. ISLP's blue margin keywords) become italic
   bracketed notes: `*[margin: cross-validation]*` — only when they add information not
   already in the text.
+- Do not append review notes, judgment calls, uncertainty reports, summaries,
+  continuation notices, or statements such as "end of example." The output is only
+  the source transcript plus the prescribed page and figure annotations.
 
 ## Machine text layer (when provided)
 A machine text extraction of the page accompanies the image. Use it to confirm exact

@@ -1,0 +1,8 @@
+[islp] 86 page(s) in 29 chunk(s), model=opus, effort=max, workers=3
+[1/29] p211-213: 0/3 ok claude exited 1: API Error: Output blocked by content filtering policy
+[2/29] p208-210: 0/3 ok claude exited 1: API Error: 400 Output blocked by content filtering policy
+[3/29] p217-219: 0/3 ok claude exited 1: API Error: Output blocked by content filtering policy
+[4/29] p214-216: 0/3 ok claude exited 1: API Error: Output blocked by content filtering policy
+4 consecutive failures — likely a usage/rate limit. Stopping early; re-run to resume.
+
+Done. 77 ok, 9 failed.

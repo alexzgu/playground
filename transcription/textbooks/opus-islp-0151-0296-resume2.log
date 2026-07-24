@@ -1,0 +1,28 @@
+[islp] 74 page(s) in 25 chunk(s), model=opus, effort=max, workers=3
+[1/25] p223-225: 3/3 ok
+[2/25] p226-228: 3/3 ok
+[3/25] p229-231: 3/3 ok
+[4/25] p235-237: 3/3 ok
+[5/25] p241-243: 3/3 ok
+[6/25] p238-240: 0/3 ok claude exited 1: API Error: Output blocked by content filtering policy
+[7/25] p232-234: 0/3 ok claude exited 1: API Error: 400 Output blocked by content filtering policy
+[8/25] p247-249: 0/3 ok claude exited 1: API Error: Output blocked by content filtering policy
+[9/25] p250-252: 3/3 ok
+[10/25] p244-246: 3/3 ok
+[11/25] p253-255: 3/3 ok
+[12/25] p259-261: 3/3 ok
+[13/25] p256-258: 0/3 ok claude exited 1: API Error: Output blocked by content filtering policy
+[14/25] p262-264: 3/3 ok
+[15/25] p265-267: 3/3 ok
+[16/25] p271-273: 0/3 ok claude exited 1: API Error: Output blocked by content filtering policy
+[17/25] p268-270: 0/3 ok claude exited 1: API Error: 400 Output blocked by content filtering policy
+[18/25] p274-276: 0/3 ok claude exited 1: API Error: 400 Output blocked by content filtering policy
+[19/25] p277-279: 3/3 ok
+[20/25] p283-285: 3/3 ok
+[21/25] p286-288: 3/3 ok
+[22/25] p280-282: 3/3 ok
+[23/25] p292-294: 3/3 ok
+[24/25] p295-296: 0/2 ok claude exited 1: API Error: Output blocked by content filtering policy
+[25/25] p289-291: 3/3 ok
+
+Done. 72 ok, 2 failed.

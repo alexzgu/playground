@@ -1,0 +1,19 @@
+[montgomery_doe] 119 page(s) in 40 chunk(s), model=fable, effort=max, workers=2
+[1/40] p125-127: 3/3 ok
+[2/40] p119-121: 3/3 ok
+[3/40] p128-130: 3/3 ok
+[4/40] p134-136: 3/3 ok
+[5/40] p131-133: 3/3 ok
+[6/40] p137-139: 3/3 ok
+[7/40] p140-142: 3/3 ok
+[8/40] p143-145: 3/3 ok
+[9/40] p149-151: 3/3 ok
+[10/40] p146-148: 3/3 ok
+[11/40] p155-157: 3/3 ok
+[12/40] p158-160: 0/3 ok claude exited 1: You've hit your session limit · resets 10:40am (UTC)
+[13/40] p152-154: 0/3 ok claude exited 1: You've hit your session limit · resets 10:40am (UTC)
+[14/40] p161-163: 0/3 ok claude exited 1: You've hit your session limit · resets 10:40am (UTC)
+[15/40] p164-166: 0/3 ok claude exited 1: You've hit your session limit · resets 10:40am (UTC)
+4 consecutive failures — likely a usage/rate limit. Stopping early; re-run to resume.
+
+Done. 107 ok, 12 failed.

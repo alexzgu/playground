@@ -1,0 +1,59 @@
+### PDF page 199 (book page 190)
+
+```python
+        'weathersit']).fit_transform(Bike)
+M2_lm = sm.OLS(Y, X2).fit()
+S2 = summarize(M2_lm)
+S2
+```
+
+`Out[68]:`
+```
+              coef  std err        t   P>|t|
+intercept   73.5974    5.132   14.340  0.000
+mnth[Jan]  -46.0871    4.085  -11.281  0.000
+mnth[Feb]  -39.2419    3.539  -11.088  0.000
+mnth[March]-29.5357    3.155   -9.361  0.000
+mnth[April] -4.6622    2.741   -1.701  0.089
+mnth[May]   26.4700    2.851    9.285  0.000
+mnth[June]  21.7317    3.465    6.272  0.000
+mnth[July]  -0.7626    3.908   -0.195  0.845
+mnth[Aug]    7.1560    3.535    2.024  0.043
+mnth[Sept]  20.5912    3.046    6.761  0.000
+mnth[Oct]   29.7472    2.700   11.019  0.000
+mnth[Nov]   14.2229    2.860    4.972  0.000
+hr[0]      -96.1420    3.955  -24.307  0.000
+hr[1]     -110.7213    3.966  -27.916  0.000
+hr[2]     -117.7212    4.016  -29.310  0.000
+.....        .......    .....   ......  .....
+```
+
+What is the difference between the two codings? In `M2_lm`, a coefficient estimate is reported for all but level 23 of `hr` and level `Dec` of `mnth`. Importantly, in `M2_lm`, the (unreported) coefficient estimate for the last level of `mnth` is not zero: instead, it equals the negative of the sum of the coefficient estimates for all of the other levels. Similarly, in `M2_lm`, the coefficient estimate for the last level of `hr` is the negative of the sum of the coefficient estimates for all of the other levels. This means that the coefficients of `hr` and `mnth` in `M2_lm` will always sum to zero, and can be interpreted as the difference from the mean level. For example, the coefficient for January of −46.087 indicates that, holding all other variables constant, there are typically 46 fewer riders in January relative to the yearly average.
+
+It is important to realize that the choice of coding really does not matter, provided that we interpret the model output correctly in light of the coding used. For example, we see that the predictions from the linear model are the same regardless of coding:
+
+`In [69]:`
+```python
+np.sum((M_lm.fittedvalues - M2_lm.fittedvalues)**2)
+```
+
+`Out[69]:`
+```
+1.53e-20
+```
+
+The sum of squared differences is zero. We can also see this using the `np.allclose()` function:
+
+*[margin: np.allclose()]*
+
+`In [70]:`
+```python
+np.allclose(M_lm.fittedvalues, M2_lm.fittedvalues)
+```
+
+`Out[70]:`
+```
+True
+```
+
+To reproduce the left-hand side of Figure 4.13 we must first obtain the coefficient estimates associated with `mnth`. The coefficients for January through November can be obtained directly from the `M2_lm` object. The coefficient for December must be explicitly computed as the negative sum of all the other months. We first extract all the coefficients for month from the coefficients of `M2_lm`.

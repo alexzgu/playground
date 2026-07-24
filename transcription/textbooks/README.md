@@ -33,6 +33,7 @@ textbooks (the Bayesian booklet was done earlier by the sibling pipeline in
 ```bash
 python3 render_pages.py                          # once — page JPEGs + text layers
 python3 transcribe_books.py --book <key>         # Opus, max effort; all pending pages (resumable)
+python3 transcribe_books.py --book <key> --detach --log <key>.log
 python3 assemble.py --book <key>                 # rebuild curriculum_material/<key>/
 ./supervisor.sh                                  # or: drive all books end-to-end
 ```
@@ -61,8 +62,12 @@ breaker trips, re-assembles chapter files after every runner pass, and drops
 - `supervisor.log`, `run.log`, `render.log` — pipeline logs.
 
 ## Reviewing quality
-Check each book README's low-QA list, spot-check those pages against
-`books/<key>/pages/p-NNNN.jpg`. For MCMT (no QA), sample a few pages per chapter.
-Run `python3 audit_transcripts.py` to verify manifest/file/assembled coverage,
-page-heading uniqueness, Markdown delimiter balance, and text-layer recall/order.
-This deterministic audit complements rather than replaces image review.
+Independently review every accepted page against both
+`books/<key>/pages/p-NNNN.jpg` and its text layer; low-QA pages deserve extra
+attention but are not the only pages that can contain symbol, ordering, or editorial
+errors. Run `python3 audit_transcripts.py` to verify manifest/file/assembled
+coverage, raw-chunk presence, manifest/heading agreement, stale errors, Markdown
+delimiter balance, and text-layer recall/order. The audit reports
+`reviewed/raw-different` pages informationally: the raw file is first-pass evidence,
+while the canonical per-page file may contain verified corrections. This
+deterministic audit complements rather than replaces image review.

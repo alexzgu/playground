@@ -69,6 +69,8 @@ def merge_manifest_entries(out: Path, results: dict[int, dict]) -> dict:
             name = f"p-{page:04d}"
             entry = current.get(name, {})
             entry.update(result)
+            if entry.get("status") in DONE:
+                entry.pop("error", None)
             current[name] = entry
         save_manifest(out, current)
         fcntl.flock(lock.fileno(), fcntl.LOCK_UN)
@@ -233,7 +235,46 @@ def main():
     ap.add_argument("--workers", type=int, default=3)
     ap.add_argument("--chunk", type=int, default=3)
     ap.add_argument("--force", action="store_true")
+    ap.add_argument("--detach", action="store_true",
+                    help="start a session-independent child process and return")
+    ap.add_argument("--log",
+                    help="log path for --detach (relative paths are resolved here)")
     args = ap.parse_args()
+
+    if args.detach:
+        log = Path(args.log) if args.log else Path(
+            f"{args.model}-{args.book}-{args.pages.replace(',', '_')}.log")
+        if not log.is_absolute():
+            log = HERE / log
+        log.parent.mkdir(parents=True, exist_ok=True)
+
+        # Rebuild the child argv without the parent-only detachment options.
+        child_args: list[str] = []
+        skip_next = False
+        for arg in sys.argv[1:]:
+            if skip_next:
+                skip_next = False
+                continue
+            if arg == "--detach":
+                continue
+            if arg == "--log":
+                skip_next = True
+                continue
+            if arg.startswith("--log="):
+                continue
+            child_args.append(arg)
+
+        with log.open("a") as stream:
+            child = subprocess.Popen(
+                [sys.executable, str(Path(__file__).resolve()), *child_args],
+                cwd=HERE,
+                stdin=subprocess.DEVNULL,
+                stdout=stream,
+                stderr=subprocess.STDOUT,
+                start_new_session=True,
+            )
+        print(f"Detached PID {child.pid}; log: {log}", flush=True)
+        return
 
     book = load_books()[args.book]
     pages_dir, _, out = book_dirs(args.book)
@@ -265,7 +306,7 @@ def main():
           flush=True)
 
     done_chunks = 0
-    consec_fail = 0
+    consec_limit_fail = 0
     with ThreadPoolExecutor(max_workers=args.workers) as pool:
         futs = {pool.submit(transcribe_chunk, book, ch, args, claude_bin): ch
                 for ch in chunks}
@@ -279,22 +320,44 @@ def main():
                 manifest = merge_manifest_entries(out, results)
             done_chunks += 1
             n_ok = sum(1 for r in results.values() if r["status"] in DONE)
-            consec_fail = consec_fail + 1 if n_ok == 0 else 0
+            errors = " ".join(r.get("error", "") for r in results.values()).lower()
+            limit_failure = n_ok == 0 and any(
+                marker in errors for marker in (
+                    "rate limit",
+                    "usage limit",
+                    "quota",
+                    "credit balance",
+                    "authentication",
+                    "unauthorized",
+                )
+            )
+            consec_limit_fail = consec_limit_fail + 1 if limit_failure else 0
             lows = [f"p{p}={r['qa']}" for p, r in results.items()
                     if r["status"] == "transcribed-lowqa"]
             note = (" LOWQA " + ",".join(lows)) if lows else ""
             err = "" if n_ok else " " + next(iter(results.values())).get("error", "")[:120]
             print(f"[{done_chunks}/{len(chunks)}] p{ch[0]}-{ch[-1]}: "
                   f"{n_ok}/{len(ch)} ok{note}{err}", flush=True)
-            if consec_fail >= 4:
-                print("4 consecutive failures — likely a usage/rate limit. Stopping early; "
-                      "re-run to resume.", flush=True)
+            if consec_limit_fail >= 4:
+                print("4 consecutive quota/rate/authentication failures — stopping "
+                      "early; re-run to resume.", flush=True)
                 pool.shutdown(cancel_futures=True)
                 break
 
-    n_fail = sum(1 for p in todo
-                 if manifest.get(f"p-{p:04d}", {}).get("status") == "failed")
-    print(f"\nDone. {len(todo) - n_fail} ok, {n_fail} failed.", flush=True)
+    final_manifest = load_manifest(out)
+    n_ok = sum(
+        1 for p in todo
+        if final_manifest.get(f"p-{p:04d}", {}).get("status") in DONE
+    )
+    n_fail = sum(
+        1 for p in todo
+        if final_manifest.get(f"p-{p:04d}", {}).get("status") == "failed"
+    )
+    n_pending = len(todo) - n_ok - n_fail
+    print(
+        f"\nDone. {n_ok} ok, {n_fail} failed, {n_pending} still pending.",
+        flush=True,
+    )
 
 
 if __name__ == "__main__":

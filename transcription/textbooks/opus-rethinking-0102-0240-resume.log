@@ -1,0 +1,36 @@
+[statistical_rethinking] 109 page(s) in 37 chunk(s), model=opus, effort=max, workers=2
+[1/37] p135-137: 3/3 ok
+[2/37] p129-131: 3/3 ok
+[3/37] p138-140: 3/3 ok
+[4/37] p141-143: 3/3 ok
+[5/37] p147-149: 3/3 ok
+[6/37] p144-146: 0/3 ok claude exited 1: API Error: Output blocked by content filtering policy
+[7/37] p150-152: 0/3 ok claude exited 1: API Error: Output blocked by content filtering policy
+[8/37] p156-158: 3/3 ok
+[9/37] p153-155: 3/3 ok
+[10/37] p159-161: 3/3 ok
+[11/37] p162-164: 3/3 ok
+[12/37] p168-170: 3/3 ok
+[13/37] p165-167: 3/3 ok
+[14/37] p171-173: 3/3 ok
+[15/37] p174-176: 3/3 ok
+[16/37] p177-179: 3/3 ok
+[17/37] p183-185: 3/3 ok
+[18/37] p186-188: 3/3 ok
+[19/37] p180-182: 0/3 ok claude exited 1: API Error: Output blocked by content filtering policy
+[20/37] p189-191: 3/3 ok
+[21/37] p192-194: 3/3 ok
+[22/37] p198-200: 3/3 ok
+[23/37] p195-197: 3/3 ok
+[24/37] p201-203: 3/3 ok
+[25/37] p204-206: 0/3 ok claude exited 1: API Error: 400 Output blocked by content filtering policy
+[26/37] p210-212: 0/3 ok claude exited 1: You've hit your session limit · resets 10:40am (UTC)
+[27/37] p213-215: 0/3 ok claude exited 1: You've hit your session limit · resets 10:40am (UTC)
+[28/37] p207-209: 3/3 ok
+[29/37] p216-218: 0/3 ok claude exited 1: You've hit your session limit · resets 10:40am (UTC)
+[30/37] p219-221: 0/3 ok claude exited 1: You've hit your session limit · resets 10:40am (UTC)
+[31/37] p222-224: 0/3 ok claude exited 1: You've hit your session limit · resets 10:40am (UTC)
+[32/37] p225-227: 0/3 ok claude exited 1: You've hit your session limit · resets 10:40am (UTC)
+4 consecutive failures — likely a usage/rate limit. Stopping early; re-run to resume.
+
+Done. 91 ok, 18 failed.

@@ -23,6 +23,7 @@ HEADING = re.compile(
     r"^### PDF page (\d+) \((?:book page ([^)]+)|no printed page number)\)\s*$",
     re.M,
 )
+RAW_MARKER = re.compile(r"^===PAGE (\d+)===\s*$", re.M)
 
 
 def tokens(text: str) -> list[str]:
@@ -75,13 +76,22 @@ def assembled_counts(key: str) -> Counter:
     return counts
 
 
+def raw_sections(raw: str) -> dict[int, str]:
+    sections = {}
+    hits = list(RAW_MARKER.finditer(raw))
+    for index, match in enumerate(hits):
+        end = hits[index + 1].start() if index + 1 < len(hits) else len(raw)
+        sections[int(match.group(1))] = raw[match.end():end].strip()
+    return sections
+
+
 def audit_book(book: dict) -> dict:
     key, npages = book["key"], book["npages"]
     base = HERE / "books" / key
     out = base / "out"
     manifest_path = out / "manifest.json"
     manifest = json.loads(manifest_path.read_text()) if manifest_path.exists() else {}
-    page_rows, structural, lowqa = [], [], []
+    page_rows, structural, lowqa, raw_differences, raw_unsectioned = [], [], [], [], []
 
     claimed = {
         int(name.split("-")[1])
@@ -106,8 +116,42 @@ def audit_book(book: dict) -> dict:
             problems.append(f"expected one page heading, found {len(headings)}")
         elif int(headings[0][0]) != page:
             problems.append(f"heading says PDF page {headings[0][0]}")
+        elif entry.get("printed_page") != (headings[0][1] or None):
+            problems.append(
+                "manifest printed page "
+                f"{entry.get('printed_page')!r} does not match heading "
+                f"{headings[0][1] or None!r}"
+            )
         if not is_done:
             problems.append(f"page file exists but manifest status is {entry.get('status')!r}")
+        elif "error" in entry:
+            problems.append("successful manifest entry retains a stale error")
+
+        if is_done:
+            chunk = entry.get("chunk")
+            if not chunk:
+                problems.append("successful manifest entry has no raw chunk")
+            else:
+                raw_path = out / "raw" / f"{chunk}.raw.md"
+                if not raw_path.exists():
+                    problems.append(f"raw chunk is missing: {raw_path.name}")
+                else:
+                    raw_page = raw_sections(raw_path.read_text()).get(page)
+                    if raw_page is None:
+                        manual = (
+                            "manual" in chunk.lower()
+                            or str(entry.get("model", "")).lower().startswith("gpt-5.6")
+                            or entry.get("provenance") == "manual-transcription-or-repair"
+                        )
+                        if manual:
+                            raw_unsectioned.append(page)
+                        else:
+                            problems.append(f"raw chunk lacks PAGE {page} section")
+                    elif raw_page != text.strip():
+                        # Raw files preserve first-pass model evidence. A difference
+                        # after human review is expected and useful provenance, not
+                        # a structural defect in the canonical transcript.
+                        raw_differences.append(page)
 
         text_path = base / "text" / f"{name}.txt"
         metrics = (text_metrics(text_path.read_text(errors="replace"), text)
@@ -148,6 +192,8 @@ def audit_book(book: dict) -> dict:
         "assembled_unique_pages": sum(1 for p in range(1, npages + 1) if delivered[p]),
         "missing_pages": [p for p in range(1, npages + 1) if p not in claimed],
         "lowqa_pages": lowqa,
+        "raw_differences": raw_differences,
+        "raw_unsectioned_manual": raw_unsectioned,
         "structural_problems": structural,
         "pages": page_rows,
     }
@@ -182,6 +228,8 @@ def main() -> int:
             f"manifest done; {result['assembled_unique_pages']} assembled; "
             f"missing {spans(result['missing_pages'])}; "
             f"low-QA {spans(result['lowqa_pages'])}; "
+            f"reviewed/raw-different {spans(result['raw_differences'])}; "
+            f"manual raw-note only {spans(result['raw_unsectioned_manual'])}; "
             f"structural problems {len(result['structural_problems'])}"
         )
         for problem in result["structural_problems"][:20]:
