@@ -3,3 +3,11 @@
 [2/10] p337-339: 0/3 ok claude exited 1: success: API Error: 400 Output blocked by content filtering policy
 [3/10] p340-342: 3/3 ok
 [4/10] p343-345: 0/3 ok claude exited 1: success: API Error: 400 Output blocked by content filtering policy
+[5/10] p346-348: 3/3 ok
+[6/10] p349-351: 3/3 ok
+[7/10] p352-354: 3/3 ok
+[8/10] p355-357: 3/3 ok
+[9/10] p358-360: 3/3 ok
+[10/10] p361-363: 3/3 ok
+
+Done. 29 ok, 1 failed, 0 still pending.

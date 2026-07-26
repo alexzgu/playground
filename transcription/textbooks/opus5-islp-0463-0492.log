@@ -1,0 +1,8 @@
+[islp] 30 page(s) in 10 chunk(s), model=claude-opus-5, effort=max, workers=1
+[1/10] p463-465: 3/3 ok
+[2/10] p466-468: 3/3 ok
+[3/10] p469-471: 3/3 ok
+[4/10] p472-474: 3/3 ok
+[5/10] p475-477: 0/3 ok claude exited 1: success: API Error: 400 Output blocked by content filtering policy
+[6/10] p478-480: 3/3 ok
+[7/10] p481-483: 3/3 ok
