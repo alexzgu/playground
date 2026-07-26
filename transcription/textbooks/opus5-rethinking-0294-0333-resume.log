@@ -7,3 +7,7 @@
 [6/10] p319-321: 3/3 ok
 [7/10] p322-324: 0/3 ok claude exited 1: success: API Error: 400 Output blocked by content filtering policy
 [8/10] p325-327: 3/3 ok
+[9/10] p328-330: 3/3 ok
+[10/10] p331-333: 3/3 ok
+
+Done. 25 ok, 3 failed, 0 still pending.

@@ -8,3 +8,6 @@
 [7/10] p412-414: 3/3 ok
 [8/10] p415-417: 3/3 ok
 [9/10] p418-420: 3/3 ok
+[10/10] p421-423: 0/3 ok claude exited 1: success: API Error: Output blocked by content filtering policy
+
+Done. 27 ok, 3 failed, 0 still pending.
