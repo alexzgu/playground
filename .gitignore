@@ -1,3 +1,5 @@
 pages/
 transcribe/out/
 __pycache__/
+.venv/
+practicum/tools/logs/
