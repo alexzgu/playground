@@ -80,7 +80,8 @@ Compare this to the classical machinery, where "probability that the rate
 exceeds 0.25" is not a question you are allowed to ask — the rate is a fixed
 unknown constant, so the probability is 0 or 1 and you may only speak about the
 procedure's long-run behaviour. That restriction is coherent and it has real
-uses (chapter 12 makes use of it). But when the person in front of you asks
+uses — chapter 12 leans on it for model comparison and chapter 13 uses it to
+calibrate a calibration check. But when the person in front of you asks
 "how likely is it that we're over the line", the ability to answer with a
 number is worth a great deal.
 

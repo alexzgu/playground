@@ -64,8 +64,8 @@ sigma     ~ HalfNormal(?)         how variable is it? (positive by definition)
 The question marks are the work of this chapter. Note what the model has
 already claimed, before any prior: that the noise is symmetric (it isn't
 really — traffic delays have a long right tail), and that every day is like
-every other (it isn't — chapter 04 adds rain and mode). Both claims are
-checkable, and chapter 06 checks them. The priors are not the only assumptions
+every other (it isn't — the file records rain and travel mode, and this model
+ignores both). Both claims are checkable, and chapter 06 checks them. The priors are not the only assumptions
 in the room, and usually not the most consequential ones.
 
 ## 03.2 Your prior is a claim about data
