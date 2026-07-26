@@ -1,0 +1,11 @@
+[statistical_rethinking] 30 page(s) in 10 chunk(s), model=claude-opus-5, effort=max, workers=1
+[1/10] p271-273: 3/3 ok
+[2/10] p274-276: 3/3 ok
+[3/10] p277-279: 3/3 ok
+[4/10] p280-282: 3/3 ok
+[5/10] p283-285: 3/3 ok
+[6/10] p286-288: 3/3 ok
+[7/10] p289-291: 0/3 ok claude exited 1: success: You've hit your session limit · resets 3:40am (UTC)
+Claude usage/quota/authentication limit reached — stopping immediately; wait for explicit permission before resuming.
+
+Done. 18 ok, 3 failed, 9 still pending.

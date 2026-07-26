@@ -1,7 +1,5 @@
 # Chapter 7 — Ulysses' Compass
-*(PDF pages 211–256; book pages 195–239)*
-
-*⚠ In progress: 42 of 46 pages transcribed; missing PDF pages 244–246, 256.*
+*(PDF pages 211–256; book pages 195–240)*
 
 ### PDF page 211 (book page 195)
 
@@ -1537,6 +1535,64 @@ there are important differences, they lie in other model types, where the poster
 the posterior. CV and PSIS have higher variance as estimators of the K-L Divergence, and so
 we should expect WAIC to be better in many cases.[^121] However, in practice the advantage
 
+### PDF page 244 (book page 228)
+
+*[Figure: a 2×2 grid of line plots. Top-left, titled "N = 20": x-axis "number of parameters" (1–5), y-axis "average deviance" (56.0, 57.0, 58.0, 59.0); curves labeled CV and PSIS in blue (PSIS dashed) and WAIC in black, with open circles ("test", unregularized) and filled circles (σ = 0.5 regularized); trends rise from 1 to 2, dip at 3, then rise again to 5. Top-right, titled "N = 20": x-axis "number of parameters" (1–5), y-axis "average error (test deviance)" (6.0, 6.5, 7.0); curves labeled "flat prior" and "sigma = 0.5" at the right; values fall from 1 to a minimum near 3 and rise slightly to 5. Bottom-left, titled "N = 100": x-axis "number of parameters" (1–5), y-axis "average deviance" (270, 275, 280, 285); curves drop sharply between 2 and 3, then rise slightly to 5, with open and filled points nearly overlapping. Bottom-right, titled "N = 100": x-axis "number of parameters" (1–5), y-axis "average error (test deviance)" (13.0, 14.0, 15.0); curves labeled "sigma = 0.5" and "flat prior" at the right, declining from 1 to about 3 and then roughly flat.]*
+
+FIGURE 7.9. WAIC and cross-validation as estimates of the out-of-sample deviance. The top row displays 1000 train-test simulations with $N = 20$. The bottom row shows 1000 simulations with $N = 1000$. In each plot, there are two sets of trends. The open points are unregularized. The filled points are for regularizing $\sigma = 0.5$ priors. Left: The vertical axis is absolute deviance. Points are the average test deviance. The black line is the average WAIC estimate. Blue is the leave-one-out cross-validation (CV) score, and dashed blue is the PSIS approximation of the cross-validation score. Right: The same data, but now shown on the scale of average error in approximating the test deviance.
+
+may be much smaller than the expected error. And if all we care about is the rank order of the models, then there is no reason to think that WAIC is any better than PSIS.
+
+Despite its slight disadvantage in accuracy, PSIS has a distinct advantage in warning the user about when it is unreliable. The $k$ values that PSIS computes for each observation indicate when the PSIS score may be unreliable, as well as identify which observations are at fault. We'll see later how useful this can be.
+
+**Rethinking: Diverse prediction frameworks.** The train-test gambit we've been using in this chapter entails predicting a test sample of the same size and nature as the training sample. This most certainly does not mean that information criteria can only be used when we plan to predict a sample of the same size as training. The same size just scales the out-of-sample deviance similarly. It is the distance
+
+### PDF page 245 (book page 229)
+
+between the models that is useful, not the absolute value of the deviance. Nor do cross-validation and information criteria require that the data generating model be one of the models being considered. That was true in our simulations. But it isn't a requirement for them to help in identifying good models for prediction.
+
+But the train-test prediction task is not representative of everything we might wish to do with models. For example, some statisticians prefer to evaluate predictions using a PREQUENTIAL framework, in which models are judged on their accumulated learning error over the training sample.$^{122}$ And once you start using multilevel models, "prediction" is no longer uniquely defined, because the test sample can differ from the training sample in ways that forbid use of some the parameter estimates. We'll worry about that issue in Chapter 13.
+
+Perhaps a larger concern is that our train-test thought experiment pulls the test sample from exactly the same process as the training sample. This is a kind of *uniformitarian* assumption, in which future data are expected to come from the same process as past data and have the same rough range of values. This can cause problems. For example, suppose we fit a regression that predicts height using body weight. The training sample comes from a poor town, in which most people are pretty thin. The relationship between height and weight turns out to be positive and strong. Now also suppose our prediction goal is to guess the heights in another, much wealthier, town. Plugging the weights from the wealthy individuals into the model fit to the poor individuals will predict outrageously tall people. The reason is that, once weight becomes large enough, it has essentially no relationship with height. WAIC will not automatically recognize nor solve this problem. Nor will any other isolated procedure. But over repeated rounds of model fitting, attempts at prediction, and model criticism, it is possible to overcome this kind of limitation. As always, statistics is no substitute for science.
+
+**7.5. Model comparison**
+
+Let's review the original problem and the road so far. When there are several plausible (and hopefully un-confounded) models for the same set of observations, how should we compare the accuracy of these models? Following the fit to the sample is no good, because fit will always favor more complex models. Information divergence is the right measure of model accuracy, but even it will just lead us to choose more and more complex and wrong models. We need to somehow evaluate models out-of-sample. How can we do that? A meta-model of forecasting tells us two important things. First, flat priors produce bad predictions. Regularizing priors—priors which are skeptical of extreme parameter values—reduce fit to sample but tend to improve predictive accuracy. Second, we can get a useful guess of predictive accuracy with the criteria CV, PSIS, and WAIC. Regularizing priors and CV/PSIS/WAIC are complementary. Regularization reduces overfitting, and predictive criteria measure overfitting.
+
+That's the road so far, the conceptual journey. And that's the hardest part. Using tools like PSIS and WAIC is much easier than understanding them. Which makes them quite dangerous. That is why this chapter has spent so much time on foundations, without doing any actual data analysis.
+
+Now let's do some analysis. How do we use regularizing priors and CV/PSIS/WAIC? A very common use of cross-validation and information criteria is to perform MODEL SELECTION, which means choosing the model with the lowest criterion value and then discarding the others. But you should never do this. This kind of selection procedure discards the information about relative model accuracy contained in the differences among the CV/PSIS/WAIC values. Why are the differences useful? Because sometimes the differences
+
+### PDF page 246 (book page 230)
+
+are large and sometimes they are small. Just as relative posterior probability provides advice about how confident we might be about parameters (conditional on the model), relative model accuracy provides advice about how confident we might be about models (conditional on the set of models compared).
+
+Another reason to never select models based upon WAIC/CV/PSIS alone is that we might care about causal inference. Maximizing expected predictive accuracy is not the same as inferring causation. Highly confounded models can still make good predictions, at least in the short term. They won't tell us the consequences of an intervention, but they might help us forecast. So we need to be clear about our goals and not just toss variables into the causal salad and let WAIC select our meal.
+
+So what good are these criteria then? They measure expected predictive value of a variable on the right scale, accounting for overfitting. They also provide a way to measure the overfitting tendency of a model, and that helps us both design models and understand how statistical inference works. Finally, minimizing a criterion like WAIC can help in designing models, especially in tuning parameters in multilevel models.
+
+So instead of model *selection*, we'll focus on **model comparison**. This is a more general approach that uses multiple models to understand both how different variables influence predictions and, in combination with a causal model, implied conditional indendencies among variables help us infer causal relationships.
+
+We'll work through two examples. The first emphasizes the distinction between comparing models for predictive performance versus comparing them in order to infer causation. The second emphasizes the pointwise nature of model comparison and what inspecting individual points can reveal about model performance and mis-specification. This second example also introduces a more robust alternative to Gaussian regression.
+
+**7.5.1. Model mis-selection.** We must keep in mind the lessons of the previous chapters: Inferring cause and making predictions are different tasks. Cross-validation and WAIC aim to find models that make good predictions. They don't solve any causal inference problem. If you select a model based only on expected predictive accuracy, you could easily be confounded. The reason is that backdoor paths do give us valid information about statistical associations in the data. So they can improve prediction, as long as we don't intervene in the system and the future is like the past. But recall that our working definition of knowing a cause is that we can predict the consequences of an intervention. So a good PSIS or WAIC score does not in general indicate a good causal model.
+
+For example, recall the plant growth example from the previous chapter. The model that conditions on fungus will make better predictions than the model that omits it. If you return to that section (page 175) and run models `m6.6`, `m6.7`, and `m6.8` again, we can compare their WAIC values. To remind you, `m6.6` is the model with just an intercept, `m6.7` is the model that include both treatment and fungus (the post-treatment variable), and `m6.8` is the model that includes treatment but omits fungus. It's `m6.8` that allows us to correctly infer the causal influence of treatment.
+
+To begin, let's use the `WAIC` convenience function to calculate WAIC for `m6.7`:
+
+*[margin: R code 7.25]*
+
+```r
+set.seed(11)
+WAIC( m6.7 )
+```
+
+```
+[1] 361.4511
+attr(,"lppd")
+```
+
 ### PDF page 247 (book page 231)
 
 ```
@@ -1608,7 +1664,7 @@ So yes, these models are very easy to distinguish by expected out-of-sample accu
 plot( compare( m6.6 , m6.7 , m6.8 ) )
 ```
 
-*[Figure: horizontal dot chart titled "WAIC" with x-axis labeled "deviance" running from about 355 to 425 (ticks at 360, 370, 380, 390, 400, 410, 420). Three model rows from top to bottom: m6.7, m6.8, m6.6, each on a dotted horizontal guide line. The m6.7 row has a filled point near 358 and an open point near 362 with a horizontal line segment extending to about 376; a vertical reference line is drawn at the best WAIC (m6.7's open point). The m6.8 row has a filled point near 397 and an open point near 403, with a dark line segment spanning roughly 391–413, plus a lighter line segment marked with a small triangle just above and to the right of the open point. The m6.6 row has a filled point near 404 and an open point near 406, with a dark line segment spanning roughly 394–420, plus a lighter line segment marked with a small triangle above it.]*
+*[Figure: horizontal dot chart titled "WAIC", with the x-axis labeled "deviance" and ticks at 360, 370, 380, 390, 400, 410, 420. Three model rows from top to bottom: m6.7, m6.8, m6.6, each on a dotted horizontal guide line. A vertical reference line runs through the m6.7 open point, the best WAIC. The m6.7 row has a filled point near 354 and an open point near 362, with a line segment extending right to about 376. The m6.8 row has a filled point near 398 and an open point near 403, with a dark line segment spanning roughly 391–414 and, just above it, a lighter line segment marked with a small triangle. The m6.6 row has a filled point near 403 and an open point near 406, with a dark line segment spanning roughly 394–418 and, just above it, a lighter line segment marked with a small triangle.]*
 
 The filled points are the in-sample deviance values. The open points are the WAIC values. Notice that naturally each model does better in-sample than it is expected to do out-of-sample. The line segments show the standard error of each WAIC. These are the values in the column labeled `SE` in the table above. So you can probably see how much better `m6.7` is than `m6.8`. What we really want however is the standard error of the difference in WAIC between the two models. That is shown by the lighter line segment with the triangle on it, between `m6.7` and `m6.8`.
 
@@ -1664,11 +1720,14 @@ where $\Delta_i$ is the difference between model $i$'s WAIC value and the best W
 combining the predictions of multiple models. For the sake of space, we won't cover it in this book. But see the endnote for some places to start.[^123]
 
 **Rethinking: WAIC metaphors.** Here are two metaphors to help explain the concepts behind using WAIC (or another information criterion) to compare models.
+
 Think of models as race horses. In any particular race, the best horse may not win. But it's more likely to win than is the worst horse. And when the winning horse finishes in half the time of the second-place horse, you can be pretty sure the winning horse is also the best. But if instead it's a photo-finish, with a near tie between first and second place, then it is much harder to be confident about which is the best horse. WAIC values are analogous to these race times—smaller values are better, and the distances between the horses/models are informative. Akaike weights transform differences in finishing time into probabilities of being the best model/horse on future data/races. But if the track conditions or jockey changes, these probabilities may mislead. Forecasting future racing/prediction based upon a single race/fit carries no guarantees.
+
 Think of models as stones thrown to skip on a pond. No stone will ever reach the other side (perfect prediction), but some sorts of stones make it farther than others, on average (make better test predictions). But on any individual throw, lots of unique conditions avail—the wind might pick up or change direction, a duck could surface to intercept the stone, or the thrower's grip might slip. So which stone will go farthest is not certain. Still, the relative distances reached by each stone therefore provide information about which stone will do best on average. But we can't be too confident about any individual stone, unless the distances between stones is very large.
+
 Of course neither metaphor is perfect. Metaphors never are. But many people find these to be helpful in interpreting information criteria.
 
-**7.5.2. Outliers and other illusions.** In the divorce example from Chapter 5, we saw in the posterior predictions that a few States were very hard for the model. The State of Idaho in particular was something of an outlier (page 5.5). Individual points like Idaho tend to be very influential in ordinary regression models. Let's see how PSIS and WAIC represent that importance. Begin by refitting the three divorce models from Chapter 5.
+**7.5.2. Outliers and other illusions.** In the divorce example from Chapter 5, we saw in the posterior predictions that a few States were very hard for the model. The State of Idaho in particular was something of an **outlier** (page 5.5). Individual points like Idaho tend to be very influential in ordinary regression models. Let's see how PSIS and WAIC represent that importance. Begin by refitting the three divorce models from Chapter 5.
 
 *[margin: R code 7.32]*
 
@@ -1731,6 +1790,7 @@ m5.2 140.6   3.8  13.1   0.00 11.21 10.82
 ```
 
 There are two important things to consider here. First note that the model that omits marriage rate, `m5.1`, lands on top. This is because marriage rate has very little association with the outcome. So the model that omits it has slightly better expected out-of-sample performance, even though it actually fits the sample slightly worse than `m5.3`, the model with both predictors. The difference between the top two models is only 1.8, with a standard error of 0.9, so the models make very similar predictions. This is the typical pattern, whenever some predictor has a very small association with the outcome.
+
 Second, in addition to the table above, you should also receive a message:
 
 ```
@@ -1738,6 +1798,7 @@ Some Pareto k values are very high (>1).
 ```
 
 This means that the smoothing approximation that PSIS uses is unreliable for some points. Recall from the section on PSIS that when a point's Pareto *k* value is above 0.5, the importance weight can be unreliable. Furthermore, these points tend to be outliers with unlikely values, according to the model. As a result, they are highly influential and make it difficult to estimate out-of-sample predictive accuracy. Why? Because any new sample is unlikely to contain these same outliers, and since these outliers were highly influential, they could make out-of-sample predictions worse than expected. WAIC is vulnerable to outliers as well. It doesn't have an automatic warning. But it does have a way to measure this risk, through the estimate of the overfitting penalty.
+
 Let's look at the individual States, to see which are causing the problem. We can do this by adding `pointwise=TRUE` to `PSIS()`. When you do this, you get a matrix with each
 
 ### PDF page 252 (book page 236)
@@ -1760,7 +1821,9 @@ plot( PSIS_m5.3$k , WAIC_m5.3$penalty , xlab="PSIS Pareto k" ,
 ```
 
 This plot is shown in Figure 7.10. Individual points are individual States, with Pareto *k* on the horizontal axis and WAIC's penalty term. The State of Idaho (ID, upper-right corner) has both a very high Pareto *k* value (above 1) and a large pentalty term (over 2). As you saw back in Chapter 5, Idaho has a very low divorce rate for its age at marriage. As a result, it is highly influential—it exerts more influence on the posterior distribution than other States do. The Pareto *k* value is double the theoretical point at which the variance becomes infinite (shown by the dashed line). Likewise, WAIC assigns Idaho a penalty over 2. This penalty term is sometimes called the "effective number of parameters," because in ordinary linear regressions the sum of all penalty terms from all points tends to be equal to the number of free parameters in the model. But in this case there are 4 parameters and the total penalty is closer to 6—check `WAIC(m5.3)`. The outlier Idaho is causing this additional overfitting risk.
+
 What can be done about this? There is a tradition of dropping outliers. People sometimes drop outliers even before a model is fit, based only on standard deviations from the mean outcome value. You should never do that—a point can only be unexpected and highly influential in light of a model. After you fit a model, the picture changes. If there are only a few outliers, and you are sure to report results both with and without them, dropping outliers might be okay. But if there are several outliers and we really need to model them, what then?
+
 A basic problem here is that the Gaussian error model is easily surprised. Gaussian distributions (introduced at the start of Chapter 4) have very thin tails. This means that very little probability mass is given to observations far from the mean. Many natural phenomena do have very thin tails like this. Human height is a good example. But many phenomena do
 
 ### PDF page 253 (book page 237)
@@ -1836,3 +1899,35 @@ This chapter has been a marathon. It began with the problem of overfitting, a un
 **7M5.** Provide an informal explanation of why informative priors reduce overfitting.
 
 **7M6.** Provide an informal explanation of why overly informative priors result in underfitting.
+
+### PDF page 256 (book page 240)
+
+**Hard.**
+
+**7H1.** In 2007, *The Wall Street Journal* published an editorial ("We're Number One, Alas") with a graph of corporate tax rates in 29 countries plotted against tax revenue. A badly fit curve was drawn in (reconstructed at right), seemingly by hand, to make the argument that the relationship between tax rate and tax revenue increases and then declines, such that higher tax rates can actually produce less tax revenue. I want you to actually fit a curve to these data, found in `data(Laffer)`. Consider models that use tax rate to predict tax revenue. Compare, using WAIC or PSIS, a straight-line model to any curved models you like. What do you conclude about the relationship between tax rate and tax revenue?
+
+*[Figure: small unlabeled scatterplot set in the right margin beside this problem. Vertical axis ticks 0, 5, 10; horizontal axis ticks 0, 10, 20, 30. About thirty open circles are plotted, most of them bunched between horizontal values of roughly 10 and 33 at vertical values around 1 to 5, with a tight cluster near the right edge, one point at the origin, and one conspicuously high point near horizontal 26 at a vertical value close to 10. A single smooth hand-drawn curve rises from near the origin, arcs over to a maximum around horizontal 22–25 near the top of the plot, and then drops steeply back to the axis at the right edge.]*
+
+**7H2.** In the `Laffer` data, there is one country with a high tax revenue that is an outlier. Use PSIS and WAIC to measure the importance of this outlier in the models you fit in the previous problem. Then use robust regression with a Student's t distribution to revisit the curve fitting problem. How much does a curved relationship depend upon the outlier point?
+
+**7H3.** Consider three fictional Polynesian islands. On each there is a Royal Ornithologist charged by the king with surveying the bird population. They have each found the following proportions of 5 important bird species:
+
+|  | Species A | Species B | Species C | Species D | Species E |
+|---|---|---|---|---|---|
+| Island 1 | 0.2 | 0.2 | 0.2 | 0.2 | 0.2 |
+| Island 2 | 0.8 | 0.1 | 0.05 | 0.025 | 0.025 |
+| Island 3 | 0.05 | 0.15 | 0.7 | 0.05 | 0.05 |
+
+Notice that each row sums to 1, all the birds. This problem has two parts. It is not computationally complicated. But it is conceptually tricky. First, compute the entropy of each island's bird distribution. Interpret these entropy values. Second, use each island's bird distribution to predict the other two. This means to compute the K-L Divergence of each island from the others, treating each island as if it were a statistical model of the other islands. You should end up with 6 different K-L Divergence values. Which island predicts the others best? Why?
+
+**7H4.** Recall the marriage, age, and happiness collider bias example from Chapter 6. Run models `m6.9` and `m6.10` again. Compare these two models using WAIC (or LOO, they will produce identical results). Which model is expected to make better predictions? Which model provides the correct causal inference about the influence of age on happiness? Can you explain why the answers to these two questions disagree?
+
+**7H5.** Revisit the urban fox data, `data(foxes)`, from the previous chapter's practice problems. Use WAIC or PSIS based model comparison on five different models, each using `weight` as the outcome, and containing these sets of predictor variables:
+
+(1) `avgfood + groupsize + area`  
+(2) `avgfood + groupsize`  
+(3) `groupsize + area`  
+(4) `avgfood`  
+(5) `area`
+
+Can you explain the relative differences in WAIC scores, using the fox DAG from last week's homework? Be sure to pay attention to the standard error of the score differences (`dSE`).

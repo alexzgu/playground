@@ -1,0 +1,4 @@
+===FRAGMENT 2===
+So instead of model *selection*, we'll focus on **model comparison**. This is a more general approach that uses multiple models to understand both how different variables influence predictions and, in combination with a causal model, implied conditional indendencies among variables help us infer causal relationships.
+
+We'll work through two examples. The first emphasizes the distinction between comparing models for predictive performance versus comparing them in order to infer causation. The second emphasizes the pointwise nature of model comparison and what inspecting individual points can reveal about model performance and mis-specification. This second example also introduces a more robust alternative to Gaussian regression.

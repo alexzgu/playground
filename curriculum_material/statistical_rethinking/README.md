@@ -5,11 +5,11 @@ Source: `Statistical Rethinking 2nd Edition.pdf` — Richard McElreath. 617 PDF 
 **Conventions**
 - One markdown file per chapter; every page appears under a heading `### PDF page N (book page M)`.
 - Math in LaTeX (`$...$` / `$$...$$`), equation numbers as `\tag{}`; tables as markdown tables; figures as verbatim captions plus an italic description; code in fenced blocks.
-- Page transcription provenance: `opus` at max effort (109 pages); `gpt-5.6` at high effort (96 pages); `claude-opus-5` at max effort (12 pages). Per-page provenance is recorded in the pipeline manifest, cross-checked against the PDF text layer (per-page QA score in the pipeline manifest).
+- Page transcription provenance: `opus` at max effort (109 pages); `gpt-5.6` at high effort (96 pages); `claude-opus-5` at max effort (39 pages). Per-page provenance is recorded in the pipeline manifest, cross-checked against the PDF text layer (per-page QA score in the pipeline manifest).
 - Unlike `bayesian_booklet`, quantitative results are **not** SymPy-verified.
 
 ## STATUS OF THIS TRANSCRIPT
 
-**Transcribed:** 252/617 PDF pages (1–243, 247–255). **Missing:** 244–246, 256–617.
+**Transcribed:** 279/617 PDF pages (1–279). **Missing:** 280–617.
 
 Produced by the pipeline in `transcription/textbooks/` (see its README).

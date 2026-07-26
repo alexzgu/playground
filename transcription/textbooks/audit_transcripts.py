@@ -131,6 +131,20 @@ def audit_book(book: dict) -> dict:
             chunk = entry.get("chunk")
             if not chunk:
                 problems.append("successful manifest entry has no raw chunk")
+            elif entry.get("recovery") == "cropped-source-fragments":
+                recovery_dir = out / "recovery" / name
+                expected_parts = int(entry.get("recovery_parts") or 0)
+                missing_parts = [
+                    part for part in range(1, expected_parts + 1)
+                    if not (recovery_dir / f"part-{part}.raw.md").exists()
+                ]
+                if expected_parts < 1:
+                    problems.append("fragment recovery has no part count")
+                elif missing_parts:
+                    problems.append(
+                        "fragment recovery raw evidence is missing part(s): "
+                        + ", ".join(map(str, missing_parts))
+                    )
             else:
                 raw_path = out / "raw" / f"{chunk}.raw.md"
                 if not raw_path.exists():

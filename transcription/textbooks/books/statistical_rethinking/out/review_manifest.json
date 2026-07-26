@@ -17,6 +17,12 @@
   "review_chunk": "review-0241-0243",
   "status": "verified"
  },
+ "p-0246": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0246-0246",
+  "status": "verified"
+ },
  "p-0247": {
   "effort": "max",
   "model": "claude-opus-5",
@@ -70,5 +76,53 @@
   "model": "claude-opus-5",
   "review_chunk": "review-0253-0255",
   "status": "verified"
+ },
+ "p-0271": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0271-0273",
+  "status": "verified"
+ },
+ "p-0272": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0271-0273",
+  "status": "verified"
+ },
+ "p-0273": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0271-0273",
+  "status": "verified"
+ },
+ "p-0274": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0274-0276",
+  "status": "verified"
+ },
+ "p-0275": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0274-0276",
+  "status": "verified"
+ },
+ "p-0276": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0274-0276",
+  "status": "verified"
+ },
+ "p-0277": {
+  "error": "claude exited 1: success: You've hit your session limit \u00b7 resets 3:40am (UTC)",
+  "status": "failed"
+ },
+ "p-0278": {
+  "error": "claude exited 1: success: You've hit your session limit \u00b7 resets 3:40am (UTC)",
+  "status": "failed"
+ },
+ "p-0279": {
+  "error": "claude exited 1: success: You've hit your session limit \u00b7 resets 3:40am (UTC)",
+  "status": "failed"
  }
 }

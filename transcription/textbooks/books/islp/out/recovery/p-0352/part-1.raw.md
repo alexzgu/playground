@@ -1,0 +1,6 @@
+===FRAGMENT 1===
+use a value of $B$ sufficiently large that the error has settled down. Using $B = 100$ is sufficient to achieve good performance in this example.
+
+**Out-of-Bag Error Estimation**
+
+It turns out that there is a very straightforward way to estimate the test error of a bagged model, without the need to perform cross-validation or the validation set approach. Recall that the key to bagging is that trees are repeatedly fit to bootstrapped subsets of the observations. One can show that on average, each bagged tree makes use of around two-thirds of the observations.[^3] The remaining one-third of the observations not used to fit a given bagged tree are referred to as the *out-of-bag* (OOB) observations. *[margin: out-of-bag]* We can predict the response for the $i$th observation using each of the trees in which that observation was OOB. This will yield around $B/3$ predictions for the $i$th observation. In order to obtain a single prediction for the $i$th observation, we can average these predicted responses (if regression is the goal) or can take a majority vote (if classification is the goal). This leads
