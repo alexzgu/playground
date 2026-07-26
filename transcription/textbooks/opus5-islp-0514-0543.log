@@ -1,0 +1,14 @@
+[islp] 30 page(s) in 10 chunk(s), model=claude-opus-5, effort=max, workers=1
+[1/10] p514-516: 0/3 ok claude exited 1: success: API Error: Output blocked by content filtering policy
+[2/10] p517-519: 0/3 ok claude exited 1: success: API Error: Output blocked by content filtering policy
+[3/10] p520-522: 0/3 ok claude exited 1: success: API Error: 400 Output blocked by content filtering policy
+[4/10] p523-525: 3/3 ok
+[5/10] p526-528: 0/3 ok claude exited 1: success: API Error: Output blocked by content filtering policy
+[6/10] p529-531: 3/3 ok
+[7/10] p532-534: 0/3 ok claude exited 1: success: API Error: 400 Output blocked by content filtering policy
+[8/10] p535-537: 0/3 ok claude exited 1: success: API Error: Output blocked by content filtering policy
+[9/10] p538-540: 0/3 ok claude exited 1: success: API Error: 400 Output blocked by content filtering policy
+[10/10] p541-543: 0/3 ok claude exited 1: success: You've hit your session limit · resets 1:40pm (UTC)
+Claude usage/quota/authentication limit reached — stopping immediately; wait for explicit permission before resuming.
+
+Done. 6 ok, 24 failed, 0 still pending.

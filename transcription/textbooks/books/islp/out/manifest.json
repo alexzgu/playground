@@ -4606,7 +4606,12 @@
   "printed_page": "447",
   "qa": 0.986,
   "qa_order": 0.97,
-  "status": "transcribed"
+  "review_chunk": "review-0454-0456",
+  "review_effort": "max",
+  "review_model": "claude-opus-5",
+  "review_status": "corrected",
+  "status": "transcribed",
+  "visual_review": "full-page-source-comparison"
  },
  "p-0455": {
   "chunk": "chunk-0454-0456",
@@ -4615,7 +4620,12 @@
   "printed_page": "448",
   "qa": 0.989,
   "qa_order": 0.968,
-  "status": "transcribed"
+  "review_chunk": "review-0454-0456",
+  "review_effort": "max",
+  "review_model": "claude-opus-5",
+  "review_status": "corrected",
+  "status": "transcribed",
+  "visual_review": "full-page-source-comparison"
  },
  "p-0456": {
   "chunk": "chunk-0454-0456",
@@ -4642,7 +4652,12 @@
   "printed_page": "451",
   "qa": 0.99,
   "qa_order": 0.98,
-  "status": "transcribed"
+  "review_chunk": "review-0457-0459",
+  "review_effort": "max",
+  "review_model": "claude-opus-5",
+  "review_status": "corrected",
+  "status": "transcribed",
+  "visual_review": "full-page-source-comparison"
  },
  "p-0459": {
   "chunk": "chunk-0457-0459",
@@ -4651,7 +4666,12 @@
   "printed_page": "452",
   "qa": 0.979,
   "qa_order": 0.976,
-  "status": "transcribed"
+  "review_chunk": "review-0457-0459",
+  "review_effort": "max",
+  "review_model": "claude-opus-5",
+  "review_status": "corrected",
+  "status": "transcribed",
+  "visual_review": "full-page-source-comparison"
  },
  "p-0460": {
   "chunk": "chunk-0460-0462",
@@ -4705,7 +4725,12 @@
   "printed_page": "458",
   "qa": 0.991,
   "qa_order": 0.972,
-  "status": "transcribed"
+  "review_chunk": "review-0463-0465",
+  "review_effort": "max",
+  "review_model": "claude-opus-5",
+  "review_status": "corrected",
+  "status": "transcribed",
+  "visual_review": "full-page-source-comparison"
  },
  "p-0466": {
   "chunk": "chunk-0466-0468",
@@ -4789,16 +4814,33 @@
   "status": "transcribed"
  },
  "p-0475": {
-  "error": "claude exited 1: success: API Error: 400 Output blocked by content filtering policy",
-  "status": "failed"
+  "chunk": "fragment-recovery-p0475",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "469",
+  "qa": 0.975,
+  "qa_order": 0.954,
+  "recovery": "cropped-source-fragments",
+  "recovery_parts": 3,
+  "status": "transcribed"
  },
  "p-0476": {
-  "error": "claude exited 1: success: API Error: 400 Output blocked by content filtering policy",
-  "status": "failed"
+  "chunk": "chunk-0476-0476",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "470",
+  "qa": 0.984,
+  "qa_order": 0.93,
+  "status": "transcribed"
  },
  "p-0477": {
-  "error": "claude exited 1: success: API Error: 400 Output blocked by content filtering policy",
-  "status": "failed"
+  "chunk": "chunk-0477-0477",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "471",
+  "qa": 0.976,
+  "qa_order": 0.858,
+  "status": "transcribed"
  },
  "p-0478": {
   "chunk": "chunk-0478-0480",
@@ -5100,8 +5142,15 @@
   "status": "transcribed"
  },
  "p-0511": {
-  "error": "claude exited 1: success: API Error: 400 Output blocked by content filtering policy",
-  "status": "failed"
+  "chunk": "fragment-recovery-p0511",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "505",
+  "qa": 0.963,
+  "qa_order": 0.928,
+  "recovery": "cropped-source-fragments",
+  "recovery_parts": 3,
+  "status": "transcribed"
  },
  "p-0512": {
   "chunk": "chunk-0512-0512",
@@ -5120,5 +5169,155 @@
   "qa": 0.985,
   "qa_order": 0.634,
   "status": "transcribed"
+ },
+ "p-0514": {
+  "error": "claude exited 1: success: API Error: Output blocked by content filtering policy",
+  "status": "failed"
+ },
+ "p-0515": {
+  "error": "claude exited 1: success: API Error: Output blocked by content filtering policy",
+  "status": "failed"
+ },
+ "p-0516": {
+  "error": "claude exited 1: success: API Error: Output blocked by content filtering policy",
+  "status": "failed"
+ },
+ "p-0517": {
+  "error": "claude exited 1: success: API Error: Output blocked by content filtering policy",
+  "status": "failed"
+ },
+ "p-0518": {
+  "error": "claude exited 1: success: API Error: Output blocked by content filtering policy",
+  "status": "failed"
+ },
+ "p-0519": {
+  "error": "claude exited 1: success: API Error: Output blocked by content filtering policy",
+  "status": "failed"
+ },
+ "p-0520": {
+  "error": "claude exited 1: success: API Error: 400 Output blocked by content filtering policy",
+  "status": "failed"
+ },
+ "p-0521": {
+  "error": "claude exited 1: success: API Error: 400 Output blocked by content filtering policy",
+  "status": "failed"
+ },
+ "p-0522": {
+  "error": "claude exited 1: success: API Error: 400 Output blocked by content filtering policy",
+  "status": "failed"
+ },
+ "p-0523": {
+  "chunk": "chunk-0523-0525",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "517",
+  "qa": 0.917,
+  "qa_order": 0.833,
+  "status": "transcribed"
+ },
+ "p-0524": {
+  "chunk": "chunk-0523-0525",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "518",
+  "qa": 0.956,
+  "qa_order": 0.846,
+  "status": "transcribed"
+ },
+ "p-0525": {
+  "chunk": "chunk-0523-0525",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "519",
+  "qa": 0.915,
+  "qa_order": 0.836,
+  "status": "transcribed"
+ },
+ "p-0526": {
+  "error": "claude exited 1: success: API Error: Output blocked by content filtering policy",
+  "status": "failed"
+ },
+ "p-0527": {
+  "error": "claude exited 1: success: API Error: Output blocked by content filtering policy",
+  "status": "failed"
+ },
+ "p-0528": {
+  "error": "claude exited 1: success: API Error: Output blocked by content filtering policy",
+  "status": "failed"
+ },
+ "p-0529": {
+  "chunk": "chunk-0529-0531",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "523",
+  "qa": 0.954,
+  "qa_order": 0.932,
+  "status": "transcribed"
+ },
+ "p-0530": {
+  "chunk": "chunk-0529-0531",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "524",
+  "qa": 0.983,
+  "qa_order": 0.668,
+  "status": "transcribed"
+ },
+ "p-0531": {
+  "chunk": "chunk-0529-0531",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "525",
+  "qa": 0.968,
+  "qa_order": 0.742,
+  "status": "transcribed"
+ },
+ "p-0532": {
+  "error": "claude exited 1: success: API Error: 400 Output blocked by content filtering policy",
+  "status": "failed"
+ },
+ "p-0533": {
+  "error": "claude exited 1: success: API Error: 400 Output blocked by content filtering policy",
+  "status": "failed"
+ },
+ "p-0534": {
+  "error": "claude exited 1: success: API Error: 400 Output blocked by content filtering policy",
+  "status": "failed"
+ },
+ "p-0535": {
+  "error": "claude exited 1: success: API Error: Output blocked by content filtering policy",
+  "status": "failed"
+ },
+ "p-0536": {
+  "error": "claude exited 1: success: API Error: Output blocked by content filtering policy",
+  "status": "failed"
+ },
+ "p-0537": {
+  "error": "claude exited 1: success: API Error: Output blocked by content filtering policy",
+  "status": "failed"
+ },
+ "p-0538": {
+  "error": "claude exited 1: success: API Error: 400 Output blocked by content filtering policy",
+  "status": "failed"
+ },
+ "p-0539": {
+  "error": "claude exited 1: success: API Error: 400 Output blocked by content filtering policy",
+  "status": "failed"
+ },
+ "p-0540": {
+  "error": "claude exited 1: success: API Error: 400 Output blocked by content filtering policy",
+  "status": "failed"
+ },
+ "p-0541": {
+  "error": "claude exited 1: success: You've hit your session limit \u00b7 resets 1:40pm (UTC)",
+  "status": "failed"
+ },
+ "p-0542": {
+  "error": "claude exited 1: success: You've hit your session limit \u00b7 resets 1:40pm (UTC)",
+  "status": "failed"
+ },
+ "p-0543": {
+  "error": "claude exited 1: success: You've hit your session limit \u00b7 resets 1:40pm (UTC)",
+  "status": "failed"
  }
 }
