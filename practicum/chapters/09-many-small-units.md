@@ -155,7 +155,7 @@ for rank, j in enumerate(order):
     ax.plot(0, stores.raw[j], "o", ms=3 + 5 * np.sqrt(stores.visits[j] / 1400),
             color=plt.cm.viridis(rank / len(order)))
 ax.axhline(pooled_rate, color="k", ls="--", lw=1)
-ax.annotate("company average", (1.02, pooled_rate))
+ax.annotate("company average", (1.05, pooled_rate + 0.002))
 ax.set_xlim(-0.15, 1.45); ax.set_xticks([0, 1])
 ax.set_xticklabels(["raw rate", "model estimate"])
 ax.set_ylabel("conversion rate")
