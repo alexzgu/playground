@@ -526,5 +526,113 @@
   "model": "claude-opus-5",
   "review_chunk": "review-0343-0345",
   "status": "verified"
+ },
+ "p-0346": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0346-0348",
+  "status": "verified"
+ },
+ "p-0347": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0346-0348",
+  "status": "verified"
+ },
+ "p-0348": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0346-0348",
+  "status": "verified"
+ },
+ "p-0349": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0349-0351",
+  "status": "verified"
+ },
+ "p-0350": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0349-0351",
+  "status": "corrected"
+ },
+ "p-0351": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0349-0351",
+  "status": "verified"
+ },
+ "p-0352": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0352-0354",
+  "status": "verified"
+ },
+ "p-0353": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0352-0354",
+  "status": "verified"
+ },
+ "p-0354": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0352-0354",
+  "status": "verified"
+ },
+ "p-0355": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0355-0357",
+  "status": "corrected"
+ },
+ "p-0356": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0355-0357",
+  "status": "verified"
+ },
+ "p-0357": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0355-0357",
+  "status": "verified"
+ },
+ "p-0358": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0358-0360",
+  "status": "verified"
+ },
+ "p-0359": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0358-0360",
+  "status": "verified"
+ },
+ "p-0360": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0358-0360",
+  "status": "verified"
+ },
+ "p-0361": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0361-0363",
+  "status": "verified"
+ },
+ "p-0362": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0361-0363",
+  "status": "verified"
+ },
+ "p-0363": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0361-0363",
+  "status": "verified"
  }
 }

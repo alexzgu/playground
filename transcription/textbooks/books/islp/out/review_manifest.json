@@ -700,5 +700,179 @@
   "model": "claude-opus-5",
   "review_chunk": "review-0415-0417",
   "status": "verified"
+ },
+ "p-0418": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0418-0420",
+  "status": "corrected"
+ },
+ "p-0419": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0418-0420",
+  "status": "corrected"
+ },
+ "p-0420": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0418-0420",
+  "status": "corrected"
+ },
+ "p-0421": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0421-0423",
+  "status": "verified"
+ },
+ "p-0422": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0421-0423",
+  "status": "verified"
+ },
+ "p-0423": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0421-0423",
+  "status": "verified"
+ },
+ "p-0424": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0424-0426",
+  "status": "verified"
+ },
+ "p-0425": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0424-0426",
+  "status": "verified"
+ },
+ "p-0426": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0424-0426",
+  "status": "verified"
+ },
+ "p-0427": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0427-0429",
+  "status": "verified"
+ },
+ "p-0428": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0427-0429",
+  "status": "verified"
+ },
+ "p-0429": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0427-0429",
+  "status": "verified"
+ },
+ "p-0430": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0430-0432",
+  "status": "verified"
+ },
+ "p-0431": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0430-0432",
+  "status": "verified"
+ },
+ "p-0432": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0430-0432",
+  "status": "verified"
+ },
+ "p-0433": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0433-0435",
+  "status": "verified"
+ },
+ "p-0434": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0433-0435",
+  "status": "verified"
+ },
+ "p-0435": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0433-0435",
+  "status": "corrected"
+ },
+ "p-0436": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0436-0438",
+  "status": "verified"
+ },
+ "p-0437": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0436-0438",
+  "status": "verified"
+ },
+ "p-0438": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0436-0438",
+  "status": "verified"
+ },
+ "p-0439": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0439-0441",
+  "status": "verified"
+ },
+ "p-0440": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0439-0441",
+  "status": "verified"
+ },
+ "p-0441": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0439-0441",
+  "status": "verified"
+ },
+ "p-0442": {
+  "error": "claude exited 1: success: API Error: 529 Overloaded. This is a server-side issue, usually temporary \u2014 try again in a moment. If it persists, check https://status.claude.com.",
+  "status": "failed"
+ },
+ "p-0443": {
+  "error": "claude exited 1: success: API Error: 529 Overloaded. This is a server-side issue, usually temporary \u2014 try again in a moment. If it persists, check https://status.claude.com.",
+  "status": "failed"
+ },
+ "p-0444": {
+  "error": "claude exited 1: success: API Error: 529 Overloaded. This is a server-side issue, usually temporary \u2014 try again in a moment. If it persists, check https://status.claude.com.",
+  "status": "failed"
+ },
+ "p-0445": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0445-0447",
+  "status": "verified"
+ },
+ "p-0446": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0445-0447",
+  "status": "verified"
+ },
+ "p-0447": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0445-0447",
+  "status": "verified"
  }
 }

@@ -3197,7 +3197,12 @@
   "printed_page": "334",
   "qa": 0.966,
   "qa_order": 0.82,
-  "status": "transcribed"
+  "review_chunk": "review-0349-0351",
+  "review_effort": "max",
+  "review_model": "claude-opus-5",
+  "review_status": "corrected",
+  "status": "transcribed",
+  "visual_review": "full-page-source-comparison"
  },
  "p-0351": {
   "chunk": "chunk-0349-0351",
@@ -3241,8 +3246,13 @@
   "model": "claude-opus-5",
   "printed_page": "339",
   "qa": 0.992,
-  "qa_order": 0.881,
-  "status": "transcribed"
+  "qa_order": 0.88,
+  "review_chunk": "review-0355-0357",
+  "review_effort": "max",
+  "review_model": "claude-opus-5",
+  "review_status": "corrected",
+  "status": "transcribed",
+  "visual_review": "full-page-source-comparison"
  },
  "p-0356": {
   "chunk": "chunk-0355-0357",
@@ -3314,6 +3324,168 @@
   "printed_page": "347",
   "qa": 0.989,
   "qa_order": 0.986,
+  "status": "transcribed"
+ },
+ "p-0364": {
+  "chunk": "chunk-0364-0366",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "348",
+  "qa": 0.974,
+  "qa_order": 0.954,
+  "status": "transcribed"
+ },
+ "p-0365": {
+  "chunk": "chunk-0364-0366",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "349",
+  "qa": 0.977,
+  "qa_order": 0.973,
+  "status": "transcribed"
+ },
+ "p-0366": {
+  "chunk": "chunk-0364-0366",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "350",
+  "qa": 0.96,
+  "qa_order": 0.78,
+  "status": "transcribed"
+ },
+ "p-0367": {
+  "chunk": "chunk-0367-0369",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "351",
+  "qa": 0.989,
+  "qa_order": 0.976,
+  "status": "transcribed"
+ },
+ "p-0368": {
+  "chunk": "chunk-0367-0369",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "352",
+  "qa": 0.977,
+  "qa_order": 0.917,
+  "status": "transcribed"
+ },
+ "p-0369": {
+  "chunk": "chunk-0367-0369",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "353",
+  "qa": 0.978,
+  "qa_order": 0.977,
+  "status": "transcribed"
+ },
+ "p-0370": {
+  "chunk": "chunk-0370-0372",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "354",
+  "qa": 0.978,
+  "qa_order": 0.963,
+  "status": "transcribed"
+ },
+ "p-0371": {
+  "chunk": "chunk-0370-0372",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "355",
+  "qa": 0.99,
+  "qa_order": 0.907,
+  "status": "transcribed"
+ },
+ "p-0372": {
+  "chunk": "chunk-0370-0372",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "356",
+  "qa": 0.987,
+  "qa_order": 0.935,
+  "status": "transcribed"
+ },
+ "p-0373": {
+  "chunk": "chunk-0373-0375",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "357",
+  "qa": 0.963,
+  "qa_order": 0.866,
+  "status": "transcribed"
+ },
+ "p-0374": {
+  "chunk": "chunk-0373-0375",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "358",
+  "qa": 0.918,
+  "qa_order": 0.662,
+  "status": "transcribed"
+ },
+ "p-0375": {
+  "chunk": "chunk-0373-0375",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "359",
+  "qa": 0.987,
+  "qa_order": 0.97,
+  "status": "transcribed"
+ },
+ "p-0376": {
+  "chunk": "chunk-0376-0378",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "360",
+  "qa": 0.974,
+  "qa_order": 0.974,
+  "status": "transcribed"
+ },
+ "p-0377": {
+  "chunk": "chunk-0376-0378",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "361",
+  "qa": 0.979,
+  "qa_order": 0.736,
+  "status": "transcribed"
+ },
+ "p-0378": {
+  "chunk": "chunk-0376-0378",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "362",
+  "qa": 0.983,
+  "qa_order": 0.983,
+  "status": "transcribed"
+ },
+ "p-0379": {
+  "chunk": "chunk-0379-0381",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "363",
+  "qa": 0.968,
+  "qa_order": 0.873,
+  "status": "transcribed"
+ },
+ "p-0380": {
+  "chunk": "chunk-0379-0381",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "364",
+  "qa": 0.962,
+  "qa_order": 0.923,
+  "status": "transcribed"
+ },
+ "p-0381": {
+  "chunk": "chunk-0379-0381",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "365",
+  "qa": 0.973,
+  "qa_order": 0.945,
   "status": "transcribed"
  }
 }

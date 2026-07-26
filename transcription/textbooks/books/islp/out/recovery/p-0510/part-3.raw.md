@@ -1,0 +1,6 @@
+===FRAGMENT 3===
+## 12.2  Principal Components Analysis
+
+*Principal components* are discussed in Section 6.3.1 in the context of principal components regression. When faced with a large set of correlated variables, principal components allow us to summarize this set with a smaller number of representative variables that collectively explain most of the variability in the original set. The principal component directions are presented in Section 6.3.1 as directions in feature space along which the original data are *highly variable*. These directions also define lines and subspaces that are *as close as possible* to the data cloud. To perform principal components regression, we simply use principal components as predictors in a regression model in place of the original larger set of variables.
+
+*Principal components analysis* (PCA) refers to the process by which principal components are computed, and the subsequent use of these components in understanding the data. *[margin: principal components analysis]* PCA is an unsupervised approach, since it involves only a set of features $X_1, X_2, \ldots, X_p$, and no associated response $Y$. Apart from producing derived variables for use in supervised learning problems, PCA also serves as a tool for data visualization (visualization of

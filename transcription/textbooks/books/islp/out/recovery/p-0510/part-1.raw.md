@@ -1,0 +1,4 @@
+===FRAGMENT 1===
+understanding of how to assess the quality of the results obtained (using cross-validation, validation on an independent test set, and so forth).
+
+In contrast, unsupervised learning is often much more challenging. The exercise tends to be more subjective, and there is no simple goal for the analysis, such as prediction of a response. Unsupervised learning is often performed as part of an *exploratory data analysis*. *[margin: exploratory data analysis]* Furthermore, it can be hard to assess the results obtained from unsupervised learning methods, since there is no universally accepted mechanism for performing cross-validation or validating results on an independent data set. The reason for this difference is simple. If we fit a predictive model using a supervised learning technique, then it is possible to *check our work* by seeing how well our model predicts the response $Y$ on observations not used in fitting
