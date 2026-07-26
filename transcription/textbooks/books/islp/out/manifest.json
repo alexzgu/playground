@@ -3806,8 +3806,13 @@
   "model": "claude-opus-5",
   "printed_page": "367",
   "qa": 0.982,
-  "qa_order": 0.955,
-  "status": "transcribed"
+  "qa_order": 0.953,
+  "review_chunk": "review-0373-0375",
+  "review_effort": "max",
+  "review_model": "claude-opus-5",
+  "review_status": "corrected",
+  "status": "transcribed",
+  "visual_review": "full-page-source-comparison"
  },
  "p-0375": {
   "chunk": "chunk-0373-0375",
@@ -3834,7 +3839,12 @@
   "printed_page": "370",
   "qa": 0.974,
   "qa_order": 0.848,
-  "status": "transcribed"
+  "review_chunk": "review-0376-0378",
+  "review_effort": "max",
+  "review_model": "claude-opus-5",
+  "review_status": "corrected",
+  "status": "transcribed",
+  "visual_review": "full-page-source-comparison"
  },
  "p-0378": {
   "chunk": "chunk-0378-0378",
@@ -4244,7 +4254,122 @@
   "status": "transcribed"
  },
  "p-0423": {
-  "error": "claude exited 1: success: API Error: Output blocked by content filtering policy",
-  "status": "failed"
+  "chunk": "fragment-recovery-p0423",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "416",
+  "qa": 0.953,
+  "qa_order": 0.946,
+  "recovery": "cropped-source-fragments",
+  "recovery_parts": 3,
+  "status": "transcribed"
+ },
+ "p-0424": {
+  "chunk": "chunk-0424-0426",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "417",
+  "qa": 0.973,
+  "qa_order": 0.771,
+  "status": "transcribed"
+ },
+ "p-0425": {
+  "chunk": "chunk-0424-0426",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "418",
+  "qa": 0.969,
+  "qa_order": 0.926,
+  "status": "transcribed"
+ },
+ "p-0426": {
+  "chunk": "chunk-0424-0426",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "419",
+  "qa": 0.983,
+  "qa_order": 0.837,
+  "status": "transcribed"
+ },
+ "p-0427": {
+  "chunk": "chunk-0427-0429",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "420",
+  "qa": 0.974,
+  "qa_order": 0.956,
+  "status": "transcribed"
+ },
+ "p-0428": {
+  "chunk": "chunk-0427-0429",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "421",
+  "qa": 0.986,
+  "qa_order": 0.798,
+  "status": "transcribed"
+ },
+ "p-0429": {
+  "chunk": "chunk-0427-0429",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "422",
+  "qa": 0.978,
+  "qa_order": 0.842,
+  "status": "transcribed"
+ },
+ "p-0430": {
+  "chunk": "chunk-0430-0432",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "423",
+  "qa": 0.964,
+  "qa_order": 0.848,
+  "status": "transcribed"
+ },
+ "p-0431": {
+  "chunk": "chunk-0430-0432",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "424",
+  "qa": 0.967,
+  "qa_order": 0.942,
+  "status": "transcribed"
+ },
+ "p-0432": {
+  "chunk": "chunk-0430-0432",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "425",
+  "qa": 0.96,
+  "qa_order": 0.958,
+  "status": "transcribed"
+ },
+ "p-0433": {
+  "chunk": "chunk-0433-0435",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "426",
+  "qa": 0.98,
+  "qa_order": 0.975,
+  "status": "transcribed"
+ },
+ "p-0434": {
+  "chunk": "chunk-0433-0435",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "427",
+  "qa": 0.952,
+  "qa_order": 0.889,
+  "status": "transcribed"
+ },
+ "p-0435": {
+  "chunk": "chunk-0433-0435",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "428",
+  "qa": 0.974,
+  "qa_order": 0.733,
+  "status": "transcribed"
  }
 }

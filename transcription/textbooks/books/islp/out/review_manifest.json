@@ -394,5 +394,95 @@
   "model": "claude-opus-5",
   "review_chunk": "review-0364-0366",
   "status": "verified"
+ },
+ "p-0367": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0367-0369",
+  "status": "verified"
+ },
+ "p-0368": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0367-0369",
+  "status": "verified"
+ },
+ "p-0369": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0367-0369",
+  "status": "verified"
+ },
+ "p-0370": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0370-0372",
+  "status": "verified"
+ },
+ "p-0371": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0370-0372",
+  "status": "verified"
+ },
+ "p-0372": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0370-0372",
+  "status": "verified"
+ },
+ "p-0373": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0373-0375",
+  "status": "verified"
+ },
+ "p-0374": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0373-0375",
+  "status": "corrected"
+ },
+ "p-0375": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0373-0375",
+  "status": "verified"
+ },
+ "p-0376": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0376-0378",
+  "status": "verified"
+ },
+ "p-0377": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0376-0378",
+  "status": "corrected"
+ },
+ "p-0378": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0376-0378",
+  "status": "verified"
+ },
+ "p-0379": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0379-0381",
+  "status": "verified"
+ },
+ "p-0380": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0379-0381",
+  "status": "verified"
+ },
+ "p-0381": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0379-0381",
+  "status": "verified"
  }
 }

@@ -27,7 +27,8 @@ MARKER = re.compile(r"^===FRAGMENT (\d+)===\s*$", re.M)
 def infer_printed_page(text_path: Path) -> str | None:
     if not text_path.exists():
         return None
-    for line in text_path.read_text().splitlines()[:8]:
+    lines = text_path.read_text().splitlines()
+    for line in [*lines[:8], *lines[-8:]]:
         value = line.strip()
         if re.fullmatch(r"(?:[ivxlcdm]+|\d+)", value, re.I):
             return value

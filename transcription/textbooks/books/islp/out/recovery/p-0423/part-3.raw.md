@@ -1,0 +1,4 @@
+===FRAGMENT 3===
+Consider a corpus of documents, such as the collection of `IMDb` movie reviews. Each document can be represented as a sequence of $L$ words, so $X = \{X_1, X_2, \ldots, X_L\}$, where each $X_\ell$ represents a word. The order of the words, and closeness of certain words in a sentence, convey semantic meaning. RNNs are designed to accommodate and take advantage of the sequential nature of such input objects, much like convolutional neural networks accommodate the spatial structure of image inputs. The output $Y$ can also be a sequence (such as in language translation), but often is a scalar, like the binary sentiment label of a movie review document.
+
+*[margin: neural network]*
