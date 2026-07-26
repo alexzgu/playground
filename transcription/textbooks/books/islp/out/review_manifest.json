@@ -484,5 +484,95 @@
   "model": "claude-opus-5",
   "review_chunk": "review-0379-0381",
   "status": "verified"
+ },
+ "p-0382": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0382-0384",
+  "status": "corrected"
+ },
+ "p-0383": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0382-0384",
+  "status": "verified"
+ },
+ "p-0384": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0382-0384",
+  "status": "corrected"
+ },
+ "p-0385": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0385-0387",
+  "status": "verified"
+ },
+ "p-0386": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0385-0387",
+  "status": "verified"
+ },
+ "p-0387": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0385-0387",
+  "status": "verified"
+ },
+ "p-0388": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0388-0390",
+  "status": "corrected"
+ },
+ "p-0389": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0388-0390",
+  "status": "verified"
+ },
+ "p-0390": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0388-0390",
+  "status": "verified"
+ },
+ "p-0391": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0391-0393",
+  "status": "corrected"
+ },
+ "p-0392": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0391-0393",
+  "status": "verified"
+ },
+ "p-0393": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0391-0393",
+  "status": "verified"
+ },
+ "p-0394": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0394-0396",
+  "status": "verified"
+ },
+ "p-0395": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0394-0396",
+  "status": "verified"
+ },
+ "p-0396": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0394-0396",
+  "status": "verified"
  }
 }

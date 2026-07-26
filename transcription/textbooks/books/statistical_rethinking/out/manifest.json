@@ -2658,8 +2658,13 @@
   "model": "claude-opus-5",
   "printed_page": "281",
   "qa": 0.939,
-  "qa_order": 0.517,
-  "status": "transcribed"
+  "qa_order": 0.548,
+  "review_chunk": "review-0295-0297",
+  "review_effort": "max",
+  "review_model": "claude-opus-5",
+  "review_status": "corrected",
+  "status": "transcribed",
+  "visual_review": "full-page-source-comparison"
  },
  "p-0298": {
   "chunk": "chunk-0298-0300",
@@ -2676,8 +2681,13 @@
   "model": "claude-opus-5",
   "printed_page": "283",
   "qa": 0.988,
-  "qa_order": 0.983,
-  "status": "transcribed"
+  "qa_order": 0.987,
+  "review_chunk": "review-0298-0300",
+  "review_effort": "max",
+  "review_model": "claude-opus-5",
+  "review_status": "corrected",
+  "status": "transcribed",
+  "visual_review": "full-page-source-comparison"
  },
  "p-0300": {
   "chunk": "chunk-0298-0300",
@@ -2748,8 +2758,13 @@
   "model": "claude-opus-5",
   "printed_page": "291",
   "qa": 0.987,
-  "qa_order": 0.881,
-  "status": "transcribed"
+  "qa_order": 0.878,
+  "review_chunk": "review-0307-0309",
+  "review_effort": "max",
+  "review_model": "claude-opus-5",
+  "review_status": "corrected",
+  "status": "transcribed",
+  "visual_review": "full-page-source-comparison"
  },
  "p-0308": {
   "chunk": "chunk-0307-0309",
@@ -2793,8 +2808,13 @@
   "model": "claude-opus-5",
   "printed_page": "296",
   "qa": 0.977,
-  "qa_order": 0.969,
-  "status": "transcribed"
+  "qa_order": 0.975,
+  "review_chunk": "review-0310-0312",
+  "review_effort": "max",
+  "review_model": "claude-opus-5",
+  "review_status": "corrected",
+  "status": "transcribed",
+  "visual_review": "full-page-source-comparison"
  },
  "p-0313": {
   "chunk": "chunk-0313-0315",
@@ -2838,8 +2858,13 @@
   "model": "claude-opus-5",
   "printed_page": "301",
   "qa": 0.667,
-  "qa_order": 0.145,
-  "status": "transcribed-lowqa"
+  "qa_order": 0.221,
+  "review_chunk": "review-0316-0318",
+  "review_effort": "max",
+  "review_model": "claude-opus-5",
+  "review_status": "corrected",
+  "status": "transcribed-lowqa",
+  "visual_review": "full-page-source-comparison"
  },
  "p-0318": {
   "chunk": "chunk-0316-0318",
@@ -2848,7 +2873,12 @@
   "printed_page": "302",
   "qa": 0.983,
   "qa_order": 0.983,
-  "status": "transcribed"
+  "review_chunk": "review-0316-0318",
+  "review_effort": "max",
+  "review_model": "claude-opus-5",
+  "review_status": "corrected",
+  "status": "transcribed",
+  "visual_review": "full-page-source-comparison"
  },
  "p-0319": {
   "chunk": "chunk-0319-0321",
@@ -2986,5 +3016,93 @@
   "qa": 0.986,
   "qa_order": 0.977,
   "status": "transcribed"
+ },
+ "p-0334": {
+  "chunk": "chunk-0334-0336",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "318",
+  "qa": 0.942,
+  "qa_order": 0.737,
+  "status": "transcribed"
+ },
+ "p-0335": {
+  "chunk": "chunk-0334-0336",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "319",
+  "qa": 0.966,
+  "qa_order": 0.971,
+  "status": "transcribed"
+ },
+ "p-0336": {
+  "chunk": "chunk-0334-0336",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "320",
+  "qa": 0.958,
+  "qa_order": 0.89,
+  "status": "transcribed"
+ },
+ "p-0337": {
+  "chunk": "chunk-0337-0337",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "321",
+  "qa": 0.972,
+  "qa_order": 0.9,
+  "status": "transcribed"
+ },
+ "p-0338": {
+  "error": "claude exited 1: success: API Error: 400 Output blocked by content filtering policy",
+  "status": "failed"
+ },
+ "p-0339": {
+  "chunk": "chunk-0339-0339",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "323",
+  "qa": 0.928,
+  "qa_order": 0.783,
+  "status": "transcribed"
+ },
+ "p-0340": {
+  "chunk": "chunk-0340-0342",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "324",
+  "qa": 0.965,
+  "qa_order": 0.944,
+  "status": "transcribed"
+ },
+ "p-0341": {
+  "chunk": "chunk-0340-0342",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "325",
+  "qa": 0.966,
+  "qa_order": 0.871,
+  "status": "transcribed"
+ },
+ "p-0342": {
+  "chunk": "chunk-0340-0342",
+  "effort": "max",
+  "model": "claude-opus-5",
+  "printed_page": "326",
+  "qa": 0.96,
+  "qa_order": 0.829,
+  "status": "transcribed"
+ },
+ "p-0343": {
+  "error": "claude exited 1: success: API Error: 400 Output blocked by content filtering policy",
+  "status": "failed"
+ },
+ "p-0344": {
+  "error": "claude exited 1: success: API Error: 400 Output blocked by content filtering policy",
+  "status": "failed"
+ },
+ "p-0345": {
+  "error": "claude exited 1: success: API Error: 400 Output blocked by content filtering policy",
+  "status": "failed"
  }
 }
