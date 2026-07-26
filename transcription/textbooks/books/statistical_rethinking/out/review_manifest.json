@@ -114,15 +114,75 @@
   "status": "verified"
  },
  "p-0277": {
-  "error": "claude exited 1: success: You've hit your session limit \u00b7 resets 3:40am (UTC)",
-  "status": "failed"
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0277-0279",
+  "status": "verified"
  },
  "p-0278": {
-  "error": "claude exited 1: success: You've hit your session limit \u00b7 resets 3:40am (UTC)",
-  "status": "failed"
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0277-0279",
+  "status": "verified"
  },
  "p-0279": {
-  "error": "claude exited 1: success: You've hit your session limit \u00b7 resets 3:40am (UTC)",
-  "status": "failed"
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0277-0279",
+  "status": "verified"
+ },
+ "p-0280": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0280-0282",
+  "status": "verified"
+ },
+ "p-0281": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0280-0282",
+  "status": "verified"
+ },
+ "p-0282": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0280-0282",
+  "status": "verified"
+ },
+ "p-0283": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0283-0285",
+  "status": "verified"
+ },
+ "p-0284": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0283-0285",
+  "status": "verified"
+ },
+ "p-0285": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0283-0285",
+  "status": "verified"
+ },
+ "p-0286": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0286-0288",
+  "status": "corrected"
+ },
+ "p-0287": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0286-0288",
+  "status": "verified"
+ },
+ "p-0288": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0286-0288",
+  "status": "verified"
  }
 }

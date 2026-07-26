@@ -358,5 +358,23 @@
   "model": "claude-opus-5",
   "review_chunk": "review-0358-0360",
   "status": "verified"
+ },
+ "p-0361": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0361-0363",
+  "status": "verified"
+ },
+ "p-0362": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0361-0363",
+  "status": "verified"
+ },
+ "p-0363": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0361-0363",
+  "status": "verified"
  }
 }
