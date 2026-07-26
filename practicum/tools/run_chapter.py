@@ -34,6 +34,7 @@ from pathlib import Path
 os.environ.setdefault("MPLBACKEND", "Agg")
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT))       # so chapters can `from bayeskit import ...`
 HARD_CAP_S = 300.0
 TARGET_S = 120.0
 

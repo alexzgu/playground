@@ -22,13 +22,25 @@ import numpy as np
 from scipy import optimize
 
 __all__ = [
-    "grid_posterior", "sample_grid", "hdi", "pi", "summarize", "prob_of",
+    "midpoint_grid", "grid_posterior", "sample_grid", "hdi", "pi", "summarize",
+    "prob_of",
     "quap", "hessian_fd", "rhat", "ess", "mcmc_summary",
     "lppd", "waic", "psis_loo", "gpd_fit", "ece", "calibration_curve",
 ]
 
 
 # --------------------------------------------------------------- ch01: grids
+
+def midpoint_grid(lo, hi, k):
+    """k evenly spaced cell *centres* on [lo, hi].
+
+    Centres, not edges: the edges of a parameter's range are where likelihoods
+    are often exactly zero (a rate of 0 cannot produce a success), and where a
+    decision threshold lands ambiguously between two grid points.
+    """
+    edges = np.linspace(lo, hi, k + 1)
+    return 0.5 * (edges[:-1] + edges[1:])
+
 
 def grid_posterior(log_lik, grid, log_prior=None):
     """Posterior on a 1-D grid, computed in log space.
