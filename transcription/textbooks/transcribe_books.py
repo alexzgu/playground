@@ -20,17 +20,19 @@ import subprocess
 import sys
 import threading
 import time
+from datetime import datetime, timezone
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 import fcntl
 
 HERE = Path(__file__).resolve().parent
-DEFAULT_MODEL = "opus"
+DEFAULT_MODEL = "claude-opus-5"
 DEFAULT_EFFORT = "max"
 CHUNK_TIMEOUT_S = 2400
 DONE = ("transcribed", "transcribed-lowqa")
 
 manifest_lock = threading.Lock()
+USAGE_LOG = HERE / "CLAUDE_USAGE.jsonl"
 
 
 def load_books() -> dict:
@@ -124,16 +126,64 @@ def build_prompt(book: dict, pages: list[int]) -> str:
                .replace("{STYLE_GUIDE}", style))
 
 
-def run_cli(prompt: str, model: str, effort: str, claude_bin: str) -> str:
+def record_claude_usage(payload: dict, metadata: dict | None = None) -> None:
+    """Append one privacy-preserving CLI usage record across concurrent runners."""
+    record = {
+        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "pid": os.getpid(),
+        **(metadata or {}),
+        "status": "error" if payload.get("is_error") else "success",
+        "total_cost_usd": payload.get("total_cost_usd"),
+        "duration_api_ms": payload.get("duration_api_ms"),
+        "duration_ms": payload.get("duration_ms"),
+        "num_turns": payload.get("num_turns"),
+        "model_usage": payload.get("modelUsage", {}),
+    }
+    with (HERE / "CLAUDE_USAGE.lock").open("a+") as lock:
+        fcntl.flock(lock.fileno(), fcntl.LOCK_EX)
+        with USAGE_LOG.open("a") as stream:
+            stream.write(json.dumps(record, sort_keys=True) + "\n")
+        fcntl.flock(lock.fileno(), fcntl.LOCK_UN)
+
+
+def run_cli(prompt: str, model: str, effort: str, claude_bin: str,
+            usage_metadata: dict | None = None) -> str:
     cmd = [claude_bin, "-p", prompt, "--model", model,
            "--effort", effort,
-           "--allowedTools", "Read", "--output-format", "text", "--max-turns", "24"]
+           "--allowedTools", "Read", "--output-format", "json", "--max-turns", "24",
+           "--safe-mode", "--no-session-persistence", "--disable-slash-commands",
+           "--prompt-suggestions", "false", "--no-chrome"]
     r = subprocess.run(cmd, capture_output=True, text=True,
                        timeout=CHUNK_TIMEOUT_S, cwd=HERE)
     if r.returncode != 0:
-        detail = (r.stderr.strip() or r.stdout.strip())[:500]
+        payload = None
+        try:
+            payload = json.loads(r.stdout)
+        except (json.JSONDecodeError, TypeError):
+            pass
+        if isinstance(payload, dict):
+            record_claude_usage(payload, usage_metadata)
+            result = payload.get("result")
+            subtype = payload.get("subtype") or payload.get("stop_reason") or "error"
+            if isinstance(result, str) and result.strip():
+                detail = f"{subtype}: {result.strip()}"
+            else:
+                detail = f"{subtype}: {r.stdout.strip()}"
+        else:
+            detail = r.stderr.strip() or r.stdout.strip()
+        detail = detail[:500]
         raise RuntimeError(f"claude exited {r.returncode}: {detail}")
-    return r.stdout
+    try:
+        payload = json.loads(r.stdout)
+    except json.JSONDecodeError as exc:
+        raise RuntimeError(f"invalid Claude JSON output: {exc}") from exc
+    record_claude_usage(payload, usage_metadata)
+    if payload.get("is_error"):
+        raise RuntimeError(str(payload.get("result") or "Claude returned an error")[:500])
+    result = payload.get("result")
+    if not isinstance(result, str):
+        raise RuntimeError("Claude JSON output has no string result")
+    return result
 
 
 def qa_scores(transcript: str, text_layer_path: Path) -> tuple[float | None, float | None]:
@@ -166,6 +216,21 @@ def qa_score(transcript: str, text_layer_path: Path) -> float | None:
 HEADING = re.compile(r"### PDF page (\d+) \((?:book page ([^)]+)|no printed page number)\)")
 
 
+def is_usage_limit_error(error: object) -> bool:
+    text = str(error).lower()
+    return any(marker in text for marker in (
+        "session limit",
+        "usage limit",
+        "rate limit",
+        "quota",
+        "credit balance",
+        "limit reached",
+        "hit your limit",
+        "authentication",
+        "unauthorized",
+    ))
+
+
 def transcribe_chunk(book: dict, pages: list[int], args, claude_bin: str) -> dict[int, dict]:
     pages_dir, text_dir, out = book_dirs(book["key"])
     prompt = build_prompt(book, pages)
@@ -173,10 +238,24 @@ def transcribe_chunk(book: dict, pages: list[int], args, claude_bin: str) -> dic
     last_err = None
     for attempt in (1, 2):
         try:
-            raw = run_cli(prompt, args.model, args.effort, claude_bin)
+            raw = run_cli(
+                prompt, args.model, args.effort, claude_bin,
+                {
+                    "role": "transcribe",
+                    "book": book["key"],
+                    "pages": pages,
+                    "requested_model": args.model,
+                    "effort": args.effort,
+                },
+            )
             break
         except Exception as e:
             last_err = e
+            if is_usage_limit_error(e):
+                return {
+                    p: {"status": "failed", "error": str(e)[:500]}
+                    for p in pages
+                }
             time.sleep(20 * attempt)
     else:
         return {p: {"status": "failed", "error": str(last_err)[:500]} for p in pages}
@@ -321,16 +400,7 @@ def main():
             done_chunks += 1
             n_ok = sum(1 for r in results.values() if r["status"] in DONE)
             errors = " ".join(r.get("error", "") for r in results.values()).lower()
-            limit_failure = n_ok == 0 and any(
-                marker in errors for marker in (
-                    "rate limit",
-                    "usage limit",
-                    "quota",
-                    "credit balance",
-                    "authentication",
-                    "unauthorized",
-                )
-            )
+            limit_failure = n_ok == 0 and is_usage_limit_error(errors)
             consec_limit_fail = consec_limit_fail + 1 if limit_failure else 0
             lows = [f"p{p}={r['qa']}" for p, r in results.items()
                     if r["status"] == "transcribed-lowqa"]
@@ -338,9 +408,10 @@ def main():
             err = "" if n_ok else " " + next(iter(results.values())).get("error", "")[:120]
             print(f"[{done_chunks}/{len(chunks)}] p{ch[0]}-{ch[-1]}: "
                   f"{n_ok}/{len(ch)} ok{note}{err}", flush=True)
-            if consec_limit_fail >= 4:
-                print("4 consecutive quota/rate/authentication failures — stopping "
-                      "early; re-run to resume.", flush=True)
+            if consec_limit_fail >= 1:
+                print("Claude usage/quota/authentication limit reached — stopping "
+                      "immediately; wait for explicit permission before resuming.",
+                      flush=True)
                 pool.shutdown(cancel_futures=True)
                 break
 

@@ -32,7 +32,7 @@ textbooks (the Bayesian booklet was done earlier by the sibling pipeline in
 
 ```bash
 python3 render_pages.py                          # once — page JPEGs + text layers
-python3 transcribe_books.py --book <key>         # Opus, max effort; all pending pages (resumable)
+python3 transcribe_books.py --book <key>         # Claude Opus 5, max effort; all pending pages
 python3 transcribe_books.py --book <key> --detach --log <key>.log
 python3 assemble.py --book <key>                 # rebuild curriculum_material/<key>/
 ./supervisor.sh                                  # or: drive all books end-to-end

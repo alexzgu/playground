@@ -1,0 +1,13 @@
+[statistical_rethinking] 10 page(s) in 10 chunk(s), model=claude-opus-5, effort=max, workers=1
+[1/10] p246-246: 0/1 ok claude exited 1: success: API Error: Output blocked by content filtering policy
+[2/10] p259-259: 1/1 ok
+[3/10] p260-260: 1/1 ok
+[4/10] p261-261: 1/1 ok
+[5/10] p265-265: 1/1 ok
+[6/10] p266-266: 1/1 ok
+[7/10] p267-267: 1/1 ok
+[8/10] p268-268: 1/1 ok
+[9/10] p269-269: 1/1 ok
+[10/10] p270-270: 1/1 ok
+
+Done. 9 ok, 1 failed, 0 still pending.

@@ -1,7 +1,7 @@
 # Chapter 5 — Introduction to Factorial Designs
-*(PDF pages 199–248; book pages 183–224)*
+*(PDF pages 199–248; book pages 183–230)*
 
-*⚠ In progress: 42 of 50 pages transcribed; missing PDF pages 241–248.*
+*⚠ In progress: 45 of 50 pages transcribed; missing PDF pages 241–243, 247–248.*
 
 ### PDF page 199 (book page 183)
 
@@ -1954,3 +1954,214 @@ The ANOVA is summarized in Table 5.25. We have added a column to this table indi
 | Operators (columns) | 428.00 | 5 | $ab-1$ | 85.60 | | |
 | Error | 198.00 | 20 | $(ab-1)(ab-2)$ | 9.90 | | |
 | Total | 2798.00 | 35 | $(ab)^2-1$ | | | |
+
+### PDF page 244 (book page 228)
+
+| Cycle Time | Temperature<br>300°C<br>Operator 1 | Temperature<br>300°C<br>Operator 2 | Temperature<br>300°C<br>Operator 3 | Temperature<br>350°C<br>Operator 1 | Temperature<br>350°C<br>Operator 2 | Temperature<br>350°C<br>Operator 3 |
+|---|---|---|---|---|---|---|
+|  | 23 | 27 | 31 | 24 | 38 | 34 |
+| 40 | 24 | 28 | 32 | 23 | 36 | 36 |
+|  | 25 | 26 | 29 | 28 | 35 | 39 |
+|  | 36 | 34 | 33 | 37 | 34 | 34 |
+| 50 | 35 | 38 | 34 | 39 | 38 | 36 |
+|  | 36 | 39 | 35 | 35 | 36 | 31 |
+|  | 28 | 35 | 26 | 26 | 36 | 28 |
+| 60 | 24 | 35 | 27 | 29 | 37 | 26 |
+|  | 27 | 34 | 25 | 25 | 34 | 24 |
+
+**5.20.** In Problem 5.3, suppose that we wish to reject the null hypothesis with a high probability if the difference in the true mean yield at any two pressures is as great as 0.5. If a reasonable prior estimate of the standard deviation of yield is 0.1, how many replicates should be run?
+
+**5.21.** The yield of a chemical process is being studied. The two factors of interest are temperature and pressure. Three levels of each factor are selected; however, only nine runs can be made in one day. The experimenter runs a complete replicate of the design on each day. The data are shown in the following table. Analyze the data, assuming that the days are blocks.
+
+| Temperature | Day 1<br>Pressure 250 | Day 1<br>Pressure 260 | Day 1<br>Pressure 270 | Day 2<br>Pressure 250 | Day 2<br>Pressure 260 | Day 2<br>Pressure 270 |
+|---|---|---|---|---|---|---|
+| Low | 86.3 | 84.0 | 85.8 | 86.1 | 85.2 | 87.3 |
+| Medium | 88.5 | 87.3 | 89.0 | 89.4 | 89.9 | 90.3 |
+| High | 89.1 | 90.2 | 91.3 | 91.7 | 93.2 | 93.7 |
+
+**5.22.** Consider the data in Problem 5.7. Analyze the data, assuming that replicates are blocks.
+
+**5.23.** Consider the data in Problem 5.8. Analyze the data, assuming that replicates are blocks.
+
+**5.24.** An article in the *Journal of Testing and Evaluation* (Vol. 16, no. 2, pp. 508–515) investigated the effects of cyclic loading and environmental conditions on fatigue crack growth at a constant 22 MPa stress for a particular material. The data from this experiment are shown below (the response is crack growth rate):
+
+| Frequency | Environment<br>Air | Environment<br>H₂O | Environment<br>Salt H₂O |
+|---|---|---|---|
+|  | 2.29 | 2.06 | 1.90 |
+| 10 | 2.47 | 2.05 | 1.93 |
+|  | 2.48 | 2.23 | 1.75 |
+|  | 2.12 | 2.03 | 2.06 |
+|  | 2.65 | 3.20 | 3.10 |
+| 1 | 2.68 | 3.18 | 3.24 |
+|  | 2.06 | 3.96 | 3.98 |
+|  | 2.38 | 3.64 | 3.24 |
+|  | 2.24 | 11.00 | 9.96 |
+| 0.1 | 2.71 | 11.00 | 10.01 |
+|  | 2.81 | 9.06 | 9.36 |
+|  | 2.08 | 11.30 | 10.40 |
+
+(**a**) Analyze the data from this experiment (use $\alpha = 0.05$).
+
+(**b**) Analyze the residuals.
+
+(**c**) Repeat the analyses from parts (a) and (b) using ln ($y$) as the response. Comment on the results.
+
+**5.25.** An article in the *IEEE Transactions on Electron Devices* (Nov. 1986, pp. 1754) describes a study on polysilicon doping. The experiment shown below is a variation of their study. The response variable is base current.
+
+| Polysilicon<br>Doping (ions) | Anneal Temperature (°C)<br>900 | Anneal Temperature (°C)<br>950 | Anneal Temperature (°C)<br>1000 |
+|---|---|---|---|
+| $1 \times 10^{20}$ | 4.60 | 10.15 | 11.01 |
+|  | 4.40 | 10.20 | 10.58 |
+| $2 \times 10^{20}$ | 3.20 | 9.38 | 10.81 |
+|  | 3.50 | 10.02 | 10.60 |
+
+(**a**) Is there evidence (with $\alpha = 0.05$) indicating that either polysilicon doping level or anneal temperature affects base current?
+
+(**b**) Prepare graphical displays to assist in interpreting this experiment.
+
+(**c**) Analyze the residuals and comment on model adequacy.
+
+(**d**) Is the model
+
+$$\begin{aligned} y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 \\ + \beta_{22} x_2^2 + \beta_{12} x_1 x_2 + \epsilon \end{aligned}$$
+
+supported by this experiment ($x_1 =$ doping level, $x_2 =$ temperature)? Estimate the parameters in this model and plot the response surface.
+
+**5.26.** An experiment was conducted to study the life (in hours) of two different brands of batteries in three different devices (radio, camera, and portable DVD player). A completely randomized two-factor factorial experiment was conducted and the following data resulted.
+
+### PDF page 245 (book page 229)
+
+| Brand of<br>Battery | Device<br>Radio | Device<br>Camera | Device<br>DVD Player |
+|---|---|---|---|
+| A | 8.6 | 7.9 | 5.4 |
+|  | 8.2 | 8.4 | 5.7 |
+| B | 9.4 | 8.5 | 5.8 |
+|  | 8.8 | 8.9 | 5.9 |
+
+(**a**) Analyze the data and draw conclusions, using $\alpha = 0.05$.
+
+(**b**) Investigate model adequacy by plotting the residuals.
+
+(**c**) Which brand of batteries would you recommend?
+
+**5.27.** I have recently purchased new golf clubs, which I believe will significantly improve my game. Below are the scores of three rounds of golf played at three different golf courses with the old and the new clubs.
+
+| Clubs | Course<br>Ahwatukee | Course<br>Karsten | Course<br>Foothills |
+|---|---|---|---|
+| Old | 90 | 91 | 88 |
+|  | 87 | 93 | 86 |
+|  | 86 | 90 | 90 |
+| New | 88 | 90 | 86 |
+|  | 87 | 91 | 85 |
+|  | 85 | 88 | 88 |
+
+(**a**) Conduct an analysis of variance. Using $\alpha = 0.05$, what conclusions can you draw?
+
+(**b**) Investigate model adequacy by plotting the residuals.
+
+**5.28.** A manufacturer of laundry products is investigating the performance of a newly formulated stain remover. The new formulation is compared to the original formulation with respect to its ability to remove a standard tomato-like stain in a test article of cotton cloth using a factorial experiment. The other factors in the experiment are the number of times the test article is washed (1 or 2) and whether or not a detergent booster is used. The response variable is the stain shade after washing (12 is the darkest, 0 is the lightest). The data are shown in the following table.
+
+| Formulation | Number of Washings 1<br>Booster Yes | Number of Washings 1<br>Booster No | Number of Washings 2<br>Booster Yes | Number of Washings 2<br>Booster No |
+|---|---|---|---|---|
+| New | 6, 5 | 6, 5 | 3, 2 | 4, 1 |
+| Original | 10, 9 | 11, 11 | 10, 9 | 9, 10 |
+
+(**a**) Conduct an analysis of variance. Using $\alpha = 0.05$, what conclusions can you draw?
+
+(**b**) Investigate model adequacy by plotting the residuals.
+
+**5.29.** Bone anchors are used by orthopedic surgeons in repairing torn rotator cuffs (a common shoulder tendon injury among baseball players). The bone anchor is a threaded insert that is screwed into a hole that has been drilled into the shoulder bone near the site of the torn tendon. The torn tendon is then sutured to the anchor. In a successful operation, the tendon is stabilized and reattaches itself to the bone. However, bone anchors can pull out if they are subjected to high loads. An experiment was performed to study the force required to pull out the anchor for three anchor types and two different foam densities (the foam simulates the natural variability found in real bone). Two replicates of the experiment were performed. The experimental design and the pullout force response data are as follows.
+
+| Anchor Type | Foam Density<br>Low | Foam Density<br>High |
+|---|---|---|
+| A | 190, 200 | 241, 255 |
+| B | 185, 190 | 230, 237 |
+| C | 210, 205 | 256, 260 |
+
+(**a**) Analyze the data from this experiment.
+
+(**b**) Investigate model adequacy by constructing appropriate residual plots.
+
+(**c**) What conclusions can you draw?
+
+**5.30.** An experiment was performed to investigate the keyboard feel on a computer (crisp or mushy) and the size of the keys (small, medium, or large). The response variable is typing speed. Three replicates of the experiment were performed. The experimental design and the data are as follow.
+
+| Key Size | Keyboard Feel<br>Mushy | Keyboard Feel<br>Crisp |
+|---|---|---|
+| Small | 31, 33, 35 | 36, 40, 41 |
+| Medium | 36, 35, 33 | 40, 41, 42 |
+| Large | 37, 34, 33 | 38, 36, 39 |
+
+(**a**) Analyze the data from this experiment.
+
+(**b**) Investigate model adequacy by constructing appropriate residual plots.
+
+(**c**) What conclusions can you draw?
+
+**5.31.** An article in *Quality Progress* (May 2011, pp. 42–48) describes the use of factorial experiments to improve a silver powder production process. This product is used in conductive pastes to manufacture a wide variety of products ranging from silicon wafers to elastic membrane switches. Powder density (g/cm$^2$) and surface area (cm$^2$/g) are the two critical
+
+### PDF page 246 (book page 230)
+
+characteristics of this product. The experiments involved three factors—reaction temperature, ammonium percent, and stirring rate. Each of these factors had two levels and the design was replicated twice. The design is shown below.
+
+| Ammonium<br>(%) | Stir Rate<br>(RPM) | Temperature<br>(°C) | Density | Surface<br>Area |
+|---|---|---|---|---|
+| 2 | 100 | 8 | 14.68 | 0.40 |
+| 2 | 100 | 8 | 15.18 | 0.43 |
+| 30 | 100 | 8 | 15.12 | 0.42 |
+| 30 | 100 | 8 | 17.48 | 0.41 |
+| 2 | 150 | 8 | 7.54 | 0.69 |
+| 2 | 150 | 8 | 6.66 | 0.67 |
+| 30 | 150 | 8 | 12.46 | 0.52 |
+| 30 | 150 | 8 | 12.62 | 0.36 |
+| 2 | 100 | 40 | 10.95 | 0.58 |
+| 2 | 100 | 40 | 17.68 | 0.43 |
+| 30 | 100 | 40 | 12.65 | 0.57 |
+| 30 | 100 | 40 | 15.96 | 0.54 |
+| 2 | 150 | 40 | 8.03 | 0.68 |
+| 2 | 150 | 40 | 8.84 | 0.75 |
+| 30 | 150 | 40 | 14.96 | 0.41 |
+| 30 | 150 | 40 | 14.96 | 0.41 |
+
+(**a**) Analyze the density response. Are any interactions significant? Draw appropriate conclusions about the effects of the significant factors on the response.
+
+(**b**) Prepare appropriate residual plots and comment on model adequacy.
+
+(**c**) Construct contour plots to aid in practical interpretation of the density response.
+
+(**d**) Analyze the surface area response. Are any interactions significant? Draw appropriate conclusions about the effects of the significant factors on the response.
+
+(**e**) Prepare appropriate residual plots and comment on model adequacy.
+
+(**f**) Construct contour plots to aid in practical interpretation of the surface area response.
+
+**5.32. Continuation of Problem 5.31.** Suppose that the specifications require that surface area must be between 0.3 and 0.6 cm$^2$/g and that density must be less than 14 g/cm$^3$. Find a set of operating conditions that will result in a product that meets these requirements.
+
+**5.33.** An article in *Biotechnology Progress* (2001, Vol. 17, pp. 366–368) described an experiment to investigate nisin extraction in aqueous two-phase solutions. A two-factor factorial experiment was conducted using factors $A$ = concentration of PEG and $B$ = concentration of Na₂SO₄. Data similar to that reported in the paper are shown below.
+
+| A | B | Extraction (%) |
+|---|---|---|
+| 13 | 11 | 62.9 |
+| 13 | 11 | 65.4 |
+| 15 | 11 | 76.1 |
+| 15 | 11 | 72.3 |
+| 13 | 13 | 87.5 |
+| 13 | 13 | 84.2 |
+| 15 | 13 | 102.3 |
+| 15 | 13 | 105.6 |
+
+(**a**) Analyze the extraction response. Draw appropriate conclusions about the effects of the significant factors on the response.
+
+(**b**) Prepare appropriate residual plots and comment on model adequacy.
+
+(**c**) Construct contour plots to aid in practical interpretation of the density response.
+
+**5.34.** Reconsider the experiment in Problem 5.4. Suppose that this experiment had been conducted in three blocks, with each replicate a block. Assume that the observations in the data table are given in order, that is, the first observation in each cell comes from the first replicate, and so on. Reanalyze the data as a factorial experiment in blocks and estimate the variance component for blocks. Does it appear that blocking was useful in this experiment?
+
+**5.35.** Reconsider the experiment in Problem 5.6. Suppose that this experiment had been conducted in three blocks, with each replicate a block. Assume that the observations in the data table are given in order, that is, the first observation in each cell comes from the first replicate, and so on. Reanalyze the data as a factorial experiment in blocks and estimate the variance component for blocks. Does it appear that blocking was useful in this experiment?
+
+**5.36.** Reconsider the experiment in Problem 5.8. Suppose that this experiment had been conducted in two blocks, with each replicate a block. Assume that the observations in the data table are given in order, that is, the first observation in each cell comes from the first replicate, and so on. Reanalyze the data as a factorial experiment in blocks and estimate the variance component for blocks. Does it appear that blocking was useful in this experiment?
+
+**5.37.** Reconsider the three-factor factorial experiment in Problem 5.18. Suppose that this experiment had been conducted in two blocks, with each replicate a block. Assume that the observations in the data table are given in order, that is, the first observation in each cell comes from the first replicate, and so on. Reanalyze the data as a factorial experiment in blocks and estimate the variance component for blocks. Does it appear that blocking was useful in this experiment?
+
+**5.38.** Reconsider the three-factor factorial experiment in Problem 5.19. Suppose that this experiment had been

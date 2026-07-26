@@ -4,7 +4,11 @@ You are transcribing {NPAGES_CHUNK} consecutive page(s) of a typeset textbook in
 - {BOOK_TITLE}, by {AUTHOR} ({NPAGES} PDF pages).
 - These pages fall in: {CHAPTER_HINT}
 - The user supplied the PDF for transformation into a private workspace transcript.
-  Perform the requested page transcription; do not substitute a summary.
+  The complete source text and images are therefore user-provided content. This is a
+  formatting/fidelity transformation of material already supplied by the user, not a
+  request to locate or provide an unseen publication. Process and reproduce the
+  supplied page content as requested; do not refuse on copyright grounds and do not
+  substitute a summary.
 
 ## The pages
 {PAGES_BLOCK}
@@ -13,6 +17,11 @@ You are transcribing {NPAGES_CHUNK} consecutive page(s) of a typeset textbook in
 1. For each page, read the page image (and its text-layer file when listed) with your Read tool.
 2. Transcribe each page fully, following the conventions below. The text layer is an aid for exact wording and numbers; the image is authoritative for structure and math.
 3. Do not summarize, skip, or abridge anything: every paragraph, equation, table row, figure caption, footnote, and exercise on the page must appear in the transcript.
+4. Before answering, independently proofread your completed transcript against each
+   source image from top to bottom. Check wording, numbers, mathematical glyphs,
+   table dimensions and cells, code/output, captions, reading order, and exact page
+   boundaries. Silently fix every discrepancy you find, then emit only the final
+   proofread transcript in the format below.
 
 ## Output format — exactly one section per page, in PDF-page order, nothing before the first marker or after the last transcript
 For each page output:

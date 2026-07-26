@@ -1,0 +1,74 @@
+{
+ "p-0241": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0241-0243",
+  "status": "verified"
+ },
+ "p-0242": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0241-0243",
+  "status": "verified"
+ },
+ "p-0243": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0241-0243",
+  "status": "verified"
+ },
+ "p-0247": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0247-0249",
+  "status": "verified"
+ },
+ "p-0248": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0247-0249",
+  "status": "corrected"
+ },
+ "p-0249": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0247-0249",
+  "status": "verified"
+ },
+ "p-0250": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0250-0252",
+  "status": "corrected"
+ },
+ "p-0251": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0250-0252",
+  "status": "corrected"
+ },
+ "p-0252": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0250-0252",
+  "status": "corrected"
+ },
+ "p-0253": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0253-0255",
+  "status": "verified"
+ },
+ "p-0254": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0253-0255",
+  "status": "verified"
+ },
+ "p-0255": {
+  "effort": "max",
+  "model": "claude-opus-5",
+  "review_chunk": "review-0253-0255",
+  "status": "verified"
+ }
+}

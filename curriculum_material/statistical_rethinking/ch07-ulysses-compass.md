@@ -1,7 +1,7 @@
 # Chapter 7 — Ulysses' Compass
-*(PDF pages 211–256; book pages 195–224)*
+*(PDF pages 211–256; book pages 195–239)*
 
-*⚠ In progress: 30 of 46 pages transcribed; missing PDF pages 241–256.*
+*⚠ In progress: 42 of 46 pages transcribed; missing PDF pages 244–246, 256.*
 
 ### PDF page 211 (book page 195)
 
@@ -1347,3 +1347,492 @@ this doesn’t quite make sense, be sure to look at the code box further down.
 And just like cross-validation, because WAIC allows splitting up the data into independent observations, it is sometimes hard to define. Consider for example a model in which
 each prediction depends upon a previous observation. This happens, for example, in a time
 series. In a time series, a previous observation becomes a predictor variable for the next observation. So it’s not easy to think of each observation as independent of, or exchangeable
+
+### PDF page 241 (book page 225)
+
+with, the others. In such a case, you can of course compute WAIC as if each observation were
+independent of the others, but it's not clear what the resulting value means.
+
+This caution raises a more general issue with all strategies to guess out-of-sample accuracy: Their validity depends upon the predictive task you have in mind. And not all prediction can reasonably take the form that we've been assuming for the train-test simulations in
+this chapter. When we consider multilevel models, this issue will arise again.
+
+**Rethinking: Information criteria and consistency.** As mentioned previously, information criteria
+like AIC and WAIC do not always assign the best expected $D_{\text{test}}$ to the "true" model. In statistical jargon, information criteria are not **consistent** for model identification. These criteria aim to
+nominate the model that will produce the best predictions, as judged by out-of-sample deviance, so
+it shouldn't surprise us that they do not also do something that they aren't designed to do. Other
+metrics for model comparison are however consistent. So are information criteria broken?
+
+They are not broken, if you care about prediction.[^117] Issues like consistency are nearly always
+evaluated *asymptotically*. This means that we imagine the sample size $N$ approaching infinity. Then
+we ask how a procedure behaves in this large-data limit. With practically infinite data, AIC and WAIC
+and cross-validation will always select the most complex model, so they are sometimes accused of
+"overfitting." But at the large-data limit, the most complex model will make predictions identical to
+the true model (assuming it exists in the model set). The reason is that with so much data every
+parameter can be very precisely estimated. And so using an overly complex model will not hurt
+prediction. For example, as sample size $N \to \infty$ the model with 5 parameters in Figure 7.8 will tell
+you that the coefficients for predictors after the second are almost exactly zero. Therefore failing to
+identify the "correct" model does not hurt us, at least not in this sense. Furthermore, in the natural
+and social sciences the models under consideration are almost never the data-generating models. It
+makes little sense to attempt to identify a "true" model.
+
+**Rethinking: What about BIC and Bayes factors?** The **Bayesian information criterion**, abbreviated BIC and also known as the Schwarz criterion,[^118] is more commonly juxtaposed with AIC. The
+choice between BIC or AIC (or neither!) is not about being Bayesian or not. There are both Bayesian
+and non-Bayesian ways to motivate both, and depending upon how strict one wishes to be, neither
+is Bayesian. BIC is related to the logarithm of the *average likelihood* of a linear model. The average
+likelihood is the denominator in Bayes' theorem, the likelihood averaged over the prior. There is a
+venerable tradition in Bayesian inference of comparing average likelihoods as a means to comparing
+models. A ratio of average likelihoods is called a **Bayes factor**. On the log scale, these ratios are
+differences, and so comparing differences in average likelihoods resembles comparing differences in
+information criteria. Since average likelihood is averaged over the prior, more parameters induce a
+natural penalty on complexity. This helps guard against overfitting, even though the exact penalty is
+not the same as with information criteria.
+
+Many Bayesian statisticians dislike the Bayes factor approach,[^119] and all admit that there are
+technical obstacles to its use. One problem is that computing average likelihood is hard. Even when
+you can compute the posterior, you may not be able to estimate the average likelihood. Another
+problem is that, even when priors are weak and have little influence on posterior distributions within
+models, priors can have a huge impact on comparisons between models.
+
+It's important to realize, though, that the choice of Bayesian or not does not also decide between
+information criteria or Bayes factors. Moreover, there's no need to choose, really. We can always
+use both and learn from the ways they agree and disagree. And both information criteria and Bayes
+factors are purely predictive criteria that will happily select confounded models. They know nothing
+about causation.
+
+### PDF page 242 (book page 226)
+
+**Overthinking: WAIC calculations.** To see how the WAIC calculations actually work, consider a
+simple regression fit with `quap`:
+
+*[margin: R code 7.19]*
+
+```r
+data(cars)
+m <- quap(
+    alist(
+        dist ~ dnorm(mu,sigma),
+        mu <- a + b*speed,
+        a ~ dnorm(0,100),
+        b ~ dnorm(0,10),
+        sigma ~ dexp(1)
+    ) , data=cars )
+set.seed(94)
+post <- extract.samples(m,n=1000)
+```
+
+We'll need the log-likelihood of each observation $i$ at each sample $s$ from the posterior:
+
+*[margin: R code 7.20]*
+
+```r
+n_samples <- 1000
+logprob <- sapply( 1:n_samples ,
+    function(s) {
+        mu <- post$a[s] + post$b[s]*cars$speed
+        dnorm( cars$dist , mu , post$sigma[s] , log=TRUE )
+    } )
+```
+
+You end up with a 50-by-1000 matrix of log-likelihoods, with observations in rows and samples in
+columns. Now to compute lppd, the Bayesian deviance, we average the samples in each row, take
+the log, and add all of the logs together. However, to do this with precision, we need to do all of the
+averaging on the log scale. This is made easy with a function `log_sum_exp`, which computes the log
+of a sum of exponentiated terms. Then we can just subtract the log of the number of samples. This
+computes the log of the average.
+
+*[margin: R code 7.21]*
+
+```r
+n_cases <- nrow(cars)
+lppd <- sapply( 1:n_cases , function(i) log_sum_exp(logprob[i,]) - log(n_samples) )
+```
+
+Typing `sum(lppd)` will give you lppd, as defined in the main text. Now for the penalty term, $p_{\text{WAIC}}$.
+This is more straightforward, as we just compute the variance across samples for each observation,
+then add these together:
+
+*[margin: R code 7.22]*
+
+```r
+pWAIC <- sapply( 1:n_cases , function(i) var(logprob[i,]) )
+```
+
+And `sum(pWAIC)` returns $p_{\text{WAIC}}$, as defined in the main text. To compute WAIC:
+
+*[margin: R code 7.23]*
+
+```r
+-2*( sum(lppd) - sum(pWAIC) )
+```
+
+```
+[1] 423.3154
+```
+
+Compare to the output of the `WAIC` function. There will be simulation variance, because of how the
+samples are drawn from the `quap` fit. But that variance remains much smaller than the standard error
+of WAIC itself. You can compute the standard error by computing the square root of number of cases
+multiplied by the variance over the individual observation terms in WAIC:
+
+*[margin: R code 7.24]*
+
+```r
+waic_vec <- -2*( lppd - pWAIC )
+sqrt( n_cases*var(waic_vec) )
+```
+
+### PDF page 243 (book page 227)
+
+```
+[1] 17.81628
+```
+
+As models get more complicated, all that usually changes is how the log-probabilities, `logprob`, are
+computed.
+
+Note that each individual observation has its own penalty term in the `pWAIC` vector we calculated
+above. This provides an interesting opportunity to study how different observations contribute to
+overfitting. You can get the same vectorized pointwise output from the `WAIC` function by using the
+`pointwise=TRUE` argument.
+
+**7.4.3. Comparing CV, PSIS, and WAIC.** With definitions of cross-validation, PSIS, and
+WAIC in hand, let's conduct another simulation exercise. This will let us visualize the estimates of out-of-sample deviance that these criteria provide, in the same familiar context as
+earlier sections. Our interest is in seeing how well the criteria approximate out-of-sample
+accuracy. Can they guess the overfitting risk?
+
+Figure 7.9 shows the results of 1000 simulations each for the five familiar models with
+between 1 and 5 parameters, simulated under two different sets of priors and two different
+sample sizes. The plot is complicated. But taking it one piece at a time, all the parts are
+already familiar. Focus for now just on the top-left plot, where $N = 20$. The vertical axis
+is the out-of-sample deviance ($-2$lppd). The open points show the average out-of-sample
+deviance for models fit with flat priors. The filled points show the average out-of-sample
+deviance for models fit with regularizing priors with a standard deviation of 0.5. Notice that
+the regularizing priors overfit less, just as you saw in the previous section about regularizing
+priors. So that isn't new.
+
+We are interested now in how well CV, PSIS, and WAIC approximate these points. Still
+focusing on the top-left plot in Figure 7.9, there are trend lines for each criterion. Solid
+black trends show WAIC. Solid blue trends show full cross-validation, computed by fitting
+the model $N$ times. The dashed blue trends are PSIS. Notice that all three criteria do a good
+job of guessing the average out-of-sample score, whether the models used flat (upper trends)
+or regularizing (lower trends) priors. Provided the process generating data remains the same,
+it really is possible to use a single sample to guess the accuracy of our predictions.
+
+While all three criteria get the expected out-of-sample deviance approximately correct,
+it is also true that in any particular sample they usually miss it by some amount. So we should
+look at the average error in addition to the average value. The upper-right plot makes the
+average error of each measure easier to see. Now the vertical axis is the average absolute
+difference between the out-of-sample deviance and each criterion. WAIC (black trend) is
+slightly better on average. The bottom row repeats these plots but for a larger sample size,
+$N = 100$. With a sample this large, in a family of models this simple, all three criteria become
+identical.
+
+WAIC is unsurprisingly a little better at predicting out-of-sample deviance, because that
+is what it aims to predict. Cross-validation (CV) is a trick that estimates out-of-sample deviance as the sample size increases, but it doesn't aim for the right target at small sample
+sizes. And since PSIS approximates CV, it has the same issue. All three do a very good job
+on average (bottom left), and all three have the same error (bottom right).
+
+PSIS and WAIC perform very similarly in the context of ordinary linear models.[^120] If
+there are important differences, they lie in other model types, where the posterior distribution is not approximately Gaussian or in the presence of observations that strongly influence
+the posterior. CV and PSIS have higher variance as estimators of the K-L Divergence, and so
+we should expect WAIC to be better in many cases.[^121] However, in practice the advantage
+
+### PDF page 247 (book page 231)
+
+```
+[1] -177.1724
+attr(,"pWAIC")
+[1] 3.5532
+attr(,"se")
+[1] 14.17035
+```
+
+The first value is the guess for the out-of-sample deviance. The other values are (in order): lppd, the effective number of parameters `pWAIC`, and the standard error of the WAIC value. The Overthinking box in the previous section shows how to calculate these numbers from scratch. To make it easier to compare multiple models, the `rethinking` package provides a convenience function, `compare`:
+
+*[margin: R code 7.26]*
+
+```r
+set.seed(77)
+compare( m6.6 , m6.7 , m6.8 )
+```
+
+```
+      WAIC pWAIC dWAIC weight    SE   dSE
+m6.7 361.9   3.8   0.0      1 14.26    NA
+m6.8 402.8   2.6  40.9      0 11.28 10.48
+m6.6 405.9   1.6  44.0      0 11.66 12.23
+```
+
+(PSIS will give you almost identical values. You can add `func=PSIS` to the `compare` call to check.) What do all of these numbers mean? The first column contains the WAIC values. Smaller values are better, and the models are ordered by WAIC, from best to worst. The model that includes the fungus variable has the smallest WAIC, as promised. The second column, `pWAIC`, is the penalty term of WAIC. These values are close to, but slightly below, the number of dimensions in the posterior of each model, which is to be expected in linear regressions with regularizing priors.
+
+The next column, `dWAIC`, is the difference between each model's WAIC and the best WAIC in the set. So it's zero for the best model and then the differences with the other models tell you how far apart each is from the top model. So `m6.7` is about 40 units of deviance smaller than both other models. The intercept model, `m6.6`, is 3 units worse than `m6.8`. Are these big differences or small differences? One way to answer that is to ask a clearer question: Are the models easily distinguished by their expected out-of-sample accuracy? To answer that question, we need to consider the error in the WAIC estimates. Since we don't have the target sample, these are just guesses, and we know from the simulations that there is a lot of variation in WAIC's error.
+
+That is what the last two columns, `SE` and `dSE`, are there to help us with. `SE` is the approximate standard error of each WAIC. In a very approximate sense, we expect out-of-sample accuracy to be normally distributed with mean equal to the reported WAIC value and a standard deviation equal to the standard error. This approximation will be quite bad, when the sample is small. But it is still better than older criteria like AIC, which provide no way to gauge their error.
+
+Now to judge whether two models are easy to distinguish, we don't use their standard errors but rather the standard error of their difference. What does that mean? Just like each WAIC value, each difference in WAIC values also has a standard error. To compute the standard error of the difference between models `m6.7` and `m6.8`, we just need the pointwise breakdown of the WAIC values:
+
+### PDF page 248 (book page 232)
+
+*[margin: R code 7.27]*
+
+```r
+set.seed(91)
+waic_m6.7 <- WAIC( m6.7 , pointwise=TRUE )$WAIC
+waic_m6.8 <- WAIC( m6.8 , pointwise=TRUE )$WAIC
+n <- length(waic_m6.7)
+diff_m6.7_m6.8 <- waic_m6.7 - waic_m6.8
+sqrt( n*var( diff_m6.7_m6.8 ) )
+```
+
+```
+[1] 10.35785
+```
+
+This is the value in the second row of the `compare` table. It's slightly different, only because of simulation variance. The difference between the models is 40.9 and the standard error about 10.4. If we imagine the 99% (corresponding to a z-score of about 2.6) interval of the difference, it'll be about:
+
+*[margin: R code 7.28]*
+
+```r
+40.0 + c(-1,1)*10.4*2.6
+```
+
+```
+[1] 12.96 67.04
+```
+
+So yes, these models are very easy to distinguish by expected out-of-sample accuracy. Model `m6.7` is a lot better. You might be able to see all of this better, if we plot the `compare` table:
+
+*[margin: R code 7.29]*
+
+```r
+plot( compare( m6.6 , m6.7 , m6.8 ) )
+```
+
+*[Figure: horizontal dot chart titled "WAIC" with x-axis labeled "deviance" running from about 355 to 425 (ticks at 360, 370, 380, 390, 400, 410, 420). Three model rows from top to bottom: m6.7, m6.8, m6.6, each on a dotted horizontal guide line. The m6.7 row has a filled point near 358 and an open point near 362 with a horizontal line segment extending to about 376; a vertical reference line is drawn at the best WAIC (m6.7's open point). The m6.8 row has a filled point near 397 and an open point near 403, with a dark line segment spanning roughly 391–413, plus a lighter line segment marked with a small triangle just above and to the right of the open point. The m6.6 row has a filled point near 404 and an open point near 406, with a dark line segment spanning roughly 394–420, plus a lighter line segment marked with a small triangle above it.]*
+
+The filled points are the in-sample deviance values. The open points are the WAIC values. Notice that naturally each model does better in-sample than it is expected to do out-of-sample. The line segments show the standard error of each WAIC. These are the values in the column labeled `SE` in the table above. So you can probably see how much better `m6.7` is than `m6.8`. What we really want however is the standard error of the difference in WAIC between the two models. That is shown by the lighter line segment with the triangle on it, between `m6.7` and `m6.8`.
+
+What does this all of this mean? It means that WAIC cannot be used to infer causation. We know, because we simulated these data, that the treatment matters. But because fungus mediates treatment—it is on a pipe between treatment and the outcome—once we condition on fungus, treatment provides no additional information. And since fungus is more highly correlated with the outcome, a model using it is likely to predict better. WAIC did its job. It's job is not to infer causation. It's job is to guess predictive accuracy.
+
+That doesn't mean that WAIC (or CV or PSIS) is useless here. It does provide a useful measure of the expected improvement in prediction that comes from conditioning on the fungus. Although the treatment works, it isn't 100% effective, and so knowing the treatment is no substitute for knowing whether fungus is present.
+
+### PDF page 249 (book page 233)
+
+Similarly, we can ask about the difference between models `m6.8`, the model with treatment only, and model `m6.6`, the intercept model. Model `m6.8` provides pretty good evidence that the treatment works. You can inspect the posterior again, if you have forgotten. But WAIC thinks these two models are quite similar. There difference is only 3 units of deviance. Let's calculate the standard error of the difference, to highlight the issue:
+
+*[margin: R code 7.30]*
+
+```r
+set.seed(92)
+waic_m6.6 <- WAIC( m6.6 , pointwise=TRUE )$WAIC
+diff_m6.6_m6.8 <- waic_m6.6 - waic_m6.8
+sqrt( n*var( diff_m6.6_m6.8 ) )
+```
+
+```
+[1] 4.858914
+```
+
+The `compare` table doesn't show this value, but it did calculate it. To see it, you need the `dSE` slot of the return:
+
+*[margin: R code 7.31]*
+
+```r
+set.seed(93)
+compare( m6.6 , m6.7 , m6.8 )@dSE
+```
+
+```
+          m6.6      m6.7      m6.8
+m6.6        NA 12.20638  4.934353
+m6.7 12.206380       NA 10.426576
+m6.8  4.934353 10.42658        NA
+```
+
+This matrix contains all of the pairwise difference standard errors for the models you compared. Notice that the standard error of the difference for `m6.6` and `m6.8` is bigger than the difference itself. We really cannot easily distinguish these models on the basis of WAIC.
+
+Does this mean that the treatment doesn't work? Of course not. We know that it works. We simulated the data. And the posterior distribution of the treatment effect, `bt` in `m6.8`, is reliably positive. But it isn't especially large. So it doesn't do much alone to improve prediction of plant height. There are just too many other sources of variation. This result just echoes the core fact about WAIC (and CV and PSIS): It guesses predictive accuracy, not causal truth. A variable can be causally related to an outcome, but have little relative impact on it, and WAIC will tell you that. That is what is happening in this case. We can use WAIC/CV/PSIS to measure how big a difference some variable makes in prediction. But we cannot use these criteria to decide whether or not some effect exists. We need the posterior distributions of multiple models, maybe examining the implied conditional independencies of a relevant causal graph, to do that.
+
+The last element of the `compare` table is the column we skipped over, `weight`. These values are a traditional way to summarize relative support for each model. They always sum to 1, within a set of compared models. The weight of a model $i$ is computed as:
+
+$$ w_i = \frac{\exp(-0.5\Delta_i)}{\sum_j \exp(-0.5\Delta_j)} $$
+
+where $\Delta_i$ is the difference between model $i$'s WAIC value and the best WAIC in the set. These are the `dWAIC` values in the table. These weights can be a quick way to see how big the differences are among models. But you still have to inspect the standard errors. Since the weights don't reflect the standard errors, they are simply not sufficient for model comparison. Weights are also used in **model averaging**. Model averaging is a family of methods for
+
+### PDF page 250 (book page 234)
+
+combining the predictions of multiple models. For the sake of space, we won't cover it in this book. But see the endnote for some places to start.[^123]
+
+**Rethinking: WAIC metaphors.** Here are two metaphors to help explain the concepts behind using WAIC (or another information criterion) to compare models.
+Think of models as race horses. In any particular race, the best horse may not win. But it's more likely to win than is the worst horse. And when the winning horse finishes in half the time of the second-place horse, you can be pretty sure the winning horse is also the best. But if instead it's a photo-finish, with a near tie between first and second place, then it is much harder to be confident about which is the best horse. WAIC values are analogous to these race times—smaller values are better, and the distances between the horses/models are informative. Akaike weights transform differences in finishing time into probabilities of being the best model/horse on future data/races. But if the track conditions or jockey changes, these probabilities may mislead. Forecasting future racing/prediction based upon a single race/fit carries no guarantees.
+Think of models as stones thrown to skip on a pond. No stone will ever reach the other side (perfect prediction), but some sorts of stones make it farther than others, on average (make better test predictions). But on any individual throw, lots of unique conditions avail—the wind might pick up or change direction, a duck could surface to intercept the stone, or the thrower's grip might slip. So which stone will go farthest is not certain. Still, the relative distances reached by each stone therefore provide information about which stone will do best on average. But we can't be too confident about any individual stone, unless the distances between stones is very large.
+Of course neither metaphor is perfect. Metaphors never are. But many people find these to be helpful in interpreting information criteria.
+
+**7.5.2. Outliers and other illusions.** In the divorce example from Chapter 5, we saw in the posterior predictions that a few States were very hard for the model. The State of Idaho in particular was something of an outlier (page 5.5). Individual points like Idaho tend to be very influential in ordinary regression models. Let's see how PSIS and WAIC represent that importance. Begin by refitting the three divorce models from Chapter 5.
+
+*[margin: R code 7.32]*
+
+```r
+library(rethinking)
+data(WaffleDivorce)
+d <- WaffleDivorce
+d$A <- standardize( d$MedianAgeMarriage )
+d$D <- standardize( d$Divorce )
+d$M <- standardize( d$Marriage )
+
+m5.1 <- quap(
+    alist(
+        D ~ dnorm( mu , sigma ) ,
+        mu <- a + bA * A ,
+        a ~ dnorm( 0 , 0.2 ) ,
+        bA ~ dnorm( 0 , 0.5 ) ,
+        sigma ~ dexp( 1 )
+    ) , data = d )
+
+m5.2 <- quap(
+    alist(
+        D ~ dnorm( mu , sigma ) ,
+```
+
+### PDF page 251 (book page 235)
+
+```r
+        mu <- a + bM * M ,
+        a ~ dnorm( 0 , 0.2 ) ,
+        bM ~ dnorm( 0 , 0.5 ) ,
+        sigma ~ dexp( 1 )
+    ) , data = d )
+
+m5.3 <- quap(
+    alist(
+        D ~ dnorm( mu , sigma ) ,
+        mu <- a + bM*M + bA*A ,
+        a ~ dnorm( 0 , 0.2 ) ,
+        bM ~ dnorm( 0 , 0.5 ) ,
+        bA ~ dnorm( 0 , 0.5 ) ,
+        sigma ~ dexp( 1 )
+    ) , data = d )
+```
+
+Look at the posterior summaries, just to remind yourself that marriage rate (*M*) has little association with divorce rate (*D*), once age at marriage (*A*) is included in `m5.3`. Now let's compare these models using PSIS:
+
+*[margin: R code 7.33]*
+
+```r
+set.seed(24071847)
+compare( m5.1 , m5.2 , m5.3 , func=PSIS )
+```
+
+```
+      PSIS pPSIS dPSIS weight    SE   dSE
+m5.1 127.6   4.7   0.0   0.71 14.69    NA
+m5.3 129.4   5.9   1.8   0.29 15.10  0.90
+m5.2 140.6   3.8  13.1   0.00 11.21 10.82
+```
+
+There are two important things to consider here. First note that the model that omits marriage rate, `m5.1`, lands on top. This is because marriage rate has very little association with the outcome. So the model that omits it has slightly better expected out-of-sample performance, even though it actually fits the sample slightly worse than `m5.3`, the model with both predictors. The difference between the top two models is only 1.8, with a standard error of 0.9, so the models make very similar predictions. This is the typical pattern, whenever some predictor has a very small association with the outcome.
+Second, in addition to the table above, you should also receive a message:
+
+```
+Some Pareto k values are very high (>1).
+```
+
+This means that the smoothing approximation that PSIS uses is unreliable for some points. Recall from the section on PSIS that when a point's Pareto *k* value is above 0.5, the importance weight can be unreliable. Furthermore, these points tend to be outliers with unlikely values, according to the model. As a result, they are highly influential and make it difficult to estimate out-of-sample predictive accuracy. Why? Because any new sample is unlikely to contain these same outliers, and since these outliers were highly influential, they could make out-of-sample predictions worse than expected. WAIC is vulnerable to outliers as well. It doesn't have an automatic warning. But it does have a way to measure this risk, through the estimate of the overfitting penalty.
+Let's look at the individual States, to see which are causing the problem. We can do this by adding `pointwise=TRUE` to `PSIS()`. When you do this, you get a matrix with each
+
+### PDF page 252 (book page 236)
+
+**Figure 7.10.** Highly influential points and out-of-sample prediction. The horizontal axis is Pareto *k* from PSIS. The vertical axis is WAIC's penalty term. The State of Idaho (ID) has an extremely unlikely value, according to the model. As a result it has both a very high Pareto *k* and a large WAIC penalty. Points like these are highly influential and potentially hurt prediction.
+
+*[Figure: Scatterplot titled "Gaussian model (m5.3)" of WAIC penalty (vertical axis, 0.0 to 2.0) against PSIS Pareto k (horizontal axis, 0.0 to 1.0). Most States cluster as small open blue points near the bottom left with penalties near 0; the point labeled ME lies near k = 0.5 with a penalty around 0.9, and the filled point labeled ID sits at the far upper right, with k above 1 and a penalty above 2. A dashed vertical line marks k = 0.5.]*
+
+observation on a row and the PSIS information, including individual Pareto *k* values, in columns. I'll also plot the individual "penalty" values from WAIC, to show the relationship between Pareto *k* and the information theoretic prediction penalty.
+
+*[margin: R code 7.34]*
+
+```r
+set.seed(24071847)
+PSIS_m5.3 <- PSIS(m5.3,pointwise=TRUE)
+set.seed(24071847)
+WAIC_m5.3 <- WAIC(m5.3,pointwise=TRUE)
+plot( PSIS_m5.3$k , WAIC_m5.3$penalty , xlab="PSIS Pareto k" ,
+     ylab="WAIC penalty" , col=rangi2 , lwd=2 )
+```
+
+This plot is shown in Figure 7.10. Individual points are individual States, with Pareto *k* on the horizontal axis and WAIC's penalty term. The State of Idaho (ID, upper-right corner) has both a very high Pareto *k* value (above 1) and a large pentalty term (over 2). As you saw back in Chapter 5, Idaho has a very low divorce rate for its age at marriage. As a result, it is highly influential—it exerts more influence on the posterior distribution than other States do. The Pareto *k* value is double the theoretical point at which the variance becomes infinite (shown by the dashed line). Likewise, WAIC assigns Idaho a penalty over 2. This penalty term is sometimes called the "effective number of parameters," because in ordinary linear regressions the sum of all penalty terms from all points tends to be equal to the number of free parameters in the model. But in this case there are 4 parameters and the total penalty is closer to 6—check `WAIC(m5.3)`. The outlier Idaho is causing this additional overfitting risk.
+What can be done about this? There is a tradition of dropping outliers. People sometimes drop outliers even before a model is fit, based only on standard deviations from the mean outcome value. You should never do that—a point can only be unexpected and highly influential in light of a model. After you fit a model, the picture changes. If there are only a few outliers, and you are sure to report results both with and without them, dropping outliers might be okay. But if there are several outliers and we really need to model them, what then?
+A basic problem here is that the Gaussian error model is easily surprised. Gaussian distributions (introduced at the start of Chapter 4) have very thin tails. This means that very little probability mass is given to observations far from the mean. Many natural phenomena do have very thin tails like this. Human height is a good example. But many phenomena do
+
+### PDF page 253 (book page 237)
+
+**Figure 7.11.** Thin tails and influential observations. The Gaussian distribution (blue) assigns very little probability to extreme observations. It has thin tails. The Student-t distribution with shape $\nu = 2$ (black) assigns more probability to extreme events. These distributions are compared on the probability (left) and log-probability (right) scales.
+
+*[Figure: Two side-by-side line plots. Left panel — Density (vertical axis, 0.0 to 0.7) against value (horizontal axis, −4 to 4): a black curve labeled "Student-t" with a tall narrow peak just above 0.6 at value 0, and a blue curve labeled "Gaussian" with a lower, broader peak near 0.5; the black curve's tails stay visibly above the blue curve's away from the center. Right panel — minus log Density (vertical axis, 0 to 30) against value (horizontal axis, −6 to 6): a blue "Gaussian" curve forming a steep upward parabola that reaches near 30 by ±6, and a black "Student-t" curve that dips to near 0 at value 0 and rises very slowly to only about 6 at the edges.]*
+
+not. Instead many phenomena have thicker tails with rare, extreme observations. These are not measurement errors, but real events containing information about natural process.
+
+One way to both use these extreme observations and reduce their influence is to employ some kind of **robust regression**. A "robust regression" can mean many different things, but usually it indicates a linear model in which the influence of extreme observations is reduced. A common and useful kind of robust regression is to replace the Gaussian model with a thicker-tailed distribution like **Student's t** (or "Student-t") distribution.[^124] This distribution has nothing to do with students. The Student-t distribution arises from a mixture of Gaussian distributions with different variances.[^125] If the variances are diverse, then the tails can be quite thick.
+
+The generalized Student-t distribution has the same mean $\mu$ and scale $\sigma$ parameters as the Gaussian, but it also has an extra shape parameter $\nu$ that controls how thick the tails are. The `rethinking` package provides Student-t as `dstudent`. When $\nu$ is large, the tails are thin, converging in the limit $\nu = \infty$ to a Gaussian distribution. But as $\nu$ approaches 1, the tails get thicker and rare extreme observations occur more often. Figure 7.11 compares a Gaussian distribution (in blue) to a corresponding Student-t distribution (in black) with $\nu = 2$. The Student-t distribution has thicker tails, and this is most obvious on the log scale (right), where the Gaussian tails shrink quadratically—a normal distribution is just an exponentiated parabola remember—while the Student-t tails shrink much more slowly.
+
+If you have a very large data set with such events, you could estimate $\nu$. Financial time series, taken over very long periods, are one example. But when using robust regression, we don't usually try to estimate $\nu$, because there aren't enough extreme observations to do so. Instead we assume $\nu$ is small (thick tails) in order to reduce the influence of outliers. For example, if we use the severity of wars since 1950 to estimate a trend, the estimate is likely biased by the fact that big conflicts like the first and second World Wars are rare. They reside
+
+### PDF page 254 (book page 238)
+
+in the thick tail of war casualties.[^126] A reasonable estimate depends upon either a longer time series or judicious use of a thick tailed distribution.
+
+Let's re-estimate the divorce model using a Student-t distribution with $\nu = 2$. All that's really needed is to replace `dnorm` with dstudent:
+
+*[margin: R code 7.35]*
+
+```r
+m5.3t <- quap(
+    alist(
+        D ~ dstudent( 2 , mu , sigma ) ,
+        mu <- a + bM*M + bA*A ,
+        a ~ dnorm( 0 , 0.2 ) ,
+        bM ~ dnorm( 0 , 0.5 ) ,
+        bA ~ dnorm( 0 , 0.5 ) ,
+        sigma ~ dexp( 1 )
+    ) , data = d )
+```
+
+When you compute PSIS now, `PSIS(m5.3t)`, you won't get any warnings about Pareto *k* values. The relative influence of Idaho has been much reduced. How does this impact the posterior distribution of the association between age at marriage and divorce? If you compare models `m5.3t` and `m5.3`, you'll see that the coefficient `bA` has gotten farther from zero when we introduce the Student-t distribution. This is because Idaho has a low divorce rate and a low median age at marriage. When it was influential, it reduced the association between age at marriage and divorce. Now it is less influential, so the association is estimate to be slightly larger. But the consequence of using robust regression is not always to increase an association. It depends upon the details.
+
+**Rethinking: The Curse of Tippecanoe.** One concern with model comparison is, if we try enough combinations and transformations of predictor variables, we might eventually find a model that fits any particular sample very well. But this fit will be a peculiar case of overfitting, unlikely to generalize to new data. And WAIC and similar metrics will be fooled. So it's common to advise against trying every possible model.
+
+Consider by analogy the *Curse of Tippecanoe*.[^127] From the year 1840 until 1960, every United States president who was elected in a year ending in the digit 0 (which happens every 20 years, given 4 year terms) has died in office. William Henry Harrison was the first, being elected in 1840 and dying of pneumonia the next year. John F. Kennedy was the last, elected in 1960 and assassinated in 1963. Seven American presidents died in sequence in this pattern. Ronald Reagan was elected in 1980, but despite at least one attempt on his life, he managed to live long after his term was up, breaking the curse. Given enough time and data, a pattern like this can be found for almost any body of data. But without any compelling reason to believe this pattern is meaningful, it is hardly compelling that such patterns exist. Most large sets of data will contain patterns of correlation that are strong and surprising. If we search hard enough, we are bound to find a Curse of Tippecanoe.
+
+Fiddling with and constructing many predictor variables is a great way to find coincidences, but not necessarily a great way to evaluate hypotheses. However, fitting many possible models isn't always a dangerous idea, provided some judgment is exercised in weeding down the list of variables at the start. There are two scenarios in which this strategy appears defensible. First, sometimes all one wants to do is explore a set of data, because there are no clear hypotheses to evaluate. This is rightly labeled pejoratively as **data dredging**, when one does not admit to it. But when used together with model averaging, and freely admitted, it can be a way to stimulate future investigation. Second, sometimes we need to convince an audience that we have tried all of the combinations of predictors, because none of the variables seem to help much in prediction.
+
+### PDF page 255 (book page 239)
+
+**7.6. Summary**
+
+This chapter has been a marathon. It began with the problem of overfitting, a universal phenomenon by which models with more parameters fit a sample better, even when the additional parameters are meaningless. Two common tools were introduced to address overfitting: regularizing priors and estimates of out-of-sample accuracy (WAIC and PSIS). Regularizing priors reduce overfitting during estimation, and WAIC and PSIS help estimate the degree of overfitting. Practical functions `compare` in the `rethinking` package were introduced to help analyze collections of models fit to the same data. If you are after causal estimates, then these tools will mislead you. So models must be designed through some other method, not selected on the basis of out-of-sample predictive accuracy. But any causal estimate will still overfit the sample. So you always have to worry about overfitting, measuring it with WAIC/PSIS and reducing it with regularization.
+
+**7.7. Practice**
+
+**Easy.**
+
+**7E1.** State the three motivating criteria that define information entropy. Try to express each in your own words.
+
+**7E2.** Suppose a coin is weighted such that, when it is tossed and lands on a table, it comes up heads 70% of the time. What is the entropy of this coin?
+
+**7E3.** Suppose a four-sided die is loaded such that, when tossed onto a table, it shows "1" 20%, "2" 25%, ”3” 25%, and ”4” 30% of the time. What is the entropy of this die?
+
+**7E4.** Suppose another four-sided die is loaded such that it never shows "4". The other three sides show equally often. What is the entropy of this die?
+
+**Medium.**
+
+**7M1.** Write down and compare the definitions of AIC and WAIC. Which of these criteria is most general? Which assumptions are required to transform the more general criterion into a less general one?
+
+**7M2.** Explain the difference between model *selection* and model *comparison*. What information is lost under model selection?
+
+**7M3.** When comparing models with an information criterion, why must all models be fit to exactly the same observations? What would happen to the information criterion values, if the models were fit to different numbers of observations? Perform some experiments, if you are not sure.
+
+**7M4.** What happens to the effective number of parameters, as measured by PSIS or WAIC, as a prior becomes more concentrated? Why? Perform some experiments, if you are not sure.
+
+**7M5.** Provide an informal explanation of why informative priors reduce overfitting.
+
+**7M6.** Provide an informal explanation of why overly informative priors result in underfitting.
